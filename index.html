@@ -1284,25 +1284,6 @@
             display: none;
         }
     </style>
-  
-  <script>
-  (function () {
-    function applyLangLinks() {
-      var isGitHub = location.hostname.endsWith("github.io");
-      var base = isGitHub ? "/prepperfamily-site" : "";
-      document.querySelectorAll("[data-lang-link]").forEach(function (a) {
-        var target = a.getAttribute("data-lang-link"); // "/" o "/es/"
-        a.setAttribute("href", base + target);
-      });
-    }
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", applyLangLinks);
-    } else {
-      applyLangLinks();
-    }
-  })();
-</script>
 
     <link rel="alternate" href="https://prepperfamily.org/" hreflang="en" />
     <link rel="alternate" href="https://prepperfamily.org/es/" hreflang="es" />
@@ -1328,12 +1309,10 @@
                     </ul>
                 </nav>
                 <div class="header-right">
-                    <button class="language-switcher"
-        data-lang-link="/es/"
-        aria-label="Cambiar a Español">
-  <i class="fas fa-globe"></i>
-  Español
-</button>
+                    <button class="language-switcher" data-lang-link="/es/""
+                        <i class="fas fa-globe"></i>
+                        Español
+                    </button>
 
                     <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open mobile menu">
                         <i class="fas fa-bars"></i>
@@ -2168,6 +2147,50 @@
         window.addEventListener('scroll', animateOnScroll);
 
     </script>
+
+
+
+<script id="pf-portable-links">
+  (function () {
+    function applyPortableLinks() {
+      var isGitHub = location.hostname.endsWith("github.io");
+      var base = isGitHub ? "/prepperfamily-site" : "";
+
+      // Language switcher buttons/links
+      document.querySelectorAll("[data-lang-link]").forEach(function (el) {
+        var target = el.getAttribute("data-lang-link") || "/";
+        el.addEventListener("click", function (e) {
+          // Allow normal behavior if it's actually an <a> with modifier keys
+          if (el.tagName === "A" && (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0)) return;
+          e.preventDefault();
+          window.location.href = base + target;
+        });
+        // If it's an <a>, also set href for long-press / accessibility
+        if (el.tagName === "A") {
+          el.setAttribute("href", base + target);
+        }
+      });
+
+      // Make root-absolute internal links work on GitHub Pages (which is served under /prepperfamily-site/)
+      if (isGitHub) {
+        document.querySelectorAll("a[href^='/']").forEach(function (a) {
+          var href = a.getAttribute("href");
+          if (!href) return;
+          // Skip protocol-relative, already-prefixed, and common non-page links
+          if (href.startsWith("//")) return;
+          if (href.startsWith("/prepperfamily-site/") || href === "/prepperfamily-site") return;
+          a.setAttribute("href", base + href);
+        });
+      }
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", applyPortableLinks);
+    } else {
+      applyPortableLinks();
+    }
+  })();
+</script>
 
 </body>
 
