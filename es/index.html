@@ -1312,8 +1312,7 @@
       </nav>
 
       <div class="header-right">
-        <button class="language-switcher"
-                onclick="window.location.href='/'"
+        <button class="language-switcher" data-lang-link="/"
                 aria-label="Switch to English">
           <i class="fas fa-globe"></i>
           English
@@ -2153,6 +2152,34 @@
         window.addEventListener('scroll', animateOnScroll);
 
     </script>
+
+
+
+<script id="pf-portable-links">
+  (function () {
+    function applyPortableLinks() {
+      var isGitHub = location.hostname.endsWith("github.io");
+      var base = isGitHub ? "/prepperfamily-site" : "";
+
+      document.querySelectorAll("[data-lang-link]").forEach(function (el) {
+        var target = el.getAttribute("data-lang-link") || "/";
+        el.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.location.href = base + target;
+        });
+        if (el.tagName === "A") {
+          el.setAttribute("href", base + target);
+        }
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", applyPortableLinks);
+    } else {
+      applyPortableLinks();
+    }
+  })();
+</script>
 
 </body>
 
