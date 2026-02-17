@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Sustento Material | PrepperFamily</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<!-- Header block (loaded from /partials/) -->
+<div id="pf-header"></div>
+
+<section class="sm-wrapper">
+  <style>
+    /* ---------- VARIABLES DE DISEÑO ---------- */
+    :root{
+      --sm-primary: #2c5f2d;
+      --sm-primary-light: #357a37;
+      --sm-accent: #d4842a;
+      --sm-accent-light: #f5b041;
+      --sm-text-dark: #1a1a1a;
+      --sm-text-medium: #4a4a4a;
+      --sm-text-light: #6b7280;
+      --sm-bg-primary: #ffffff;
+      --sm-bg-secondary: #f8fafc;
+      --sm-bg-accent: #fef7e0;
+      --sm-bg-hero: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
+      --sm-border: #e5e7eb;
+      --sm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --sm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --sm-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --sm-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    /* ---------- CONTENEDOR GENERAL ---------- */
+    .sm-wrapper{
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: var(--sm-text-dark);
+      line-height: 1.6;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+
+    /* ---------- HERO MEJORADO ---------- */
+    .sm-hero{
+      background: var(--sm-bg-hero);
+      border-radius: 20px;
+      padding: 3.5rem 2rem 3rem;
+      margin: 2rem 0 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--sm-shadow-xl);
+    }
+    .sm-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg,
+        rgba(44, 95, 45, 0.03) 0%,
+        rgba(212, 132, 42, 0.03) 50%,
+        rgba(44, 95, 45, 0.03) 100%);
+      pointer-events: none;
+    }
+    .sm-hero-content { position: relative; z-index: 1; }
+    .sm-hero h1{
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      margin: 0 0 0.5rem;
+      background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+    .sm-hero h1 .icon{
+      font-size: 1em;
+      margin-right: 0.3rem;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    .sm-hero h2{
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
+      font-weight: 600;
+      margin: 0 auto 1.5rem;
+      max-width: 42rem;
+      color: var(--sm-accent);
+      line-height: 1.3;
+    }
+    .sm-hero p{
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      max-width: 50rem;
+      margin: 0 auto;
+      color: var(--sm-text-medium);
+      line-height: 1.7;
+    }
+
+    /* ---------- SUBCATEGORÍAS ---------- */
+    .sm-topics { margin: 4rem 0; text-align: center; }
+    .sm-topics h3 { font-size: 1.8rem; font-weight: 700; color: var(--sm-primary); margin-bottom: 2.5rem; }
+    .sm-topics-container { display: flex; flex-direction: column; gap: 2rem; max-width: 900px; margin: 0 auto; }
+    .sm-topic-parent a{
+      display:flex; align-items:center; justify-content:center;
+      background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-primary-light) 100%);
+      color:#fff; border:none; border-radius:16px;
+      padding: 1.5rem 2rem;
+      font-weight:700; font-size:1.3rem; text-decoration:none;
+      box-shadow: var(--sm-shadow-lg);
+      transition: all .4s cubic-bezier(.4,0,.2,1);
+      position:relative; overflow:hidden;
+    }
+    .sm-topic-parent a::before{
+      content:''; position:absolute; top:0; left:-100%;
+      width:100%; height:100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+      transition:left .5s;
+    }
+    .sm-topic-parent a:hover::before{ left:100%; }
+    .sm-topic-parent a:hover{ transform: translateY(-4px); box-shadow: var(--sm-shadow-xl); }
+    .sm-topic-parent a .icon{ font-size: 1.5em; margin-right: .75rem; }
+
+    .sm-topics-children{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding:0; list-style:none; margin:0;
+    }
+    .sm-topics-children li a{
+      display:flex; align-items:center; justify-content:center;
+      background:#fff; color:var(--sm-primary);
+      border:2px solid var(--sm-primary);
+      border-radius:12px;
+      padding: 1.25rem 1.5rem;
+      font-weight:600; font-size:1.05rem;
+      text-decoration:none;
+      box-shadow: var(--sm-shadow-md);
+      transition: all .3s ease;
+      text-align:center;
+      min-height:80px;
+      position:relative;
+    }
+    .sm-topics-children li a::after{
+      content:"→"; position:absolute; right:1.5rem;
+      opacity:0; transform: translateX(-10px);
+      transition: all .3s ease;
+      font-weight:700; font-size:1.2rem;
+    }
+    .sm-topics-children li a:hover{
+      background: var(--sm-primary);
+      color:#fff;
+      transform: translateX(4px);
+      box-shadow: var(--sm-shadow-lg);
+    }
+    .sm-topics-children li a:hover::after{ opacity:1; transform: translateX(0); }
+    .sm-topics-children li a .emoji{ font-size:1.4em; margin-right:.5rem; }
+
+    /* ---------- ACCIÓN ---------- */
+    .sm-action{
+      margin: 4rem 0;
+      background: var(--sm-bg-secondary);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      box-shadow: var(--sm-shadow-md);
+    }
+    .sm-action h3{ font-size:1.6rem; font-weight:700; margin-bottom:2rem; text-align:center; color:var(--sm-primary); }
+    .sm-action ol{ counter-reset: step; list-style:none; padding:0; margin:0; }
+    .sm-action li{
+      counter-increment: step;
+      margin-bottom: 1.5rem;
+      padding: 1.25rem 1.5rem 1.25rem 4rem;
+      position:relative;
+      font-size:1.05rem;
+      background:#fff;
+      border-radius:12px;
+      box-shadow: var(--sm-shadow-sm);
+      border-left: 4px solid var(--sm-accent);
+      transition: all .3s ease;
+    }
+    .sm-action li:hover{ transform: translateX(4px); box-shadow: var(--sm-shadow-md); }
+    .sm-action li::before{
+      content: counter(step);
+      position:absolute;
+      left:1.25rem; top:50%;
+      transform: translateY(-50%);
+      width:2.5rem; height:2.5rem;
+      background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-accent) 100%);
+      color:#fff;
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:700; font-size:1.1rem;
+      box-shadow: var(--sm-shadow-md);
+    }
+
+    /* ---------- CTA ---------- */
+    .sm-cta{
+      background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-primary-light) 100%);
+      color:#fff;
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      margin: 4rem 0;
+      box-shadow: var(--sm-shadow-xl);
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .sm-cta::before{
+      content:'';
+      position:absolute;
+      top:-50%; left:-50%;
+      width:200%; height:200%;
+      background: radial-gradient(circle, rgba(255,255,255,.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+    @keyframes rotate { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+    .sm-cta-content{ position:relative; z-index:1; }
+    .sm-cta p{ margin:0; font-size:1.1rem; line-height:1.6; }
+    .sm-cta a{
+      color: var(--sm-accent-light);
+      font-weight:700;
+      text-decoration:none;
+      border-bottom:2px solid var(--sm-accent-light);
+      transition: all .3s ease;
+    }
+    .sm-cta a:hover{ color:#fff; border-bottom-color:#fff; }
+
+    /* ---------- FOOTER ---------- */
+    .sm-footer{
+      font-size:.95rem;
+      color: var(--sm-text-light);
+      text-align:center;
+      margin-top:3rem;
+      padding:2rem 0;
+      border-top: 1px solid var(--sm-border);
+    }
+    .sm-footer strong{ color: var(--sm-primary); }
+
+    /* ---------- EXTRA ---------- */
+    body { margin:0; background:#fff; }
+    .sm-hero-img{
+      width:100%;
+      max-width:980px;
+      height:auto;
+      display:block;
+      margin:0 auto 1.75rem;
+      border-radius:18px;
+      box-shadow: var(--sm-shadow-xl);
+    }
+    @media (max-width: 768px){
+      .sm-wrapper{ padding:0 .75rem 3rem; }
+      .sm-hero{ padding:2.5rem 1.5rem 2rem; margin:1rem 0 2rem; }
+      .sm-action{ padding:2rem 1.5rem; }
+      .sm-cta{ padding:2rem 1.5rem; }
+      .sm-action li{ padding:1rem 1.25rem 1rem 3.5rem; }
+      .sm-action li::before{ width:2rem; height:2rem; left:1rem; font-size:.9rem; }
+      .sm-topic-parent a{ font-size:1.1rem; padding:1.25rem 1.5rem; }
+      .sm-topics-children{ grid-template-columns: 1fr; }
+      .sm-topics-children li a{ padding:1rem 1.25rem; font-size:1rem; }
+      .sm-hero-img{ margin-bottom:1.25rem; border-radius:14px; }
+    }
+    @media (min-width: 1024px){
+      .sm-hero{ padding:4rem 3rem 3.5rem; }
+      .sm-topics-children{ gap:2rem; }
+    }
+    @supports not (-webkit-background-clip: text) { .sm-hero h1 { color: var(--sm-primary) !important; } }
+    .sm-hero h1 .icon { color: var(--sm-primary) !important; }
+
+    @media (max-width: 700px) {
+      .sm-topics-children { grid-template-columns: 1fr !important; }
+      .sm-topics-children li a {
+        width: 100%;
+        justify-content: flex-start;
+        text-align: left;
+        gap: 10px;
+        padding: 1.1rem 1.1rem;
+        min-height: auto;
+      }
+      .sm-topics-children li a::after { right: 1rem; opacity: 1; transform: translateX(0); }
+      .sm-topics-children li a .emoji { margin-right: 0; }
+    }
+  </style>
+
+  <!-- HERO -->
+  <header class="sm-hero">
+    <div class="sm-hero-content">
+      <img class="sm-hero-img" src="https://prepperfamily.org/blog/wp-content/uploads/2025/11/pexels-helloaesthe-28645474-2048x1365.jpg" alt="Ilustración: Sustento Material">
+      <h1><span class="icon">🛠</span>Sustento Material</h1>
+      <h2>Forja abundancia: antes, durante y después de la tormenta</h2>
+      <p>Convertimos cualquier rincón —patio urbano o parcela remota— en un núcleo de provisión constante. Ingenio campesino y ciencia práctica se unen para que tu mesa siga llena aun cuando las luces se apaguen.</p>
+    </div>
+  </header>
+
+  <!-- TOPICS -->
+  <section class="sm-topics">
+    <h3>Explora los Temas de Sustento Material</h3>
+    <div class="sm-topics-container">
+      <div class="sm-topic-parent">
+        <a href="https://prepperfamily.org/blog/category/sustento-material/">
+          <span class="icon">🌾</span>
+          Ver Todo: Sustento Material
+        </a>
+      </div>
+
+      <ul class="sm-topics-children">
+        <li>
+          <a href="https://prepperfamily.org/blog/category/almacena/">
+            <span class="emoji">📦</span><span>ALMACENA: Alimento y Medicina</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://prepperfamily.org/blog/category/cultiva/">
+            <span class="emoji">🌱</span><span>CULTIVA: Alimento y Medicina</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://prepperfamily.org/blog/category/prepara/">
+            <span class="emoji">🔧</span><span>PREPARA: Materiales Básicos</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://prepperfamily.org/blog/category/unidades/">
+            <span class="emoji">🏡</span><span>Unidades Familiares de Producción</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ACTION -->
+  <section class="sm-action">
+    <h3>Primeros pasos hoy mismo</h3>
+    <ol>
+      <li>Calcula cuántas raciones familiares necesitas para 90 días.</li>
+      <li>Audita tus herramientas: marca las dependientes de electricidad.</li>
+      <li>Elige un micro-proyecto piloto (germinando lentejas en 72 h) y comparte tu avance.</li>
+    </ol>
+  </section>
+
+  <!-- QUERY LOOP PLACEHOLDER -->
+  <!-- Inserta aquí tu bloque "Query Loop" filtrado por las 4 categorías anteriores -->
+
+  <!-- CTA -->
+  <div class="sm-cta">
+    <div class="sm-cta-content">
+      <p><strong>¿Tienes un truco o invención que mantuvo tu cocina funcionando en la escasez?</strong><br>
+        Compártelo con la comunidad: <a href="mailto:editor@prepperfamily.org">editor@prepperfamily.org</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="sm-footer">
+    Esta sección forma parte de la misión de <strong>PrepperFamily.org</strong>: familias cristianas que cultivan, conservan y confían en la Providencia.
+  </footer>
+</section>
+
+<!-- Support block (loaded from /partials/) -->
+<div id="pf-support"></div>
+
+<script id="pf-page-runtime">
+(function () {
+  var isGitHub = location.hostname.endsWith("github.io");
+  var base = isGitHub ? "/prepperfamily-site" : "";
+
+  function unwrapBody(raw){
+    var m = raw.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+    return m ? m[1] : raw;
+  }
+
+  function fetchFirst(urls){
+    var i = 0;
+    function next(){
+      var url = urls[i++];
+      return fetch(url).then(function(r){
+        if(!r.ok) throw new Error("HTTP " + r.status);
+        return r.text();
+      }).catch(function(){
+        if (i < urls.length) return next();
+        throw new Error("All fetches failed");
+      });
+    }
+    return next();
+  }
+
+  function initHeader(root){
+    if(!root) return;
+
+    // Ensure mobile panel starts closed (in case partial didn't run its own script)
+    var panel = root.querySelector("[data-pf-panel='menu']");
+    if(panel && !panel.getAttribute("data-pf-initialized")){
+      panel.style.display = "none";
+      panel.setAttribute("data-pf-initialized", "true");
+    }
+
+    // Wire hamburger toggle
+    var btn = root.querySelector("[data-pf-toggle='menu']");
+    if(btn && panel && !btn.getAttribute("data-pf-bound")){
+      btn.setAttribute("data-pf-bound", "true");
+      btn.addEventListener("click", function(){
+        var open = panel.style.display === "block";
+        panel.style.display = open ? "none" : "block";
+        btn.setAttribute("aria-expanded", open ? "false" : "true");
+      });
+    }
+  }
+
+  function mountPartial(mountId, urls, after){
+    return fetchFirst(urls).then(function(raw){
+      var mount = document.getElementById(mountId);
+      if (!mount) return;
+      mount.innerHTML = unwrapBody(raw);
+      if (typeof after === "function") after(mount);
+    });
+  }
+
+  // Delegated language switch (works for header injected via innerHTML)
+  document.addEventListener("click", function(e){
+    var el = e.target && e.target.closest ? e.target.closest("[data-lang-link]") : null;
+    if(!el) return;
+    e.preventDefault();
+    var target = el.getAttribute("data-lang-link") || "/";
+    window.location.href = base + target;
+  });
+
+  // Load partials (try .html first, then trailing-slash folder)
+  var headerUrls  = [base + "/partials/header-es.html",  base + "/partials/header-es/"];
+  var supportUrls = [base + "/partials/support-es.html", base + "/partials/support-es/"];
+
+  Promise.resolve()
+    .then(function(){ return mountPartial("pf-header", headerUrls, function(mount){ initHeader(mount); }); })
+    .then(function(){ return mountPartial("pf-support", supportUrls); })
+    .catch(function(){ /* fail silently */ });
+})();
+</script>
+
+</body>
+</html>
