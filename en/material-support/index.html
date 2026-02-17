@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style id="pf-header-reserve">
-    /* Reserve space so header is visible immediately even before partial loads */
     #pf-header{ min-height: 88px; }
     @media (max-width: 980px){ #pf-header{ min-height: 72px; } }
   </style>
@@ -550,9 +549,7 @@
 
 <script id="pf-page-runtime">
 (function () {
-  // Base detection:
-  // - GitHub Project Pages: https://USER.github.io/REPO/...  => base="/REPO"
-  // - Root/custom domain:  https://domain.tld/...           => base=""
+  // Base detection for GitHub Project Pages (USER.github.io/REPO/...)
   var base = "";
   try {
     if (location.hostname.endsWith("github.io")) {
@@ -560,31 +557,94 @@
       if (m && m[1]) base = "/" + m[1];
     }
   } catch(e) { base = ""; }
-  try {
-    var m = location.pathname.match(/^\/([^\/]+)\//);
-    if (m && m[1] && m[1] !== "partials") base = "/" + m[1];
-  } catch(e) { base = ""; }
-// Language switcher
-  document.querySelectorAll("[data-lang-link]").forEach(function (el) {
+
+  var origin = location.origin;
+
+  function unwrapBody(raw) {
+    var m = raw.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+    return m ? m[1] : raw;
+  }
+
+  function initHeader(mount) {
+    if(!mount) return;
+    var root = mount.querySelector(".pf-header") || mount;
+    var panel = root.querySelector("[data-pf-panel='menu']");
+    var btn   = root.querySelector("[data-pf-toggle='menu']");
+    if(panel) panel.style.display = "none";
+    if(btn && panel) {
+      btn.addEventListener("click", function(){
+        var open = panel.style.display === "block";
+        panel.style.display = open ? "none" : "block";
+        btn.setAttribute("aria-expanded", open ? "false" : "true");
+      });
+    }
+  }
+
+  // Delegated language switching (works for injected header)
+  document.addEventListener("click", function(e) {
+    var el = e.target && e.target.closest ? e.target.closest("[data-lang-link]") : null;
+    if(!el) return;
+    e.preventDefault();
     var target = el.getAttribute("data-lang-link") || "/";
-    el.addEventListener("click", function (e) {
-      e.preventDefault();
-      window.location.href = base + target;
-    });
+    window.location.href = origin + base + target;
   });
 
-  // Load support partial (EN here). Works whether your partial is a raw snippet or a full HTML page.
-  var file = base + "/partials/support-en/";
-  fetch(file)
-    .then(function (r) { return r.text(); })
-    .then(function (raw) {
-      var mount = document.getElementById("pf-support");
-      if (!mount) return;
+  function fetchFirst(urls) {
+    var i = 0;
+    function next() {
+      var url = urls[i++];
+      return fetch(url, { cache: "no-store" }).then(function(r) {
+        if(!r.ok) throw new Error("HTTP " + r.status);
+        return r.text();
+      }).catch(function() {
+        if (i < urls.length) return next();
+        throw new Error("All fetches failed");
+      });
+    }
+    return next();
+  }
 
-      var m = raw.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-      var html = m ? m[1] : raw;
-      mount.innerHTML = html;
+  function mountPartial(mountId, urls, fallbackHtml, after) {
+    var mount = document.getElementById(mountId);
+    if(!mount) return Promise.resolve();
+
+    return fetchFirst(urls).then(function(raw) {
+      mount.innerHTML = unwrapBody(raw);
+      if (typeof after === "function") after(mount);
+
+      // Force layout so sticky header paints immediately (mobile browsers)
+      try { mount.getBoundingClientRect(); } catch(e) {}
+      try { requestAnimationFrame(function(){ window.dispatchEvent(new Event("scroll")); }); } catch(e) {}
+    }).catch(function() {
+      if (fallbackHtml) {
+        mount.innerHTML = fallbackHtml;
+        if (typeof after === "function") after(mount);
+        try { mount.getBoundingClientRect(); } catch(e) {}
+      }
     });
+  }
+
+  var headerUrls = [
+    origin + base + "/partials/header-en.html",
+    origin + base + "/partials/header-en/index.html",
+    origin + base + "/partials/header-en/",
+    base + "/partials/header-en.html",
+    base + "/partials/header-en/index.html",
+    base + "/partials/header-en/"
+  ];
+
+  var supportUrls = [
+    origin + base + "/partials/support-en.html",
+    origin + base + "/partials/support-en/index.html",
+    origin + base + "/partials/support-en/",
+    base + "/partials/support-en.html",
+    base + "/partials/support-en/index.html",
+    base + "/partials/support-en/"
+  ];
+
+  mountPartial("pf-header", headerUrls, "<header class=\"pf-header\">\n  <style>\n  :root{\n    --pf-bg:#ffffff;\n    --pf-text:#0f172a;\n    --pf-muted:#334155;\n    --pf-green:#1f6b3a;\n    --pf-border:#e5e7eb;\n  }\n  .pf-header{\n    position:sticky; top:0; z-index:999;\n    background:var(--pf-bg);\n    border-bottom:1px solid var(--pf-border);\n  }\n  .pf-header__inner{\n    max-width:1200px; margin:0 auto;\n    padding:10px 14px;\n    display:flex; align-items:center; gap:14px;\n  }\n  .pf-brand{\n    display:flex; align-items:center; gap:10px;\n    text-decoration:none;\n    min-width: 220px;\n  }\n  .pf-brand img{ width:68px; height:68px; object-fit:contain; }\n  .pf-brand__text{ display:flex; flex-direction:column; line-height:1.05; }\n  .pf-brand__text strong{ font-size:14px; color:var(--pf-text); letter-spacing:.2px; }\n  .pf-brand__text span{ font-size:12px; color:var(--pf-muted); }\n  .pf-nav{\n    margin-left:auto;\n    display:flex; align-items:center; gap:14px;\n    flex-wrap:wrap;\n  }\n  .pf-nav a{\n    text-decoration:none;\n    color:var(--pf-text);\n    font-weight:700;\n    font-size:13px;\n    padding:8px 10px;\n    border-radius:10px;\n  }\n  .pf-nav a:hover{ background:#f1f5f9; }\n  .pf-actions{ display:flex; align-items:center; gap:10px; margin-left: 10px; }\n  .pf-btn{\n    display:inline-flex; align-items:center; gap:8px;\n    border:1px solid var(--pf-border);\n    background:#fff;\n    color:var(--pf-text);\n    border-radius:12px;\n    padding:8px 10px;\n    font-weight:800;\n    font-size:13px;\n    cursor:pointer;\n    text-decoration:none;\n    white-space:nowrap;\n  }\n  .pf-btn--primary{ border-color: transparent; background: var(--pf-green); color:#fff; }\n  .pf-icon{ width:16px; height:16px; display:inline-block; }\n  .pf-hamb{ display:none; }\n\n  .pf-mobile{\n    display:none;\n    border-top:1px solid var(--pf-border);\n    max-width:1200px; margin:0 auto;\n    padding: 10px 14px 14px;\n  }\n  .pf-mobile a{\n    display:block;\n    padding:12px 10px;\n    border-radius:12px;\n    text-decoration:none;\n    color:var(--pf-text);\n    font-weight:800;\n    margin-top:8px;\n    background:#f8fafc;\n  }\n  .pf-mobile a:hover{ background:#f1f5f9; }\n\n  @media (max-width: 980px){\n    .pf-nav{ display:none; }\n    .pf-hamb{ display:inline-flex; }\n  }\n</style>\n\n  <div class=\"pf-header__inner\">\n    <a class=\"pf-brand\" href=\"/en/\">\n      <img src=\"https://prepperfamily.org/imagenes/logotipo\" alt=\"PrepperFamily logo\" loading=\"lazy\">\n      <div class=\"pf-brand__text\">\n        <strong>PrepperFamily.org</strong>\n        <span>Family preparedness &amp; faith</span>\n      </div>\n    </a>\n\n    <nav class=\"pf-nav\" aria-label=\"Primary\">\n      <a href=\"/en/material-support/\">Material Support</a>\n      <a href=\"/en/family-resilience/\">Family Resilience</a>\n      <a href=\"/en/inner-strength/\">Inner Strength</a>\n      <a href=\"#community\">Community</a>\n      <a class=\"pf-btn\" href=\"mailto:accounting@prepperfamily.org\">\n        <svg class=\"pf-icon\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\">\n          <path d=\"M4 6.5h16v11H4v-11Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"/>\n          <path d=\"m4.5 7 7.5 6 7.5-6\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"/>\n        </svg>\n        <span>Contact</span>\n      </a>\n    </nav>\n\n    <div class=\"pf-actions\">\n      <button class=\"pf-btn pf-btn--primary\" data-lang-link=\"/es/\" aria-label=\"Cambiar a Espa\u00f1ol\">Espa\u00f1ol</button>\n      <button class=\"pf-btn pf-hamb\" data-pf-toggle=\"menu\" aria-label=\"Menu\" aria-expanded=\"false\">\u2261</button>\n    </div>\n  </div>\n\n  <div class=\"pf-mobile\" data-pf-panel=\"menu\">\n    <a href=\"/en/material-support/\">Material Support</a>\n    <a href=\"/en/family-resilience/\">Family Resilience</a>\n    <a href=\"/en/inner-strength/\">Inner Strength</a>\n    <a href=\"#community\">Community</a>\n    <a href=\"mailto:accounting@prepperfamily.org\">Contact</a>\n    <a data-lang-link=\"/es/\" href=\"#\" style=\"text-align:center; font-weight:900;\">Espa\u00f1ol</a>\n  </div>\n</header>", function(m){ initHeader(m); })
+    .then(function(){ return mountPartial("pf-support", supportUrls, null, null); })
+    .catch(function(){ /* silent */ });
 })();
 </script>
 
