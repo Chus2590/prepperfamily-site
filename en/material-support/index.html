@@ -550,10 +550,13 @@
 
 <script id="pf-page-runtime">
 (function () {
-  var isGitHub = location.hostname.endsWith("github.io");
-  var base = isGitHub ? "/prepperfamily-site" : "";
-
-  // Language switcher
+  // Robust base detection: works for GitHub Project Pages and root sites
+  var base = "";
+  try {
+    var m = location.pathname.match(/^\/([^\/]+)\//);
+    if (m && m[1] && m[1] !== "partials") base = "/" + m[1];
+  } catch(e) { base = ""; }
+// Language switcher
   document.querySelectorAll("[data-lang-link]").forEach(function (el) {
     var target = el.getAttribute("data-lang-link") || "/";
     el.addEventListener("click", function (e) {
