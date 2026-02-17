@@ -438,6 +438,25 @@
     .pf-topbar{ padding: 12px 12px 0; }
     .sm-hero-img{ margin-bottom: 1.25rem; border-radius: 14px; }
   }
+  /* --- Mobile fixes: heading contrast + topic buttons size --- */
+@supports not (-webkit-background-clip: text) {
+  .sm-hero h1 { color: var(--sm-primary) !important; }
+}
+.sm-hero h1 .icon { color: var(--sm-primary) !important; }
+
+@media (max-width: 700px) {
+  .sm-topics-children { grid-template-columns: 1fr !important; }
+  .sm-topics-children li a {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 10px;
+    padding: 1.1rem 1.1rem;
+    min-height: auto;
+  }
+  .sm-topics-children li a::after { right: 1rem; opacity: 1; transform: translateX(0); }
+  .sm-topics-children li a .emoji { margin-right: 0; }
+}
   </style>
 <!-- HERO PRINCIPAL -->
   <header class="sm-hero">
@@ -536,13 +555,17 @@
     });
   });
 
-  // Load support partial (EN here)
-  var file = base + "/partials/support-en.html";
+  // Load support partial (EN here). Works whether your partial is a raw snippet or a full HTML page.
+  var file = base + "/partials/support-en/";
   fetch(file)
     .then(function (r) { return r.text(); })
-    .then(function (html) {
+    .then(function (raw) {
       var mount = document.getElementById("pf-support");
-      if (mount) mount.innerHTML = html;
+      if (!mount) return;
+
+      var m = raw.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+      var html = m ? m[1] : raw;
+      mount.innerHTML = html;
     });
 })();
 </script>
