@@ -550,8 +550,16 @@
 
 <script id="pf-page-runtime">
 (function () {
-  // Robust base detection: works for GitHub Project Pages and root sites
+  // Base detection:
+  // - GitHub Project Pages: https://USER.github.io/REPO/...  => base="/REPO"
+  // - Root/custom domain:  https://domain.tld/...           => base=""
   var base = "";
+  try {
+    if (location.hostname.endsWith("github.io")) {
+      var m = location.pathname.match(/^\/([^\/]+)\//);
+      if (m && m[1]) base = "/" + m[1];
+    }
+  } catch(e) { base = ""; }
   try {
     var m = location.pathname.match(/^\/([^\/]+)\//);
     if (m && m[1] && m[1] !== "partials") base = "/" + m[1];
