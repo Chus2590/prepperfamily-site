@@ -4,22 +4,14 @@
   <meta charset="utf-8">
   <title>Material Support | PrepperFamily</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <style id="pf-header-reserve">
-    #pf-header{ min-height: 88px; }
-    @media (max-width: 980px){ #pf-header{ min-height: 72px; } }
-  </style>
-
 </head>
 <body>
 
-<!-- Language switcher (EN → ES) -->
-<div class="pf-topbar">
-  <button class="pf-lang-btn" data-lang-link="/es/material-support/" aria-label="Cambiar a Español">Español</button>
-</div>
+<!-- Header block (loaded from /partials/) -->
+<div id="pf-header"></div>
 
 <section class="sm-wrapper">
-<style>
+  <style>
     /* ---------- VARIABLES DE DISEÑO ---------- */
     :root{
       --sm-primary: #2c5f2d;
@@ -61,26 +53,17 @@
       overflow: hidden;
       box-shadow: var(--sm-shadow-xl);
     }
-
     .sm-hero::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, 
-        rgba(44, 95, 45, 0.03) 0%, 
-        rgba(212, 132, 42, 0.03) 50%, 
+      inset: 0;
+      background: linear-gradient(45deg,
+        rgba(44, 95, 45, 0.03) 0%,
+        rgba(212, 132, 42, 0.03) 50%,
         rgba(44, 95, 45, 0.03) 100%);
       pointer-events: none;
     }
-
-    .sm-hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
+    .sm-hero-content { position: relative; z-index: 1; }
     .sm-hero h1{
       font-size: clamp(2.2rem, 5vw, 3.2rem);
       font-weight: 800;
@@ -91,19 +74,13 @@
       background-clip: text;
       line-height: 1.1;
     }
-
     .sm-hero h1 .icon{
       font-size: 1em;
       margin-right: 0.3rem;
       display: inline-block;
       animation: pulse 2s infinite;
     }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
     .sm-hero h2{
       font-size: clamp(1.3rem, 3vw, 1.6rem);
       font-weight: 600;
@@ -112,7 +89,6 @@
       color: var(--sm-accent);
       line-height: 1.3;
     }
-
     .sm-hero p{
       font-size: clamp(1rem, 2.5vw, 1.2rem);
       max-width: 50rem;
@@ -121,133 +97,66 @@
       line-height: 1.7;
     }
 
-    /* ---------- SUBCATEGORÍAS CON JERARQUÍA ---------- */
-    .sm-topics {
-      margin: 4rem 0;
-      text-align: center;
-    }
-
-    .sm-topics h3 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--sm-primary);
-      margin-bottom: 2.5rem;
-    }
-
-    .sm-topics-container {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    /* Botón principal (padre) */
-    .sm-topic-parent {
-      width: 100%;
-    }
-
-    .sm-topic-parent a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* ---------- SUBCATEGORÍAS ---------- */
+    .sm-topics { margin: 4rem 0; text-align: center; }
+    .sm-topics h3 { font-size: 1.8rem; font-weight: 700; color: var(--sm-primary); margin-bottom: 2.5rem; }
+    .sm-topics-container { display: flex; flex-direction: column; gap: 2rem; max-width: 900px; margin: 0 auto; }
+    .sm-topic-parent a{
+      display:flex; align-items:center; justify-content:center;
       background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-primary-light) 100%);
-      color: white;
-      border: none;
-      border-radius: 16px;
+      color:#fff; border:none; border-radius:16px;
       padding: 1.5rem 2rem;
-      font-weight: 700;
-      font-size: 1.3rem;
-      text-decoration: none;
+      font-weight:700; font-size:1.3rem; text-decoration:none;
       box-shadow: var(--sm-shadow-lg);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
+      transition: all .4s cubic-bezier(.4,0,.2,1);
+      position:relative; overflow:hidden;
     }
-
-    .sm-topic-parent a::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s;
+    .sm-topic-parent a::before{
+      content:''; position:absolute; top:0; left:-100%;
+      width:100%; height:100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+      transition:left .5s;
     }
+    .sm-topic-parent a:hover::before{ left:100%; }
+    .sm-topic-parent a:hover{ transform: translateY(-4px); box-shadow: var(--sm-shadow-xl); }
+    .sm-topic-parent a .icon{ font-size: 1.5em; margin-right: .75rem; }
 
-    .sm-topic-parent a:hover::before {
-      left: 100%;
-    }
-
-    .sm-topic-parent a:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--sm-shadow-xl);
-    }
-
-    .sm-topic-parent a .icon {
-      font-size: 1.5em;
-      margin-right: 0.75rem;
-    }
-
-    /* Botones hijos (subcategorías) */
-    .sm-topics-children {
-      display: grid;
+    .sm-topics-children{
+      display:grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
-      padding: 0;
-      list-style: none;
-      margin: 0;
+      padding:0; list-style:none; margin:0;
     }
-
-    .sm-topics-children li a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: white;
-      color: var(--sm-primary);
-      border: 2px solid var(--sm-primary);
-      border-radius: 12px;
+    .sm-topics-children li a{
+      display:flex; align-items:center; justify-content:center;
+      background:#fff; color:var(--sm-primary);
+      border:2px solid var(--sm-primary);
+      border-radius:12px;
       padding: 1.25rem 1.5rem;
-      font-weight: 600;
-      font-size: 1.05rem;
-      text-decoration: none;
+      font-weight:600; font-size:1.05rem;
+      text-decoration:none;
       box-shadow: var(--sm-shadow-md);
-      transition: all 0.3s ease;
-      text-align: center;
-      min-height: 80px;
-      position: relative;
+      transition: all .3s ease;
+      text-align:center;
+      min-height:80px;
+      position:relative;
     }
-
-    .sm-topics-children li a::after {
-      content: "→";
-      position: absolute;
-      right: 1.5rem;
-      opacity: 0;
-      transform: translateX(-10px);
-      transition: all 0.3s ease;
-      font-weight: 700;
-      font-size: 1.2rem;
+    .sm-topics-children li a::after{
+      content:"→"; position:absolute; right:1.5rem;
+      opacity:0; transform: translateX(-10px);
+      transition: all .3s ease;
+      font-weight:700; font-size:1.2rem;
     }
-
-    .sm-topics-children li a:hover {
+    .sm-topics-children li a:hover{
       background: var(--sm-primary);
-      color: white;
+      color:#fff;
       transform: translateX(4px);
       box-shadow: var(--sm-shadow-lg);
     }
+    .sm-topics-children li a:hover::after{ opacity:1; transform: translateX(0); }
+    .sm-topics-children li a .emoji{ font-size:1.4em; margin-right:.5rem; }
 
-    .sm-topics-children li a:hover::after {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .sm-topics-children li a .emoji {
-      font-size: 1.4em;
-      margin-right: 0.5rem;
-    }
-
-    /* ---------- ACCIÓN INMEDIATA MEJORADA ---------- */
+    /* ---------- ACCIÓN ---------- */
     .sm-action{
       margin: 4rem 0;
       background: var(--sm-bg-secondary);
@@ -255,216 +164,124 @@
       padding: 2.5rem 2rem;
       box-shadow: var(--sm-shadow-md);
     }
-
-    .sm-action h3{
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-      text-align: center;
-      color: var(--sm-primary);
-    }
-
-    .sm-action ol{
-      counter-reset: step;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
+    .sm-action h3{ font-size:1.6rem; font-weight:700; margin-bottom:2rem; text-align:center; color:var(--sm-primary); }
+    .sm-action ol{ counter-reset: step; list-style:none; padding:0; margin:0; }
     .sm-action li{
       counter-increment: step;
       margin-bottom: 1.5rem;
       padding: 1.25rem 1.5rem 1.25rem 4rem;
-      position: relative;
-      font-size: 1.05rem;
-      background: var(--sm-bg-primary);
-      border-radius: 12px;
+      position:relative;
+      font-size:1.05rem;
+      background:#fff;
+      border-radius:12px;
       box-shadow: var(--sm-shadow-sm);
       border-left: 4px solid var(--sm-accent);
-      transition: all 0.3s ease;
+      transition: all .3s ease;
     }
-
-    .sm-action li:hover {
-      transform: translateX(4px);
-      box-shadow: var(--sm-shadow-md);
-    }
-
+    .sm-action li:hover{ transform: translateX(4px); box-shadow: var(--sm-shadow-md); }
     .sm-action li::before{
       content: counter(step);
-      position: absolute;
-      left: 1.25rem;
-      top: 50%;
+      position:absolute;
+      left:1.25rem; top:50%;
       transform: translateY(-50%);
-      width: 2.5rem;
-      height: 2.5rem;
+      width:2.5rem; height:2.5rem;
       background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-accent) 100%);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.1rem;
+      color:#fff;
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:700; font-size:1.1rem;
       box-shadow: var(--sm-shadow-md);
     }
 
-    /* ---------- CALL TO ACTION PREMIUM ---------- */
+    /* ---------- CTA ---------- */
     .sm-cta{
       background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-primary-light) 100%);
-      color: white;
+      color:#fff;
       padding: 2.5rem 2rem;
       border-radius: 20px;
       margin: 4rem 0;
       box-shadow: var(--sm-shadow-xl);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
     }
-
-    .sm-cta::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    .sm-cta::before{
+      content:'';
+      position:absolute;
+      top:-50%; left:-50%;
+      width:200%; height:200%;
+      background: radial-gradient(circle, rgba(255,255,255,.1) 0%, transparent 70%);
       animation: rotate 20s linear infinite;
     }
-
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .sm-cta-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .sm-cta p{
-      margin: 0;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
+    @keyframes rotate { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
+    .sm-cta-content{ position:relative; z-index:1; }
+    .sm-cta p{ margin:0; font-size:1.1rem; line-height:1.6; }
     .sm-cta a{
       color: var(--sm-accent-light);
-      font-weight: 700;
-      text-decoration: none;
-      border-bottom: 2px solid var(--sm-accent-light);
-      transition: all 0.3s ease;
+      font-weight:700;
+      text-decoration:none;
+      border-bottom:2px solid var(--sm-accent-light);
+      transition: all .3s ease;
     }
+    .sm-cta a:hover{ color:#fff; border-bottom-color:#fff; }
 
-    .sm-cta a:hover {
-      color: white;
-      border-bottom-color: white;
-    }
-
-    /* ---------- FOOTER ELEGANTE ---------- */
+    /* ---------- FOOTER ---------- */
     .sm-footer{
-      font-size: 0.95rem;
+      font-size:.95rem;
       color: var(--sm-text-light);
-      text-align: center;
-      margin-top: 3rem;
-      padding: 2rem 0;
+      text-align:center;
+      margin-top:3rem;
+      padding:2rem 0;
       border-top: 1px solid var(--sm-border);
     }
+    .sm-footer strong{ color: var(--sm-primary); }
 
-    .sm-footer strong {
-      color: var(--sm-primary);
+    /* ---------- EXTRA ---------- */
+    body { margin:0; background:#fff; }
+    .sm-hero-img{
+      width:100%;
+      max-width:980px;
+      height:auto;
+      display:block;
+      margin:0 auto 1.75rem;
+      border-radius:18px;
+      box-shadow: var(--sm-shadow-xl);
     }
+    @media (max-width: 768px){
+      .sm-wrapper{ padding:0 .75rem 3rem; }
+      .sm-hero{ padding:2.5rem 1.5rem 2rem; margin:1rem 0 2rem; }
+      .sm-action{ padding:2rem 1.5rem; }
+      .sm-cta{ padding:2rem 1.5rem; }
+      .sm-action li{ padding:1rem 1.25rem 1rem 3.5rem; }
+      .sm-action li::before{ width:2rem; height:2rem; left:1rem; font-size:.9rem; }
+      .sm-topic-parent a{ font-size:1.1rem; padding:1.25rem 1.5rem; }
+      .sm-topics-children{ grid-template-columns: 1fr; }
+      .sm-topics-children li a{ padding:1rem 1.25rem; font-size:1rem; }
+      .sm-hero-img{ margin-bottom:1.25rem; border-radius:14px; }
+    }
+    @media (min-width: 1024px){
+      .sm-hero{ padding:4rem 3rem 3.5rem; }
+      .sm-topics-children{ gap:2rem; }
+    }
+    @supports not (-webkit-background-clip: text) { .sm-hero h1 { color: var(--sm-primary) !important; } }
+    .sm-hero h1 .icon { color: var(--sm-primary) !important; }
 
-    /* ---------- RESPONSIVE MEJORADO ---------- */
-    @media (max-width: 768px) {
-      .sm-wrapper { padding: 0 0.75rem 3rem; }
-      .sm-hero { padding: 2.5rem 1.5rem 2rem; margin: 1rem 0 2rem; }
-      .sm-action { padding: 2rem 1.5rem; }
-      .sm-cta { padding: 2rem 1.5rem; }
-      
-      .sm-action li { padding: 1rem 1.25rem 1rem 3.5rem; }
-      .sm-action li::before { 
-        width: 2rem; 
-        height: 2rem; 
-        left: 1rem;
-        font-size: 0.9rem;
-      }
-
-      .sm-topic-parent a {
-        font-size: 1.1rem;
-        padding: 1.25rem 1.5rem;
-      }
-
-      .sm-topics-children {
-        grid-template-columns: 1fr;
-      }
-
+    @media (max-width: 700px) {
+      .sm-topics-children { grid-template-columns: 1fr !important; }
       .sm-topics-children li a {
-        padding: 1rem 1.25rem;
-        font-size: 1rem;
+        width: 100%;
+        justify-content: flex-start;
+        text-align: left;
+        gap: 10px;
+        padding: 1.1rem 1.1rem;
+        min-height: auto;
       }
+      .sm-topics-children li a::after { right: 1rem; opacity: 1; transform: translateX(0); }
+      .sm-topics-children li a .emoji { margin-right: 0; }
     }
-
-    @media (min-width: 1024px) {
-      .sm-hero { padding: 4rem 3rem 3.5rem; }
-      .sm-topics-children { gap: 2rem; }
-    }
-  
-  /* --- PrepperFamily static migration additions --- */
-  body { margin: 0; background: #ffffff; }
-  .pf-topbar{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 14px 16px 0;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-  .pf-lang-btn{
-    background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-primary-light) 100%);
-    color: #fff;
-    border: none;
-    border-radius: 999px;
-    padding: 10px 14px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: var(--sm-shadow-md);
-  }
-  .pf-lang-btn:active{ transform: translateY(1px); }
-  .sm-hero-img{
-    width: 100%;
-    max-width: 980px;
-    height: auto;
-    display: block;
-    margin: 0 auto 1.75rem;
-    border-radius: 18px;
-    box-shadow: var(--sm-shadow-xl);
-  }
-  @media (max-width: 768px){
-    .pf-topbar{ padding: 12px 12px 0; }
-    .sm-hero-img{ margin-bottom: 1.25rem; border-radius: 14px; }
-  }
-  /* --- Mobile fixes: heading contrast + topic buttons size --- */
-@supports not (-webkit-background-clip: text) {
-  .sm-hero h1 { color: var(--sm-primary) !important; }
-}
-.sm-hero h1 .icon { color: var(--sm-primary) !important; }
-
-@media (max-width: 700px) {
-  .sm-topics-children { grid-template-columns: 1fr !important; }
-  .sm-topics-children li a {
-    width: 100%;
-    justify-content: flex-start;
-    text-align: left;
-    gap: 10px;
-    padding: 1.1rem 1.1rem;
-    min-height: auto;
-  }
-  .sm-topics-children li a::after { right: 1rem; opacity: 1; transform: translateX(0); }
-  .sm-topics-children li a .emoji { margin-right: 0; }
-}
   </style>
-<!-- HERO PRINCIPAL -->
+
+  <!-- HERO -->
   <header class="sm-hero">
     <div class="sm-hero-content">
       <img class="sm-hero-img" src="https://prepperfamily.org/blog/wp-content/uploads/2025/11/pexels-helloaesthe-28645474-2048x1365.jpg" alt="Material Support illustration">
@@ -474,49 +291,43 @@
     </div>
   </header>
 
-  <!-- SUBCATEGORÍAS CON JERARQUÍA -->
+  <!-- TOPICS -->
   <section class="sm-topics">
     <h3>Explore the Material Support Topics</h3>
     <div class="sm-topics-container">
-      <!-- Botón padre -->
       <div class="sm-topic-parent">
         <a href="https://prepperfamily.org/en/category/material-support/">
           <span class="icon">🌾</span>
-          View All: Material Support 
+          View All: Material Support
         </a>
       </div>
-      
-      <!-- Botones hijos -->
+
       <ul class="sm-topics-children">
         <li>
           <a href="https://prepperfamily.org/en/category/store/">
-            <span class="emoji">📦</span>
-            <span>STORE: Food and Medicine</span>
+            <span class="emoji">📦</span><span>STORE: Food and Medicine</span>
           </a>
         </li>
         <li>
           <a href="https://prepperfamily.org/en/category/grow/">
-            <span class="emoji">🌱</span>
-            <span>GROW: Food and Medicine</span>
+            <span class="emoji">🌱</span><span>GROW: Food and Medicine</span>
           </a>
         </li>
         <li>
           <a href="https://prepperfamily.org/en/category/prepare/">
-            <span class="emoji">🔧</span>
-            <span>PREPARE: Basic Materials</span>
+            <span class="emoji">🔧</span><span>PREPARE: Basic Materials</span>
           </a>
         </li>
         <li>
           <a href="https://prepperfamily.org/en/category/units/">
-            <span class="emoji">🏡</span>
-            <span>Family Production Units</span>
+            <span class="emoji">🏡</span><span>Family Production Units</span>
           </a>
         </li>
       </ul>
     </div>
   </section>
 
-  <!-- ACCIÓN INMEDIATA -->
+  <!-- ACTION -->
   <section class="sm-action">
     <h3>First steps today</h3>
     <ol>
@@ -526,19 +337,19 @@
     </ol>
   </section>
 
-  <!-- ESPACIADOR PARA QUERY LOOP -->
-  <!-- Inserta aquí tu bloque "Query Loop" filtrado por las 4 categorías anteriores -->
+  <!-- QUERY LOOP PLACEHOLDER -->
+  <!-- Inserta aquí tu bloque "Query Loop" -->
 
-  <!-- CALL TO ACTION -->
+  <!-- CTA -->
   <div class="sm-cta">
     <div class="sm-cta-content">
       <p><strong>Do you have a trick or invention that kept your kitchen running during scarcity?</strong><br>
-         Share it with the community: <a href="mailto:editor@prepperfamily.org">editor@prepperfamily.org</a>
+        Share it with the community: <a href="mailto:editor@prepperfamily.org">editor@prepperfamily.org</a>
       </p>
     </div>
   </div>
 
-  <!-- PIE DE AUTENTICIDAD -->
+  <!-- FOOTER -->
   <footer class="sm-footer">
     This section is part of the mission of <strong>PrepperFamily.org</strong>: Christian families who cultivate, preserve, and trust in Providence.
   </footer>
@@ -549,29 +360,43 @@
 
 <script id="pf-page-runtime">
 (function () {
-  // Base detection for GitHub Project Pages (USER.github.io/REPO/...)
-  var base = "";
-  try {
-    if (location.hostname.endsWith("github.io")) {
-      var m = location.pathname.match(/^\/([^\/]+)\//);
-      if (m && m[1]) base = "/" + m[1];
-    }
-  } catch(e) { base = ""; }
+  var isGitHub = location.hostname.endsWith("github.io");
+  var base = isGitHub ? "/prepperfamily-site" : "";
 
-  var origin = location.origin;
-
-  function unwrapBody(raw) {
+  function unwrapBody(raw){
     var m = raw.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
     return m ? m[1] : raw;
   }
 
-  function initHeader(mount) {
-    if(!mount) return;
-    var root = mount.querySelector(".pf-header") || mount;
+  function fetchFirst(urls){
+    var i = 0;
+    function next(){
+      var url = urls[i++];
+      return fetch(url).then(function(r){
+        if(!r.ok) throw new Error("HTTP " + r.status);
+        return r.text();
+      }).catch(function(){
+        if (i < urls.length) return next();
+        throw new Error("All fetches failed");
+      });
+    }
+    return next();
+  }
+
+  function initHeader(root){
+    if(!root) return;
+
+    // Ensure mobile panel starts closed (in case partial didn't run its own script)
     var panel = root.querySelector("[data-pf-panel='menu']");
-    var btn   = root.querySelector("[data-pf-toggle='menu']");
-    if(panel) panel.style.display = "none";
-    if(btn && panel) {
+    if(panel && !panel.getAttribute("data-pf-initialized")){
+      panel.style.display = "none";
+      panel.setAttribute("data-pf-initialized", "true");
+    }
+
+    // Wire hamburger toggle
+    var btn = root.querySelector("[data-pf-toggle='menu']");
+    if(btn && panel && !btn.getAttribute("data-pf-bound")){
+      btn.setAttribute("data-pf-bound", "true");
       btn.addEventListener("click", function(){
         var open = panel.style.display === "block";
         panel.style.display = open ? "none" : "block";
@@ -580,71 +405,32 @@
     }
   }
 
-  // Delegated language switching (works for injected header)
-  document.addEventListener("click", function(e) {
+  function mountPartial(mountId, urls, after){
+    return fetchFirst(urls).then(function(raw){
+      var mount = document.getElementById(mountId);
+      if (!mount) return;
+      mount.innerHTML = unwrapBody(raw);
+      if (typeof after === "function") after(mount);
+    });
+  }
+
+  // Delegated language switch (works for header injected via innerHTML)
+  document.addEventListener("click", function(e){
     var el = e.target && e.target.closest ? e.target.closest("[data-lang-link]") : null;
     if(!el) return;
     e.preventDefault();
     var target = el.getAttribute("data-lang-link") || "/";
-    window.location.href = origin + base + target;
+    window.location.href = base + target;
   });
 
-  function fetchFirst(urls) {
-    var i = 0;
-    function next() {
-      var url = urls[i++];
-      return fetch(url, { cache: "no-store" }).then(function(r) {
-        if(!r.ok) throw new Error("HTTP " + r.status);
-        return r.text();
-      }).catch(function() {
-        if (i < urls.length) return next();
-        throw new Error("All fetches failed");
-      });
-    }
-    return next();
-  }
+  // Load partials (try .html first, then trailing-slash folder)
+  var headerUrls  = [base + "/partials/header-en.html",  base + "/partials/header-en/"];
+  var supportUrls = [base + "/partials/support-en.html", base + "/partials/support-en/"];
 
-  function mountPartial(mountId, urls, fallbackHtml, after) {
-    var mount = document.getElementById(mountId);
-    if(!mount) return Promise.resolve();
-
-    return fetchFirst(urls).then(function(raw) {
-      mount.innerHTML = unwrapBody(raw);
-      if (typeof after === "function") after(mount);
-
-      // Force layout so sticky header paints immediately (mobile browsers)
-      try { mount.getBoundingClientRect(); } catch(e) {}
-      try { requestAnimationFrame(function(){ window.dispatchEvent(new Event("scroll")); }); } catch(e) {}
-    }).catch(function() {
-      if (fallbackHtml) {
-        mount.innerHTML = fallbackHtml;
-        if (typeof after === "function") after(mount);
-        try { mount.getBoundingClientRect(); } catch(e) {}
-      }
-    });
-  }
-
-  var headerUrls = [
-    origin + base + "/partials/header-en.html",
-    origin + base + "/partials/header-en/index.html",
-    origin + base + "/partials/header-en/",
-    base + "/partials/header-en.html",
-    base + "/partials/header-en/index.html",
-    base + "/partials/header-en/"
-  ];
-
-  var supportUrls = [
-    origin + base + "/partials/support-en.html",
-    origin + base + "/partials/support-en/index.html",
-    origin + base + "/partials/support-en/",
-    base + "/partials/support-en.html",
-    base + "/partials/support-en/index.html",
-    base + "/partials/support-en/"
-  ];
-
-  mountPartial("pf-header", headerUrls, "<header class=\"pf-header\">\n  <style>\n  :root{\n    --pf-bg:#ffffff;\n    --pf-text:#0f172a;\n    --pf-muted:#334155;\n    --pf-green:#1f6b3a;\n    --pf-border:#e5e7eb;\n  }\n  .pf-header{\n    position:sticky; top:0; z-index:999;\n    background:var(--pf-bg);\n    border-bottom:1px solid var(--pf-border);\n  }\n  .pf-header__inner{\n    max-width:1200px; margin:0 auto;\n    padding:10px 14px;\n    display:flex; align-items:center; gap:14px;\n  }\n  .pf-brand{\n    display:flex; align-items:center; gap:10px;\n    text-decoration:none;\n    min-width: 220px;\n  }\n  .pf-brand img{ width:68px; height:68px; object-fit:contain; }\n  .pf-brand__text{ display:flex; flex-direction:column; line-height:1.05; }\n  .pf-brand__text strong{ font-size:14px; color:var(--pf-text); letter-spacing:.2px; }\n  .pf-brand__text span{ font-size:12px; color:var(--pf-muted); }\n  .pf-nav{\n    margin-left:auto;\n    display:flex; align-items:center; gap:14px;\n    flex-wrap:wrap;\n  }\n  .pf-nav a{\n    text-decoration:none;\n    color:var(--pf-text);\n    font-weight:700;\n    font-size:13px;\n    padding:8px 10px;\n    border-radius:10px;\n  }\n  .pf-nav a:hover{ background:#f1f5f9; }\n  .pf-actions{ display:flex; align-items:center; gap:10px; margin-left: 10px; }\n  .pf-btn{\n    display:inline-flex; align-items:center; gap:8px;\n    border:1px solid var(--pf-border);\n    background:#fff;\n    color:var(--pf-text);\n    border-radius:12px;\n    padding:8px 10px;\n    font-weight:800;\n    font-size:13px;\n    cursor:pointer;\n    text-decoration:none;\n    white-space:nowrap;\n  }\n  .pf-btn--primary{ border-color: transparent; background: var(--pf-green); color:#fff; }\n  .pf-icon{ width:16px; height:16px; display:inline-block; }\n  .pf-hamb{ display:none; }\n\n  .pf-mobile{\n    display:none;\n    border-top:1px solid var(--pf-border);\n    max-width:1200px; margin:0 auto;\n    padding: 10px 14px 14px;\n  }\n  .pf-mobile a{\n    display:block;\n    padding:12px 10px;\n    border-radius:12px;\n    text-decoration:none;\n    color:var(--pf-text);\n    font-weight:800;\n    margin-top:8px;\n    background:#f8fafc;\n  }\n  .pf-mobile a:hover{ background:#f1f5f9; }\n\n  @media (max-width: 980px){\n    .pf-nav{ display:none; }\n    .pf-hamb{ display:inline-flex; }\n  }\n</style>\n\n  <div class=\"pf-header__inner\">\n    <a class=\"pf-brand\" href=\"/en/\">\n      <img src=\"https://prepperfamily.org/imagenes/logotipo\" alt=\"PrepperFamily logo\" loading=\"lazy\">\n      <div class=\"pf-brand__text\">\n        <strong>PrepperFamily.org</strong>\n        <span>Family preparedness &amp; faith</span>\n      </div>\n    </a>\n\n    <nav class=\"pf-nav\" aria-label=\"Primary\">\n      <a href=\"/en/material-support/\">Material Support</a>\n      <a href=\"/en/family-resilience/\">Family Resilience</a>\n      <a href=\"/en/inner-strength/\">Inner Strength</a>\n      <a href=\"#community\">Community</a>\n      <a class=\"pf-btn\" href=\"mailto:accounting@prepperfamily.org\">\n        <svg class=\"pf-icon\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\">\n          <path d=\"M4 6.5h16v11H4v-11Z\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"/>\n          <path d=\"m4.5 7 7.5 6 7.5-6\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"/>\n        </svg>\n        <span>Contact</span>\n      </a>\n    </nav>\n\n    <div class=\"pf-actions\">\n      <button class=\"pf-btn pf-btn--primary\" data-lang-link=\"/es/\" aria-label=\"Cambiar a Espa\u00f1ol\">Espa\u00f1ol</button>\n      <button class=\"pf-btn pf-hamb\" data-pf-toggle=\"menu\" aria-label=\"Menu\" aria-expanded=\"false\">\u2261</button>\n    </div>\n  </div>\n\n  <div class=\"pf-mobile\" data-pf-panel=\"menu\">\n    <a href=\"/en/material-support/\">Material Support</a>\n    <a href=\"/en/family-resilience/\">Family Resilience</a>\n    <a href=\"/en/inner-strength/\">Inner Strength</a>\n    <a href=\"#community\">Community</a>\n    <a href=\"mailto:accounting@prepperfamily.org\">Contact</a>\n    <a data-lang-link=\"/es/\" href=\"#\" style=\"text-align:center; font-weight:900;\">Espa\u00f1ol</a>\n  </div>\n</header>", function(m){ initHeader(m); })
-    .then(function(){ return mountPartial("pf-support", supportUrls, null, null); })
-    .catch(function(){ /* silent */ });
+  Promise.resolve()
+    .then(function(){ return mountPartial("pf-header", headerUrls, function(mount){ initHeader(mount); }); })
+    .then(function(){ return mountPartial("pf-support", supportUrls); })
+    .catch(function(){ /* fail silently */ });
 })();
 </script>
 
