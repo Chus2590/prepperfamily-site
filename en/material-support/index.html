@@ -3,13 +3,523 @@
 <head>
   <meta charset="utf-8">
   <title>Material Support | PrepperFamily</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <h1>Material Support</h1>
-  <p>Section under construction.</p>
 
-  <p>
-    <a href="/prepperfamily-site/">← Back to Home</a>
-  </p>
+<!-- Language switcher -->
+<div style="text-align:right; padding:1rem;">
+  <button class="language-switcher" data-lang-link="/es/material-support/" aria-label="Cambiar a Español">
+    Español
+  </button>
+</div>
+
+<!-- SUSTENTO MATERIAL – DISEÑO PREMIUM v3 -->
+<section class="sm-wrapper">
+  <style>
+    /* ---------- VARIABLES DE DISEÑO ---------- */
+    :root{
+      --sm-primary: #2c5f2d;
+      --sm-primary-light: #357a37;
+      --sm-accent: #d4842a;
+      --sm-accent-light: #f5b041;
+      --sm-text-dark: #1a1a1a;
+      --sm-text-medium: #4a4a4a;
+      --sm-text-light: #6b7280;
+      --sm-bg-primary: #ffffff;
+      --sm-bg-secondary: #f8fafc;
+      --sm-bg-accent: #fef7e0;
+      --sm-bg-hero: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
+      --sm-border: #e5e7eb;
+      --sm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --sm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --sm-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --sm-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    /* ---------- CONTENEDOR GENERAL ---------- */
+    .sm-wrapper{
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: var(--sm-text-dark);
+      line-height: 1.6;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem 4rem;
+    }
+
+    /* ---------- HERO MEJORADO ---------- */
+    .sm-hero{
+      background: var(--sm-bg-hero);
+      border-radius: 20px;
+      padding: 3.5rem 2rem 3rem;
+      margin: 2rem 0 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--sm-shadow-xl);
+    }
+
+    .sm-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, 
+        rgba(44, 95, 45, 0.03) 0%, 
+        rgba(212, 132, 42, 0.03) 50%, 
+        rgba(44, 95, 45, 0.03) 100%);
+      pointer-events: none;
+    }
+
+    .sm-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .sm-hero h1{
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      margin: 0 0 0.5rem;
+      background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+
+    .sm-hero h1 .icon{
+      font-size: 1em;
+      margin-right: 0.3rem;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .sm-hero h2{
+      font-size: clamp(1.3rem, 3vw, 1.6rem);
+      font-weight: 600;
+      margin: 0 auto 1.5rem;
+      max-width: 42rem;
+      color: var(--sm-accent);
+      line-height: 1.3;
+    }
+
+    .sm-hero p{
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      max-width: 50rem;
+      margin: 0 auto;
+      color: var(--sm-text-medium);
+      line-height: 1.7;
+    }
+
+    /* ---------- SUBCATEGORÍAS CON JERARQUÍA ---------- */
+    .sm-topics {
+      margin: 4rem 0;
+      text-align: center;
+    }
+
+    .sm-topics h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--sm-primary);
+      margin-bottom: 2.5rem;
+    }
+
+    .sm-topics-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Botón principal (padre) */
+    .sm-topic-parent {
+      width: 100%;
+    }
+
+    .sm-topic-parent a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-primary-light) 100%);
+      color: white;
+      border: none;
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+      text-decoration: none;
+      box-shadow: var(--sm-shadow-lg);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sm-topic-parent a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .sm-topic-parent a:hover::before {
+      left: 100%;
+    }
+
+    .sm-topic-parent a:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sm-shadow-xl);
+    }
+
+    .sm-topic-parent a .icon {
+      font-size: 1.5em;
+      margin-right: 0.75rem;
+    }
+
+    /* Botones hijos (subcategorías) */
+    .sm-topics-children {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 0;
+      list-style: none;
+      margin: 0;
+    }
+
+    .sm-topics-children li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      color: var(--sm-primary);
+      border: 2px solid var(--sm-primary);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      font-weight: 600;
+      font-size: 1.05rem;
+      text-decoration: none;
+      box-shadow: var(--sm-shadow-md);
+      transition: all 0.3s ease;
+      text-align: center;
+      min-height: 80px;
+      position: relative;
+    }
+
+    .sm-topics-children li a::after {
+      content: "→";
+      position: absolute;
+      right: 1.5rem;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.3s ease;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .sm-topics-children li a:hover {
+      background: var(--sm-primary);
+      color: white;
+      transform: translateX(4px);
+      box-shadow: var(--sm-shadow-lg);
+    }
+
+    .sm-topics-children li a:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .sm-topics-children li a .emoji {
+      font-size: 1.4em;
+      margin-right: 0.5rem;
+    }
+
+    /* ---------- ACCIÓN INMEDIATA MEJORADA ---------- */
+    .sm-action{
+      margin: 4rem 0;
+      background: var(--sm-bg-secondary);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      box-shadow: var(--sm-shadow-md);
+    }
+
+    .sm-action h3{
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--sm-primary);
+    }
+
+    .sm-action ol{
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sm-action li{
+      counter-increment: step;
+      margin-bottom: 1.5rem;
+      padding: 1.25rem 1.5rem 1.25rem 4rem;
+      position: relative;
+      font-size: 1.05rem;
+      background: var(--sm-bg-primary);
+      border-radius: 12px;
+      box-shadow: var(--sm-shadow-sm);
+      border-left: 4px solid var(--sm-accent);
+      transition: all 0.3s ease;
+    }
+
+    .sm-action li:hover {
+      transform: translateX(4px);
+      box-shadow: var(--sm-shadow-md);
+    }
+
+    .sm-action li::before{
+      content: counter(step);
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2.5rem;
+      height: 2.5rem;
+      background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-accent) 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: var(--sm-shadow-md);
+    }
+
+    /* ---------- CALL TO ACTION PREMIUM ---------- */
+    .sm-cta{
+      background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-primary-light) 100%);
+      color: white;
+      padding: 2.5rem 2rem;
+      border-radius: 20px;
+      margin: 4rem 0;
+      box-shadow: var(--sm-shadow-xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sm-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .sm-cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .sm-cta p{
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .sm-cta a{
+      color: var(--sm-accent-light);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px solid var(--sm-accent-light);
+      transition: all 0.3s ease;
+    }
+
+    .sm-cta a:hover {
+      color: white;
+      border-bottom-color: white;
+    }
+
+    /* ---------- FOOTER ELEGANTE ---------- */
+    .sm-footer{
+      font-size: 0.95rem;
+      color: var(--sm-text-light);
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--sm-border);
+    }
+
+    .sm-footer strong {
+      color: var(--sm-primary);
+    }
+
+    /* ---------- RESPONSIVE MEJORADO ---------- */
+    @media (max-width: 768px) {
+      .sm-wrapper { padding: 0 0.75rem 3rem; }
+      .sm-hero { padding: 2.5rem 1.5rem 2rem; margin: 1rem 0 2rem; }
+      .sm-action { padding: 2rem 1.5rem; }
+      .sm-cta { padding: 2rem 1.5rem; }
+      
+      .sm-action li { padding: 1rem 1.25rem 1rem 3.5rem; }
+      .sm-action li::before { 
+        width: 2rem; 
+        height: 2rem; 
+        left: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .sm-topic-parent a {
+        font-size: 1.1rem;
+        padding: 1.25rem 1.5rem;
+      }
+
+      .sm-topics-children {
+        grid-template-columns: 1fr;
+      }
+
+      .sm-topics-children li a {
+        padding: 1rem 1.25rem;
+        font-size: 1rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .sm-hero { padding: 4rem 3rem 3.5rem; }
+      .sm-topics-children { gap: 2rem; }
+    }
+  </style>
+  <!-- SUSTENTO MATERIAL – DISEÑO PREMIUM v3 -->
+<section class="sm-wrapper">
+  <style>
+    /* (todo el CSS se mantiene igual, sin traducción) */
+  </style>
+
+  <!-- HERO PRINCIPAL -->
+  <header class="sm-hero">
+    <div class="sm-hero-content">
+      <h1><span class="icon">🛠</span>Material Support</h1>
+      <h2>Forge abundance: before, during, and after the storm</h2>
+      <p>We transform any corner—urban patio or remote plot—into a hub of constant provision. Rural ingenuity and practical science come together so your table stays full even when the lights go out.</p>
+    </div>
+  </header>
+
+  <!-- SUBCATEGORÍAS CON JERARQUÍA -->
+  <section class="sm-topics">
+    <h3>Explore the Material Support Topics</h3>
+    <div class="sm-topics-container">
+      <!-- Botón padre -->
+      <div class="sm-topic-parent">
+        <a href="https://prepperfamily.org/en/category/material-support/">
+          <span class="icon">🌾</span>
+          View All: Material Support 
+        </a>
+      </div>
+      
+      <!-- Botones hijos -->
+      <ul class="sm-topics-children">
+        <li>
+          <a href="https://prepperfamily.org/en/category/store/">
+            <span class="emoji">📦</span>
+            <span>STORE: Food and Medicine</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://prepperfamily.org/en/category/grow/">
+            <span class="emoji">🌱</span>
+            <span>GROW: Food and Medicine</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://prepperfamily.org/en/category/prepare/">
+            <span class="emoji">🔧</span>
+            <span>PREPARE: Basic Materials</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://prepperfamily.org/en/category/units/">
+            <span class="emoji">🏡</span>
+            <span>Family Production Units</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ACCIÓN INMEDIATA -->
+  <section class="sm-action">
+    <h3>First steps today</h3>
+    <ol>
+      <li>Calculate how many family servings you need for 90 days.</li>
+      <li>Audit your tools: mark those dependent on electricity.</li>
+      <li>Choose a pilot micro-project (sprouting lentils in 72 h) and share your progress.</li>
+    </ol>
+  </section>
+
+  <!-- ESPACIADOR PARA QUERY LOOP -->
+  <!-- Inserta aquí tu bloque "Query Loop" filtrado por las 4 categorías anteriores -->
+
+  <!-- CALL TO ACTION -->
+  <div class="sm-cta">
+    <div class="sm-cta-content">
+      <p><strong>Do you have a trick or invention that kept your kitchen running during scarcity?</strong><br>
+         Share it with the community: <a href="mailto:editor@prepperfamily.org">editor@prepperfamily.org</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- PIE DE AUTENTICIDAD -->
+  <footer class="sm-footer">
+    This section is part of the mission of <strong>PrepperFamily.org</strong>: Christian families who cultivate, preserve, and trust in Providence.
+  </footer>
+</section>
+
+<!-- Support block -->
+<div id="pf-support"></div>
+
+<script id="pf-portable-links">
+(function () {
+  var isGitHub = location.hostname.endsWith("github.io");
+  var base = isGitHub ? "/prepperfamily-site" : "";
+
+  document.querySelectorAll("[data-lang-link]").forEach(function (el) {
+    var target = el.getAttribute("data-lang-link");
+    el.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = base + target;
+    });
+  });
+
+  var isES = location.pathname.startsWith(base + "/es/");
+  var file = isES ? base + "/partials/support-es.html"
+                  : base + "/partials/support-en.html";
+
+  fetch(file)
+    .then(function (r) { return r.text(); })
+    .then(function (html) {
+      var mount = document.getElementById("pf-support");
+      if (mount) mount.innerHTML = html;
+    });
+})();
+</script>
+
 </body>
 </html>
