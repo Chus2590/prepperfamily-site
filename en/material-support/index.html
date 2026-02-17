@@ -7,16 +7,13 @@
 </head>
 <body>
 
-<!-- Language switcher -->
-<div style="text-align:right; padding:1rem;">
-  <button class="language-switcher" data-lang-link="/es/material-support/" aria-label="Cambiar a Español">
-    Español
-  </button>
+<!-- Language switcher (EN → ES) -->
+<div class="pf-topbar">
+  <button class="pf-lang-btn" data-lang-link="/es/material-support/" aria-label="Cambiar a Español">Español</button>
 </div>
 
-<!-- SUSTENTO MATERIAL – DISEÑO PREMIUM v3 -->
 <section class="sm-wrapper">
-  <style>
+<style>
     /* ---------- VARIABLES DE DISEÑO ---------- */
     :root{
       --sm-primary: #2c5f2d;
@@ -406,16 +403,46 @@
       .sm-hero { padding: 4rem 3rem 3.5rem; }
       .sm-topics-children { gap: 2rem; }
     }
+  
+  /* --- PrepperFamily static migration additions --- */
+  body { margin: 0; background: #ffffff; }
+  .pf-topbar{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 16px 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .pf-lang-btn{
+    background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-primary-light) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--sm-shadow-md);
+  }
+  .pf-lang-btn:active{ transform: translateY(1px); }
+  .sm-hero-img{
+    width: 100%;
+    max-width: 980px;
+    height: auto;
+    display: block;
+    margin: 0 auto 1.75rem;
+    border-radius: 18px;
+    box-shadow: var(--sm-shadow-xl);
+  }
+  @media (max-width: 768px){
+    .pf-topbar{ padding: 12px 12px 0; }
+    .sm-hero-img{ margin-bottom: 1.25rem; border-radius: 14px; }
+  }
   </style>
-  <!-- SUSTENTO MATERIAL – DISEÑO PREMIUM v3 -->
-<section class="sm-wrapper">
-  <style>
-    /* (todo el CSS se mantiene igual, sin traducción) */
-  </style>
-
-  <!-- HERO PRINCIPAL -->
+<!-- HERO PRINCIPAL -->
   <header class="sm-hero">
     <div class="sm-hero-content">
+      <img class="sm-hero-img" src="https://prepperfamily.org/blog/wp-content/uploads/2025/11/pexels-helloaesthe-28645474-2048x1365.jpg" alt="Material Support illustration">
       <h1><span class="icon">🛠</span>Material Support</h1>
       <h2>Forge abundance: before, during, and after the storm</h2>
       <p>We transform any corner—urban patio or remote plot—into a hub of constant provision. Rural ingenuity and practical science come together so your table stays full even when the lights go out.</p>
@@ -492,26 +519,25 @@
   </footer>
 </section>
 
-<!-- Support block -->
+<!-- Support block (loaded from /partials/) -->
 <div id="pf-support"></div>
 
-<script id="pf-portable-links">
+<script id="pf-page-runtime">
 (function () {
   var isGitHub = location.hostname.endsWith("github.io");
   var base = isGitHub ? "/prepperfamily-site" : "";
 
+  // Language switcher
   document.querySelectorAll("[data-lang-link]").forEach(function (el) {
-    var target = el.getAttribute("data-lang-link");
+    var target = el.getAttribute("data-lang-link") || "/";
     el.addEventListener("click", function (e) {
       e.preventDefault();
       window.location.href = base + target;
     });
   });
 
-  var isES = location.pathname.startsWith(base + "/es/");
-  var file = isES ? base + "/partials/support-es.html"
-                  : base + "/partials/support-en.html";
-
+  // Load support partial (EN here)
+  var file = base + "/partials/support-en.html";
   fetch(file)
     .then(function (r) { return r.text(); })
     .then(function (html) {
