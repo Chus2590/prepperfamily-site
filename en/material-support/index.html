@@ -7,10 +7,8 @@
 </head>
 <body>
 
-<!-- Language switcher (EN → ES) -->
-<div class="pf-topbar">
-  <button class="pf-lang-btn" data-lang-link="/es/material-support/" aria-label="Cambiar a Español">Español</button>
-</div>
+<!-- Header block (loaded from /partials/) -->
+<div id="pf-header"></div>
 
 <section class="sm-wrapper">
 <style>
@@ -63,9 +61,9 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(45deg, 
-        rgba(44, 95, 45, 0.03) 0%, 
-        rgba(212, 132, 42, 0.03) 50%, 
+      background: linear-gradient(45deg,
+        rgba(44, 95, 45, 0.03) 0%,
+        rgba(212, 132, 42, 0.03) 50%,
         rgba(44, 95, 45, 0.03) 100%);
       pointer-events: none;
     }
@@ -375,11 +373,11 @@
       .sm-hero { padding: 2.5rem 1.5rem 2rem; margin: 1rem 0 2rem; }
       .sm-action { padding: 2rem 1.5rem; }
       .sm-cta { padding: 2rem 1.5rem; }
-      
+
       .sm-action li { padding: 1rem 1.25rem 1rem 3.5rem; }
-      .sm-action li::before { 
-        width: 2rem; 
-        height: 2rem; 
+      .sm-action li::before {
+        width: 2rem;
+        height: 2rem;
         left: 1rem;
         font-size: 0.9rem;
       }
@@ -403,28 +401,9 @@
       .sm-hero { padding: 4rem 3rem 3.5rem; }
       .sm-topics-children { gap: 2rem; }
     }
-  
+
   /* --- PrepperFamily static migration additions --- */
   body { margin: 0; background: #ffffff; }
-  .pf-topbar{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 14px 16px 0;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-  .pf-lang-btn{
-    background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-primary-light) 100%);
-    color: #fff;
-    border: none;
-    border-radius: 999px;
-    padding: 10px 14px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: var(--sm-shadow-md);
-  }
-  .pf-lang-btn:active{ transform: translateY(1px); }
   .sm-hero-img{
     width: 100%;
     max-width: 980px;
@@ -435,7 +414,6 @@
     box-shadow: var(--sm-shadow-xl);
   }
   @media (max-width: 768px){
-    .pf-topbar{ padding: 12px 12px 0; }
     .sm-hero-img{ margin-bottom: 1.25rem; border-radius: 14px; }
   }
   /* --- Mobile fixes: heading contrast + topic buttons size --- */
@@ -458,7 +436,8 @@
   .sm-topics-children li a .emoji { margin-right: 0; }
 }
   </style>
-<!-- HERO PRINCIPAL -->
+
+  <!-- HERO PRINCIPAL -->
   <header class="sm-hero">
     <div class="sm-hero-content">
       <img class="sm-hero-img" src="https://prepperfamily.org/blog/wp-content/uploads/2025/11/pexels-helloaesthe-28645474-2048x1365.jpg" alt="Material Support illustration">
@@ -476,10 +455,10 @@
       <div class="sm-topic-parent">
         <a href="https://prepperfamily.org/en/category/material-support/">
           <span class="icon">🌾</span>
-          View All: Material Support 
+          View All: Material Support
         </a>
       </div>
-      
+
       <!-- Botones hijos -->
       <ul class="sm-topics-children">
         <li>
@@ -546,27 +525,51 @@
   var isGitHub = location.hostname.endsWith("github.io");
   var base = isGitHub ? "/prepperfamily-site" : "";
 
-  // Language switcher
-  document.querySelectorAll("[data-lang-link]").forEach(function (el) {
-    var target = el.getAttribute("data-lang-link") || "/";
-    el.addEventListener("click", function (e) {
-      e.preventDefault();
-      window.location.href = base + target;
+  function unwrapBody(raw){
+    var m = raw.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+    return m ? m[1] : raw;
+  }
+
+  function fetchFirst(urls){
+    var i = 0;
+    function next(){
+      var url = urls[i++];
+      return fetch(url).then(function(r){
+        if(!r.ok) throw new Error("HTTP " + r.status);
+        return r.text();
+      }).catch(function(){
+        if (i < urls.length) return next();
+        throw new Error("All fetches failed");
+      });
+    }
+    return next();
+  }
+
+  function mountPartial(mountId, urls){
+    return fetchFirst(urls).then(function(raw){
+      var mount = document.getElementById(mountId);
+      if (!mount) return;
+      mount.innerHTML = unwrapBody(raw);
     });
+  }
+
+  // Delegated language switch (works for content loaded later, e.g., header partial)
+  document.addEventListener("click", function(e){
+    var el = e.target && e.target.closest ? e.target.closest("[data-lang-link]") : null;
+    if(!el) return;
+    e.preventDefault();
+    var target = el.getAttribute("data-lang-link") || "/";
+    window.location.href = base + target;
   });
 
-  // Load support partial (EN here). Works whether your partial is a raw snippet or a full HTML page.
-  var file = base + "/partials/support-en/";
-  fetch(file)
-    .then(function (r) { return r.text(); })
-    .then(function (raw) {
-      var mount = document.getElementById("pf-support");
-      if (!mount) return;
+  // Load partials (try .html first, then trailing-slash folder)
+  var headerUrls = [base + "/partials/header-en.html", base + "/partials/header-en/"];
+  var supportUrls = [base + "/partials/support-en.html", base + "/partials/support-en/"];
 
-      var m = raw.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-      var html = m ? m[1] : raw;
-      mount.innerHTML = html;
-    });
+  Promise.resolve()
+    .then(function(){ return mountPartial("pf-header", headerUrls); })
+    .then(function(){ return mountPartial("pf-support", supportUrls); })
+    .catch(function(){ /* fail silently */ });
 })();
 </script>
 
