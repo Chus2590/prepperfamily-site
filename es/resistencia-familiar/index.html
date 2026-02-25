@@ -1,14 +1,3 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<title>Resistencia Familiar | PrepperFamily</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-
-<div id="pf-header"></div>
-
 <!-- RESISTENCIA FAMILIAR – SUPER DISEÑO v3 MEJORADO -->
 <section class="rf-wrapper">
   <style>
@@ -480,25 +469,19 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
+  </style>
+  <!-- RESISTENCIA FAMILIAR – SUPER DISEÑO v3 MEJORADO -->
+<section class="rf-wrapper">
+  <style>
+    /* (todo el CSS permanece exactamente igual) */
+  </style>
   
-.rf-hero-img{
-  width:100%;
-  max-width:980px;
-  height:auto;
-  display:block;
-  margin:0 auto 1.75rem;
-  border-radius:18px;
-  box-shadow: var(--rf-shadow-lg);
-}
-</style>
-
-
   <!-- HERO PRINCIPAL -->
-<img class="rf-hero-img" src="https://prepperfamily.org/imagenes/resistencia-familiar" alt="Ilustración: Resistencia Familiar">
+  <header class="rf-hero">
     <h1><span class="icon">👨‍👩‍👧‍👦</span>Resistencia Familiar</h1>
     <h2>Porque la primera fortaleza se construye en casa</h2>
-    <blockquote>Resiste sin miedo. Prepara sin caos. Vive con propósito.</blockquote>
-    <p>Somos el taller donde las familias forjan unidad, defienden la verdad y transforman la crisis en oportunidad. Aquí encontrarás planes claros para convertir tu hogar en un bastión de coraje, servicio y alegría estable.</p>
+    <blockquote>Resiste sin miedo. Prepárate sin caos. Vive con propósito.</blockquote>
+    <p>Somos el taller donde las familias forjan unidad, defienden la verdad y convierten la crisis en oportunidad. Aquí encontrarás planes claros para convertir tu hogar en un bastión de valentía, servicio y alegría serena.</p>
   </header>
 
   <!-- SUBCATEGORÍAS CON JERARQUÍA -->
@@ -507,7 +490,7 @@
     <div class="rf-hierarchy">
       <!-- Categoría Principal -->
       <div class="rf-main-category">
-        <a href="https://prepperfamily.org/blog/category/resistencia-familiar/">Resistencia Familiar</a>
+        <a href="https://prepperfamily.org/en/category/family-resilience/">Resiliencia Familiar</a>
       </div>
       
       <!-- Conector visual -->
@@ -515,10 +498,10 @@
       
       <!-- Subcategorías -->
       <ul class="rf-sub-categories">
-        <li><a href="https://prepperfamily.org/blog/category/estructura-familiar/"><span>Roles y Estructura Familiar</span></a></li>
-        <li><a href="https://prepperfamily.org/blog/category/educacion-en-casa/"><span>Educación en Casa</span></a></li>
-        <li><a href="https://prepperfamily.org/blog/category/proteccion-del-hogar/"><span>Protección del Hogar</span></a></li>
-        <li><a href="https://prepperfamily.org/blog/category/economia-domestica/"><span>Economía Doméstica</span></a></li>
+        <li><a href="https://prepperfamily.org/en/category/family-structure/"><span>Roles y Estructura Familiar</span></a></li>
+        <li><a href="https://prepperfamily.org/en/category/homeschooling/"><span>Educación en Casa</span></a></li>
+        <li><a href="https://prepperfamily.org/en/category/home-protection/"><span>Protección del Hogar</span></a></li>
+        <li><a href="https://prepperfamily.org/en/category/household-economy/"><span>Economía del Hogar</span></a></li>
       </ul>
     </div>
   </section>
@@ -528,104 +511,28 @@
     <table>
       <thead>
         <tr>
-          <th>Familia frágil</th>
-          <th>Familia resistente</th>
+          <th>Familia Frágil</th>
+          <th>Familia Resiliente</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Rutinas sin propósito</td><td>Ritos diarios que cohesionan</td></tr>
-        <tr><td>Convivencia dispersa</td><td>Consejos familiares de misión semanal</td></tr>
-        <tr><td>Aislamiento vecinal</td><td>Alianzas de barrio y trueque prudente</td></tr>
-        <tr><td>Miedo informativo</td><td>Criterio y discurso claro ante la cultura</td></tr>
+        <tr><td>Rutinas sin propósito</td><td>Ritos diarios que construyen cohesión</td></tr>
+        <tr><td>Convivencia desconectada</td><td>Consejos semanales de misión familiar</td></tr>
+        <tr><td>Aislamiento vecinal</td><td>Alianzas vecinales y trueque prudente</td></tr>
+        <tr><td>Información impulsada por el miedo</td><td>Discernimiento y discurso claro ante la cultura</td></tr>
       </tbody>
     </table>
   </div>
 
   <!-- CALL TO ACTION -->
   <div class="rf-cta">
-    <p><strong>¿Tienes prácticas que blindan tu hogar ante la incertidumbre?</strong><br>
+    <p><strong>¿Tienes prácticas que protegen tu hogar de la incertidumbre?</strong><br>
        Escríbenos y fortalece a otras familias: <a href="mailto:editor@prepperfamily.org">editor@prepperfamily.org</a>
     </p>
   </div>
 
   <!-- PIE DE AUTENTICIDAD -->
   <footer class="rf-footer">
-    Esta sección forma parte del pilar <strong>Resistencia Familiar</strong> de <strong>PrepperFamily.org</strong>, donde el amor se organiza y la verdad se defiende con alegría.
+    Esta sección forma parte del pilar de <strong>Resiliencia Familiar</strong> de <strong>PrepperFamily.org</strong>, donde el amor se organiza y la verdad se defiende con alegría.
   </footer>
 </section>
-
-<div id="pf-support"></div>
-
-<script id="pf-page-runtime">
-(function () {
-  var isGitHub = location.hostname.endsWith("github.io");
-  var base = isGitHub ? "/prepperfamily-site" : "";
-
-  function unwrapBody(raw){
-    var m = raw.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-    return m ? m[1] : raw;
-  }
-
-  function fetchFirst(urls){
-    var i = 0;
-    function next(){
-      var url = urls[i++];
-      return fetch(url).then(function(r){
-        if(!r.ok) throw new Error("HTTP " + r.status);
-        return r.text();
-      }).catch(function(){
-        if (i < urls.length) return next();
-        throw new Error("All fetches failed");
-      });
-    }
-    return next();
-  }
-
-  function initHeader(root){
-    if(!root) return;
-    var panel = root.querySelector("[data-pf-panel='menu']");
-    if(panel && !panel.getAttribute("data-pf-initialized")){
-      panel.style.display = "none";
-      panel.setAttribute("data-pf-initialized", "true");
-    }
-    var btn = root.querySelector("[data-pf-toggle='menu']");
-    if(btn && panel && !btn.getAttribute("data-pf-bound")){
-      btn.setAttribute("data-pf-bound", "true");
-      btn.addEventListener("click", function(){
-        var open = panel.style.display === "block";
-        panel.style.display = open ? "none" : "block";
-        btn.setAttribute("aria-expanded", open ? "false" : "true");
-      });
-    }
-  }
-
-  function mountPartial(mountId, urls, after){
-    return fetchFirst(urls).then(function(raw){
-      var mount = document.getElementById(mountId);
-      if (!mount) return;
-      mount.innerHTML = unwrapBody(raw);
-      if (typeof after === "function") after(mount);
-    });
-  }
-
-  document.addEventListener("click", function(e){
-    var el = e.target && e.target.closest ? e.target.closest("[data-lang-link]") : null;
-    if(!el) return;
-    e.preventDefault();
-    var target = el.getAttribute("data-lang-link") || "/";
-    window.location.href = base + target;
-  });
-
-  var headerUrls  = [base + "/partials/header-es.html",  base + "/partials/header-es/"];
-  var supportUrls = [base + "/partials/support-es.html", base + "/partials/support-es/"];
-
-  Promise.resolve()
-    .then(function(){ return mountPartial("pf-header", headerUrls, function(mount){ initHeader(mount); }); })
-    .then(function(){ return mountPartial("pf-support", supportUrls); })
-    .catch(function(){});
-})();
-</script>
-
-</body>
-</html>
-
