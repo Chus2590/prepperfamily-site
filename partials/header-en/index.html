@@ -1,12 +1,14 @@
 <header class="site-header">
 
 <style>
+
 .site-header{
   background:#ffffff;
-  border-bottom:1px solid #e5e5e5;
+  border-bottom:1px solid #e6e6e6;
   position:sticky;
   top:0;
   z-index:1000;
+  font-family:system-ui, Arial, sans-serif;
 }
 
 .header-container{
@@ -19,64 +21,98 @@
 }
 
 .logo img{
-  height:55px;
+  height:52px;
 }
 
-.nav-menu{
+.nav{
   display:flex;
-  gap:28px;
-  font-family:system-ui,Arial,sans-serif;
-  font-size:16px;
+  gap:26px;
 }
 
-.nav-menu a{
+.nav a{
   text-decoration:none;
   color:#222;
+  font-size:16px;
   font-weight:500;
 }
 
-.nav-menu a:hover{
+.nav a:hover{
   color:#2c7be5;
 }
 
-.lang-switch{
-  margin-left:20px;
+.lang{
   font-weight:600;
 }
 
-@media (max-width:900px){
-  .nav-menu{
-    gap:18px;
-    font-size:15px;
-  }
+/* MOBILE */
+
+.menu-toggle{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+}
+
+@media (max-width:768px){
+
+.nav{
+  position:absolute;
+  top:70px;
+  left:0;
+  width:100%;
+  background:white;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  padding:20px 0;
+  border-bottom:1px solid #eee;
+  display:none;
+}
+
+.nav.active{
+  display:flex;
+}
+
+.menu-toggle{
+  display:block;
+}
+
 }
 
 </style>
 
 <div class="header-container">
 
-  <div class="logo">
-    <a href="/en/">
-      <img src="https://prepperfamily.org/imagenes/logotipo" alt="PrepperFamily Logo">
-    </a>
-  </div>
+<div class="logo">
+<a href="/en/">
+<img src="https://prepperfamily.org/imagenes/logotipo" alt="PrepperFamily">
+</a>
+</div>
 
-  <nav class="nav-menu">
+<div class="menu-toggle" onclick="toggleMenu()">
+☰
+</div>
 
-    <a href="/en/material-support/">Material Support</a>
+<nav class="nav" id="navMenu">
 
-    <a href="/en/family-resilience/">Family Resilience</a>
+<a href="/en/material-support/">Material Support</a>
 
-    <a href="/en/inner-strength/">Inner Strength</a>
+<a href="/en/family-resilience/">Family Resilience</a>
 
-    <a href="/en/blog/">Articles</a>
+<a href="/en/inner-strength/">Inner Strength</a>
 
-    <a href="/sitemap.html">Site Map</a>
+<a href="/es/" class="lang">Español</a>
 
-    <a href="/es/" class="lang-switch">Español</a>
-
-  </nav>
+</nav>
 
 </div>
+
+<script>
+
+function toggleMenu(){
+  var menu=document.getElementById("navMenu");
+  menu.classList.toggle("active");
+}
+
+</script>
 
 </header>
