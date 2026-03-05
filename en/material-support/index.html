@@ -12,425 +12,246 @@
 
 <section class="sm-wrapper">
   <style>
-    /* ---------- VARIABLES DE DISEÑO ---------- */
-    :root{
-      --sm-primary: #2c5f2d;
-      --sm-primary-light: #357a37;
-      --sm-accent: #d4842a;
-      --sm-accent-light: #f5b041;
-      --sm-text-dark: #1a1a1a;
-      --sm-text-medium: #4a4a4a;
-      --sm-text-light: #6b7280;
-      --sm-bg-primary: #ffffff;
-      --sm-bg-secondary: #f8fafc;
-      --sm-bg-accent: #fef7e0;
-      --sm-bg-hero: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0fdf4 100%);
-      --sm-border: #e5e7eb;
-      --sm-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --sm-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --sm-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --sm-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
+  :root{
+    --sm-bg-hero:linear-gradient(135deg,#f6fff7 0%,#eef7ff 100%);
+    --sm-bg-accent:#f0f4f8;
+    --sm-bg-callout:#fff4e5;
+    --sm-clr-main:#243246;
+    --sm-clr-accent:#2c5f2d;
+    --sm-clr-muted:#6f7d8a;
+    --sm-clr-gold:#c3a56c;
+  }
 
-    /* ---------- CONTENEDOR GENERAL ---------- */
-    .sm-wrapper{
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      color: var(--sm-text-dark);
-      line-height: 1.6;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem 4rem;
-    }
+  .sm-wrapper{
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color:var(--sm-clr-main);
+    padding:1rem 0 4rem;
+  }
 
-    /* ---------- HERO MEJORADO ---------- */
-    .sm-hero{
-      background: var(--sm-bg-hero);
-      border-radius: 20px;
-      padding: 3.5rem 2rem 3rem;
-      margin: 2rem 0 3rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--sm-shadow-xl);
-    }
-    .sm-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(45deg,
-        rgba(44, 95, 45, 0.03) 0%,
-        rgba(212, 132, 42, 0.03) 50%,
-        rgba(44, 95, 45, 0.03) 100%);
-      pointer-events: none;
-    }
-    .sm-hero-content { position: relative; z-index: 1; }
-    .sm-hero h1{
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
-      font-weight: 800;
-      margin: 0 0 0.5rem;
-      background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1.1;
-    }
-    .sm-hero h1 .icon{
-      font-size: 1em;
-      margin-right: 0.3rem;
-      display: inline-block;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-    .sm-hero h2{
-      font-size: clamp(1.3rem, 3vw, 1.6rem);
-      font-weight: 600;
-      margin: 0 auto 1.5rem;
-      max-width: 42rem;
-      color: var(--sm-accent);
-      line-height: 1.3;
-    }
-    .sm-hero p{
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      max-width: 50rem;
-      margin: 0 auto;
-      color: var(--sm-text-medium);
-      line-height: 1.7;
-    }
+  .sm-hero-image{
+    width:100%;
+    max-height:420px;
+    object-fit:cover;
+    border-radius:14px;
+    margin:0 0 1.75rem;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    display:block;
+  }
 
-    /* ---------- SUBCATEGORÍAS ---------- */
-    .sm-topics { margin: 4rem 0; text-align: center; }
-    .sm-topics h3 { font-size: 1.8rem; font-weight: 700; color: var(--sm-primary); margin-bottom: 2.5rem; }
-    .sm-topics-container { display: flex; flex-direction: column; gap: 2rem; max-width: 900px; margin: 0 auto; }
-    .sm-topic-parent a{
-      display:flex; align-items:center; justify-content:center;
-      background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-primary-light) 100%);
-      color:#fff; border:none; border-radius:16px;
-      padding: 1.5rem 2rem;
-      font-weight:700; font-size:1.3rem; text-decoration:none;
-      box-shadow: var(--sm-shadow-lg);
-      transition: all .4s cubic-bezier(.4,0,.2,1);
-      position:relative; overflow:hidden;
-    }
-    .sm-topic-parent a::before{
-      content:''; position:absolute; top:0; left:-100%;
-      width:100%; height:100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
-      transition:left .5s;
-    }
-    .sm-topic-parent a:hover::before{ left:100%; }
-    .sm-topic-parent a:hover{ transform: translateY(-4px); box-shadow: var(--sm-shadow-xl); }
-    .sm-topic-parent a .icon{ font-size: 1.5em; margin-right: .75rem; }
+  .sm-hero{
+    background:var(--sm-bg-hero);
+    padding:2.75rem 1.5rem 2.5rem;
+    border-radius:14px;
+    margin-bottom:2.25rem;
+    text-align:center;
+    box-shadow:0 10px 24px rgba(0,0,0,.05);
+  }
 
-    .sm-topics-children{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      padding:0; list-style:none; margin:0;
-    }
-    .sm-topics-children li a{
-      display:flex; align-items:center; justify-content:center;
-      background:#fff; color:var(--sm-primary);
-      border:2px solid var(--sm-primary);
-      border-radius:12px;
-      padding: 1.25rem 1.5rem;
-      font-weight:600; font-size:1.05rem;
-      text-decoration:none;
-      box-shadow: var(--sm-shadow-md);
-      transition: all .3s ease;
-      text-align:center;
-      min-height:80px;
-      position:relative;
-    }
-    .sm-topics-children li a::after{
-      content:"→"; position:absolute; right:1.5rem;
-      opacity:0; transform: translateX(-10px);
-      transition: all .3s ease;
-      font-weight:700; font-size:1.2rem;
-    }
-    .sm-topics-children li a:hover{
-      background: var(--sm-primary);
-      color:#fff;
-      transform: translateX(4px);
-      box-shadow: var(--sm-shadow-lg);
-    }
-    .sm-topics-children li a:hover::after{ opacity:1; transform: translateX(0); }
-    .sm-topics-children li a .emoji{ font-size:1.4em; margin-right:.5rem; }
+  .sm-hero h1{font-size:2.4rem;margin:0 0 .4rem;}
+  .sm-hero h1 .icon{font-size:2.4rem;vertical-align:middle;margin-right:.25rem;}
+  .sm-hero h2{
+    font-size:1.4rem;
+    font-weight:600;
+    margin:0 auto 1.15rem;
+    max-width:40rem;
+    line-height:1.4;
+    color:var(--sm-clr-gold);
+  }
+  .sm-hero p{font-size:1.125rem;line-height:1.6;max-width:46rem;margin:1.25rem auto 0;color:var(--sm-clr-main);}
 
-    /* ---------- ACCIÓN ---------- */
-    .sm-action{
-      margin: 4rem 0;
-      background: var(--sm-bg-secondary);
-      border-radius: 20px;
-      padding: 2.5rem 2rem;
-      box-shadow: var(--sm-shadow-md);
-    }
-    .sm-action h3{ font-size:1.6rem; font-weight:700; margin-bottom:2rem; text-align:center; color:var(--sm-primary); }
-    .sm-action ol{ counter-reset: step; list-style:none; padding:0; margin:0; }
-    .sm-action li{
-      counter-increment: step;
-      margin-bottom: 1.5rem;
-      padding: 1.25rem 1.5rem 1.25rem 4rem;
-      position:relative;
-      font-size:1.05rem;
-      background:#fff;
-      border-radius:12px;
-      box-shadow: var(--sm-shadow-sm);
-      border-left: 4px solid var(--sm-accent);
-      transition: all .3s ease;
-    }
-    .sm-action li:hover{ transform: translateX(4px); box-shadow: var(--sm-shadow-md); }
-    .sm-action li::before{
-      content: counter(step);
-      position:absolute;
-      left:1.25rem; top:50%;
-      transform: translateY(-50%);
-      width:2.5rem; height:2.5rem;
-      background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-accent) 100%);
-      color:#fff;
-      border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-      font-weight:700; font-size:1.1rem;
-      box-shadow: var(--sm-shadow-md);
-    }
+  .sm-topics{
+    background:#ffffff;
+    border:1px solid rgba(0,0,0,.06);
+    border-radius:14px;
+    padding:1.5rem;
+    box-shadow:0 8px 18px rgba(0,0,0,.04);
+    margin:2rem 0;
+  }
 
-    /* ---------- CTA ---------- */
-    .sm-cta{
-      background: linear-gradient(135deg, var(--sm-primary) 0%, var(--sm-primary-light) 100%);
-      color:#fff;
-      padding: 2.5rem 2rem;
-      border-radius: 20px;
-      margin: 4rem 0;
-      box-shadow: var(--sm-shadow-xl);
-      text-align:center;
-      position:relative;
-      overflow:hidden;
-    }
-    .sm-cta::before{
-      content:'';
-      position:absolute;
-      top:-50%; left:-50%;
-      width:200%; height:200%;
-      background: radial-gradient(circle, rgba(255,255,255,.1) 0%, transparent 70%);
-      animation: rotate 20s linear infinite;
-    }
-    @keyframes rotate { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
-    .sm-cta-content{ position:relative; z-index:1; }
-    .sm-cta p{ margin:0; font-size:1.1rem; line-height:1.6; }
-    .sm-cta a{
-      color: var(--sm-accent-light);
-      font-weight:700;
-      text-decoration:none;
-      border-bottom:2px solid var(--sm-accent-light);
-      transition: all .3s ease;
-    }
-    .sm-cta a:hover{ color:#fff; border-bottom-color:#fff; }
+  .sm-topics-container{
+    display:grid;
+    gap:1rem;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    margin-top:1rem;
+  }
 
-    /* ---------- FOOTER ---------- */
-    .sm-footer{
-      font-size:.95rem;
-      color: var(--sm-text-light);
-      text-align:center;
-      margin-top:3rem;
-      padding:2rem 0;
-      border-top: 1px solid var(--sm-border);
-    }
-    .sm-footer strong{ color: var(--sm-primary); }
+  .sm-topic-parent{
+    background:var(--sm-bg-accent);
+    border-radius:12px;
+    padding:1.1rem 1rem;
+    border:1px solid rgba(0,0,0,.04);
+  }
 
-    /* ---------- EXTRA ---------- */
-    body { margin:0; background:#fff; }
-    .sm-hero-img{
-      width:100%;
-      max-width:980px;
-      height:auto;
-      display:block;
-      margin:0 auto 1.75rem;
-      border-radius:18px;
-      box-shadow: var(--sm-shadow-xl);
-    }
-    @media (max-width: 768px){
-      .sm-wrapper{ padding:0 .75rem 3rem; }
-      .sm-hero{ padding:2.5rem 1.5rem 2rem; margin:1rem 0 2rem; }
-      .sm-action{ padding:2rem 1.5rem; }
-      .sm-cta{ padding:2rem 1.5rem; }
-      .sm-action li{ padding:1rem 1.25rem 1rem 3.5rem; }
-      .sm-action li::before{ width:2rem; height:2rem; left:1rem; font-size:.9rem; }
-      .sm-topic-parent a{ font-size:1.1rem; padding:1.25rem 1.5rem; }
-      .sm-topics-children{ grid-template-columns: 1fr; }
-      .sm-topics-children li a{ padding:1rem 1.25rem; font-size:1rem; }
-      .sm-hero-img{ margin-bottom:1.25rem; border-radius:14px; }
-    }
-    @media (min-width: 1024px){
-      .sm-hero{ padding:4rem 3rem 3.5rem; }
-      .sm-topics-children{ gap:2rem; }
-    }
-    @supports not (-webkit-background-clip: text) { .sm-hero h1 { color: var(--sm-primary) !important; } }
-    .sm-hero h1 .icon { color: var(--sm-primary) !important; }
+  .sm-topic-parent h3{
+    margin:.1rem 0 .4rem;
+    font-size:1.05rem;
+    color:var(--sm-clr-accent);
+    letter-spacing:.2px;
+  }
 
-    @media (max-width: 700px) {
-      .sm-topics-children { grid-template-columns: 1fr !important; }
-      .sm-topics-children li a {
-        width: 100%;
-        justify-content: flex-start;
-        text-align: left;
-        gap: 10px;
-        padding: 1.1rem 1.1rem;
-        min-height: auto;
-      }
-      .sm-topics-children li a::after { right: 1rem; opacity: 1; transform: translateX(0); }
-      .sm-topics-children li a .emoji { margin-right: 0; }
-    }
+  .sm-topic-parent p{
+    margin:0 0 .75rem;
+    color:var(--sm-clr-muted);
+    font-size:.97rem;
+  }
+
+  .sm-topics-children{
+    margin:0;
+    padding-left:1.1rem;
+  }
+  .sm-topics-children li{margin:.35rem 0;}
+  .sm-topics-children a{
+    color:var(--sm-clr-main);
+    text-decoration:none;
+    border-bottom:1px dotted rgba(36,50,70,.35);
+  }
+  .sm-topics-children a:hover{border-bottom-style:solid;}
+
+  .sm-cta{
+    background:var(--sm-bg-callout);
+    border:1px solid rgba(0,0,0,.06);
+    border-radius:14px;
+    padding:1.35rem 1.25rem;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    margin-top:2.25rem;
+  }
+
+  .sm-cta h3{margin:0 0 .25rem;font-size:1.1rem;}
+  .sm-cta p{margin:0;color:var(--sm-clr-muted);}
+
+  .sm-action{
+    display:inline-block;
+    padding:.75rem 1.1rem;
+    border-radius:999px;
+    background:var(--sm-clr-accent);
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    white-space:nowrap;
+    box-shadow:0 10px 18px rgba(44,95,45,.18);
+  }
+  .sm-action:hover{filter:brightness(.96);}
+
+  .sm-footer{
+    margin-top:2.5rem;
+    padding-top:1rem;
+    border-top:1px solid rgba(0,0,0,.08);
+    color:var(--sm-clr-muted);
+    font-size:.95rem;
+  }
+
+  /* responsive */
+  @media (max-width:900px){
+    .sm-topics-container{grid-template-columns:1fr;}
+    .sm-cta{flex-direction:column;align-items:flex-start;}
+  }
   </style>
 
   <!-- HERO -->
+  <img class="sm-hero-image" src="../../assets/images/material-support/hero.jpg" alt="Material Support">
+
   <header class="sm-hero">
     <div class="sm-hero-content">
-      <img class="sm-hero-img" src="../../assets/images/material-support/hero.jpg" alt="Material Support illustration">
-      <h1><span class="icon">🛠</span>Material Support</h1>
-      <h2>Forge abundance: before, during, and after the storm</h2>
-      <p>We transform any corner—urban patio or remote plot—into a hub of constant provision. Rural ingenuity and practical science come together so your table stays full even when the lights go out.</p>
+      <h1><span class="icon">🧰</span>Material Support</h1>
+      <h2>Build the household systems that keep life stable when supply chains don’t.</h2>
+      <p>
+        Material preparation is not paranoia; it is prudent stewardship. This pillar focuses on practical, repeatable systems that
+        strengthen a family’s independence: food, water, tools, storage, and the habits that make them sustainable.
+      </p>
     </div>
   </header>
 
   <!-- TOPICS -->
-  <section class="sm-topics">
-    <h3>Explore the Material Support Topics</h3>
-    <div class="sm-topics-container">
-      <div class="sm-topic-parent">
-        <a href="https://prepperfamily.org/en/category/material-support/">
-          <span class="icon">🌾</span>
-          View All: Material Support
-        </a>
-      </div>
+  <section class="sm-topics" aria-label="Topics in this section">
+    <h2>Topics in this section</h2>
+    <p>
+      These are the categories that will organize the articles of this pillar.
+    </p>
 
-      <ul class="sm-topics-children">
-        <li>
-          <a href="https://prepperfamily.org/en/category/store/">
-            <span class="emoji">📦</span><span>STORE: Food and Medicine</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://prepperfamily.org/en/category/grow/">
-            <span class="emoji">🌱</span><span>GROW: Food and Medicine</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://prepperfamily.org/en/category/prepare/">
-            <span class="emoji">🔧</span><span>PREPARE: Basic Materials</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://prepperfamily.org/en/category/units/">
-            <span class="emoji">🏡</span><span>Family Production Units</span>
-          </a>
-        </li>
-      </ul>
+    <div class="sm-topics-container">
+
+      <article class="sm-topic-parent">
+        <h3><span class="emoji">🥣</span> Food Systems</h3>
+        <p>Production, storage, ration logic, and continuity.</p>
+        <ul class="sm-topics-children">
+          <li><a href="/en/material-support/food-production/">Food production</a></li>
+          <li><a href="/en/material-support/food-storage/">Food storage</a></li>
+          <li><a href="/en/material-support/food-preservation/">Food preservation</a></li>
+        </ul>
+      </article>
+
+      <article class="sm-topic-parent">
+        <h3><span class="emoji">💧</span> Water Security</h3>
+        <p>Collection, filtration, storage, and low-tech redundancy.</p>
+        <ul class="sm-topics-children">
+          <li><a href="/en/material-support/water-storage/">Water storage</a></li>
+          <li><a href="/en/material-support/water-filtration/">Water filtration</a></li>
+          <li><a href="/en/material-support/water-hygiene/">Water & hygiene</a></li>
+        </ul>
+      </article>
+
+      <article class="sm-topic-parent">
+        <h3><span class="emoji">🧰</span> Tools & Infrastructure</h3>
+        <p>Repair capacity, manual methods, and resilient hardware.</p>
+        <ul class="sm-topics-children">
+          <li><a href="/en/material-support/tools/">Essential tools</a></li>
+          <li><a href="/en/material-support/off-grid-kitchen/">Off-grid kitchen</a></li>
+          <li><a href="/en/material-support/workshop/">Workshop basics</a></li>
+        </ul>
+      </article>
+
     </div>
   </section>
-
-  <!-- ACTION -->
-  <section class="sm-action">
-    <h3>First steps today</h3>
-    <ol>
-      <li>Calculate how many family servings you need for 90 days.</li>
-      <li>Audit your tools: mark those dependent on electricity.</li>
-      <li>Choose a pilot micro-project (sprouting lentils in 72 h) and share your progress.</li>
-    </ol>
-  </section>
-
-  <!-- QUERY LOOP PLACEHOLDER -->
-  <!-- Inserta aquí tu bloque "Query Loop" -->
 
   <!-- CTA -->
-  <div class="sm-cta">
+  <section class="sm-cta" aria-label="Get started">
     <div class="sm-cta-content">
-      <p><strong>Do you have a trick or invention that kept your kitchen running during scarcity?</strong><br>
-        Share it with the community: <a href="mailto:editor@prepperfamily.org">editor@prepperfamily.org</a>
-      </p>
+      <h3>Start small, build durable</h3>
+      <p>Pick one system (food, water, tools) and build it until it works under stress—then expand.</p>
     </div>
-  </div>
+    <a class="sm-action" href="/en/material-support/">Explore this pillar</a>
+  </section>
 
-  <!-- FOOTER -->
   <footer class="sm-footer">
-    This section is part of the mission of <strong>PrepperFamily.org</strong>: Christian families who cultivate, preserve, and trust in Providence.
+    This section is part of the mission of <strong>PrepperFamily.org</strong>: families who cultivate, preserve, and remain steady when systems wobble.
   </footer>
 </section>
 
-<!-- Support block (loaded from /partials/) -->
+<!-- Footer block (loaded from /partials/) -->
 <div id="pf-footer"></div>
 
-<script id="pf-page-runtime">
-(function () {
-  var isGitHub = location.hostname.endsWith("github.io");
-  var base = isGitHub ? "/prepperfamily-site" : "";
+<script>
+(async () => {
 
-  function unwrapBody(raw){
-    var m = raw.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-    return m ? m[1] : raw;
-  }
+const isGitHub = location.hostname.endsWith("github.io");
 
-  function fetchFirst(urls){
-    var i = 0;
-    function next(){
-      var url = urls[i++];
-      return fetch(url).then(function(r){
-        if(!r.ok) throw new Error("HTTP " + r.status);
-        return r.text();
-      }).catch(function(){
-        if (i < urls.length) return next();
-        throw new Error("All fetches failed");
-      });
-    }
-    return next();
-  }
+const base = isGitHub
+? `${location.origin}/prepperfamily-site`
+: "";
 
-  function initHeader(root){
-    if(!root) return;
+const lang = location.pathname.includes("/es/")
+? "es"
+: "en";
 
-    // Ensure mobile panel starts closed (in case partial didn't run its own script)
-    var panel = root.querySelector("[data-pf-panel='menu']");
-    if(panel && !panel.getAttribute("data-pf-initialized")){
-      panel.style.display = "none";
-      panel.setAttribute("data-pf-initialized", "true");
-    }
+const headerUrl = `${base}/partials/header-${lang}/`;
+const footerUrl = `${base}/partials/footer-${lang}/`;
 
-    // Wire hamburger toggle
-    var btn = root.querySelector("[data-pf-toggle='menu']");
-    if(btn && panel && !btn.getAttribute("data-pf-bound")){
-      btn.setAttribute("data-pf-bound", "true");
-      btn.addEventListener("click", function(){
-        var open = panel.style.display === "block";
-        panel.style.display = open ? "none" : "block";
-        btn.setAttribute("aria-expanded", open ? "false" : "true");
-      });
-    }
-  }
+async function inject(url,id){
 
-  function mountPartial(mountId, urls, after){
-    return fetchFirst(urls).then(function(raw){
-      var mount = document.getElementById(mountId);
-      if (!mount) return;
-      mount.innerHTML = unwrapBody(raw);
-      if (typeof after === "function") after(mount);
-    });
-  }
+const r = await fetch(url,{cache:"no-store"});
 
-  // Delegated language switch (works for header injected via innerHTML)
-  document.addEventListener("click", function(e){
-    var el = e.target && e.target.closest ? e.target.closest("[data-lang-link]") : null;
-    if(!el) return;
-    e.preventDefault();
-    var target = el.getAttribute("data-lang-link") || "/";
-    window.location.href = base + target;
-  });
+if(!r.ok) throw new Error(`Failed ${url}`);
 
-  // Load partials (try .html first, then trailing-slash folder)
-  var headerUrls  = [base + "/partials/header-en.html",  base + "/partials/header-en/"];
-  var footerUrls = [base + "/partials/footer-en.html", base + "/partials/footer-en/"];
+document.getElementById(id).innerHTML = await r.text();
 
-  Promise.resolve()
-    .then(function(){ return mountPartial("pf-header", headerUrls, function(mount){ initHeader(mount); }); })
-    .then(function(){ return mountPartial("pf-footer", footerUrls); })
-    .catch(function(){ /* fail silently */ });
+}
+
+await inject(headerUrl,"pf-header");
+await inject(footerUrl,"pf-footer");
+
 })();
 </script>
 
