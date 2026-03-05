@@ -5,253 +5,276 @@
   <title>Material Support | PrepperFamily</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
 
-<!-- Header block (loaded from /partials/) -->
 <div id="pf-header"></div>
 
 <section class="sm-wrapper">
   <style>
-  :root{
-    --sm-bg-hero:linear-gradient(135deg,#f6fff7 0%,#eef7ff 100%);
-    --sm-bg-accent:#f0f4f8;
-    --sm-bg-callout:#fff4e5;
-    --sm-clr-main:#243246;
-    --sm-clr-accent:#2c5f2d;
-    --sm-clr-muted:#6f7d8a;
-    --sm-clr-gold:#c3a56c;
-  }
+    :root{
+      --sm-bg-hero: linear-gradient(135deg,#f6fff7 0%,#eef7ff 100%);
+      --sm-ink:#1f2937;
+      --sm-muted:#6b7280;
+      --sm-green:#2f6b3a;
+      --sm-green-2:#2c5f2d;
+      --sm-gold:#c3a56c;
+      --sm-card:#ffffff;
+      --sm-border: rgba(17,24,39,.08);
+      --sm-shadow: 0 18px 45px rgba(0,0,0,.10);
+      --sm-shadow-soft: 0 10px 24px rgba(0,0,0,.08);
+      --sm-radius: 16px;
+      --sm-radius-sm: 12px;
+    }
 
-  .sm-wrapper{
-    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    color:var(--sm-clr-main);
-    padding:1rem 0 4rem;
-  }
+    .sm-wrapper{
+      font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      color: var(--sm-ink);
+      padding: 1rem 1rem 4rem;
+      background: #f7fafc;
+    }
 
-  .sm-hero-image{
-    width:100%;
-    max-height:420px;
-    object-fit:cover;
-    border-radius:14px;
-    margin:0 0 1.75rem;
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
-    display:block;
-  }
+    .sm-container{max-width: 980px; margin: 0 auto;}
 
-  .sm-hero{
-    background:var(--sm-bg-hero);
-    padding:2.75rem 1.5rem 2.5rem;
-    border-radius:14px;
-    margin-bottom:2.25rem;
-    text-align:center;
-    box-shadow:0 10px 24px rgba(0,0,0,.05);
-  }
+    .sm-hero-image{
+      width:100%;
+      max-height:420px;
+      object-fit:cover;
+      border-radius:14px;
+      margin: 0 0 1.75rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      display:block;
+    }
 
-  .sm-hero h1{font-size:2.4rem;margin:0 0 .4rem;}
-  .sm-hero h1 .icon{font-size:2.4rem;vertical-align:middle;margin-right:.25rem;}
-  .sm-hero h2{
-    font-size:1.4rem;
-    font-weight:600;
-    margin:0 auto 1.15rem;
-    max-width:40rem;
-    line-height:1.4;
-    color:var(--sm-clr-gold);
-  }
-  .sm-hero p{font-size:1.125rem;line-height:1.6;max-width:46rem;margin:1.25rem auto 0;color:var(--sm-clr-main);}
+    .sm-hero{
+      background: var(--sm-bg-hero);
+      padding: 2.35rem 1.5rem 2.15rem;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 10px 24px rgba(0,0,0,.05);
+      border: 1px solid var(--sm-border);
+    }
 
-  .sm-topics{
-    background:#ffffff;
-    border:1px solid rgba(0,0,0,.06);
-    border-radius:14px;
-    padding:1.5rem;
-    box-shadow:0 8px 18px rgba(0,0,0,.04);
-    margin:2rem 0;
-  }
+    .sm-hero h1{
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      margin: 0 0 .35rem;
+      letter-spacing: -.02em;
+    }
 
-  .sm-topics-container{
-    display:grid;
-    gap:1rem;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    margin-top:1rem;
-  }
+    .sm-hero h2{
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 auto 1.05rem;
+      max-width: 46rem;
+      line-height: 1.35;
+      color: var(--sm-gold);
+    }
 
-  .sm-topic-parent{
-    background:var(--sm-bg-accent);
-    border-radius:12px;
-    padding:1.1rem 1rem;
-    border:1px solid rgba(0,0,0,.04);
-  }
+    .sm-hero p{
+      font-size: 1.04rem;
+      line-height: 1.65;
+      max-width: 48rem;
+      margin: 0 auto;
+      color: var(--sm-muted);
+    }
 
-  .sm-topic-parent h3{
-    margin:.1rem 0 .4rem;
-    font-size:1.05rem;
-    color:var(--sm-clr-accent);
-    letter-spacing:.2px;
-  }
+    .sm-section-title{
+      text-align:center;
+      margin: 2.2rem 0 1.15rem;
+      color: var(--sm-green);
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
 
-  .sm-topic-parent p{
-    margin:0 0 .75rem;
-    color:var(--sm-clr-muted);
-    font-size:.97rem;
-  }
+    .sm-main-btn{
+      display:block;
+      text-align:center;
+      background: var(--sm-green-2);
+      color: #fff;
+      text-decoration:none;
+      font-weight: 800;
+      padding: 1rem 1.1rem;
+      border-radius: 12px;
+      box-shadow: var(--sm-shadow-soft);
+      border: 1px solid rgba(255,255,255,.22);
+    }
+    .sm-main-btn:hover{filter: brightness(.97);}
 
-  .sm-topics-children{
-    margin:0;
-    padding-left:1.1rem;
-  }
-  .sm-topics-children li{margin:.35rem 0;}
-  .sm-topics-children a{
-    color:var(--sm-clr-main);
-    text-decoration:none;
-    border-bottom:1px dotted rgba(36,50,70,.35);
-  }
-  .sm-topics-children a:hover{border-bottom-style:solid;}
+    .sm-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 1rem;
+      margin-top: 1.05rem;
+    }
 
-  .sm-cta{
-    background:var(--sm-bg-callout);
-    border:1px solid rgba(0,0,0,.06);
-    border-radius:14px;
-    padding:1.35rem 1.25rem;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:1rem;
-    margin-top:2.25rem;
-  }
+    .sm-btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:.55rem;
+      text-decoration:none;
+      color: var(--sm-ink);
+      background: var(--sm-card);
+      border: 1px solid var(--sm-border);
+      border-radius: 12px;
+      padding: .95rem 1rem;
+      box-shadow: 0 8px 18px rgba(0,0,0,.04);
+      font-weight: 700;
+    }
+    .sm-btn:hover{border-color: rgba(47,107,58,.28);}
 
-  .sm-cta h3{margin:0 0 .25rem;font-size:1.1rem;}
-  .sm-cta p{margin:0;color:var(--sm-clr-muted);}
+    .sm-steps{
+      margin-top: 2.15rem;
+      background: var(--sm-card);
+      border: 1px solid var(--sm-border);
+      border-radius: var(--sm-radius);
+      padding: 1.6rem;
+      box-shadow: var(--sm-shadow-soft);
+    }
 
-  .sm-action{
-    display:inline-block;
-    padding:.75rem 1.1rem;
-    border-radius:999px;
-    background:var(--sm-clr-accent);
-    color:white;
-    text-decoration:none;
-    font-weight:700;
-    white-space:nowrap;
-    box-shadow:0 10px 18px rgba(44,95,45,.18);
-  }
-  .sm-action:hover{filter:brightness(.96);}
+    .sm-steps h3{
+      text-align:center;
+      margin: 0 0 1.15rem;
+      color: var(--sm-green);
+      font-weight: 900;
+    }
 
-  .sm-footer{
-    margin-top:2.5rem;
-    padding-top:1rem;
-    border-top:1px solid rgba(0,0,0,.08);
-    color:var(--sm-clr-muted);
-    font-size:.95rem;
-  }
+    .sm-step{
+      display:flex;
+      gap: 1rem;
+      align-items:flex-start;
+      background: #fbfbfb;
+      border: 1px solid rgba(17,24,39,.06);
+      border-radius: 12px;
+      padding: 1rem;
+      margin: .85rem 0;
+    }
 
-  /* responsive */
-  @media (max-width:900px){
-    .sm-topics-container{grid-template-columns:1fr;}
-    .sm-cta{flex-direction:column;align-items:flex-start;}
-  }
+    .sm-badge{
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: linear-gradient(180deg,#caa96a,#8a6b2a);
+      color:#fff;
+      font-weight: 900;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex: 0 0 34px;
+      box-shadow: 0 10px 18px rgba(0,0,0,.12);
+    }
+
+    .sm-step p{margin:0;color: var(--sm-muted);line-height:1.6;}
+
+    .sm-callout{
+      margin-top: 1.55rem;
+      background: linear-gradient(135deg, #2f6b3a 0%, #224f2b 100%);
+      color: #fff;
+      border-radius: 14px;
+      padding: 1.35rem 1.25rem;
+      box-shadow: var(--sm-shadow);
+      text-align:center;
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .sm-callout a{color:#ffe7b3; font-weight:800; text-decoration: underline;}
+
+    .sm-note{
+      margin-top: 1.3rem;
+      text-align:center;
+      color: var(--sm-muted);
+      font-size: .95rem;
+    }
+    .sm-note a{color: inherit; font-weight:800; text-decoration:none;}
+    .sm-note a:hover{text-decoration:underline;}
+
+    @media (max-width: 900px){
+      .sm-grid{grid-template-columns: 1fr;}
+      .sm-wrapper{padding: 1rem .85rem 4rem;}
+    }
   </style>
 
-  <!-- HERO -->
-  <img class="sm-hero-image" src="../../assets/images/material-support/hero.jpg" alt="Material Support">
+  <div class="sm-container">
 
-  <header class="sm-hero">
-    <div class="sm-hero-content">
-      <h1><span class="icon">🧰</span>Material Support</h1>
-      <h2>Build the household systems that keep life stable when supply chains don’t.</h2>
+    <!-- HERO IMAGE -->
+    <img class="sm-hero-image"
+         src="../../assets/images/material-support/hero.jpg"
+         alt="Material Support">
+
+    <!-- HERO CARD -->
+    <header class="sm-hero">
+      <h1>Material Support</h1>
+      <h2>Forge abundance: before, during, and after the storm</h2>
       <p>
-        Material preparation is not paranoia; it is prudent stewardship. This pillar focuses on practical, repeatable systems that
-        strengthen a family’s independence: food, water, tools, storage, and the habits that make them sustainable.
+        Turn any corner—urban patio or remote plot—into a hub of steady provision.
+        Practical systems and old-school ingenuity, so your table stays full even when supply chains wobble.
       </p>
+    </header>
+
+    <!-- TOPICS -->
+    <h3 class="sm-section-title">Explore the Material Support Topics</h3>
+
+    <!-- Main pill button (for now points to same pillar) -->
+    <a class="sm-main-btn" href="./">🪓 View All: Material Support</a>
+
+    <div class="sm-grid">
+      <!-- For now ALL go to the same pillar. Later you replace href="./" with the real URLs. -->
+      <a class="sm-btn" href="./">📦 STORE: Food and Medicine</a>
+      <a class="sm-btn" href="./">🌱 GROW: Food and Medicine</a>
+      <a class="sm-btn" href="./">🧱 PREPARE: Basic Materials</a>
+      <a class="sm-btn" href="./">🧑‍🌾 Family Production Units</a>
     </div>
-  </header>
 
-  <!-- TOPICS -->
-  <section class="sm-topics" aria-label="Topics in this section">
-    <h2>Topics in this section</h2>
-    <p>
-      These are the categories that will organize the articles of this pillar.
-    </p>
+    <!-- FIRST STEPS -->
+    <section class="sm-steps">
+      <h3>First steps today</h3>
 
-    <div class="sm-topics-container">
+      <div class="sm-step">
+        <div class="sm-badge">1</div>
+        <p>Calculate how many family servings you need for 90 days.</p>
+      </div>
 
-      <article class="sm-topic-parent">
-        <h3><span class="emoji">🥣</span> Food Systems</h3>
-        <p>Production, storage, ration logic, and continuity.</p>
-        <ul class="sm-topics-children">
-          <li><a href="/en/material-support/food-production/">Food production</a></li>
-          <li><a href="/en/material-support/food-storage/">Food storage</a></li>
-          <li><a href="/en/material-support/food-preservation/">Food preservation</a></li>
-        </ul>
-      </article>
+      <div class="sm-step">
+        <div class="sm-badge">2</div>
+        <p>Audit your tools: mark those dependent on electricity.</p>
+      </div>
 
-      <article class="sm-topic-parent">
-        <h3><span class="emoji">💧</span> Water Security</h3>
-        <p>Collection, filtration, storage, and low-tech redundancy.</p>
-        <ul class="sm-topics-children">
-          <li><a href="/en/material-support/water-storage/">Water storage</a></li>
-          <li><a href="/en/material-support/water-filtration/">Water filtration</a></li>
-          <li><a href="/en/material-support/water-hygiene/">Water & hygiene</a></li>
-        </ul>
-      </article>
+      <div class="sm-step">
+        <div class="sm-badge">3</div>
+        <p>Choose a pilot micro-project (sprouting lentils in 72 h) and share your progress.</p>
+      </div>
+    </section>
 
-      <article class="sm-topic-parent">
-        <h3><span class="emoji">🧰</span> Tools & Infrastructure</h3>
-        <p>Repair capacity, manual methods, and resilient hardware.</p>
-        <ul class="sm-topics-children">
-          <li><a href="/en/material-support/tools/">Essential tools</a></li>
-          <li><a href="/en/material-support/off-grid-kitchen/">Off-grid kitchen</a></li>
-          <li><a href="/en/material-support/workshop/">Workshop basics</a></li>
-        </ul>
-      </article>
+    <section class="sm-callout">
+      <strong>Do you have a trick or invention that kept your kitchen running during scarcity?</strong><br>
+      Share it with the community: <a href="mailto:editor@prepperfamily.org">editor@prepperfamily.org</a>
+    </section>
 
+    <div class="sm-note">
+      This section is part of the mission of <a href="https://prepperfamily.org/">PrepperFamily.org</a>.
     </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="sm-cta" aria-label="Get started">
-    <div class="sm-cta-content">
-      <h3>Start small, build durable</h3>
-      <p>Pick one system (food, water, tools) and build it until it works under stress—then expand.</p>
-    </div>
-    <a class="sm-action" href="/en/material-support/">Explore this pillar</a>
-  </section>
-
-  <footer class="sm-footer">
-    This section is part of the mission of <strong>PrepperFamily.org</strong>: families who cultivate, preserve, and remain steady when systems wobble.
-  </footer>
+  </div>
 </section>
 
-<!-- Footer block (loaded from /partials/) -->
 <div id="pf-footer"></div>
 
 <script>
 (async () => {
+  const isGitHub = location.hostname.endsWith("github.io");
+  const base = isGitHub ? `${location.origin}/prepperfamily-site` : "";
+  const lang = location.pathname.includes("/es/") ? "es" : "en";
 
-const isGitHub = location.hostname.endsWith("github.io");
+  const headerUrl = `${base}/partials/header-${lang}/`;
+  const footerUrl = `${base}/partials/footer-${lang}/`;
 
-const base = isGitHub
-? `${location.origin}/prepperfamily-site`
-: "";
+  async function inject(url, id){
+    const r = await fetch(url, { cache: "no-store" });
+    if(!r.ok) throw new Error(`Failed ${url}`);
+    document.getElementById(id).innerHTML = await r.text();
+  }
 
-const lang = location.pathname.includes("/es/")
-? "es"
-: "en";
-
-const headerUrl = `${base}/partials/header-${lang}/`;
-const footerUrl = `${base}/partials/footer-${lang}/`;
-
-async function inject(url,id){
-
-const r = await fetch(url,{cache:"no-store"});
-
-if(!r.ok) throw new Error(`Failed ${url}`);
-
-document.getElementById(id).innerHTML = await r.text();
-
-}
-
-await inject(headerUrl,"pf-header");
-await inject(footerUrl,"pf-footer");
-
+  await inject(headerUrl, "pf-header");
+  await inject(footerUrl, "pf-footer");
 })();
 </script>
 
