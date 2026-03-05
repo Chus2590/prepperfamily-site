@@ -1,15 +1,336 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Material Support | PrepperFamily</title>
-</head>
-<body>
-  <h1>Material Support</h1>
-  <p>Section under construction.</p>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inner Strength | PrepperFamily</title>
 
-  <p>
-    <a href="/prepperfamily-site/">← Back to Home</a>
-  </p>
+  <style>
+    /* Minimal, non-invasive PrepperFamily content safety styles */
+    main.pf-content { max-width: 1100px; margin: 0 auto; padding: 16px; }
+    img { max-width: 100%; height: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    .pf-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  </style>
+</head>
+
+<body>
+  <div id="pf-header">
+    <noscript>
+      <nav>
+        <a href="https://prepperfamily.org/">Home</a> ·
+        <a href="https://prepperfamily.org/en/">English</a>
+      </nav>
+    </noscript>
+  </div>
+
+  <main id="pf-content" class="pf-content">
+    <!-- FORTALEZA INTERIOR – SUPER DISEÑO v2 (normalized) -->
+    <section class="fi-wrapper">
+      <style>
+        /* ---------- PALETA (modo claro) ---------- */
+        :root{
+          --fi-bg-hero:linear-gradient(135deg,#fff9f6 0%,#f5f9ff 100%);
+          --fi-bg-accent:#f0f4f8;
+          --fi-bg-callout:#fff4e5;
+          --fi-clr-main:#243246;
+          --fi-clr-accent:#3a6b68;
+          --fi-clr-muted:#6f7d8a;
+          --fi-clr-gold:#c3a56c;
+        }
+
+        /* ---------- CONTENEDOR GENERAL ---------- */
+        .fi-wrapper{
+          font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+          color:var(--fi-clr-main);
+          padding:1rem 0 4rem;
+        }
+
+        /* ---------- HERO ---------- */
+        .fi-hero{
+          background:var(--fi-bg-hero);
+          padding:2.75rem 1.5rem 2.5rem;
+          border-radius:14px;
+          margin-bottom:2.25rem;
+          text-align:center;
+          box-shadow:0 10px 24px rgba(0,0,0,.05);
+        }
+        .fi-hero h1{font-size:2.4rem;margin:0 0 .4rem;}
+        .fi-hero h1 .icon{font-size:2.4rem;vertical-align:middle;margin-right:.25rem;}
+        .fi-hero h2{font-size:1.4rem;font-weight:600;margin:0 auto 1.15rem;max-width:40rem;line-height:1.4;color:var(--fi-clr-gold);}
+        .fi-hero blockquote{
+          font-style:italic;
+          font-size:1.1rem;
+          line-height:1.55;
+          margin:0 auto 0;
+          max-width:40rem;
+          color:var(--fi-clr-main);
+        }
+        .fi-hero p{font-size:1.125rem;line-height:1.6;max-width:46rem;margin:1.25rem auto 0;}
+
+        /* ---------- SUBCATEGORÍAS JERARQUÍA ---------- */
+        .fi-topics{
+          margin:2.5rem 0 3rem;
+          padding:0 1rem;
+        }
+        .fi-topics h3{
+          font-size:1.5rem;
+          text-align:center;
+          margin-bottom:2rem;
+          color:var(--fi-clr-accent);
+        }
+
+        /* Contenedor principal */
+        .fi-category-main{
+          text-align:center;
+          margin-bottom:2.5rem;
+        }
+
+        /* Botón principal grande */
+        .fi-btn-main{
+          display:inline-block;
+          background:linear-gradient(135deg, var(--fi-clr-accent) 0%, #2d5654 100%);
+          color:#ffffff;
+          padding:1.2rem 2.5rem;
+          border-radius:12px;
+          font-size:1.3rem;
+          font-weight:700;
+          text-decoration:none;
+          box-shadow:0 8px 20px rgba(58,107,104,.25);
+          transition:all 0.3s ease;
+          position:relative;
+          overflow:hidden;
+        }
+        .fi-btn-main::before{
+          content:"";
+          position:absolute;
+          top:0;left:0;
+          width:100%;height:100%;
+          background:linear-gradient(135deg, rgba(255,255,255,.2) 0%, transparent 100%);
+          opacity:0;
+          transition:opacity 0.3s ease;
+        }
+        .fi-btn-main:hover{
+          transform:translateY(-4px) scale(1.05);
+          box-shadow:0 12px 28px rgba(58,107,104,.35);
+        }
+        .fi-btn-main:hover::before{ opacity:1; }
+
+        /* Grid de subcategorías */
+        .fi-subcategories{
+          display:grid;
+          grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+          gap:1.2rem;
+          max-width:1100px;
+          margin:0 auto;
+        }
+
+        /* Botones subcategorías */
+        .fi-btn-sub{
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          background:#ffffff;
+          color:var(--fi-clr-accent);
+          border:2px solid var(--fi-clr-accent);
+          border-radius:10px;
+          padding:1rem 1.3rem;
+          font-weight:600;
+          font-size:1rem;
+          text-decoration:none;
+          box-shadow:0 4px 12px rgba(0,0,0,.06);
+          transition:all 0.3s ease;
+          position:relative;
+        }
+        .fi-btn-sub::after{
+          content:"→";
+          font-size:1.3rem;
+          font-weight:bold;
+          margin-left:0.5rem;
+          transition:transform 0.3s ease;
+        }
+        .fi-btn-sub:hover{
+          background:var(--fi-clr-gold);
+          border-color:var(--fi-clr-gold);
+          color:#243246;
+          transform:translateY(-3px);
+          box-shadow:0 8px 20px rgba(195,165,108,.25);
+        }
+        .fi-btn-sub:hover::after{ transform:translateX(4px); }
+
+        /* ---------- ITINERARIO ---------- */
+        .fi-itinerary{
+          margin:3rem 0 2.5rem;
+          overflow-x:auto;
+        }
+        .fi-itinerary h3{
+          font-size:1.35rem;
+          margin-bottom:1.5rem;
+          text-align:center;
+          color:var(--fi-clr-accent);
+        }
+        .fi-itinerary table{
+          width:100%;
+          border-collapse:collapse;
+          font-size:1rem;
+          min-width:380px;
+        }
+        .fi-itinerary thead th{
+          background:var(--fi-clr-accent);
+          color:#ffffff;
+          padding:.75rem 1rem;
+          text-align:left;
+          font-weight:600;
+        }
+        .fi-itinerary tbody td{
+          border:1px solid #d6dee4;
+          padding:.75rem 1rem;
+        }
+        .fi-itinerary tbody tr:nth-child(even) td{
+          background:var(--fi-bg-accent);
+        }
+
+        /* ---------- CALL TO ACTION ---------- */
+        .fi-cta{
+          background:var(--fi-bg-accent);
+          padding:1.5rem 1.75rem;
+          border-left:4px solid var(--fi-clr-accent);
+          border-radius:7px;
+          margin:3rem 0 2.75rem;
+          box-shadow:0 4px 10px rgba(0,0,0,.03);
+        }
+        .fi-cta p{margin:0;font-size:1rem;line-height:1.6;}
+        .fi-cta a{color:var(--fi-clr-accent);font-weight:600;text-decoration:underline;}
+
+        /* ---------- FOOTER ---------- */
+        .fi-footer{
+          font-size:.9rem;
+          color:var(--fi-clr-muted);
+          text-align:center;
+          margin-top:2.5rem;
+        }
+
+        /* ---------- MEDIA ≥900px ---------- */
+        @media (min-width:900px){
+          .fi-hero{padding:3.25rem 2.5rem 3rem;}
+          .fi-hero h1{font-size:2.8rem;}
+          .fi-subcategories{ grid-template-columns:repeat(2, 1fr); }
+        }
+      </style>
+
+      <!-- HERO PRINCIPAL -->
+      <header class="fi-hero">
+        <h1><span class="icon">✝️</span>Inner Strength</h1>
+        <h2>Spiritual pillar for a home that never gives up</h2>
+        <blockquote>"The Lord is my light and my salvation; whom shall I fear?" (Ps 27:1)</blockquote>
+        <p>When everything shakes, Christ is our rock. Here we nurture the living faith that turns preparedness into mission, fear into courage, and routine into the liturgy of love.</p>
+      </header>
+
+      <!-- SUBCATEGORÍAS JERARQUÍA -->
+      <section class="fi-topics">
+        <h3>Explore the Inner Strength Topics</h3>
+
+        <!-- Categoría Principal -->
+        <div class="fi-category-main">
+          <a href="https://prepperfamily.org/en/category/inner-strength/" class="fi-btn-main">
+            <span>✝️ Inner Strength</span>
+          </a>
+        </div>
+
+        <!-- Subcategorías -->
+        <div class="fi-subcategories">
+          <a href="https://prepperfamily.org/en/category/bible/" class="fi-btn-sub">
+            <span>📖 Bible: the Revealed Truth</span>
+          </a>
+          <a href="https://prepperfamily.org/en/category/concepts/" class="fi-btn-sub">
+            <span>💡 Basic Christian Concepts</span>
+          </a>
+          <a href="https://prepperfamily.org/en/category/prayers/" class="fi-btn-sub">
+            <span>🙏 A Family that Prays Together...</span>
+          </a>
+          <a href="https://prepperfamily.org/en/category/faith/" class="fi-btn-sub">
+            <span>⚡ Faith in Difficult Times</span>
+          </a>
+          <a href="https://prepperfamily.org/en/category/apologetics/" class="fi-btn-sub">
+            <span>🛡️ Apologetics: Defense of the Faith</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ITINERARIO -->
+      <div class="fi-itinerary pf-table-wrap">
+        <h3>Spiritual Growth Itinerary</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Phase</th>
+              <th>Practice</th>
+              <th>Associated Resource</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><em>Lectio</em></td><td>Daily family Scripture</td><td>"Bible in a Year" plan</td></tr>
+            <tr><td><em>Meditatio</em></td><td>Examination and gratitude</td><td>Spiritual combat journal</td></tr>
+            <tr><td><em>Contemplatio</em></td><td>Adoring silence</td><td>Night prayer guide</td></tr>
+            <tr><td><em>Actio</em></td><td>Creative service</td><td>Monthly list of works of mercy</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CALL TO ACTION -->
+      <div class="fi-cta">
+        <p><strong>Have you experienced God’s hand in the midst of adversity?</strong><br>
+          Share your testimony and encourage other families:
+          <a href="mailto:editor@prepperfamily.org">editor@prepperfamily.org</a>
+        </p>
+      </div>
+
+      <!-- PIE DE AUTENTICIDAD -->
+      <footer class="fi-footer">
+        This section is part of the <strong>Inner Fortress</strong> pillar of <strong>PrepperFamily.org</strong>, where faith ignites hope and sustains every preparation.
+      </footer>
+    </section>
+  </main>
+
+  <div id="pf-footer">
+    <noscript>
+      <footer>
+        <a href="https://prepperfamily.org/">Home</a> ·
+        <a href="https://prepperfamily.org/en/">English</a>
+      </footer>
+    </noscript>
+  </div>
+
+  <script>
+    (function () {
+      var lang = document.documentElement.lang === "es" ? "es" : "en";
+      var headerURL = lang === "es"
+        ? "https://prepperfamily.org/partials/header-es/"
+        : "https://prepperfamily.org/partials/header-en/";
+      var footerURL = lang === "es"
+        ? "https://prepperfamily.org/partials/footer-es/"
+        : "https://prepperfamily.org/partials/footer-en/";
+
+      function fallbackHTML() {
+        var root = lang === "es"
+          ? "https://prepperfamily.org/es/"
+          : "https://prepperfamily.org/en/";
+        return '<nav><a href="https://prepperfamily.org/">Home</a> · <a href="' + root + '">' + (lang === "es" ? "Español" : "English") + "</a></nav>";
+      }
+
+      function loadPartial(url, targetId) {
+        var el = document.getElementById(targetId);
+        if (!el) return;
+
+        fetch(url, { credentials: "omit" })
+          .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.text(); })
+          .then(function (html) { el.innerHTML = html; })
+          .catch(function () { el.innerHTML = fallbackHTML(); });
+      }
+
+      loadPartial(headerURL, "pf-header");
+      loadPartial(footerURL, "pf-footer");
+    })();
+  </script>
 </body>
 </html>
