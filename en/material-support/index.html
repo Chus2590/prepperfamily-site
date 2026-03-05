@@ -425,7 +425,7 @@
 
   // Load partials (try .html first, then trailing-slash folder)
   var headerUrls  = [base + "/partials/header-en.html",  base + "/partials/header-en/"];
-  var supportUrls = [base + "/partials/support-en.html", base + "/partials/support-en/"];
+  var supportUrls = [base + "/partials/footer-en.html", base + "/partials/footer-en/"];
 
   Promise.resolve()
     .then(function(){ return mountPartial("pf-header", headerUrls, function(mount){ initHeader(mount); }); })
