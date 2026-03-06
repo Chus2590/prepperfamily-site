@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apoya a PrepperFamily</title>
+<style>
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(30px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  @keyframes pulse {
+    0%,100% { transform:scale(1); }
+    50%     { transform:scale(1.05); }
+  }
+
+  *, *::before, *::after { box-sizing:border-box; }
+
+  body {
+    margin:0;
+    font-family:'Georgia', serif;
+    background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);
+    min-height:100vh;
+    padding:30px 16px 50px;
+  }
+
+  /* ── MAIN WRAPPER ── */
+  .pf-wrapper {
+    max-width:860px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+    animation:fadeInUp .8s ease-out;
+  }
+
+  /* ══════════════════════════════════════════
+     CARD BASE (shared by both panels)
+  ══════════════════════════════════════════ */
+  .pf-card {
+    background:#fff;
+    border-radius:24px;
+    box-shadow:0 16px 40px rgba(0,0,0,.12);
+    overflow:hidden;
+  }
+
+  /* ── HEADER (shared) ── */
+  .pf-header {
+    background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    padding:32px 24px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .pf-header::before {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23g)"/></svg>');
+    opacity:.3;
+  }
+  .pf-logo-wrap { position:relative; z-index:1; margin-bottom:12px; }
+  .pf-logo {
+    max-width:210px; height:auto;
+    filter:drop-shadow(0 8px 18px rgba(0,0,0,.2));
+    animation:pulse 3s ease-in-out infinite;
+  }
+  .pf-header h1 {
+    color:#fff; font-size:2.2em; font-weight:bold;
+    margin:10px 0 4px;
+    text-shadow:2px 2px 10px rgba(0,0,0,.3);
+    position:relative; z-index:1; letter-spacing:.5px;
+  }
+  .pf-header p.subtitle {
+    color:rgba(255,255,255,.95); font-size:1.1em;
+    font-style:italic; position:relative; z-index:1; margin:0;
+  }
+
+  /* ── STEP CARDS ── */
+  .steps-wrap { padding:28px 22px 24px; }
+  .step-card {
+    display:flex; align-items:flex-start;
+    margin-bottom:22px; padding:20px 18px;
+    background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);
+    border-radius:16px;
+    box-shadow:0 8px 22px rgba(0,0,0,.06);
+    transition:all .3s ease;
+    animation:fadeInUp .8s ease-out backwards;
+    position:relative; overflow:hidden;
+  }
+  .step-card:nth-child(1){animation-delay:.2s}
+  .step-card:nth-child(2){animation-delay:.4s}
+  .step-card:nth-child(3){animation-delay:.6s}
+  .step-card:hover { transform:translateY(-6px); box-shadow:0 14px 32px rgba(0,0,0,.12); }
+
+  .step-num {
+    flex-shrink:0; width:60px; height:60px;
+    background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+    color:#fff; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:2em; font-weight:bold; margin-right:18px;
+    box-shadow:0 6px 16px rgba(102,126,234,.4);
+    position:relative; z-index:1;
+  }
+  .step-content { flex:1; position:relative; z-index:1; }
+  .step-content h2 { font-size:1.3em; color:#2d3748; margin:0 0 8px; font-weight:bold; }
+  .step-content p  { font-size:.98em; color:#4a5568; line-height:1.55; margin:0 0 10px; }
+
+  .step-img-wrap { margin-top:10px; text-align:left; }
+  .step-img {
+    max-width:100%; height:auto; border-radius:10px;
+    box-shadow:0 8px 22px rgba(0,0,0,.12);
+    transition:transform .3s ease;
+  }
+  .step-img:hover { transform:scale(1.03); }
+
+  .pf-btn-amazon {
+    display:inline-block; width:100%; text-align:center;
+    background:linear-gradient(135deg,#28a745 0%,#20c997 100%);
+    color:#fff; border:none; padding:10px 16px;
+    font-size:.95rem; font-weight:600; border-radius:8px;
+    cursor:pointer; text-decoration:none;
+    box-shadow:0 4px 15px rgba(40,167,69,.3);
+    transition:all .3s ease; margin-top:10px;
+  }
+  .pf-btn-amazon:hover {
+    background:linear-gradient(135deg,#218838 0%,#1abc9c 100%);
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(40,167,69,.4);
+    color:#fff;
+  }
+
+  /* ── BANNER FINAL MESSAGE ── */
+  .pf-final {
+    background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);
+    color:#fff; padding:22px 20px; text-align:center;
+    border-radius:18px; margin:0 22px 24px;
+    box-shadow:0 12px 30px rgba(245,87,108,.25);
+    animation:fadeInUp .8s ease-out .8s backwards;
+  }
+  .pf-final p {
+    font-size:1.15em; line-height:1.6; font-weight:500;
+    text-shadow:1px 1px 3px rgba(0,0,0,.2); margin:0;
+  }
+  .highlight {
+    background:rgba(255,255,255,.3);
+    padding:3px 10px; border-radius:8px; font-weight:bold;
+  }
+  .heart {
+    display:inline-block; color:#ff6b6b; font-size:1.3em;
+    animation:pulse 1.5s ease-in-out infinite; margin:0 4px;
+  }
+
+  /* ══════════════════════════════════════════
+     SECTION 2 – DIRECT SUPPORT (Ko-fi) + SITE MAP
+     Mirrors the footer-en dark panel, inside a white card
+  ══════════════════════════════════════════ */
+  .pf-bottom-card {
+    background:linear-gradient(180deg,rgba(11,18,32,.96),rgba(11,18,32,.86));
+    border:1px solid rgba(255,255,255,.10);
+    box-shadow:0 14px 38px rgba(0,0,0,.22);
+    border-radius:24px;
+    color:#e9eefc;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    padding:28px 24px;
+    animation:fadeInUp .8s ease-out .3s backwards;
+  }
+  .pf-bottom-card a { color:#e9eefc; text-decoration:none; }
+  .pf-bottom-card a:hover { text-decoration:underline; }
+  .pf-bottom-card > h2 { margin:0 0 10px; font-size:20px; letter-spacing:.2px; line-height:1.2; }
+  .pf-bottom-card > p  { margin:0 0 18px; color:rgba(233,238,252,.86); line-height:1.5; font-size:14px; }
+
+  .pf-bottom-grid {
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:16px;
+  }
+
+  .pf-panel {
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:16px;
+    padding:18px;
+  }
+  .pf-panel h3 { margin:0 0 8px; font-size:16px; letter-spacing:.2px; color:#e9eefc; }
+  .pf-panel > p { margin:0 0 12px; font-size:14px; color:rgba(233,238,252,.86); }
+
+  .pf-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+  .pf-action-btn {
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:10px 14px; border-radius:12px;
+    font-weight:750; font-size:14px;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.06);
+    text-decoration:none !important; color:#e9eefc !important;
+    transition:transform .08s ease, background .15s ease; white-space:nowrap;
+  }
+  .pf-action-btn:hover { background:rgba(255,255,255,.12); transform:translateY(-1px); }
+  .pf-action-btn.primary {
+    background:linear-gradient(135deg,rgba(44,123,229,.95),rgba(106,90,249,.95));
+    border:1px solid rgba(255,255,255,.22);
+  }
+  .pf-action-btn.primary:hover {
+    background:linear-gradient(135deg,rgba(44,123,229,1),rgba(106,90,249,1));
+  }
+
+  .pf-note {
+    margin-top:12px; padding:10px 12px;
+    border-radius:12px; border:1px solid rgba(255,255,255,.10);
+    background:rgba(255,255,255,.03);
+    color:rgba(233,238,252,.80); font-size:13px; line-height:1.4;
+    display:flex; gap:10px; align-items:flex-start;
+  }
+  .pf-dot {
+    width:9px; height:9px; border-radius:999px;
+    background:#37d67a; box-shadow:0 0 0 6px rgba(55,214,122,.12);
+    margin-top:4px; flex:0 0 auto;
+  }
+
+  .pf-details {
+    margin-top:12px; border-radius:14px;
+    border:1px solid rgba(255,255,255,.10);
+    background:rgba(255,255,255,.03); overflow:hidden;
+  }
+  .pf-details summary {
+    cursor:pointer; list-style:none;
+    padding:12px 14px; font-weight:850; font-size:14px; color:#e9eefc;
+    display:flex; justify-content:space-between; align-items:center;
+    gap:12px; user-select:none;
+  }
+  .pf-details summary::-webkit-details-marker { display:none; }
+  .pf-chip {
+    font-size:12px; padding:5px 10px; border-radius:999px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.05);
+    color:rgba(233,238,252,.85); white-space:nowrap;
+  }
+  .pf-details-body {
+    padding:0 14px 14px;
+    color:rgba(233,238,252,.84); font-size:13px; line-height:1.52;
+  }
+  .pf-details-body ol { margin:10px 0 0 18px; padding:0; line-height:1.6; }
+
+  /* Site map */
+  .pf-sitemap ul { list-style:none; padding:0; margin:0; }
+  .pf-sitemap > ul > li { margin:10px 0 12px; }
+  .pf-sitemap .pillar {
+    display:inline-flex; align-items:center; gap:10px;
+    font-weight:900; font-size:15px; letter-spacing:.2px; color:#e9eefc;
+  }
+  .pf-sitemap .pillar::before { content:"•"; color:rgba(233,238,252,.9); font-size:18px; line-height:0; }
+  .pf-sitemap .sub {
+    margin:8px 0 0 28px;
+    border-left:1px dashed rgba(255,255,255,.18);
+    padding-left:14px;
+  }
+  .pf-sitemap .sub li {
+    margin:7px 0; font-size:14px;
+    display:flex; gap:10px; align-items:flex-start;
+    color:rgba(233,238,252,.86);
+  }
+  .pf-sitemap .sub li::before { content:"◦"; color:rgba(233,238,252,.65); margin-top:1px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width:768px) {
+    .pf-header h1  { font-size:1.8em; }
+    .pf-header p.subtitle { font-size:1em; }
+    .step-card { flex-direction:column; text-align:center; padding:18px 16px; }
+    .step-num  { margin-right:0; margin-bottom:14px; }
+    .step-content h2 { font-size:1.2em; }
+    .step-content p  { font-size:.95em; }
+    .steps-wrap { padding:22px 16px 18px; }
+    .step-img-wrap { text-align:center; }
+    .pf-final { margin:0 14px 20px; padding:18px 14px; }
+    .pf-final p { font-size:1.02em; }
+    .pf-bottom-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pf-wrapper">
+
+  <!-- ═══════════════════════════════════════════
+       CARD 1 – "Support without spending extra"
+       (the full visual experience of support-en)
+  ═══════════════════════════════════════════ -->
+  <div class="pf-card">
+
+    <div class="pf-header">
+      <div class="pf-logo-wrap">
+        <img src="https://chus2590.github.io/prepperfamily-site/assets/images/logotipo" alt="PrepperFamily.org" class="pf-logo">
+      </div>
+      <h1>Apoya este proyecto sin gastar más</h1>
+      <p class="subtitle">Tu compra habitual puede marcar la diferencia</p>
+    </div>
+
+    <div class="steps-wrap">
+
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h2>Entra a Amazon a través de cualquiera de nuestros enlaces</h2>
+          <p>Enlaces de afiliado seguros.</p>
+          <div class="step-img-wrap">
+            <img src="https://chus2590.github.io/prepperfamily-site/assets/images/footer/link" alt="Enlaces de afiliado" class="step-img">
+          </div>
+          <div style="margin-top:10px;">
+            <div style="font-size:.9em;margin-bottom:6px;color:#4a5568;">Por ejemplo: Violeta de genciana 1%</div>
+            <a href="https://amzn.to/3MNLih1" class="pf-btn-amazon" target="_blank" rel="nofollow noopener noreferrer">Ver en Amazon</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h2>Si no quieres el producto recomendado, simplemente busca lo que realmente necesitas</h2>
+          <p>Elige cualquier producto y compra como siempre.</p>
+          <div class="step-img-wrap">
+            <img src="https://chus2590.github.io/prepperfamily-site/assets/images/footer/amazon" alt="Barra de búsqueda de Amazon" class="step-img">
+          </div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h2>¡Eso es todo! Así de simple.</h2>
+          <p>Con tu compra, Amazon envía una pequeña comisión a PrepperFamily.org por las compras que califican.</p>
+        </div>
+      </div>
+
+    </div><!-- /steps-wrap -->
+
+    <div class="pf-final">
+      <p>
+        <span class="heart">❤️</span>
+        <span class="highlight">Tu precio no cambia</span>
+        y ayudas a seguir creando contenido para familias más resilientes.
+        <span class="heart">❤️</span>
+      </p>
+    </div>
+
+  </div><!-- /card 1 -->
+
+
+  <!-- ═══════════════════════════════════════════
+       CARD 2 – Direct support (Ko-fi) + Site Map
+       (structural detail from footer-en, dark style)
+  ═══════════════════════════════════════════ -->
+  <div class="pf-bottom-card">
+
+    <h2>Si esto ayudó a tu familia, ya está funcionando. Ahora ayúdalo a seguir existiendo.</h2>
+    <p>PrepperFamily es deliberadamente austero. Sobrevive gracias a pequeños apoyos directos y a enlaces recomendados usados durante compras normales. Elige la opción que mejor se adapte a ti.</p>
+
+    <div class="pf-bottom-grid">
+
+      <!-- Ko-fi panel -->
+      <div class="pf-panel">
+        <h3>1) Apoyo directo (Ko-fi)</h3>
+        <p>La forma más rápida de ayudar: apoyo único o mensual en Ko-fi.</p>
+        <div class="pf-actions">
+          <a class="pf-action-btn primary" href="https://ko-fi.com/prepperfamily" target="_blank" rel="noopener">☕ Apoyar en Ko-fi</a>
+          <a class="pf-action-btn" href="https://ko-fi.com/prepperfamily" target="_blank" rel="noopener">Ver progreso de la meta</a>
+        </div>
+        <div class="pf-note">
+          <span class="pf-dot"></span>
+          <span>Nota: el apoyo es voluntario y no es deducible de impuestos en este momento.</span>
+        </div>
+      </div>
+
+      <!-- Site map panel -->
+      <div class="pf-panel pf-sitemap">
+        <h3>2) Apoya sin gastar más</h3>
+        <p>Usa enlaces recomendados al comprar artículos que ya necesitas. No te cuesta nada extra y sostiene el proyecto.</p>
+
+        <details class="pf-details">
+          <summary>
+            <span>Cómo funciona (3 pasos)</span>
+            <span class="pf-chip">rápido</span>
+          </summary>
+          <div class="pf-details-body">
+            <ol>
+              <li>Abre cualquier artículo y usa los enlaces recomendados.</li>
+              <li>Si el artículo exacto no es para ti, busca lo que sí necesitas y finaliza la compra como siempre.</li>
+              <li>Repítelo en tus compras normales. Eso es todo.</li>
+            </ol>
+          </div>
+        </details>
+
+        <h3 style="margin-top:16px;">Mapa del sitio</h3>
+        <ul>
+          <li>
+            <a class="pillar" href="/es/fortaleza-interior/">Fortaleza Interior</a>
+            <ul class="sub">
+              <li><a href="/es/fortaleza-interior/">Apologética: Defensa de la fe</a></li>
+              <li><a href="/es/fortaleza-interior/">Conceptos Cristianos Básicos</a></li>
+              <li><a href="/es/fortaleza-interior/">Biblia: La verdad revelada</a></li>
+              <li><a href="/es/fortaleza-interior/">Fe en tiempos de prueba</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class="pillar" href="/es/sustento-material/">Sustento Material</a>
+            <ul class="sub">
+              <li><a href="/es/sustento-material/">Unidades Familiares de Producción de Alimentos</a></li>
+              <li><a href="/es/sustento-material/">CULTIVAR: Alimentos y medicina</a></li>
+              <li><a href="/es/sustento-material/">PREPARAR: Materiales básicos</a></li>
+              <li><a href="/es/sustento-material/">ALMACENAR: Alimentos y medicina</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class="pillar" href="/es/resistencia-familiar/">Resistencia Familiar</a>
+            <ul class="sub">
+              <li><a href="/es/resistencia-familiar/">Roles y estructura</a></li>
+              <li><a href="/es/resistencia-familiar/">Educación en casa</a></li>
+              <li><a href="/es/resistencia-familiar/">Protección del hogar</a></li>
+              <li><a href="/es/resistencia-familiar/">Economía del hogar</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+    </div><!-- /pf-bottom-grid -->
+  </div><!-- /card 2 -->
+
+</div><!-- /pf-wrapper -->
+
+</body>
+</html>
