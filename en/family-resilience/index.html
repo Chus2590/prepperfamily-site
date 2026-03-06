@@ -1,15 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Family Resilience</title>
-</head>
-<body>
-
-<div id="pf-header"></div>
-
-<main id="pf-content">
 <!-- RESISTENCIA FAMILIAR – SUPER DISEÑO v3 MEJORADO -->
 <section class="rf-wrapper">
   <style>
@@ -32,6 +20,7 @@
       --rf-border-radius-sm: 8px;
     }
 
+    /* ---------- CONTENEDOR GENERAL ---------- */
     .rf-wrapper{
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       color: var(--rf-clr-main);
@@ -39,6 +28,7 @@
       line-height: 1.6;
     }
 
+    /* ---------- HERO MEJORADO ---------- */
     .rf-hero{
       background: var(--rf-bg-hero);
       padding: 3.5rem 2rem 3rem;
@@ -50,7 +40,7 @@
       position: relative;
       overflow: hidden;
     }
-
+    
     .rf-hero::before {
       content: '';
       position: absolute;
@@ -60,21 +50,21 @@
       height: 4px;
       background: linear-gradient(90deg, var(--rf-clr-accent), var(--rf-clr-gold), var(--rf-clr-accent));
     }
-
+    
     .rf-hero h1{
       font-size: 2.75rem;
       margin: 0 0 0.5rem;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
-
+    
     .rf-hero h1 .icon{
       font-size: 2.75rem;
       vertical-align: middle;
       margin-right: 0.5rem;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
-
+    
     .rf-hero h2{
       font-size: 1.5rem;
       font-weight: 600;
@@ -83,7 +73,7 @@
       line-height: 1.4;
       color: var(--rf-clr-gold-dark);
     }
-
+    
     .rf-hero blockquote{
       font-style: italic;
       font-size: 1.25rem;
@@ -95,7 +85,7 @@
       position: relative;
       padding: 0 2rem;
     }
-
+    
     .rf-hero blockquote::before,
     .rf-hero blockquote::after {
       content: '"';
@@ -105,17 +95,17 @@
       font-family: Georgia, serif;
       opacity: 0.7;
     }
-
+    
     .rf-hero blockquote::before {
       top: -0.5rem;
       left: 0;
     }
-
+    
     .rf-hero blockquote::after {
       bottom: -1.5rem;
       right: 0;
     }
-
+    
     .rf-hero p{
       font-size: 1.125rem;
       line-height: 1.7;
@@ -124,6 +114,7 @@
       color: var(--rf-clr-muted);
     }
 
+    /* ---------- SECCIÓN DE CATEGORÍAS JERÁRQUICA ---------- */
     .rf-topics {
       margin: 3rem 0;
       padding: 2rem;
@@ -154,6 +145,7 @@
       border-radius: 2px;
     }
 
+    /* Contenedor de jerarquía */
     .rf-hierarchy {
       display: flex;
       flex-direction: column;
@@ -162,6 +154,7 @@
       margin: 0 auto;
     }
 
+    /* Botón principal (categoría padre) */
     .rf-main-category {
       text-align: center;
     }
@@ -210,6 +203,7 @@
       left: 100%;
     }
 
+    /* Línea vertical conectora */
     .rf-connector {
       width: 3px;
       height: 40px;
@@ -218,6 +212,7 @@
       border-radius: 2px;
     }
 
+    /* Grid de subcategorías */
     .rf-sub-categories {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -281,13 +276,14 @@
       color: #ffffff;
     }
 
+    /* ---------- TABLA DIFERENCIADORA MEJORADA ---------- */
     .rf-diff{
       margin: 4rem 0 3rem;
       overflow-x: auto;
       border-radius: var(--rf-border-radius);
       box-shadow: var(--rf-shadow-md);
     }
-
+    
     .rf-diff table{
       width: 100%;
       border-collapse: collapse;
@@ -295,7 +291,7 @@
       min-width: 500px;
       background: var(--rf-bg-card);
     }
-
+    
     .rf-diff thead th{
       background: linear-gradient(135deg, var(--rf-clr-accent), var(--rf-clr-accent-hover));
       color: white;
@@ -305,18 +301,42 @@
       font-size: 1.1rem;
       border: none;
     }
-
+    
+    .rf-diff thead th:first-child {
+      border-top-left-radius: var(--rf-border-radius);
+    }
+    
+    .rf-diff thead th:last-child {
+      border-top-right-radius: var(--rf-border-radius);
+    }
+    
     .rf-diff tbody td{
       border: 1px solid #e2e8f0;
       padding: 1.25rem 1.5rem;
       font-size: 1rem;
       line-height: 1.5;
     }
-
+    
     .rf-diff tbody tr:nth-child(even) td{
       background: var(--rf-bg-accent);
     }
+    
+    .rf-diff tbody tr:hover td {
+      background: #f1f5f9;
+      transition: background 0.2s ease;
+    }
+    
+    .rf-diff tbody td:first-child {
+      color: #e53e3e;
+      font-weight: 500;
+    }
+    
+    .rf-diff tbody td:last-child {
+      color: #38a169;
+      font-weight: 600;
+    }
 
+    /* ---------- CALL TO ACTION MEJORADO ---------- */
     .rf-cta{
       background: linear-gradient(135deg, var(--rf-bg-accent), #edf2f7);
       padding: 2.5rem 2.5rem;
@@ -327,7 +347,45 @@
       text-align: center;
       position: relative;
     }
+    
+    .rf-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--rf-clr-accent), var(--rf-clr-gold));
+      border-radius: var(--rf-border-radius) var(--rf-border-radius) 0 0;
+    }
+    
+    .rf-cta p{
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    
+    .rf-cta strong {
+      display: block;
+      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+      color: var(--rf-clr-main);
+    }
+    
+    .rf-cta a{
+      color: var(--rf-clr-accent);
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+    
+    .rf-cta a:hover {
+      border-bottom-color: var(--rf-clr-accent);
+      color: var(--rf-clr-accent-hover);
+    }
 
+    /* ---------- FOOTER MEJORADO ---------- */
     .rf-footer{
       font-size: 0.95rem;
       color: var(--rf-clr-muted);
@@ -338,88 +396,156 @@
       border-radius: var(--rf-border-radius-sm);
       border: 1px solid #e2e8f0;
     }
+    
+    .rf-footer strong {
+      color: var(--rf-clr-main);
+    }
+
+    /* ---------- RESPONSIVE DESIGN ---------- */
+    @media (max-width: 768px) {
+      .rf-wrapper {
+        padding: 1rem 0 3rem;
+      }
+      
+      .rf-hero {
+        padding: 2.5rem 1.5rem 2rem;
+        margin-bottom: 2rem;
+      }
+      
+      .rf-hero h1 {
+        font-size: 2.25rem;
+      }
+      
+      .rf-hero h2 {
+        font-size: 1.25rem;
+      }
+      
+      .rf-hero blockquote {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+      }
+
+      .rf-topics {
+        padding: 1.5rem;
+      }
+
+      .rf-topics h3 {
+        font-size: 1.5rem;
+      }
+
+      .rf-main-category a {
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+      }
+
+      .rf-sub-categories {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .rf-cta {
+        padding: 1.75rem 1.5rem;
+      }
+    }
+
+    @media (min-width: 1024px){
+      .rf-hero {
+        padding: 4rem 3rem 3.5rem;
+      }
+      
+      .rf-hero h1 {
+        font-size: 3.25rem;
+      }
+      
+      .rf-hero h2 {
+        font-size: 1.75rem;
+      }
+      
+      .rf-hero blockquote {
+        font-size: 1.4rem;
+      }
+
+      .rf-sub-categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+  <!-- RESISTENCIA FAMILIAR – SUPER DISEÑO v3 MEJORADO -->
+<section class="rf-wrapper">
+  <style>
+    /* (todo el CSS permanece exactamente igual) */
   </style>
 
-<header class="rf-hero">
-<h1><span class="icon">👨‍👩‍👧‍👦</span>Family Resilience</h1>
-<h2>Because the first fortress is built at home</h2>
-<blockquote>Resist without fear. Prepare without chaos. Live with purpose.</blockquote>
-<p>We are the workshop where families forge unity, defend the truth, and turn crisis into opportunity. Here you will find clear plans to turn your home into a bastion of courage, service, and steady joy.</p>
-</header>
+  <!-- HERO PRINCIPAL -->
+  <header class="rf-hero">
+    <img 
+  src="https://chus2590.github.io/prepperfamily-site/assets/images/inner-strenght/hero.jpg"
+  alt="Family resilience and preparedness"
+  style="
+    width:100%;
+    max-width:900px;
+    height:auto;
+    border-radius:12px;
+    margin:0 auto 1.8rem auto;
+    display:block;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  "
+>
+    <h1><span class="icon">👨‍👩‍👧‍👦</span>Family Resilience</h1>
+    <h2>Because the first fortress is built at home</h2>
+    <blockquote>Resist without fear. Prepare without chaos. Live with purpose.</blockquote>
+    <p>We are the workshop where families forge unity, defend the truth, and turn crisis into opportunity. Here you will find clear plans to turn your home into a bastion of courage, service, and steady joy.</p>
+  </header>
 
-<section class="rf-topics">
-<h3>Explore Our Topics</h3>
+  <!-- SUBCATEGORÍAS CON JERARQUÍA -->
+  <section class="rf-topics">
+    <h3>Explore Our Topics</h3>
+    <div class="rf-hierarchy">
+      <!-- Categoría Principal -->
+      <div class="rf-main-category">
+        <a href="https://prepperfamily.org/en/category/family-resilience/">Family Resilience</a>
+      </div>
+      
+      <!-- Conector visual -->
+      <div class="rf-connector"></div>
+      
+      <!-- Subcategorías -->
+      <ul class="rf-sub-categories">
+        <li><a href="https://prepperfamily.org/en/category/family-structure/"><span>Family Roles and Structure</span></a></li>
+        <li><a href="https://prepperfamily.org/en/category/homeschooling/"><span>Homeschooling</span></a></li>
+        <li><a href="https://prepperfamily.org/en/category/home-protection/"><span>Home Protection</span></a></li>
+        <li><a href="https://prepperfamily.org/en/category/household-economy/"><span>Household Economy</span></a></li>
+      </ul>
+    </div>
+  </section>
 
-<div class="rf-hierarchy">
+  <!-- TABLA DIFERENCIADORA -->
+  <div class="rf-diff">
+    <table>
+      <thead>
+        <tr>
+          <th>Fragile Family</th>
+          <th>Resilient Family</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Routines without purpose</td><td>Daily rites that build cohesion</td></tr>
+        <tr><td>Disconnected coexistence</td><td>Weekly family mission councils</td></tr>
+        <tr><td>Neighborhood isolation</td><td>Neighborhood alliances and prudent barter</td></tr>
+        <tr><td>Fear-driven information</td><td>Discernment and clear discourse toward culture</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-<div class="rf-main-category">
-<a href="https://prepperfamily.org/en/category/family-resilience/">Family Resilience</a>
-</div>
+  <!-- CALL TO ACTION -->
+  <div class="rf-cta">
+    <p><strong>Do you have practices that shield your home from uncertainty?</strong><br>
+       Write to us and strengthen other families: <a href="mailto:editor@prepperfamily.org">editor@prepperfamily.org</a>
+    </p>
+  </div>
 
-<div class="rf-connector"></div>
-
-<ul class="rf-sub-categories">
-<li><a href="https://prepperfamily.org/en/category/family-structure/"><span>Family Roles and Structure</span></a></li>
-<li><a href="https://prepperfamily.org/en/category/homeschooling/"><span>Homeschooling</span></a></li>
-<li><a href="https://prepperfamily.org/en/category/home-protection/"><span>Home Protection</span></a></li>
-<li><a href="https://prepperfamily.org/en/category/household-economy/"><span>Household Economy</span></a></li>
-</ul>
-
-</div>
+  <!-- PIE DE AUTENTICIDAD -->
+  <footer class="rf-footer">
+    This section is part of the <strong>Family Resilience</strong> pillar of <strong>PrepperFamily.org</strong>, where love is organized and truth is defended with joy.
+  </footer>
 </section>
-
-<div class="rf-diff">
-<table>
-<thead>
-<tr>
-<th>Fragile Family</th>
-<th>Resilient Family</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>Routines without purpose</td><td>Daily rites that build cohesion</td></tr>
-<tr><td>Disconnected coexistence</td><td>Weekly family mission councils</td></tr>
-<tr><td>Neighborhood isolation</td><td>Neighborhood alliances and prudent barter</td></tr>
-<tr><td>Fear-driven information</td><td>Discernment and clear discourse toward culture</td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="rf-cta">
-<p><strong>Do you have practices that shield your home from uncertainty?</strong><br>
-Write to us and strengthen other families: <a href="mailto:editor@prepperfamily.org">editor@prepperfamily.org</a>
-</p>
-</div>
-
-<footer class="rf-footer">
-This section is part of the <strong>Family Resilience</strong> pillar of <strong>PrepperFamily.org</strong>, where love is organized and truth is defended with joy.
-</footer>
-
-</section>
-</main>
-
-<div id="pf-footer"></div>
-
-<script>
-(async () => {
-  const isGitHub = location.hostname.endsWith("github.io");
-  const base = isGitHub ? `${location.origin}/prepperfamily-site` : "";
-  const lang = location.pathname.includes("/es/") ? "es" : "en";
-  const headerUrl = `${base}/partials/header-${lang}/`;
-  const footerUrl = `${base}/partials/footer-${lang}/`;
-
-  async function inject(url, id){
-    const r = await fetch(url, { cache: "no-store" });
-    if(!r.ok) throw new Error(`Failed ${url}`);
-    document.getElementById(id).innerHTML = await r.text();
-  }
-
-  try{
-    await inject(headerUrl, "pf-header");
-    await inject(footerUrl, "pf-footer");
-  }catch(e){}
-})();
-</script>
-
-</body>
-</html>
