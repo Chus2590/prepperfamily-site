@@ -425,11 +425,11 @@
 
   // Load partials (try .html first, then trailing-slash folder)
   var headerUrls  = [base + "/partials/header-es.html",  base + "/partials/header-es/"];
-  var supportUrls = [base + "/partials/support-es.html", base + "/partials/support-es/"];
+  var supportUrls = [base + "/partials/footer-es.html", base + "/partials/footer-es/"];
 
   Promise.resolve()
     .then(function(){ return mountPartial("pf-header", headerUrls, function(mount){ initHeader(mount); }); })
-    .then(function(){ return mountPartial("pf-support", supportUrls); })
+    .then(function(){ return mountPartial("pf-footer", supportUrls); })
     .catch(function(){ /* fail silently */ });
 })();
 </script>
