@@ -1,20 +1,22 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>Family Resilience | PrepperFamily</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Resistencia Familiar</title>
 </head>
 <body>
 
-<!-- Header block (loaded from /partials/) -->
 <div id="pf-header"></div>
 
+<main id="pf-content">
+<!-- RESISTENCIA FAMILIAR – SUPER DISEÑO v3 MEJORADO -->
 <section class="rf-wrapper">
   <style>
     :root{
       --rf-bg-hero: linear-gradient(135deg, #fef9f3 0%, #f8fbff 50%, #f4f8fc 100%);
       --rf-bg-accent: #f7fafc;
+      --rf-bg-callout: #fff8e6;
       --rf-bg-card: #ffffff;
       --rf-clr-main: #2d3748;
       --rf-clr-accent: #2b6cb0;
@@ -32,451 +34,404 @@
     .rf-wrapper{
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       color: var(--rf-clr-main);
+      padding: 1.5rem 0 4rem;
       line-height: 1.6;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem 4rem;
     }
 
     .rf-hero{
       background: var(--rf-bg-hero);
       padding: 3.5rem 2rem 3rem;
       border-radius: var(--rf-border-radius);
-      margin: 2rem 0 3rem;
+      margin-bottom: 3rem;
       text-align: center;
       box-shadow: var(--rf-shadow-lg);
       border: 1px solid rgba(255, 255, 255, 0.8);
       position: relative;
       overflow: hidden;
     }
-    .rf-hero::before{
-      content:'';
-      position:absolute;
-      inset:0 0 auto 0;
-      height:4px;
+
+    .rf-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
       background: linear-gradient(90deg, var(--rf-clr-accent), var(--rf-clr-gold), var(--rf-clr-accent));
     }
+
     .rf-hero h1{
-      font-size: clamp(2.2rem, 5vw, 3.25rem);
+      font-size: 2.75rem;
       margin: 0 0 0.5rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      line-height: 1.1;
     }
+
     .rf-hero h1 .icon{
-      font-size: 1em;
+      font-size: 2.75rem;
       vertical-align: middle;
-      margin-right: 0.4rem;
+      margin-right: 0.5rem;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
+
     .rf-hero h2{
-      font-size: clamp(1.2rem, 3vw, 1.75rem);
+      font-size: 1.5rem;
       font-weight: 600;
-      margin: 0 auto 1.25rem;
+      margin: 0 auto 1.5rem;
       max-width: 42rem;
-      line-height: 1.35;
+      line-height: 1.4;
       color: var(--rf-clr-gold-dark);
     }
+
     .rf-hero blockquote{
       font-style: italic;
-      font-size: clamp(1.05rem, 2.5vw, 1.4rem);
+      font-size: 1.25rem;
       line-height: 1.6;
-      margin: 0 auto 1.25rem;
+      margin: 0 auto 1.5rem;
       max-width: 45rem;
       color: var(--rf-clr-main);
       font-weight: 500;
       position: relative;
       padding: 0 2rem;
     }
+
     .rf-hero blockquote::before,
-    .rf-hero blockquote::after{
-      content:'"';
-      font-size:3rem;
+    .rf-hero blockquote::after {
+      content: '"';
+      font-size: 3rem;
       color: var(--rf-clr-gold);
-      position:absolute;
+      position: absolute;
       font-family: Georgia, serif;
-      opacity:0.7;
+      opacity: 0.7;
     }
-    .rf-hero blockquote::before{ top:-0.5rem; left:0; }
-    .rf-hero blockquote::after{ bottom:-1.5rem; right:0; }
+
+    .rf-hero blockquote::before {
+      top: -0.5rem;
+      left: 0;
+    }
+
+    .rf-hero blockquote::after {
+      bottom: -1.5rem;
+      right: 0;
+    }
+
     .rf-hero p{
-      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      font-size: 1.125rem;
       line-height: 1.7;
-      max-width: 50rem;
+      max-width: 48rem;
       margin: 0 auto;
       color: var(--rf-clr-muted);
     }
 
-    .rf-topics{
+    .rf-topics {
       margin: 3rem 0;
       padding: 2rem;
       background: linear-gradient(135deg, #ffffff 0%, var(--rf-bg-accent) 100%);
       border-radius: var(--rf-border-radius);
       box-shadow: var(--rf-shadow-md);
     }
-    .rf-topics h3{
-      text-align:center;
-      font-size:2rem;
-      font-weight:700;
-      margin:0 0 2.5rem;
+
+    .rf-topics h3 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 0 2.5rem;
       color: var(--rf-clr-main);
-      position:relative;
-      padding-bottom:1rem;
+      position: relative;
+      padding-bottom: 1rem;
     }
-    .rf-topics h3::after{
-      content:'';
-      position:absolute;
-      bottom:0;
-      left:50%;
+
+    .rf-topics h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
       transform: translateX(-50%);
-      width:80px;
-      height:4px;
+      width: 80px;
+      height: 4px;
       background: linear-gradient(90deg, var(--rf-clr-accent), var(--rf-clr-gold));
-      border-radius:2px;
+      border-radius: 2px;
     }
-    .rf-hierarchy{
-      display:flex;
-      flex-direction:column;
-      gap:2rem;
-      max-width:900px;
-      margin:0 auto;
+
+    .rf-hierarchy {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
     }
-    .rf-main-category{ text-align:center; }
-    .rf-main-category a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
+
+    .rf-main-category {
+      text-align: center;
+    }
+
+    .rf-main-category a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: linear-gradient(135deg, var(--rf-clr-accent), var(--rf-clr-accent-hover));
-      color:#fff;
+      color: #fff;
+      border: none;
       border-radius: var(--rf-border-radius);
       padding: 1.25rem 2.5rem;
-      font-weight:700;
-      font-size:1.3rem;
-      text-decoration:none;
+      font-weight: 700;
+      font-size: 1.3rem;
+      text-decoration: none;
       box-shadow: var(--rf-shadow-md);
-      transition: all .3s ease;
-      position:relative;
-      overflow:hidden;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .rf-main-category a::before{
-      content:'👨‍👩‍👧‍👦';
-      font-size:1.5rem;
-      margin-right:.75rem;
+
+    .rf-main-category a::before {
+      content: '👨‍👩‍👧‍👦';
+      font-size: 1.5rem;
+      margin-right: 0.75rem;
     }
-    .rf-main-category a::after{
-      content:'';
-      position:absolute;
-      top:0;
-      left:-100%;
-      width:100%;
-      height:100%;
+
+    .rf-main-category a::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition:left .5s ease;
+      transition: left 0.5s ease;
     }
-    .rf-main-category a:hover{
+
+    .rf-main-category a:hover {
       transform: translateY(-4px) scale(1.02);
       box-shadow: var(--rf-shadow-lg);
     }
-    .rf-main-category a:hover::after{ left:100%; }
 
-    .rf-connector{
-      width:3px;
-      height:40px;
-      background: linear-gradient(180deg, var(--rf-clr-accent), var(--rf-clr-gold));
-      margin:0 auto;
-      border-radius:2px;
+    .rf-main-category a:hover::after {
+      left: 100%;
     }
 
-    .rf-sub-categories{
-      display:grid;
+    .rf-connector {
+      width: 3px;
+      height: 40px;
+      background: linear-gradient(180deg, var(--rf-clr-accent), var(--rf-clr-gold));
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    .rf-sub-categories {
+      display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.25rem;
-      padding:0;
-      margin:0;
+      padding: 0;
     }
-    .rf-sub-categories li{ list-style:none; }
-    .rf-sub-categories a{
-      display:flex;
-      align-items:center;
+
+    .rf-sub-categories li {
+      list-style: none;
+    }
+
+    .rf-sub-categories a {
+      display: flex;
+      align-items: center;
       justify-content: space-between;
-      background:#fff;
+      background: #ffffff;
       color: var(--rf-clr-main);
-      border:2px solid var(--rf-clr-accent);
+      border: 2px solid var(--rf-clr-accent);
       border-radius: var(--rf-border-radius-sm);
       padding: 1rem 1.5rem;
-      font-weight:600;
-      font-size:1rem;
-      text-decoration:none;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
       box-shadow: var(--rf-shadow-sm);
-      transition: all .3s ease;
-      gap:.75rem;
-      position:relative;
-      overflow:hidden;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
-    .rf-sub-categories a::before{
-      content:'◆';
+
+    .rf-sub-categories a::before {
+      content: '◆';
       color: var(--rf-clr-gold);
-      font-size:.8rem;
-      transition: transform .3s ease;
-      flex: 0 0 auto;
+      font-size: 0.8rem;
+      margin-right: 0.75rem;
+      transition: transform 0.3s ease;
     }
-    .rf-sub-categories a::after{
-      content:'→';
-      font-size:1.2rem;
+
+    .rf-sub-categories a::after {
+      content: '→';
+      font-size: 1.2rem;
       color: var(--rf-clr-accent);
-      font-weight:700;
-      transition: transform .3s ease;
-      flex: 0 0 auto;
+      font-weight: bold;
+      transition: transform 0.3s ease;
     }
-    .rf-sub-categories a span{ flex: 1 1 auto; }
-    .rf-sub-categories a:hover{
+
+    .rf-sub-categories a:hover {
       background: linear-gradient(135deg, var(--rf-clr-gold), var(--rf-clr-gold-dark));
-      color:#fff;
+      color: #ffffff;
       border-color: var(--rf-clr-gold-dark);
       box-shadow: var(--rf-shadow-md);
       transform: translateX(8px);
     }
-    .rf-sub-categories a:hover::before{ transform: rotate(360deg); color:#fff; }
-    .rf-sub-categories a:hover::after{ transform: translateX(5px); color:#fff; }
+
+    .rf-sub-categories a:hover::before {
+      transform: rotate(360deg);
+      color: #ffffff;
+    }
+
+    .rf-sub-categories a:hover::after {
+      transform: translateX(5px);
+      color: #ffffff;
+    }
 
     .rf-diff{
       margin: 4rem 0 3rem;
-      overflow-x:auto;
+      overflow-x: auto;
       border-radius: var(--rf-border-radius);
       box-shadow: var(--rf-shadow-md);
     }
+
     .rf-diff table{
-      width:100%;
+      width: 100%;
       border-collapse: collapse;
-      min-width:520px;
+      font-size: 1rem;
+      min-width: 500px;
       background: var(--rf-bg-card);
-      font-size:1rem;
     }
+
     .rf-diff thead th{
       background: linear-gradient(135deg, var(--rf-clr-accent), var(--rf-clr-accent-hover));
-      color:#fff;
+      color: white;
       padding: 1.25rem 1.5rem;
-      text-align:left;
-      font-weight:700;
-      font-size:1.1rem;
-      border:none;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
     }
-    .rf-diff thead th:first-child{ border-top-left-radius: var(--rf-border-radius); }
-    .rf-diff thead th:last-child{ border-top-right-radius: var(--rf-border-radius); }
-    .rf-diff tbody td{
-      border:1px solid #e2e8f0;
-      padding: 1.25rem 1.5rem;
-      line-height:1.5;
+
+     .rf-diff tbody td:first-child {
+      color: #c53030;
+      background: #fff5f5;
+      font-weight: 600;
     }
-    .rf-diff tbody tr:nth-child(even) td{ background: var(--rf-bg-accent); }
-    .rf-diff tbody tr:hover td{ background:#f1f5f9; transition: background .2s ease; }
-    .rf-diff tbody td:first-child{ color:#e53e3e; font-weight:500; }
-    .rf-diff tbody td:last-child{ color:#38a169; font-weight:600; }
+
+     .rf-diff tbody td:last-child {
+      color: #2f855a;
+      background: #f0fff4;
+      font-weight: 600;
+    }
 
     .rf-cta{
       background: linear-gradient(135deg, var(--rf-bg-accent), #edf2f7);
       padding: 2.5rem 2.5rem;
-      border:2px solid var(--rf-clr-accent);
+      border: 2px solid var(--rf-clr-accent);
       border-radius: var(--rf-border-radius);
       margin: 4rem 0 3rem;
       box-shadow: var(--rf-shadow-md);
-      text-align:center;
-      position:relative;
-    }
-    .rf-cta::before{
-      content:'';
-      position:absolute;
-      inset:0 0 auto 0;
-      height:4px;
-      background: linear-gradient(90deg, var(--rf-clr-accent), var(--rf-clr-gold));
-      border-radius: var(--rf-border-radius) var(--rf-border-radius) 0 0;
-    }
-    .rf-cta p{ margin:0; font-size:1.1rem; line-height:1.6; }
-    .rf-cta strong{
-      display:block;
-      margin-bottom:.75rem;
-      font-size:1.3rem;
-      color: var(--rf-clr-main);
-    }
-    .rf-cta a{
-      color: var(--rf-clr-accent);
-      font-weight:700;
-      text-decoration:none;
-      border-bottom:2px solid transparent;
-      transition: all .3s ease;
-    }
-    .rf-cta a:hover{
-      border-bottom-color: var(--rf-clr-accent);
-      color: var(--rf-clr-accent-hover);
+  
+    text-align: center;
+      position: relative;
     }
 
     .rf-footer{
-      font-size:.95rem;
+      font-size: 0.95rem;
       color: var(--rf-clr-muted);
-      text-align:center;
-      margin-top:3rem;
-      padding:1.5rem;
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1.5rem;
       background: var(--rf-bg-accent);
       border-radius: var(--rf-border-radius-sm);
-      border:1px solid #e2e8f0;
-    }
-    .rf-footer strong{ color: var(--rf-clr-main); }
-
-    .rf-hero-img{
-      width:100%;
-      max-width:980px;
-      height:auto;
-      display:block;
-      margin:0 auto 1.75rem;
-      border-radius:18px;
-      box-shadow: var(--rf-shadow-lg);
-    }
-
-    body{ margin:0; background:#fff; }
-    @media (max-width: 768px){
-      .rf-wrapper{ padding:0 .75rem 3rem; }
-      .rf-hero{ padding:2.5rem 1.5rem 2rem; margin:1rem 0 2rem; }
-      .rf-hero-img{ margin-bottom:1.25rem; border-radius:14px; }
-      .rf-topics{ padding:1.5rem; }
-      .rf-topics h3{ font-size:1.5rem; }
-      .rf-main-category a{ font-size:1.1rem; padding:1rem 2rem; }
-      .rf-sub-categories{ grid-template-columns:1fr; gap:1rem; }
-      .rf-cta{ padding:1.75rem 1.5rem; }
-    }
-    @media (min-width: 1024px){
-      .rf-sub-categories{ grid-template-columns: repeat(2, 1fr); }
+      border: 1px solid #e2e8f0;
     }
   </style>
-  
-  <header class="rf-hero">
-        <img class="rf-hero-img" src="https://prepperfamily.org/imagenes/resistencia-familiar" alt="Ilustración: Resiliencia Familiar">
+
+<header class="rf-hero">
+  <img 
+  src="https://prepperfamily.org/assets/images/home/family-resilience.jpg"
+  alt="Resistencia familiar y preparación"
+  style="
+    width:100%;
+    max-width:900px;
+    height:auto;
+    border-radius:12px;
+    margin:0 auto 1.8rem auto;
+    display:block;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+  "
+>
 <h1><span class="icon">👨‍👩‍👧‍👦</span>Resistencia Familiar</h1>
-    <h2>Porque la primera fortaleza se construye en casa</h2>
-    <blockquote>Resiste sin miedo. Prepárate sin caos. Vive con propósito.</blockquote>
-    <p>Somos el taller donde las familias forjan unidad, defienden la verdad y convierten la crisis en oportunidad. Aquí encontrarás planes claros para convertir tu hogar en un bastión de valentía, servicio y alegría serena.</p>
-  </header>
+<h2>Porque la primera fortaleza se construye en casa</h2>
+<blockquote>Resiste sin miedo. Prepárate sin caos. Vive con propósito.</blockquote>
+<p>Somos el taller donde las familias forjan unidad, defienden la verdad y convierten la crisis en oportunidad. Aquí encontrarás planes claros para transformar tu hogar en un bastión de valentía, servicio y alegría constante.</p>
+</header>
 
-  <section class="rf-topics">
-    <h3>Explora Nuestros Temas</h3>
-    <div class="rf-hierarchy">
-      <div class="rf-main-category">
-        <a href="https://prepperfamily.org/en/category/family-resilience/">Ver Todo: Resiliencia Familiar</a>
-      </div>
+<section class="rf-topics">
+<h3>Explora nuestros temas</h3>
 
-      <div class="rf-connector"></div>
+<div class="rf-hierarchy">
 
-      <ul class="rf-sub-categories">
-        <li><a href="https://prepperfamily.org/en/category/family-structure/"><span>Roles y Estructura Familiar</span></a></li>
-        <li><a href="https://prepperfamily.org/en/category/homeschooling/"><span>Educación en Casa</span></a></li>
-        <li><a href="https://prepperfamily.org/en/category/home-protection/"><span>Protección del Hogar</span></a></li>
-        <li><a href="https://prepperfamily.org/en/category/household-economy/"><span>Economía del Hogar</span></a></li>
-      </ul>
-    </div>
-  </section>
+<div class="rf-main-category">
+<a href="https://prepperfamily.org/es/category/family-resilience/">Ver todo: Resistencia Familiar</a>
+</div>
 
-  <div class="rf-diff">
-    <table>
-      <thead>
-        <tr>
-          <th>Familia Frágil</th>
-          <th>Familia Resiliente</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Rutinas sin propósito</td><td>Ritos diarios que construyen cohesión</td></tr>
-        <tr><td>Convivencia desconectada</td><td>Consejos semanales de misión familiar</td></tr>
-        <tr><td>Aislamiento vecinal</td><td>Alianzas vecinales y trueque prudente</td></tr>
-        <tr><td>Información impulsada por el miedo</td><td>Discernimiento y discurso claro ante la cultura</td></tr>
-      </tbody>
-    </table>
-  </div>
+<div class="rf-connector"></div>
 
-  <!-- QUERY LOOP PLACEHOLDER -->
-  <!-- Inserta aquí tu bloque de WordPress "Query Loop" (filtrado a las categorías anteriores) -->
+<ul class="rf-sub-categories">
+<li><a href="https://prepperfamily.org/es/category/family-structure/"><span>Roles y estructura familiar</span></a></li>
+<li><a href="https://prepperfamily.org/es/category/homeschooling/"><span>Educación en casa</span></a></li>
+<li><a href="https://prepperfamily.org/es/category/home-protection/"><span>Protección del hogar</span></a></li>
+<li><a href="https://prepperfamily.org/es/category/household-economy/"><span>Economía del hogar</span></a></li>
+</ul>
 
-  <div class="rf-cta">
-    <p><strong>¿Tienes prácticas que protegen tu hogar de la incertidumbre?</strong><br>
-       Escríbenos y fortalece a otras familias: <a href="mailto:editor@prepperfamily.org">editor@prepperfamily.org</a>
-    </p>
-  </div>
-
-  <footer class="rf-footer">
-    Esta sección forma parte del pilar de <strong>Resiliencia Familiar</strong> de <strong>PrepperFamily.org</strong>, donde el amor se organiza y la verdad se defiende con alegría.
-  </footer>
+</div>
 </section>
 
-<!-- Support block (loaded from /partials/) -->
-<div id="pf-support"></div>
+<div class="rf-diff">
+<table>
+<thead>
+<tr>
+<th>Familia frágil</th>
+<th>Familia resistente</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Rutinas sin propósito</td><td>Ritos diarios que construyen cohesión</td></tr>
+<tr><td>Convivencia desconectada</td><td>Consejos familiares semanales de misión</td></tr>
+<tr><td>Aislamiento vecinal</td><td>Alianzas vecinales y trueque prudente</td></tr>
+<tr><td>Información impulsada por el miedo</td><td>Discernimiento y discurso claro hacia la cultura</td></tr>
+</tbody>
+</table>
+</div>
 
-<script id="pf-page-runtime">
-(function () {
-  var isGitHub = location.hostname.endsWith("github.io");
-  var base = isGitHub ? "/prepperfamily-site" : "";
+<div class="rf-cta">
+<p><strong>¿Tienes prácticas que protejan tu hogar de la incertidumbre?</strong><br>
+Escríbenos y fortalece a otras familias: <a href="mailto:editor@prepperfamily.org">editor@prepperfamily.org</a>
+</p>
+</div>
 
-  function unwrapBody(raw){
-    var m = raw.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-    return m ? m[1] : raw;
+<footer class="rf-footer">
+Esta sección forma parte del pilar <strong>Resistencia Familiar</strong> de <strong>PrepperFamily.org</strong>, donde el amor se organiza y la verdad se defiende con alegría.
+</footer>
+
+</section>
+</main>
+
+<div id="pf-footer"></div>
+
+<script>
+(async () => {
+  const isGitHub = location.hostname.endsWith("github.io");
+  const base = isGitHub ? `${location.origin}/prepperfamily-site` : "";
+  const lang = location.pathname.includes("/es/") ? "es" : "en";
+  const headerUrl = `${base}/partials/header-${lang}/`;
+  const footerUrl = `${base}/partials/footer-${lang}/`;
+
+  async function inject(url, id){
+    const r = await fetch(url, { cache: "no-store" });
+    if(!r.ok) throw new Error(`Failed ${url}`);
+    document.getElementById(id).innerHTML = await r.text();
   }
 
-  function fetchFirst(urls){
-    var i = 0;
-    function next(){
-      var url = urls[i++];
-      return fetch(url).then(function(r){
-        if(!r.ok) throw new Error("HTTP " + r.status);
-        return r.text();
-      }).catch(function(){
-        if (i < urls.length) return next();
-        throw new Error("All fetches failed");
-      });
-    }
-    return next();
-  }
-
-  function initHeader(root){
-    if(!root) return;
-
-    var panel = root.querySelector("[data-pf-panel='menu']");
-    if(panel && !panel.getAttribute("data-pf-initialized")){
-      panel.style.display = "none";
-      panel.setAttribute("data-pf-initialized", "true");
-    }
-
-    var btn = root.querySelector("[data-pf-toggle='menu']");
-    if(btn && panel && !btn.getAttribute("data-pf-bound")){
-      btn.setAttribute("data-pf-bound", "true");
-      btn.addEventListener("click", function(){
-        var open = panel.style.display === "block";
-        panel.style.display = open ? "none" : "block";
-        btn.setAttribute("aria-expanded", open ? "false" : "true");
-      });
-    }
-  }
-
-  function mountPartial(mountId, urls, after){
-    return fetchFirst(urls).then(function(raw){
-      var mount = document.getElementById(mountId);
-      if (!mount) return;
-      mount.innerHTML = unwrapBody(raw);
-      if (typeof after === "function") after(mount);
-    });
-  }
-
-  document.addEventListener("click", function(e){
-    var el = e.target && e.target.closest ? e.target.closest("[data-lang-link]") : null;
-    if(!el) return;
-    e.preventDefault();
-    var target = el.getAttribute("data-lang-link") || "/";
-    window.location.href = base + target;
-  });
-
-  var headerUrls  = [base + "/partials/header-en.html",  base + "/partials/header-en/"];
-  var supportUrls = [base + "/partials/support-en.html", base + "/partials/support-en/"];
-
-  Promise.resolve()
-    .then(function(){ return mountPartial("pf-header", headerUrls, function(mount){ initHeader(mount); }); })
-    .then(function(){ return mountPartial("pf-support", supportUrls); })
-    .catch(function(){});
+  try{
+    await inject(headerUrl, "pf-header");
+    await inject(footerUrl, "pf-footer");
+  }catch(e){}
 })();
 </script>
 
