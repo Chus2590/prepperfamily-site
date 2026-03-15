@@ -134,6 +134,10 @@ color:#111;
 display:none;
 }
 
+.mobile-section-header{
+display:none;
+}
+
 /* MOBILE */
 
 @media (max-width:768px){
@@ -181,8 +185,7 @@ display:block;
 display:none !important;
 }
 
-.nav > a,
-.nav > .nav-item > .submenu-label{
+.nav > a{
 display:block;
 padding:14px 22px;
 font-size:18px;
@@ -191,8 +194,7 @@ color:#222;
 text-decoration:none;
 }
 
-.nav > a:hover,
-.nav > .nav-item > .submenu-label:hover{
+.nav > a:hover{
 color:#2c7be5;
 }
 
@@ -205,16 +207,43 @@ border-top:1px solid #f2f2f2;
 border-top:none;
 }
 
-/* CLAVE: ocultar el enlace principal del pilar en móvil */
+/* Hide desktop pillar link on mobile */
 .nav-item.has-dropdown > .nav-link{
 display:none !important;
+}
+
+/* Mobile pillar row: link on left, toggle on right */
+.mobile-section-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+padding:14px 22px;
+}
+
+.mobile-pillar-link{
+flex:1;
+display:block;
+font-size:18px;
+font-weight:600;
+line-height:1.2;
+color:#222;
+text-decoration:none;
+}
+
+.mobile-pillar-link:hover{
+color:#2c7be5;
 }
 
 .submenu-label{
 display:flex;
 align-items:center;
-justify-content:space-between;
+justify-content:center;
+width:34px;
+height:34px;
 cursor:pointer;
+flex:0 0 34px;
+color:#222;
 }
 
 .submenu-label::after{
@@ -281,42 +310,69 @@ margin-left:0;
 <div class="nav-item has-dropdown">
 <a href="/en/material-support/" class="nav-link">Material Support</a>
 
-<input type="checkbox" id="submenu-material-support" class="submenu-toggle">
-<label for="submenu-material-support" class="submenu-label mobile-only">Material Support</label>
+<div class="mobile-section-header mobile-only">
+  <a href="/en/material-support/" class="mobile-pillar-link">Material Support</a>
+  <input type="checkbox" id="submenu-material-support" class="submenu-toggle">
+  <label for="submenu-material-support" class="submenu-label mobile-only" aria-label="Toggle Material Support categories"></label>
+  <div class="mega-menu">
+    <a href="/en/material-support/">Store</a>
+    <a href="/en/material-support/">Grow</a>
+    <a href="/en/material-support/">Prepare</a>
+    <a href="/en/material-support/">Family Production Units</a>
+  </div>
+</div>
 
-<div class="mega-menu">
-<a href="/en/material-support/">Store</a>
-<a href="/en/material-support/">Grow</a>
-<a href="/en/material-support/">Prepare</a>
-<a href="/en/material-support/">Family Production Units</a>
+<div class="mega-menu desktop-only">
+  <a href="/en/material-support/">Store</a>
+  <a href="/en/material-support/">Grow</a>
+  <a href="/en/material-support/">Prepare</a>
+  <a href="/en/material-support/">Family Production Units</a>
 </div>
 </div>
 
 <div class="nav-item has-dropdown">
 <a href="/en/family-resilience/" class="nav-link">Family Resilience</a>
 
-<input type="checkbox" id="submenu-family-resilience" class="submenu-toggle">
-<label for="submenu-family-resilience" class="submenu-label mobile-only">Family Resilience</label>
+<div class="mobile-section-header mobile-only">
+  <a href="/en/family-resilience/" class="mobile-pillar-link">Family Resilience</a>
+  <input type="checkbox" id="submenu-family-resilience" class="submenu-toggle">
+  <label for="submenu-family-resilience" class="submenu-label mobile-only" aria-label="Toggle Family Resilience categories"></label>
+  <div class="mega-menu">
+    <a href="/en/family-resilience/">Roles &amp; Structure</a>
+    <a href="/en/family-resilience/">HomeSchooling</a>
+    <a href="/en/family-resilience/">Home Protection</a>
+    <a href="/en/family-resilience/">Household Economy</a>
+  </div>
+</div>
 
-<div class="mega-menu">
-<a href="/en/family-resilience/">Roles &amp; Structure</a>
-<a href="/en/family-resilience/">HomeSchooling</a>
-<a href="/en/family-resilience/">Home Protection</a>
-<a href="/en/family-resilience/">Household Economy</a>
+<div class="mega-menu desktop-only">
+  <a href="/en/family-resilience/">Roles &amp; Structure</a>
+  <a href="/en/family-resilience/">HomeSchooling</a>
+  <a href="/en/family-resilience/">Home Protection</a>
+  <a href="/en/family-resilience/">Household Economy</a>
 </div>
 </div>
 
 <div class="nav-item has-dropdown">
 <a href="/en/inner-strength/" class="nav-link">Inner Strength</a>
 
-<input type="checkbox" id="submenu-inner-strength" class="submenu-toggle">
-<label for="submenu-inner-strength" class="submenu-label mobile-only">Inner Strength</label>
+<div class="mobile-section-header mobile-only">
+  <a href="/en/inner-strength/" class="mobile-pillar-link">Inner Strength</a>
+  <input type="checkbox" id="submenu-inner-strength" class="submenu-toggle">
+  <label for="submenu-inner-strength" class="submenu-label mobile-only" aria-label="Toggle Inner Strength categories"></label>
+  <div class="mega-menu">
+    <a href="/en/inner-strength/">Basic Christian Concepts</a>
+    <a href="/en/inner-strength/">Bible, truth revealed</a>
+    <a href="/en/inner-strength/">Faith in difficult times</a>
+    <a href="/en/inner-strength/">Apologetics: defense of the faith</a>
+  </div>
+</div>
 
-<div class="mega-menu">
-<a href="/en/inner-strength/">Basic Christian Concepts</a>
-<a href="/en/inner-strength/">Bible, truth revealed</a>
-<a href="/en/inner-strength/">Faith in difficult times</a>
-<a href="/en/inner-strength/">Apologetics: defense of the faith</a>
+<div class="mega-menu desktop-only">
+  <a href="/en/inner-strength/">Basic Christian Concepts</a>
+  <a href="/en/inner-strength/">Bible, truth revealed</a>
+  <a href="/en/inner-strength/">Faith in difficult times</a>
+  <a href="/en/inner-strength/">Apologetics: defense of the faith</a>
 </div>
 </div>
 
