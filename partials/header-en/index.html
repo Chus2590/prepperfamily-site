@@ -182,7 +182,6 @@ display:none !important;
 }
 
 .nav > a,
-.nav > .nav-item > .nav-link,
 .nav > .nav-item > .submenu-label{
 display:block;
 padding:14px 22px;
@@ -193,7 +192,6 @@ text-decoration:none;
 }
 
 .nav > a:hover,
-.nav > .nav-item > .nav-link:hover,
 .nav > .nav-item > .submenu-label:hover{
 color:#2c7be5;
 }
@@ -207,8 +205,9 @@ border-top:1px solid #f2f2f2;
 border-top:none;
 }
 
-.has-dropdown > .nav-link{
-display:none;
+/* CLAVE: ocultar el enlace principal del pilar en móvil */
+.nav-item.has-dropdown > .nav-link{
+display:none !important;
 }
 
 .submenu-label{
@@ -264,7 +263,7 @@ margin-left:0;
 <div class="header-container">
 
 <div class="logo">
-<a href="/en/">
+<a href="/">
 <img src="/assets/images/header/logo.jpg" alt="PrepperFamily">
 </a>
 </div>
