@@ -17,59 +17,89 @@ margin:auto;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:12px 20px;
+padding:10px 20px;
+gap:20px;
+position:relative;
+}
+
+.logo{
+flex:0 0 auto;
 }
 
 .logo img{
 height:52px;
+display:block;
 }
 
 /* NAV */
 
 .nav{
 display:flex;
-gap:28px;
+gap:26px;
 align-items:center;
+margin-left:auto;
 }
 
 .nav-item{
 position:relative;
 }
 
+.nav-link,
 .nav a{
 text-decoration:none;
 color:#222;
 font-size:16px;
 font-weight:500;
+line-height:1.2;
+display:inline-flex;
+align-items:center;
+gap:6px;
 }
 
+.nav-link:hover,
 .nav a:hover{
 color:#2c7be5;
+}
+
+.has-dropdown > .nav-link::after{
+content:"▾";
+font-size:12px;
+line-height:1;
+transform:translateY(1px);
+}
+
+/* ACTIVE / EMPHASIS */
+
+.home-link,
+.lang{
+font-weight:600;
 }
 
 /* MEGA MENU */
 
 .mega-menu{
 position:absolute;
-top:38px;
+top:40px;
 left:0;
 background:#fff;
 border:1px solid #eee;
-padding:20px;
+padding:14px 18px;
 display:none;
 width:260px;
 box-shadow:0 10px 25px rgba(0,0,0,0.08);
-border-radius:6px;
+border-radius:8px;
 }
 
-.nav-item:hover .mega-menu{
+.nav-item:hover .mega-menu,
+.nav-item:focus-within .mega-menu{
 display:block;
 }
 
 .mega-menu a{
 display:block;
-padding:6px 0;
+padding:8px 0;
 font-size:15px;
+font-weight:500;
 color:#333;
 }
 
@@ -80,57 +110,151 @@ color:#2c7be5;
 /* LANGUAGE */
 
 .lang{
-font-weight:600;
-margin-left:10px;
+margin-left:4px;
 }
 
-/* MOBILE */
+/* MOBILE TOGGLES */
 
-.menu-toggle{
+.menu-toggle,
+.submenu-toggle{
 display:none;
 }
 
 .menu-icon{
 display:none;
-font-size:26px;
+font-size:32px;
+line-height:1;
 cursor:pointer;
+padding:8px 10px;
+user-select:none;
+color:#111;
 }
+
+.mobile-only{
+display:none;
+}
+
+/* MOBILE */
 
 @media (max-width:768px){
 
+.header-container{
+padding:12px 16px;
+align-items:center;
+}
+
+.logo img{
+height:50px;
+}
+
+.menu-icon{
+display:block;
+margin-left:auto;
+}
+
 .nav{
 position:absolute;
-top:70px;
+top:100%;
 left:0;
-width:100%;
-background:white;
+right:0;
+background:#fff;
 flex-direction:column;
-align-items:center;
-gap:18px;
-padding:20px 0;
+align-items:stretch;
+gap:0;
+padding:10px 0 14px;
+border-top:1px solid #eee;
 border-bottom:1px solid #eee;
+box-shadow:0 12px 24px rgba(0,0,0,0.06);
 display:none;
+margin-left:0;
 }
 
 .menu-toggle:checked + .menu-icon + .nav{
 display:flex;
 }
 
-.menu-icon{
+.mobile-only{
 display:block;
+}
+
+.desktop-only{
+display:none !important;
+}
+
+.nav > a,
+.nav > .nav-item > .nav-link,
+.nav > .nav-item > .submenu-label{
+display:block;
+padding:14px 22px;
+font-size:18px;
+font-weight:600;
+color:#222;
+text-decoration:none;
+}
+
+.nav > a:hover,
+.nav > .nav-item > .nav-link:hover,
+.nav > .nav-item > .submenu-label:hover{
+color:#2c7be5;
+}
+
+.nav-item{
+width:100%;
+border-top:1px solid #f2f2f2;
+}
+
+.nav-item:first-of-type{
+border-top:none;
+}
+
+.has-dropdown > .nav-link{
+display:none;
+}
+
+.submenu-label{
+display:flex;
+align-items:center;
+justify-content:space-between;
+cursor:pointer;
+}
+
+.submenu-label::after{
+content:"+";
+font-size:24px;
+font-weight:400;
+line-height:1;
+}
+
+.submenu-toggle:checked + .submenu-label::after{
+content:"–";
 }
 
 .mega-menu{
 position:static;
+display:none;
+width:auto;
 box-shadow:none;
 border:none;
-padding:5px 0;
-width:auto;
+border-left:2px solid #efefef;
+border-radius:0;
+padding:0 0 6px 0;
+margin:0 22px 8px 22px;
+background:transparent;
+}
+
+.submenu-toggle:checked + .submenu-label + .mega-menu{
 display:block;
 }
 
-.nav-item:hover .mega-menu{
-display:block;
+.mega-menu a{
+padding:10px 0 10px 14px;
+font-size:16px;
+font-weight:500;
+color:#444;
+}
+
+.lang{
+margin-left:0;
 }
 
 }
@@ -141,63 +265,59 @@ display:block;
 
 <div class="logo">
 <a href="/en/">
-<img src="https://prepperfamily.org/assets/images/header/logo.jpg" alt="PrepperFamily">
+<img src="https://prepperfamily.org/imagenes/logotipo" alt="PrepperFamily">
 </a>
 </div>
 
 <input type="checkbox" id="menu-toggle" class="menu-toggle">
 
-<label for="menu-toggle" class="menu-icon">
+<label for="menu-toggle" class="menu-icon" aria-label="Open menu">
 ☰
 </label>
 
 <nav class="nav">
 
-<div class="nav-item">
-<a href="/en/material-support/">Material Support</a>
+<a href="/en/" class="home-link">Home</a>
+
+<div class="nav-item has-dropdown">
+<a href="/en/material-support/" class="nav-link">Material Support</a>
+
+<input type="checkbox" id="submenu-material-support" class="submenu-toggle">
+<label for="submenu-material-support" class="submenu-label mobile-only">Material Support</label>
 
 <div class="mega-menu">
-
 <a href="/en/material-support/">Store</a>
-
 <a href="/en/material-support/">Grow</a>
-
 <a href="/en/material-support/">Prepare</a>
-
 <a href="/en/material-support/">Family Production Units</a>
-
 </div>
 </div>
 
-<div class="nav-item">
-<a href="/en/family-resilience/">Family Resilience</a>
+<div class="nav-item has-dropdown">
+<a href="/en/family-resilience/" class="nav-link">Family Resilience</a>
+
+<input type="checkbox" id="submenu-family-resilience" class="submenu-toggle">
+<label for="submenu-family-resilience" class="submenu-label mobile-only">Family Resilience</label>
 
 <div class="mega-menu">
-
-<a href="/en/family-resilience/">Roles & Structure</a>
-
-<a href="/en/family-resilience/">HomeShooling</a>
-
+<a href="/en/family-resilience/">Roles &amp; Structure</a>
+<a href="/en/family-resilience/">HomeSchooling</a>
 <a href="/en/family-resilience/">Home Protection</a>
-
 <a href="/en/family-resilience/">Household Economy</a>
-
 </div>
 </div>
 
-<div class="nav-item">
-<a href="/en/inner-strength/">Inner Strength</a>
+<div class="nav-item has-dropdown">
+<a href="/en/inner-strength/" class="nav-link">Inner Strength</a>
+
+<input type="checkbox" id="submenu-inner-strength" class="submenu-toggle">
+<label for="submenu-inner-strength" class="submenu-label mobile-only">Inner Strength</label>
 
 <div class="mega-menu">
-
 <a href="/en/inner-strength/">Basic Christian Concepts</a>
-
 <a href="/en/inner-strength/">Bible, truth revealed</a>
-
 <a href="/en/inner-strength/">Faith in difficult times</a>
-
 <a href="/en/inner-strength/">Apologetics: defense of the faith</a>
-
 </div>
 </div>
 
