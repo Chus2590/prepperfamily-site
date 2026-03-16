@@ -1,385 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Header Preview</title>
+</head>
+<body style="margin:0;background:#f5f5f5;min-height:100vh;">
+
 <header class="site-header">
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-.site-header{
-background:#fff;
-border-bottom:1px solid #e6e6e6;
-position:sticky;
-top:0;
-z-index:1000;
-font-family:system-ui,Arial,sans-serif;
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --accent: #2c7be5;
+  --accent2: #1a56c4;
+  --header-h: 68px;
 }
 
-.header-container{
-max-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:10px 20px;
-gap:20px;
-position:relative;
+.site-header {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: 'Inter', system-ui, Arial, sans-serif;
+  box-shadow: 0 2px 24px rgba(44,123,229,0.07);
 }
 
-.logo{
-flex:0 0 auto;
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: var(--header-h);
+  gap: 20px;
+  position: relative;
 }
 
-.logo img{
-height:52px;
-display:block;
+/* LOGO */
+.logo { flex: 0 0 auto; }
+.logo a { display: block; }
+.logo img {
+  height: 52px;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.logo a:hover img {
+  transform: scale(1.04);
+  filter: drop-shadow(0 4px 12px rgba(44,123,229,0.25));
 }
 
 /* NAV */
-
-.nav{
-display:flex;
-gap:26px;
-align-items:center;
-margin-left:auto;
+.nav {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-left: auto;
 }
 
-.nav-item{
-position:relative;
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14.5px;
+  font-weight: 500;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 10px;
+  position: relative;
+  transition: color 0.22s, background 0.22s, transform 0.18s;
+  letter-spacing: 0.01em;
 }
 
-.nav-link,
-.nav a{
-text-decoration:none;
-color:#222;
-font-size:16px;
-font-weight:500;
-line-height:1.2;
-display:inline-flex;
-align-items:center;
-gap:6px;
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), #7bb8ff);
+  border-radius: 2px;
+  transition: transform 0.28s cubic-bezier(.4,0,.2,1);
 }
 
-.nav-link:hover,
-.nav a:hover{
-color:#2c7be5;
+.nav a:hover {
+  color: var(--accent);
+  background: rgba(44,123,229,0.07);
+  transform: translateY(-1px);
 }
 
-.has-dropdown > .nav-link::after{
-content:"▾";
-font-size:12px;
-line-height:1;
-transform:translateY(1px);
+.nav a:hover::after { transform: translateX(-50%) scaleX(1); }
+
+.home-link { font-weight: 700; color: #111; }
+.home-link:hover { color: var(--accent) !important; }
+
+/* LANG PILL */
+.lang {
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, var(--accent), #7bb8ff) !important;
+  color: #fff !important;
+  border-radius: 30px !important;
+  padding: 7px 18px !important;
+  margin-left: 6px;
+  letter-spacing: 0.04em;
+  box-shadow: 0 2px 12px rgba(44,123,229,0.25);
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s !important;
+}
+.lang::after { display: none !important; }
+.lang:hover {
+  transform: translateY(-2px) scale(1.06) !important;
+  box-shadow: 0 6px 20px rgba(44,123,229,0.38) !important;
+  filter: brightness(1.08);
+  background: linear-gradient(135deg, var(--accent2), var(--accent)) !important;
+  color: #fff !important;
 }
 
-/* ACTIVE / EMPHASIS */
+/* MOBILE TOGGLE */
+.menu-toggle { display: none; }
 
-.home-link,
-.lang{
-font-weight:600;
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;
+  user-select: none;
+  flex-direction: column;
+  gap: 5px;
 }
 
-/* MEGA MENU */
-
-.mega-menu{
-position:absolute;
-top:40px;
-left:0;
-background:#fff;
-border:1px solid #eee;
-padding:14px 18px;
-display:none;
-width:260px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-border-radius:8px;
+.menu-icon span {
+  display: block;
+  width: 26px;
+  height: 2.5px;
+  background: #222;
+  border-radius: 4px;
+  transition: transform 0.35s cubic-bezier(.4,0,.2,1), opacity 0.25s, width 0.25s;
+  transform-origin: center;
 }
+.menu-icon span:nth-child(2) { width: 18px; }
 
-.nav-item:hover .mega-menu,
-.nav-item:focus-within .mega-menu{
-display:block;
+/* Hamburger → X animation */
+.menu-toggle:checked + .menu-icon span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
 }
-
-.mega-menu a{
-display:block;
-padding:8px 0;
-font-size:15px;
-font-weight:500;
-color:#333;
+.menu-toggle:checked + .menu-icon span:nth-child(2) {
+  opacity: 0; transform: scaleX(0);
 }
-
-.mega-menu a:hover{
-color:#2c7be5;
-}
-
-/* LANGUAGE */
-
-.lang{
-margin-left:4px;
-}
-
-/* MOBILE TOGGLES */
-
-.menu-toggle,
-.submenu-toggle{
-display:none;
-}
-
-.menu-icon{
-display:none;
-font-size:32px;
-line-height:1;
-cursor:pointer;
-padding:8px 10px;
-user-select:none;
-color:#111;
-}
-
-.mobile-only{
-display:none;
-}
-
-.mobile-section-header{
-display:none;
+.menu-toggle:checked + .menu-icon span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
 }
 
 /* MOBILE */
+@media (max-width: 768px) {
+  .header-container { padding: 0 18px; }
+  .logo img { height: 46px; }
 
-@media (max-width:768px){
+  .menu-icon {
+    display: flex;
+    align-items: flex-end;
+  }
 
-.header-container{
-padding:12px 16px;
-align-items:center;
+  .nav {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0; right: 0;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 16px 18px;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    box-shadow: 0 18px 40px rgba(44,123,229,0.12);
+    display: none;
+    margin-left: 0;
+    border-radius: 0 0 20px 20px;
+
+    /* Slide-in animation */
+    animation: none;
+  }
+
+  .menu-toggle:checked + .menu-icon + .nav {
+    display: flex;
+    animation: slideDown 0.3s cubic-bezier(.4,0,.2,1);
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .nav a {
+    display: block;
+    padding: 13px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+    border-radius: 12px;
+    margin-bottom: 3px;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+  }
+
+  .nav a::after { display: none; }
+
+  .nav a:hover {
+    background: rgba(44,123,229,0.09);
+    color: var(--accent);
+    transform: translateX(4px);
+  }
+
+  .lang {
+    text-align: center;
+    margin-left: 0 !important;
+    margin-top: 6px;
+    border-radius: 14px !important;
+    padding: 13px 16px !important;
+    font-size: 16px;
+    display: block;
+  }
+  .lang:hover { transform: translateX(0) scale(1.02) !important; }
 }
-
-.logo img{
-height:50px;
-}
-
-.menu-icon{
-display:block;
-margin-left:auto;
-}
-
-.nav{
-position:absolute;
-top:100%;
-left:0;
-right:0;
-background:#fff;
-flex-direction:column;
-align-items:stretch;
-gap:0;
-padding:10px 0 14px;
-border-top:1px solid #eee;
-border-bottom:1px solid #eee;
-box-shadow:0 12px 24px rgba(0,0,0,0.06);
-display:none;
-margin-left:0;
-}
-
-.menu-toggle:checked + .menu-icon + .nav{
-display:flex;
-}
-
-.mobile-only{
-display:block;
-}
-
-.desktop-only{
-display:none !important;
-}
-
-.nav > a{
-display:block;
-padding:14px 22px;
-font-size:18px;
-font-weight:600;
-color:#222;
-text-decoration:none;
-}
-
-.nav > a:hover{
-color:#2c7be5;
-}
-
-.nav-item{
-width:100%;
-border-top:1px solid #f2f2f2;
-}
-
-.nav-item:first-of-type{
-border-top:none;
-}
-
-/* Hide desktop pillar link on mobile */
-.nav-item.has-dropdown > .nav-link{
-display:none !important;
-}
-
-/* Mobile pillar row: link on left, toggle on right */
-.mobile-section-header{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:12px;
-padding:14px 22px;
-}
-
-.mobile-pillar-link{
-flex:1;
-display:block;
-font-size:18px;
-font-weight:600;
-line-height:1.2;
-color:#222;
-text-decoration:none;
-}
-
-.mobile-pillar-link:hover{
-color:#2c7be5;
-}
-
-.submenu-label{
-display:flex;
-align-items:center;
-justify-content:center;
-width:34px;
-height:34px;
-cursor:pointer;
-flex:0 0 34px;
-color:#222;
-}
-
-.submenu-label::after{
-content:"+";
-font-size:24px;
-font-weight:400;
-line-height:1;
-}
-
-.submenu-toggle:checked + .submenu-label::after{
-content:"–";
-}
-
-.mega-menu{
-position:static;
-display:none;
-width:auto;
-box-shadow:none;
-border:none;
-border-left:2px solid #efefef;
-border-radius:0;
-padding:0 0 6px 0;
-margin:0 22px 8px 22px;
-background:transparent;
-}
-
-.submenu-toggle:checked + .submenu-label + .mega-menu{
-display:block;
-}
-
-.mega-menu a{
-padding:10px 0 10px 14px;
-font-size:16px;
-font-weight:500;
-color:#444;
-}
-
-.lang{
-margin-left:0;
-}
-
-}
-
 </style>
 
 <div class="header-container">
 
-<div class="logo">
-<a href="/">
-<img src="/assets/images/header/logo.jpg" alt="PrepperFamily">
-</a>
-</div>
-
-<input type="checkbox" id="menu-toggle" class="menu-toggle">
-
-<label for="menu-toggle" class="menu-icon" aria-label="Open menu">
-☰
-</label>
-
-<nav class="nav">
-
-<a href="/" class="home-link">Home</a>
-
-<div class="nav-item has-dropdown">
-<a href="/en/material-support/" class="nav-link">Material Support</a>
-
-<div class="mobile-section-header mobile-only">
-  <a href="/en/material-support/" class="mobile-pillar-link">Material Support</a>
-  <input type="checkbox" id="submenu-material-support" class="submenu-toggle">
-  <label for="submenu-material-support" class="submenu-label mobile-only" aria-label="Toggle Material Support categories"></label>
-  <div class="mega-menu">
-    <a href="/en/material-support/">Store</a>
-    <a href="/en/material-support/">Grow</a>
-    <a href="/en/material-support/">Prepare</a>
-    <a href="/en/material-support/">Family Production Units</a>
+  <div class="logo">
+    <a href="/">
+      <img src="/assets/images/header/logo.jpg" alt="PrepperFamily">
+    </a>
   </div>
-</div>
 
-<div class="mega-menu desktop-only">
-  <a href="/en/material-support/">Store</a>
-  <a href="/en/material-support/">Grow</a>
-  <a href="/en/material-support/">Prepare</a>
-  <a href="/en/material-support/">Family Production Units</a>
-</div>
-</div>
+  <input type="checkbox" id="menu-toggle" class="menu-toggle">
 
-<div class="nav-item has-dropdown">
-<a href="/en/family-resilience/" class="nav-link">Family Resilience</a>
+  <label for="menu-toggle" class="menu-icon" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
 
-<div class="mobile-section-header mobile-only">
-  <a href="/en/family-resilience/" class="mobile-pillar-link">Family Resilience</a>
-  <input type="checkbox" id="submenu-family-resilience" class="submenu-toggle">
-  <label for="submenu-family-resilience" class="submenu-label mobile-only" aria-label="Toggle Family Resilience categories"></label>
-  <div class="mega-menu">
-    <a href="/en/family-resilience/">Roles &amp; Structure</a>
-    <a href="/en/family-resilience/">HomeSchooling</a>
-    <a href="/en/family-resilience/">Home Protection</a>
-    <a href="/en/family-resilience/">Household Economy</a>
-  </div>
-</div>
-
-<div class="mega-menu desktop-only">
-  <a href="/en/family-resilience/">Roles &amp; Structure</a>
-  <a href="/en/family-resilience/">HomeSchooling</a>
-  <a href="/en/family-resilience/">Home Protection</a>
-  <a href="/en/family-resilience/">Household Economy</a>
-</div>
-</div>
-
-<div class="nav-item has-dropdown">
-<a href="/en/inner-strength/" class="nav-link">Inner Strength</a>
-
-<div class="mobile-section-header mobile-only">
-  <a href="/en/inner-strength/" class="mobile-pillar-link">Inner Strength</a>
-  <input type="checkbox" id="submenu-inner-strength" class="submenu-toggle">
-  <label for="submenu-inner-strength" class="submenu-label mobile-only" aria-label="Toggle Inner Strength categories"></label>
-  <div class="mega-menu">
-    <a href="/en/inner-strength/">Basic Christian Concepts</a>
-    <a href="/en/inner-strength/">Bible, truth revealed</a>
-    <a href="/en/inner-strength/">Faith in difficult times</a>
-    <a href="/en/inner-strength/">Apologetics: defense of the faith</a>
-  </div>
-</div>
-
-<div class="mega-menu desktop-only">
-  <a href="/en/inner-strength/">Basic Christian Concepts</a>
-  <a href="/en/inner-strength/">Bible, truth revealed</a>
-  <a href="/en/inner-strength/">Faith in difficult times</a>
-  <a href="/en/inner-strength/">Apologetics: defense of the faith</a>
-</div>
-</div>
-
-<a href="/es/" class="lang">Español</a>
-
-</nav>
+  <nav class="nav">
+    <a href="/" class="home-link">Home</a>
+    <a href="/en/material-support/">Material Support</a>
+    <a href="/en/family-resilience/">Family Resilience</a>
+    <a href="/en/inner-strength/">Inner Strength</a>
+    <a href="/#community">Community</a>
+    <a href="/es/" class="lang">Español</a>
+  </nav>
 
 </div>
 
 </header>
+
+<!-- Demo content so sticky works -->
+<div style="padding:60px 40px;text-align:center;color:#888;font-family:Inter,sans-serif;">
+  <p style="font-size:18px;">← Scroll para ver el sticky · Resize para ver el menú móvil →</p>
+  <div style="height:1200px;"></div>
+</div>
+
+</body>
+</html>
