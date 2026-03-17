@@ -17,23 +17,27 @@ margin:auto;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:12px 20px;
+padding:10px 20px;
+gap:20px;
+position:relative;
+}
+
+.logo{
+flex:0 0 auto;
 }
 
 .logo img{
 height:52px;
+display:block;
 }
 
 /* NAV */
 
 .nav{
 display:flex;
-gap:28px;
+gap:26px;
 align-items:center;
-}
-
-.nav-item{
-position:relative;
+margin-left:auto;
 }
 
 .nav a{
@@ -41,50 +45,21 @@ text-decoration:none;
 color:#222;
 font-size:16px;
 font-weight:500;
+line-height:1.2;
+display:inline-flex;
+align-items:center;
 }
 
 .nav a:hover{
 color:#2c7be5;
 }
 
-/* MEGA MENU */
-
-.mega-menu{
-position:absolute;
-top:38px;
-left:0;
-background:#fff;
-border:1px solid #eee;
-padding:20px;
-display:none;
-width:260px;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-border-radius:6px;
-}
-
-.nav-item:hover .mega-menu{
-display:block;
-}
-
-.mega-menu a{
-display:block;
-padding:6px 0;
-font-size:15px;
-color:#333;
-}
-
-.mega-menu a:hover{
-color:#2c7be5;
-}
-
-/* LANGUAGE */
-
+.home-link,
 .lang{
 font-weight:600;
-margin-left:10px;
 }
 
-/* MOBILE */
+/* MOBILE TOGGLE */
 
 .menu-toggle{
 display:none;
@@ -92,45 +67,73 @@ display:none;
 
 .menu-icon{
 display:none;
-font-size:26px;
+font-size:32px;
+line-height:1;
 cursor:pointer;
+padding:8px 10px;
+user-select:none;
+color:#111;
 }
+
+/* MOBILE */
 
 @media (max-width:768px){
 
+.header-container{
+padding:12px 16px;
+align-items:center;
+}
+
+.logo img{
+height:50px;
+}
+
+.menu-icon{
+display:block;
+margin-left:auto;
+}
+
 .nav{
 position:absolute;
-top:70px;
+top:100%;
 left:0;
-width:100%;
-background:white;
+right:0;
+background:#fff;
 flex-direction:column;
-align-items:center;
-gap:18px;
-padding:20px 0;
+align-items:stretch;
+gap:0;
+padding:10px 0 14px;
+border-top:1px solid #eee;
 border-bottom:1px solid #eee;
+box-shadow:0 12px 24px rgba(0,0,0,0.06);
 display:none;
+margin-left:0;
 }
 
 .menu-toggle:checked + .menu-icon + .nav{
 display:flex;
 }
 
-.menu-icon{
+.nav a{
 display:block;
+padding:14px 22px;
+font-size:18px;
+font-weight:600;
+color:#222;
+text-decoration:none;
+border-top:1px solid #f2f2f2;
 }
 
-.mega-menu{
-position:static;
-box-shadow:none;
-border:none;
-padding:5px 0;
-width:auto;
-display:block;
+.nav a:first-child{
+border-top:none;
 }
 
-.nav-item:hover .mega-menu{
-display:block;
+.nav a:hover{
+color:#2c7be5;
+}
+
+.lang{
+margin-left:0;
 }
 
 }
@@ -141,74 +144,23 @@ display:block;
 
 <div class="logo">
 <a href="/es/">
-<img src="https://prepperfamily.org/assets/images/header/logo.jpg" alt="PrepperFamily">
+<img src="/assets/images/header/logo.jpg" alt="PrepperFamily">
 </a>
 </div>
 
 <input type="checkbox" id="menu-toggle" class="menu-toggle">
 
-<label for="menu-toggle" class="menu-icon">
+<label for="menu-toggle" class="menu-icon" aria-label="Abrir menú">
 ☰
 </label>
 
 <nav class="nav">
-
-<!-- Pilar 1 -->
-
-<div class="nav-item">
+<a href="/es/" class="home-link">Inicio</a>
 <a href="/es/sustento-material/">Sustento Material</a>
-
-<div class="mega-menu">
-
-<a href="/es/sustento-material/">Almacena</a>
-
-<a href="/es/sustento-material/">Cultiva</a>
-
-<a href="/es/sustento-material/">Prepara</a>
-
-<a href="/es/sustento-material/">Unidades familiares de Producción</a>
-
-</div>
-</div>
-
-<!-- Pilar 2 -->
-
-<div class="nav-item">
 <a href="/es/resistencia-familiar/">Resistencia Familiar</a>
-
-<div class="mega-menu">
-
-<a href="/es/resistencia-familiar/">Roles y estructura</a>
-
-<a href="/es/resistencia-familiar/">Educación en casa</a>
-
-<a href="/es/resistencia-familiar/">Protección del hogar</a>
-
-<a href="/es/resistencia-familiar/">Economía familiar</a>
-
-</div>
-</div>
-
-<!-- Pilar 3 -->
-
-<div class="nav-item">
 <a href="/es/fortaleza-interior/">Fortaleza Interior</a>
-
-<div class="mega-menu">
-
-<a href="/es/fortaleza-interior/">Conceptos Cristianos básicos</a>
-
-<a href="/es/fortaleza-interior/">Biblia: Verdad revelada</a>
-
-<a href="/es/fortaleza-interior/">Fé en tiempos difíciles</a>
-
-<a href="/es/fortaleza-interior/">Apologética: defensa de la fé</a>
-
-</div>
-</div>
-
-<a href="/en/" class="lang">English</a>
-
+<a href="/es/#community">Comunidad</a>
+<a href="/" class="lang">English</a>
 </nav>
 
 </div>
