@@ -1,430 +1,725 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Support PrepperFamily</title>
-<style>
-  @keyframes fadeInUp {
-    from { opacity:0; transform:translateY(30px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
-  @keyframes pulse {
-    0%,100% { transform:scale(1); }
-    50%     { transform:scale(1.05); }
-  }
+<div id="pf-support-combined">
+  <style>
+    #pf-support-combined,
+    #pf-support-combined *,
+    #pf-support-combined *::before,
+    #pf-support-combined *::after {
+      box-sizing: border-box;
+    }
 
-  *, *::before, *::after { box-sizing:border-box; }
+    #pf-support-combined {
+      --pf-bg-1: #f5f7fa;
+      --pf-bg-2: #c3cfe2;
+      --pf-card: #ffffff;
+      --pf-text: #1f2937;
+      --pf-muted: #6b7280;
+      --pf-border: #e5e7eb;
+      --pf-blue: #1a6ef5;
+      --pf-blue-dark: #1458d0;
+      --pf-purple-1: #667eea;
+      --pf-purple-2: #764ba2;
+      --pf-green-1: #28a745;
+      --pf-green-2: #20c997;
+      --pf-pink-1: #f093fb;
+      --pf-pink-2: #f5576c;
+      --pf-radius-xl: 24px;
+      --pf-radius-lg: 18px;
+      --pf-radius-md: 14px;
+      --pf-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+      --pf-font-serif: 'Georgia', serif;
+      --pf-font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 
-  body {
-    margin:0;
-    font-family:'Georgia', serif;
-    background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);
-    min-height:100vh;
-    padding:30px 16px 50px;
-  }
+      font-family: var(--pf-font-serif);
+      margin: 0 auto;
+      padding: 20px 10px;
+      max-width: 860px;
+      background: linear-gradient(135deg, var(--pf-bg-1) 0%, var(--pf-bg-2) 100%);
+      border-radius: var(--pf-radius-xl);
+      color: var(--pf-text);
+    }
 
-  /* ── MAIN WRAPPER ── */
-  .pf-wrapper {
-    max-width:860px;
-    margin:0 auto;
-    display:flex;
-    flex-direction:column;
-    gap:28px;
-    animation:fadeInUp .8s ease-out;
-  }
+    #pf-support-combined a {
+      text-decoration: none;
+    }
 
-  /* ══════════════════════════════════════════
-     CARD BASE (shared by both panels)
-  ══════════════════════════════════════════ */
-  .pf-card {
-    background:#fff;
-    border-radius:24px;
-    box-shadow:0 16px 40px rgba(0,0,0,.12);
-    overflow:hidden;
-  }
+    #pf-support-combined .pf-shell {
+      background: var(--pf-card);
+      border-radius: var(--pf-radius-xl);
+      box-shadow: var(--pf-shadow);
+      overflow: hidden;
+    }
 
-  /* ── HEADER (shared) ── */
-  .pf-header {
-    background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-    padding:32px 24px;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-  }
-  .pf-header::before {
-    content:'';
-    position:absolute;
-    inset:0;
-    background:url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23g)"/></svg>');
-    opacity:.3;
-  }
-  .pf-logo-wrap { position:relative; z-index:1; margin-bottom:12px; }
-  .pf-logo {
-    max-width:210px; height:auto;
-    filter:drop-shadow(0 8px 18px rgba(0,0,0,.2));
-    animation:pulse 3s ease-in-out infinite;
-  }
-  .pf-header h1 {
-    color:#fff; font-size:2.2em; font-weight:bold;
-    margin:10px 0 4px;
-    text-shadow:2px 2px 10px rgba(0,0,0,.3);
-    position:relative; z-index:1; letter-spacing:.5px;
-  }
-  .pf-header p.subtitle {
-    color:rgba(255,255,255,.95); font-size:1.1em;
-    font-style:italic; position:relative; z-index:1; margin:0;
-  }
+    #pf-support-combined .pf-header {
+      background: linear-gradient(135deg, var(--pf-purple-1) 0%, var(--pf-purple-2) 100%);
+      padding: 32px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-  /* ── STEP CARDS ── */
-  .steps-wrap { padding:28px 22px 24px; }
-  .step-card {
-    display:flex; align-items:flex-start;
-    margin-bottom:22px; padding:20px 18px;
-    background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);
-    border-radius:16px;
-    box-shadow:0 8px 22px rgba(0,0,0,.06);
-    transition:all .3s ease;
-    animation:fadeInUp .8s ease-out backwards;
-    position:relative; overflow:hidden;
-  }
-  .step-card:nth-child(1){animation-delay:.2s}
-  .step-card:nth-child(2){animation-delay:.4s}
-  .step-card:nth-child(3){animation-delay:.6s}
-  .step-card:hover { transform:translateY(-6px); box-shadow:0 14px 32px rgba(0,0,0,.12); }
+    #pf-support-combined .pf-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grid)'/%3E%3C/svg%3E");
+      opacity: 0.3;
+      pointer-events: none;
+    }
 
-  .step-num {
-    flex-shrink:0; width:60px; height:60px;
-    background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-    color:#fff; border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    font-size:2em; font-weight:bold; margin-right:18px;
-    box-shadow:0 6px 16px rgba(102,126,234,.4);
-    position:relative; z-index:1;
-  }
-  .step-content { flex:1; position:relative; z-index:1; }
-  .step-content h2 { font-size:1.3em; color:#2d3748; margin:0 0 8px; font-weight:bold; }
-  .step-content p  { font-size:.98em; color:#4a5568; line-height:1.55; margin:0 0 10px; }
+    #pf-support-combined .pf-logo-wrap,
+    #pf-support-combined .pf-header-title,
+    #pf-support-combined .pf-header-subtitle {
+      position: relative;
+      z-index: 1;
+    }
 
-  .step-img-wrap { margin-top:10px; text-align:left; }
-  .step-img {
-    max-width:100%; height:auto; border-radius:10px;
-    box-shadow:0 8px 22px rgba(0,0,0,.12);
-    transition:transform .3s ease;
-  }
-  .step-img:hover { transform:scale(1.03); }
+    @keyframes pf-logo-heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
 
-  .pf-btn-amazon {
-    display:inline-block; width:100%; text-align:center;
-    background:linear-gradient(135deg,#28a745 0%,#20c997 100%);
-    color:#fff; border:none; padding:10px 16px;
-    font-size:.95rem; font-weight:600; border-radius:8px;
-    cursor:pointer; text-decoration:none;
-    box-shadow:0 4px 15px rgba(40,167,69,.3);
-    transition:all .3s ease; margin-top:10px;
-  }
-  .pf-btn-amazon:hover {
-    background:linear-gradient(135deg,#218838 0%,#1abc9c 100%);
-    transform:translateY(-2px);
-    box-shadow:0 6px 20px rgba(40,167,69,.4);
-    color:#fff;
-  }
+    #pf-support-combined .pf-logo {
+      max-width: 210px;
+      height: auto;
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.2));
+      margin-bottom: 12px;
+      transform-origin: center;
+      animation: pf-logo-heartbeat 3s ease-in-out infinite;
+    }
 
-  /* ── BANNER FINAL MESSAGE ── */
-  .pf-final {
-    background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);
-    color:#fff; padding:22px 20px; text-align:center;
-    border-radius:18px; margin:0 22px 24px;
-    box-shadow:0 12px 30px rgba(245,87,108,.25);
-    animation:fadeInUp .8s ease-out .8s backwards;
-  }
-  .pf-final p {
-    font-size:1.15em; line-height:1.6; font-weight:500;
-    text-shadow:1px 1px 3px rgba(0,0,0,.2); margin:0;
-  }
-  .highlight {
-    background:rgba(255,255,255,.3);
-    padding:3px 10px; border-radius:8px; font-weight:bold;
-  }
-  .heart {
-    display:inline-block; color:#ff6b6b; font-size:1.3em;
-    animation:pulse 1.5s ease-in-out infinite; margin:0 4px;
-  }
+    #pf-support-combined .pf-header-title {
+      color: #fff;
+      font-size: 2.05em;
+      font-weight: bold;
+      margin: 8px 0 6px;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.28);
+      line-height: 1.2;
+    }
 
-  /* ══════════════════════════════════════════
-     SECTION 2 – DIRECT SUPPORT (Ko-fi) + SITE MAP
-     Mirrors the footer-en dark panel, inside a white card
-  ══════════════════════════════════════════ */
-  .pf-bottom-card {
-    background:linear-gradient(180deg,rgba(11,18,32,.96),rgba(11,18,32,.86));
-    border:1px solid rgba(255,255,255,.10);
-    box-shadow:0 14px 38px rgba(0,0,0,.22);
-    border-radius:24px;
-    color:#e9eefc;
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-    padding:28px 24px;
-    animation:fadeInUp .8s ease-out .3s backwards;
-  }
-  .pf-bottom-card a { color:#e9eefc; text-decoration:none; }
-  .pf-bottom-card a:hover { text-decoration:underline; }
-  .pf-bottom-card > h2 { margin:0 0 10px; font-size:20px; letter-spacing:.2px; line-height:1.2; }
-  .pf-bottom-card > p  { margin:0 0 18px; color:rgba(233,238,252,.86); line-height:1.5; font-size:14px; }
+    #pf-support-combined .pf-header-subtitle {
+      color: rgba(255,255,255,0.96);
+      font-size: 1.08em;
+      font-style: italic;
+      line-height: 1.45;
+    }
 
-  .pf-bottom-grid {
-    display:grid;
-    grid-template-columns:1.2fr 1fr;
-    gap:16px;
-  }
+    #pf-support-combined .pf-methods {
+      padding: 26px 22px 8px;
+      display: grid;
+      gap: 22px;
+    }
 
-  .pf-panel {
-    background:rgba(255,255,255,.04);
-    border:1px solid rgba(255,255,255,.10);
-    border-radius:16px;
-    padding:18px;
-  }
-  .pf-panel h3 { margin:0 0 8px; font-size:16px; letter-spacing:.2px; color:#e9eefc; }
-  .pf-panel > p { margin:0 0 12px; font-size:14px; color:rgba(233,238,252,.86); }
+    #pf-support-combined .pf-method {
+      border: 1px solid var(--pf-border);
+      border-radius: 20px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #eef2f7 100%);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+    }
 
-  .pf-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
-  .pf-action-btn {
-    display:inline-flex; align-items:center; justify-content:center;
-    padding:10px 14px; border-radius:12px;
-    font-weight:750; font-size:14px;
-    border:1px solid rgba(255,255,255,.16);
-    background:rgba(255,255,255,.06);
-    text-decoration:none !important; color:#e9eefc !important;
-    transition:transform .08s ease, background .15s ease; white-space:nowrap;
-  }
-  .pf-action-btn:hover { background:rgba(255,255,255,.12); transform:translateY(-1px); }
-  .pf-action-btn.primary {
-    background:linear-gradient(135deg,rgba(44,123,229,.95),rgba(106,90,249,.95));
-    border:1px solid rgba(255,255,255,.22);
-  }
-  .pf-action-btn.primary:hover {
-    background:linear-gradient(135deg,rgba(44,123,229,1),rgba(106,90,249,1));
-  }
+    #pf-support-combined .pf-method-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 18px 16px;
+      background: rgba(255,255,255,0.7);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
 
-  .pf-note {
-    margin-top:12px; padding:10px 12px;
-    border-radius:12px; border:1px solid rgba(255,255,255,.10);
-    background:rgba(255,255,255,.03);
-    color:rgba(233,238,252,.80); font-size:13px; line-height:1.4;
-    display:flex; gap:10px; align-items:flex-start;
-  }
-  .pf-dot {
-    width:9px; height:9px; border-radius:999px;
-    background:#37d67a; box-shadow:0 0 0 6px rgba(55,214,122,.12);
-    margin-top:4px; flex:0 0 auto;
-  }
+    #pf-support-combined .pf-method-badge {
+      flex-shrink: 0;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.55em;
+      font-weight: 700;
+      box-shadow: 0 6px 16px rgba(102, 126, 234, 0.35);
+      background: linear-gradient(135deg, var(--pf-purple-1) 0%, var(--pf-purple-2) 100%);
+      font-family: var(--pf-font-ui);
+    }
 
-  .pf-details {
-    margin-top:12px; border-radius:14px;
-    border:1px solid rgba(255,255,255,.10);
-    background:rgba(255,255,255,.03); overflow:hidden;
-  }
-  .pf-details summary {
-    cursor:pointer; list-style:none;
-    padding:12px 14px; font-weight:850; font-size:14px; color:#e9eefc;
-    display:flex; justify-content:space-between; align-items:center;
-    gap:12px; user-select:none;
-  }
-  .pf-details summary::-webkit-details-marker { display:none; }
-  .pf-chip {
-    font-size:12px; padding:5px 10px; border-radius:999px;
-    border:1px solid rgba(255,255,255,.14);
-    background:rgba(255,255,255,.05);
-    color:rgba(233,238,252,.85); white-space:nowrap;
-  }
-  .pf-details-body {
-    padding:0 14px 14px;
-    color:rgba(233,238,252,.84); font-size:13px; line-height:1.52;
-  }
-  .pf-details-body ol { margin:10px 0 0 18px; padding:0; line-height:1.6; }
+    #pf-support-combined .pf-method-title {
+      font-size: 1.34em;
+      font-weight: bold;
+      margin: 0 0 4px;
+      color: #243142;
+      line-height: 1.2;
+    }
 
-  /* Site map */
-  .pf-sitemap ul { list-style:none; padding:0; margin:0; }
-  .pf-sitemap > ul > li { margin:10px 0 12px; }
-  .pf-sitemap .pillar {
-    display:inline-flex; align-items:center; gap:10px;
-    font-weight:900; font-size:15px; letter-spacing:.2px; color:#e9eefc;
-  }
-  .pf-sitemap .pillar::before { content:"•"; color:rgba(233,238,252,.9); font-size:18px; line-height:0; }
-  .pf-sitemap .sub {
-    margin:8px 0 0 28px;
-    border-left:1px dashed rgba(255,255,255,.18);
-    padding-left:14px;
-  }
-  .pf-sitemap .sub li {
-    margin:7px 0; font-size:14px;
-    display:flex; gap:10px; align-items:flex-start;
-    color:rgba(233,238,252,.86);
-  }
-  .pf-sitemap .sub li::before { content:"◦"; color:rgba(233,238,252,.65); margin-top:1px; }
+    /* METHOD 1: KO-FI */
+    #pf-support-combined .pf-kofi-wrap {
+      padding: 18px;
+    }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width:768px) {
-    .pf-header h1  { font-size:1.8em; }
-    .pf-header p.subtitle { font-size:1em; }
-    .step-card { flex-direction:column; text-align:center; padding:18px 16px; }
-    .step-num  { margin-right:0; margin-bottom:14px; }
-    .step-content h2 { font-size:1.2em; }
-    .step-content p  { font-size:.95em; }
-    .steps-wrap { padding:22px 16px 18px; }
-    .step-img-wrap { text-align:center; }
-    .pf-final { margin:0 14px 20px; padding:18px 14px; }
-    .pf-final p { font-size:1.02em; }
-    .pf-bottom-grid { grid-template-columns:1fr; }
-  }
-</style>
-</head>
-<body>
+    #pf-support-combined .pf-kofi-card {
+      max-width: 720px;
+      margin: 0 auto;
+      font-family: var(--pf-font-ui);
+    }
 
-<div class="pf-wrapper">
+    #pf-support-combined .pf-kofi-link {
+      display: block;
+      color: inherit;
+      background: #f9f3ea;
+      border: 1px solid #e8e0d8;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(26,110,245,0.08), 0 2px 8px rgba(0,0,0,0.05);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
 
-  <!-- ═══════════════════════════════════════════
-       CARD 1 – "Support without spending extra"
-       (the full visual experience of support-en)
-  ═══════════════════════════════════════════ -->
-  <div class="pf-card">
+    #pf-support-combined .pf-kofi-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(26,110,245,0.14), 0 4px 12px rgba(0,0,0,0.08);
+    }
 
+    #pf-support-combined .pf-kofi-top {
+      background: linear-gradient(135deg, #161b49 0%, #14336d 100%);
+      padding: 22px 22px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    #pf-support-combined .pf-kofi-icon {
+      width: 74px;
+      height: 74px;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 36px;
+      background: linear-gradient(135deg, #ff9f1c 0%, #ff5a36 100%);
+      box-shadow: 0 10px 24px rgba(255, 121, 44, 0.35);
+    }
+
+    #pf-support-combined .pf-kofi-title {
+      color: #fff;
+      font-size: 1.08rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    #pf-support-combined .pf-kofi-subtitle {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.95rem;
+      margin: 6px 0 0;
+      line-height: 1.35;
+    }
+
+    #pf-support-combined .pf-kofi-body {
+      background: #f9f3ea;
+      padding: 18px 18px 20px;
+    }
+
+    #pf-support-combined .pf-kofi-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: #ececec;
+      border-radius: 22px;
+      padding: 6px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+      margin-bottom: 14px;
+    }
+
+    #pf-support-combined .pf-kofi-tab {
+      text-align: center;
+      padding: 16px 12px;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #6b7280;
+      border-radius: 18px;
+    }
+
+    #pf-support-combined .pf-kofi-tab.is-active {
+      background: #ffffff;
+      color: #1473e6;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+
+    #pf-support-combined .pf-kofi-amounts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    #pf-support-combined .pf-kofi-amount {
+      text-align: center;
+      padding: 22px 10px;
+      border-radius: 18px;
+      background: #fff;
+      border: 2px solid #ddd7cf;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #111827;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    #pf-support-combined .pf-kofi-amount.is-active {
+      background: #eaf2ff;
+      border-color: #1a6ef5;
+      color: #1a6ef5;
+      box-shadow: 0 0 0 3px rgba(26,110,245,0.12);
+    }
+
+    #pf-support-combined .pf-kofi-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #1e90ff 0%, #1677f0 100%);
+      color: #fff;
+      font-size: 1.16rem;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(26,110,245,0.28);
+      margin-bottom: 16px;
+    }
+
+    #pf-support-combined .pf-kofi-note {
+      font-size: 0.98rem;
+      color: #6b7280;
+      text-align: center;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    #pf-support-combined .pf-kofi-footer {
+      border-top: 1px solid #e8e0d8;
+      padding: 14px 18px;
+      background: #fbfbfb;
+      text-align: center;
+      color: #b1b6c0;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: .01em;
+    }
+
+    /* METHOD 2: AFFILIATE */
+    #pf-support-combined .pf-steps {
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+    }
+
+    #pf-support-combined .pf-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+    }
+
+    #pf-support-combined .pf-step-badge {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--pf-font-ui);
+      font-size: 1.35em;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, var(--pf-purple-1) 0%, var(--pf-purple-2) 100%);
+      box-shadow: 0 6px 16px rgba(102, 126, 234, 0.35);
+    }
+
+    #pf-support-combined .pf-step-title {
+      font-size: 1.18em;
+      color: #2d3748;
+      margin: 0 0 8px;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+
+    #pf-support-combined .pf-step-text {
+      font-size: 0.97em;
+      color: #4a5568;
+      line-height: 1.6;
+      margin: 0 0 10px;
+    }
+
+    #pf-support-combined .pf-step-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+      margin-top: 10px;
+    }
+
+    #pf-support-combined .pf-button {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      background: linear-gradient(135deg, var(--pf-green-1) 0%, var(--pf-green-2) 100%);
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(40,167,69,.3);
+      margin-top: 4px;
+    }
+
+    #pf-support-combined .pf-final {
+      background: linear-gradient(135deg, var(--pf-pink-1) 0%, var(--pf-pink-2) 100%);
+      color: #fff;
+      padding: 22px 20px;
+      text-align: center;
+      border-radius: 18px;
+      margin: 12px 22px 24px;
+      box-shadow: 0 12px 30px rgba(245, 87, 108, 0.25);
+    }
+
+    #pf-support-combined .pf-final-text {
+      font-size: 1.12em;
+      line-height: 1.6;
+      font-weight: 500;
+      margin: 0;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    #pf-support-combined .pf-highlight {
+      display: inline-block;
+      background: rgba(255,255,255,0.28);
+      padding: 3px 10px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    /* SITEMAP */
+    #pf-sitemap {
+      background: linear-gradient(135deg, #1f2a38 0%, #2c3a4d 100%);
+      color: #e5e7eb;
+      padding: 24px 20px;
+      border-radius: 20px;
+      max-width: 800px;
+      margin: 20px auto 0;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    #pf-sitemap h3 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    #pf-sitemap ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    #pf-sitemap li {
+      margin-bottom: 14px;
+    }
+
+    #pf-sitemap > ul > li {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    #pf-sitemap ul ul {
+      margin-top: 8px;
+      padding-left: 18px;
+      border-left: 1px dashed rgba(255,255,255,0.2);
+    }
+
+    #pf-sitemap ul ul li {
+      font-weight: 400;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+    }
+
+    #pf-sitemap a {
+      color: #e5e7eb;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    #pf-sitemap a:hover {
+      opacity: 0.7;
+    }
+
+    #pf-sitemap .pf-footer-bottom {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      text-align: center;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+
+    #pf-sitemap .pf-footer-bottom strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      #pf-support-combined {
+        padding: 14px 8px;
+        border-radius: 20px;
+      }
+
+      #pf-support-combined .pf-header {
+        padding: 26px 16px;
+      }
+
+      #pf-support-combined .pf-header-title {
+        font-size: 0.8em;
+      }
+
+      #pf-support-combined .pf-header-subtitle {
+        font-size: 1.6em;
+      }
+
+      #pf-support-combined .pf-methods {
+        padding: 18px 14px 8px;
+      }
+
+      #pf-support-combined .pf-method-head {
+        align-items: flex-start;
+      }
+
+      #pf-support-combined .pf-method-badge {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3em;
+      }
+
+      #pf-support-combined .pf-method-title {
+        font-size: 1.15em;
+      }
+
+      #pf-support-combined .pf-kofi-top {
+        padding: 18px 16px;
+        gap: 12px;
+      }
+
+      #pf-support-combined .pf-kofi-icon {
+        width: 58px;
+        height: 58px;
+        border-radius: 18px;
+        font-size: 28px;
+      }
+
+      #pf-support-combined .pf-kofi-title {
+        font-size: 0.98rem;
+      }
+
+      #pf-support-combined .pf-kofi-subtitle {
+        font-size: 0.88rem;
+      }
+
+      #pf-support-combined .pf-kofi-body {
+        padding: 14px;
+      }
+
+      #pf-support-combined .pf-kofi-tab {
+        padding: 13px 8px;
+        font-size: 0.94rem;
+      }
+
+      #pf-support-combined .pf-kofi-amounts {
+        gap: 8px;
+      }
+
+      #pf-support-combined .pf-kofi-amount {
+        padding: 18px 8px;
+        font-size: 1rem;
+      }
+
+      #pf-support-combined .pf-kofi-button {
+        padding: 16px 14px;
+        font-size: 1rem;
+      }
+
+      #pf-support-combined .pf-kofi-note,
+      #pf-support-combined .pf-kofi-footer {
+        font-size: 0.88rem;
+      }
+
+      #pf-support-combined .pf-step {
+        flex-direction: column;
+        text-align: left;
+        padding: 16px;
+        align-items: flex-start;
+      }
+
+      #pf-support-combined .pf-step-badge {
+        margin: 0;
+      }
+
+      #pf-support-combined .pf-final {
+        margin: 12px 14px 18px;
+        padding: 18px 14px;
+      }
+
+      #pf-support-combined .pf-final-text {
+        font-size: 1em;
+      }
+    }
+  </style>
+
+  <div class="pf-shell">
     <div class="pf-header">
       <div class="pf-logo-wrap">
-        <img src="https://prepperfamily.org/assets/images/header/logo.jpg" alt="PrepperFamily.org" class="pf-logo">
+        <img src="/assets/images/header/logo.jpg" alt="PrepperFamily.org" class="pf-logo">
       </div>
-      <h1>Support this project without spending more</h1>
-      <p class="subtitle">Your usual purchase can make the difference</p>
+      <h2 class="pf-header-title">If this helped your family, it's already working. Now help it keep existing.</h2>
+      <p class="pf-header-subtitle">2 ways to support</p>
     </div>
 
-    <div class="steps-wrap">
-
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <h2>Enter Amazon through any of our links</h2>
-          <p>Secure affiliate links.</p>
-          <div class="step-img-wrap">
-            <img src="https://prepperfamily.org/assets/images/footer/link.jpg" alt="Affiliate links" class="step-img">
-          </div>
-          <div style="margin-top:10px;">
-            <div style="font-size:.9em;margin-bottom:6px;color:#4a5568;">For example: Gentian Violet 1%</div>
-            <a href="https://amzn.to/3MNLih1" class="pf-btn-amazon" target="_blank" rel="nofollow noopener noreferrer">View on Amazon</a>
+    <div class="pf-methods">
+      <!-- METHOD 1 -->
+      <section class="pf-method">
+        <div class="pf-method-head">
+          <div class="pf-method-badge">1</div>
+          <div>
+            <h3 class="pf-method-title">Direct Support</h3>
           </div>
         </div>
-      </div>
 
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <h2>If you do not want the recommended product, simply search for what you really need</h2>
-          <p>Choose any product and shop as usual.</p>
-          <div class="step-img-wrap">
-            <img src="https://prepperfamily.org/assets/images/footer/amazon.jpg" alt="Amazon search bar" class="step-img">
+        <div class="pf-kofi-wrap">
+          <div class="pf-kofi-card">
+            <a class="pf-kofi-link" href="https://ko-fi.com/prepperfamily" target="_blank" rel="noopener noreferrer" aria-label="Support PrepperFamily on Ko-fi">
+              <div class="pf-kofi-top">
+                <div class="pf-kofi-icon">☕</div>
+                <div>
+                  <p class="pf-kofi-title">Buy us a Ko-fi</p>
+                  <p class="pf-kofi-subtitle">Help PrepperFamily.org to keep the guides coming</p>
+                </div>
+              </div>
+
+              <div class="pf-kofi-body">
+                <div class="pf-kofi-toggle">
+                  <div class="pf-kofi-tab is-active">One time</div>
+                  <div class="pf-kofi-tab">Monthly</div>
+                </div>
+
+                <div class="pf-kofi-amounts">
+                  <div class="pf-kofi-amount">$3</div>
+                  <div class="pf-kofi-amount is-active">$5</div>
+                  <div class="pf-kofi-amount">$10</div>
+                </div>
+
+                <div class="pf-kofi-button">☕ <span>Support on Ko-fi</span></div>
+
+                <p class="pf-kofi-note">Hosting, domain, research, and tools to keep PrepperFamily publishing practical guides. Note: support is voluntary and not tax-deductible at this time.</p>
+              </div>
+
+              <div class="pf-kofi-footer">Powered by Ko-fi • No account needed</div>
+            </a>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <h2>That's it! It's that simple.</h2>
-          <p>With your purchase, Amazon sends a small commission to PrepperFamily.org for qualifying purchases.</p>
+      <!-- METHOD 2 -->
+      <section class="pf-method">
+        <div class="pf-method-head">
+          <div class="pf-method-badge">2</div>
+          <div>
+            <h3 class="pf-method-title">Without spending more</h3>
+            <p class="pf-method-desc">Your usual purchase can make the difference</p>
+          </div>
         </div>
-      </div>
 
-    </div><!-- /steps-wrap -->
+        <div class="pf-steps">
+          <div class="pf-step">
+            <div class="pf-step-badge">☑</div>
+            <div>
+              <h4 class="pf-step-title">Enter Amazon through any of our links</h4>
+              <p class="pf-step-text">Secure affiliate links.</p>
+              <img src="https://prepperfamily.org/imagenes/enlace" alt="Affiliate links" class="pf-step-image">
+              <p class="pf-step-text">For example: Gentian Violet 1%</p>
+              <a href="https://amzn.to/3MNLih1" class="pf-button" target="_blank" rel="nofollow noopener noreferrer">Click to view on Amazon</a>
+            </div>
+          </div>
+
+          <div class="pf-step">
+            <div class="pf-step-badge">☑</div>
+            <div>
+              <h4 class="pf-step-title">Not into this product? Just search for what you really need</h4>
+              <p class="pf-step-text">Choose any product and shop as usual.</p>
+              <img src="https://prepperfamily.org/imagenes/buscador" alt="Amazon search bar" class="pf-step-image">
+            </div>
+          </div>
+
+          <div class="pf-step">
+            <div class="pf-step-badge">✔</div>
+            <div>
+              <h4 class="pf-step-title">That's it</h4>
+              <p class="pf-step-text">For qualifying purchases, Amazon sends a small commission to PrepperFamily.org. <strong>Your price does not change.</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <div class="pf-final">
-      <p>
-        <span class="heart">❤️</span>
-        <span class="highlight">Your price does not change</span>
-        and you help continue creating content for more resilient families.
-        <span class="heart">❤️</span>
+      <p class="pf-final-text">
+        <span class="pf-highlight">❤️Your price does not change</span> and you help continue creating content for more resilient families.❤️
       </p>
     </div>
+  </div>
 
-  </div><!-- /card 1 -->
+  <div id="pf-sitemap">
+    <h3>Site map</h3>
 
-
-  <!-- ═══════════════════════════════════════════
-       CARD 2 – Direct support (Ko-fi) + Site Map
-       (structural detail from footer-en, dark style)
-  ═══════════════════════════════════════════ -->
-  <div class="pf-bottom-card">
-
-    <h2>If this helped your family, it's already working. Now help it keep existing.</h2>
-    <p>PrepperFamily is deliberately lean. It survives through small direct support and through recommended links used during normal shopping. Choose the option that fits you.</p>
-
-    <div class="pf-bottom-grid">
-
-      <!-- Ko-fi panel -->
-      <div class="pf-panel">
-        <h3>1) Direct support (Ko-fi)</h3>
-        <p>Quickest way to help: one-time or monthly support on Ko-fi.</p>
-        <div class="pf-actions">
-          <a class="pf-action-btn primary" href="https://ko-fi.com/prepperfamily" target="_blank" rel="noopener">☕ Support on Ko-fi</a>
-          <a class="pf-action-btn" href="https://ko-fi.com/prepperfamily" target="_blank" rel="noopener">View goal progress</a>
-        </div>
-        <div class="pf-note">
-          <span class="pf-dot"></span>
-          <span>Note: support is voluntary and not tax-deductible at this time.</span>
-        </div>
-      </div>
-
-      <!-- Site map panel -->
-      <div class="pf-panel pf-sitemap">
-        <h3>2) Support without spending extra</h3>
-        <p>Use recommended links when buying items you already need. It costs you nothing extra and sustains the project.</p>
-
-        <details class="pf-details">
-          <summary>
-            <span>How it works (3 steps)</span>
-            <span class="pf-chip">quick</span>
-          </summary>
-          <div class="pf-details-body">
-            <ol>
-              <li>Open any article and use the recommended links.</li>
-              <li>If the exact item isn't for you, search what you do need and check out as usual.</li>
-              <li>Repeat in normal shopping. That's it.</li>
-            </ol>
-          </div>
-        </details>
-
-        <h3 style="margin-top:16px;">Site map</h3>
+    <ul>
+      <li>
+        <a href="/en/inner-strength/">Inner Strength</a>
         <ul>
-          <li>
-            <a class="pillar" href="/en/inner-strength/">Inner Strength</a>
-            <ul class="sub">
-              <li><a href="/en/inner-strength/">Apologetics: Defense of the faith</a></li>
-              <li><a href="/en/inner-strength/">Basic Christian Concepts</a></li>
-              <li><a href="/en/inner-strength/">Bible: The revealed truth</a></li>
-              <li><a href="/en/inner-strength/">Faith in Times of Trial</a></li>
-            </ul>
-          </li>
-          <li>
-            <a class="pillar" href="/en/material-support/">Material Support</a>
-            <ul class="sub">
-              <li><a href="/en/material-support/">Family Food Production Units</a></li>
-              <li><a href="/en/material-support/">GROW: Food &amp; Medicine</a></li>
-              <li><a href="/en/material-support/">PREPARE: Basic Materials</a></li>
-              <li><a href="/en/material-support/">STORE: Food &amp; Medicine</a></li>
-            </ul>
-          </li>
-          <li>
-            <a class="pillar" href="/en/family-resilience/">Family Resilience</a>
-            <ul class="sub">
-              <li><a href="/en/family-resilience/">Roles &amp; Structure</a></li>
-              <li><a href="/en/family-resilience/">Homeschooling</a></li>
-              <li><a href="/en/family-resilience/">Home Protection</a></li>
-              <li><a href="/en/family-resilience/">Household Economy</a></li>
-            </ul>
-          </li>
+          <li><a href="/en/inner-strength/apologetics/">Apologetics: Defense of the faith</a></li>
+          <li><a href="/en/inner-strength/basic-christian-concepts/">Basic Christian Concepts</a></li>
+          <li><a href="/en/inner-strength/bible/">Bible: The revealed truth</a></li>
+          <li><a href="/en/inner-strength/faith-in-times-of-trial/">Faith in Times of Trial</a></li>
         </ul>
-      </div>
+      </li>
 
-    </div><!-- /pf-bottom-grid -->
-  </div><!-- /card 2 -->
+      <li>
+        <a href="/en/material-support/">Material Support</a>
+        <ul>
+          <li><a href="/en/material-support/family-food-production-units/">Family Food Production Units</a></li>
+          <li><a href="/en/material-support/grow/">GROW: Food & Medicine</a></li>
+          <li><a href="/en/material-support/prepare/">PREPARE: Basic Materials</a></li>
+          <li><a href="/en/material-support/store/">STORE: Food & Medicine</a></li>
+        </ul>
+      </li>
 
-</div><!-- /pf-wrapper -->
+      <li>
+        <a href="/en/family-resilience/">Family Resilience</a>
+        <ul>
+          <li><a href="/en/family-resilience/roles-structure/">Roles & Structure</a></li>
+          <li><a href="/en/family-resilience/homeschooling/">Homeschooling</a></li>
+          <li><a href="/en/family-resilience/home-protection/">Home Protection</a></li>
+          <li><a href="/en/family-resilience/household-economy/">Household Economy</a></li>
+        </ul>
+      </li>
+    </ul>
 
-</body>
-</html>
+    <div class="pf-footer-bottom">
+      <p><strong>PrepperFamily.org © 2026</strong>. All rights reserved.<br>
+      A refuge for Christian family resilience.</p>
+      <p>accounting@prepperfamily.org</p>
+    </div>
+  </div>
+
+</div>
