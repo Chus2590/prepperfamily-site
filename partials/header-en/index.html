@@ -1,271 +1,281 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Header Preview</title>
-</head>
-<body style="margin:0;background:#f5f5f5;min-height:100vh;">
+<header class="pf-header">
+  <style>
+    .pf-header,
+    .pf-header * {
+      box-sizing: border-box;
+    }
 
-<header class="site-header">
+    .pf-header {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      font-family: Inter, system-ui, Arial, sans-serif;
+      box-shadow: 0 2px 24px rgba(44,123,229,0.07);
+    }
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    .pf-header .pf-header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      height: 68px;
+      gap: 20px;
+      position: relative;
+    }
 
-*, *::before, *::after { box-sizing: border-box; }
+    .pf-header .pf-logo {
+      flex: 0 0 auto;
+    }
 
-:root {
-  --accent: #2c7be5;
-  --accent2: #1a56c4;
-  --header-h: 68px;
-}
+    .pf-header .pf-logo a {
+      display: block;
+    }
 
-.site-header {
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(0,0,0,0.07);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  font-family: 'Inter', system-ui, Arial, sans-serif;
-  box-shadow: 0 2px 24px rgba(44,123,229,0.07);
-}
+    .pf-header .pf-logo img {
+      height: 52px;
+      display: block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
 
-.header-container {
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 28px;
-  height: var(--header-h);
-  gap: 20px;
-  position: relative;
-}
+    .pf-header .pf-logo a:hover img {
+      transform: scale(1.04);
+      filter: drop-shadow(0 4px 12px rgba(44,123,229,0.25));
+    }
 
-/* LOGO */
-.logo { flex: 0 0 auto; }
-.logo a { display: block; }
-.logo img {
-  height: 52px;
-  display: block;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-.logo a:hover img {
-  transform: scale(1.04);
-  filter: drop-shadow(0 4px 12px rgba(44,123,229,0.25));
-}
+    .pf-header .pf-nav {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      margin-left: auto;
+    }
 
-/* NAV */
-.nav {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  margin-left: auto;
-}
+    .pf-header .pf-nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14.5px;
+      font-weight: 500;
+      line-height: 1.2;
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 14px;
+      border-radius: 10px;
+      position: relative;
+      transition: color 0.22s, background 0.22s, transform 0.18s;
+      letter-spacing: 0.01em;
+    }
 
-.nav a {
-  text-decoration: none;
-  color: #333;
-  font-size: 14.5px;
-  font-weight: 500;
-  line-height: 1.2;
-  display: inline-flex;
-  align-items: center;
-  padding: 7px 14px;
-  border-radius: 10px;
-  position: relative;
-  transition: color 0.22s, background 0.22s, transform 0.18s;
-  letter-spacing: 0.01em;
-}
+    .pf-header .pf-nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 60%;
+      height: 2px;
+      background: linear-gradient(90deg, #2c7be5, #7bb8ff);
+      border-radius: 2px;
+      transition: transform 0.28s cubic-bezier(.4,0,.2,1);
+    }
 
-.nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  transform: translateX(-50%) scaleX(0);
-  width: 60%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent), #7bb8ff);
-  border-radius: 2px;
-  transition: transform 0.28s cubic-bezier(.4,0,.2,1);
-}
+    .pf-header .pf-nav a:hover {
+      color: #2c7be5;
+      background: rgba(44,123,229,0.07);
+      transform: translateY(-1px);
+    }
 
-.nav a:hover {
-  color: var(--accent);
-  background: rgba(44,123,229,0.07);
-  transform: translateY(-1px);
-}
+    .pf-header .pf-nav a:hover::after {
+      transform: translateX(-50%) scaleX(1);
+    }
 
-.nav a:hover::after { transform: translateX(-50%) scaleX(1); }
+    .pf-header .pf-home-link {
+      font-weight: 700;
+      color: #111;
+    }
 
-.home-link { font-weight: 700; color: #111; }
-.home-link:hover { color: var(--accent) !important; }
+    .pf-header .pf-home-link:hover {
+      color: #2c7be5 !important;
+    }
 
-/* LANG PILL */
-.lang {
-  font-weight: 700 !important;
-  background: linear-gradient(135deg, var(--accent), #7bb8ff) !important;
-  color: #fff !important;
-  border-radius: 30px !important;
-  padding: 7px 18px !important;
-  margin-left: 6px;
-  letter-spacing: 0.04em;
-  box-shadow: 0 2px 12px rgba(44,123,229,0.25);
-  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s !important;
-}
-.lang::after { display: none !important; }
-.lang:hover {
-  transform: translateY(-2px) scale(1.06) !important;
-  box-shadow: 0 6px 20px rgba(44,123,229,0.38) !important;
-  filter: brightness(1.08);
-  background: linear-gradient(135deg, var(--accent2), var(--accent)) !important;
-  color: #fff !important;
-}
+    .pf-header .pf-lang {
+      font-weight: 700 !important;
+      background: linear-gradient(135deg, #2c7be5, #7bb8ff) !important;
+      color: #fff !important;
+      border-radius: 30px !important;
+      padding: 7px 18px !important;
+      margin-left: 6px;
+      letter-spacing: 0.04em;
+      box-shadow: 0 2px 12px rgba(44,123,229,0.25);
+      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s !important;
+    }
 
-/* MOBILE TOGGLE */
-.menu-toggle { display: none; }
+    .pf-header .pf-lang::after {
+      display: none !important;
+    }
 
-.menu-icon {
-  display: none;
-  cursor: pointer;
-  padding: 8px;
-  margin-left: auto;
-  user-select: none;
-  flex-direction: column;
-  gap: 5px;
-}
+    .pf-header .pf-lang:hover {
+      transform: translateY(-2px) scale(1.06) !important;
+      box-shadow: 0 6px 20px rgba(44,123,229,0.38) !important;
+      filter: brightness(1.08);
+      background: linear-gradient(135deg, #1a56c4, #2c7be5) !important;
+      color: #fff !important;
+    }
 
-.menu-icon span {
-  display: block;
-  width: 26px;
-  height: 2.5px;
-  background: #222;
-  border-radius: 4px;
-  transition: transform 0.35s cubic-bezier(.4,0,.2,1), opacity 0.25s, width 0.25s;
-  transform-origin: center;
-}
-.menu-icon span:nth-child(2) { width: 18px; }
+    .pf-header .pf-menu-toggle {
+      display: none;
+    }
 
-/* Hamburger → X animation */
-.menu-toggle:checked + .menu-icon span:nth-child(1) {
-  transform: translateY(7.5px) rotate(45deg);
-}
-.menu-toggle:checked + .menu-icon span:nth-child(2) {
-  opacity: 0; transform: scaleX(0);
-}
-.menu-toggle:checked + .menu-icon span:nth-child(3) {
-  transform: translateY(-7.5px) rotate(-45deg);
-}
+    .pf-header .pf-menu-icon {
+      display: none;
+      cursor: pointer;
+      padding: 8px;
+      margin-left: auto;
+      user-select: none;
+      flex-direction: column;
+      gap: 5px;
+    }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .header-container { padding: 0 18px; }
-  .logo img { height: 46px; }
+    .pf-header .pf-menu-icon span {
+      display: block;
+      width: 26px;
+      height: 2.5px;
+      background: #222;
+      border-radius: 4px;
+      transition: transform 0.35s cubic-bezier(.4,0,.2,1), opacity 0.25s, width 0.25s;
+      transform-origin: center;
+    }
 
-  .menu-icon {
-    display: flex;
-    align-items: flex-end;
-  }
+    .pf-header .pf-menu-icon span:nth-child(2) {
+      width: 18px;
+    }
 
-  .nav {
-    position: absolute;
-    top: calc(100% + 1px);
-    left: 0; right: 0;
-    background: rgba(255,255,255,0.97);
-    backdrop-filter: blur(20px);
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 12px 16px 18px;
-    border-bottom: 1px solid rgba(0,0,0,0.07);
-    box-shadow: 0 18px 40px rgba(44,123,229,0.12);
-    display: none;
-    margin-left: 0;
-    border-radius: 0 0 20px 20px;
+    .pf-header .pf-menu-toggle:checked + .pf-menu-icon span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
 
-    /* Slide-in animation */
-    animation: none;
-  }
+    .pf-header .pf-menu-toggle:checked + .pf-menu-icon span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
 
-  .menu-toggle:checked + .menu-icon + .nav {
-    display: flex;
-    animation: slideDown 0.3s cubic-bezier(.4,0,.2,1);
-  }
+    .pf-header .pf-menu-toggle:checked + .pf-menu-icon span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
 
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-12px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+    @media (max-width: 768px) {
+      .pf-header .pf-header-container {
+        padding: 0 18px;
+      }
 
-  .nav a {
-    display: block;
-    padding: 13px 16px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #222;
-    border-radius: 12px;
-    margin-bottom: 3px;
-    transition: background 0.2s, color 0.2s, transform 0.15s;
-  }
+      .pf-header .pf-logo img {
+        height: 46px;
+      }
 
-  .nav a::after { display: none; }
+      .pf-header .pf-menu-icon {
+        display: flex;
+        align-items: flex-end;
+      }
 
-  .nav a:hover {
-    background: rgba(44,123,229,0.09);
-    color: var(--accent);
-    transform: translateX(4px);
-  }
+      .pf-header .pf-nav {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        background: rgba(255,255,255,0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 16px 18px;
+        border-bottom: 1px solid rgba(0,0,0,0.07);
+        box-shadow: 0 18px 40px rgba(44,123,229,0.12);
+        display: none;
+        margin-left: 0;
+        border-radius: 0 0 20px 20px;
+        animation: none;
+      }
 
-  .lang {
-    text-align: center;
-    margin-left: 0 !important;
-    margin-top: 6px;
-    border-radius: 14px !important;
-    padding: 13px 16px !important;
-    font-size: 16px;
-    display: block;
-  }
-  .lang:hover { transform: translateX(0) scale(1.02) !important; }
-}
-</style>
+      .pf-header .pf-menu-toggle:checked + .pf-menu-icon + .pf-nav {
+        display: flex;
+        animation: pfSlideDown 0.3s cubic-bezier(.4,0,.2,1);
+      }
 
-<div class="header-container">
+      .pf-header .pf-nav a {
+        display: block;
+        padding: 13px 16px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #222;
+        border-radius: 12px;
+        margin-bottom: 3px;
+        transition: background 0.2s, color 0.2s, transform 0.15s;
+      }
 
-  <div class="logo">
-    <a href="/">
-      <img src="/assets/images/header/logo.jpg" alt="PrepperFamily">
-    </a>
+      .pf-header .pf-nav a::after {
+        display: none;
+      }
+
+      .pf-header .pf-nav a:hover {
+        background: rgba(44,123,229,0.09);
+        color: #2c7be5;
+        transform: translateX(4px);
+      }
+
+      .pf-header .pf-lang {
+        text-align: center;
+        margin-left: 0 !important;
+        margin-top: 6px;
+        border-radius: 14px !important;
+        padding: 13px 16px !important;
+        font-size: 16px;
+        display: block;
+      }
+
+      .pf-header .pf-lang:hover {
+        transform: translateX(0) scale(1.02) !important;
+      }
+    }
+
+    @keyframes pfSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+  <div class="pf-header-container">
+    <div class="pf-logo">
+      <a href="/">
+        <img src="/assets/images/header/logo.jpg" alt="PrepperFamily">
+      </a>
+    </div>
+
+    <input type="checkbox" id="pf-menu-toggle" class="pf-menu-toggle">
+
+    <label for="pf-menu-toggle" class="pf-menu-icon" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <nav class="pf-nav">
+      <a href="/" class="pf-home-link">Home</a>
+      <a href="/en/material-support/">Material Support</a>
+      <a href="/en/family-resilience/">Family Resilience</a>
+      <a href="/en/inner-strength/">Inner Strength</a>
+      <a href="/#community">Community</a>
+      <a href="/es/" class="pf-lang">Español</a>
+    </nav>
   </div>
-
-  <input type="checkbox" id="menu-toggle" class="menu-toggle">
-
-  <label for="menu-toggle" class="menu-icon" aria-label="Open menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
-
-  <nav class="nav">
-    <a href="/" class="home-link">Home</a>
-    <a href="/en/material-support/">Material Support</a>
-    <a href="/en/family-resilience/">Family Resilience</a>
-    <a href="/en/inner-strength/">Inner Strength</a>
-    <a href="/#community">Community</a>
-    <a href="/es/" class="lang">Español</a>
-  </nav>
-
-</div>
-
 </header>
-
-<!-- Demo content so sticky works -->
-<div style="padding:60px 40px;text-align:center;color:#888;font-family:Inter,sans-serif;">
-  <p style="font-size:18px;">← Scroll para ver el sticky · Resize para ver el menú móvil →</p>
-  <div style="height:1200px;"></div>
-</div>
-
-</body>
-</html>
