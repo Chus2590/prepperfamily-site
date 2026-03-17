@@ -1,281 +1,168 @@
-<header class="pf-header">
-  <style>
-    .pf-header,
-    .pf-header * {
-      box-sizing: border-box;
-    }
+<header class="site-header">
 
-    .pf-header {
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(0,0,0,0.07);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      font-family: Inter, system-ui, Arial, sans-serif;
-      box-shadow: 0 2px 24px rgba(44,123,229,0.07);
-    }
+<style>
 
-    .pf-header .pf-header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 28px;
-      height: 68px;
-      gap: 20px;
-      position: relative;
-    }
+.site-header{
+background:#fff;
+border-bottom:1px solid #e6e6e6;
+position:sticky;
+top:0;
+z-index:1000;
+font-family:system-ui,Arial,sans-serif;
+}
 
-    .pf-header .pf-logo {
-      flex: 0 0 auto;
-    }
+.header-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:10px 20px;
+gap:20px;
+position:relative;
+}
 
-    .pf-header .pf-logo a {
-      display: block;
-    }
+.logo{
+flex:0 0 auto;
+}
 
-    .pf-header .pf-logo img {
-      height: 52px;
-      display: block;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
+.logo img{
+height:52px;
+display:block;
+}
 
-    .pf-header .pf-logo a:hover img {
-      transform: scale(1.04);
-      filter: drop-shadow(0 4px 12px rgba(44,123,229,0.25));
-    }
+/* NAV */
 
-    .pf-header .pf-nav {
-      display: flex;
-      gap: 4px;
-      align-items: center;
-      margin-left: auto;
-    }
+.nav{
+display:flex;
+gap:26px;
+align-items:center;
+margin-left:auto;
+}
 
-    .pf-header .pf-nav a {
-      text-decoration: none;
-      color: #333;
-      font-size: 14.5px;
-      font-weight: 500;
-      line-height: 1.2;
-      display: inline-flex;
-      align-items: center;
-      padding: 7px 14px;
-      border-radius: 10px;
-      position: relative;
-      transition: color 0.22s, background 0.22s, transform 0.18s;
-      letter-spacing: 0.01em;
-    }
+.nav a{
+text-decoration:none;
+color:#222;
+font-size:16px;
+font-weight:500;
+line-height:1.2;
+display:inline-flex;
+align-items:center;
+}
 
-    .pf-header .pf-nav a::after {
-      content: "";
-      position: absolute;
-      bottom: 4px;
-      left: 50%;
-      transform: translateX(-50%) scaleX(0);
-      width: 60%;
-      height: 2px;
-      background: linear-gradient(90deg, #2c7be5, #7bb8ff);
-      border-radius: 2px;
-      transition: transform 0.28s cubic-bezier(.4,0,.2,1);
-    }
+.nav a:hover{
+color:#2c7be5;
+}
 
-    .pf-header .pf-nav a:hover {
-      color: #2c7be5;
-      background: rgba(44,123,229,0.07);
-      transform: translateY(-1px);
-    }
+.home-link,
+.lang{
+font-weight:600;
+}
 
-    .pf-header .pf-nav a:hover::after {
-      transform: translateX(-50%) scaleX(1);
-    }
+/* MOBILE TOGGLE */
 
-    .pf-header .pf-home-link {
-      font-weight: 700;
-      color: #111;
-    }
+.menu-toggle{
+display:none;
+}
 
-    .pf-header .pf-home-link:hover {
-      color: #2c7be5 !important;
-    }
+.menu-icon{
+display:none;
+font-size:32px;
+line-height:1;
+cursor:pointer;
+padding:8px 10px;
+user-select:none;
+color:#111;
+}
 
-    .pf-header .pf-lang {
-      font-weight: 700 !important;
-      background: linear-gradient(135deg, #2c7be5, #7bb8ff) !important;
-      color: #fff !important;
-      border-radius: 30px !important;
-      padding: 7px 18px !important;
-      margin-left: 6px;
-      letter-spacing: 0.04em;
-      box-shadow: 0 2px 12px rgba(44,123,229,0.25);
-      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s !important;
-    }
+/* MOBILE */
 
-    .pf-header .pf-lang::after {
-      display: none !important;
-    }
+@media (max-width:768px){
 
-    .pf-header .pf-lang:hover {
-      transform: translateY(-2px) scale(1.06) !important;
-      box-shadow: 0 6px 20px rgba(44,123,229,0.38) !important;
-      filter: brightness(1.08);
-      background: linear-gradient(135deg, #1a56c4, #2c7be5) !important;
-      color: #fff !important;
-    }
+.header-container{
+padding:12px 16px;
+align-items:center;
+}
 
-    .pf-header .pf-menu-toggle {
-      display: none;
-    }
+.logo img{
+height:50px;
+}
 
-    .pf-header .pf-menu-icon {
-      display: none;
-      cursor: pointer;
-      padding: 8px;
-      margin-left: auto;
-      user-select: none;
-      flex-direction: column;
-      gap: 5px;
-    }
+.menu-icon{
+display:block;
+margin-left:auto;
+}
 
-    .pf-header .pf-menu-icon span {
-      display: block;
-      width: 26px;
-      height: 2.5px;
-      background: #222;
-      border-radius: 4px;
-      transition: transform 0.35s cubic-bezier(.4,0,.2,1), opacity 0.25s, width 0.25s;
-      transform-origin: center;
-    }
+.nav{
+position:absolute;
+top:100%;
+left:0;
+right:0;
+background:#fff;
+flex-direction:column;
+align-items:stretch;
+gap:0;
+padding:10px 0 14px;
+border-top:1px solid #eee;
+border-bottom:1px solid #eee;
+box-shadow:0 12px 24px rgba(0,0,0,0.06);
+display:none;
+margin-left:0;
+}
 
-    .pf-header .pf-menu-icon span:nth-child(2) {
-      width: 18px;
-    }
+.menu-toggle:checked + .menu-icon + .nav{
+display:flex;
+}
 
-    .pf-header .pf-menu-toggle:checked + .pf-menu-icon span:nth-child(1) {
-      transform: translateY(7.5px) rotate(45deg);
-    }
+.nav a{
+display:block;
+padding:14px 22px;
+font-size:18px;
+font-weight:600;
+color:#222;
+text-decoration:none;
+border-top:1px solid #f2f2f2;
+}
 
-    .pf-header .pf-menu-toggle:checked + .pf-menu-icon span:nth-child(2) {
-      opacity: 0;
-      transform: scaleX(0);
-    }
+.nav a:first-child{
+border-top:none;
+}
 
-    .pf-header .pf-menu-toggle:checked + .pf-menu-icon span:nth-child(3) {
-      transform: translateY(-7.5px) rotate(-45deg);
-    }
+.nav a:hover{
+color:#2c7be5;
+}
 
-    @media (max-width: 768px) {
-      .pf-header .pf-header-container {
-        padding: 0 18px;
-      }
+.lang{
+margin-left:0;
+}
 
-      .pf-header .pf-logo img {
-        height: 46px;
-      }
+}
 
-      .pf-header .pf-menu-icon {
-        display: flex;
-        align-items: flex-end;
-      }
+</style>
 
-      .pf-header .pf-nav {
-        position: absolute;
-        top: calc(100% + 1px);
-        left: 0;
-        right: 0;
-        background: rgba(255,255,255,0.97);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 12px 16px 18px;
-        border-bottom: 1px solid rgba(0,0,0,0.07);
-        box-shadow: 0 18px 40px rgba(44,123,229,0.12);
-        display: none;
-        margin-left: 0;
-        border-radius: 0 0 20px 20px;
-        animation: none;
-      }
+<div class="header-container">
 
-      .pf-header .pf-menu-toggle:checked + .pf-menu-icon + .pf-nav {
-        display: flex;
-        animation: pfSlideDown 0.3s cubic-bezier(.4,0,.2,1);
-      }
+<div class="logo">
+<a href="/">
+<img src="/assets/images/header/logo.jpg" alt="PrepperFamily">
+</a>
+</div>
 
-      .pf-header .pf-nav a {
-        display: block;
-        padding: 13px 16px;
-        font-size: 16px;
-        font-weight: 600;
-        color: #222;
-        border-radius: 12px;
-        margin-bottom: 3px;
-        transition: background 0.2s, color 0.2s, transform 0.15s;
-      }
+<input type="checkbox" id="menu-toggle" class="menu-toggle">
 
-      .pf-header .pf-nav a::after {
-        display: none;
-      }
+<label for="menu-toggle" class="menu-icon" aria-label="Open menu">
+☰
+</label>
 
-      .pf-header .pf-nav a:hover {
-        background: rgba(44,123,229,0.09);
-        color: #2c7be5;
-        transform: translateX(4px);
-      }
+<nav class="nav">
+<a href="/" class="home-link">Home</a>
+<a href="/en/material-support/">Material Support</a>
+<a href="/en/family-resilience/">Family Resilience</a>
+<a href="/en/inner-strength/">Inner Strength</a>
+<a href="/#community">Community</a>
+<a href="/es/" class="lang">Español</a>
+</nav>
 
-      .pf-header .pf-lang {
-        text-align: center;
-        margin-left: 0 !important;
-        margin-top: 6px;
-        border-radius: 14px !important;
-        padding: 13px 16px !important;
-        font-size: 16px;
-        display: block;
-      }
+</div>
 
-      .pf-header .pf-lang:hover {
-        transform: translateX(0) scale(1.02) !important;
-      }
-    }
-
-    @keyframes pfSlideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
-
-  <div class="pf-header-container">
-    <div class="pf-logo">
-      <a href="/">
-        <img src="/assets/images/header/logo.jpg" alt="PrepperFamily">
-      </a>
-    </div>
-
-    <input type="checkbox" id="pf-menu-toggle" class="pf-menu-toggle">
-
-    <label for="pf-menu-toggle" class="pf-menu-icon" aria-label="Open menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-
-    <nav class="pf-nav">
-      <a href="/" class="pf-home-link">Home</a>
-      <a href="/en/material-support/">Material Support</a>
-      <a href="/en/family-resilience/">Family Resilience</a>
-      <a href="/en/inner-strength/">Inner Strength</a>
-      <a href="/#community">Community</a>
-      <a href="/es/" class="pf-lang">Español</a>
-    </nav>
-  </div>
 </header>
