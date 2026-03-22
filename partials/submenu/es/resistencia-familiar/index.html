@@ -1,0 +1,95 @@
+<nav class="pf-submenu pf-submenu--family-resilience" aria-label="Categorías de Resistencia Familiar">
+  <style>
+    .pf-submenu{
+      background:#fff;
+      border-bottom:1px solid #e9e9e9;
+      position:relative;
+      z-index:20;
+    }
+
+    .pf-submenu__wrap{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      max-width:1200px;
+      margin:0 auto;
+      padding:6px 10px;
+    }
+
+    .pf-submenu__title{
+      flex:0 0 auto;
+      font:700 13px/1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      color:#111;
+      white-space:nowrap;
+      padding:6px 4px;
+    }
+
+    .pf-submenu__inner{
+      display:flex;
+      gap:7px;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+      white-space:nowrap;
+      flex:1;
+    }
+
+    .pf-submenu__inner::-webkit-scrollbar{
+      display:none;
+    }
+
+    .pf-submenu__link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:7px 11px;
+      border:1px solid #dcdcdc;
+      border-radius:999px;
+      background:#fff;
+      color:#222;
+      text-decoration:none;
+      font:600 13px/1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      transition:all .18s ease;
+      flex:0 0 auto;
+    }
+
+    .pf-submenu__link:hover{
+      color:#2c7be5;
+      border-color:#2c7be5;
+      background:#f8fbff;
+    }
+
+    .pf-submenu__link.is-active{
+      background:#1f2937;
+      border-color:#1f2937;
+      color:#fff;
+    }
+
+    @media (min-width:769px){
+      .pf-submenu__wrap{
+        justify-content:center;
+      }
+
+      .pf-submenu__title{
+        font-size:14px;
+      }
+
+      .pf-submenu__link{
+        font-size:14px;
+        padding:8px 13px;
+      }
+    }
+  </style>
+
+  <div class="pf-submenu__wrap">
+    <div class="pf-submenu__title">Resistencia Familiar</div>
+
+    <div class="pf-submenu__inner">
+      <a href="/es/resistencia-familiar/roles-estructura/" class="pf-submenu__link is-active">Ver todo</a>
+      <a href="/es/resistencia-familiar/roles-estructura/" class="pf-submenu__link">Roles y estructura familiar</a>
+      <a href="/es/resistencia-familiar/educacion-en-casa/" class="pf-submenu__link">Educación en casa</a>
+      <a href="/es/resistencia-familiar/proteccion-del-hogar/" class="pf-submenu__link">Protección del hogar</a>
+      <a href="/es/resistencia-familiar/economia-del-hogar/" class="pf-submenu__link">Economía del hogar</a>
+    </div>
+  </div>
+</nav>
