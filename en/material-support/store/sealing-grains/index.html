@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sealing Grains - PrepperFamily</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px 20px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+
+    .section {
+      background: white;
+      margin: 30px 0;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border-left: 5px solid #667eea;
+      transition: transform 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+    }
+
+    .section h2 {
+      color: #667eea;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .section-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2em;
+      flex-shrink: 0;
+    }
+
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .material-card {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .material-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+
+    .steps-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .step-card {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .step-card:hover::before {
+      opacity: 1;
+    }
+
+    .step-number {
+      background: rgba(255,255,255,0.2);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+    .step-card h3 {
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+
+    .planning-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .planning-card {
+      background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .planning-card .number {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .treatment-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .treatment-table th,
+    .treatment-table td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    .treatment-table th {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-weight: bold;
+    }
+
+    .treatment-table tr:hover {
+      background: #f8f9fa;
+    }
+
+    .checklist {
+      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+      padding: 25px;
+      border-radius: 15px;
+      margin: 20px 0;
+    }
+
+    .checklist h3 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      padding: 10px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .checklist-item:hover {
+      background: rgba(255,255,255,0.9);
+      transform: translateX(5px);
+    }
+
+    .checklist-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-right: 15px;
+      accent-color: #667eea;
+      flex-shrink: 0;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+      border: 2px solid #ff9a9e;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .highlight-box::before {
+      content: '💡';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      background: #ff9a9e;
+      padding: 5px 10px;
+      border-radius: 50%;
+      font-size: 1.2em;
+    }
+
+    .highlight-box h4 {
+      color: #d63384;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    .maintenance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .maintenance-card {
+      background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #d299c2;
+    }
+
+    .maintenance-card h4 {
+      color: #8e44ad;
+      margin-bottom: 15px;
+      font-size: 1.2em;
+    }
+
+    .final-tip {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      margin-top: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .final-tip h3 {
+      margin-bottom: 15px;
+      font-size: 1.5em;
+    }
+
+    .final-tip p {
+      font-size: 1.1em;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2em;
+      }
+
+      .section {
+        padding: 20px;
+      }
+
+      .materials-grid,
+      .steps-container,
+      .planning-cards,
+      .maintenance-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .treatment-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="pf-header"></div>
+
+  <div class="container">
+    <div class="header">
+      <h1>🛡️ Anti-Weevil Pantry</h1>
+      <p>Definitive Guide to Sealing Grains and Legumes for Decades</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="section-icon">📋</span>Introduction</h2>
+      <p>Nothing strengthens family food security as much as knowing that the rice, beans, or wheat you buy today will remain intact fifteen or twenty years from now. This method—suitable for any parent with no prior experience—combines three essential barriers: <strong>airtight containers</strong>, <strong>absence of oxygen</strong>, and <strong>temperature control</strong>.</p>
+    </div>
+
+    <div class="section">
+      <h2><span class="section-icon">🛠️</span>Essential Materials</h2>
+      <div class="materials-grid">
+        <div class="material-card">
+          <h3>🪣 Containers</h3>
+          <p>Food-grade buckets (5 gal / 19 L) with snap lid or “gamma” (screw) lid</p>
+        </div>
+        <div class="material-card">
+          <h3>📦 Mylar Bags</h3>
+          <p>5-gal Mylar bags, thickness ≥ 5 mil</p>
+        </div>
+        <div class="material-card">
+          <h3>🔒 Oxygen Absorbers</h3>
+          <p>2000 cc oxygen absorbers (one per 5-gal bag)</p>
+        </div>
+        <div class="material-card">
+          <h3>🔥 Sealer</h3>
+          <p>Manual impulse heat sealer (12 in / 30 cm bar or larger)</p>
+        </div>
+        <div class="material-card">
+          <h3>📝 Labels</h3>
+          <p>Permanent marker and labels for tracking</p>
+        </div>
+        <div class="material-card">
+          <h3>➕ Optional</h3>
+          <p>Silica desiccant and wooden pallet</p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <h4>Why these materials?</h4>
+        <ul>
+          <li><strong>Food-grade plastic:</strong> Does not transfer toxins and supports weight</li>
+          <li><strong>Mylar:</strong> Metallized barrier that blocks oxygen, light, and moisture</li>
+          <li><strong>Oxygen absorber:</strong> Creates a micro-environment hostile to insects and mold</li>
+          <li><strong>Heat sealing:</strong> Ensures an airtight closure; the lid protects the Mylar</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="section-icon">📊</span>Quick Planning</h2>
+      <div class="planning-cards">
+        <div class="planning-card">
+          <div class="number">1</div>
+          <h3>Calculate Consumption</h3>
+          <p>Example: 10 lb of beans/month × 12 months = 120 lb per year</p>
+        </div>
+        <div class="planning-card">
+          <div class="number">2</div>
+          <h3>Convert to Buckets</h3>
+          <p>One 5-gal bucket ≈ 33 lb<br>4 buckets cover the year + 20% extra</p>
+        </div>
+        <div class="planning-card">
+          <div class="number">3</div>
+          <h3>Assign Space</h3>
+          <p>Cool, dark place. Avoid direct sunlight and heat sources</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="section-icon">🔬</span>Selection & Inspection</h2>
+      <div class="steps-container">
+        <div class="step-card">
+          <div class="step-number">✓</div>
+          <h3>Grain Quality</h3>
+          <p>Look for freshly packed batches: uniform color, no rancid smell. Remove foreign particles and broken seeds.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">⚠️</div>
+          <h3>High-Fat Grains</h3>
+          <p>Oats, peanuts, and similar items shorten shelf life. Store separately and rotate sooner.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="section-icon">🐛</span>Pest Pre-Treatment</h2>
+      <table class="treatment-table">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Procedure</th>
+            <th>Advantage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Freezing</strong></td>
+            <td>72 h at −18 °C</td>
+            <td>Kills eggs and larvae almost 100%</td>
+          </tr>
+          <tr>
+            <td><strong>Solar Heat</strong></td>
+            <td>6–8 h on black trays ≥ 45 °C<br>Stir every hour</td>
+            <td>Useful when no freezer is available</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="highlight-box">
+        <h4>Technical Fact</h4>
+        <p>Weevil larvae die when internal temperature exceeds 50 °C for 10 min or stays at −10 °C for 3 days.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="section-icon">⚙️</span>Packaging Process</h2>
+      <div class="steps-container">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Prepare Station</h3>
+          <p>Clean a large, dry, well-lit surface. Keep the oxygen absorber sealed until the last moment.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Line Bucket</h3>
+          <p>Place the Mylar bag inside the bucket; leave 5–8 cm sticking out. Add external label.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Fill and De-air</h3>
+          <p>Pour grain until 2 cm from the top. Add centered oxygen absorber. Press sides to expel air.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Seal Mylar</h3>
+          <p>Set sealer to ~180 °C. Make a double seal: two parallel lines of 1 cm, separated by 1 cm.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <h3>Close and Store</h3>
+          <p>Fold sealed section downward. Place lid. Store in dark place, 10–21 °C.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="section-icon">✅</span>Final Checklist</h2>
+      <div class="checklist">
+        <h3>Before Storing, Verify:</h3>
+        <label class="checklist-item">
+          <input type="checkbox"> Clean, dry grain (&lt; 12% moisture)
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox"> Thermal pre-treatment completed
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox"> Mylar bag without perforations or folds
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox"> Oxygen absorber placed and bag sealed with double continuous line
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox"> Labels with date, weight, and grain type
+        </label>
+        <label class="checklist-item">
+          <input type="checkbox"> Bucket closed and stored on pallet, in a cool-dark environment
+        </label>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2><span class="section-icon">🔄</span>Maintenance & Review</h2>
+      <div class="maintenance-grid">
+        <div class="maintenance-card">
+          <h4>🔍 Semiannual Check</h4>
+          <p><strong>Inflated bag:</strong> possible leak; re-pack</p>
+          <p><strong>Pink desiccant:</strong> excess humidity; replace desiccant</p>
+        </div>
+        <div class="maintenance-card">
+          <h4>🔄 FIFO Rotation</h4>
+          <p>First In, First Out: consume the oldest first</p>
+        </div>
+        <div class="maintenance-card">
+          <h4>📅 Pantry Day</h4>
+          <p>Mark yearly review on calendar. Make it a family learning activity</p>
+        </div>
+        <div class="maintenance-card">
+          <h4>💧 Humidity Control</h4>
+          <p>Cobalt paper strips turn from blue to pink if over 60% RH</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="final-tip">
+      <h3>🎯 Final Tip</h3>
+      <p>The best pantry is not the one that stores the most, but the one that is checked consistently. A few minutes every six months guarantee years of peace of mind and grains always ready for the table.</p>
+    </div>
+  </div>
+
+  <div id="pf-sources"></div>
+  <div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      fetch(`${base}/partials/header-${lang}/`)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("pf-header").innerHTML = html;
+        })
+        .catch(() => {});
+
+      fetch(`${base}/partials/footer-${lang}/`)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("pf-footer").innerHTML = html;
+        })
+        .catch(() => {});
+
+      let currentPath = location.pathname;
+      if (!currentPath.endsWith("/")) currentPath += "/";
+      const sourcesPath = `${currentPath}sources/`;
+
+      fetch(sourcesPath)
+        .then(res => {
+          if (!res.ok) throw new Error("Sources not available");
+          return res.text();
+        })
+        .then(html => {
+          document.getElementById("pf-sources").innerHTML = html;
+        })
+        .catch(() => {});
+    })();
+  </script>
+</body>
+</html>
