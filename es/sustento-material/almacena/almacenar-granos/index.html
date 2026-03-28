@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Despensa Antigorgojos - PrepperFamily</title>
+  <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+            flex-shrink: 0;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .material-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .material-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .step-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .step-card:hover::before {
+            opacity: 1;
+        }
+
+        .step-number {
+            background: rgba(255,255,255,0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .step-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .planning-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .planning-card {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .planning-card .number {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .treatment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .treatment-table th,
+        .treatment-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .treatment-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: bold;
+        }
+
+        .treatment-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .checklist {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .checklist h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            background: rgba(255,255,255,0.9);
+            transform: translateX(5px);
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            accent-color: #667eea;
+            flex-shrink: 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: 2px solid #ff9a9e;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '💡';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: #ff9a9e;
+            padding: 5px 10px;
+            border-radius: 50%;
+            font-size: 1.2em;
+        }
+
+        .highlight-box h4 {
+            color: #d63384;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .maintenance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .maintenance-card {
+            background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #d299c2;
+        }
+
+        .maintenance-card h4 {
+            color: #8e44ad;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .final-tip {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .final-tip h3 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .final-tip p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .materials-grid,
+            .steps-container,
+            .planning-cards,
+            .maintenance-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .treatment-table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+  </style>
+</head>
+
+<body>
+
+<div id="pf-header"></div>
+
+<div class="container">
+    <div class="header">
+        <h1>🛡️ Despensa Antigorgojos</h1>
+        <p>Guía Definitiva para Sellar Granos y Legumbres por Décadas</p>
+    </div>
+
+    <div class="section">
+        <h2><span class="section-icon">📋</span>Introducción</h2>
+        <p>Nada refuerza tanto la seguridad alimentaria familiar como saber que el arroz, los frijoles o el trigo que compras hoy seguirán intactos dentro de quince o veinte años. Este método—apto para cualquier padre de familia sin experiencia previa—combina tres barreras esenciales: <strong>contenedores herméticos</strong>, <strong>ausencia de oxígeno</strong> y <strong>control de temperatura</strong>.</p>
+    </div>
+
+    <div class="section">
+        <h2><span class="section-icon">🛠️</span>Materiales Imprescindibles</h2>
+        <div class="materials-grid">
+            <div class="material-card">
+                <h3>🪣 Contenedores</h3>
+                <p>Cubetas de grado alimentario (5 gal / 19 L) con tapa de presión o "gamma" (rosca)</p>
+            </div>
+            <div class="material-card">
+                <h3>📦 Bolsas Mylar</h3>
+                <p>Bolsas Mylar de 5 gal, espesor ≥ 5 mil</p>
+            </div>
+            <div class="material-card">
+                <h3>🔒 Absorbe-oxígeno</h3>
+                <p>Absorbe-oxígeno de 2000 cc (uno por bolsa de 5 gal)</p>
+            </div>
+            <div class="material-card">
+                <h3>🔥 Sellador</h3>
+                <p>Sellador térmico manual de impulso (barra de 30 cm o más)</p>
+            </div>
+            <div class="material-card">
+                <h3>📝 Etiquetas</h3>
+                <p>Marcador indeleble y etiquetas para registro</p>
+            </div>
+            <div class="material-card">
+                <h3>➕ Opcionales</h3>
+                <p>Desecante de sílice y tarima de madera</p>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <h4>¿Por qué estos materiales?</h4>
+            <ul>
+                <li><strong>Plástico grado alimentario:</strong> No transfiere tóxicos y soporta peso</li>
+                <li><strong>Mylar:</strong> Barrera metalizada que frena oxígeno, luz y humedad</li>
+                <li><strong>Absorbe-oxígeno:</strong> Crea un microambiente inhóspito para insectos y hongos</li>
+                <li><strong>Sellado térmico:</strong> Garantiza cierre hermético; la tapa protege el Mylar</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="section-icon">📊</span>Planificación Rápida</h2>
+        <div class="planning-cards">
+            <div class="planning-card">
+                <div class="number">1</div>
+                <h3>Calcular Consumo</h3>
+                <p>Ejemplo: 10 lb de frijoles/mes × 12 meses = 120 lb anuales</p>
+            </div>
+            <div class="planning-card">
+                <div class="number">2</div>
+                <h3>Convertir a Cubetas</h3>
+                <p>Una cubeta de 5 gal ≈ 33 lb<br>4 cubetas cubren el año + 20% extra</p>
+            </div>
+            <div class="planning-card">
+                <div class="number">3</div>
+                <h3>Asignar Espacio</h3>
+                <p>Lugar fresco y oscuro. Evitar sol directo y fuentes de calor</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="section-icon">🔬</span>Selección e Inspección</h2>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">✓</div>
+                <h3>Calidad del Grano</h3>
+                <p>Busque lotes recién empacados: color uniforme, sin olor rancio. Retire partículas extrañas y semillas quebradas.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">⚠️</div>
+                <h3>Granos Altos en Grasa</h3>
+                <p>Avena, maní y similares acortan la vida útil. Guárdelos aparte y rote antes.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="section-icon">🐛</span>Pre-tratamiento contra Plagas</h2>
+        <table class="treatment-table">
+            <thead>
+                <tr>
+                    <th>Método</th>
+                    <th>Procedimiento</th>
+                    <th>Ventaja</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Congelación</strong></td>
+                    <td>72 h a −18 °C</td>
+                    <td>Mata huevos y larvas casi al 100%</td>
+                </tr>
+                <tr>
+                    <td><strong>Calor Solar</strong></td>
+                    <td>6-8 h en bandejas negras ≥ 45 °C<br>Remueva cada hora</td>
+                    <td>Útil cuando no hay congelador</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="highlight-box">
+            <h4>Dato Técnico</h4>
+            <p>Las larvas de gorgojo mueren cuando la temperatura interna supera 50 °C durante 10 min o se mantiene a −10 °C por 3 días.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="section-icon">⚙️</span>Proceso de Envasado</h2>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Preparar Estación</h3>
+                <p>Limpie superficie amplia, seca y bien iluminada. Tenga el absorbe-oxígeno sellado hasta el último instante.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Forrar Cubeta</h3>
+                <p>Despliegue la bolsa Mylar dentro de la cubeta; deje 5-8 cm sobresaliendo. Añada etiqueta externa.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Llenar y Desgasificar</h3>
+                <p>Vierta el grano hasta 2 cm del borde. Añada absorbe-oxígeno centrado. Presione laterales para expulsar aire.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Sellar Mylar</h3>
+                <p>Ajuste sellador a ~180 °C. Realice doble sello: dos líneas paralelas de 1 cm, separadas por 1 cm.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <h3>Cerrar y Almacenar</h3>
+                <p>Pliegue la sección sellada hacia abajo. Coloque tapa. Almacene en lugar oscuro, 10-21 °C.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="section-icon">✅</span>Lista de Verificación Final</h2>
+        <div class="checklist">
+            <h3>Antes de Almacenar, Verifique:</h3>
+            <label class="checklist-item">
+                <input type="checkbox"> Grano limpio, seco (&lt; 12% humedad)
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox"> Pre-tratamiento térmico completado
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox"> Bolsa Mylar sin perforaciones ni dobleces
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox"> Absorbe-oxígeno colocado y bolsa sellada con doble línea continua
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox"> Etiquetas con fecha, peso y tipo de grano
+            </label>
+            <label class="checklist-item">
+                <input type="checkbox"> Cubeta cerrada y almacenada sobre tarima, en ambiente fresco-oscuro
+            </label>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="section-icon">🔄</span>Mantenimiento y Revisión</h2>
+        <div class="maintenance-grid">
+            <div class="maintenance-card">
+                <h4>🔍 Chequeo Semestral</h4>
+                <p><strong>Bolsa inflada:</strong> posible fuga; re-empaque</p>
+                <p><strong>Desecante rosa:</strong> exceso de humedad; cambie desecante</p>
+            </div>
+            <div class="maintenance-card">
+                <h4>🔄 Rotación FIFO</h4>
+                <p>First In, First Out: consuma lo más antiguo primero</p>
+            </div>
+            <div class="maintenance-card">
+                <h4>📅 Día de Despensa</h4>
+                <p>Marque revisión anual en calendario. Conviértalo en actividad educativa familiar</p>
+            </div>
+            <div class="maintenance-card">
+                <h4>💧 Control de Humedad</h4>
+                <p>Tiras de papel cobaltado cambian de azul a rosa si supera 60% HR</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="final-tip">
+        <h3>🎯 Consejo Final</h3>
+        <p>La mejor despensa no es la que acumula más, sino la que se revisa con disciplina. Un par de minutos cada seis meses garantizan años de tranquilidad y granos siempre listos para la mesa.</p>
+    </div>
+</div>
+
+<div id="pf-sources"></div>
+
+<div id="pf-footer"></div>
+
+<script>
+(function () {
+  const isGitHub = location.hostname.endsWith("github.io");
+  const base = isGitHub ? "/prepperfamily-site" : "";
+
+  const isES = location.pathname.includes("/es/");
+  const lang = isES ? "es" : "en";
+
+  fetch(`${base}/partials/header-${lang}/`)
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("pf-header").innerHTML = html;
+    })
+    .catch(() => {});
+
+  fetch(`${base}/partials/footer-${lang}/`)
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("pf-footer").innerHTML = html;
+    })
+    .catch(() => {});
+
+  let path = location.pathname;
+  if (!path.endsWith("/")) path += "/";
+  const sourcesURL = `${path}recursos/`;
+
+  fetch(sourcesURL)
+    .then(res => {
+      if (!res.ok) throw new Error();
+      return res.text();
+    })
+    .then(html => {
+      document.getElementById("pf-sources").innerHTML = html;
+    })
+    .catch(() => {});
+})();
+</script>
+
+</body>
+</html>
