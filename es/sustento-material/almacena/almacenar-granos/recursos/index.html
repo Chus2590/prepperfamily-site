@@ -95,107 +95,137 @@
   transition: background .16s;
 }
 .copy-btn:hover { background: #142b58; }
+
+.sources-textarea {
+  width: 100%;
+  min-height: 140px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px solid #cfd6ea;
+  border-radius: 8px;
+  background: #fff;
+  color: #30315e;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.copy-fallback {
+  display: none;
+  margin-top: 14px;
+  background: #f5f8ff;
+  border: 1px solid #d6e0ff;
+  border-radius: 8px;
+  padding: 12px;
+  color: #1f2f5c;
+}
+
+.copy-fallback p {
+  margin: 0 0 8px 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
 @media (max-width: 600px) {
   .equipos-section, .fuentes-section { padding: 13px 5px 10px 5px; }
   .equipos-grid { grid-template-columns: 1fr; }
 }
 </style>
+
 <section class="section">
-                <div class="card card-border-red">
-                    <h2 class="red"> Equipo Recomendado</h2>
-                    
-                    <div class="products-grid">
-                      <!-- Producto 1: Sellador Térmico de Bolsas -->
-                    <div class="product-card">
-                  <img src="https://m.media-amazon.com/images/I/81WGVunZbSS._AC_SL1500_.jpg" 
-                   alt="Sellador térmico de bolsas" />
-                  <h3>Sellador térmico de bolsas</h3>
-                  <p>Herramienta práctica para sellar bolsas de Mylar y plástico. Garantiza cierres herméticos y prolonga la frescura de los alimentos.</p>
-                  <a href="https://amzn.to/4rSNvWR" class="amazon-btn">
-                    Ver en Amazon 
-                    </a>
-                    </div>
+  <div class="card card-border-red">
+    <h2 class="red"> Equipo Recomendado</h2>
 
-                       <!-- Producto 2: Embudo de Acero Inoxidable -->
-                  <div class="product-card">
-                  <img src="https://m.media-amazon.com/images/I/61JZqp+rf3L._SL1200_.jpg" 
-                alt="Embudo de acero inoxidable" />
-                 <h3>Embudo de acero inoxidable</h3>
-                  <p>Ideal para llenar frascos y bolsas sin derrames. Facilita el proceso de envasado y mantiene la cocina limpia.</p>
-                  <a href="https://amzn.to/4t6NIH0" class="amazon-btn">
-                      Ver en Amazon 
-                    </a>
-                    </div>
+    <div class="products-grid">
+      <!-- Producto 1 -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/81WGVunZbSS._AC_SL1500_.jpg" alt="Sellador térmico de bolsas" />
+        <h3>Sellador térmico de bolsas</h3>
+        <p>Herramienta práctica para sellar bolsas de Mylar y plástico. Garantiza cierres herméticos y prolonga la frescura de los alimentos.</p>
+        <a href="https://amzn.to/4rSNvWR" class="amazon-btn">Ver en Amazon </a>
+      </div>
 
-                        <!-- Producto 3: Bolsas Mylar -->
-                        <div class="product-card">
-                            <img src="https://m.media-amazon.com/images/I/61QJa9VAKIL._AC_SL1500_.jpg" 
-                                 alt="Bolsas de Mylar con absorbedores de oxígeno" />
-                            <h3>Bolsas de Mylar + absorbedores</h3>
-                            <p>Sistema completo de almacenamiento a largo plazo. Incluye absorbedores de oxígeno para hasta 25 años de conservación.</p>
-                            <a href="https://amzn.to/4sy2Opb" class="amazon-btn">
-                                Ver en Amazon 
-                            </a>
-                        </div>
+      <!-- Producto 2 -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/61JZqp+rf3L._SL1200_.jpg" alt="Embudo de acero inoxidable" />
+        <h3>Embudo de acero inoxidable</h3>
+        <p>Ideal para llenar frascos y bolsas sin derrames. Facilita el proceso de envasado y mantiene la cocina limpia.</p>
+        <a href="https://amzn.to/4t6NIH0" class="amazon-btn">Ver en Amazon </a>
+      </div>
 
-                        <!-- Producto 4: Cubos de 5 Galones -->
-                        <div class="product-card">
-                            <img src="https://m.media-amazon.com/images/I/61S-2972gML._AC_SX679_.jpg" 
-                                 alt="Cubos de 5 galones con tapas Gamma" />
-                            <h3>Cubos de 5 galones + tapas Gamma</h3>
-                            <p>Contenedores herméticos perfectos para el almacenamiento a granel de granos y legumbres con acceso rápido.</p>
-                            <a href="https://amzn.to/40YEXTC" class="amazon-btn">
-                                Ver en Amazon 
-                            </a>
-                        </div>
+      <!-- Producto 3 -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/61QJa9VAKIL._AC_SL1500_.jpg" alt="Bolsas de Mylar con absorbedores de oxígeno" />
+        <h3>Bolsas de Mylar + absorbedores</h3>
+        <p>Sistema completo de almacenamiento a largo plazo. Incluye absorbedores de oxígeno para hasta 25 años de conservación.</p>
+        <a href="https://amzn.to/4sy2Opb" class="amazon-btn">Ver en Amazon </a>
+      </div>
 
-                        <!-- Producto 5: Bomba de Vacío -->
-                        <div class="product-card">
-                            <img src="https://m.media-amazon.com/images/I/81ifFd6IXwL._AC_SL1500_.jpg" 
-                                 alt="Bomba de vacío manual para conservación" />
-                            <h3>Bomba de vacío manual</h3>
-                            <p>Herramienta esencial para extraer el aire y crear un sellado perfecto en bolsas de almacenamiento sin electricidad.</p>
-                            <a href="https://amzn.to/41jwkTP" class="amazon-btn">
-                                Ver en Amazon 
-                            </a>
-                        </div>
-                    </div>
+      <!-- Producto 4 -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/61S-2972gML._AC_SX679_.jpg" alt="Cubos de 5 galones con tapas Gamma" />
+        <h3>Cubos de 5 galones + tapas Gamma</h3>
+        <p>Contenedores herméticos perfectos para el almacenamiento a granel de granos y legumbres con acceso rápido.</p>
+        <a href="https://amzn.to/40YEXTC" class="amazon-btn">Ver en Amazon </a>
+      </div>
 
-                    <!-- Párrafo de Afiliados Obligatorio -->
-                    <div class="disclaimer">
-                        <p>
-                            PrepperFamily.org participa en el Programa de Afiliados de Amazon. 
-                            Al usar este enlace, apoyas la plataforma sin costo adicional para ti. 
-                            Gracias por apoyar a esta comunidad 
-                        </p>
-                    </div>
-                </div>
-            </section>
+      <!-- Producto 5 -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/81ifFd6IXwL._AC_SL1500_.jpg" alt="Bomba de vacío manual para conservación" />
+        <h3>Bomba de vacío manual</h3>
+        <p>Herramienta esencial para extraer el aire y crear un sellado perfecto en bolsas de almacenamiento sin electricidad.</p>
+        <a href="https://amzn.to/41jwkTP" class="amazon-btn">Ver en Amazon </a>
+      </div>
+    </div>
 
-            <!-- Sección de Fuentes -->
-            <section class="section">
-                <div class="card card-border-blue">
-                    <h2 class="blue"> Fuentes y Referencias</h2>
-                    
-                    <div class="sources-content">
-                        <ul class="sources-list" id="fuentes-contenido">               
-                            <li>Génesis 41:47-57 - La sabiduría del patriarca José en la conservación</li>
-                            <li>Directrices del USDA para la conservación segura de alimentos - Departamento de Agricultura de EE. UU.</li>
-                            <li>Centro Nacional para la Conservación Casera de Alimentos - Universidad de Georgia</li>
-                            <li>Guía completa Ball para la conservación casera - Publicaciones de Ball Corporation</li>
-                            <li>Directrices para el almacenamiento de alimentos a largo plazo - Manual de preparación para emergencias</li>
-                        </ul>
-                    </div>
-                    <!-- Caja oculta de Fuentes Copiables -->
-<textarea id="fuentes-texto" style="position:absolute;left:-9999px;top:0;opacity:0;">
-• Estrategia de dos columnas para la conservación de alimentos - PrepperFamily.org
+    <div class="disclaimer">
+      <p>
+        PrepperFamily.org participa en el Programa de Afiliados de Amazon.
+        Al usar este enlace, apoyas la plataforma sin costo adicional para ti.
+        Gracias por apoyar a esta comunidad 
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card card-border-blue">
+    <h2 class="blue"> Fuentes y Referencias</h2>
+
+    <div class="sources-content">
+      <ul class="sources-list" id="fuentes-contenido">
+        <li>Génesis 41:47-57 - La sabiduría del patriarca José en la conservación</li>
+        <li>Directrices del USDA para la conservación segura de alimentos - Departamento de Agricultura de EE. UU.</li>
+        <li>Centro Nacional para la Conservación Casera de Alimentos - Universidad de Georgia</li>
+        <li>Guía completa Ball para la conservación casera - Publicaciones de Ball Corporation</li>
+        <li>Directrices para el almacenamiento de alimentos a largo plazo - Manual de preparación para emergencias</li>
+      </ul>
+    </div>
+
+    <textarea id="fuentes-texto-copy-002" style="display:none;">• Estrategia de dos columnas para la conservación de alimentos - PrepperFamily.org
 • Génesis 41:47-57 - La sabiduría del patriarca José en la conservación
 • Directrices del USDA para la conservación segura de alimentos - Departamento de Agricultura de EE. UU.
 • Centro Nacional para la Conservación Casera de Alimentos - Universidad de Georgia
 • Guía completa Ball para la conservación casera - Publicaciones de Ball Corporation
-• Directrices para el almacenamiento de alimentos a largo plazo - Manual de preparación para emergencias
-</textarea>
+• Directrices para el almacenamiento de alimentos a largo plazo - Manual de preparación para emergencias</textarea>
 
-<button onclick="var t=document.getElementById('fuentes-texto');t.select();document.execCommand('copy');alert(' Fuentes copiadas al portapapeles');" class="copy-btn">
-   Copiar fuentes
-</button>
+    <button
+      type="button"
+      class="copy-btn"
+      onclick="(async function(btn){ try { var sourceEl = document.getElementById('fuentes-texto-copy-002'); if (!sourceEl) return false; var text = sourceEl.value.trim(); var original = btn.innerHTML; if (!navigator.clipboard || !window.isSecureContext) { throw new Error('Clipboard not available'); } await navigator.clipboard.writeText(text); btn.innerHTML = '✅ Fuentes copiadas'; btn.disabled = true; setTimeout(function(){ btn.innerHTML = original; btn.disabled = false; }, 1600); } catch (err) { var fallback = document.getElementById('fuentes-texto-copy-002-fallback'); if (fallback) fallback.style.display = 'block'; console.error(err); } return false; })(this);"
+    >
+       Copiar fuentes
+    </button>
+
+    <div id="fuentes-texto-copy-002-fallback" class="copy-fallback">
+      <p>Copiar manualmente:</p>
+      <textarea class="sources-textarea" readonly>• Estrategia de dos columnas para la conservación de alimentos - PrepperFamily.org
+• Génesis 41:47-57 - La sabiduría del patriarca José en la conservación
+• Directrices del USDA para la conservación segura de alimentos - Departamento de Agricultura de EE. UU.
+• Centro Nacional para la Conservación Casera de Alimentos - Universidad de Georgia
+• Guía completa Ball para la conservación casera - Publicaciones de Ball Corporation
+• Directrices para el almacenamiento de alimentos a largo plazo - Manual de preparación para emergencias</textarea>
+    </div>
+  </div>
+</section>
