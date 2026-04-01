@@ -1,0 +1,658 @@
+<!DOCTYPE html><html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía para Enlatar Carne en Frascos de Vidrio - PrepperFamily</title>
+  <link rel="alternate" hreflang="en" href="/en/material-support/store/canning-meat/" />
+  <link rel="alternate" hreflang="es" href="/es/sustento-material/almacena/enlatar-carne/" />
+  <link rel="alternate" hreflang="x-default" href="/en/material-support/store/canning-meat/" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-50px) translateY(-50px); }
+            100% { transform: translateX(0px) translateY(0px); }
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .benefit-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .key-principle {
+            background: #e8f5e8;
+            margin: 20px 30px;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #27ae60;
+            position: relative;
+        }
+
+        .key-principle::before {
+            content: '🔑';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2em;
+        }
+
+        .key-principle h3 {
+            color: #27ae60;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .materials-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .materials-table th {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .materials-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .materials-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .materials-table tr:hover {
+            background: #e3f2fd;
+        }
+
+        .steps-container {
+            display: grid;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .step-group {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #9b59b6;
+        }
+
+        .step-group h3 {
+            color: #9b59b6;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .step {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #e74c3c;
+        }
+
+        .step h4 {
+            color: #e74c3c;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .step ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .step li {
+            margin: 8px 0;
+            padding-left: 5px;
+        }
+
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .recipe-card {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .recipe-card:hover {
+            transform: scale(1.05);
+        }
+
+        .recipe-card h4 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .tips-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tip-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #f39c12;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .tip-item h4 {
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .conclusion h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .conclusion p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .cta-box {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .cta-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fab1a0 100%);
+            color: #2d3436;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .materials-table {
+                font-size: 0.9em;
+            }
+            
+            .materials-table th,
+            .materials-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+
+</head><body><div id="pf-header"></div>
+    <div class="container">
+        <div class="header">
+            <h1>🫙 Guía Paso a Paso para Enlatar Carne en Frascos de Vidrio</h1>
+            <p>Aprende a conservar alimentos de forma segura y eficiente</p>
+        </div>
+
+        <div class="benefits">
+            <div class="benefit-card">
+                <h3>🛡️ Seguridad Alimentaria</h3>
+                <p>Destruye bacterias y esporas que provocan botulismo y otras enfermedades peligrosas para la salud.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>💰 Ahorro de Dinero y Tiempo</h3>
+                <p>Compra ingredientes en oferta, cocina una sola vez y almacena raciones listas para consumir.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>🏠 Autonomía en Emergencias</h3>
+                <p>Los frascos no dependen de congelador ni electricidad; solo necesitan estanterías frescas y oscuras.</p>
+            </div>
+        </div>
+
+        <div class="key-principle">
+            <h3>Principio Clave</h3>
+            <p>Las carnes son alimentos de baja acidez; <span class="highlight">sólo la presión eleva la temperatura a ≥ 116 °C (240 °F)</span> necesaria para esterilizarlas de forma segura.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                <div class="section-number">1</div>
+                <h2>Materiales Necesarios</h2>
+            </div>
+            
+            <table class="materials-table">
+                <thead>
+                    <tr>
+                        <th>Elemento</th>
+                        <th>Función</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Frascos de vidrio (boca ancha) de ½ l y 1 l</td>
+                        <td>Contenedor resistente al calor</td>
+                        <td>Examinar que no tengan astillas ni grietas</td>
+                    </tr>
+                    <tr>
+                        <td>Tapas metálicas de dos piezas (disco + aro)</td>
+                        <td>Generan vacío hermético</td>
+                        <td>Usar tapas nuevas; los aros pueden reutilizarse</td>
+                    </tr>
+                    <tr>
+                        <td>Olla de presión para conservas (canner)</td>
+                        <td>Alcanza 10–15 psi</td>
+                        <td>Capacidad ≥ 7 frascos de 1 l; manómetro o peso calibrado</td>
+                    </tr>
+                    <tr>
+                        <td>Rejilla interna</td>
+                        <td>Evita contacto directo con el fondo</td>
+                        <td>Previene roturas por choque térmico</td>
+                    </tr>
+                    <tr>
+                        <td>Utensilios higiénicos: embudo, pinzas, espátula</td>
+                        <td>Facilitan llenado y manipulación estéril</td>
+                        <td>Preferir acero inoxidable o silicona apta</td>
+                    </tr>
+                    <tr>
+                        <td>Solución jabonosa y agua caliente</td>
+                        <td>Lavado previo</td>
+                        <td>Añadir 1 cda. de vinagre por litro ayuda a desengrasar</td>
+                    </tr>
+                    <tr>
+                        <td>Marcador indeleble + etiquetas</td>
+                        <td>Rotación y control</td>
+                        <td>Fecha (día/mes/año) y nombre del contenido</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                <div class="section-number">2</div>
+                <h2>Guía Paso a Paso</h2>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step-group">
+                    <h3>A. Preparación de alimentos y frascos</h3>
+                    
+                    <div class="step">
+                        <h4>1. Inspección y lavado</h4>
+                        <ul>
+                            <li>Lave frascos, tapas y utensilios con agua caliente jabonosa; enjuague bien</li>
+                            <li>Mantenga los frascos en agua a 80–90 °C para evitar choque térmico al llenarlos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>2. Selección y precocción opcional</h4>
+                        <ul>
+                            <li>Deshuese carnes, retire exceso de grasa; corte en cubos de 2–3 cm</li>
+                            <li>Puede dorar ligeramente para mayor sabor; escurra grasa visible</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step-group">
+                    <h3>B. Llenado y desaireación</h3>
+                    
+                    <div class="step">
+                        <h4>3. Llenado en caliente</h4>
+                        <ul>
+                            <li>Con embudo, introduzca la carne dejando <span class="highlight">3 cm de espacio libre</span></li>
+                            <li>Añada líquido caliente (caldo sin grasa o agua con sal ligera) hasta cubrir</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>4. Eliminación de burbujas</h4>
+                        <ul>
+                            <li>Pase una espátula plástica por las paredes internas para liberar aire atrapado</li>
+                            <li>Ajuste líquido si fuera necesario, respetando los 3 cm</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>5. Limpieza de bordes y colocación de tapas</h4>
+                        <ul>
+                            <li>Limpie el borde del frasco con paño húmedo y caliente</li>
+                            <li>Centre el disco; enrosque el aro apenas «a mano firme»</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step-group">
+                    <h3>C. Procesado a presión</h3>
+                    
+                    <div class="step">
+                        <h4>6. Carga y ventilación</h4>
+                        <ul>
+                            <li>Coloque frascos sobre la rejilla dentro de la olla con 5–8 cm de agua caliente</li>
+                            <li>Cierre la tapa; ventile vapor 10 minutos para expulsar aire del recipiente</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>7. Presurización y tiempo orientativo</h4>
+                        <ul>
+                            <li>Aplique <span class="highlight">10 psi</span> (≈ 69 kPa) a altitudes ≤ 300 m; <span class="highlight">15 psi</span> si > 1 000 m s. n. m.</li>
+                            <li>Mantenga: <span class="highlight">75 min</span> (frascos ½ l) | <span class="highlight">90 min</span> (frascos 1 l)</li>
+                            <li>Ajuste calor para sostener presión constante; no apresure el proceso</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step-group">
+                    <h3>D. Enfriado y verificación de sellos</h3>
+                    
+                    <div class="step">
+                        <h4>8. Despresurización natural</h4>
+                        <ul>
+                            <li>Apague el fuego; deje bajar la presión a 0 psi sin retirar el peso</li>
+                            <li>Espere 10 min adicionales, luego abra la tapa alejando el vapor</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>9. Secado y reposo de frascos</h4>
+                        <ul>
+                            <li>Saque los frascos con pinzas verticalmente; colóquelos sobre paño, separados 5 cm</li>
+                            <li>Deje reposar <span class="highlight">12–24 h</span> sin tocar las tapas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step">
+                        <h4>10. Chequeo de sellado</h4>
+                        <ul>
+                            <li>Retire los aros; presione suavemente el centro del disco: no debe hundirse ni sonar</li>
+                            <li>Cualquier frasco no sellado se consume en 48 h o se reprocesa con tapa nueva</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step-group">
+                    <h3>E. Almacenamiento correcto</h3>
+                    
+                    <div class="step">
+                        <h4>Condiciones ideales</h4>
+                        <ul>
+                            <li>Guarde en lugar fresco (<span class="highlight">10–21 °C</span>), oscuro y seco</li>
+                            <li>Mantenga las tapas sin aros para detectar fugas</li>
+                            <li>Vida orientativa: <span class="highlight">1–2 años</span> con calidad óptima</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                <div class="section-number">3</div>
+                <h2>Platillos Exquisitos para Enfrascar</h2>
+            </div>
+            
+            <div class="recipes-grid">
+                <div class="recipe-card">
+                    <h4>🥩 Guiso Campestre de Res</h4>
+                    <p>Con verduras tradicionales</p>
+                </div>
+                <div class="recipe-card">
+                    <h4>🍗 Pollo Desmenuzado</h4>
+                    <p>En caldo especiado</p>
+                </div>
+                <div class="recipe-card">
+                    <h4>🐷 Cerdo en Salsa</h4>
+                    <p>De tomatillo verde</p>
+                </div>
+                <div class="recipe-card">
+                    <h4>🌶️ Chili de Pavo</h4>
+                    <p>Con frijoles rojos</p>
+                </div>
+                <div class="recipe-card">
+                    <h4>🌽 Sopa Cremosa</h4>
+                    <p>De pollo y maíz</p>
+                </div>
+                <div class="recipe-card">
+                    <h4>🐑 Ragú de Cordero</h4>
+                    <p>Estilo mediterráneo</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                <div class="section-number">4</div>
+                <h2>Consejos Básicos de Rotación</h2>
+            </div>
+            
+            <div class="tips-list">
+                <div class="tip-item">
+                    <h4>🏷️ Etiquetado claro</h4>
+                    <p>Fecha completa y abreviatura del platillo en cada frasco.</p>
+                </div>
+                <div class="tip-item">
+                    <h4>🔄 Método FIFO</h4>
+                    <p>First In, First Out: estante separado para «nuevo» y «en uso».</p>
+                </div>
+                <div class="tip-item">
+                    <h4>📋 Revisión trimestral</h4>
+                    <p>Compruebe sellos, reponga inventario y anote consumos.</p>
+                </div>
+                <div class="tip-item">
+                    <h4>📅 Plan de menú familiar</h4>
+                    <p>Incluya cada semana al menos un frasco en las comidas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="conclusion">
+            <h2>🎯 Conclusión</h2>
+            <p>El enlatado casero de carnes combina prudencia económica, seguridad alimentaria y fortaleza familiar frente a cortes de energía o crisis de suministro. Cada frasco representa tiempo y recursos resguardados, listos para nutrir a los suyos cuando más lo necesiten.</p>
+            
+            <div class="cta-box">
+                <h3>💡 Próximo paso:</h3>
+                <p>Elija un platillo que su familia disfrute, reúna los frascos y programe una primera sesión de enlatado este fin de semana.</p>
+                <p style="margin-top: 15px; font-style: italic;">¿Qué comida guardarían primero para su despensa de emergencia?</p>
+            </div>
+        </div>
+    </div>
+
+<div id="pf-recursos"></div><div id="pf-footer"></div><script>
+(function () {
+const isGitHub = location.hostname.endsWith("github.io");
+const base = isGitHub ? "/prepperfamily-site" : "";
+
+const isES = location.pathname.includes("/es/");
+const lang = isES ? "es" : "en";
+
+// HEADER
+fetch(`${base}/partials/header-${lang}/`)
+.then(res => res.text())
+.then(html => {
+document.getElementById("pf-header").innerHTML = html;
+})
+.catch(() => {});
+
+// FOOTER
+fetch(`${base}/partials/footer-${lang}/`)
+.then(res => res.text())
+.then(html => {
+document.getElementById("pf-footer").innerHTML = html;
+})
+.catch(() => {});
+
+// RECURSOS / SOURCES
+let path = location.pathname;
+if (!path.endsWith("/")) path += "/";
+const extraPath = lang === "es" ? "recursos/" : "sources/";
+const resourcesURL = `${path}${extraPath}`;
+
+fetch(resourcesURL)
+.then(res => {
+if (!res.ok) throw new Error();
+return res.text();
+})
+.then(html => {
+document.getElementById("pf-recursos").innerHTML = html;
+})
+.catch(() => {});
+})();
+</script>
+
+</body>
+</html>
