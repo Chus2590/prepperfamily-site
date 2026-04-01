@@ -116,7 +116,7 @@
       text-align: center;
     }
 
-    .pf-canning-meat-az .pf-sources-section {
+        .pf-canning-meat-az .pf-sources-section {
       background: #f8f9fa;
       padding: 30px;
       border-top: 3px solid #667eea;
@@ -153,12 +153,17 @@
     }
 
     .pf-canning-meat-az .source-item {
-      padding: 12px 0;
-      border-bottom: 1px solid #eee;
+      padding: 15px 0;
+      border-bottom: 1px solid #eeeeee;
+      line-height: 1.6;
     }
 
     .pf-canning-meat-az .source-item:last-child {
       border-bottom: none;
+    }
+
+    .pf-canning-meat-az .source-item strong {
+      color: #667eea;
     }
 
     .pf-canning-meat-az .fallback-box {
@@ -168,7 +173,7 @@
 
     .pf-canning-meat-az .fallback-box textarea {
       width: 100%;
-      height: 150px;
+      height: 180px;
     }
 
     @media (max-width: 768px) {
@@ -233,64 +238,84 @@
         <h2 class="pf-sources-title">📚 Research Sources</h2>
 
         <button type="button" class="copy-sources-btn"
-          onclick="(async function(btn){
-            try {
-              var sourceEl = document.getElementById('pf-sources-unique-001');
-              if (!sourceEl) return false;
-              var text = sourceEl.value.trim();
-              var original = btn.innerHTML;
+      onclick="(async function(btn){
+        try {
+          var sourceEl = document.getElementById('pf-sources-full-002');
+          if (!sourceEl) return false;
+          var text = sourceEl.value.trim();
+          var original = btn.innerHTML;
 
-              if (!navigator.clipboard || !window.isSecureContext) {
-                throw new Error('Clipboard not available');
-              }
+          if (!navigator.clipboard || !window.isSecureContext) {
+            throw new Error('Clipboard not available');
+          }
 
-              await navigator.clipboard.writeText(text);
+          await navigator.clipboard.writeText(text);
 
-              btn.innerHTML = '✅ Sources copied';
-              btn.disabled = true;
+          btn.innerHTML = '✅ Sources copied';
+          btn.disabled = true;
 
-              setTimeout(function(){
-                btn.innerHTML = original;
-                btn.disabled = false;
-              }, 1600);
+          setTimeout(function(){
+            btn.innerHTML = original;
+            btn.disabled = false;
+          }, 1600);
 
-            } catch (err) {
-              var fallback = document.getElementById('pf-sources-unique-001-fallback');
-              if (fallback) fallback.style.display = 'block';
-              console.error(err);
-            }
-            return false;
-          })(this);">
-          📋 Copy Sources
-        </button>
-      </div>
+        } catch (err) {
+          var fallback = document.getElementById('pf-sources-full-002-fallback');
+          if (fallback) fallback.style.display = 'block';
+          console.error(err);
+        }
+        return false;
+      })(this);">
+      📋 Copy Sources
+    </button>
+  </div>
 
-      <div class="sources-list">
-        <div class="source-item"><strong>1.</strong> USDA Complete Guide to Home Canning (2020)</div>
-        <div class="source-item"><strong>2.</strong> National Center for Home Food Preservation</div>
-        <div class="source-item"><strong>3.</strong> So Easy to Preserve (2021)</div>
-        <div class="source-item"><strong>4.</strong> Ball Blue Book (2024)</div>
-        <div class="source-item"><strong>5.</strong> Penn State Extension</div>
-      </div>
+  <p style="margin-bottom:20px;color:#666;">
+    One click to copy all the key sources for this guide so you can research further:
+  </p>
 
-      <textarea id="pf-sources-unique-001" style="display:none;">
-1. USDA Complete Guide to Home Canning (2020)
-2. National Center for Home Food Preservation
-3. So Easy to Preserve (2021)
-4. Ball Blue Book (2024)
-5. Penn State Extension
-      </textarea>
-
-      <div id="pf-sources-unique-001-fallback" class="fallback-box">
-        <p>Copy manually:</p>
-        <textarea>
-1. USDA Complete Guide to Home Canning (2020)
-2. National Center for Home Food Preservation
-3. So Easy to Preserve (2021)
-4. Ball Blue Book (2024)
-5. Penn State Extension
-        </textarea>
-      </div>
+  <div class="sources-list">
+    <div class="source-item">
+      <strong>1. USDA Complete Guide to Home Canning, 2020 ed. (Chapters 1 & 3)</strong> — Official guide from the USDA; sets safety standards (pressure, times, altitudes) for meats and other low-acid foods.
     </div>
+    <div class="source-item">
+      <strong>2. National Center for Home Food Preservation – "Meat, Strips, Cubes or Chunks"</strong> — Detailed factsheet by the University of Georgia with step-by-step instructions for red meats, following USDA guidelines.
+    </div>
+    <div class="source-item">
+      <strong>3. So Easy to Preserve, 6th ed. (Univ. of Georgia Cooperative Extension, 2021)</strong> — Reference with scientific foundations and verified procedures for home preservation; pressure canning chapter for meats and poultry.
+    </div>
+    <div class="source-item">
+      <strong>4. Ball Blue Book Guide to Preserving, 37th ed. (2024)</strong> — Practical manual from the leading jar brand; includes time tables and operational tips that complement official standards.
+    </div>
+    <div class="source-item">
+      <strong>5. Penn State Extension – "Home Food Preservation: Pressure Canning"</strong> — Academic publication explaining the science behind pressure canning and the need for &gt;240 °F for meats.
+    </div>
+  </div>
+
+  <textarea id="pf-sources-full-002" style="display:none;">
+1. USDA Complete Guide to Home Canning, 2020 ed. (Chapters 1 & 3) — Official guide from the USDA; sets safety standards (pressure, times, altitudes) for meats and other low-acid foods.
+
+2. National Center for Home Food Preservation – "Meat, Strips, Cubes or Chunks" — Detailed factsheet by the University of Georgia with step-by-step instructions for red meats, following USDA guidelines.
+
+3. So Easy to Preserve, 6th ed. (Univ. of Georgia Cooperative Extension, 2021) — Reference with scientific foundations and verified procedures for home preservation; pressure canning chapter for meats and poultry.
+
+4. Ball Blue Book Guide to Preserving, 37th ed. (2024) — Practical manual from the leading jar brand; includes time tables and operational tips that complement official standards.
+
+5. Penn State Extension – "Home Food Preservation: Pressure Canning" — Academic publication explaining the science behind pressure canning and the need for >240 °F for meats.
+  </textarea>
+
+  <div id="pf-sources-full-002-fallback" class="fallback-box">
+    <p>Copy manually:</p>
+    <textarea>
+1. USDA Complete Guide to Home Canning, 2020 ed. (Chapters 1 & 3) — Official guide from the USDA; sets safety standards (pressure, times, altitudes) for meats and other low-acid foods.
+
+2. National Center for Home Food Preservation – "Meat, Strips, Cubes or Chunks" — Detailed factsheet by the University of Georgia with step-by-step instructions for red meats, following USDA guidelines.
+
+3. So Easy to Preserve, 6th ed. (Univ. of Georgia Cooperative Extension, 2021) — Reference with scientific foundations and verified procedures for home preservation; pressure canning chapter for meats and poultry.
+
+4. Ball Blue Book Guide to Preserving, 37th ed. (2024) — Practical manual from the leading jar brand; includes time tables and operational tips that complement official standards.
+
+5. Penn State Extension – "Home Food Preservation: Pressure Canning" — Academic publication explaining the science behind pressure canning and the need for >240 °F for meats.
+    </textarea>
   </div>
 </div>
