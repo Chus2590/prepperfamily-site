@@ -1,0 +1,658 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canning Meat in Glass Jars - PrepperFamily</title>
+  <link rel="alternate" hreflang="en" href="/en/material-support/store/canning-meat/" />
+  <link rel="alternate" hreflang="es" href="/es/sustento-material/almacena/enlatar-carne/" />
+  <link rel="alternate" hreflang="x-default" href="/en/material-support/store/canning-meat/" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-50px) translateY(-50px); }
+            100% { transform: translateX(0px) translateY(0px); }
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .benefit-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .key-principle {
+            background: #e8f5e8;
+            margin: 20px 30px;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #27ae60;
+            position: relative;
+        }
+
+        .key-principle::before {
+            content: '🔑';
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2em;
+        }
+
+        .key-principle h3 {
+            color: #27ae60;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .section-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .materials-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .materials-table th {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .materials-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .materials-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .materials-table tr:hover {
+            background: #e3f2fd;
+        }
+
+        .steps-container {
+            display: grid;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .step-group {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #9b59b6;
+        }
+
+        .step-group h3 {
+            color: #9b59b6;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .step {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #e74c3c;
+        }
+
+        .step h4 {
+            color: #e74c3c;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .step ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .step li {
+            margin: 8px 0;
+            padding-left: 5px;
+        }
+
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .recipe-card {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .recipe-card:hover {
+            transform: scale(1.05);
+        }
+
+        .recipe-card h4 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .tips-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .tip-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #f39c12;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .tip-item h4 {
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .conclusion h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .conclusion p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .cta-box {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .cta-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fab1a0 100%);
+            color: #2d3436;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .materials-table {
+                font-size: 0.9em;
+            }
+            
+            .materials-table th,
+            .materials-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+
+</head><body><div id="pf-header"></div>
+  <div class="container">
+    <div class="header">
+      <h1>🫙 Step-by-Step Guide to Canning Meat in Glass Jars</h1>
+      <p>Learn to preserve food safely and efficiently</p>
+    </div>
+
+    <div class="benefits">
+      <div class="benefit-card">
+        <h3>🛡️ Food Safety</h3>
+        <p>Destroys bacteria and spores that cause botulism and other serious health risks.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>💰 Save Money & Time</h3>
+        <p>Buy ingredients on sale, cook once, and store ready-to-eat meals.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>🏠 Emergency Readiness</h3>
+        <p>Jars don’t rely on a freezer or electricity; just cool, dark shelves.</p>
+      </div>
+    </div>
+
+    <div class="key-principle">
+      <h3>Key Principle</h3>
+      <p>Meats are low-acid foods; <span class="highlight">only pressure canning reaches ≥ 240 °F (116 °C)</span> required to sterilize them safely.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        <div class="section-number">1</div>
+        <h2>Necessary Materials</h2>
+      </div>
+
+      <table class="materials-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Function</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Wide-mouth glass jars (pint & quart)</td>
+            <td>Heat-resistant container</td>
+            <td>Check for chips or cracks</td>
+          </tr>
+          <tr>
+            <td>Two-piece metal lids (flat lid + ring)</td>
+            <td>Creates airtight vacuum</td>
+            <td>Use new lids; rings can be reused</td>
+          </tr>
+          <tr>
+            <td>Pressure canner</td>
+            <td>Reaches 10–15 psi</td>
+            <td>Holds ≥ 7 quart jars; gauge or weighted regulator</td>
+          </tr>
+          <tr>
+            <td>Jar rack</td>
+            <td>Keeps jars off bottom</td>
+            <td>Prevents breakage from thermal shock</td>
+          </tr>
+          <tr>
+            <td>Sanitary tools: funnel, tongs, spatula</td>
+            <td>Helps fill & handle jars hygienically</td>
+            <td>Prefer stainless steel or food-grade silicone</td>
+          </tr>
+          <tr>
+            <td>Soapy solution & hot water</td>
+            <td>Pre-wash</td>
+            <td>Add 1 Tbsp vinegar per quart to degrease</td>
+          </tr>
+          <tr>
+            <td>Permanent marker + labels</td>
+            <td>Rotation & tracking</td>
+            <td>Date (MM/DD/YYYY) & contents</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        <div class="section-number">2</div>
+        <h2>Step-by-Step Instructions</h2>
+      </div>
+
+      <div class="steps-container">
+        <div class="step-group">
+          <h3>A. Prep Food & Jars</h3>
+
+          <div class="step">
+            <h4>1. Inspect & Wash</h4>
+            <ul>
+              <li>Wash jars, lids, and tools with hot soapy water; rinse well</li>
+              <li>Keep jars in 175–195 °F (80–90 °C) water to avoid thermal shock when filling</li>
+            </ul>
+          </div>
+
+          <div class="step">
+            <h4>2. Select & Optional Pre-cook</h4>
+            <ul>
+              <li>Debone meat, trim excess fat; cut into 1–1.5 inch cubes</li>
+              <li>Optional: brown lightly for flavor; drain visible fat</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step-group">
+          <h3>B. Filling & Removing Air</h3>
+
+          <div class="step">
+            <h4>3. Hot Pack</h4>
+            <ul>
+              <li>Use a funnel to pack meat, leaving <span class="highlight">1¼ inch headspace</span></li>
+              <li>Add hot liquid (fat-free broth or lightly salted water) to cover</li>
+            </ul>
+          </div>
+
+          <div class="step">
+            <h4>4. Remove Bubbles</h4>
+            <ul>
+              <li>Slide a plastic spatula along inside walls to release trapped air</li>
+              <li>Adjust liquid if needed, maintaining 1¼ inch headspace</li>
+            </ul>
+          </div>
+
+          <div class="step">
+            <h4>5. Clean Rims & Apply Lids</h4>
+            <ul>
+              <li>Wipe jar rims with a hot, damp cloth</li>
+              <li>Center flat lid; screw ring on fingertip tight</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step-group">
+          <h3>C. Pressure Processing</h3>
+
+          <div class="step">
+            <h4>6. Load & Vent</h4>
+            <ul>
+              <li>Place jars on rack inside canner with 2–3 inches of hot water</li>
+              <li>Close lid; vent steam for 10 min to expel air</li>
+            </ul>
+          </div>
+
+          <div class="step">
+            <h4>7. Pressurize & Timing</h4>
+            <ul>
+              <li>Use <span class="highlight">10 psi</span> (≤ 1,000 ft elevation); <span class="highlight">15 psi</span> if > 3,000 ft</li>
+              <li>Hold for <span class="highlight">75 min</span> (pints) | <span class="highlight">90 min</span> (quarts)</li>
+              <li>Maintain steady pressure; do not rush</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step-group">
+          <h3>D. Cooling & Seal Check</h3>
+
+          <div class="step">
+            <h4>8. Natural Depressurizing</h4>
+            <ul>
+              <li>Turn off heat; let pressure drop to zero naturally with weight on</li>
+              <li>Wait 10 more min, then open lid away from face</li>
+            </ul>
+          </div>
+
+          <div class="step">
+            <h4>9. Dry & Rest Jars</h4>
+            <ul>
+              <li>Lift jars straight up with tongs; place on towel, spaced 2 inches apart</li>
+              <li>Let sit <span class="highlight">12–24 hours</span> without disturbing lids</li>
+            </ul>
+          </div>
+
+          <div class="step">
+            <h4>10. Check Seals</h4>
+            <ul>
+              <li>Remove rings; press center of lid: should not flex or click</li>
+              <li>Use unsealed jars within 48 hrs or reprocess with new lids</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step-group">
+          <h3>E. Proper Storage</h3>
+
+          <div class="step">
+            <h4>Ideal Conditions</h4>
+            <ul>
+              <li>Store in cool (<span class="highlight">50–70 °F</span>), dark, dry place</li>
+              <li>Keep lids ring-free to detect leaks</li>
+              <li>Best quality: <span class="highlight">1–2 years</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        <div class="section-number">3</div>
+        <h2>Delicious Meals to Can</h2>
+      </div>
+
+      <div class="recipes-grid">
+        <div class="recipe-card">
+          <h4>🥩 Hearty Beef Stew</h4>
+          <p>With classic vegetables</p>
+        </div>
+        <div class="recipe-card">
+          <h4>🍗 Shredded Chicken</h4>
+          <p>In spiced broth</p>
+        </div>
+        <div class="recipe-card">
+          <h4>🐷 Pork in Green Salsa</h4>
+          <p>With tomatillo sauce</p>
+        </div>
+        <div class="recipe-card">
+          <h4>🌶️ Turkey Chili</h4>
+          <p>With red beans</p>
+        </div>
+        <div class="recipe-card">
+          <h4>🌽 Creamy Chicken Corn Soup</h4>
+          <p>Rich and hearty</p>
+        </div>
+        <div class="recipe-card">
+          <h4>🐑 Mediterranean Lamb Ragu</h4>
+          <p>Herb-infused</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">
+        <div class="section-number">4</div>
+        <h2>Basic Rotation Tips</h2>
+      </div>
+
+      <div class="tips-list">
+        <div class="tip-item">
+          <h4>🏷️ Clear Labeling</h4>
+          <p>Full date and meal abbreviation on each jar.</p>
+        </div>
+        <div class="tip-item">
+          <h4>🔄 FIFO Method</h4>
+          <p>First In, First Out: separate shelves for “new” and “in use.”</p>
+        </div>
+        <div class="tip-item">
+          <h4>📋 Quarterly Check</h4>
+          <p>Check seals, restock, and log what you’ve used.</p>
+        </div>
+        <div class="tip-item">
+          <h4>📅 Family Meal Plan</h4>
+          <p>Include at least one jar in weekly meals.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="conclusion">
+      <h2>🎯 Conclusion</h2>
+      <p>Home canning meat combines smart economics, food security, and family resilience in power outages or supply disruptions. Each jar preserves your time and resources, ready to nourish your loved ones when they need it most.</p>
+
+      <div class="cta-box">
+        <h3>💡 Next Step:</h3>
+        <p>Pick a meal your family loves, gather your jars, and plan your first canning session this weekend.</p>
+        <p style="margin-top: 15px; font-style: italic;">What meal would you can first for your emergency pantry?</p>
+      </div>
+    </div>
+  </div>
+
+<div id="pf-sources"></div><div id="pf-footer"></div><script>
+(function () {
+const isGitHub = location.hostname.endsWith("github.io");
+const base = isGitHub ? "/prepperfamily-site" : "";
+
+const isES = location.pathname.includes("/es/");
+const lang = isES ? "es" : "en";
+
+// HEADER
+fetch(`${base}/partials/header-${lang}/`)
+.then(res => res.text())
+.then(html => {
+document.getElementById("pf-header").innerHTML = html;
+})
+.catch(() => {});
+
+// FOOTER
+fetch(`${base}/partials/footer-${lang}/`)
+.then(res => res.text())
+.then(html => {
+document.getElementById("pf-footer").innerHTML = html;
+})
+.catch(() => {});
+
+// SOURCES
+let path = location.pathname;
+if (!path.endsWith("/")) path += "/";
+const sourcesURL = `${path}sources/`;
+
+fetch(sourcesURL)
+.then(res => {
+if (!res.ok) throw new Error();
+return res.text();
+})
+.then(html => {
+document.getElementById("pf-sources").innerHTML = html;
+})
+.catch(() => {});
+})();
+</script>
+
+</body>
+</html>
