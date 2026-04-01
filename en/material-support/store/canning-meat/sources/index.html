@@ -228,53 +228,6 @@
       color: #667eea;
     }
 
-    .pf-canning-meat-az .pf-toast {
-      position: absolute;
-      right: 20px;
-      bottom: 20px;
-      max-width: min(320px, calc(100% - 40px));
-      background: #ffffff;
-      padding: 18px 20px;
-      border-radius: 15px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      border: 3px solid #27ae60;
-      display: none;
-      z-index: 5;
-    }
-
-    .pf-canning-meat-az .pf-toast.show {
-      display: block;
-      animation: pf-canning-meat-az-toast 0.3s ease-out;
-    }
-
-    @keyframes pf-canning-meat-az-toast {
-      from {
-        opacity: 0;
-        transform: translateY(12px) scale(0.96);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    .pf-canning-meat-az .pf-toast-icon {
-      font-size: 2em;
-      margin-bottom: 8px;
-    }
-
-    .pf-canning-meat-az .pf-toast h3 {
-      margin: 0 0 6px;
-      color: #27ae60;
-      font-size: 1.1em;
-    }
-
-    .pf-canning-meat-az .pf-toast p {
-      margin: 0;
-      color: #2c3e50;
-      font-size: 0.98em;
-    }
-
     @media (max-width: 768px) {
       .pf-canning-meat-az {
         padding: 12px;
@@ -298,12 +251,6 @@
 
       .pf-canning-meat-az .copy-sources-btn {
         width: 100%;
-      }
-
-      .pf-canning-meat-az .pf-toast {
-        right: 12px;
-        bottom: 12px;
-        max-width: calc(100% - 24px);
       }
     }
   </style>
@@ -357,12 +304,11 @@
     <div class="pf-sources-section">
       <div class="pf-sources-header">
         <h2 class="pf-sources-title">📚 Research Sources</h2>
-        <button type="button" class="copy-sources-btn" data-copy-sources-btn>📋 Copy Sources</button>
       </div>
 
       <p class="pf-sources-intro">One click to copy all the key sources for this guide so you can research further:</p>
 
-      <div class="sources-list" id="pf-canning-meat-az-sources-list">
+      <div class="sources-list">
         <div class="source-item">
           <strong>1. USDA Complete Guide to Home Canning, 2020 ed. (Chapters 1 &amp; 3)</strong> — Official guide from the USDA; sets safety standards (pressure, times, altitudes) for meats and other low-acid foods.
         </div>
@@ -379,73 +325,25 @@
           <strong>5. Penn State Extension – "Home Food Preservation: Pressure Canning"</strong> — Academic publication explaining the science behind pressure canning and the need for &gt;240 °F for meats.
         </div>
       </div>
+
+      <textarea id="pf-canning-meat-sources-text" style="position:absolute;left:-9999px;top:0;opacity:0;">
+1. USDA Complete Guide to Home Canning, 2020 ed. (Chapters 1 & 3) — Official guide from the USDA; sets safety standards (pressure, times, altitudes) for meats and other low-acid foods.
+
+2. National Center for Home Food Preservation – "Meat, Strips, Cubes or Chunks" — Detailed factsheet by the University of Georgia with step-by-step instructions for red meats, following USDA guidelines.
+
+3. So Easy to Preserve, 6th ed. (Univ. of Georgia Cooperative Extension, 2021) — Reference with scientific foundations and verified procedures for home preservation; pressure canning chapter for meats and poultry.
+
+4. Ball Blue Book Guide to Preserving, 37th ed. (2024) — Practical manual from the leading jar brand; includes time tables and operational tips that complement official standards.
+
+5. Penn State Extension – "Home Food Preservation: Pressure Canning" — Academic publication explaining the science behind pressure canning and the need for >240 °F for meats.
+      </textarea>
+
+      <button
+        type="button"
+        class="copy-sources-btn"
+        onclick="var t=document.getElementById('pf-canning-meat-sources-text');t.select();t.setSelectionRange(0,99999);document.execCommand('copy');alert('Sources copied to clipboard');">
+        📋 Copy Sources
+      </button>
     </div>
   </div>
-
-  <div class="pf-toast" data-copy-toast aria-live="polite" aria-hidden="true">
-    <div class="pf-toast-icon">✅</div>
-    <h3>Sources copied</h3>
-    <p>Sources have been copied to your clipboard.</p>
-  </div>
-
- <script>
-  (function () {
-    var roots = document.querySelectorAll('.pf-canning-meat-az');
-
-    roots.forEach(function (root) {
-      if (root.dataset.copyInit === 'true') return;
-      root.dataset.copyInit = 'true';
-
-      var button = root.querySelector('[data-copy-sources-btn]');
-      var toast = root.querySelector('[data-copy-toast]');
-
-      if (!button || !toast) return;
-
-      var sourcesText = '1. USDA Complete Guide to Home Canning, 2020 ed. (Chapters 1 & 3) — Official guide from the USDA; sets safety standards (pressure, times, altitudes) for meats and other low-acid foods.\n\n' +
-        '2. National Center for Home Food Preservation – "Meat, Strips, Cubes or Chunks" — Detailed factsheet by the University of Georgia with step-by-step instructions for red meats, following USDA guidelines.\n\n' +
-        '3. So Easy to Preserve, 6th ed. (Univ. of Georgia Cooperative Extension, 2021) — Reference with scientific foundations and verified procedures for home preservation; pressure canning chapter for meats and poultry.\n\n' +
-        '4. Ball Blue Book Guide to Preserving, 37th ed. (2024) — Practical manual from the leading jar brand; includes time tables and operational tips that complement official standards.\n\n' +
-        '5. Penn State Extension – "Home Food Preservation: Pressure Canning" — Academic publication explaining the science behind pressure canning and the need for >240 °F for meats.';
-
-      var hideTimer = null;
-
-      function showToast() {
-        toast.classList.add('show');
-        toast.setAttribute('aria-hidden', 'false');
-
-        clearTimeout(hideTimer);
-        hideTimer = setTimeout(function () {
-          toast.classList.remove('show');
-          toast.setAttribute('aria-hidden', 'true');
-        }, 2000);
-      }
-
-      function fallbackCopy(text) {
-        var textArea = document.createElement('textarea');
-        textArea.value = text;
-        textArea.setAttribute('readonly', '');
-        textArea.style.position = 'fixed';
-        textArea.style.left = '-9999px';
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-      }
-
-      button.addEventListener('click', function () {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(sourcesText).then(function () {
-            showToast();
-          }).catch(function () {
-            fallbackCopy(sourcesText);
-            showToast();
-          });
-        } else {
-          fallbackCopy(sourcesText);
-          showToast();
-        }
-      });
-    });
-  })();
-</script>
 </div>
