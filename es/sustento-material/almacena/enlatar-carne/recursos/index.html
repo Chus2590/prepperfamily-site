@@ -1,0 +1,349 @@
+<div class="pf-canning-meat-az" data-pf-component="canning-meat-az">
+  <style>
+    .pf-canning-meat-az,
+    .pf-canning-meat-az * {
+      box-sizing: border-box;
+    }
+
+    .pf-canning-meat-az {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      width: 100%;
+      max-width: 100%;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .pf-canning-meat-az .pf-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .pf-canning-meat-az .pf-header {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+      color: #ffffff;
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pf-canning-meat-az .pf-header::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+      animation: pf-canning-meat-az-float 20s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes pf-canning-meat-az-float {
+      0% { transform: translateX(-50px) translateY(-50px); }
+      100% { transform: translateX(0) translateY(0); }
+    }
+
+    .pf-canning-meat-az .pf-header > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pf-canning-meat-az .pf-header h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.9rem, 4vw, 2.5rem);
+      line-height: 1.2;
+    }
+
+    .pf-canning-meat-az .pf-header p {
+      margin: 0;
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      opacity: 0.92;
+    }
+
+    .pf-canning-meat-az .pf-products-section {
+      padding: 40px 30px;
+    }
+
+    .pf-canning-meat-az .pf-products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .pf-canning-meat-az .product-card {
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #f0f0f0;
+      min-width: 0;
+    }
+
+    .pf-canning-meat-az .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .pf-canning-meat-az .product-image {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: 200px;
+      object-fit: contain;
+      background: #f8f9fa;
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .pf-canning-meat-az .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+
+    .pf-canning-meat-az .product-info {
+      padding: 20px;
+    }
+
+    .pf-canning-meat-az .product-title {
+      margin: 0 0 15px;
+      font-size: 1.1em;
+      font-weight: 700;
+      color: #2c3e50;
+      line-height: 1.4;
+    }
+
+    .pf-canning-meat-az .buy-button {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 149, 0, 0.3);
+      word-break: break-word;
+    }
+
+    .pf-canning-meat-az .buy-button:hover {
+      background: linear-gradient(135deg, #ff6b00 0%, #ff4500 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 149, 0, 0.4);
+    }
+
+    .pf-canning-meat-az .affiliate-notice {
+      background: #e8f5e8;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 30px 0 0;
+      border-left: 5px solid #27ae60;
+      color: #2c3e50;
+      font-size: 0.95em;
+      text-align: center;
+    }
+
+    .pf-canning-meat-az .affiliate-notice p {
+      margin: 0;
+    }
+
+    .pf-canning-meat-az .pf-sources-section {
+      background: #f8f9fa;
+      padding: 30px;
+      border-top: 3px solid #667eea;
+    }
+
+    .pf-canning-meat-az .pf-sources-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .pf-canning-meat-az .pf-sources-title {
+      margin: 0;
+      color: #2c3e50;
+      font-size: 1.4em;
+      font-weight: 700;
+    }
+
+    .pf-canning-meat-az .copy-sources-btn {
+      appearance: none;
+      border: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .pf-canning-meat-az .copy-sources-btn:hover {
+      background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .pf-canning-meat-az .copy-sources-btn:focus-visible {
+      outline: 2px solid #2c3e50;
+      outline-offset: 2px;
+    }
+
+    .pf-canning-meat-az .pf-sources-intro {
+      margin: 0 0 20px;
+      color: #666666;
+    }
+
+    .pf-canning-meat-az .sources-list {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .pf-canning-meat-az .source-item {
+      padding: 15px 0;
+      border-bottom: 1px solid #eeeeee;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    .pf-canning-meat-az .source-item:last-child {
+      border-bottom: none;
+    }
+
+    .pf-canning-meat-az .source-item strong {
+      color: #667eea;
+    }
+
+    @media (max-width: 768px) {
+      .pf-canning-meat-az {
+        padding: 12px;
+      }
+
+      .pf-canning-meat-az .pf-header,
+      .pf-canning-meat-az .pf-products-section,
+      .pf-canning-meat-az .pf-sources-section {
+        padding: 20px;
+      }
+
+      .pf-canning-meat-az .pf-products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .pf-canning-meat-az .pf-sources-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .pf-canning-meat-az .copy-sources-btn {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <div class="pf-shell">
+    <div class="pf-header">
+      <h1>🛒 Productos recomendados para conservas</h1>
+      <p>Todo lo que necesitas para comenzar tu viaje de conservación en casa</p>
+    </div>
+
+    <div class="pf-products-section">
+      <div class="pf-products-grid">
+        <div class="product-card">
+          <img src="https://m.media-amazon.com/images/I/61cw84E729L._SL1080_.jpg" alt="Frascos Mason Ball" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Ball - Frascos de boca ancha de 32 oz con tapas y bandas (paquete de 12)</h3>
+            <a href="https://amzn.to/4chJtCT" class="buy-button" target="_blank" rel="noopener noreferrer">🛒 Ver en Amazon</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="https://m.media-amazon.com/images/I/712P0v2uKqL._AC_SL1500_.jpg" alt="Tapas y anillos para conservas" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Tapas y anillos de boca ancha para frascos Mason Ball o Kerr</h3>
+            <a href="https://amzn.to/4m0Wvbn" class="buy-button" target="_blank" rel="noopener noreferrer">🛒 Ver en Amazon</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="https://m.media-amazon.com/images/I/81I3lK0gaWL._AC_SL1500_.jpg" alt="Envasadora a presión Presto" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Olla a presión y envasadora Presto, 23 cuartos</h3>
+            <a href="https://amzn.to/4c0gF0z" class="buy-button" target="_blank" rel="noopener noreferrer">🛒 Ver en Amazon</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="https://m.media-amazon.com/images/I/71oegKVpyXL._AC_SL1500_.jpg" alt="Kit de suministros para conservas" class="product-image">
+          <div class="product-info">
+            <h3 class="product-title">Kit inicial de suministros para conservas, herramientas de acero inoxidable</h3>
+            <a href="https://amzn.to/41CKP51" class="buy-button" target="_blank" rel="noopener noreferrer">🛒 Ver en Amazon</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="affiliate-notice">
+        <p>📢 PrepperFamily.org participa en el Programa de Afiliados de Amazon. Usar estos enlaces ayuda a apoyar nuestra plataforma sin costo adicional para ti. Gracias por apoyar a esta comunidad.</p>
+      </div>
+    </div>
+
+    <div class="pf-sources-section">
+      <div class="pf-sources-header">
+        <h2 class="pf-sources-title">📚 Fuentes de investigación</h2>
+      </div>
+
+      <p class="pf-sources-intro">Un clic para copiar todas las fuentes clave de esta guía para que puedas investigar más:</p>
+
+      <div class="sources-list">
+        <div class="source-item">
+          <strong>1. Guía completa del USDA para conservas caseras, ed. 2020 (Capítulos 1 y 3)</strong> — Guía oficial del USDA; establece estándares de seguridad (presión, tiempos, altitudes) para carnes y otros alimentos de baja acidez.
+        </div>
+        <div class="source-item">
+          <strong>2. Centro Nacional para la Conservación de Alimentos en el Hogar – "Carne, tiras, cubos o trozos"</strong> — Ficha detallada de la Universidad de Georgia con instrucciones paso a paso para carnes rojas, siguiendo las pautas del USDA.
+        </div>
+        <div class="source-item">
+          <strong>3. So Easy to Preserve, 6ª ed. (Extensión Cooperativa de la Univ. de Georgia, 2021)</strong> — Referencia con fundamentos científicos y procedimientos verificados para la conservación en casa; capítulo de envasado a presión para carnes y aves.
+        </div>
+        <div class="source-item">
+          <strong>4. Ball Blue Book Guide to Preserving, 37ª ed. (2024)</strong> — Manual práctico de la marca líder de frascos; incluye tablas de tiempos y consejos operativos que complementan los estándares oficiales.
+        </div>
+        <div class="source-item">
+          <strong>5. Extensión de Penn State – "Conservación de alimentos en el hogar: envasado a presión"</strong> — Publicación académica que explica la ciencia detrás del envasado a presión y la necesidad de &gt;240 °F para carnes.
+        </div>
+      </div>
+
+      <textarea id="pf-canning-meat-sources-text" style="position:absolute;left:-9999px;top:0;opacity:0;">
+1. Guía completa del USDA para conservas caseras, ed. 2020 (Capítulos 1 & 3) — Guía oficial del USDA; establece estándares de seguridad (presión, tiempos, altitudes) para carnes y otros alimentos de baja acidez.
+
+2. Centro Nacional para la Conservación de Alimentos en el Hogar – "Carne, tiras, cubos o trozos" — Ficha detallada de la Universidad de Georgia con instrucciones paso a paso para carnes rojas, siguiendo las pautas del USDA.
+
+3. So Easy to Preserve, 6ª ed. (Extensión Cooperativa de la Univ. de Georgia, 2021) — Referencia con fundamentos científicos y procedimientos verificados para la conservación en casa; capítulo de envasado a presión para carnes y aves.
+
+4. Ball Blue Book Guide to Preserving, 37ª ed. (2024) — Manual práctico de la marca líder de frascos; incluye tablas de tiempos y consejos operativos que complementan los estándares oficiales.
+
+5. Extensión de Penn State – "Conservación de alimentos en el hogar: envasado a presión" — Publicación académica que explica la ciencia detrás del envasado a presión y la necesidad de >240 °F para carnes.
+      </textarea>
+
+      <button
+        type="button"
+        class="copy-sources-btn"
+        onclick="var t=document.getElementById('pf-canning-meat-sources-text');t.select();t.setSelectionRange(0,99999);document.execCommand('copy');alert('Fuentes copiadas al portapapeles');">
+        📋 Copiar fuentes
+      </button>
+    </div>
+  </div>
+</div>
