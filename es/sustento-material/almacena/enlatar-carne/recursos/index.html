@@ -234,6 +234,35 @@
       color: #667eea;
     }
 
+    .pf-canning-meat-az .pf-manual-copy-box {
+      display: none;
+      margin-top: 15px;
+      background: #ffffff;
+      border: 1px solid #d9d9d9;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .pf-canning-meat-az .pf-manual-copy-box p {
+      margin: 0 0 10px;
+      color: #2c3e50;
+      font-weight: 600;
+    }
+
+    .pf-canning-meat-az .pf-manual-copy-textarea {
+      width: 100%;
+      min-height: 220px;
+      padding: 12px;
+      border: 1px solid #cccccc;
+      border-radius: 8px;
+      font: inherit;
+      line-height: 1.5;
+      resize: vertical;
+      background: #fafafa;
+      color: #2c3e50;
+    }
+
     @media (max-width: 768px) {
       .pf-canning-meat-az {
         padding: 12px;
@@ -347,67 +376,55 @@
       <button
         type="button"
         class="copy-sources-btn"
-        onclick="(function(btn){
-          var sourceEl = document.getElementById('pf-canning-meat-sources-text');
-          if (!sourceEl) return;
-          var text = sourceEl.value.trim();
-          var original = btn.innerHTML;
+        onclick="(async function(btn){
+          try {
+            var sourceEl = document.getElementById('pf-canning-meat-sources-text');
+            if (!sourceEl) return false;
 
-          function done() {
+            var text = sourceEl.value.trim();
+            var original = btn.innerHTML;
+
+            if (!navigator.clipboard || !window.isSecureContext) {
+              throw new Error('Clipboard API not available');
+            }
+
+            await navigator.clipboard.writeText(text);
+
             btn.innerHTML = '✅ Fuentes copiadas';
             btn.disabled = true;
             setTimeout(function(){
               btn.innerHTML = original;
               btn.disabled = false;
             }, 1600);
-          }
 
-          if (navigator.clipboard && window.isSecureContext) {
-            navigator.clipboard.writeText(text).then(done).catch(function(){
-              try {
-                var temp = document.createElement('textarea');
-                temp.value = text;
-                temp.setAttribute('readonly','');
-                temp.style.position = 'fixed';
-                temp.style.top = '0';
-                temp.style.left = '0';
-                temp.style.opacity = '0';
-                temp.style.pointerEvents = 'none';
-                document.body.appendChild(temp);
-                try { temp.focus({ preventScroll: true }); } catch(e) { temp.focus(); }
-                temp.select();
-                temp.setSelectionRange(0, temp.value.length);
-                document.execCommand('copy');
-                document.body.removeChild(temp);
-                done();
-              } catch(err) {
-                console.error('Copy failed:', err);
-              }
-            });
-          } else {
-            try {
-              var temp = document.createElement('textarea');
-              temp.value = text;
-              temp.setAttribute('readonly','');
-              temp.style.position = 'fixed';
-              temp.style.top = '0';
-              temp.style.left = '0';
-              temp.style.opacity = '0';
-              temp.style.pointerEvents = 'none';
-              document.body.appendChild(temp);
-              try { temp.focus({ preventScroll: true }); } catch(e) { temp.focus(); }
-              temp.select();
-              temp.setSelectionRange(0, temp.value.length);
-              document.execCommand('copy');
-              document.body.removeChild(temp);
-              done();
-            } catch(err) {
-              console.error('Copy failed:', err);
+          } catch (err) {
+            var manualBox = document.getElementById('pf-canning-meat-manual-copy');
+            if (manualBox) {
+              manualBox.style.display = 'block';
             }
+            console.error('Copy failed:', err);
           }
-        })(this)">
+          return false;
+        })(this);">
         📋 Copiar fuentes
       </button>
+
+      <div id="pf-canning-meat-manual-copy" class="pf-manual-copy-box">
+        <p>Tu navegador bloqueó la copia automática. Aquí tienes las fuentes para copiar manualmente:</p>
+        <textarea
+          readonly
+          class="pf-manual-copy-textarea"
+          onclick="this.select();"
+        >1. Guía completa del USDA para conservas caseras, ed. 2020 (Capítulos 1 & 3) — Guía oficial del USDA; establece estándares de seguridad (presión, tiempos, altitudes) para carnes y otros alimentos de baja acidez.
+
+2. Centro Nacional para la Conservación de Alimentos en el Hogar – "Carne, tiras, cubos o trozos" — Ficha detallada de la Universidad de Georgia con instrucciones paso a paso para carnes rojas, siguiendo las pautas del USDA.
+
+3. So Easy to Preserve, 6ª ed. (Extensión Cooperativa de la Univ. de Georgia, 2021) — Referencia con fundamentos científicos y procedimientos verificados para la conservación en casa; capítulo de envasado a presión para carnes y aves.
+
+4. Ball Blue Book Guide to Preserving, 37ª ed. (2024) — Manual práctico de la marca líder de frascos; incluye tablas de tiempos y consejos operativos que complementan los estándares oficiales.
+
+5. Extensión de Penn State – "Conservación de alimentos en el hogar: envasado a presión" — Publicación académica que explica la ciencia detrás del envasado a presión y la necesidad de >240 °F para carnes.</textarea>
+      </div>
     </div>
   </div>
 </div>
