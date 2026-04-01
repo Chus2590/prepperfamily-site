@@ -95,107 +95,150 @@
   transition: background .16s;
 }
 .copy-btn:hover { background: #142b58; }
+
+.sources-textarea {
+  width: 100%;
+  min-height: 140px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border: 1px solid #cfd6ea;
+  border-radius: 8px;
+  background: #fff;
+  color: #30315e;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.copy-fallback {
+  display: none;
+  margin-top: 14px;
+  background: #f5f8ff;
+  border: 1px solid #d6e0ff;
+  border-radius: 8px;
+  padding: 12px;
+  color: #1f2f5c;
+}
+
+.copy-fallback p {
+  margin: 0 0 8px 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
 @media (max-width: 600px) {
   .equipos-section, .fuentes-section { padding: 13px 5px 10px 5px; }
   .equipos-grid { grid-template-columns: 1fr; }
 }
 </style>
+
 <section class="section">
-                <div class="card card-border-red">
-                    <h2 class="red"> Recommended Equipment</h2>
-                    
-                    <div class="products-grid">
-                      <!-- Producto 1: Sellador Térmico de Bolsas -->
-                    <div class="product-card">
-                  <img src="https://m.media-amazon.com/images/I/81WGVunZbSS._AC_SL1500_.jpg" 
-                   alt="Bag Heat Sealer" />
-                  <h3>Bag Heat Sealer</h3>
-                  <p>Practical tool for sealing Mylar and plastic bags. Ensures airtight closures and extends food freshness.</p>
-                  <a href="https://amzn.to/4rSNvWR" class="amazon-btn">
-                    View on Amazon 
-                    </a>
-                    </div>
+  <div class="card card-border-red">
+    <h2 class="red"> Recommended Equipment</h2>
 
-                       <!-- Producto 2: Embudo de Acero Inoxidable -->
-                  <div class="product-card">
-                  <img src="https://m.media-amazon.com/images/I/61JZqp+rf3L._SL1200_.jpg" 
-                alt="Stainless Steel Funnel" />
-                 <h3>Stainless Steel Funnel</h3>
-                  <p>Ideal for filling jars and bags without spills. Makes the packaging process easier and keeps the kitchen clean.</p>
-                  <a href="https://amzn.to/4t6NIH0" class="amazon-btn">
-                      View on Amazon 
-                    </a>
-                    </div>
+    <div class="products-grid">
+      <!-- Producto 1: Sellador Térmico de Bolsas -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/81WGVunZbSS._AC_SL1500_.jpg" alt="Bag Heat Sealer" />
+        <h3>Bag Heat Sealer</h3>
+        <p>Practical tool for sealing Mylar and plastic bags. Ensures airtight closures and extends food freshness.</p>
+        <a href="https://amzn.to/4rSNvWR" class="amazon-btn">
+          View on Amazon 
+        </a>
+      </div>
 
-                        <!-- Producto 3: Bolsas Mylar -->
-                        <div class="product-card">
-                            <img src="https://m.media-amazon.com/images/I/61QJa9VAKIL._AC_SL1500_.jpg" 
-                                 alt="Mylar Bags with Oxygen Absorbers" />
-                            <h3>Mylar Bags + Absorbers</h3>
-                            <p>Complete long-term storage system. Includes oxygen absorbers for up to 25 years of preservation.</p>
-                            <a href="https://amzn.to/4sy2Opb" class="amazon-btn">
-                                View on Amazon 
-                            </a>
-                        </div>
+      <!-- Producto 2: Embudo de Acero Inoxidable -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/61JZqp+rf3L._SL1200_.jpg" alt="Stainless Steel Funnel" />
+        <h3>Stainless Steel Funnel</h3>
+        <p>Ideal for filling jars and bags without spills. Makes the packaging process easier and keeps the kitchen clean.</p>
+        <a href="https://amzn.to/4t6NIH0" class="amazon-btn">
+          View on Amazon 
+        </a>
+      </div>
 
-                        <!-- Producto 4: Cubos de 5 Galones -->
-                        <div class="product-card">
-                            <img src="https://m.media-amazon.com/images/I/61S-2972gML._AC_SX679_.jpg" 
-                                 alt="5-Gallon Buckets with Gamma Lids" />
-                            <h3>5-Gallon Buckets + Gamma Lids</h3>
-                            <p>Airtight containers perfect for bulk storage of grains and legumes with quick access.</p>
-                            <a href="https://amzn.to/40YEXTC" class="amazon-btn">
-                                View on Amazon 
-                            </a>
-                        </div>
+      <!-- Producto 3: Bolsas Mylar -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/61QJa9VAKIL._AC_SL1500_.jpg" alt="Mylar Bags with Oxygen Absorbers" />
+        <h3>Mylar Bags + Absorbers</h3>
+        <p>Complete long-term storage system. Includes oxygen absorbers for up to 25 years of preservation.</p>
+        <a href="https://amzn.to/4sy2Opb" class="amazon-btn">
+          View on Amazon 
+        </a>
+      </div>
 
-                        <!-- Producto 5: Bomba de Vacío -->
-                        <div class="product-card">
-                            <img src="https://m.media-amazon.com/images/I/81ifFd6IXwL._AC_SL1500_.jpg" 
-                                 alt="Manual Vacuum Pump for Preservation" />
-                            <h3>Manual Vacuum Pump</h3>
-                            <p>Essential tool for removing air and creating a perfect seal in storage bags without electricity.</p>
-                            <a href="https://amzn.to/41jwkTP" class="amazon-btn">
-                                View on Amazon 
-                            </a>
-                        </div>
-                    </div>
+      <!-- Producto 4: Cubos de 5 Galones -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/61S-2972gML._AC_SX679_.jpg" alt="5-Gallon Buckets with Gamma Lids" />
+        <h3>5-Gallon Buckets + Gamma Lids</h3>
+        <p>Airtight containers perfect for bulk storage of grains and legumes with quick access.</p>
+        <a href="https://amzn.to/40YEXTC" class="amazon-btn">
+          View on Amazon 
+        </a>
+      </div>
 
-                    <!-- Párrafo de Afiliados Obligatorio -->
-                    <div class="disclaimer">
-                        <p>
-                            PrepperFamily.org participates in the Amazon Affiliate Program. 
-                            By using this link, you support the platform at no additional cost to you. 
-                            Thank you for supporting this community 
-                        </p>
-                    </div>
-                </div>
-            </section>
+      <!-- Producto 5: Bomba de Vacío -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/81ifFd6IXwL._AC_SL1500_.jpg" alt="Manual Vacuum Pump for Preservation" />
+        <h3>Manual Vacuum Pump</h3>
+        <p>Essential tool for removing air and creating a perfect seal in storage bags without electricity.</p>
+        <a href="https://amzn.to/41jwkTP" class="amazon-btn">
+          View on Amazon 
+        </a>
+      </div>
+    </div>
 
-            <!-- Sección de Fuentes -->
-            <section class="section">
-                <div class="card card-border-blue">
-                    <h2 class="blue"> Sources and References</h2>
-                    
-                    <div class="sources-content">
-                        <ul class="sources-list" id="fuentes-contenido">               
-                            <li>Genesis 41:47-57 - The Wisdom of Patriarch Joseph in Preservation</li>
-                            <li>USDA Guidelines for Safe Food Preservation - U.S. Department of Agriculture</li>
-                            <li>National Center for Home Food Preservation - University of Georgia</li>
-                            <li>Ball Complete Guide to Home Preserving - Ball Corporation Publishing</li>
-                            <li>Long-Term Food Storage Guidelines - Emergency Preparedness Manual</li>
-                        </ul>
-                    </div>
-                    <!-- Caja oculta de Fuentes Copiables -->
-<textarea id="fuentes-texto" style="position:absolute;left:-9999px;top:0;opacity:0;">
-• Two-Column Strategy for Food Preservation - PrepperFamily.org
+    <!-- Párrafo de Afiliados Obligatorio -->
+    <div class="disclaimer">
+      <p>
+        PrepperFamily.org participates in the Amazon Affiliate Program.
+        By using this link, you support the platform at no additional cost to you.
+        Thank you for supporting this community 
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de Fuentes -->
+<section class="section">
+  <div class="card card-border-blue">
+    <h2 class="blue"> Sources and References</h2>
+
+    <div class="sources-content">
+      <ul class="sources-list" id="fuentes-contenido">
+        <li>Genesis 41:47-57 - The Wisdom of Patriarch Joseph in Preservation</li>
+        <li>USDA Guidelines for Safe Food Preservation - U.S. Department of Agriculture</li>
+        <li>National Center for Home Food Preservation - University of Georgia</li>
+        <li>Ball Complete Guide to Home Preserving - Ball Corporation Publishing</li>
+        <li>Long-Term Food Storage Guidelines - Emergency Preparedness Manual</li>
+      </ul>
+    </div>
+
+    <!-- Fuente en texto plano para copiado -->
+    <textarea id="fuentes-texto-copy-001" style="display:none;">• Two-Column Strategy for Food Preservation - PrepperFamily.org
 • Genesis 41:47-57 - The Wisdom of Patriarch Joseph in Preservation
 • USDA Guidelines for Safe Food Preservation - U.S. Department of Agriculture
 • National Center for Home Food Preservation - University of Georgia
 • Ball Complete Guide to Home Preserving - Ball Corporation Publishing
-• Long-Term Food Storage Guidelines - Emergency Preparedness Manual
-</textarea>
+• Long-Term Food Storage Guidelines - Emergency Preparedness Manual</textarea>
 
-<button onclick="var t=document.getElementById('fuentes-texto');t.select();document.execCommand('copy');alert(' Sources copied to clipboard');" class="copy-btn">
-   Copy Sources
-</button>
+    <button
+      type="button"
+      class="copy-btn"
+      onclick="(async function(btn){ try { var sourceEl = document.getElementById('fuentes-texto-copy-001'); if (!sourceEl) return false; var text = sourceEl.value.trim(); var original = btn.innerHTML; if (!navigator.clipboard || !window.isSecureContext) { throw new Error('Clipboard not available'); } await navigator.clipboard.writeText(text); btn.innerHTML = '✅ Sources copied'; btn.disabled = true; setTimeout(function(){ btn.innerHTML = original; btn.disabled = false; }, 1600); } catch (err) { var fallback = document.getElementById('fuentes-texto-copy-001-fallback'); if (fallback) fallback.style.display = 'block'; console.error(err); } return false; })(this);"
+    >
+       Copy Sources
+    </button>
+
+    <div id="fuentes-texto-copy-001-fallback" class="copy-fallback">
+      <p>Copy manually:</p>
+      <textarea class="sources-textarea" readonly>• Two-Column Strategy for Food Preservation - PrepperFamily.org
+• Genesis 41:47-57 - The Wisdom of Patriarch Joseph in Preservation
+• USDA Guidelines for Safe Food Preservation - U.S. Department of Agriculture
+• National Center for Home Food Preservation - University of Georgia
+• Ball Complete Guide to Home Preserving - Ball Corporation Publishing
+• Long-Term Food Storage Guidelines - Emergency Preparedness Manual</textarea>
+    </div>
+  </div>
+</section>
