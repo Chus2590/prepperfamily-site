@@ -1,101 +1,322 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-<!-- HOME -->
-
-<url>
-<loc>https://prepperfamily.org/</loc>
-<changefreq>weekly</changefreq>
-<priority>1.0</priority>
-</url>
-
-<!-- ROOT LANG -->
+<!-- ============================================================
+     HOME
+     ============================================================ -->
 
 <url>
-<loc>https://prepperfamily.org/</loc>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
+  <loc>https://prepperfamily.org/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/"/>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
 </url>
 
 <url>
-<loc>https://prepperfamily.org/es/</loc>
-<changefreq>weekly</changefreq>
-<priority>0.9</priority>
+  <loc>https://prepperfamily.org/es/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/"/>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
 </url>
 
-<!-- PILLARS -->
+<!-- ============================================================
+     PILLAR INDEXES — EN
+     ============================================================ -->
 
 <url>
-<loc>https://prepperfamily.org/en/material-support/</loc>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://prepperfamily.org/en/family-resilience/</loc>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://prepperfamily.org/en/inner-strength/</loc>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
+  <loc>https://prepperfamily.org/en/material-support/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/"/>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
 </url>
 
 <url>
-<loc>https://prepperfamily.org/es/sustento-material/</loc>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
+  <loc>https://prepperfamily.org/en/family-resilience/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/"/>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
 </url>
 
 <url>
-<loc>https://prepperfamily.org/es/resistencia-familiar/</loc>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
+  <loc>https://prepperfamily.org/en/inner-strength/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/"/>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<!-- ============================================================
+     PILLAR INDEXES — ES
+     ============================================================ -->
+
+<url>
+  <loc>https://prepperfamily.org/es/sustento-material/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/"/>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
 </url>
 
 <url>
-<loc>https://prepperfamily.org/es/fortaleza-interior/</loc>
-<changefreq>monthly</changefreq>
-<priority>0.8</priority>
+  <loc>https://prepperfamily.org/es/resistencia-familiar/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/"/>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
 </url>
 
-<!-- ARTICLES EN -->
+<url>
+  <loc>https://prepperfamily.org/es/fortaleza-interior/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/"/>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
 
-<url><loc>https://prepperfamily.org/en/72-hours-bug-out-bag/</loc></url>
-<url><loc>https://prepperfamily.org/en/hydrated-drinks/</loc></url>
-<url><loc>https://prepperfamily.org/en/rocket-stove-with-galvanized-cans/</loc></url>
-<url><loc>https://prepperfamily.org/en/dutch-oven/</loc></url>
-<url><loc>https://prepperfamily.org/en/family-milling-station/</loc></url>
-<url><loc>https://prepperfamily.org/en/comparative-water-filter-guide/</loc></url>
-<url><loc>https://prepperfamily.org/en/sprouting/</loc></url>
-<url><loc>https://prepperfamily.org/en/65-2/</loc></url>
-<url><loc>https://prepperfamily.org/en/iodine-pills-at-home/</loc></url>
-<url><loc>https://prepperfamily.org/en/three-multi-purpose-antiseptics/</loc></url>
-<url><loc>https://prepperfamily.org/en/canning-meat-in-jar-glass/</loc></url>
-<url><loc>https://prepperfamily.org/en/herbal-tinctures/</loc></url>
-<url><loc>https://prepperfamily.org/en/cold-storage/</loc></url>
-<url><loc>https://prepperfamily.org/en/the-truth-about-the-salt/</loc></url>
-<url><loc>https://prepperfamily.org/en/sealing-grains-guide/</loc></url>
-<url><loc>https://prepperfamily.org/en/the-ultimate-anti-intruder-guide/</loc></url>
-<url><loc>https://prepperfamily.org/en/the-place-where-god-dwells/</loc></url>
-<url><loc>https://prepperfamily.org/en/church-petitions-basic-concepts/</loc></url>
-<url><loc>https://prepperfamily.org/en/does-god-talk-in-your-home/</loc></url>
+<!-- ============================================================
+     SUBCATEGORY INDEXES — EN / Material Support
+     ============================================================ -->
 
-<!-- ARTICLES ES -->
+<url>
+  <loc>https://prepperfamily.org/en/material-support/store/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/"/>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
 
-<url><loc>https://prepperfamily.org/es/mochila-de-escape/</loc></url>
-<url><loc>https://prepperfamily.org/es/la-hidratacion-en-la-historia/</loc></url>
-<url><loc>https://prepperfamily.org/es/estufa-cohete-con-tarros-galvanizados/</loc></url>
-<url><loc>https://prepperfamily.org/es/horno-holandes/</loc></url>
-<url><loc>https://prepperfamily.org/es/estacion-de-molienda-familiar-del-grano-a-la-harina/</loc></url>
-<url><loc>https://prepperfamily.org/es/guia-comparativa-de-filtros-de-agua-para-apagones/</loc></url>
-<url><loc>https://prepperfamily.org/es/la-verdad-sobre-la-sal/</loc></url>
-<url><loc>https://prepperfamily.org/es/la-guia-definitiva-anti-intrusos/</loc></url>
-<url><loc>https://prepperfamily.org/es/el-lugar-donde-dios-habita/</loc></url>
-<url><loc>https://prepperfamily.org/es/conceptos-basicos-de-la-iglesia/</loc></url>
-<url><loc>https://prepperfamily.org/es/dios-habla-en-tu-casa/</loc></url>
+<url>
+  <loc>https://prepperfamily.org/en/material-support/grow/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/en/material-support/prepare/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/en/material-support/family-production-units/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<!-- ============================================================
+     SUBCATEGORY INDEXES — EN / Family Resilience
+     ============================================================ -->
+
+<url>
+  <loc>https://prepperfamily.org/en/family-resilience/roles-structure/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/en/family-resilience/homeschooling/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/en/family-resilience/home-protection/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/en/family-resilience/household-economy/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<!-- ============================================================
+     SUBCATEGORY INDEXES — EN / Inner Strength
+     ============================================================ -->
+
+<url>
+  <loc>https://prepperfamily.org/en/inner-strength/basic-christian-concepts/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/en/inner-strength/bible/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/en/inner-strength/prays/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/en/inner-strength/faith-in-difficult-times/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/en/inner-strength/apologetics/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<!-- ============================================================
+     SUBCATEGORY INDEXES — ES / Sustento Material
+     ============================================================ -->
+
+<url>
+  <loc>https://prepperfamily.org/es/sustento-material/almacena/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/"/>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/es/sustento-material/cultiva/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/es/sustento-material/prepara/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<!-- ============================================================
+     SUBCATEGORY INDEXES — ES / Resistencia Familiar
+     ============================================================ -->
+
+<url>
+  <loc>https://prepperfamily.org/es/resistencia-familiar/roles-estructura/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/es/resistencia-familiar/educacion-en-casa/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/es/resistencia-familiar/proteccion-del-hogar/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/es/resistencia-familiar/economia-domestica/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<!-- ============================================================
+     SUBCATEGORY INDEXES — ES / Fortaleza Interior
+     ============================================================ -->
+
+<url>
+  <loc>https://prepperfamily.org/es/fortaleza-interior/conceptos-cristianos-basicos/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/es/fortaleza-interior/biblia/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/es/fortaleza-interior/oraciones/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/es/fortaleza-interior/fe-en-tiempos-dificiles/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/es/fortaleza-interior/apologetica/</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<!-- ============================================================
+     ARTICLES — EN / Material Support / Store
+     ============================================================ -->
+
+<url>
+  <loc>https://prepperfamily.org/en/material-support/store/sealing-grains/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/sealing-grains/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/almacenar-granos/"/>
+  <changefreq>yearly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/en/material-support/store/canning-meat/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/canning-meat/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/enlatar-carne/"/>
+  <changefreq>yearly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/en/material-support/store/iodine-pills/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/iodine-pills/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/pastillas-de-yodo/"/>
+  <changefreq>yearly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<!-- ============================================================
+     ARTICLES — ES / Sustento Material / Almacena
+     ============================================================ -->
+
+<url>
+  <loc>https://prepperfamily.org/es/sustento-material/almacena/almacenar-granos/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/sealing-grains/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/almacenar-granos/"/>
+  <changefreq>yearly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/es/sustento-material/almacena/enlatar-carne/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/canning-meat/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/enlatar-carne/"/>
+  <changefreq>yearly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://prepperfamily.org/es/sustento-material/almacena/pastillas-de-yodo/</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/iodine-pills/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/pastillas-de-yodo/"/>
+  <changefreq>yearly</changefreq>
+  <priority>0.8</priority>
+</url>
 
 </urlset>
