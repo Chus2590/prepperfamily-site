@@ -8,7 +8,7 @@
   <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/" />
   <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/" />
   <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/" />
-  <style>
+    <style>
     :root {
       --pf-bg: #f7f4ee;
       --pf-card: #ffffff;
@@ -59,6 +59,49 @@
       margin: 0 auto;
     }
 
+    .pf-articles {
+      margin-bottom: 34px;
+    }
+
+    .pf-article-card {
+      display: block;
+      background: linear-gradient(180deg, #fff 0%, #fcfaf6 100%);
+      border: 1px solid var(--pf-border);
+      border-radius: var(--pf-radius);
+      box-shadow: var(--pf-shadow-soft);
+      padding: 24px 24px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .pf-article-card:hover,
+    .pf-article-card:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: var(--pf-shadow);
+      border-color: rgba(111, 29, 27, 0.18);
+      outline: none;
+    }
+
+    .pf-article-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .pf-article-title {
+      margin: 0;
+      font-size: clamp(1.3rem, 2.3vw, 1.8rem);
+      line-height: 1.2;
+      color: var(--pf-accent);
+    }
+
+    .pf-article-arrow {
+      flex: 0 0 auto;
+      font-size: 1.35rem;
+      color: var(--pf-accent);
+      line-height: 1;
+    }
+
     .pf-coming {
       background: linear-gradient(180deg, #fff 0%, #fcfaf6 100%);
       border: 1px solid var(--pf-border);
@@ -81,7 +124,7 @@
       text-transform: uppercase;
     }
 
-    .pf-coming h1 {
+    .pf-coming h2 {
       margin: 0 0 16px;
       font-size: clamp(1.7rem, 3vw, 2.4rem);
       line-height: 1.1;
@@ -119,12 +162,24 @@
         padding: 32px 16px 56px;
       }
 
+      .pf-article-card {
+        padding: 20px 18px;
+      }
+
       .pf-coming {
         padding: 34px 20px;
       }
 
       .pf-coming p {
         font-size: 1rem;
+      }
+
+      .pf-article-top {
+        gap: 12px;
+      }
+
+      .pf-article-arrow {
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -141,12 +196,21 @@
     <main class="pf-main">
       <div class="pf-wrap">
 
+        <section class="pf-articles" aria-label="Articles in this category">
+          <a class="pf-article-card" href="/en/material-support/prepare/rocket-stove/">
+            <div class="pf-article-top">
+              <h1 class="pf-article-title">Cook with minimal wood</h1>
+              <span class="pf-article-arrow" aria-hidden="true">→</span>
+            </div>
+          </a>
+        </section>
+
         <section class="pf-coming" aria-label="Coming soon message">
           <div class="pf-coming-badge">Under Construction</div>
-          <h1>Prepare</h1>
+          <h2>More Articles Are Coming</h2>
           <div class="pf-divider"></div>
           <p>
-            This category is being built. Practical guides focused on preparation, readiness, and family resilience will be published here soon.
+            This category is still being expanded. More practical guides will be published here soon.
           </p>
           <p class="pf-note">
             Thank you for your patience while PrepperFamily continues building useful, family-centered resources.
