@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coming Soon | PrepperFamily.org</title>
-  <meta name="description" content="This category page is under construction. More practical family guides are coming soon." />
+  <title>Prepare | PrepperFamily.org</title>
+  <meta name="description" content="Practical family guides for preparation, readiness, and essential planning." />
+  <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/" />
+  <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/" />
+  <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/" />
   <style>
     :root {
       --pf-bg: #f7f4ee;
@@ -15,6 +18,7 @@
       --pf-accent: #6f1d1b;
       --pf-accent-2: #a67c52;
       --pf-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --pf-shadow-soft: 0 6px 18px rgba(0,0,0,0.05);
       --pf-radius: 18px;
       --pf-max: 1100px;
     }
@@ -36,6 +40,7 @@
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
     .pf-page {
@@ -59,7 +64,7 @@
       border: 1px solid var(--pf-border);
       border-radius: var(--pf-radius);
       box-shadow: var(--pf-shadow);
-      padding: 56px 28px;
+      padding: 42px 28px;
       text-align: center;
     }
 
@@ -78,7 +83,7 @@
 
     .pf-coming h1 {
       margin: 0 0 16px;
-      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
       line-height: 1.1;
       color: var(--pf-accent);
     }
@@ -86,7 +91,7 @@
     .pf-coming p {
       max-width: 720px;
       margin: 0 auto;
-      font-size: 1.08rem;
+      font-size: 1.02rem;
       line-height: 1.75;
       color: var(--pf-muted);
     }
@@ -98,13 +103,13 @@
     .pf-divider {
       width: 90px;
       height: 3px;
-      margin: 26px auto 24px;
+      margin: 22px auto 20px;
       border-radius: 999px;
       background: linear-gradient(90deg, var(--pf-accent), var(--pf-accent-2));
     }
 
     .pf-note {
-      margin-top: 28px;
+      margin-top: 22px;
       font-size: 0.96rem;
       color: #7a7a7a;
     }
@@ -115,15 +120,12 @@
       }
 
       .pf-coming {
-        padding: 40px 20px;
+        padding: 34px 20px;
       }
 
       .pf-coming p {
         font-size: 1rem;
       }
-    }
-     #pf-footer-partial img {
-  margin: 0 auto;
     }
   </style>
 </head>
@@ -138,24 +140,21 @@
 
     <main class="pf-main">
       <div class="pf-wrap">
+
         <section class="pf-coming" aria-label="Coming soon message">
           <div class="pf-coming-badge">Under Construction</div>
-          <h1>Coming Soon</h1>
+          <h1>Prepare</h1>
           <div class="pf-divider"></div>
           <p>
-            We’re working on <strong>future guides for your family</strong>.
-            This category is still being prepared, but more practical content
-            will be published here soon.
+            This category is being built. Practical guides focused on preparation, readiness, and family resilience will be published here soon.
           </p>
           <p class="pf-note">
             Thank you for your patience while PrepperFamily continues building useful, family-centered resources.
           </p>
         </section>
+
       </div>
     </main>
-
-    <!-- FOOTER PARTIAL -->
-    <div id="pf-footer-partial"></div>
 
   </div>
 
@@ -173,7 +172,6 @@
 
     loadPartial("pf-header-partial", "/partials/header-en/");
     loadPartial("pf-submenu-partial", "/partials/submenu/en/material-support/");
-    loadPartial("pf-footer-partial", "/partials/footer-en/");
   </script>
 </body>
 </html>
