@@ -1,0 +1,719 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three Multi-Purpose Antiseptics - PrepperFamily</title>
+<link rel="alternate" hreflang="en" href="/en/material-support/store/three-antiseptics/" />
+<link rel="alternate" hreflang="es" href="/es/sustento-material/almacena/tres-antisepticos/" />
+<link rel="alternate" hreflang="x-default" href="/en/material-support/store/three-antiseptics/" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .alert {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #c44569;
+        }
+        
+        .alert h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .alert h3:before {
+            content: "🚨";
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .golden-rules {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 5px solid #f39c12;
+        }
+        
+        .golden-rules h2 {
+            color: #d35400;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .golden-rules h2:before {
+            content: "👑";
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .dilution-box {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .dilution-box h4 {
+            color: #2d8659;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .dilution-box h4:before {
+            content: "🧪";
+            margin-right: 8px;
+        }
+        
+        .antiseptic-section {
+            background: white;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .antiseptic-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px 25px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .antiseptic-content {
+            padding: 25px;
+        }
+        
+        .steps-box {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 4px solid #6c5ce7;
+        }
+        
+        .steps-box h4 {
+            color: #5f3dc4;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .steps-box h4:before {
+            content: "📋";
+            margin-right: 8px;
+        }
+        
+        .tricks-box {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .tricks-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tricks-box h4:before {
+            content: "💡";
+            margin-right: 8px;
+        }
+        
+        .warnings-box {
+            background: #f8d7da;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .warnings-box h4 {
+            color: #721c24;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .warnings-box h4:before {
+            content: "⚠️";
+            margin-right: 8px;
+        }
+        
+        .quick-table {
+            width: 100%;
+            max-width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            table-layout: auto;
+        }
+        
+        .quick-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            word-break: break-word;
+        }
+        
+        .quick-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+            word-break: break-word;
+        }
+        
+        .quick-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .decision-kit {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid #48cae4;
+        }
+        
+        .decision-kit h2 {
+            color: #0077b6;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .decision-kit h2:before {
+            content: "⚡";
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .decision-item {
+            background: rgba(255,255,255,0.7);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            border-left: 3px solid #0077b6;
+        }
+        
+        .multi-use {
+            background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid #c77dff;
+        }
+        
+        .multi-use h2 {
+            color: #7209b7;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .multi-use h2:before {
+            content: "🔧";
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .use-item {
+            background: rgba(255,255,255,0.8);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            border-left: 3px solid #7209b7;
+        }
+        
+        .use-item strong {
+            color: #7209b7;
+            font-weight: 600;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
+            font-weight: 600;
+        }
+        
+        p, li {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .quick-table {
+                font-size: 0.9rem;
+            }
+            
+            .quick-table th,
+            .quick-table td {
+                padding: 8px;
+            }
+        }
+    </style>
+
+</head><body><div id="pf-header"></div>
+    <div class="container">
+        <div class="header">
+            <h1>Three Multi-Purpose Antiseptics</h1>
+            <p>Family Practical Guide for Crises | Earthquakes • Hurricanes • Prolonged Outages • Evacuations</p>
+        </div>
+        
+        <div class="content">
+            <div class="alert">
+                <h3>Before you start</h3>
+                <p><strong>This guide does not replace medical care.</strong></p>
+                <p>For bleeding that does not stop, deep wounds, extensive burns, severe symptoms (high fever, persistent vomiting, confusion), or in infants, pregnant women, frail elderly, or people with chronic illnesses, <strong>seek professional care immediately.</strong></p>
+            </div>
+            
+            <div class="golden-rules">
+                <h2>Golden rules about concentrations</h2>
+                
+                <h3>💧 What the bottle says = commercial concentration</h3>
+                <ul>
+                    <li><span class="highlight">Hydrogen peroxide:</span> usually comes at 3%</li>
+                    <li><span class="highlight">Gentian violet:</span> usually found at 1%</li>
+                    <li><span class="highlight">Povidone iodine:</span> normally at 10%</li>
+                </ul>
+                
+                <h3>🎯 What you need to apply = usage concentration</h3>
+                <p>Sometimes it’s used straight from the bottle. Sometimes it needs dilution.</p>
+                
+                <div class="dilution-box">
+                    <h4>How to dilute quickly (examples)</h4>
+                    <ul>
+                        <li><strong>1 part substance + 1 part water</strong> = half the concentration (e.g. 3% → 1.5%)</li>
+                        <li><strong>1 part substance + 9 parts water</strong> = one tenth (e.g. 10% → 1%)</li>
+                        <li><strong>1 part substance + 19 parts water</strong> = one twentieth (e.g. 10% → 0.5%)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="antiseptic-section">
+                <div class="antiseptic-header" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);">
+                    <span style="margin-right: 10px;">🟣</span>1. Gentian Violet (GV)
+                </div>
+                <div class="antiseptic-content">
+                    <p><strong>Typical presentation:</strong> 1% solution in small bottle.</p>
+                    
+                    <div class="dilution-box">
+                        <h4>Quick dilutions</h4>
+                        <ul>
+                            <li><strong>Skin fungi:</strong> dilute to 0.25–0.5% (1 part in 3 water, or 1 in 1 as needed)</li>
+                            <li><strong>Exceptional oral use:</strong> dilute even more (≥0.1%), apply only with swab</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="steps-box">
+                        <h4>Essential uses (step by step)</h4>
+                        
+                        <h4>1. Skin fungi (athlete’s foot, intertrigo):</h4>
+                        <p>Wash and dry → apply 0.25–0.5% with swab → 2–3 times/day for 3 days.</p>
+                        
+                        <h4>2. Oral thrush (adults only, crisis, last option):</h4>
+                        <p>Apply minimally with swab on lesions. Do not swallow. Do not prolong.</p>
+                    </div>
+                    
+                    <div class="tricks-box">
+                        <h4>Strategic tricks</h4>
+                        <ul>
+                            <li>Mark wound/blister edges to check if redness spreads</li>
+                            <li>Prevent fungi in moist interdigital spaces: a thin layer for 2–3 days</li>
+                            <li>Spot mold control on non-critical wood (gloves, ventilation)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warnings-box">
+                        <h4>Warnings</h4>
+                        <ul>
+                            <li>Possible carcinogenicity in animals; use as little as possible</li>
+                            <li>Stains skin and clothing</li>
+                            <li>Avoid in babies, pregnancy, and breastfeeding</li>
+                            <li>External use only</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table class="quick-table">
+                            <thead>
+                                <tr>
+                                    <th>Use</th>
+                                    <th>Concentration</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Skin fungi</td>
+                                    <td>0.25–0.5%</td>
+                                </tr>
+                                <tr>
+                                    <td>Adult thrush</td>
+                                    <td>Very diluted, spot use</td>
+                                </tr>
+                                <tr>
+                                    <td>Skin marker</td>
+                                    <td>Straight, thin layer</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="antiseptic-section">
+                <div class="antiseptic-header" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
+                    <span style="margin-right: 10px;">💧</span>2. Hydrogen Peroxide (3%)
+                </div>
+                <div class="antiseptic-content">
+                    <p><strong>Typical presentation:</strong> 3% bottle.</p>
+                    
+                    <div class="dilution-box">
+                        <h4>Quick dilutions</h4>
+                        <ul>
+                            <li><strong>Mouth rinse:</strong> 1 part + 1 part water (becomes 1.5%)</li>
+                            <li><strong>Soften earwax:</strong> straight 3%</li>
+                            <li><strong>Dirty superficial wound:</strong> straight 3%, brief</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="steps-box">
+                        <h4>Essential uses (step by step)</h4>
+                        
+                        <h4>1. Dirty superficial wound:</h4>
+                        <p>Wash with water/soap → apply 3% for a few seconds → rinse → cover.</p>
+                        
+                        <h4>2. Occasional mouth rinse:</h4>
+                        <p>1:1 with water (becomes 1.5%) → swish 30 s → spit.</p>
+                        
+                        <h4>3. Earwax (adults, intact eardrum):</h4>
+                        <p>5–10 drops of 3% → wait 5–10 min → rinse warm.</p>
+                        
+                        <h4>4. Disinfection of non-porous surfaces:</h4>
+                        <p>Apply 3% generously → leave ≥1 min → rinse if kitchen.</p>
+                    </div>
+                    
+                    <div class="tricks-box">
+                        <h4>Strategic tricks</h4>
+                        <ul>
+                            <li>Remove blood stains on fabric: apply 3% straight → rinse</li>
+                            <li>Deodorize clothes/containers: spray 3% → rest 10 min → rinse</li>
+                            <li>Anti-odor kit: mix 1 L H₂O₂ 3% + ¼ cup baking soda + 1 tbsp soap → apply and rinse (do not store)</li>
+                            <li>Toothbrushes: soak in 3% for 10 min</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warnings-box">
+                        <h4>Warnings</h4>
+                        <ul>
+                            <li>Do not mix with vinegar (forms peracetic acid, corrosive)</li>
+                            <li>Do not use in eyes or drink</li>
+                            <li>Not suitable for water purification</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table class="quick-table">
+                            <thead>
+                                <tr>
+                                    <th>Use</th>
+                                    <th>Concentration/Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Dirty wounds</td>
+                                    <td>3%, brief</td>
+                                </tr>
+                                <tr>
+                                    <td>Mouth rinse</td>
+                                    <td>1.5%</td>
+                                </tr>
+                                <tr>
+                                    <td>Earwax</td>
+                                    <td>3%, drops</td>
+                                </tr>
+                                <tr>
+                                    <td>Surfaces</td>
+                                    <td>3%, ≥1 min</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="antiseptic-section">
+                <div class="antiseptic-header" style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);">
+                    <span style="margin-right: 10px;">🟤</span>3. Povidone Iodine (PVP-I 10%)
+                </div>
+                <div class="antiseptic-content">
+                    <p><strong>Typical presentation:</strong> 10% bottle (Betadine®).</p>
+                    
+                    <div class="dilution-box">
+                        <h4>Quick dilutions</h4>
+                        <ul>
+                            <li><strong>Irrigated wounds:</strong> 1 part + 9 parts water = 1%</li>
+                            <li><strong>Gargles:</strong> 1 part + 19 parts water = 0.5%</li>
+                            <li><strong>Water purification:</strong> 8 drops of 10% per liter (double if cloudy)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="steps-box">
+                        <h4>Essential uses (step by step)</h4>
+                        
+                        <h4>1. Skin antisepsis before dressings:</h4>
+                        <p>apply 10% straight → let dry.</p>
+                        
+                        <h4>2. Wound irrigation:</h4>
+                        <p>1% diluted (1 part in 9 water).</p>
+                        
+                        <h4>3. Support gargles:</h4>
+                        <p>0.5% (1 part in 19 water) → gargle 30 s → spit.</p>
+                        
+                        <h4>4. Last-resort water purification:</h4>
+                        <p>8 drops 10% per liter → wait 30 min (1 h if cold/cloudy).</p>
+                    </div>
+                    
+                    <div class="tricks-box">
+                        <h4>Strategic tricks</h4>
+                        <ul>
+                            <li>Brief foot baths for macerated feet: 1–2% for 5–10 min → dry well</li>
+                            <li>Disinfection of dressing utensils (tweezers, scissors): immersion 10–15 min</li>
+                            <li>Viral outbreaks in shelters: gargles 0.5% before close contact (if no contraindications)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="warnings-box">
+                        <h4>Warnings</h4>
+                        <ul>
+                            <li>Avoid in iodine allergy, pregnancy, breastfeeding, young children, and thyroid disease</li>
+                            <li>Prolonged use may alter thyroid tests</li>
+                            <li>Do not use in eyes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="table-wrapper">
+                        <table class="quick-table">
+                            <thead>
+                                <tr>
+                                    <th>Use</th>
+                                    <th>Concentration</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Skin before dressing</td>
+                                    <td>10% straight</td>
+                                </tr>
+                                <tr>
+                                    <td>Irrigation</td>
+                                    <td>1%</td>
+                                </tr>
+                                <tr>
+                                    <td>Gargles</td>
+                                    <td>0.5%</td>
+                                </tr>
+                                <tr>
+                                    <td>Purify water</td>
+                                    <td>8 drops/L</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="decision-kit">
+                <h2>30-Second Decision Kit (for emergencies)</h2>
+                
+                <div class="decision-item">
+                    <strong>Superficial dirty wound:</strong> water and soap → if dirt remains: H₂O₂ 3% brief → rinse → cover.
+                </div>
+                
+                <div class="decision-item">
+                    <strong>Clean cut:</strong> PVP-I 10% straight on skin → let dry → cover.
+                </div>
+                
+                <div class="decision-item">
+                    <strong>Foot with fungus/macerated:</strong> dry → GV 0.25–0.5% 2–3 times/day for 3 days.
+                </div>
+                
+                <div class="decision-item">
+                    <strong>Sore throat in shelter:</strong> gargles PVP-I 0.5% (if not contraindicated) or H₂O₂ 1.5%.
+                </div>
+                
+                <div class="decision-item">
+                    <strong>Suspicious water without chlorine/boiling:</strong> PVP-I 10% → 8 drops/L → wait 30–60 min.
+                </div>
+            </div>
+            
+            <div class="multi-use">
+                <h2>Multiple uses at a glance</h2>
+                
+                <div class="use-item">
+                    <strong>Gentian violet:</strong> skin fungi, skin marker, spot mold.
+                </div>
+                
+                <div class="use-item">
+                    <strong>Hydrogen peroxide 3%:</strong> dirty wounds, rinses, earwax, surfaces, blood stains.
+                </div>
+                
+                <div class="use-item">
+                    <strong>Povidone iodine 10%:</strong> skin before dressings, irrigation, gargles, water purification, foot baths, medical utensils.
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+                <h2 style="color: white; margin-bottom: 15px;">✅ Stay calm and act with knowledge</h2>
+                <p style="font-size: 1.1rem; opacity: 0.9;">These three antiseptics can cover most emergency situations. Always remember to prioritize safety and seek professional help when necessary.</p>
+            </div>
+        </div>
+    </div>
+
+<div id="pf-sources"></div><div id="pf-footer"></div><script>
+(function () {
+const isGitHub = location.hostname.endsWith("github.io");
+const base = isGitHub ? "/prepperfamily-site" : "";
+
+const isES = location.pathname.includes("/es/");
+const lang = isES ? "es" : "en";
+
+// HEADER
+fetch(`${base}/partials/header-${lang}/`)
+.then(res => res.text())
+.then(html => {
+document.getElementById("pf-header").innerHTML = html;
+})
+.catch(() => {});
+
+// FOOTER
+fetch(`${base}/partials/footer-${lang}/`)
+.then(res => res.text())
+.then(html => {
+document.getElementById("pf-footer").innerHTML = html;
+})
+.catch(() => {});
+
+// SOURCES
+let path = location.pathname;
+if (!path.endsWith("/")) path += "/";
+const sourcesURL = `${path}sources/`;
+
+fetch(sourcesURL)
+.then(res => {
+if (!res.ok) throw new Error();
+return res.text();
+})
+.then(html => {
+document.getElementById("pf-sources").innerHTML = html;
+})
+.catch(() => {});
+})();
+</script>
+
+</body>
+</html>
