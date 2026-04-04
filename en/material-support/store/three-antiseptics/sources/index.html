@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Productos recomendados — PrepperFamily</title>
+  <style>
+    .pf-recs-container{max-width:900px;margin:40px auto;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;background:none}
+    .pf-recs-section{background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);border-radius:20px;padding:40px 30px;margin-bottom:30px;box-shadow:0 15px 35px rgba(0,0,0,.08);border:1px solid #dee2e6}
+    .pf-recs-title{text-align:center;color:#2c3e50;font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:30px;position:relative;padding-bottom:15px}
+    .pf-recs-title:after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:linear-gradient(90deg,#667eea 0%,#764ba2 100%);border-radius:2px}
+    .pf-recs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-bottom:30px}
+    .pf-recs-card{background:#fff;border-radius:15px;padding:20px;box-shadow:0 8px 25px rgba(0,0,0,.06);transition:all .3s ease;border:1px solid #e9ecef;position:relative;overflow:hidden}
+    .pf-recs-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.12)}
+    .pf-recs-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#667eea 0%,#764ba2 100%)}
+    .pf-recs-image{width:100%;max-width:200px;height:180px;object-fit:contain;border-radius:10px;margin:0 auto 15px auto;display:block;background:#f8f9fa;padding:10px}
+    .pf-recs-product-name{font-size:1.1rem;font-weight:600;color:#2c3e50;margin-bottom:15px;text-align:center;line-height:1.4;min-height:50px;display:flex;align-items:center;justify-content:center}
+    .pf-recs-button{width:100%;background:linear-gradient(135deg,#28a745 0%,#20c997 100%);color:#fff;border:none;padding:12px 20px;font-size:1rem;font-weight:600;border-radius:8px;cursor:pointer;transition:all .3s ease;text-decoration:none;display:inline-block;text-align:center;box-shadow:0 4px 15px rgba(40,167,69,.3)}
+    .pf-recs-button:hover{background:linear-gradient(135deg,#218838 0%,#1abc9c 100%);transform:translateY(-2px);box-shadow:0 6px 20px rgba(40,167,69,.4);text-decoration:none;color:#fff}
+    .pf-recs-affiliate{background:#fff3cd;border:1px solid #ffeaa7;border-radius:10px;padding:20px;margin-top:20px;font-size:.9rem;color:#856404;text-align:center;font-style:italic}
+     .pf-recs-sources {background:#fff;border-radius:15px;padding:30px;box-shadow:0 8px 25px rgba(0,0,0,.06);border:1px solid #e9ecef}
+  .pf-recs-sources h3 {color:#2c3e50;font-size:1.3rem;font-weight:600;margin-bottom:20px;display:flex;align-items:center}
+  .pf-recs-sources h3:before {content:"📚";margin-right:10px;font-size:1.4rem}
+  .pf-recs-sources ol {margin-bottom:20px;padding-left:20px}
+  .pf-recs-sources li {margin-bottom:8px;line-height:1.5;font-size:.95rem}
+  .pf-recs-copy-btn {background:linear-gradient(135deg,#6c5ce7 0%,#a29bfe 100%);color:#fff;border:none;padding:12px 24px;font-size:1rem;font-weight:600;border-radius:8px;cursor:pointer;transition:all .3s ease;display:inline-flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 15px rgba(108,92,231,.3)}
+  .pf-recs-copy-btn:hover {background:linear-gradient(135deg,#5f3dc4 0%,#9775fa 100%);transform:translateY(-2px);box-shadow:0 6px 20px rgba(108,92,231,.4)}
+  .pf-recs-copy-btn:before {content:"📋";font-size:1.2rem}
+</style>
+</head>
+<body>
+  <div class="pf-recs-container">
+    <div class="pf-recs-section">
+      <h2 class="pf-recs-title">🛒 Recommended Products</h2>
+      
+      <div class="pf-recs-grid">
+        <div class="pf-recs-card">
+          <img src="https://m.media-amazon.com/images/I/51QsR3Osq2L._AC_.jpg" alt="Gentian Violet" class="pf-recs-image">
+          <div class="pf-recs-product-name">Gentian Violet 1%</div>
+          <a href="https://www.amazon.com/Cruz-Gentian-Violet-Antiseptic-Bottles/dp/B015RYLDD6?crid=1YGKFIRUX5CM5&dib=eyJ2IjoiMSJ9.AwaAtX_b0golchYcbI3E9sbaKdZrON784FMtrClX4R0wy7ycZLDsNHyoXanQdK9wBiWULLSRHmDCRFpP7ofu1zVSyrfOPNcfB_3XJXAytXSFPfd5OZc_okffESPrKI3W5LQcHUmNS2ovJYFJkTpgZ8lejugjM-QXVFIe3MKmYAOFLnRgzl8lQ0NzCfh2ZVwZliTIBFVNaiKzDn9SBdB0Is7-GnOX10vchtLDPZrhAMiRs1RHkw5FCdVtdhyDDM4NO2jeKdJP-Ph9ksPnWm8YcaVZ92sbPLgrDecsL3lhwSA.Lz4PDAjB5aarlSRB95KudYLxC7Ohhj6Mi5LAPPMpLnY&dib_tag=se&keywords=violeta+de+genciana&qid=1755530116&sprefix=Violeta%2Caps%2C216&sr=8-19&linkCode=ll1&tag=prepperfami0b-20&linkId=db52d517f23a43970de9f4c5c3a5674e&language=en_US&ref_=as_li_ss_tl" class="pf-recs-button" target="_blank" rel="nofollow noopener noreferrer">View on Amazon</a>
+        </div>
+        
+        <div class="pf-recs-card">
+          <img src="https://m.media-amazon.com/images/I/713wGGkMwsL._AC_SL1500_.jpg" alt="Hydrogen Peroxide 3%" class="pf-recs-image">
+          <div class="pf-recs-product-name">Hydrogen Peroxide 3%</div>
+          <a href="https://www.amazon.com/Amazon-Brand-Hydrogen-Peroxide-Solution/dp/B07VBZ9384?crid=2XZ3G9X2KO66K&dib=eyJ2IjoiMSJ9.AEci8wHCgsJXWapTtQzVH3JJGFdzZjU_jsgt5tukxZ-L7nCfEr71YIjV7zUTZ_L8TxidinCStpLwxxQKyEwfAsWRI2nM07Mnw_5h4d-iaQXJo-63NMhDmzQvJh7QYj5WaNzs6s6qUR1DYdzXduzCk_z2vsQOizqMR7RwOGd_GgkFad2YGzkK7_sdBJEiYeCjSpu0kg4WmEF90DdmU3OqbTo1db4Nc-SO3QmIsTqrOqXWl6fBl1N8KvhHqZddklYrf87NpdJB3mWFL7WG4oyjGAdirpqJCUMomdU4BD39lks.hGq5HczRwNKqjKTTvHCTt_jI0oRQFT8e3QuUKPpbFHE&dib_tag=se&keywords=agua+oxigenada&qid=1755541241&rdc=1&sprefix=Agua+o%2Caps%2C238&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1&linkCode=ll1&tag=prepperfami0b-20&linkId=859e41d2e26505000b2425db658117a1&language=en_US&ref_=as_li_ss_tl" class="pf-recs-button" target="_blank" rel="nofollow noopener noreferrer">View on Amazon</a>
+        </div>
+        
+        <div class="pf-recs-card">
+          <img src="https://m.media-amazon.com/images/I/61jj8Qpn8qL._AC_SL1500_.jpg" alt="Povidone Iodine 10%" class="pf-recs-image">
+          <div class="pf-recs-product-name">Povidone Iodine 10%</div>
+          <a href="https://www.amazon.com/Amazon-Basics-Povidone-Solution-Antiseptic/dp/B09HHBSJNK?crid=3P4AM4UUPIW35&dib=eyJ2IjoiMSJ9.nPgAn_KcGwnoE1SD6E0p9kZC_yrkj3sfhlqbA5214Zmksz_7GKrfVcyoCwaUqUEwt7WX3Yih1FF3MFEeO646nBvqxC47uNSJWa-VuMvY-X1QQX1Hz4PylrAoIK1fbjyOIFUs39G2Jal4Bq2J_C-WcU8MjL0VbC4-EC-nrXyoqEJOg24JH2fJKd1OWW7NZuU3gdPqVCThFsyEimVbpS8U5v4HF4pmhHxhzpYfFdqIGxKBRxGdkvicKxfdzTQ2V2SmYZAS1uri9OvGuN4pdAC-x_Yi_gTcNyKrek2ESUP8TQY.-P0ngy0_lHG7eh8UfRYdPVCPypbyjrhpTAe_v4KgQeA&dib_tag=se&keywords=yodo%2Bpovidona&qid=1755541450&rdc=1&sprefix=Yodo%2Caps%2C262&sr=8-6&th=1&linkCode=ll1&tag=prepperfami0b-20&linkId=7db9454c6391c6112436aecdc1d9e36a&language=en_US&ref_=as_li_ss_tl" class="pf-recs-button" target="_blank" rel="nofollow noopener noreferrer">View on Amazon</a>
+        </div>
+      </div>
+      
+      <div class="pf-recs-affiliate">
+        PrepperFamily.org participates in the Amazon Affiliates Program. By using this link you contribute to the platform at no additional cost to you. Thank you for supporting this community.
+      </div>
+    </div>
+
+    <div class="pf-recs-sources">
+  <h3>Sources</h3>
+  <ol>
+    <li>World Health Organization. (2019). WHO Model List of Essential Medicines, 21st List. Geneva: World Health Organization.</li>
+    <li>Centers for Disease Control and Prevention. (2020). Antiseptics and Disinfectants. Atlanta: CDC.</li>
+    <li>Karpanen, T. J., et al. (2010). The antimicrobial efficacy of copper alloy furnishing in the clinical environment. Infection Control &amp; Hospital Epidemiology, 31(4), 397-403.</li>
+    <li>McDonnell, G., &amp; Russell, A. D. (1999). Antiseptics and disinfectants: activity, action, and resistance. Clinical Microbiology Reviews, 12(1), 147-179.</li>
+    <li>Drosou, A., Falabella, A., &amp; Kirsner, R. S. (2003). Antiseptics on wounds: an area of controversy. Wounds, 15(5), 149-166.</li>
+    <li>Bigliardi, P. L., et al. (2017). Povidone iodine in wound healing: A review of current concepts and practices. International Journal of Surgery, 44, 260-268.</li>
+  </ol>
+
+  <!-- Hidden box with ready-to-copy text -->
+  <textarea id="fuentes-texto" style="position:absolute;left:-9999px;top:0;opacity:0;">
+1. World Health Organization. (2019). WHO Model List of Essential Medicines, 21st List. Geneva: World Health Organization.
+2. Centers for Disease Control and Prevention. (2020). Antiseptics and Disinfectants. Atlanta: CDC.
+3. Karpanen, T. J., et al. (2010). The antimicrobial efficacy of copper alloy furnishing in the clinical environment. Infection Control & Hospital Epidemiology, 31(4), 397-403.
+4. McDonnell, G., & Russell, A. D. (1999). Antiseptics and disinfectants: activity, action, and resistance. Clinical Microbiology Reviews, 12(1), 147-179.
+5. Drosou, A., Falabella, A., & Kirsner, R. S. (2003). Antiseptics on wounds: an area of controversy. Wounds, 15(5), 149-166.
+6. Bigliardi, P. L., et al. (2017). Povidone iodine in wound healing: A review of current concepts and practices. International Journal of Surgery, 44, 260-268.
+  </textarea>
+
+  <!-- Copy button -->
+  <button onclick="var t=document.getElementById('fuentes-texto');t.select();t.setSelectionRange(0,99999);document.execCommand('copy');alert('✅ Sources copied to clipboard');" class="pf-recs-copy-btn">
+    Copy all sources
+  </button>
+</div>
+        </div>
+    </div>
+</body>
+</html>
