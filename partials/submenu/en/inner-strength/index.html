@@ -1,4 +1,4 @@
-<nav id="pf-sub" aria-label="Inner Strength categories">
+<nav id="pf-sub" aria-label="Inner Strength submenu">
 <style>
   #pf-sub {
     --ink:       #1a1a2e;
@@ -17,6 +17,7 @@
     border-bottom: 1px solid var(--line);
     position: relative;
     z-index: 100;
+    overflow-x: hidden;
   }
 
   #pf-sub::after {
@@ -36,6 +37,7 @@
     align-items: center;
     gap: 0;
     min-height: 46px;
+    min-width: 0;
   }
 
   #pf-sub .sub-pillar {
@@ -53,17 +55,29 @@
     user-select: none;
   }
 
-  #pf-sub .sub-strip {
-    display: flex;
-    gap: 6px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    flex: 1;
-    align-items: center;
-    padding: 8px 0;
+  #pf-sub .sub-strip-wrap {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
   }
 
-  #pf-sub .sub-strip::-webkit-scrollbar { display: none; }
+  #pf-sub .sub-strip {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    align-items: center;
+    padding: 8px 0;
+    min-width: max-content;
+  }
+
+  #pf-sub .sub-strip::-webkit-scrollbar {
+    display: none;
+  }
 
   #pf-sub .sub-tab {
     display: inline-flex;
@@ -80,7 +94,7 @@
     font-weight: 500;
     letter-spacing: 0.01em;
     white-space: nowrap;
-    flex-shrink: 0;
+    flex: 0 0 auto;
     position: relative;
     transition: color .18s, background .18s, border-color .18s, box-shadow .18s;
   }
@@ -131,11 +145,6 @@
   }
 
   @media (min-width: 769px) {
-    #pf-sub .sub-strip-wrap {
-      position: relative;
-      flex: 1;
-      overflow: hidden;
-    }
     #pf-sub .sub-strip-wrap::after {
       content: '';
       position: absolute;
@@ -150,9 +159,17 @@
     #pf-sub .sub-pillar {
       display: none;
     }
+
     #pf-sub .sub-inner {
       padding: 0 12px;
     }
+
+    #pf-sub .sub-strip {
+      padding: 8px 0;
+      scroll-padding-left: 12px;
+      scroll-behavior: smooth;
+    }
+
     #pf-sub .sub-tab {
       font-size: 12px;
       padding: 5px 11px;
