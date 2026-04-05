@@ -1,95 +1,183 @@
-<nav class="pf-submenu pf-submenu--family-resilience" aria-label="Categorías de Resistencia Familiar">
-  <style>
-    .pf-submenu{
-      background:#fff;
-      border-bottom:1px solid #e9e9e9;
-      position:relative;
-      z-index:20;
+<nav id="pf-sub" aria-label="Categorias Resistencia Familiar">
+<style>
+  #pf-sub {
+    --ink:       #1a1a2e;
+    --ink-2:     #4a5568;
+    --line:      #e8e4dd;
+    --bg:        #fafaf8;
+    --pill-bg:   #ffffff;
+    --pill-ho:   #f0ede8;
+    --active-bg: #1a1a2e;
+    --active-fg: #ffffff;
+    --accent:    #8b6914;
+    --accent-2:  #c9a84c;
+    --font:      'Georgia', 'Times New Roman', serif;
+    --ui:        system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    z-index: 100;
+  }
+
+  #pf-sub::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-2) 30%, var(--accent) 50%, var(--accent-2) 70%, transparent);
+    opacity: 0.45;
+  }
+
+  #pf-sub .sub-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    min-height: 46px;
+  }
+
+  #pf-sub .sub-pillar {
+    font-family: var(--font);
+    font-size: 11px;
+    font-style: italic;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    white-space: nowrap;
+    padding-right: 16px;
+    border-right: 1px solid var(--line);
+    margin-right: 16px;
+    flex-shrink: 0;
+    line-height: 1;
+    user-select: none;
+  }
+
+  #pf-sub .sub-strip {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    flex: 1;
+    align-items: center;
+    padding: 8px 0;
+  }
+
+  #pf-sub .sub-strip::-webkit-scrollbar { display: none; }
+
+  #pf-sub .sub-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 13px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--ink-2);
+    text-decoration: none;
+    font-family: var(--ui);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    position: relative;
+    transition: color .18s, background .18s, border-color .18s, box-shadow .18s;
+  }
+
+  #pf-sub .sub-tab .sub-icon {
+    font-size: 13px;
+    line-height: 1;
+    opacity: 0.75;
+    transition: opacity .18s;
+  }
+
+  #pf-sub .sub-tab:hover {
+    color: var(--ink);
+    background: var(--pill-ho);
+    border-color: var(--line);
+  }
+
+  #pf-sub .sub-tab:hover .sub-icon {
+    opacity: 1;
+  }
+
+  #pf-sub .sub-tab.is-active,
+  #pf-sub .sub-tab[aria-current="page"] {
+    color: var(--ink);
+    background: var(--pill-bg);
+    border-color: var(--line);
+    font-weight: 700;
+    box-shadow:
+      0 1px 3px rgba(0,0,0,0.06),
+      0 0 0 1px rgba(139,105,20,0.18);
+  }
+
+  #pf-sub .sub-tab.is-active::after,
+  #pf-sub .sub-tab[aria-current="page"]::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    border-radius: 2px 2px 0 0;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  }
+
+  #pf-sub .sub-tab.is-active .sub-icon,
+  #pf-sub .sub-tab[aria-current="page"] .sub-icon {
+    opacity: 1;
+  }
+
+  @media (min-width: 769px) {
+    #pf-sub .sub-strip-wrap {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
     }
-
-    .pf-submenu__wrap{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      max-width:1200px;
-      margin:0 auto;
-      padding:6px 10px;
+    #pf-sub .sub-strip-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 32px;
+      background: linear-gradient(to right, transparent, var(--bg));
+      pointer-events: none;
     }
+  }
 
-    .pf-submenu__title{
-      flex:0 0 auto;
-      font:700 13px/1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-      color:#111;
-      white-space:nowrap;
-      padding:6px 4px;
+  @media (max-width: 768px) {
+    #pf-sub .sub-pillar {
+      display: none;
     }
-
-    .pf-submenu__inner{
-      display:flex;
-      gap:7px;
-      overflow-x:auto;
-      -webkit-overflow-scrolling:touch;
-      scrollbar-width:none;
-      white-space:nowrap;
-      flex:1;
+    #pf-sub .sub-inner {
+      padding: 0 12px;
     }
-
-    .pf-submenu__inner::-webkit-scrollbar{
-      display:none;
+    #pf-sub .sub-tab {
+      font-size: 12px;
+      padding: 5px 11px;
     }
+  }
+</style>
 
-    .pf-submenu__link{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:7px 11px;
-      border:1px solid #dcdcdc;
-      border-radius:999px;
-      background:#fff;
-      color:#222;
-      text-decoration:none;
-      font:600 13px/1 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-      transition:all .18s ease;
-      flex:0 0 auto;
-    }
+<div class="sub-inner">
+  <span class="sub-pillar">Resistencia Familiar</span>
 
-    .pf-submenu__link:hover{
-      color:#2c7be5;
-      border-color:#2c7be5;
-      background:#f8fbff;
-    }
-
-    .pf-submenu__link.is-active{
-      background:#1f2937;
-      border-color:#1f2937;
-      color:#fff;
-    }
-
-    @media (min-width:769px){
-      .pf-submenu__wrap{
-        justify-content:center;
-      }
-
-      .pf-submenu__title{
-        font-size:14px;
-      }
-
-      .pf-submenu__link{
-        font-size:14px;
-        padding:8px 13px;
-      }
-    }
-  </style>
-
-  <div class="pf-submenu__wrap">
-    <div class="pf-submenu__title">Resistencia Familiar</div>
-
-    <div class="pf-submenu__inner">
-      <a href="/es/resistencia-familiar/roles-estructura/" class="pf-submenu__link is-active">Ver todo</a>
-      <a href="/es/resistencia-familiar/roles-estructura/" class="pf-submenu__link">Roles y estructura familiar</a>
-      <a href="/es/resistencia-familiar/educacion-en-casa/" class="pf-submenu__link">Educación en casa</a>
-      <a href="/es/resistencia-familiar/proteccion-del-hogar/" class="pf-submenu__link">Protección del hogar</a>
-      <a href="/es/resistencia-familiar/economia-del-hogar/" class="pf-submenu__link">Economía del hogar</a>
+  <div class="sub-strip-wrap">
+    <div class="sub-strip" id="pf-sub-strip">
+      <a href="/es/resistencia-familiar/roles-estructura/" class="sub-tab" data-path="/es/resistencia-familiar/roles-estructura/">
+        <span class="sub-icon">👨‍👩‍👧‍👦</span> Roles y estructura familiar
+      </a>
+      <a href="/es/resistencia-familiar/educacion-en-casa/" class="sub-tab" data-path="/es/resistencia-familiar/educacion-en-casa/">
+        <span class="sub-icon">🏡</span> Educación en casa
+      </a>
+      <a href="/es/resistencia-familiar/proteccion-del-hogar/" class="sub-tab" data-path="/es/resistencia-familiar/proteccion-del-hogar/">
+        <span class="sub-icon">🛡️</span> Protección del hogar
+      </a>
+      <a href="/es/resistencia-familiar/economia-domestica/" class="sub-tab" data-path="/es/resistencia-familiar/economia-domestica/">
+        <span class="sub-icon">💰</span> Economía Doméstica
+      </a>
     </div>
   </div>
+</div>
 </nav>
