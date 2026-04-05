@@ -6,8 +6,8 @@
   <title>Store | PrepperFamily.org</title>
   <meta name="description" content="Practical family guides for storing essential supplies." />
   <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/" />
-<link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/" />
-<link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/" />
+  <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/" />
+  <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/" />
   <style>
     :root {
       --pf-bg: #f7f4ee;
@@ -210,19 +210,17 @@
          </div>
          </a>
           <a class="pf-article-card" href="/en/material-support/store/iodine-pills/">
-  <div class="pf-article-top">
-    <h1 class="pf-article-title">Thyroid Protection for Nuclear Events</h1>
-    <span class="pf-article-arrow" aria-hidden="true">→</span>
-  </div>
+          <div class="pf-article-top">
+           <h1 class="pf-article-title">Thyroid Protection for Nuclear Events</h1>
+            <span class="pf-article-arrow" aria-hidden="true">→</span>
+         </div>
           </a>
           <a class="pf-article-card" href="/en/material-support/store/three-antiseptics/">
-  <div class="pf-article-top">
-    <h1 class="pf-article-title">Three Multi-purpose Antiseptics</h1>
-    <span class="pf-article-arrow" aria-hidden="true">→</span>
-  </div>
-</a>
-
-          
+          <div class="pf-article-top">
+          <h1 class="pf-article-title">Three Multi-purpose Antiseptics</h1>
+          <span class="pf-article-arrow" aria-hidden="true">→</span>
+          </div>
+         </a>
         </section>
 
         <section class="pf-coming" aria-label="Coming soon message">
@@ -243,12 +241,59 @@
   </div>
 
   <script>
+    function normalizePath(path) {
+      return (path || '')
+        .toLowerCase()
+        .replace(/index\.html$/, '')
+        .replace(/\/+$/, '') + '/';
+    }
+
+    function activateSubmenu(root) {
+      if (!root) return;
+
+      var current = normalizePath(window.location.pathname);
+      var tabs = root.querySelectorAll('.sub-tab');
+      var best = null;
+      var bestLen = 0;
+
+      tabs.forEach(function (tab) {
+        tab.classList.remove('is-active');
+        tab.removeAttribute('aria-current');
+
+        var dp = normalizePath(tab.getAttribute('data-path'));
+        if (current.indexOf(dp) === 0 && dp.length > bestLen) {
+          best = tab;
+          bestLen = dp.length;
+        }
+      });
+
+      if (best) {
+        best.classList.add('is-active');
+        best.setAttribute('aria-current', 'page');
+
+        setTimeout(function () {
+          best.scrollIntoView({
+            behavior: 'auto',
+            block: 'nearest',
+            inline: 'center'
+          });
+        }, 30);
+      }
+    }
+
     async function loadPartial(targetId, url) {
       try {
         const response = await fetch(url);
         if (!response.ok) throw new Error(`Failed to load ${url}`);
         const html = await response.text();
-        document.getElementById(targetId).innerHTML = html;
+
+        const target = document.getElementById(targetId);
+        target.innerHTML = html;
+
+        if (targetId === "pf-submenu-partial") {
+          const nav = target.querySelector('#pf-sub');
+          activateSubmenu(nav);
+        }
       } catch (error) {
         console.error(error);
       }
