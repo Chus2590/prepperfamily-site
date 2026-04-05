@@ -184,23 +184,39 @@
 
 <script>
 (function () {
-  var path = location.pathname.replace(/\/$/, '');
+  function normalize(path) {
+    return path
+      .replace(/index\.html$/, '') // elimina index.html
+      .replace(/\/$/, '')          // elimina trailing slash
+      .toLowerCase();
+  }
+
+  var current = normalize(location.pathname);
   var tabs = document.querySelectorAll('#pf-sub .sub-tab');
 
-  // Find best match: longest data-path that is a prefix of the current path
-  var best = null, bestLen = 0;
+  var best = null;
+  var bestLen = 0;
+
   tabs.forEach(function (tab) {
-    var dp = (tab.dataset.path || '').replace(/\/$/, '');
-    if (path.startsWith(dp) && dp.length > bestLen) {
-      best = tab; bestLen = dp.length;
+    var dp = normalize(tab.dataset.path || '');
+
+    if (current.startsWith(dp) && dp.length > bestLen) {
+      best = tab;
+      bestLen = dp.length;
     }
   });
+
   if (best) {
     best.classList.add('is-active');
-    // Scroll active tab into view inside the strip
+
+    // Scroll elegante al centro (solo si hace falta)
     setTimeout(function () {
-      best.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    }, 80);
+      best.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+    }, 60);
   }
 })();
 </script>
