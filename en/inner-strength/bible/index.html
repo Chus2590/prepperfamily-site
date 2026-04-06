@@ -44,10 +44,11 @@
     }
 
     .pf-page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+   }
 
     .pf-main {
       flex: 1;
@@ -58,7 +59,14 @@
       max-width: var(--pf-max);
       margin: 0 auto;
     }
+    #pf-submenu-partial {
+     width: 100%;
+     min-width: 0;
+    }
 
+    #pf-submenu-partial > * {
+    min-width: 0;
+    }
     .pf-articles {
       margin-bottom: 34px;
     }
