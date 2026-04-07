@@ -1,4 +1,4 @@
-<nav id="pf-sub" aria-label="Material Support categories">
+<nav id="pf-sub" aria-label="Material Support submenu">
 <style>
   #pf-sub {
     --ink:       #1a1a2e;
@@ -17,14 +17,25 @@
     border-bottom: 1px solid var(--line);
     position: relative;
     z-index: 100;
+    overflow: visible;
+    width: 100%;
   }
 
   #pf-sub::after {
     content: '';
     position: absolute;
-    bottom: 0; left: 0; right: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent-2) 30%, var(--accent) 50%, var(--accent-2) 70%, transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--accent-2) 30%,
+      var(--accent) 50%,
+      var(--accent-2) 70%,
+      transparent
+    );
     opacity: 0.45;
   }
 
@@ -36,9 +47,10 @@
     align-items: center;
     gap: 0;
     min-height: 46px;
+    min-width: 0;
+    width: 100%;
   }
 
-  /* Pillar label */
   #pf-sub .sub-pillar {
     font-family: var(--font);
     font-size: 11px;
@@ -49,24 +61,37 @@
     padding-right: 16px;
     border-right: 1px solid var(--line);
     margin-right: 16px;
-    flex-shrink: 0;
+    flex: 0 0 auto;
     line-height: 1;
     user-select: none;
   }
 
-  /* Scrollable strip */
-  #pf-sub .sub-strip {
-    display: flex;
-    gap: 6px;
+  #pf-sub .sub-strip-wrap {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
     overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    flex: 1;
+    touch-action: pan-x;
+    overscroll-behavior-x: contain;
+  }
+
+  #pf-sub .sub-strip-wrap::-webkit-scrollbar {
+    display: none;
+  }
+
+  #pf-sub .sub-strip {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: 6px;
     align-items: center;
     padding: 8px 0;
+    min-width: max-content;
+    white-space: nowrap;
   }
-  #pf-sub .sub-strip::-webkit-scrollbar { display: none; }
 
-  /* Individual tab */
   #pf-sub .sub-tab {
     display: inline-flex;
     align-items: center;
@@ -82,9 +107,9 @@
     font-weight: 500;
     letter-spacing: 0.01em;
     white-space: nowrap;
-    flex-shrink: 0;
+    flex: 0 0 auto;
     position: relative;
-    transition: color .18s, background .18s, border-color .18s;
+    transition: color .18s, background .18s, border-color .18s, box-shadow .18s;
   }
 
   #pf-sub .sub-tab .sub-icon {
@@ -104,8 +129,8 @@
     opacity: 1;
   }
 
-  /* Active state — refined underline + subtle fill */
-  #pf-sub .sub-tab.is-active {
+  #pf-sub .sub-tab.is-active,
+  #pf-sub .sub-tab[aria-current="page"] {
     color: var(--ink);
     background: var(--pill-bg);
     border-color: var(--line);
@@ -115,7 +140,8 @@
       0 0 0 1px rgba(139,105,20,0.18);
   }
 
-  #pf-sub .sub-tab.is-active::after {
+  #pf-sub .sub-tab.is-active::after,
+  #pf-sub .sub-tab[aria-current="page"]::after {
     content: '';
     position: absolute;
     bottom: -1px;
@@ -126,22 +152,20 @@
     background: linear-gradient(90deg, var(--accent), var(--accent-2));
   }
 
-  #pf-sub .sub-tab.is-active .sub-icon {
+  #pf-sub .sub-tab.is-active .sub-icon,
+  #pf-sub .sub-tab[aria-current="page"] .sub-icon {
     opacity: 1;
   }
 
-  /* Fade edges on desktop to hint at scroll */
   @media (min-width: 769px) {
-    #pf-sub .sub-strip-wrap {
-      position: relative;
-      flex: 1;
-      overflow: hidden;
-    }
     #pf-sub .sub-strip-wrap::after {
       content: '';
-      position: absolute;
-      top: 0; right: 0; bottom: 0;
+      position: sticky;
+      right: 0;
+      top: 0;
+      float: right;
       width: 32px;
+      height: 46px;
       background: linear-gradient(to right, transparent, var(--bg));
       pointer-events: none;
     }
@@ -151,9 +175,15 @@
     #pf-sub .sub-pillar {
       display: none;
     }
+
     #pf-sub .sub-inner {
       padding: 0 12px;
     }
+
+    #pf-sub .sub-strip {
+      padding: 8px 0;
+    }
+
     #pf-sub .sub-tab {
       font-size: 12px;
       padding: 5px 11px;
@@ -164,18 +194,18 @@
 <div class="sub-inner">
   <span class="sub-pillar">Material Support</span>
 
-  <div class="sub-strip-wrap">
+  <div class="sub-strip-wrap" id="pf-sub-scroll">
     <div class="sub-strip" id="pf-sub-strip">
-      <a href="/en/material-support/store/"                   class="sub-tab" data-path="/en/material-support/store">
+      <a href="/en/material-support/store/" class="sub-tab" data-path="/en/material-support/store/">
         <span class="sub-icon">📦</span> Store
       </a>
-      <a href="/en/material-support/grow/"                    class="sub-tab" data-path="/en/material-support/grow">
+      <a href="/en/material-support/grow/" class="sub-tab" data-path="/en/material-support/grow/">
         <span class="sub-icon">🌱</span> Grow
       </a>
-      <a href="/en/material-support/prepare/"                 class="sub-tab" data-path="/en/material-support/prepare">
+      <a href="/en/material-support/prepare/" class="sub-tab" data-path="/en/material-support/prepare/">
         <span class="sub-icon">🧱</span> Prepare
       </a>
-      <a href="/en/material-support/family-production-units/" class="sub-tab" data-path="/en/material-support/family-production-units">
+      <a href="/en/material-support/family-production-units/" class="sub-tab" data-path="/en/material-support/family-production-units/">
         <span class="sub-icon">🧑‍🌾</span> Family Production Units
       </a>
     </div>
@@ -184,40 +214,15 @@
 
 <script>
 (function () {
-  function normalize(path) {
-    return path
-      .replace(/index\.html$/, '') // elimina index.html
-      .replace(/\/$/, '')          // elimina trailing slash
-      .toLowerCase();
-  }
+  var scroller = document.getElementById('pf-sub-scroll');
+  var active = document.querySelector('#pf-sub .sub-tab.is-active, #pf-sub .sub-tab[aria-current="page"]');
 
-  var current = normalize(location.pathname);
-  var tabs = document.querySelectorAll('#pf-sub .sub-tab');
+  if (!scroller || !active) return;
 
-  var best = null;
-  var bestLen = 0;
-
-  tabs.forEach(function (tab) {
-    var dp = normalize(tab.dataset.path || '');
-
-    if (current.startsWith(dp) && dp.length > bestLen) {
-      best = tab;
-      bestLen = dp.length;
-    }
+  requestAnimationFrame(function () {
+    var left = active.offsetLeft - (scroller.clientWidth / 2) + (active.clientWidth / 2);
+    scroller.scrollLeft = Math.max(0, left);
   });
-
-  if (best) {
-    best.classList.add('is-active');
-
-    // Scroll elegante al centro (solo si hace falta)
-    setTimeout(function () {
-      best.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center'
-      });
-    }, 60);
-  }
 })();
 </script>
 </nav>
