@@ -80,7 +80,7 @@
       border: 1px solid var(--pf-border);
       border-radius: var(--pf-radius);
       box-shadow: var(--pf-shadow-soft);
-      padding: 18px;
+      padding: 20px 22px;
       transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
     }
 
@@ -92,17 +92,17 @@
       outline: none;
     }
 
-    /* NUEVO: layout con imagen */
+    /* NUEVO BLOQUE */
     .pf-article-content {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 18px;
     }
 
     .pf-article-img {
-      flex: 0 0 90px;
-      height: 90px;
-      border-radius: 12px;
+      flex: 0 0 110px;
+      height: 110px;
+      border-radius: 14px;
       overflow: hidden;
       box-shadow: var(--pf-shadow-soft);
     }
@@ -117,21 +117,22 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 16px;
       flex: 1;
     }
 
     .pf-article-title {
       margin: 0;
-      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      font-size: clamp(1.3rem, 2.3vw, 1.8rem);
       line-height: 1.2;
       color: var(--pf-accent);
     }
 
     .pf-article-arrow {
       flex: 0 0 auto;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       color: var(--pf-accent);
+      line-height: 1;
     }
 
     .pf-coming {
@@ -186,13 +187,9 @@
     }
 
     @media (max-width: 640px) {
-      .pf-article-content {
-        gap: 12px;
-      }
-
       .pf-article-img {
-        flex: 0 0 70px;
-        height: 70px;
+        flex: 0 0 85px;
+        height: 85px;
       }
     }
   </style>
@@ -212,14 +209,13 @@
 
         <section class="pf-articles" aria-label="Articles in this category">
 
-          <!-- ARTÍCULO -->
           <a class="pf-article-card" href="/en/inner-strength/bible/">
 
             <div class="pf-article-content">
 
               <!-- IMAGEN -->
               <div class="pf-article-img">
-                <img src="/assets/images/inner-strength/es/biblia/biblia.jpg" alt="Bible article">
+                <img src="/assets/images/inner-strength/es/biblia/biblia.jpg" alt="Bible">
               </div>
 
               <!-- TEXTO -->
@@ -234,7 +230,7 @@
 
         </section>
 
-        <section class="pf-coming">
+        <section class="pf-coming" aria-label="Coming soon message">
           <div class="pf-coming-badge">Under Construction</div>
           <h2>More Articles Are Coming</h2>
           <div class="pf-divider"></div>
@@ -252,12 +248,62 @@
   </div>
 
   <script>
+    function normalizePath(path) {
+      return (path || '')
+        .toLowerCase()
+        .replace(/index\.html$/, '')
+        .replace(/\/+$/, '') + '/';
+    }
+
+    function activateSubmenu(root) {
+      if (!root) return;
+
+      var current = normalizePath(window.location.pathname);
+      var tabs = root.querySelectorAll('.sub-tab');
+      var best = null;
+      var bestLen = 0;
+
+      tabs.forEach(function (tab) {
+        tab.classList.remove('is-active');
+        tab.removeAttribute('aria-current');
+
+        var dp = normalizePath(tab.getAttribute('data-path'));
+        if (current.indexOf(dp) === 0 && dp.length > bestLen) {
+          best = tab;
+          bestLen = dp.length;
+        }
+      });
+
+      if (best) {
+        best.classList.add('is-active');
+        best.setAttribute('aria-current', 'page');
+
+        setTimeout(function () {
+          best.scrollIntoView({
+            behavior: 'auto',
+            block: 'nearest',
+            inline: 'center'
+          });
+        }, 30);
+      }
+    }
+
     async function loadPartial(targetId, url) {
       try {
         const response = await fetch(url);
+        if (!response.ok) throw new Error(`Failed to load ${url}`);
         const html = await response.text();
-        document.getElementById(targetId).innerHTML = html;
-      } catch (e) { console.error(e); }
+
+        const target = document.getElementById(targetId);
+        target.innerHTML = html;
+
+        if (targetId === "pf-submenu-partial") {
+          const nav = target.querySelector('#pf-sub');
+          activateSubmenu(nav);
+        }
+      } catch (error) {
+        console.error(error);
+      }
     }
 
     loadPartial("pf-header-partial", "/partials/header-en/");
