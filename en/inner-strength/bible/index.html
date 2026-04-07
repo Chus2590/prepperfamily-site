@@ -92,16 +92,16 @@
       outline: none;
     }
 
-    /* NUEVO BLOQUE */
     .pf-article-content {
       display: flex;
       align-items: center;
       gap: 18px;
     }
 
+    /* 👇 CAMBIO PRINCIPAL */
     .pf-article-img {
-      flex: 0 0 110px;
-      height: 110px;
+      flex: 0 0 130px;
+      height: 130px;
       border-radius: 14px;
       overflow: hidden;
       box-shadow: var(--pf-shadow-soft);
@@ -187,9 +187,34 @@
     }
 
     @media (max-width: 640px) {
+      .pf-main {
+        padding: 32px 16px 56px;
+      }
+
+      .pf-article-card {
+        padding: 20px 18px;
+      }
+
+      .pf-coming {
+        padding: 34px 20px;
+      }
+
+      .pf-coming p {
+        font-size: 1rem;
+      }
+
+      .pf-article-top {
+        gap: 12px;
+      }
+
+      .pf-article-arrow {
+        font-size: 1.2rem;
+      }
+
+      /* 👇 AJUSTE MÓVIL */
       .pf-article-img {
-        flex: 0 0 85px;
-        height: 85px;
+        flex: 0 0 100px;
+        height: 100px;
       }
     }
   </style>
@@ -213,12 +238,10 @@
 
             <div class="pf-article-content">
 
-              <!-- IMAGEN -->
               <div class="pf-article-img">
                 <img src="/assets/images/inner-strength/es/biblia/biblia.jpg" alt="Bible">
               </div>
 
-              <!-- TEXTO -->
               <div class="pf-article-top">
                 <h1 class="pf-article-title">Bible</h1>
                 <span class="pf-article-arrow">→</span>
