@@ -1,21 +1,30 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"> 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Próximamente | PrepperFamily.org</title>
-  <meta name="description" content="Esta página de categoría está en construcción. Más guías prácticas para la familia llegarán pronto." />
+  <title>Unidades Familiares de Producción | PrepperFamily.org</title>
+  <meta name="description" content="Guías prácticas para familias sobre sistemas de producción a pequeña escala de alimentos, agua y recursos esenciales con mínima dependencia." />
+  <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/family-production-units/" />
+  <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/" />
+  <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/family-production-units/" />
+  
   <style>
     :root {
-      --pf-bg: #f7f4ee;
+      --pf-bg: #f5f2eb;
       --pf-card: #ffffff;
-      --pf-text: #1f1f1f;
-      --pf-muted: #666;
-      --pf-border: rgba(0,0,0,0.08);
+      --pf-text: #1c1c1c;
+      --pf-muted: #6b6b6b;
+      --pf-border: rgba(0,0,0,0.07);
+      --pf-border-hover: rgba(111, 29, 27, 0.22);
       --pf-accent: #6f1d1b;
       --pf-accent-2: #a67c52;
-      --pf-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      --pf-radius: 18px;
+      --pf-accent-light: rgba(111, 29, 27, 0.06);
+      --pf-shadow: 0 8px 28px rgba(0,0,0,0.09);
+      --pf-shadow-soft: 0 2px 10px rgba(0,0,0,0.055);
+      --pf-shadow-hover: 0 14px 36px rgba(0,0,0,0.13);
+      --pf-radius: 16px;
+      --pf-radius-img: 11px;
       --pf-max: 1100px;
     }
 
@@ -36,17 +45,19 @@
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
     .pf-page {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      min-width: 0;
     }
 
     .pf-main {
       flex: 1;
-      padding: 48px 20px 72px;
+      padding: 44px 20px 68px;
     }
 
     .pf-wrap {
@@ -54,79 +65,247 @@
       margin: 0 auto;
     }
 
-    .pf-coming {
-      background: linear-gradient(180deg, #fff 0%, #fcfaf6 100%);
+    #pf-submenu-partial {
+      width: 100%;
+      min-width: 0;
+    }
+
+    #pf-submenu-partial > * {
+      min-width: 0;
+    }
+
+    /* ── Article list ── */
+    .pf-articles {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    /* ── Card ── */
+    .pf-article-card {
+      display: block;
+      background: #ffffff;
       border: 1px solid var(--pf-border);
       border-radius: var(--pf-radius);
-      box-shadow: var(--pf-shadow);
-      padding: 56px 28px;
+      box-shadow: var(--pf-shadow-soft);
+      padding: 14px 18px 14px 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      position: relative;
+    }
+
+    .pf-article-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--pf-radius);
+      background: linear-gradient(135deg, rgba(111,29,27,0.028) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .pf-article-card:hover,
+    .pf-article-card:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: var(--pf-shadow-hover);
+      border-color: var(--pf-border-hover);
+      outline: none;
+    }
+
+    .pf-article-content {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* ── Thumbnail ── */
+    .pf-article-img {
+      flex: 0 0 108px;
+      height: 126px;
+      border-radius: var(--pf-radius-img);
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+      background: #e8e2d6;
+      position: relative;
+    }
+
+    .pf-article-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--pf-radius-img);
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+      pointer-events: none;
+    }
+
+    .pf-article-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.32s ease;
+    }
+
+    .pf-article-card:hover .pf-article-img img {
+      transform: scale(1.04);
+    }
+
+    /* ── Text area ── */
+    .pf-article-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .pf-article-title {
+      margin: 0;
+      font-size: clamp(1.15rem, 2.1vw, 1.6rem);
+      line-height: 1.25;
+      color: var(--pf-accent);
+      letter-spacing: -0.01em;
+      font-weight: normal;
+    }
+
+    .pf-article-arrow {
+      flex: 0 0 auto;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--pf-accent-light);
+      color: var(--pf-accent);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, transform 0.2s ease;
+      line-height: 1;
+    }
+
+    .pf-article-card:hover .pf-article-arrow {
+      background: rgba(111, 29, 27, 0.13);
+      transform: translateX(2px);
+    }
+
+    /* ── Coming soon block ── */
+    .pf-coming {
+      background: #ffffff;
+      border: 1px solid var(--pf-border);
+      border-radius: var(--pf-radius);
+      box-shadow: var(--pf-shadow-soft);
+      padding: 38px 28px 36px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pf-coming::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--pf-accent), var(--pf-accent-2), transparent);
+      border-radius: var(--pf-radius) var(--pf-radius) 0 0;
     }
 
     .pf-coming-badge {
-      display: inline-block;
-      margin-bottom: 18px;
-      padding: 8px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+      padding: 5px 13px;
       border-radius: 999px;
-      background: rgba(111, 29, 27, 0.08);
+      background: var(--pf-accent-light);
+      border: 1px solid rgba(111, 29, 27, 0.12);
       color: var(--pf-accent);
-      font-size: 0.82rem;
+      font-size: 0.75rem;
+      font-family: Georgia, serif;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
-    .pf-coming h1 {
-      margin: 0 0 16px;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.1;
+    .pf-coming-badge::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--pf-accent);
+      opacity: 0.6;
+    }
+
+    .pf-coming h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+      line-height: 1.15;
       color: var(--pf-accent);
+      font-weight: normal;
+      letter-spacing: -0.01em;
     }
 
     .pf-coming p {
-      max-width: 720px;
+      max-width: 640px;
       margin: 0 auto;
-      font-size: 1.08rem;
-      line-height: 1.75;
+      font-size: 1rem;
+      line-height: 1.78;
       color: var(--pf-muted);
     }
 
-    .pf-coming p strong {
-      color: var(--pf-text);
-    }
-
     .pf-divider {
-      width: 90px;
-      height: 3px;
-      margin: 26px auto 24px;
+      width: 64px;
+      height: 2px;
+      margin: 18px auto 18px;
       border-radius: 999px;
       background: linear-gradient(90deg, var(--pf-accent), var(--pf-accent-2));
+      opacity: 0.7;
     }
 
     .pf-note {
-      margin-top: 28px;
-      font-size: 0.96rem;
-      color: #7a7a7a;
+      margin-top: 18px;
+      font-size: 0.92rem;
+      color: #8a8a8a;
+      font-style: italic;
     }
 
+    /* ── Mobile ── */
     @media (max-width: 640px) {
       .pf-main {
-        padding: 32px 16px 56px;
+        padding: 28px 14px 52px;
+      }
+
+      .pf-article-card {
+        padding: 12px 14px 12px 12px;
+      }
+
+      .pf-article-img {
+        flex: 0 0 88px;
+        height: 104px;
+      }
+
+      .pf-article-title {
+        font-size: 1.08rem;
+      }
+
+      .pf-article-arrow {
+        width: 26px;
+        height: 26px;
+        font-size: 0.9rem;
       }
 
       .pf-coming {
-        padding: 40px 20px;
+        padding: 30px 18px 28px;
       }
 
       .pf-coming p {
-        font-size: 1rem;
+        font-size: 0.97rem;
       }
-    }
-      #pf-footer-partial img {
-    margin: 0 auto;
     }
   </style>
 </head>
+
 <body>
   <div class="pf-page">
 
@@ -138,34 +317,99 @@
 
     <main class="pf-main">
       <div class="pf-wrap">
+
+        <section class="pf-articles" aria-label="Articles in this category">
+
+          <a class="pf-article-card" href="/en/inner-strength/bible/">
+
+            <div class="pf-article-content">
+
+              <div class="pf-article-img">
+                <img src="/assets/images/inner-strength/es/biblia/biblia.jpg" alt="Bible">
+              </div>
+
+              <div class="pf-article-top">
+                <h1 class="pf-article-title">Bible</h1>
+                <span class="pf-article-arrow">→</span>
+              </div>
+
+            </div>
+
+          </a>
+
+        </section>
+
         <section class="pf-coming" aria-label="Mensaje de próximamente">
           <div class="pf-coming-badge">En construcción</div>
-          <h1>Próximamente</h1>
+          <h2>Más artículos están en camino</h2>
           <div class="pf-divider"></div>
           <p>
-            Estamos trabajando en <strong>futuras guías para tu familia</strong>.
-            Esta categoría todavía se está preparando, pero pronto se publicará
-            aquí más contenido práctico.
+            Esta categoría aún se está ampliando. Más guías prácticas se publicarán aquí pronto.
           </p>
           <p class="pf-note">
-            Gracias por tu paciencia mientras PrepperFamily continúa creando recursos útiles y centrados en la familia.
+            Gracias por tu paciencia mientras PrepperFamily continúa creando recursos útiles centrados en la familia.
           </p>
         </section>
+
       </div>
     </main>
-
-    <!-- FOOTER PARTIAL -->
-    <div id="pf-footer-partial"></div>
 
   </div>
 
   <script>
+    function normalizePath(path) {
+      return (path || '')
+        .toLowerCase()
+        .replace(/index\.html$/, '')
+        .replace(/\/+$/, '') + '/';
+    }
+
+    function activateSubmenu(root) {
+      if (!root) return;
+
+      var current = normalizePath(window.location.pathname);
+      var tabs = root.querySelectorAll('.sub-tab');
+      var best = null;
+      var bestLen = 0;
+
+      tabs.forEach(function (tab) {
+        tab.classList.remove('is-active');
+        tab.removeAttribute('aria-current');
+
+        var dp = normalizePath(tab.getAttribute('data-path'));
+        if (current.indexOf(dp) === 0 && dp.length > bestLen) {
+          best = tab;
+          bestLen = dp.length;
+        }
+      });
+
+      if (best) {
+        best.classList.add('is-active');
+        best.setAttribute('aria-current', 'page');
+
+        setTimeout(function () {
+          best.scrollIntoView({
+            behavior: 'auto',
+            block: 'nearest',
+            inline: 'center'
+          });
+        }, 30);
+      }
+    }
+
     async function loadPartial(targetId, url) {
       try {
         const response = await fetch(url);
         if (!response.ok) throw new Error(`Failed to load ${url}`);
         const html = await response.text();
-        document.getElementById(targetId).innerHTML = html;
+
+        const target = document.getElementById(targetId);
+        target.innerHTML = html;
+
+        if (targetId === "pf-submenu-partial") {
+          const nav = target.querySelector('#pf-sub');
+          activateSubmenu(nav);
+        }
       } catch (error) {
         console.error(error);
       }
@@ -173,7 +417,6 @@
 
     loadPartial("pf-header-partial", "/partials/header-es/");
     loadPartial("pf-submenu-partial", "/partials/submenu/es/sustento-material/");
-    loadPartial("pf-footer-partial", "/partials/footer-es/");
   </script>
 </body>
 </html>
