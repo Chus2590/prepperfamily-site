@@ -7,7 +7,7 @@
 <link rel="alternate" hreflang="es" href="/es/sustento-material/almacena/pastillas-de-yodo" />
 <link rel="alternate" hreflang="x-default" href="/en/material-support/store/iodine-pills/" />
 
-    <style>
+<style>
         * {
             box-sizing: border-box;
         }
@@ -62,6 +62,7 @@
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             position: relative;
+            line-height: 1.15;
         }
         
         .subtitle {
@@ -69,6 +70,7 @@
             margin-top: 10px;
             opacity: 0.9;
             position: relative;
+            line-height: 1.35;
         }
         
         .content {
@@ -82,6 +84,7 @@
             padding-bottom: 10px;
             border-bottom: 3px solid #3498db;
             position: relative;
+            line-height: 1.2;
         }
         
         h3 {
@@ -91,6 +94,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            line-height: 1.25;
         }
         
         .intro-box {
@@ -125,6 +129,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            line-height: 1.25;
         }
         
         .example-box {
@@ -242,42 +247,169 @@
         .icon {
             font-size: 1.2em;
             margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        p, li, .quote {
+            overflow-wrap: break-word;
+            word-break: normal;
         }
         
         @media (max-width: 768px) {
             body {
-                padding: 10px;
+                padding: 8px;
                 font-size: 14px;
+                line-height: 1.58;
             }
             
             .container {
-                border-radius: 10px;
+                max-width: 100%;
+                border-radius: 8px;
+                box-shadow: 0 10px 22px rgba(0,0,0,0.08);
             }
             
             .header {
-                padding: 30px 20px;
+                padding: 24px 16px;
             }
             
             .header h1 {
-                font-size: 2em;
+                font-size: 1.72em;
+                line-height: 1.12;
+                letter-spacing: -0.01em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+                margin-top: 8px;
+                line-height: 1.3;
             }
             
             .content {
-                padding: 30px 20px;
+                padding: 22px 16px;
+            }
+
+            h2 {
+                font-size: 1.42em;
+                margin: 24px 0 14px 0;
+                padding-bottom: 8px;
+                border-bottom-width: 2px;
+            }
+
+            h3 {
+                font-size: 1.12em;
+                margin: 18px 0 12px 0;
+                gap: 8px;
             }
             
             .criteria-grid {
                 grid-template-columns: 1fr;
+                gap: 14px;
             }
             
-            .step-container, .error-container, .storage-tips {
-                padding: 20px;
+            .intro-box,
+            .step-container,
+            .error-container,
+            .storage-tips,
+            .warning-box,
+            .conclusion-box,
+            .criteria-item,
+            .example-box {
+                padding: 16px;
+                border-radius: 10px;
+                margin: 14px 0;
+            }
+
+            .step-container,
+            .error-container,
+            .storage-tips,
+            .intro-box {
+                border-left-width: 4px;
+            }
+
+            .example-box,
+            .criteria-item,
+            .error-item {
+                border-radius: 8px;
+            }
+
+            .error-item {
+                margin: 14px 0;
+                padding: 12px;
+            }
+
+            .step-header {
+                font-size: 1.05em;
+                margin-bottom: 12px;
+                gap: 8px;
+            }
+
+            .quote {
+                margin: 10px 0;
+                padding-left: 12px;
+            }
+
+            ul, ol {
+                padding-left: 18px;
+            }
+
+            li {
+                margin: 6px 0;
             }
         }
-    </style>
 
-</head><body><div id="pf-header"></div>
-    <div class="container">
+        @media (max-width: 480px) {
+            body {
+                padding: 6px;
+                font-size: 13.5px;
+            }
+
+            .header {
+                padding: 20px 14px;
+            }
+
+            .header h1 {
+                font-size: 1.52em;
+            }
+
+            .subtitle {
+                font-size: 0.95em;
+            }
+
+            .content {
+                padding: 18px 14px;
+            }
+
+            h2 {
+                font-size: 1.28em;
+                margin: 20px 0 12px 0;
+            }
+
+            h3 {
+                font-size: 1.05em;
+            }
+
+            .intro-box,
+            .step-container,
+            .error-container,
+            .storage-tips,
+            .warning-box,
+            .conclusion-box,
+            .criteria-item,
+            .example-box {
+                padding: 14px;
+            }
+
+            .step-header {
+                align-items: flex-start;
+            }
+        }
+</style>
+</head>
+<body>
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+
+<div class="container">
         <div class="header">
             <h1>🛡️ Pastillas de Yodo (KI) en Casa</h1>
             <div class="subtitle">Guía completa para la protección familiar en emergencias nucleares</div>
@@ -468,44 +600,27 @@
         </div>
     </div>
 
-<div id="pf-sources"></div><div id="pf-footer"></div><script>
-(function () {
-const isGitHub = location.hostname.endsWith("github.io");
-const base = isGitHub ? "/prepperfamily-site" : "";
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
 
-const isES = location.pathname.includes("/es/");
-const lang = isES ? "es" : "en";
-
-// HEADER
-fetch(`${base}/partials/header-${lang}/`)
-.then(res => res.text())
-.then(html => {
-document.getElementById("pf-header").innerHTML = html;
-})
-.catch(() => {});
-
-// FOOTER
-fetch(`${base}/partials/footer-${lang}/`)
-.then(res => res.text())
-.then(html => {
-document.getElementById("pf-footer").innerHTML = html;
-})
-.catch(() => {});
-
-// SOURCES
-let path = location.pathname;
-if (!path.endsWith("/")) path += "/";
-const sourcesURL = `${path}recursos/`;
-
-fetch(sourcesURL)
-.then(res => {
-if (!res.ok) throw new Error();
-return res.text();
-})
-.then(html => {
-document.getElementById("pf-sources").innerHTML = html;
-})
-.catch(() => {});
+<script>
+(function(){
+const isGitHub=location.hostname.endsWith("github.io");
+const base=isGitHub?"/prepperfamily-site":"";
+const isES=location.pathname.includes("/es/");
+const lang=isES?"es":"en";
+function setHTML(id,html){const el=document.getElementById(id);if(el)el.innerHTML=html;}
+function loadHTML(url,id){return fetch(url).then(r=>{if(!r.ok)throw new Error();return r.text();}).then(h=>setHTML(id,h)).catch(()=>{});}
+loadHTML(`${base}/partials/header-${lang}/`,"pf-header");
+loadHTML(`${base}/partials/footer-${lang}/`,"pf-footer");
+let path=location.pathname;if(!path.endsWith("/"))path+="/";
+const src=isES?`${path}recursos/`:`${path}sources/`;
+loadHTML(src,"pf-sources");
+const nav=document.createElement("script");
+nav.src=`${base}/partials/article-nav/index.js`;
+nav.dataset.categoryUrl="/es/sustento-material/almacena/";
+document.body.appendChild(nav);
 })();
 </script>
 
