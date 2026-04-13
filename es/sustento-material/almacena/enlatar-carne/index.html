@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía para Enlatar Carne en Frascos de Vidrio</title>
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía para Enlatar Carne en Frascos de Vidrio</title>
+<link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/canning-meat/" />
+<link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/enlatar-carne/" />
+<link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/canning-meat/" />
+<style>
     * {
         margin: 0;
         padding: 0;
@@ -603,7 +606,10 @@
 </style>
 </head>
 <body>
-    <div class="container">
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+
+<div class="container">
         <div class="header">
             <h1>🫙 Guía Paso a Paso para Enlatar Carne en Frascos de Vidrio</h1>
             <p>Aprende a conservar alimentos de forma segura y eficiente</p>
@@ -863,15 +869,40 @@
         </div>
 
         <div class="conclusion">
-            <h2>🎯 Conclusión</h2>
-            <p>El enlatado casero de carnes combina prudencia económica, seguridad alimentaria y fortaleza familiar frente a cortes de energía o crisis de suministro. Cada frasco representa tiempo y recursos resguardados, listos para nutrir a los suyos cuando más lo necesiten.</p>
-            
-            <div class="cta-box">
-                <h3>💡 Próximo paso:</h3>
-                <p>Elija un platillo que su familia disfrute, reúna los frascos y programe una primera sesión de enlatado este fin de semana.</p>
-                <p style="margin-top: 15px; font-style: italic;">¿Qué comida guardarían primero para su despensa de emergencia?</p>
-            </div>
+        <h2>🎯 Conclusión</h2>
+        <p>El enlatado casero de carnes combina prudencia económica, seguridad alimentaria y fortaleza familiar frente a cortes de energía o crisis de suministro. Cada frasco representa tiempo y recursos resguardados, listos para nutrir a los suyos cuando más lo necesiten.</p>
+        
+        <div class="cta-box">
+            <h3>💡 Próximo paso:</h3>
+            <p>Elija un platillo que su familia disfrute, reúna los frascos y programe una primera sesión de enlatado este fin de semana.</p>
+            <p style="margin-top: 15px; font-style: italic;">¿Qué comida guardarían primero para su despensa de emergencia?</p>
         </div>
     </div>
+</div>
+
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+<script>
+(function(){
+const isGitHub=location.hostname.endsWith("github.io");
+const base=isGitHub?"/prepperfamily-site":"";
+const isES=location.pathname.includes("/es/");
+const lang=isES?"es":"en";
+function setHTML(id,html){const el=document.getElementById(id);if(el)el.innerHTML=html;}
+function loadHTML(url,id){return fetch(url).then(r=>{if(!r.ok)throw new Error();return r.text();}).then(h=>setHTML(id,h)).catch(()=>{});}
+loadHTML(`${base}/partials/header-${lang}/`,"pf-header");
+loadHTML(`${base}/partials/footer-${lang}/`,"pf-footer");
+let path=location.pathname;if(!path.endsWith("/"))path+="/";
+const src=isES?`${path}recursos/`:`${path}sources/`;
+loadHTML(src,"pf-sources");
+const nav=document.createElement("script");
+nav.src=`${base}/partials/article-nav/index.js`;
+nav.dataset.categoryUrl="/es/sustento-material/almacena/enlatar-carne/";
+document.body.appendChild(nav);
+})();
+</script>
+
 </body>
 </html>
