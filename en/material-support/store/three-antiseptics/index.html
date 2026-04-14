@@ -354,11 +354,15 @@
                 padding: 8px;
             }
         }
-    </style>
+</style>
+</head>
+<body>
 
-</head><body><div id="pf-header"></div>
-    <div class="container">
-        <div class="header">
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+
+<div class="container">
+    <div class="header">
             <h1>Three Multi-Purpose Antiseptics</h1>
             <p>Family Practical Guide for Crises | Earthquakes • Hurricanes • Prolonged Outages • Evacuations</p>
         </div>
@@ -674,46 +678,51 @@
         </div>
     </div>
 
-<div id="pf-sources"></div><div id="pf-footer"></div><script>
-(function () {
-const isGitHub = location.hostname.endsWith("github.io");
-const base = isGitHub ? "/prepperfamily-site" : "";
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+    
+    <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
 
-const isES = location.pathname.includes("/es/");
-const lang = isES ? "es" : "en";
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
 
-// HEADER
-fetch(`${base}/partials/header-${lang}/`)
-.then(res => res.text())
-.then(html => {
-document.getElementById("pf-header").innerHTML = html;
-})
-.catch(() => {});
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
 
-// FOOTER
-fetch(`${base}/partials/footer-${lang}/`)
-.then(res => res.text())
-.then(html => {
-document.getElementById("pf-footer").innerHTML = html;
-})
-.catch(() => {});
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
 
-// SOURCES
-let path = location.pathname;
-if (!path.endsWith("/")) path += "/";
-const sourcesURL = `${path}sources/`;
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
 
-fetch(sourcesURL)
-.then(res => {
-if (!res.ok) throw new Error();
-return res.text();
-})
-.then(html => {
-document.getElementById("pf-sources").innerHTML = html;
-})
-.catch(() => {});
-})();
-</script>
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/sustento-material/almacena/" : "/en/material-support/store/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
 
 </body>
 </html>
