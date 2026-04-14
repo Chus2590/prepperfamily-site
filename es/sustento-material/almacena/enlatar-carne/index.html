@@ -885,24 +885,46 @@
 <div id="pf-footer"></div>
 
 <script>
-(function(){
-const isGitHub=location.hostname.endsWith("github.io");
-const base=isGitHub?"/prepperfamily-site":"";
-const isES=location.pathname.includes("/es/");
-const lang=isES?"es":"en";
-function setHTML(id,html){const el=document.getElementById(id);if(el)el.innerHTML=html;}
-function loadHTML(url,id){return fetch(url).then(r=>{if(!r.ok)throw new Error();return r.text();}).then(h=>setHTML(id,h)).catch(()=>{});}
-loadHTML(`${base}/partials/header-${lang}/`,"pf-header");
-loadHTML(`${base}/partials/footer-${lang}/`,"pf-footer");
-let path=location.pathname;if(!path.endsWith("/"))path+="/";
-const src=isES?`${path}recursos/`:`${path}sources/`;
-loadHTML(src,"pf-sources");
-const nav=document.createElement("script");
-nav.src=`${base}/partials/article-nav/index.js`;
-nav.dataset.categoryUrl="/es/sustento-material/almacena/";
-document.body.appendChild(nav);
-})();
-</script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/sustento-material/almacena/" : "/en/material-support/store/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
 
 </body>
 </html>
