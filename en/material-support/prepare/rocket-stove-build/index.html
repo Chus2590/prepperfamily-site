@@ -13,28 +13,28 @@
 <style>
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.5;
+    line-height: 1.55;
     margin: 0 auto;
     padding: 16px;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     color: #333;
-    max-width: 1000px;
+    max-width: 980px;
     overflow-wrap: break-word;
     word-break: normal;
 }
 
 .container {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
     overflow: hidden;
     margin-bottom: 24px;
 }
 
 .hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    padding: 32px 20px;
+    color: white;
+    padding: 34px 26px;
     text-align: center;
 }
 
@@ -51,16 +51,16 @@ h1 {
 h2 {
     color: #667eea;
     border-bottom: 2px solid #667eea;
-    padding-bottom: 6px;
+    padding-bottom: 8px;
     margin-top: 32px;
     font-size: 1.6em;
 }
 
 h3 {
     color: #764ba2;
-    font-size: 1.3em;
+    font-size: 1.25em;
     margin-top: 24px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .highlight-box,
@@ -68,9 +68,9 @@ h3 {
 .step-container,
 .timeline,
 .appendix {
+    padding: 18px;
+    margin: 18px 0;
     border-radius: 10px;
-    padding: 16px;
-    margin: 16px 0;
 }
 
 .highlight-box {
@@ -80,24 +80,28 @@ h3 {
 
 .safety-warning {
     background: linear-gradient(135deg, #ffefef 0%, #ffe6e6 100%);
-    border: 1.5px solid #e74c3c;
+    border: 2px solid #e74c3c;
     border-radius: 10px;
-    padding: 18px;
+    padding: 20px;
     margin: 20px 0;
     position: relative;
 }
 
 .materials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 16px;
+    margin: 18px 0;
 }
 
 .material-card {
-    background: linear-gradient(135deg, #e8f5e8 0%, #d4f1d4 100%);
+    padding: 18px;
     border-radius: 10px;
-    padding: 16px;
-    border-left: 3px solid #2ecc71;
+    border-left: 4px solid #2ecc71;
+}
+
+.step-container {
+    border-left: 4px solid #3498db;
 }
 
 .ingredients-list {
@@ -106,6 +110,21 @@ h3 {
     gap: 10px;
     padding: 8px;
     border-radius: 6px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.timeline-day {
+    padding: 6px 10px;
+    border-radius: 16px;
+    font-size: 0.9em;
+    margin-right: 10px;
 }
 
 .responsive-table {
@@ -118,52 +137,35 @@ h3 {
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.95em;
 }
 
 th, td {
-    padding: 10px;
+    padding: 10px 12px;
     border-bottom: 1px solid #ddd;
-}
-
-th {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-}
-
-.timeline-item {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-}
-
-.timeline-day {
-    margin-right: 10px;
 }
 
 .cta-button {
     padding: 12px 22px;
-    border-radius: 20px;
+    border-radius: 22px;
     font-size: 1em;
+    margin: 8px 4px;
 }
 
 @media (max-width: 768px) {
     body {
-        padding: 8px;
-        font-size: 14px;
+        padding: 10px;
     }
 
-    h1 { font-size: 1.7em; }
-    h2 { font-size: 1.4em; }
-    h3 { font-size: 1.1em; }
+    .hero {
+        padding: 26px 18px;
+    }
+
+    h1 {
+        font-size: 1.9em;
+    }
 
     .content {
-        padding: 16px;
-    }
-
-    .materials-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        padding: 18px;
     }
 
     .ingredients-list {
@@ -176,34 +178,9 @@ th {
         text-align: center;
     }
 
-    .container {
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        padding: 6px;
-        font-size: 13.5px;
-    }
-
-    h1 { font-size: 1.5em; }
-    h2 { font-size: 1.25em; }
-    h3 { font-size: 1.05em; }
-
-    .content {
-        padding: 12px;
-    }
-
-    th, td {
-        padding: 8px;
-        font-size: 0.9em;
-    }
-
-    .cta-button {
-        padding: 10px 16px;
-        font-size: 0.95em;
+    .timeline-day {
+        margin-right: 0;
+        margin-bottom: 6px;
     }
 }
 </style>
