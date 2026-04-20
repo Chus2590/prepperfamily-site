@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Construcción de estufa cohete familiar con tarros galvanizados</title>
+<meta name="description" content="Aprende a construir una estufa cohete familiar segura y eficiente usando tarros galvanizados y materiales refractarios para una cocina sustentable.">
+
+<link rel="canonical" href="https://prepperfamily.org/es/sustento-material/prepara/estufa-cohete-familiar/">
+<link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/family-rocket-stove">
+<link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/estufa-cohete-familiar/">
+<link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/family-rocket-stove/">    
+    
+    <style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.44;
+        margin: 0;
+        padding: 18px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+    .container {
+        background: white;
+        border-radius: 14px;
+        box-shadow: 0 9px 27px rgba(0,0,0,0.1);
+        overflow: hidden;
+        margin-bottom: 27px;
+    }
+
+    .hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 36px 27px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.25em;
+        margin: 0;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .content {
+        padding: 27px;
+    }
+
+    h2 {
+        color: #667eea;
+        border-bottom: 3px solid #667eea;
+        padding-bottom: 9px;
+        margin-top: 36px;
+        font-size: 1.62em;
+        font-weight: 600;
+    }
+
+    h3 {
+        color: #764ba2;
+        font-size: 1.26em;
+        margin-top: 27px;
+        margin-bottom: 14px;
+        font-weight: 600;
+    }
+
+    .highlight-box {
+        background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        border-left: 5px solid #ff6b6b;
+        padding: 18px;
+        margin: 18px 0;
+        border-radius: 9px;
+        box-shadow: 0 5px 14px rgba(0,0,0,0.1);
+    }
+
+    .safety-warning {
+        background: linear-gradient(135deg, #ffefef 0%, #ffe6e6 100%);
+        border: 2px solid #e74c3c;
+        border-radius: 11px;
+        padding: 23px;
+        margin: 23px 0;
+        position: relative;
+    }
+
+    .safety-warning::before {
+        content: "🚨";
+        font-size: 1.8em;
+        position: absolute;
+        top: -9px;
+        left: 18px;
+        background: white;
+        padding: 5px 9px;
+        border-radius: 50%;
+    }
+
+    .materials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 18px;
+        margin: 18px 0;
+    }
+
+    .material-card {
+        background: linear-gradient(135deg, #e8f5e8 0%, #d4f1d4 100%);
+        border-radius: 11px;
+        padding: 18px;
+        border-left: 4px solid #2ecc71;
+        box-shadow: 0 3px 9px rgba(0,0,0,0.1);
+    }
+
+    .step-container {
+        background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+        border-radius: 11px;
+        padding: 23px;
+        margin: 18px 0;
+        border-left: 4px solid #3498db;
+    }
+
+    .step-number {
+        background: #3498db;
+        color: white;
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-right: 9px;
+    }
+
+    .recipe-box {
+        background: linear-gradient(135deg, #fff5e6 0%, #ffe6cc 100%);
+        border: 2px solid #f39c12;
+        border-radius: 11px;
+        padding: 18px;
+        margin: 18px 0;
+    }
+
+    .ingredients-list {
+        display: grid;
+        grid-template-columns: 2fr 1fr 3fr;
+        gap: 13px;
+        align-items: center;
+        margin: 9px 0;
+        padding: 9px;
+        background: rgba(255,255,255,0.7);
+        border-radius: 7px;
+    }
+
+    .ingredient-name {
+        font-weight: bold;
+        color: #d35400;
+    }
+
+    .ingredient-amount {
+        background: #f39c12;
+        color: white;
+        padding: 5px 9px;
+        border-radius: 18px;
+        text-align: center;
+        font-size: 0.9em;
+        font-weight: bold;
+    }
+
+    .ingredient-reason {
+        font-style: italic;
+        color: #666;
+        font-size: 0.9em;
+    }
+
+    .timeline {
+        background: linear-gradient(135deg, #f8f0ff 0%, #e6d3ff 100%);
+        border-radius: 11px;
+        padding: 18px;
+        margin: 18px 0;
+    }
+
+    .timeline-item {
+        display: flex;
+        align-items: center;
+        margin: 14px 0;
+        padding: 9px;
+        background: rgba(255,255,255,0.8);
+        border-radius: 7px;
+    }
+
+    .timeline-day {
+        background: #9b59b6;
+        color: white;
+        padding: 7px 11px;
+        border-radius: 18px;
+        font-weight: bold;
+        min-width: 63px;
+        text-align: center;
+        margin-right: 14px;
+    }
+
+    .conclusion {
+        background: linear-gradient(135deg, #a8e6cf 0%, #88d8a3 100%);
+        border-radius: 11px;
+        padding: 27px;
+        margin: 27px 0;
+        text-align: center;
+        color: #1e5128;
+    }
+
+    .conclusion h2 {
+        color: #1e5128;
+        border-bottom: 3px solid #1e5128;
+        display: inline-block;
+        margin-bottom: 18px;
+    }
+
+    .appendix {
+        background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+        border-radius: 11px;
+        padding: 18px;
+        margin: 18px 0;
+        border-left: 4px solid #95a5a6;
+    }
+
+    .icon {
+        font-size: 1.08em;
+        margin-right: 7px;
+    }
+
+    .responsive-table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+        overflow-y: hidden;
+        margin: 18px 0;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 7px;
+        overflow: hidden;
+        box-shadow: 0 3px 9px rgba(0,0,0,0.1);
+        table-layout: auto;
+    }
+
+    th, td {
+        padding: 10px 13px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+    th {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+
+    .cta-button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 14px 27px;
+        border: none;
+        border-radius: 23px;
+        font-size: 0.99em;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        margin: 9px 5px;
+        transition: transform 0.3s ease;
+        box-shadow: 0 5px 14px rgba(0,0,0,0.2);
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding: 9px;
+        }
+        
+        .hero {
+            padding: 27px 18px;
+        }
+        
+        h1 {
+            font-size: 1.8em;
+        }
+        
+        .content {
+            padding: 18px;
+        }
+        
+        .materials-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .ingredients-list {
+            grid-template-columns: 1fr;
+            gap: 9px;
+            text-align: center;
+        }
+        
+        .timeline-item {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .timeline-day {
+            margin-right: 0;
+            margin-bottom: 9px;
+        }
+    }
+</style>
+</head>
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+<body>
+<div class="container">
+        <div class="hero">
+            <h1>🔥 Estufa Cohete Familiar con Tarros Galvanizados</h1>
+            <p>Construcción eficiente, económica y segura para cocina sustentable</p>
+        </div>
+
+        <div class="content">
+            <h2><span class="icon">🎯</span>Por qué esta versión</h2>
+            
+            <div class="highlight-box">
+                <h3>Ventajas principales:</h3>
+                <ul>
+                    <li><strong>Eficiencia real:</strong> tiro vertical (riser) bien aislado, combustión completa, llama concentrada</li>
+                    <li><strong>Bajo costo:</strong> usa tarros galvanizados como carcasa externa y mezcla refractaria casera</li>
+                    <li><strong>Modular:</strong> permite ampliaciones futuras</li>
+                </ul>
+            </div>
+
+            <div class="safety-warning">
+                <h3 style="margin-top: 20px;"><span class="icon">🛡️</span>Nota de Seguridad Crítica</h3>
+                <p><strong>El galvanizado es solo carcasa externa;</strong> no debe estar en contacto con la llama ni gases calientes. El interior se reviste con refractario (5–7 cm) y la superficie de cocción debe ser hierro fundido o acero inoxidable.</p>
+                <p><strong>⚠️ Evita calentar superficies galvanizadas</strong> (riesgo de humos de zinc).</p>
+                <p><strong>🚫 Retira por completo el PVC usado como molde:</strong> jamás dejes PVC expuesto al calor.</p>
+            </div>
+
+            <h2><span class="icon">🛒</span>Materiales Necesarios</h2>
+
+            <div class="materials-grid">
+                <div class="material-card">
+                    <h3><span class="icon">📦</span>Set de 3 Tarros</h3>
+                    <ul>
+                        <li><strong>Tarro grande 11"</strong> (vertical): carcasa de la cámara base y pie del riser</li>
+                        <li><strong>Tarro mediano 9"</strong> (vertical, arriba del grande): prolonga la chimenea interna</li>
+                        <li><strong>Tarro pequeño 7"</strong> (horizontal, a 90°): cenicero/puerto de aire</li>
+                    </ul>
+                    <p><em>El galvanizado evita oxidación y sirve como carcasa protectora.</em></p>
+                </div>
+
+                <div class="material-card">
+                    <h3><span class="icon">🔧</span>Componentes Adicionales</h3>
+                    <ul>
+                        <li><strong>Entrada de leña:</strong> boca a 45° que ingresa al tarro grande</li>
+                        <li><strong>Superficie de cocción:</strong> plancha de hierro fundido o acero inoxidable</li>
+                        <li><strong>Rejilla:</strong> varillas de acero inoxidable (6–8 mm)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3><span class="icon">🧱</span>Mezcla Refractaria</h3>
+
+            <div class="recipe-box">
+                <h4>Lista de compras optimizada:</h4>
+                
+                <div class="ingredients-list">
+                    <span class="ingredient-name">Cemento refractario (alto alúmina)</span>
+                    <span class="ingredient-amount">5-8 lb</span>
+                    <span class="ingredient-reason">5 lb cubre y deja margen razonable</span>
+                </div>
+
+                <div class="ingredients-list">
+                    <span class="ingredient-name">Arena de sílice fina (#30–60)</span>
+                    <span class="ingredient-amount">1 bolsa 10 lb</span>
+                    <span class="ingredient-reason">Formato más pequeño común; rinde de sobra</span>
+                </div>
+
+                <div class="ingredients-list">
+                    <span class="ingredient-name">Perlita o vermiculita</span>
+                    <span class="ingredient-amount">1 bolsa 4 qt</span>
+                    <span class="ingredient-reason">4 qt cubre de sobra</span>
+                </div>
+
+                <div class="ingredients-list">
+                    <span class="ingredient-name">Chamota (grog)</span>
+                    <span class="ingredient-amount">2 ladrillos refractarios</span>
+                    <span class="ingredient-reason">Los trituras a martillo; producen suficiente polvo</span>
+                </div>
+
+                <div class="ingredients-list">
+                    <span class="ingredient-name">Arcilla caolín (EPK)</span>
+                    <span class="ingredient-amount">1 bolsa 5 lb</span>
+                    <span class="ingredient-reason">Cantidad estándar para proyectos caseros</span>
+                </div>
+
+                <div class="ingredients-list">
+                    <span class="ingredient-name">Ceniza de madera casera</span>
+                    <span class="ingredient-amount">0.6 qt tamizada</span>
+                    <span class="ingredient-reason">Sin carbones, mejora la mezcla</span>
+                </div>
+            </div>
+
+            <h3><span class="icon">🔨</span>Moldes y Refuerzos</h3>
+            <ul>
+                <li><strong>Tubos de PVC de 4"</strong> → moldear conductos internos</li>
+                <li><strong>Cinta de pintor o duct tape</strong> → unir secciones de PVC</li>
+                <li><strong>Varillas de acero inoxidable</strong> → rejilla para sostener leña</li>
+            </ul>
+
+            <h2><span class="icon">🛠️</span>Construcción Paso a Paso</h2>
+
+            <div class="step-container">
+                <h3><span class="step-number">1</span>Preparar los Tarros</h3>
+                <ul>
+                    <li>Quita las tapas de grande y mediano</li>
+                    <li>Conserva el fondo del tarro grande (será el piso)</li>
+                    <li>Retira el fondo del tarro mediano (cilindro hueco)</li>
+                    <li>Alinea mediano sobre grande y fija perimetralmente</li>
+                </ul>
+                <div class="safety-warning">
+                    <p><strong>- - - ⚠️ Los bordes pueden ser filosos:</strong> desbarba o dobla con alicate</p>
+            </div>
+
+            <div class="step-container">
+                <h3><span class="step-number">2</span>Trabajo en el Tarro Grande</h3>
+                <ul>
+                    <li><strong>Entrada de leña (45°):</strong> orificio ovalado en pared lateral baja</li>
+                    <li><strong>Cenicero/aire (90°):</strong> orificio circular al lado opuesto</li>
+                </ul>
+            </div>
+
+            <div class="step-container">
+                <h3><span class="step-number">3</span>Colocar Moldes (PVC 4")</h3>
+                <ul>
+                    <li>PVC vertical centrado (altura total = grande + mediano)</li>
+                    <li>PVC de 45° hasta interceptar el túnel horizontal</li>
+                    <li>PVC del cenicero/aire atravesando ambos tarros</li>
+                    <li>Une todos los tramos con cinta</li>
+                </ul>
+            </div>
+
+            <div class="step-container">
+                <h3><span class="step-number">4</span>Mezclar y Verter Refractario</h3>
+                
+                <div class="recipe-box">
+                    <h4>Proporciones de mezcla (usa recipiente de 1 qt como medida):</h4>
+                    <div class="responsive-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Componente</th>
+                                    <th>Proporción</th>
+                                    <th>Función</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cemento refractario</td>
+                                    <td>1 parte</td>
+                                    <td>Aglutinante principal</td>
+                                </tr>
+                                <tr>
+                                    <td>Arena de sílice</td>
+                                    <td>2 partes</td>
+                                    <td>Estructura y resistencia</td>
+                                </tr>
+                                <tr>
+                                    <td>Vermiculita/perlita</td>
+                                    <td>1.5 partes</td>
+                                    <td>Aislamiento térmico</td>
+                                </tr>
+                                <tr>
+                                    <td>Chamota (grog)</td>
+                                    <td>1 parte</td>
+                                    <td>Reduce contracción</td>
+                                </tr>
+                                <tr>
+                                    <td>Arcilla caolín</td>
+                                    <td>½ parte</td>
+                                    <td>Plasticidad y unión</td>
+                                </tr>
+                                <tr>
+                                    <td>Ceniza de madera</td>
+                                    <td>10% del total</td>
+                                    <td>Fundente natural</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <p><strong>Proceso:</strong></p>
+                <ol>
+                    <li>Mezcla todos los componentes en seco</li>
+                    <li>Añade agua hasta textura de "masa de pan firme"</li>
+                    <li>Rellena el espacio entre moldes y paredes (5–7 cm de espesor)</li>
+                    <li>Vibra golpeando suavemente para expulsar burbujas</li>
+                    <li>Embebe la rejilla en la boca a 45°</li>
+                </ol>
+            </div>
+
+            <div class="step-container">
+                <h3><span class="step-number">5</span>Fraguado y Desmoldeo</h3>
+                <ul>
+                    <li><strong>Fragua:</strong> 24–48 h a la sombra</li>
+                    <li><strong>Desmoldeo:</strong> retira cinta y saca PVC en secciones</li>
+                    <li><strong>Curado:</strong> 7 días con plástico, humidifica levemente</li>
+                </ul>
+            </div>
+
+            <div class="step-container">
+                <h3><span class="step-number">6</span>Encendido Progresivo</h3>
+                
+                <div class="timeline">
+                    <h4>Programa de secado interno:</h4>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-day">Día 1</span>
+                        <span>Fuego muy pequeño (10 min) - Elimina humedad superficial</span>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-day">Día 2</span>
+                        <span>Fuego medio (20–30 min) - Secado progresivo</span>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-day">Día 3</span>
+                        <span>Fuego mayor sin llenar - Consolidación térmica</span>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-day">Día 4</span>
+                        <span>Uso normal - ¡Lista para cocinar!</span>
+                    </div>
+                </div>
+
+                <p><strong>👉 Este proceso elimina humedad sin agrietar el refractario.</strong></p>
+            </div>
+
+            <h2><span class="icon">🍲</span>Uso y Mantenimiento</h2>
+
+            <div class="highlight-box">
+                <h3>Operación básica:</h3>
+                <ul>
+                    <li><span class="icon">🔥</span>Alimenta leña por la entrada a 45°, apoyada en la rejilla</li>
+                    <li><span class="icon">🧹</span>Limpia el cenicero cada 2–3 usos</li>
+                    <li><span class="icon">🍳</span>Coloca parrilla metálica encima del riser para ollas</li>
+                </ul>
+            </div>
+
+            <h2><span class="icon">🔧</span>Posibles Ampliaciones Modulares</h2>
+
+            <div class="materials-grid">
+                <div class="material-card">
+                    <h3><span class="icon">🍳</span>Plancha Directa</h3>
+                    <p>Superficie de cocción directamente sobre el riser</p>
+                </div>
+
+                <div class="material-card">
+                    <h3><span class="icon">🏠</span>Horno</h3>
+                    <p>Cámara de calor sobre el riser para horneado</p>
+                </div>
+
+                <div class="material-card">
+                    <h3><span class="icon">🔥</span>Calefactor de Espacio</h3>
+                    <p>Canalizar calor hacia banco térmico de ladrillo</p>
+                </div>
+            </div>
+
+            <div class="conclusion">
+                <h2>✅ Conclusión</h2>
+                <p>Si construyes esta versión, <strong>comparte fotos y tiempos de ebullición</strong> (1 L de agua) para mejorar la guía y ayudar a otras familias.</p>
+                <p>Esta pieza forma parte de nuestras rutas de <strong>Sustento Material</strong> y cocina resiliente para el día a día.</p>
+                <a href="#" class="cta-button">🚀 Comienza tu Proyecto</a>
+                <a href="#" class="cta-button">📸 Comparte Resultados</a>
+            </div>
+
+            <h2><span class="icon">📋</span>Apéndices</h2>
+
+            <div class="appendix">
+                <h3>Apéndice A — Variantes de Mezcla</h3>
+                <p><strong>Si falta algún componente:</strong></p>
+                <ul>
+                    <li><strong>Sin caolín:</strong> aumenta chamota a 1.5 partes</li>
+                    <li><strong>Sin vermiculita:</strong> usa perlita (misma proporción)</li>
+                    <li><strong>Sin cemento refractario:</strong> mezcla arcilla grasa + arena (3:2), apisonada; menor resistencia pero reparable</li>
+                </ul>
+            </div>
+
+            <div class="appendix">
+                <h3>Apéndice B — Seguridad y Uso Responsable</h3>
+                <div class="safety-warning">
+                    <ul>
+                        <li><span class="icon">🌬️</span><strong>Usa siempre al aire libre</strong> o área muy ventilada; monóxido de carbono mata en silencio</li>
+                        <li><span class="icon">👶</span><strong>Mantén niños a distancia</strong> y extintor/balde de arena a mano</li>
+                        <li><span class="icon">🍳</span><strong>No cocines sobre superficies galvanizadas;</strong> usa plancha/parrilla segura</li>
+                        <li><span class="icon">🌲</span><strong>Leña:</strong> seca, sin pinturas ni pegamentos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/sustento-material/prepara/" : "/en/material-support/prepare/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html>
