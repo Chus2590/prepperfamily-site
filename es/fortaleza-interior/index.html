@@ -1,178 +1,363 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Fortaleza Interior | PrepperFamily</title><meta name="description" content="Construye fortaleza espiritual para tu familia: Escritura, oración, fe bajo presión, apologética y un itinerario sencillo para un crecimiento espiritual constante."><style>
-
-body{
-margin:0;
-font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto;
-line-height:1.6;
-background:#ffffff;
-color:#222;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Fortaleza Interior | PrepperFamily</title><meta name="description" content="Construye fortaleza espiritual para tu familia: Escritura, oración, fe bajo presión, apologética y un itinerario sencillo para un crecimiento espiritual constante.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
   
-main{
-max-width:900px;
-margin:auto;
-padding:20px;
-}
+<body>
 
-h1,h2,h3{
-margin-top:1.4em;
-}
-
-section{
-margin-bottom:40px;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-}
-th,td{
-padding:10px;
-border:1px solid #ddd;
-text-align:left;
-vertical-align:top;
-}
-thead th{
-background:#f7f7f7;
-}
-
-</style></head><body><div id="pf-header"></div><main>
-<!-- FORTALEZA INTERIOR – SUPER DISEÑO v2 -->
+<div id="pf-header"></div>
 <section class="fi-wrapper">
+
   <style>
-    :root{
-      --fi-bg-hero:linear-gradient(135deg,#fff9f6 0%,#f5f9ff 100%);
-      --fi-bg-accent:#f0f4f8;
-      --fi-bg-callout:#fff4e5;
-      --fi-clr-main:#243246;
-      --fi-clr-accent:#3a6b68;
-      --fi-clr-muted:#6f7d8a;
-      --fi-clr-gold:#c3a56c;
-    }
+  :root{
+    --fi-bg-hero:linear-gradient(135deg,#fff9f6 0%,#f5f9ff 100%);
+    --fi-bg-accent:#f0f4f8;
+    --fi-bg-callout:#fff4e5;
+    --fi-clr-main:#243246;
+    --fi-clr-accent:#3a6b68;
+    --fi-clr-muted:#6f7d8a;
+    --fi-clr-gold:#c3a56c;
+  }
 
-    .fi-wrapper{
-      font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-      color:var(--fi-clr-main);
-      padding:1rem 0 4rem;
-    }
+  .fi-wrapper{
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color:var(--fi-clr-main);
+    padding:.85rem 0 3rem;
+  }
+  
+  .fi-container{max-width: 900px; margin: 0 auto;}
 
+  .fi-hero-image{
+    width:100%;
+    max-height:380px;
+    object-fit:cover;
+    border-radius:12px;
+    margin: 0 0 1.4rem;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    display:block;
+  }
+
+  .fi-hero{
+    background:var(--fi-bg-hero);
+    padding:2.1rem 1.25rem 1.95rem;
+    border-radius:12px;
+    margin-bottom:1.8rem;
+    text-align:center;
+    box-shadow:0 7px 18px rgba(0,0,0,.045);
+  }
+
+  .fi-hero h1{
+    font-size:clamp(1.75rem,3vw,2.25rem);
+    margin:0 0 .3rem;
+  }
+
+  .fi-hero h1 .icon{
+    font-size:2rem;
+    vertical-align:middle;
+    margin-right:.22rem;
+  }
+
+  .fi-hero h2{
+    font-size:1.12rem;
+    font-weight:600;
+    margin:0 auto .95rem;
+    max-width:38rem;
+    line-height:1.35;
+    color:var(--fi-clr-gold);
+  }
+
+  .fi-hero blockquote{
+    font-style:italic;
+    font-size:1rem;
+    line-height:1.5;
+    margin:0 auto;
+    max-width:38rem;
+    color:var(--fi-clr-main);
+  }
+
+  .fi-hero p{
+    font-size:.98rem;
+    line-height:1.58;
+    max-width:42rem;
+    margin:1rem auto 0;
+  }
+
+  .fi-topics{
+    margin:2rem 0 2.4rem;
+    padding:0 .8rem;
+  }
+
+  .fi-topics h3{
+    font-size:1.25rem;
+    text-align:center;
+    margin-bottom:1.55rem;
+    color:var(--fi-clr-accent);
+  }
+
+  .fi-category-main{
+    text-align:center;
+    margin-bottom:2rem;
+  }
+
+  .fi-btn-main{
+    display:inline-block;
+    background:linear-gradient(135deg, var(--fi-clr-accent) 0%, #2d5654 100%);
+    color:#ffffff;
+    padding:.92rem 1.8rem;
+    border-radius:10px;
+    font-size:1.08rem;
+    font-weight:700;
+    text-decoration:none;
+    box-shadow:0 6px 16px rgba(58,107,104,.22);
+    transition:all 0.3s ease;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .fi-btn-main::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(135deg, rgba(255,255,255,.18) 0%, transparent 100%);
+    opacity:0;
+    transition:opacity 0.3s ease;
+  }
+
+  .fi-btn-main:hover{
+    transform:translateY(-3px) scale(1.02);
+    box-shadow:0 9px 22px rgba(58,107,104,.28);
+  }
+
+  .fi-btn-main:hover::before{
+    opacity:1;
+  }
+
+  .fi-subcategories{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:.85rem;
+    max-width:920px;
+    margin:0 auto;
+  }
+
+  .fi-btn-sub{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#ffffff;
+    color:var(--fi-clr-accent);
+    border:1.5px solid var(--fi-clr-accent);
+    border-radius:9px;
+    padding:.78rem 1rem;
+    font-weight:600;
+    font-size:.92rem;
+    text-decoration:none;
+    box-shadow:0 3px 9px rgba(0,0,0,.045);
+    transition:all 0.3s ease;
+    position:relative;
+  }
+
+  .fi-btn-sub::after{
+    content:"→";
+    font-size:1.05rem;
+    font-weight:bold;
+    margin-left:0.45rem;
+    transition:transform 0.3s ease;
+  }
+
+  .fi-btn-sub:hover{
+    background:var(--fi-clr-gold);
+    border-color:var(--fi-clr-gold);
+    color:#243246;
+    transform:translateY(-2px);
+    box-shadow:0 6px 16px rgba(195,165,108,.22);
+  }
+
+  .fi-btn-sub:hover::after{
+    transform:translateX(3px);
+  }
+
+  .fi-itinerary{
+    margin:2.4rem 0 2rem;
+    overflow-x:auto;
+  }
+
+  .fi-itinerary h3{
+    font-size:1.15rem;
+    margin-bottom:1.15rem;
+    text-align:center;
+    color:var(--fi-clr-accent);
+  }
+
+  .fi-itinerary table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:.92rem;
+    min-width:380px;
+  }
+
+  .fi-itinerary thead th{
+    background:var(--fi-clr-accent);
+    color:#ffffff;
+    padding:.65rem .85rem;
+    text-align:left;
+    font-weight:600;
+  }
+
+  .fi-itinerary tbody td{
+    border:1px solid #d6dee4;
+    padding:.65rem .85rem;
+  }
+
+  .fi-itinerary tbody tr:nth-child(even) td{
+    background:var(--fi-bg-accent);
+  }
+
+  .fi-cta{
+    background:var(--fi-bg-accent);
+    padding:1.15rem 1.3rem;
+    border-left:4px solid var(--fi-clr-accent);
+    border-radius:7px;
+    margin:2.3rem 0 2.1rem;
+    box-shadow:0 3px 8px rgba(0,0,0,.03);
+  }
+
+  .fi-cta p{
+    margin:0;
+    font-size:.94rem;
+    line-height:1.55;
+  }
+
+  .fi-cta a{
+    color:var(--fi-clr-accent);
+    font-weight:600;
+    text-decoration:underline;
+  }
+
+  .fi-footer{
+    font-size:.84rem;
+    color:var(--fi-clr-muted);
+    text-align:center;
+    margin-top:2rem;
+  }
+
+  @media (min-width:900px){
     .fi-hero{
-      background:var(--fi-bg-hero);
-      padding:2.75rem 1.5rem 2.5rem;
-      border-radius:14px;
-      margin-bottom:2.25rem;
-      text-align:center;
-      box-shadow:0 10px 24px rgba(0,0,0,.05);
+      padding:2.45rem 2rem 2.25rem;
     }
-    .fi-hero h1{font-size:2.4rem;margin:0 0 .4rem;}
-    .fi-hero h1 .icon{font-size:2.4rem;vertical-align:middle;margin-right:.25rem;}
-    .fi-hero h2{font-size:1.4rem;font-weight:600;margin:0 auto 1.15rem;max-width:40rem;line-height:1.4;color:var(--fi-clr-gold);}
-   
-    .fi-hero blockquote{
-      font-style:italic;
-      font-size:1.1rem;
-      line-height:1.55;
-      margin:0 auto 0;
-      max-width:40rem;
-      color:var(--fi-clr-main);
-    }
-    .fi-hero p{font-size:1.125rem;line-height:1.6;max-width:46rem;margin:1.25rem auto 0;}
 
-    .fi-topics{
-      margin:2.5rem 0 3rem;
-      padding:0 1rem;
-    }
-    .fi-topics h3{
-      font-size:1.5rem;
-      text-align:center;
-      margin-bottom:2rem;
-      color:var(--fi-clr-accent);
-    }
-    
-    .fi-category-main{
-      text-align:center;
-      margin-bottom:2.5rem;
-    }
-    
-    .fi-btn-main{
-      display:inline-block;
-      background:linear-gradient(135deg, var(--fi-clr-accent) 0%, #2d5654 100%);
-      color:#ffffff;
-      padding:1.2rem 2.5rem;
-      border-radius:12px;
-      font-size:1.3rem;
-      font-weight:700;
-      text-decoration:none;
-      box-shadow:0 8px 20px rgba(58,107,104,.25);
-      transition:all 0.3s ease;
-      position:relative;
-      overflow:hidden;
+    .fi-hero h1{
+      font-size:2.35rem;
     }
 
     .fi-subcategories{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-      gap:1.2rem;
-      max-width:1100px;
-      margin:0 auto;
+      grid-template-columns:repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width:768px){
+    .fi-wrapper{
+      padding:.7rem 0 2.6rem;
+    }
+
+    .fi-hero{
+      padding:1.65rem .95rem 1.55rem;
+      margin-bottom:1.5rem;
+    }
+
+    .fi-hero h1{
+      font-size:1.65rem;
+    }
+
+    .fi-hero h1 .icon{
+      font-size:1.75rem;
+    }
+
+    .fi-hero h2{
+      font-size:1rem;
+    }
+
+    .fi-hero blockquote{
+      font-size:.92rem;
+    }
+
+    .fi-hero p{
+      font-size:.9rem;
+    }
+
+    .fi-topics{
+      margin:1.7rem 0 2rem;
+      padding:0 .45rem;
+    }
+
+    .fi-topics h3{
+      font-size:1.12rem;
+      margin-bottom:1.25rem;
+    }
+
+    .fi-category-main{
+      margin-bottom:1.5rem;
+    }
+
+    .fi-btn-main{
+      width:100%;
+      box-sizing:border-box;
+      padding:.82rem 1rem;
+      font-size:.98rem;
+    }
+
+    .fi-subcategories{
+      grid-template-columns:1fr;
+      gap:.7rem;
     }
 
     .fi-btn-sub{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      background:#ffffff;
-      color:var(--fi-clr-accent);
-      border:2px solid var(--fi-clr-accent);
-      border-radius:10px;
-      padding:1rem 1.3rem;
-      font-weight:600;
-      font-size:1rem;
-      text-decoration:none;
-      box-shadow:0 4px 12px rgba(0,0,0,.06);
-      transition:all 0.3s ease;
-      position:relative;
+      padding:.7rem .85rem;
+      font-size:.88rem;
     }
-    .fi-btn-sub::after{
-      content:"→";
-      font-size:1.3rem;
-      font-weight:bold;
-      margin-left:0.5rem;
+  }
+
+  @media (max-width:480px){
+    .fi-hero{
+      padding:1.3rem .75rem 1.25rem;
     }
 
-    .fi-itinerary{
-      margin:3rem 0 2.5rem;
-      overflow-x:auto;
-    }
-    .fi-itinerary h3{
-      font-size:1.35rem;
-      margin-bottom:1.5rem;
-      text-align:center;
-      color:var(--fi-clr-accent);
+    .fi-hero h1{
+      font-size:1.48rem;
     }
 
-    .fi-cta{
-      background:var(--fi-bg-accent);
-      padding:1.5rem 1.75rem;
-      border-left:4px solid var(--fi-clr-accent);
-      border-radius:7px;
-      margin:3rem 0 2.75rem;
-      box-shadow:0 4px 10px rgba(0,0,0,.03);
+    .fi-hero h2{
+      font-size:.94rem;
+    }
+
+    .fi-hero blockquote,
+    .fi-hero p,
+    .fi-cta p{
+      font-size:.86rem;
+    }
+
+    .fi-itinerary table{
+      font-size:.85rem;
     }
 
     .fi-footer{
-      font-size:.9rem;
-      color:var(--fi-clr-muted);
-      text-align:center;
-      margin-top:2.5rem;
+      font-size:.78rem;
     }
+  }
+</style>
+  
+  <div class="fi-container">
 
-  </style>
-
-  <img 
-src="https://prepperfamily.org/assets/images/home/inner-strength.jpg"
-alt="Fortaleza Interior"
+  <!-- HERO IMAGE -->
+    <img class="fi-hero-image" 
+        src="/assets/images/home/inner-strength.webp"
+        alt="Inner Strength"
 style="
 width:100%;
 max-height:420px;
@@ -181,28 +366,11 @@ border-radius:14px;
 margin-bottom:30px;
 box-shadow:0 10px 25px rgba(0,0,0,0.15);
 ">
-
-<header class="fi-hero">
-<h1><span class="icon">✝️</span>Fortaleza Interior</h1>
-<h2>Pilar espiritual para un hogar que nunca se rinde</h2>
-<blockquote>"El Señor es mi luz y mi salvación; ¿a quién temeré?" (Sal 27:1)</blockquote>
-<p>Cuando todo tiembla, Cristo es nuestra roca. Aquí cultivamos la fe viva que transforma la preparación en misión, el miedo en valentía y la rutina en la liturgia del amor.</p>
-</header>
-
-<section class="fi-topics">
-<h3>Explora los temas de Fortaleza Interior</h3>
-
-<div class="fi-category-main">
-<a href="/es/fortaleza-interior/conceptos-cristianos-basicos/" class="fi-btn-main">
-<span>✝️ Fortaleza Interior</span>
+  <header class="fi-hero"><span>💡 Conceptos cristianos básicos</span>
 </a>
 </div>
 
 <div class="fi-subcategories">
-
-<a href="/es/fortaleza-interior/conceptos-cristianos-basicos/" class="fi-btn-sub">
-<span>💡 Conceptos cristianos básicos</span>
-</a>
   
 <a href="/es/fortaleza-interior/biblia/" class="fi-btn-sub">
 <span>📖 Biblia: la verdad revelada</span>
