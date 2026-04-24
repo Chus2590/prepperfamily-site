@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>72-Hour Bug-Out Bag: Family Survival Guide</title>
+   <meta name="description" content="Learn how to build a 72-hour bug-out bag with essential gear, organization tips, and survival strategies for families in real emergencies.">
+
+   <link rel="canonical" href="https://prepperfamily.org/en/material-support/store/bug-out-bag/">
+   <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/bug-out-bag/">
+   <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/mochila-72-horas/">
+   <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/bug-out-bag/">
+
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 12px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 36px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '🛡️';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: -50px;
+            right: -50px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.05em;
+            font-weight: 300;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 28px 20px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin: 28px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #667eea;
+            position: relative;
+        }
+
+        h2::before {
+            content: '◆';
+            margin-right: 10px;
+            color: #764ba2;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.25em;
+            margin: 22px 0 12px 0;
+            padding-left: 12px;
+            border-left: 4px solid #764ba2;
+        }
+
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        .intro-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #ff6b6b;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 16px;
+            margin: 18px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .critical-box {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 18px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.05em;
+            box-shadow: 0 8px 20px rgba(255,107,107,0.3);
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #56ccf2 0%, #2f80ed 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 18px 0;
+            box-shadow: 0 8px 20px rgba(86,204,242,0.3);
+        }
+
+        ul, ol {
+            margin: 16px 0 16px 22px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .list-icon {
+            display: inline-block;
+            width: 28px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        blockquote {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 16px 18px;
+            margin: 18px 0;
+            font-style: italic;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .checklist {
+            background: #f1f3f5;
+            padding: 18px;
+            border-radius: 15px;
+            margin: 18px 0;
+        }
+
+        .checklist-item {
+            padding: 10px 12px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #51cf66;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .checklist-item:hover {
+            transform: translateX(5px);
+        }
+
+        .section-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 18px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            table-layout: auto;
+            display: block;
+            overflow-x: auto;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+            word-break: break-word;
+        }
+
+        th {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 6px;
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 26px;
+            border-radius: 15px;
+            margin: 26px 0 0 0;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(240,147,251,0.4);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        strong {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #667eea, transparent);
+            margin: 28px 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 8px;
+            }
+
+            .header {
+                padding: 24px 16px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .subtitle {
+                font-size: 0.95em;
+            }
+
+            .content {
+                padding: 20px 16px;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            th, td {
+                padding: 8px 6px;
+                font-size: 0.85em;
+            }
+
+            .table-wrapper {
+                margin: 16px -16px;
+                border-radius: 0;
+            }
+        }
+    </style>
+    </head>
+<body>
+  
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+    
+    
+    <div class="container">
+        <div class="header">
+            <h1>🛡️ 72-Hour BUG-OUT BAG</h1>
+            <p class="subtitle">Family Manual to Get Out Alive When the World Turns Dangerous</p>
+        </div>
+
+        <div class="content">
+            <div class="intro-box">
+                <p>The bug-out bag—the famous <strong>72-hour bag</strong>—is the most basic and at the same time most decisive tool for going through a crisis without getting trapped in it. It is not designed for comfort but for <span class="highlight">pure survival</span>: when the air turns toxic, when the earth shakes, when the city burns, when public order collapses, or when there is simply no more time.</p>
+                <p>Here you will find the most refined, practical, and professional version of this vital tool, adapted for families who want to act, not improvise.</p>
+            </div>
+
+            <h2><span class="section-number">1</span> Purpose: Why does a bug-out bag exist?</h2>
+            <p>Its mission is radical and concrete: <strong>to keep a person alive during the first 72 hours away from home</strong>, without electricity, without drinking water, without government, and with no one but God and your determination.</p>
+            <p>These hours are the threshold between chaos and mental reorganization. Those who reach day three alive usually find alternatives. Those who don’t are out of the game.</p>
+            
+            <div class="success-box">
+                <strong>Essential objective:</strong> Get out quickly. Get away from danger. Preserve your integrity. Do not depend on others.
+            </div>
+
+            <h2><span class="section-number">2</span> When it is used: unmistakable signs that you must flee</h2>
+            <p>The bag is activated when the home stops being a refuge and becomes an immediate risk. Real examples:</p>
+            
+            <div class="checklist">
+                <div class="checklist-item">🔥 Industrial explosions and chemical leaks</div>
+                <div class="checklist-item">🚨 Looting, gunfire, riots, roadblocks, and urban uprisings</div>
+                <div class="checklist-item">🏚️ Forest or structural fires</div>
+                <div class="checklist-item">🌊 Earthquakes and compromised buildings</div>
+                <div class="checklist-item">💧 Flash floods, dam failures, or overflows</div>
+                <div class="checklist-item">⚡ Prolonged power outages, communications cuts, extended blackouts</div>
+                <div class="checklist-item">🌋 Volcanic ashfall hundreds of kilometers away</div>
+                <div class="checklist-item">⚠️ Any scenario where staying is equivalent to dying</div>
+            </div>
+
+            <div class="critical-box">
+                Golden rule: If you need to flee in under a minute, the bag must already have been ready yesterday.
+            </div>
+
+            <h2><span class="section-number">3</span> Each person must have their own</h2>
+            <p>There is no such thing as a “family bag.” Each member carries their own gear, calibrated to their needs:</p>
+            
+            <ul>
+                <li><strong>👶 Babies:</strong> diapers, formula, clean clothes, comfort objects</li>
+                <li><strong>💊 People with medical conditions:</strong> insulin, inhalers, critical medication</li>
+                <li><strong>👓 Eyeglass users:</strong> one sealed spare pair</li>
+                <li><strong>🧰 Adults:</strong> tools, navigation, fire, protection, and first aid</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>⚠️ Warning:</strong> In a real evacuation, sharing load means compromising lives.
+            </div>
+
+            <h2><span class="section-number">4</span> Essential components (definitive professional list)</h2>
+
+            <h3>4.1. Water 💧</h3>
+            <p><strong>The most critical variable.</strong></p>
+            <ul>
+                <li>Durable bottle or canteen</li>
+                <li>Portable purifier (ideal)</li>
+                <li>Alternative: boil for 4–8 minutes</li>
+                <li>Rag/mesh for pre-filtering</li>
+                <li>Basic distillation knowledge for mining areas or contaminated wells</li>
+            </ul>
+            <div class="critical-box">
+                72 hours without water = death
+            </div>
+
+            <h3>4.2. Shelter and thermal regulation 🏕️</h3>
+            <p>Three hours of extreme exposure can be lethal.</p>
+            <div class="checklist">
+                <div class="checklist-item">Military poncho</div>
+                <div class="checklist-item">Waterproof jacket</div>
+                <div class="checklist-item">Cold-weather cap / sun hat</div>
+                <div class="checklist-item">Extra socks</div>
+                <div class="checklist-item">Compact sleeping bag</div>
+                <div class="checklist-item">Thermal blanket</div>
+            </div>
+            <blockquote>
+                The body loses heat through the feet, neck, and chest: protect them.
+            </blockquote>
+
+            <h3>4.3. Fire 🔥</h3>
+            <p>Primitive power that saves more than it warms.</p>
+            <ul>
+                <li>Ferro rod</li>
+                <li>Durable lighter</li>
+                <li>Waterproof matches</li>
+                <li>Fire starters (cotton with wax, tinder)</li>
+            </ul>
+            <blockquote>
+                Fire is heat, light, purification, signal, and morale.
+            </blockquote>
+
+            <h3>4.4. Food 🍱</h3>
+            <p>You won’t die from lack of food in 72 hours, but your physical performance will suffer.</p>
+            <ul>
+                <li>Tsampa/Sampa (long shelf life)</li>
+                <li>Dehydrated soups</li>
+                <li>Dried fruits</li>
+                <li>Compact emergency bars</li>
+            </ul>
+            <blockquote>
+                Principle: high energy, low mass, minimal preparation.
+            </blockquote>
+
+            <h3>4.5. Navigation and signaling 🧭</h3>
+            <div class="checklist">
+                <div class="checklist-item">Reliable compass</div>
+                <div class="checklist-item">Printed maps of your area</div>
+                <div class="checklist-item">Signal mirror</div>
+                <div class="checklist-item">Whistle (louder than your voice and doesn’t tire you)</div>
+                <div class="checklist-item">Flashlight with internal battery or dynamo</div>
+                <div class="checklist-item">Solar/hand-crank emergency radio</div>
+            </div>
+            <div class="warning-box">
+                <strong>⚠️</strong> Without navigation, you will walk in circles.
+            </div>
+
+            <h3>4.6. Critical tools 🔧</h3>
+            <ul>
+                <li>Fixed-blade knife or multitool</li>
+                <li>Small hatchet or 3-in-1 tool</li>
+                <li>Ferro rod (redundancy = life)</li>
+                <li>Length of clear hose (siphoning, drawing, improvised breathing)</li>
+                <li>Mini fishing kit</li>
+                <li>Slingshot/sling</li>
+                <li>Flares or chemical lights</li>
+            </ul>
+            <blockquote>
+                The right tool solves in minutes what would otherwise be impossible.
+            </blockquote>
+
+            <h3>4.7. Hygiene and health 🏥</h3>
+            <div class="checklist">
+                <div class="checklist-item">Complete first aid kit</div>
+                <div class="checklist-item">Gauze, bandages, gloves</div>
+                <div class="checklist-item">Painkillers</div>
+                <div class="checklist-item">Burn gel</div>
+                <div class="checklist-item">Antibacterial wipes</div>
+                <div class="checklist-item">Sunscreen</div>
+                <div class="checklist-item">Basic emergency manual</div>
+                <div class="checklist-item">Toothbrush + dental floss (prevents infections that can disable you)</div>
+                <div class="checklist-item">Sewing kit (gear, clothes, backpacks)</div>
+            </div>
+
+            <h3>4.8. Other indispensables ✅</h3>
+            <ul>
+                <li>Cash in small bills</li>
+                <li>Pepper spray (where legal)</li>
+                <li>Heavy-duty duct tape</li>
+                <li>Small power bank</li>
+                <li>Solar or hand-crank charger</li>
+                <li>Work gloves</li>
+                <li>P100 or N95 mask</li>
+                <li>Full change of clothes</li>
+            </ul>
+
+            <h2><span class="section-number">5</span> How to organize the bag (professional technique)</h2>
+            <p>Poor organization is as serious as poor packing.</p>
+
+            <h3>5.1. Bottom and area against your back</h3>
+            <p>The heaviest items:</p>
+            <ul>
+                <li>Water</li>
+                <li>Food</li>
+                <li>Cooking system</li>
+                <li>Heavy tools</li>
+            </ul>
+            <blockquote>
+                Principle: the heaviest weight against your spine.
+            </blockquote>
+
+            <h3>5.2. Mid-weight (internal cushioning)</h3>
+            <ul>
+                <li>Clothing</li>
+                <li>Tarps</li>
+                <li>Rain gear</li>
+            </ul>
+            <p>Prevents the gear from shifting while you walk.</p>
+
+            <h3>5.3. Side and external pockets (immediate access)</h3>
+            <ul>
+                <li>Maps</li>
+                <li>Compass</li>
+                <li>Whistle</li>
+                <li>Flashlight</li>
+                <li>Snacks</li>
+                <li>Toilet paper</li>
+                <li>Pocketknife</li>
+            </ul>
+
+            <h3>5.4. Sleeping bag</h3>
+            <div class="critical-box">
+                Outside. Always. Tied down firmly.
+            </div>
+
+            <h2><span class="section-number">6</span> Drill: the only way to know if you will survive</h2>
+            <div class="warning-box">
+                <strong>📍 Theory saves no one. Practice does.</strong>
+            </div>
+
+            <ol>
+                <li>Trace exit routes away from populated areas</li>
+                <li>Avoid hospitals, stadiums, religious centers, and police stations (they become congested)</li>
+                <li>Identify bridges, overpasses, alternate routes</li>
+                <li>Walk 5 km with your actual bag</li>
+                <li>Time how long it takes your family to get out the door ready</li>
+            </ol>
+
+            <div class="critical-box">
+                Those who don’t practice fail.
+            </div>
+
+            <h2><span class="section-number">7</span> Urban survival bag (light version)</h2>
+            <p>To carry at all times in the city:</p>
+            <div class="checklist">
+                <div class="checklist-item">🔦 Small flashlight</div>
+                <div class="checklist-item">📢 Whistle</div>
+                <div class="checklist-item">📻 Mini radio</div>
+                <div class="checklist-item">🧥 Emergency thermal blanket</div>
+                <div class="checklist-item">🏥 Mini first aid kit</div>
+                <div class="checklist-item">🔋 Power bank</div>
+            </div>
+            <p><strong>Its function is simple:</strong> to survive unexpected entrapments.</p>
+
+            <h2><span class="section-number">8</span> Final principles that make the difference</h2>
+            <ul>
+                <li>911 collapses in mass emergencies: you depend on yourself</li>
+                <li>Avoid dead weight: sentimentality = inefficiency</li>
+                <li>Check the bag every 3 months</li>
+                <li>Adjust to your environment: rivers, volcanoes, climate, industry</li>
+                <li>Keep everything dry</li>
+                <li>Keep it ready by the door, always</li>
+            </ul>
+
+            <hr>
+
+            <div class="conclusion">
+                A prepared family is not a fearful family: it is a free family. 🛡️
+            </div>
+        </div>
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/sustento-material/almacena/" : "/en/material-support/store/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html>
