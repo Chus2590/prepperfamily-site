@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Estación familiar de molienda de granos</title>
+   <meta name="description" content="Aprende a montar una estación de molienda familiar con herramientas manuales, flujo eficiente y almacenamiento para lograr autosuficiencia alimentaria.">
+
+   <link rel="canonical" href="https://prepperfamily.org/es/sustento-material/prepara/molienda-granos/">
+   <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/grain-milling/">
+   <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/molienda-granos/">
+   <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/grain-milling/">
+    
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 14px;
+        }
+        
+        .hero {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 36px 20px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .hero h1 {
+            font-size: 2.2em;
+            margin-bottom: 12px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+        
+        .module {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .module:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .module.module-1 { border-color: #ff6b6b; }
+        .module.module-2 { border-color: #4ecdc4; }
+        .module.module-3 { border-color: #45b7d1; }
+        .module.module-4 { border-color: #f9ca24; }
+        .module.module-5 { border-color: #6c5ce7; }
+        
+        .module-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+        
+        .module-number {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1em;
+            margin-right: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .module h2 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 6px;
+        }
+        
+        .objective {
+            background: #e8f5e8;
+            padding: 12px;
+            border-radius: 10px;
+            border-left: 4px solid #27ae60;
+            margin-bottom: 14px;
+            font-style: italic;
+        }
+        
+        .section {
+            margin-bottom: 18px;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            padding-bottom: 4px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .criteria-list {
+            background: #f8f9fa;
+            padding: 14px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .criteria-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .criteria-number {
+            background: #3498db;
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+        
+        .flow-zones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 10px;
+            margin: 14px 0;
+        }
+        
+        .zone {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 14px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 14px 0;
+        }
+        
+        .spec-table th, .spec-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .spec-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .spec-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .errors-section {
+            background: #fff3cd;
+            padding: 14px;
+            border-radius: 12px;
+            border-left: 5px solid #ffc107;
+            margin-top: 18px;
+        }
+        
+        .errors-section h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .error-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        .error-number {
+            background: #dc3545;
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+        
+        .steps-list {
+            counter-reset: step-counter;
+        }
+        
+        .step-item {
+            counter-increment: step-counter;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #28a745;
+            position: relative;
+        }
+        
+        .step-item::before {
+            content: counter(step-counter);
+            background: #28a745;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: absolute;
+            left: -12px;
+            top: 10px;
+        }
+        
+        .step-item .step-content {
+            margin-left: 20px;
+        }
+        
+        .warning-box {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid #f5c6cb;
+            margin: 14px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .warning-icon {
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        
+        .calculation-box {
+            background: #d1ecf1;
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid #bee5eb;
+            margin: 14px 0;
+            text-align: center;
+        }
+        
+        .calculation-result {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #0c5460;
+            margin: 8px 0;
+        }
+        
+        .equivalence-table {
+            background: linear-gradient(135deg, #a8e6cf, #7fcdcd);
+            padding: 18px;
+            border-radius: 15px;
+            margin: 24px 0;
+            color: #2c3e50;
+        }
+        
+        .equivalence-table h3 {
+            text-align: center;
+            margin-bottom: 16px;
+            color: #2c3e50;
+            font-size: 1.4em;
+        }
+        
+        .responsive-table {
+            overflow-x: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.7em;
+            }
+            
+            .hero p {
+                font-size: 1em;
+            }
+            
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .flow-zones {
+                grid-template-columns: 1fr;
+            }
+            
+            .module {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+  
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+    
+    <div class="container">
+        <div class="hero">
+            <h1>🌾 Estación de Molienda Familiar 🌾</h1>
+            <p>Del grano a la harina: Diseña, monta y opera tu estación doméstica de molienda manual para obtener harina fresca diaria, incluso durante cortes de electricidad prolongados.</p>
+        </div>
+        
+        <div class="modules-grid">
+            <!-- Módulo 1 -->
+            <div class="module module-1">
+                <div class="module-header">
+                    <div class="module-number">1</div>
+                    <h2>Espacio y Disposición Física</h2>
+                </div>
+                
+                <div class="objective">
+                    <strong>Objetivo:</strong> Seleccionar y organizar el área de trabajo para maximizar higiene, eficiencia y seguridad.
+                </div>
+                
+                <div class="section">
+                    <h3>🏠 Criterios de Ubicación</h3>
+                    <div class="criteria-list">
+                        <div class="criteria-item">
+                            <div class="criteria-number">1</div>
+                            <div><strong>Ventilación cruzada:</strong> evita acumulación de polvo fino</div>
+                        </div>
+                        <div class="criteria-item">
+                            <div class="criteria-number">2</div>
+                            <div><strong>Superficie estable:</strong> mesa de madera maciza o encimera de concreto; altura ideal: 90 cm ± 5 cm</div>
+                        </div>
+                        <div class="criteria-item">
+                            <div class="criteria-number">3</div>
+                            <div><strong>Iluminación natural:</strong> reduce fatiga visual al inspeccionar grano</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>🔄 Flujo Ergonómico "Grano → Harina → Pan"</h3>
+                    <div class="flow-zones">
+                        <div class="zone">Zona A<br>Almacenamiento del grano</div>
+                        <div class="zone">Zona B<br>Molienda (WonderMill)</div>
+                        <div class="zone">Zona C<br>Tamizado y captura</div>
+                        <div class="zone">Zona D<br>Amasado y horneado</div>
+                    </div>
+                </div>
+                
+                <div class="errors-section">
+                    <h4>⚠️ Errores Comunes y Soluciones</h4>
+                    <div class="error-item">
+                        <div class="error-number">1</div>
+                        <div><strong>Problema:</strong> Colocar el molino en superficie inestable<br><strong>Solución:</strong> Atornillar a banco fijo</div>
+                    </div>
+                    <div class="error-item">
+                        <div class="error-number">2</div>
+                        <div><strong>Problema:</strong> Flujo cruzado de personas<br><strong>Solución:</strong> Señalizar ruta unidireccional</div>
+                    </div>
+                    <div class="error-item">
+                        <div class="error-number">3</div>
+                        <div><strong>Problema:</strong> Polvo sobre electrodomésticos<br><strong>Solución:</strong> Cubrirlos con tela húmeda</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Módulo 2 -->
+            <div class="module module-2">
+                <div class="module-header">
+                    <div class="module-number">2</div>
+                    <h2>Equipo Esencial</h2>
+                </div>
+                
+                <div class="objective">
+                    <strong>Objetivo:</strong> Conocer y preparar los utensilios necesarios para una producción continua.
+                </div>
+                
+                <div class="section">
+                    <h3>⚙️ WonderMill Junior Deluxe</h3>
+                    <div class="responsive-table">
+                        <table class="spec-table">
+                            <thead>
+                                <tr>
+                                    <th>Característica</th>
+                                    <th>Valor de Referencia</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Burrs incluidos</td>
+                                    <td>Piedra de corindón + acero inoxidable</td>
+                                </tr>
+                                <tr>
+                                    <td>Rendimiento medio</td>
+                                    <td>35–40 g harina/min</td>
+                                </tr>
+                                <tr>
+                                    <td>Espesor ajustable</td>
+                                    <td>0 (harina fina) – 9 (gruesa)</td>
+                                </tr>
+                                <tr>
+                                    <td>Peso del conjunto</td>
+                                    <td>10 kg</td>
+                                </tr>
+                                <tr>
+                                    <td>Ventaja clave</td>
+                                    <td>Conversión opcional a manivela de bicicleta</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>🔍 Tamices Recomendados</h3>
+                    <div class="criteria-list">
+                        <div class="criteria-item">
+                            <div class="criteria-number">50</div>
+                            <div><strong>Malla 50 (300 µm):</strong> harina panificable</div>
+                        </div>
+                        <div class="criteria-item">
+                            <div class="criteria-number">30</div>
+                            <div><strong>Malla 30 (600 µm):</strong> sémola integral</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 15px;"><strong>Marco:</strong> Madera tratada con aceite mineral</p>
+                </div>
+                
+                <div class="section">
+                    <h3>📦 Contenedores Herméticos</h3>
+                    <div class="responsive-table">
+                        <table class="spec-table">
+                            <thead>
+                                <tr>
+                                    <th>Tipo</th>
+                                    <th>Capacidad</th>
+                                    <th>Uso Sugerido</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cubo HDPE + tapa Gamma Seal</td>
+                                    <td>20 L</td>
+                                    <td>Grano sin moler (≈15 kg)</td>
+                                </tr>
+                                <tr>
+                                    <td>Tarro PET grado alimentario</td>
+                                    <td>4 L</td>
+                                    <td>Harina de la semana</td>
+                                </tr>
+                                <tr>
+                                    <td>Bolsas Mylar 7 mil + absorvedor O₂</td>
+                                    <td>Variable</td>
+                                    <td>Reserva anual</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="errors-section">
+                    <h4>⚠️ Errores Comunes y Soluciones</h4>
+                    <div class="error-item">
+                        <div class="error-number">1</div>
+                        <div><strong>Problema:</strong> Usar frascos sin protección UV<br><strong>Solución:</strong> Almacenar en lugar oscuro</div>
+                    </div>
+                    <div class="error-item">
+                        <div class="error-number">2</div>
+                        <div><strong>Problema:</strong> Exceder capacidad del tamiz<br><strong>Solución:</strong> Dosificar 200 g por vez</div>
+                    </div>
+                    <div class="error-item">
+                        <div class="error-number">3</div>
+                        <div><strong>Problema:</strong> Tapa Gamma mal sellada<br><strong>Solución:</strong> Aplicar vaselina alimentaria al aro</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Módulo 3 -->
+            <div class="module module-3">
+                <div class="module-header">
+                    <div class="module-number">3</div>
+                    <h2>Procedimiento de Molienda</h2>
+                </div>
+                
+                <div class="objective">
+                    <strong>Objetivo:</strong> Transformar grano limpio en harina lista para pan con seguridad y constancia.
+                </div>
+                
+                <div class="section">
+                    <h3>🔍 Selección y Pre-revisión</h3>
+                    <div class="steps-list">
+                        <div class="step-item">
+                            <div class="step-content">Inspeccionar visualmente 500 g; descartar granos partidos, piedras y semillas extrañas</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-content">Lavar si presenta polvo excesivo; secar 24 h al aire</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>⚙️ Ajuste de Discos</h3>
+                    <div class="calculation-box">
+                        <div>Fijar indicador en <strong>nivel 2</strong> para harina panificable estándar</div>
+                        <div style="margin-top: 10px;">Verificar giro libre sin rozamiento metálico</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>🌾 Proceso de Molienda</h3>
+                    <div class="steps-list">
+                        <div class="step-item">
+                            <div class="step-content"><strong>Primer pase:</strong> moler 300 g continuos (≈8 min)</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-content"><strong>Tamizar</strong> con malla 50; recoger harina fina</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-content"><strong>Segundo pase:</strong> devolver fracción gruesa; ajustar a nivel 1 si busca textura 100% integral</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <div class="warning-icon">🛡️</div>
+                    <div>
+                        <strong>Seguridad sin electricidad:</strong><br>
+                        • Guantes de algodón con palma antideslizante<br>
+                        • Mantener niños a distancia de 1 m<br>
+                        • Parar cada 10 min para evitar sobrecalentamiento
+                    </div>
+                </div>
+                
+                <div class="errors-section">
+                    <h4>⚠️ Errores Comunes y Soluciones</h4>
+                    <div class="error-item">
+                        <div class="error-number">1</div>
+                        <div><strong>Problema:</strong> Harina demasiado caliente<br><strong>Solución:</strong> Reducir ritmo de giro</div>
+                    </div>
+                    <div class="error-item">
+                        <div class="error-number">2</div>
+                        <div><strong>Problema:</strong> Textura irregular<br><strong>Solución:</strong> Reapretar tuercas de burr</div>
+                    </div>
+                    <div class="error-item">
+                        <div class="error-number">3</div>
+                        <div><strong>Problema:</strong> Manivela suelta<br><strong>Solución:</strong> Revisar pasador de seguridad</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Módulo 4 -->
+            <div class="module module-4">
+                <div class="module-header">
+                    <div class="module-number">4</div>
+                    <h2>Mantenimiento y Limpieza</h2>
+                </div>
+                
+                <div class="objective">
+                    <strong>Objetivo:</strong> Prolongar la vida útil del equipo y preservar la inocuidad.
+                </div>
+                
+                <div class="section">
+                    <h3>🧽 Limpieza Diaria</h3>
+                    <div class="criteria-list">
+                        <div class="criteria-item">
+                            <div class="criteria-number">✓</div>
+                            <div>Cepillo seco de cerdas duras sobre piedras y tolva</div>
+                        </div>
+                        <div class="criteria-item">
+                            <div class="criteria-number">✓</div>
+                            <div>Paño ligeramente humedecido en exterior; secar al instante</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>🛠️ Lubricación y Piezas de Desgaste</h3>
+                    <div class="responsive-table">
+                        <table class="spec-table">
+                            <thead>
+                                <tr>
+                                    <th>Elemento</th>
+                                    <th>Producto</th>
+                                    <th>Frecuencia</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Eje principal</td>
+                                    <td>Aceite mineral grado alimentario</td>
+                                    <td>Cada 40 h de uso</td>
+                                </tr>
+                                <tr>
+                                    <td>Junta de goma</td>
+                                    <td>Talco alimentario</td>
+                                    <td>Mensual</td>
+                                </tr>
+                                <tr>
+                                    <td>Burrs de corindón</td>
+                                    <td>Re-avivado con piedra de asentar</td>
+                                    <td>Anual</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>🔧 Inspección Estructural</h3>
+                    <div class="warning-box">
+                        <div class="warning-icon">⚠️</div>
+                        <div>
+                            <strong>Puntos críticos:</strong><br>
+                            • Fisuras en carcasa → detener uso y reemplazar<br>
+                            • Holgura del cojinete → ajustar tuerca contraria
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="errors-section">
+                    <h4>⚠️ Errores Comunes y Soluciones</h4>
+                    <div class="error-item">
+                        <div class="error-number">1</div>
+                        <div><strong>Problema:</strong> Uso de detergente líquido<br><strong>Solución:</strong> Degrada burrs; limpiar en seco</div>
+                    </div>
+                    <div class="error-item">
+                        <div class="error-number">2</div>
+                        <div><strong>Problema:</strong> Ignorar ruidos metálicos<br><strong>Solución:</strong> Revisar alineación inmediata</div>
+                    </div>
+                    <div class="error-item">
+                        <div class="error-number">3</div>
+                        <div><strong>Problema:</strong> Almacenar húmedo<br><strong>Solución:</strong> Riesgo de óxido; aplicar aceite protector</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Módulo 5 -->
+            <div class="module module-5">
+                <div class="module-header">
+                    <div class="module-number">5</div>
+                    <h2>Rotación y Almacenamiento</h2>
+                </div>
+                
+                <div class="objective">
+                    <strong>Objetivo:</strong> Garantizar suministro estable y de calidad durante todo el año.
+                </div>
+                
+                <div class="section">
+                    <h3>📊 Cálculo de Necesidades Familiares</h3>
+                    <div class="calculation-box">
+                        <div><strong>Familia de 4 personas, pan diario</strong></div>
+                        <div class="calculation-result">400 g harina/día → 146 kg grano/año</div>
+                        <div style="margin-top: 10px;">Añadir 10% colchón estratégico: <strong>160 kg</strong></div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>🔄 Método FIFO Simplificado</h3>
+                    <div class="steps-list">
+                        <div class="step-item">
+                            <div class="step-content">Etiquetar cada cubo con fecha de llenado (MM-AAAA)</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-content">Consumir siempre el más antiguo</div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-content">Reponer trimestralmente</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>🌡️ Condiciones Óptimas de Bodega</h3>
+                    <div class="criteria-list">
+                        <div class="criteria-item">
+                            <div class="criteria-number">°C</div>
+                            <div><strong>Temperatura:</strong> 10–18 °C</div>
+                        </div>
+                        <div class="criteria-item">
+                            <div class="criteria-number">%</div>
+                            <div><strong>Humedad relativa:</strong> ≤ 60%</div>
+                        </div>
+                        <div class="criteria-item">
+                            <div class="criteria-number">💧</div>
+                            <div><strong>Deshumidificador pasivo:</strong> cloruro de calcio en bandeja</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <div class="warning-icon">🚨</div>
+                    <div>
+                        <strong>Señales de deterioro:</strong><br>
+                        • Olor rancio o a humedad<br>
+                        • Presencia de polillas o telarañas<br>
+                        • Cambio de color a opaco
+                    </div>
+                </div>
+                
+                <div class="errors-section">
+                    <h4>⚠️ Errores Comunes y Soluciones</h4>
+                    <div class="error-item">
+                        <div class="error-number">1</div>
+                        <div><strong>Problema:</strong> Mezclar cosechas distintas<br><strong>Solución:</strong> Altera cocción; separar por lote</div>
+                    </div>
+                    <div class="error-item">
+                        <div class="error-number">2</div>
+                        <div><strong>Problema:</strong> Almacenar sobre piso de cemento<br><strong>Solución:</strong> Usar tarimas de madera</div>
+                    </div>
+                    <div class="error-item">
+                        <div class="error-number">3</div>
+                        <div><strong>Problema:</strong> No revisar absorvedores O₂<br><strong>Solución:</strong> Pesarlos semestralmente (≤ 5% peso extra)</div>
+                    </div>
+                </div>
+            </div>
+        <!-- Anexo - Tabla de Equivalencias -->
+        <div class="equivalence-table">
+            <h3>📊 Mini-formulario de Equivalencias Grano-Harina-Pan</h3>
+            <div class="responsive-table">
+                <table class="spec-table">
+                    <thead>
+                        <tr>
+                            <th>Grano (g)</th>
+                            <th>Harina obtenida (g)</th>
+                            <th>Hogazas de 500 g (aprox.)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>500</td>
+                            <td>475</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>1,000</td>
+                            <td>950</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>2,000</td>
+                            <td>1,900</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>5,000</td>
+                            <td>4,750</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>10,000</td>
+                            <td>9,500</td>
+                            <td>30</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="calculation-box" style="margin-top: 25px; background: rgba(255,255,255,0.9);">
+                <h4 style="color: #2c3e50; margin-bottom: 15px;">🧮 Ajuste de Escala</h4>
+                <p><strong>Para hogazas mayores o menores:</strong></p>
+                <div class="calculation-result" style="color: #2c3e50;">
+                    Multiplique la columna de harina por<br>
+                    (gramos deseados de harina ÷ 300)
+                </div>
+                <div style="margin-top: 15px; padding: 15px; background: #e8f5e8; border-radius: 8px;">
+                    <strong>Ejemplo:</strong> Hogaza de 750 g (≃ 450 g harina) → factor 1,5<br>
+                    1,000 g grano rendirá <strong>2 hogazas de 750 g</strong>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+        
+        <!-- Footer inspiracional -->
+        <div style="text-align: center; margin-top: 50px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+            <h3 style="margin-bottom: 15px; font-size: 1.8em;">¡Tu camino hacia la autosuficiencia alimentaria comienza aquí! 🌾</h3>
+            <p style="font-size: 1.2em; opacity: 0.9;">Con esta guía tendrás las herramientas necesarias para producir harina fresca y nutritiva para tu familia, sin depender de la electricidad. ¡Manos a la obra!</p>
+        </div>
+    </div>
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/sustento-material/prepara/" : "/en/material-support/prepare/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html>
