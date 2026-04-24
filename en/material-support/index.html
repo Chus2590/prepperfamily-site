@@ -12,192 +12,210 @@
 
 <section class="sm-wrapper">
   <style>
-    :root{
-      --sm-bg-hero: linear-gradient(135deg,#f6fff7 0%,#eef7ff 100%);
-      --sm-ink:#1f2937;
-      --sm-muted:#6b7280;
-      --sm-green:#2f6b3a;
-      --sm-green-2:#2c5f2d;
-      --sm-gold:#c3a56c;
-      --sm-card:#ffffff;
-      --sm-border: rgba(17,24,39,.08);
-      --sm-shadow: 0 18px 45px rgba(0,0,0,.10);
-      --sm-shadow-soft: 0 10px 24px rgba(0,0,0,.08);
-      --sm-radius: 16px;
-      --sm-radius-sm: 12px;
-    }
+  :root{
+    --sm-bg-hero: linear-gradient(135deg,#f6fff7 0%,#eef7ff 100%);
+    --sm-ink:#1f2937;
+    --sm-muted:#6b7280;
+    --sm-green:#2f6b3a;
+    --sm-green-2:#2c5f2d;
+    --sm-gold:#c3a56c;
+    --sm-card:#ffffff;
+    --sm-border: rgba(17,24,39,.08);
+    --sm-shadow: 0 14px 32px rgba(0,0,0,.08);
+    --sm-shadow-soft: 0 6px 16px rgba(0,0,0,.06);
+    --sm-radius: 14px;
+    --sm-radius-sm: 10px;
+  }
 
-    .sm-wrapper{
-      font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-      color: var(--sm-ink);
-      padding: 1rem 1rem 4rem;
-      background: #f7fafc;
-    }
+  .sm-wrapper{
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color: var(--sm-ink);
+    padding: .85rem .85rem 3rem;
+    background: #f7fafc;
+  }
 
-    .sm-container{max-width: 980px; margin: 0 auto;}
+  .sm-container{max-width: 900px; margin: 0 auto;}
 
-    .sm-hero-image{
-      width:100%;
-      max-height:420px;
-      object-fit:cover;
-      border-radius:14px;
-      margin: 0 0 1.75rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      display:block;
-    }
+  .sm-hero-image{
+    width:100%;
+    max-height:380px;
+    object-fit:cover;
+    border-radius:12px;
+    margin: 0 0 1.4rem;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    display:block;
+  }
 
-    .sm-hero{
-      background: var(--sm-bg-hero);
-      padding: 2.35rem 1.5rem 2.15rem;
-      border-radius: 14px;
-      text-align: center;
-      box-shadow: 0 10px 24px rgba(0,0,0,.05);
-      border: 1px solid var(--sm-border);
-    }
+  .sm-hero{
+    background: var(--sm-bg-hero);
+    padding: 1.9rem 1.2rem 1.8rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 16px rgba(0,0,0,.05);
+    border: 1px solid var(--sm-border);
+  }
 
-    .sm-hero h1{
-      font-size: clamp(2rem, 3vw, 2.6rem);
-      margin: 0 0 .35rem;
-      letter-spacing: -.02em;
-    }
+  .sm-hero h1{
+    font-size: clamp(1.75rem, 2.6vw, 2.2rem);
+    margin: 0 0 .3rem;
+    letter-spacing: -.02em;
+  }
 
-    .sm-hero h2{
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin: 0 auto 1.05rem;
-      max-width: 46rem;
-      line-height: 1.35;
-      color: var(--sm-gold);
-    }
+  .sm-hero h2{
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 auto .9rem;
+    max-width: 42rem;
+    line-height: 1.3;
+    color: var(--sm-gold);
+  }
 
-    .sm-hero p{
-      font-size: 1.04rem;
-      line-height: 1.65;
-      max-width: 48rem;
-      margin: 0 auto;
-      color: var(--sm-muted);
-    }
+  .sm-hero p{
+    font-size: .98rem;
+    line-height: 1.6;
+    max-width: 44rem;
+    margin: 0 auto;
+    color: var(--sm-muted);
+  }
 
-    .sm-section-title{
-      text-align:center;
-      margin: 2.2rem 0 1.15rem;
-      color: var(--sm-green);
-      font-weight: 800;
-      letter-spacing: .2px;
-    }
+  .sm-section-title{
+    text-align:center;
+    margin: 1.8rem 0 1rem;
+    color: var(--sm-green);
+    font-weight: 800;
+    letter-spacing: .2px;
+    font-size: 1.05rem;
+  }
 
-    .sm-main-btn{
-      display:block;
-      text-align:center;
-      background: var(--sm-green-2);
-      color: #fff;
-      text-decoration:none;
-      font-weight: 800;
-      padding: 1rem 1.1rem;
-      border-radius: 12px;
-      box-shadow: var(--sm-shadow-soft);
-      border: 1px solid rgba(255,255,255,.22);
-    }
-    .sm-main-btn:hover{filter: brightness(.97);}
+  .sm-main-btn{
+    display:block;
+    text-align:center;
+    background: var(--sm-green-2);
+    color: #fff;
+    text-decoration:none;
+    font-weight: 800;
+    padding: .85rem 1rem;
+    border-radius: 10px;
+    box-shadow: var(--sm-shadow-soft);
+    border: 1px solid rgba(255,255,255,.2);
+    font-size: .95rem;
+  }
+  .sm-main-btn:hover{filter: brightness(.97);}
 
-    .sm-grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 1rem;
-      margin-top: 1.05rem;
-    }
+  .sm-grid{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: .85rem;
+    margin-top: .9rem;
+  }
 
-    .sm-btn{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:.55rem;
-      text-decoration:none;
-      color: var(--sm-ink);
-      background: var(--sm-card);
-      border: 1px solid var(--sm-border);
-      border-radius: 12px;
-      padding: .95rem 1rem;
-      box-shadow: 0 8px 18px rgba(0,0,0,.04);
-      font-weight: 700;
-    }
-    .sm-btn:hover{border-color: rgba(47,107,58,.28);}
+  .sm-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:.45rem;
+    text-decoration:none;
+    color: var(--sm-ink);
+    background: var(--sm-card);
+    border: 1px solid var(--sm-border);
+    border-radius: 10px;
+    padding: .75rem .8rem;
+    box-shadow: 0 5px 12px rgba(0,0,0,.04);
+    font-weight: 700;
+    font-size: .92rem;
+  }
+  .sm-btn:hover{border-color: rgba(47,107,58,.25);}
 
-    .sm-steps{
-      margin-top: 2.15rem;
-      background: var(--sm-card);
-      border: 1px solid var(--sm-border);
-      border-radius: var(--sm-radius);
-      padding: 1.6rem;
-      box-shadow: var(--sm-shadow-soft);
-    }
+  .sm-steps{
+    margin-top: 1.8rem;
+    background: var(--sm-card);
+    border: 1px solid var(--sm-border);
+    border-radius: var(--sm-radius);
+    padding: 1.25rem;
+    box-shadow: var(--sm-shadow-soft);
+  }
 
-    .sm-steps h3{
-      text-align:center;
-      margin: 0 0 1.15rem;
-      color: var(--sm-green);
-      font-weight: 900;
-    }
+  .sm-steps h3{
+    text-align:center;
+    margin: 0 0 .9rem;
+    color: var(--sm-green);
+    font-weight: 900;
+    font-size: 1rem;
+  }
 
-    .sm-step{
-      display:flex;
-      gap: 1rem;
-      align-items:flex-start;
-      background: #fbfbfb;
-      border: 1px solid rgba(17,24,39,.06);
-      border-radius: 12px;
-      padding: 1rem;
-      margin: .85rem 0;
-    }
+  .sm-step{
+    display:flex;
+    gap: .75rem;
+    align-items:flex-start;
+    background: #fbfbfb;
+    border: 1px solid rgba(17,24,39,.05);
+    border-radius: 10px;
+    padding: .75rem;
+    margin: .65rem 0;
+  }
 
-    .sm-badge{
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: linear-gradient(180deg,#caa96a,#8a6b2a);
-      color:#fff;
-      font-weight: 900;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex: 0 0 34px;
-      box-shadow: 0 10px 18px rgba(0,0,0,.12);
-    }
+  .sm-badge{
+    width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    background: linear-gradient(180deg,#caa96a,#8a6b2a);
+    color:#fff;
+    font-weight: 900;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex: 0 0 30px;
+    font-size: .85rem;
+    box-shadow: 0 6px 12px rgba(0,0,0,.1);
+  }
 
-    .sm-step p{margin:0;color: var(--sm-muted);line-height:1.6;}
+  .sm-step p{
+    margin:0;
+    color: var(--sm-muted);
+    line-height:1.55;
+    font-size: .93rem;
+  }
 
-    .sm-callout{
-      margin-top: 1.55rem;
-      background: linear-gradient(135deg, #2f6b3a 0%, #224f2b 100%);
-      color: #fff;
-      border-radius: 14px;
-      padding: 1.35rem 1.25rem;
-      box-shadow: var(--sm-shadow);
-      text-align:center;
-      border: 1px solid rgba(255,255,255,.18);
-    }
-    .sm-callout a{color:#ffe7b3; font-weight:800; text-decoration: underline;}
+  .sm-callout{
+    margin-top: 1.25rem;
+    background: linear-gradient(135deg, #2f6b3a 0%, #224f2b 100%);
+    color: #fff;
+    border-radius: 12px;
+    padding: 1.05rem 1rem;
+    box-shadow: var(--sm-shadow);
+    text-align:center;
+    border: 1px solid rgba(255,255,255,.15);
+    font-size: .95rem;
+  }
+  .sm-callout a{color:#ffe7b3; font-weight:800; text-decoration: underline;}
 
-    .sm-note{
-      margin-top: 1.3rem;
-      text-align:center;
-      color: var(--sm-muted);
-      font-size: .95rem;
-    }
-    .sm-note a{color: inherit; font-weight:800; text-decoration:none;}
-    .sm-note a:hover{text-decoration:underline;}
+  .sm-note{
+    margin-top: 1rem;
+    text-align:center;
+    color: var(--sm-muted);
+    font-size: .88rem;
+  }
+  .sm-note a{color: inherit; font-weight:800; text-decoration:none;}
+  .sm-note a:hover{text-decoration:underline;}
 
-    @media (max-width: 900px){
-      .sm-grid{grid-template-columns: 1fr;}
-      .sm-wrapper{padding: 1rem .85rem 4rem;}
-    }
-  </style>
+  @media (max-width: 900px){
+    .sm-grid{grid-template-columns: 1fr;}
+    .sm-wrapper{padding: .75rem .7rem 3rem;}
+  }
+
+  @media (max-width: 480px){
+    .sm-wrapper{padding: .6rem .55rem 2.5rem;}
+    .sm-hero h1{font-size: 1.6rem;}
+    .sm-hero h2{font-size: 1rem;}
+    .sm-hero p{font-size: .92rem;}
+  }
+</style>
 
   <div class="sm-container">
 
     <!-- HERO IMAGE -->
     <img class="sm-hero-image"
-         src="../../assets/images/material-support/hero.jpg"
+         src="../../assets/images/home/material-support.webp"
          alt="Material Support">
 
     <!-- HERO CARD -->
@@ -214,11 +232,10 @@
     <h3 class="sm-section-title">Explore the Material Support Topics</h3>
 
     <!-- Main pill button (for now points to same pillar) -->
-    <a class="sm-main-btn" href="/en/material-support/store/">🪓 View All: Material Support</a>
+    <a class="sm-main-btn" href="/en/material-support/store/">📦 STORE: Food and Medicine</a>
 
     <div class="sm-grid">
       <!-- For now ALL go to the same pillar. Later you replace href="./" with the real URLs. -->
-      <a class="sm-btn" href="/en/material-support/store/">📦 STORE: Food and Medicine</a>
       <a class="sm-btn" href="/en/material-support/grow/">🌱 GROW: Food and Medicine</a>
       <a class="sm-btn" href="/en/material-support/prepare/">🧱 PREPARE: Basic Materials</a>
       <a class="sm-btn" href="/en/material-support/family-production-units/">🧑‍🌾 Family Production Units</a>
