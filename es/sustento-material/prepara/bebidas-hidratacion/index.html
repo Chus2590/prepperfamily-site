@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bebidas históricas para hidratación y supervivencia</title>
+   <meta name="description" content="Descubre bebidas históricas para hidratarte usando agua, sales y ingredientes naturales, ideales para calor, esfuerzo físico y situaciones de supervivencia.">
+
+   <link rel="canonical" href="https://prepperfamily.org/es/sustento-material/prepara/bebidas-hidratacion/">
+   <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/hydration-drinks/">
+   <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/bebidas-hidratacion/">
+   <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/hydration-drinks/">
+    
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 12px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 28px 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .intro-note {
+            background: rgba(255,255,255,0.1);
+            padding: 14px;
+            border-radius: 12px;
+            margin-top: 14px;
+            border-left: 4px solid #fff;
+            font-size: 1em;
+        }
+        
+        .content {
+            padding: 26px 20px;
+        }
+        
+        h2 {
+            font-size: 1.5em;
+            color: #667eea;
+            margin: 26px 0 16px 0;
+            padding: 10px 0;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .section-intro {
+            background: #f8f9ff;
+            padding: 14px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .recipe-card {
+            background: #fff;
+            border: 1px solid #e1e8ed;
+            border-radius: 15px;
+            padding: 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        
+        .recipe-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .recipe-details {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #667eea;
+            min-width: 120px;
+            font-size: 0.9em;
+        }
+        
+        .detail-value {
+            flex: 1;
+            color: #34495e;
+        }
+        
+        .modern-tip {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0fff4 100%);
+            padding: 12px;
+            border-radius: 10px;
+            border-left: 4px solid #27ae60;
+            margin-top: 12px;
+            font-style: italic;
+        }
+        
+        .advice-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            padding: 16px;
+            border-radius: 12px;
+            margin: 18px 0;
+            border-left: 4px solid #f39c12;
+        }
+        
+        .advice-title {
+            font-weight: 700;
+            color: #d68910;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .rules-section {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 26px;
+        }
+        
+        .rules-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #2d3436;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+        
+        .rule-item {
+            background: rgba(255,255,255,0.9);
+            padding: 12px;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .rule-label {
+            font-weight: 700;
+            color: #c0392b;
+            margin-bottom: 4px;
+        }
+        
+        .conclusion {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 26px;
+        }
+        
+        .conclusion h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 8px;
+            }
+            
+            .container {
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 22px 16px;
+            }
+            
+            h1 {
+                font-size: 1.6em;
+            }
+            
+            .content {
+                padding: 20px 16px;
+            }
+            
+            h2 {
+                font-size: 1.3em;
+            }
+            
+            .recipe-card {
+                padding: 16px;
+            }
+            
+            .detail-item {
+                flex-direction: column;
+                gap: 4px;
+            }
+            
+            .detail-label {
+                min-width: auto;
+                font-weight: 700;
+            }
+            
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+  
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>🏺 Bebidas Históricas para Hidratar</h1>
+            <div class="intro-note">
+                <strong>💡 Sabiduría Ancestral:</strong> En la naturaleza el "agua pura" no existe; por ello, muchas culturas añadieron ácidos suaves, sales, azúcares naturales, cereales o lácteos diluidos para volver el agua más segura, palatable y útil para la hidratación.
+            </div>
+        </div>
+        
+        <div class="content">
+            <h2>🍋 I. Agua con Vinagre (Acidulación Sencilla)</h2>
+            
+            <div class="recipe-card">
+                <div class="recipe-title">1️⃣ Posca</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">Roma (soldados y clases populares)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Siglos I a.C.–IV d.C.</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, vinagre de vino, pizca de sal o hierbas (opcional)</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Acidifica y enmascara sabores del agua; hoy, 1 L agua + 1–2 cucharadas de vinagre, ajustar sal mínima.
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-title">2️⃣ Oxymel</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">Mundo grecorromano y medicina medieval</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Antigüedad tardía–Edad Media</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, vinagre, miel</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Combina ácido y glucosa, fomenta la ingesta; hoy, 250–300 ml agua + 1–2 cucharaditas miel + 1 cucharadita vinagre.
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-title">3️⃣ Sekanjabīn (Sekanjabin)</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">Persia/Irán</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">≥ siglo X</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, vinagre, miel o azúcar, menta (opcional)</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Refrescante en clima cálido; hoy, sirope ligero y 1–2 cucharaditas por vaso con menta.
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-title">4️⃣ Switchel (Haymaker's Punch)</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">América del Norte rural</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Siglos XVIII–XIX</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, vinagre, melaza o miel, jengibre</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Aporta azúcares y electrolitos ligeros; hoy, 1 L agua + 2 cucharadas vinagre + 1–2 cucharadas melaza + jengibre.
+                </div>
+            </div>
+
+            <div class="advice-box">
+                <div class="advice-title">💡 Consejo General</div>
+                Usa vinagre suave (manzana o vino), sal mínima si hay sudoración y endulzante moderado solo para palatabilidad. Enfría bien.
+            </div>
+
+            <h2>🍊 II. Agua con Frutas Ácidas (Cítricos y Otras Frutas)</h2>
+
+            <div class="recipe-card">
+                <div class="recipe-title">5️⃣ Nimbu Pani / Shikanji</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">India</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Tradición premoderna a actual</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, zumo de limón/lima, pizca de sal (ideal sal negra), poca azúcar y comino (opcional)</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Ácido cítrico + sodio; hoy, por vaso 200–250 ml agua + 1–2 cucharaditas zumo + pizca de sal.
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-title">6️⃣ Sharbat de Tamarindo</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">India y regiones adyacentes</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Medieval–actual</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, pulpa de tamarindo, sal, comino, azúcar/jaggery (opcional)</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Muy refrescante; hoy, remojar/colar pulpa y añadir sal mínima.
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-title">7️⃣ Karkadé (Hibisco)</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">Egipto/Sudán</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Antiguo–actual</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, cálices de hibisco, endulzante (opcional)</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Ácido, favorece la ingesta; hoy, infusión breve o maceración en frío y servir frío.
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-title">8️⃣ Aguapanela con Limón</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">Andes (Colombia y región)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Colonial–actual</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, panela (azúcar de caña integral), zumo de limón</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Agua sabrosa con glucosa y ácido cítrico; hoy, disolver panela tibia, enfriar y agregar limón.
+                </div>
+            </div>
+
+            <div class="advice-box">
+                <div class="advice-title">💡 Consejo General</div>
+                Prioriza ácidos suaves (limón, tamarindo, hibisco) y pizca de sal en calor. Mantén azúcares bajos y usa agua previamente hervida o segura.
+            </div>
+
+            <h2>🌿 III. Agua con Hierbas y Especias</h2>
+
+            <div class="recipe-card">
+                <div class="recipe-title">9️⃣ Jaljeera</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">Norte de India</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Tradición antigua</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, comino, menta, jengibre, sal negra, limón (opcional)</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Aporta sodio y frescor; hoy, especias molidas en agua fría y sal ajustada.
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-title">🔟 Jeera Pani (Agua de Comino)</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">India</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Tradición doméstica antigua</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, comino tostado y molido, pizca de sal (opcional)</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Sabor que anima a beber; hoy, 250 ml agua + ¼ cucharadita comino; sal si se suda mucho.
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-title">1️⃣1️⃣ Agua de Hinojo</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">Mediterráneo y Sur de Asia</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Premoderna–actual</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, semillas de hinojo (ligeramente machacadas), menta (opcional)</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Palatable y digestiva; hoy, macerar 10–15 min y enfriar.
+                </div>
+            </div>
+
+            <div class="advice-box">
+                <div class="advice-title">💡 Consejo General</div>
+                Usa maceraciones breves en frío o infusiones cortas; si hay calor/sudoración, añade pizca de sal. Filtra para mejorar textura.
+            </div>
+
+            <h2>🌾 IV. Agua con Cereales y Legumbres</h2>
+
+            <div class="recipe-card">
+                <div class="recipe-title">1️⃣2️⃣ Ptisane (Agua de Cebada Griega)</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">Grecia clásica</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">≥ siglo V a.C.</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, cebada perlada, miel o limón (opcional)</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Hidratación suave y sostenida; hoy, decocción 45–60 min, colar y servir frío.
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-title">1️⃣3️⃣ Agua de Cebada (Tradición Hispana)</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">España/Hispanoamérica</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Raíces antiguas; popular s. XIX–XX</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, cebada cocida, azúcar/miel, limón/canela (opcional)</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> De bajo costo y muy bebible; hoy, decocción ligera y frío intenso.
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-title">1️⃣4️⃣ Sattu Sharbat</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">India (Bihar)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Premoderna–actual</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, harina de garbanzo tostado, sal, limón, hierbas (opcional)</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Sodio + carbohidratos; hoy, 1–2 cucharaditas por vaso y pizca de sal.
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-title">1️⃣5️⃣ Agua de Arroz</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">Asia (uso doméstico extendido)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Premoderna–actual</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, arroz, sal mínima (opcional)</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Muy suave; hoy, hervir 10–15 min, colar y añadir sal si hay sudoración.
+                </div>
+            </div>
+
+            <div class="advice-box">
+                <div class="advice-title">💡 Consejo General</div>
+                Prefiere decocciones claras y coladas. Refrigerar y consumir el mismo día. Añade sal mínima en climas calurosos o trabajo físico.
+            </div>
+
+            <h2>🥛 V. Agua con Lácteos Diluidos y Sal</h2>
+
+            <div class="recipe-card">
+                <div class="recipe-title">1️⃣6️⃣ Ayran</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">Anatolia y Balcanes</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Antiguo/medieval–actual</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua fría, yogur natural, sal</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Reposición hídrica con electrolitos; hoy, 200 ml agua + 100 ml yogur + 1/8 cucharadita sal.
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-title">1️⃣7️⃣ Doogh</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">Persia/Irán</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Antiguo/medieval–actual</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua, yogur o suero, sal, menta (opcional)</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Hidratante y digestivo; hoy, proporciones del ayran con menta seca.
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-title">1️⃣8️⃣ Chaas (Buttermilk Salado)</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">India</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Premoderna–actual</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value>Agua; suero/yogur batido; sal; (opc.) comino, jengibre</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Ideal tras calor intenso; hoy, 1 parte yogur por 1–2 partes agua y sal al gusto.
+                </div>
+            </div>
+
+            <div class="advice-box">
+                <div class="advice-title">💡 Consejo General</div>
+                Emplea yogur natural sin azúcar; diluye con agua fría y sazona con sal mínima. Mantén cadena de frío y consume en el día.
+            </div>
+
+            <h2>🍇 VI. Aguas Simples con Fruta Seca</h2>
+
+            <div class="recipe-card">
+                <div class="recipe-title">1️⃣9️⃣ Nabīdh de Dátiles (no fermentado)</div>
+                <div class="recipe-details">
+                    <div class="detail-item">
+                        <div class="detail-label">🏛️ Origen:</div>
+                        <div class="detail-value">Arabia / Primer islam</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">📅 Época:</div>
+                        <div class="detail-value">Siglos VI–VII en adelante</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">🥄 Ingredientes:</div>
+                        <div class="detail-value">Agua; dátiles o pasas (remojo breve)</div>
+                    </div>
+                </div>
+                <div class="modern-tip">
+                    <strong>✅ Versión moderna:</strong> Agua palatable con azúcares naturales; hoy, remojar 8–12 h en frío, colar y consumir el mismo día (sin fermentar).
+                </div>
+            </div>
+
+            <div class="advice-box">
+                <div class="advice-title">💡 Consejo General</div>
+                Remoja en frío y no dejes fermentar; cuela bien y refrigera. Deshecha si aparecen burbujas u olor ácido fuerte.
+            </div>
+
+            <div class="rules-section">
+                <div class="rules-title">📏 Reglas rápidas para uso familiar</div>
+                <div class="rules-grid">
+                    <div class="rule-item">
+                        <div class="rule-label">En calor o sudoración</div>
+                        Prioriza recetas que incluyan una pizca de sal.
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-label">Azúcar</div>
+                        Usa solo la mínima necesaria para que apetezca beber.
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-label">Higiene</div>
+                        Parte siempre de agua segura (hervida, filtrada o tratada).
+                    </div>
+                    <div class="rule-item">
+                        <div class="rule-label">Frío</div>
+                        Casi todas mejoran si se sirven muy frías.
+                    </div>
+                </div>
+            </div>
+        </div> <!-- /.content -->
+    </div> <!-- /.container -->
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/sustento-material/store/" : "/en/material-support/prepare/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html>
