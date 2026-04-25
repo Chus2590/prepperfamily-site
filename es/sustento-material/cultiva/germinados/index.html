@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Guía para germinar todo el año en casa</title>
+   <meta name="description" content="Aprende a producir germinados en casa todo el año con métodos simples, selección de semillas y pasos prácticos para obtener alimentos frescos y nutritivos.">
+
+   <link rel="canonical" href="https://prepperfamily.org/es/sustento-material/cultiva/germinados/">
+   <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/grow/sprouting-guide/">
+   <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/cultiva/germinados/">
+   <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/grow/sprouting-guide/">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 12px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '🌱';
+            font-size: 2.8rem;
+            display: block;
+            margin-bottom: 12px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        h1 {
+            font-size: 1.9rem;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1em;
+            color: #7f8c8d;
+            font-weight: 300;
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 18px;
+            border-radius: 15px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px rgba(116, 185, 255, 0.3);
+        }
+        
+        .section {
+            margin-bottom: 24px;
+            background: white;
+            padding: 18px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #74b9ff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+        
+        .seeds-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 14px 0;
+        }
+        
+        .seed-card {
+            background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+            color: white;
+            padding: 14px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(253, 121, 168, 0.3);
+        }
+        
+        .seed-name {
+            font-size: 1.05rem;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+        
+        .time-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 10px;
+            margin: 14px 0;
+        }
+        
+        .time-card {
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: white;
+            padding: 14px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 184, 148, 0.3);
+        }
+        
+        .season-calendar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 14px 0;
+        }
+        
+        .season-card {
+            padding: 16px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .winter { background: linear-gradient(135deg, #74b9ff, #0984e3); }
+        .spring { background: linear-gradient(135deg, #00b894, #00cec9); }
+        .summer { background: linear-gradient(135deg, #fdcb6e, #e84393); }
+        .autumn { background: linear-gradient(135deg, #e17055, #d63031); }
+        
+        .season-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+            color: white;
+            padding: 14px;
+            border-radius: 10px;
+            margin: 14px 0;
+            border-left: 5px solid #e84393;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin: 14px 0;
+        }
+        
+        .tip-card {
+            background: white;
+            padding: 14px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #74b9ff;
+        }
+        
+        .tip-icon {
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+            display: block;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 24px;
+        }
+        
+        .cta-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 18px 0;
+            position: relative;
+        }
+        
+        .progress-steps::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #74b9ff, #0984e3);
+            z-index: 1;
+        }
+        
+        .progress-step {
+            background: white;
+            border: 3px solid #74b9ff;
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #74b9ff;
+            z-index: 2;
+            position: relative;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 14px;
+            }
+            
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .progress-steps {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .progress-steps::before {
+                display: none;
+            }
+        }
+    </style>
+    </head>
+<body>
+
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+    
+<div class="container">
+    <div class="header">
+        <h1>Guía para Germinar Todo el Año</h1>
+        <p class="subtitle">Microvegetales densos en nutrientes desde tu hogar</p>
+    </div>
+    
+    <div class="intro">
+        <p>La germinación interior de semillas —también llamada "sprouting"— permite producir microvegetales densos en nutrientes con rapidez, en espacios reducidos y sin depender de la estación. En invierno, cuando la huerta exterior se ralentiza, los brotes aportan <strong>vitaminas (C, K, complejo B), enzimas digestivas y fitonutrientes</strong> que fortalecen la dieta familiar.</p>
+    </div>
+    
+    <div class="section">
+        <h2><span class="step-number">1</span>Selección de Semillas</h2>
+        <div class="seeds-grid">
+            <div class="seed-card">
+                <div class="seed-name">🌿 Alfalfa</div>
+                <p>Rica en fitoestrógenos protectores</p>
+            </div>
+            <div class="seed-card">
+                <div class="seed-name">🥦 Brócoli</div>
+                <p>Fuente concentrada de sulforafano antioxidante</p>
+            </div>
+            <div class="seed-card">
+                <div class="seed-name">🫘 Lenteja</div>
+                <p>Alto contenido proteico (≈ 26%)</p>
+            </div>
+        </div>
+        <div class="highlight-box">
+            <strong>💡 Importante:</strong> Adquiera semillas certificadas para consumo humano con ≥ 95% de germinación y libres de tratamientos químicos.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2><span class="step-number">2</span>Preparación del Recipiente</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Opción</th>
+                    <th>Características</th>
+                    <th>Observaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Bandeja germinadora</strong></td>
+                    <td>Superficie amplia y drenaje inferior</td>
+                    <td>Ideal para rotar varias tandas</td>
+                </tr>
+                <tr>
+                    <td><strong>Frasco de vidrio con tapa de malla</strong></td>
+                    <td>Económico, ocupa poco espacio</td>
+                    <td>Inclinar el frasco a 45°</td>
+                </tr>
+                <tr>
+                    <td><strong>Tapete hidropónico</strong></td>
+                    <td>Fibras de cáñamo o coco</td>
+                    <td>Útil para brotes delicados</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="section">
+        <h2><span class="step-number">3</span>Proceso de Germinación</h2>
+        <div class="progress-steps">
+            <div class="progress-step">1</div>
+            <div class="progress-step">2</div>
+            <div class="progress-step">3</div>
+            <div class="progress-step">4</div>
+            <div class="progress-step">5</div>
+        </div>
+        
+        <div class="tips-grid">
+            <div class="tip-card">
+                <span class="tip-icon">🚿</span>
+                <h4>Enjuague Inicial</h4>
+                <p>Coloque las semillas en un colador fino y lave bajo agua corriente</p>
+            </div>
+            <div class="tip-card">
+                <span class="tip-icon">⏰</span>
+                <h4>Tiempo de Remojo</h4>
+                <p>Semillas pequeñas: 4-6h<br>Leguminosas: 8-12h</p>
+            </div>
+            <div class="tip-card">
+                <span class="tip-icon">🌡️</span>
+                <h4>Temperatura Óptima</h4>
+                <p>18-22°C. En invierno, cerca de una ventana al sur o manta térmica</p>
+            </div>
+            <div class="tip-card">
+                <span class="tip-icon">💧</span>
+                <h4>Riego Regular</h4>
+                <p>Enjuagar y escurrir 2-3 veces al día</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2><span class="step-number">4</span>Tiempos de Germinación</h2>
+        <div class="time-table">
+            <div class="time-card">
+                <h4>🌿 Alfalfa</h4>
+                <p><strong>5-6 días</strong></p>
+                <p>Longitud: 3-4 cm</p>
+            </div>
+            <div class="time-card">
+                <h4>🥦 Brócoli</h4>
+                <p><strong>4-5 días</strong></p>
+                <p>Longitud: 2-3 cm</p>
+            </div>
+            <div class="time-card">
+                <h4>🌶️ Rábano</h4>
+                <p><strong>3-4 días</strong></p>
+                <p>Longitud: 3 cm</p>
+            </div>
+            <div class="time-card">
+                <h4>🫘 Lenteja</h4>
+                <p><strong>2-3 días</strong></p>
+                <p>Raíz: 1 cm</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2><span class="step-number">5</span>Calendario Anual de Germinación</h2>
+        <div class="season-calendar">
+            <div class="season-card winter">
+                <span class="season-icon">❄️</span>
+                <h3>Invierno</h3>
+                <p><strong>Alfalfa, lenteja, trébol</strong></p>
+                <p>Toleran poca luz y temperatura moderada</p>
+            </div>
+            <div class="season-card spring">
+                <span class="season-icon">🌸</span>
+                <h3>Primavera</h3>
+                <p><strong>Rábano, brócoli, fenogreco</strong></p>
+                <p>Brotes picantes; germinación rápida</p>
+            </div>
+            <div class="season-card summer">
+                <span class="season-icon">☀️</span>
+                <h3>Verano</h3>
+                <p><strong>Girasol, mungo, albahaca</strong></p>
+                <p>Mayor ventilación para evitar moho</p>
+            </div>
+            <div class="season-card autumn">
+                <span class="season-icon">🍂</span>
+                <h3>Otoño</h3>
+                <p><strong>Trigo sarraceno, chícharo, mostaza</strong></p>
+                <p>Equilibrio entre proteína y clorofila</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2><span class="step-number">6</span>Métodos Comparativos</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Método</th>
+                    <th>Ventajas</th>
+                    <th>Desventajas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Bandejas germinadoras</strong></td>
+                    <td>Alta producción; buena aireación</td>
+                    <td>Mayor consumo de semillas y agua</td>
+                </tr>
+                <tr>
+                    <td><strong>Frascos con malla</strong></td>
+                    <td>Económico; ideal para principiantes</td>
+                    <td>Riesgo de compactación</td>
+                </tr>
+                <tr>
+                    <td><strong>Kits hidropónicos</strong></td>
+                    <td>Riego automatizado; brotes más largos</td>
+                    <td>Coste inicial elevado</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="highlight-box">
+        <strong>🎯 Sugerencia práctica:</strong> Escalone siembras cada 3-4 días para disponer de brotes frescos de forma continua.
+    </div>
+    
+    <div class="cta-section">
+        <h3>🌱 ¡Comience su producción de germinados!</h3>
+        <p>La germinación requiere pocos insumos, se completa en menos de una semana y proporciona un suministro constante de micronutrientes incluso en pleno invierno.</p>
+        <br>
+        <p><strong>Pregunta para profundizar:</strong> ¿Qué combinación de semillas le gustaría explorar primero para diversificar sabores y nutrientes en su mesa este invierno?</p>
+     </div>
+  </div>
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/sustento-material/cultiva/" : "/en/material-support/grow/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html>
