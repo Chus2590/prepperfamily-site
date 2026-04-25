@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Cómo construir una cámara de raíces en casa</title>
+   <meta name="description" content="Aprende a construir una cámara de raíces para almacenar alimentos, con aislamiento, enfriamiento y pasos prácticos para conservar cosechas.">
+
+   <link rel="canonical" href="https://prepperfamily.org/es/sustento-material/prepara/almacen-frio/">
+   <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/cold-root-cellar/">
+   <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/almacen-frio/">
+   <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/cold-root-cellar/">
+    
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 14px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 22px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 1.9em;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .subtitle {
+            font-size: 1.05em;
+            color: #7f8c8d;
+            margin-bottom: 12px;
+        }
+
+        .quote {
+            background: linear-gradient(45deg, #f39c12, #e74c3c);
+            color: white;
+            padding: 14px;
+            border-radius: 15px;
+            font-style: italic;
+            font-size: 0.95em;
+            text-align: center;
+            margin: 12px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .overview {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 18px;
+            border-radius: 15px;
+            margin: 14px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .overview h2 {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 6px;
+        }
+
+        .materials-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .materials-table th {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .materials-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .materials-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .materials-table tr:hover {
+            background: #e8f4f8;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 14px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-header {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 14px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .step-content {
+            padding: 16px;
+        }
+
+        .step-content h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .step-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .step-content li {
+            margin: 6px 0;
+            padding: 8px;
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .step-content li:hover {
+            background: #e8f4f8;
+            transform: translateX(5px);
+        }
+
+        .step-content li::before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .tip {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px 0;
+            font-style: italic;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .tip::before {
+            content: "💡 ";
+            font-size: 1em;
+        }
+
+        .maintenance-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 16px;
+            border-radius: 15px;
+            margin: 12px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .maintenance-section h3 {
+            color: #e74c3c;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 4px;
+        }
+
+        .closing {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .closing h2 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .temperature-zones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 10px;
+            margin: 12px 0;
+        }
+
+        .zone {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .zone:hover {
+            transform: scale(1.05);
+        }
+
+        .zone.high {
+            border-top: 4px solid #e74c3c;
+        }
+
+        .zone.medium {
+            border-top: 4px solid #f39c12;
+        }
+
+        .zone.low {
+            border-top: 4px solid #3498db;
+        }
+
+        .zone h4 {
+            margin-bottom: 6px;
+            color: #2c3e50;
+        }
+
+        .zone .temp {
+            font-size: 1em;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.6em;
+            }
+            
+            .header .subtitle {
+                font-size: 0.95em;
+            }
+            
+            .materials-table {
+                font-size: 0.8em;
+            }
+            
+            .step-header {
+                font-size: 1em;
+            }
+        }
+/* ===== COOLBOT ROI SECTION (ENCAPSULADO TOTAL) ===== */
+
+.coolbot-roi-section {
+    margin: 20px 0;
+}
+
+.coolbot-roi-box {
+    background: rgba(255,255,255,0.95);
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* HEADER */
+.coolbot-roi-header {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.coolbot-roi-header h2 {
+    font-size: 1.4em;
+    color: #2c3e50;
+    margin-bottom: 6px;
+}
+
+.coolbot-roi-header p {
+    font-size: 0.95em;
+    color: #7f8c8d;
+}
+
+/* ROOM SPEC */
+.coolbot-room {
+    background: linear-gradient(45deg,#3498db,#2980b9);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.95em;
+    margin-bottom: 14px;
+}
+
+/* TABLE */
+.coolbot-table-wrapper {
+    overflow-x: auto;
+}
+
+.coolbot-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85em;
+    margin-top: 10px;
+}
+
+.coolbot-table th {
+    background: linear-gradient(135deg,#27ae60,#2ecc71);
+    color: white;
+    padding: 8px;
+    text-align: left;
+}
+
+.coolbot-table td {
+    padding: 7px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.coolbot-table tr:nth-child(even) td {
+    background: #f8f9fa;
+}
+
+.coolbot-good {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.coolbot-bad {
+    color: #e74c3c;
+}
+
+/* ENERGY BARS */
+.coolbot-bars {
+    margin: 16px 0;
+}
+
+.coolbot-bar-box {
+    margin-bottom: 12px;
+}
+
+.coolbot-bar-box h4 {
+    font-size: 0.9em;
+    margin-bottom: 4px;
+}
+
+.coolbot-bar-bg {
+    background: #ecf0f1;
+    height: 18px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.coolbot-bar-fill {
+    height: 100%;
+    color: white;
+    font-size: 0.75em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.coolbot-green {
+    background: linear-gradient(90deg,#27ae60,#2ecc71);
+    width: 27%;
+}
+
+.coolbot-red {
+    background: linear-gradient(90deg,#e74c3c,#c0392b);
+    width: 100%;
+}
+
+/* EFFICIENCY BADGE */
+.coolbot-badge {
+    text-align: center;
+    margin: 12px 0;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg,#e74c3c,#c0392b);
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+/* ROI CARDS */
+.coolbot-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.coolbot-card {
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.coolbot-card h4 {
+    font-size: 0.85em;
+    margin-bottom: 4px;
+    color: #2c3e50;
+}
+
+.coolbot-card .value {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.coolbot-savings .value {
+    color: #27ae60;
+}
+
+.coolbot-cost .value {
+    color: #3498db;
+}
+
+.coolbot-roi .value {
+    color: #f39c12;
+}
+
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+
+    .coolbot-roi-box {
+        padding: 14px;
+        border-radius: 14px;
+    }
+
+    .coolbot-roi-header h2 {
+        font-size: 1.2em;
+    }
+
+    .coolbot-table {
+        font-size: 0.75em;
+    }
+
+    .coolbot-card .value {
+        font-size: 1.2em;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .coolbot-roi-box {
+        padding: 12px;
+    }
+
+    .coolbot-roi-header h2 {
+        font-size: 1.1em;
+    }
+
+}
+    </style>
+    </head>
+<body>
+  
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🏠 Cómo Construir un Root Cellar en Casa</h1>
+            <p class="subtitle">Guía para Familias sin Sótano que Buscan Almacenamiento en Frío</p>
+            <div class="quote">
+                "El mejor seguro alimentario es el que se construye con tus propias manos."<br>
+                <small>— Principio preparacionista</small>
+            </div>
+        </div>
+
+        <div class="overview">
+            <h2>🎯 Panorama General</h2>
+            <p>Un root cellar es, en esencia, un espacio fresco (<strong>0 – 10 °C</strong>) y ligeramente húmedo (<strong>85 – 95% HR</strong>) que ralentiza la respiración de frutas y verduras, impide la germinación y frena patógenos. Tradicionalmente se ubicaba bajo tierra; sin sótano, podemos recrear las mismas condiciones aprovechando un cobertizo, un garaje, un cuarto de herramientas o incluso una esquina del patio.</p>
+        </div>
+
+        <div class="step">
+            <div class="step-header">🔧 Materiales Clave</div>
+            <div class="step-content">
+                <table class="materials-table">
+                    <thead>
+                        <tr>
+                            <th>Componente</th>
+                            <th>Función</th>
+                            <th>Por qué se elige</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>CoolBot</strong> (controlador electrónico)</td>
+                            <td>Engaña al aire acondicionado para bajar de ~16 °C a ~3 °C</td>
+                            <td>Permite usar un window A/C estándar —mucho más barato que un refrigerador industrial— y mantiene un rango preciso.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rollo de plástico 6 MIL</strong> Polietileno Negro de alta calidad</td>
+                            <td>Ayuda al Aislante térmico continuo</td>
+                            <td>Minimiza pérdidas de frío y evita puentes térmicos.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Termómetro analógico</strong> de vástago (Ø > 5 cm)</td>
+                            <td>Monitor constante de temperatura (sin depender de pilas)</td>
+                            <td>Detecta desviaciones rápidamente; los modelos analógicos no fallan por baterías agotadas.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Accesorios varios</strong></td>
+                            <td>Tornillería, listones, sellador, cinta aluminio, membrana antihumedad</td>
+                            <td>Completar la construcción y sellado hermético</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">📍 Paso 1 – Seleccionar y preparar el lugar</div>
+            <div class="step-content">
+                <ul>
+                    <li><strong>Ubicación estable:</strong> Elija la pared norte de un garaje o un cobertizo sombreado; recibe menos radiación solar.</li>
+                    <li><strong>Piso firme y drenado:</strong> Hormigón o tierra compactada con ligera pendiente hacia un desagüe.</li>
+                    <li><strong>Accesibilidad:</strong> Cercanía a la cocina pero fuera de zonas calientes (calentadores, secadoras).</li>
+                </ul>
+                <div class="tip">¡Cada metro cúbico bien utilizado guarda hasta 100 kg de tubérculos—sin gastar un céntimo de electricidad extra!</div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">📐 Paso 2 – Diseñar dimensiones y flujo de aire</div>
+            <div class="step-content">
+                <ul>
+                    <li><strong>Calcula volumen:</strong> 3 m³ bastan para ~300 kg de alimentos.</li>
+                    <li><strong>Deja corredor interno:</strong> 45 cm para poder ordenar y rotar canastos.</li>
+                    <li><strong>Plan ventilación:</strong> Entrada baja (aire frío), salida alta (aire templado). Conducciones de PVC Ø 7 – 10 cm y rejillas con malla antiinsectos.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">🔨 Paso 3 – Construir la cámara</div>
+            <div class="step-content">
+                <ul>
+                    <li><strong>Paredes tipo "Sandwich":</strong> pared existente (madera, ect) ″▶ Plástico PE 6 mil sellada ▶ 1.ª capa SmartSHIELD ▶ Separadores 1 cm como cámara de aire ▶ 2.ª capa SmartSHIELD (foil hacia el interior) ▶ revestimiento OSB/PVC (opcional).
+Asi Logras ≈ R-10, control de vapor y protección del foil.</li>
+                    <li><strong>Cámara de aire continua:</strong> los separadores (madera o plastico) potencian el valor R y evitan condensación sobre la primera lámina.</li>
+                    <li><strong>Puerta aislada:</strong> Reutiliza una puerta exterior, añade burlete gomoso y pestillo para cierre hermético. </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">🧊 Paso 4 – Aislar con espuma</div>
+            <div class="step-content">
+                <ul>               
+                    <li><strong>Sellado de juntas:</strong> Espuma PU en huecos + cinta de aluminio para uniones.</li>
+                    <li><strong>Barreras térmicas:</strong> Si tu normativa lo exige, recubre con OSB o lámina ignífuga.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">❄️ Paso 5 – Instalar el sistema de frío (CoolBot + A/C)</div>
+            <div class="step-content">
+                <ul>
+                    <li><strong>Montar A/C de ventana:</strong> En pared exterior; potencia recomendada ≈ 6,000 BTU por cada 6 m³.</li>
+                    <li><strong>Configurar CoolBot:</strong> Sonda "FIN" en las aletas del evaporador. Sonda "ROOM" colgada al centro del cuarto. Calibra: Set Point 4 °C; diferencia 1 °C.</li>
+                    <li><strong>Ensayo inicial:</strong> Deja el recinto funcionando 24 h; comprueba estabilidad 3 – 8 °C.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">🌡️ Paso 6 – Colocar termómetro y estanterías</div>
+            <div class="step-content">
+                <ul>
+                    <li><strong>Termómetro:</strong> A la altura media, visible desde la puerta.</li>
+                    <li><strong>Estanterías abiertas:</strong> Madera sin tratamiento o metal galvanizado, con ranuras para flujo de aire.</li>
+                </ul>
+                <h3>Zonas de temperatura:</h3>
+                <div class="temperature-zones">
+                    <div class="zone high">
+                        <h4>Zona Alta</h4>
+                        <div class="temp">8°C</div>
+                        <p>Calabazas</p>
+                    </div>
+                    <div class="zone medium">
+                        <h4>Zona Media</h4>
+                        <div class="temp">4 – 6°C</div>
+                        <p>Manzanas</p>
+                    </div>
+                    <div class="zone low">
+                        <h4>Zona Baja</h4>
+                        <div class="temp">0 – 2°C</div>
+                        <p>Tubérculos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">🚀 Paso 7 – Puesta en marcha y carga inicial</div>
+            <div class="step-content">
+                <ul>
+                    <li><strong>Pre-enfriar vacío:</strong> 24 horas.</li>
+                    <li><strong>Cargar en etapas:</strong> Primero alimentos que toleren frío; espera 4 h antes de añadir otro lote para no forzar el compresor.</li>
+                    <li><strong>Registrar lecturas:</strong> Anota temperaturas mañana y noche la primera semana; ajusta Set Point si oscila > ±2 °C.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-header">🔧 Paso 8 – Mantenimiento y seguridad</div>
+            <div class="step-content">
+                <div class="maintenance-section">
+                    <h3>🦠 Control de moho y condensación</h3>
+                    <ul>
+                        <li><strong>Higiene:</strong> Limpia con solución 1 parte vinagre : 4 partes agua cada cambio de estación.</li>
+                        <li><strong>Ventilación diaria:</strong> Abre rejillas 15 min al amanecer (aire fresco) y 15 min al anochecer (expulsa humedad).</li>
+                        <li><strong>Bandeja de condensado:</strong> Coloca recipiente bajo el desagüe del A/C; vacía semanalmente.</li>
+                    </ul>
+                </div>
+
+                <div class="maintenance-section">
+                    <h3>✅ Buenas prácticas de conservación</h3>
+                    <ul>
+                        <li><strong>Rotación FIFO:</strong> Primero en entrar, primero en salir.</li>
+                        <li><strong>Separación por etileno:</strong> Manzanas y peras lejos de papas para evitar brotes.</li>
+                        <li><strong>Monitoreo semanal:</strong> Revisa manchas, retira piezas dañadas al instante.</li>
+                    </ul>
+                </div>
+
+                <div class="maintenance-section">
+                    <h3>🔍 Chequeo semestral del sistema</h3>
+                    <ul>
+                        <li>Aprieta contactos del CoolBot.</li>
+                        <li>Retira polvo del filtro del A/C.</li>
+                        <li>Verifica integridad de sellos de espuma (reparar microgrietas con cinta aluminio).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="closing">
+            <h2>🎉 ¡Libertad y Resiliencia Alimentaria!</h2>
+            <p>Con unas cuantas herramientas de ferretería y un poco de ingenio, has transformado un rincón olvidado en un seguro de vida alimentario que funciona 24/7 con un consumo eléctrico mínimo. Cada frasco de mermelada, cada saco de papas y cada manzana crujiente almacenados allí representan libertad y resiliencia frente a los vaivenes del mercado.</p>
+        </div>
+    </div>
+    
+    <section class="coolbot-roi-section">
+  <div class="coolbot-roi-box">
+
+    <div class="coolbot-roi-header">
+      <h2>💰 ¿Por qué invertir en CoolBot?</h2>
+      <p>Análisis de eficiencia energética y retorno de la inversión</p>
+    </div>
+
+    <div class="coolbot-room">
+      📏 Sala: 3 m² (≈ 6 m³, 2 m de altura)
+    </div>
+
+    <div class="coolbot-table-wrapper">
+      <table class="coolbot-table">
+        <thead>
+          <tr>
+            <th>Parámetro</th>
+            <th>CoolBot + A/C de 6,000 BTU</th>
+            <th>Unidad comercial de ¾ HP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Potencia nominal</strong></td>
+            <td class="coolbot-good">550 W</td>
+            <td class="coolbot-bad">1,250 W</td>
+          </tr>
+          <tr>
+            <td><strong>Ciclo de trabajo estimado</strong></td>
+            <td class="coolbot-good">25%</td>
+            <td class="coolbot-bad">40%</td>
+          </tr>
+          <tr>
+            <td><strong>Potencia promedio</strong></td>
+            <td class="coolbot-good">0.137 kW</td>
+            <td class="coolbot-bad">0.50 kW</td>
+          </tr>
+          <tr>
+            <td><strong>Consumo anual</strong></td>
+            <td class="coolbot-good">1,205 kWh</td>
+            <td class="coolbot-bad">4,380 kWh</td>
+          </tr>
+          <tr>
+            <td><strong>Costo (0.25 USD/kWh)</strong></td>
+            <td class="coolbot-good">≈ $301 USD/año</td>
+            <td class="coolbot-bad">≈ $1,095 USD/año</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="coolbot-bars">
+      <div class="coolbot-bar-box">
+        <h4>🟢 Sistema CoolBot</h4>
+        <div class="coolbot-bar-bg">
+          <div class="coolbot-bar-fill coolbot-green">$301</div>
+        </div>
+        <p>Consumo energético optimizado</p>
+      </div>
+
+      <div class="coolbot-bar-box">
+        <h4>🔴 Unidad comercial</h4>
+        <div class="coolbot-bar-bg">
+          <div class="coolbot-bar-fill coolbot-red">$1,095</div>
+        </div>
+        <p>Consumo energético estándar</p>
+      </div>
+    </div>
+
+    <div class="coolbot-badge">
+      🎯 3.6× mayor eficiencia
+    </div>
+
+    <div class="coolbot-cards">
+      <div class="coolbot-card coolbot-savings">
+        <h4>💰 Ahorro anual</h4>
+        <div class="value">$794</div>
+        <p>Reducción en la factura eléctrica</p>
+      </div>
+
+      <div class="coolbot-card coolbot-cost">
+        <h4>🛒 Inversión inicial</h4>
+        <div class="value">$419</div>
+        <p>Costo de CoolBot a julio de 2025</p>
+      </div>
+
+      <div class="coolbot-card coolbot-roi">
+        <h4>⏱️ Retorno de la inversión</h4>
+        <div class="value">7</div>
+        <p>meses</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+    
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/sustento-material/prepara/" : "/en/material-support/prepare/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html>
