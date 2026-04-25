@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Water Filter Comparison for Emergency Storage</title>
+   <meta name="description" content="Compare water filters for emergencies, including gravity and portable systems, with practical tips for storage, maintenance, and safe drinking water.">
+
+   <link rel="canonical" href="https://prepperfamily.org/en/material-support/store/water-filters/">
+   <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/water-filters/">
+   <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/filtros-agua/">
+   <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/water-filters/">
+  
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 12px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1a365d 100%);
+            color: white;
+            padding: 26px 18px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.05); opacity: 0.1; }
+        }
+
+        .header h1 {
+            font-size: 1.9rem;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 22px 16px;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 18px;
+            border-radius: 15px;
+            margin-bottom: 22px;
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+        }
+
+        .intro p {
+            font-size: 1rem;
+            line-height: 1.7;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .section {
+            margin-bottom: 22px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #2c5aa0;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #667eea;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: linear-gradient(135deg, #f8f9ff 0%, #fff5f5 100%);
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+        }
+
+        .comparison-table tr:first-child th:first-child {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1a365d 100%);
+        }
+
+        .berkey-col {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+            border-left: 4px solid #28a745;
+        }
+
+        .sawyer-col {
+            background: linear-gradient(135deg, #e8f0ff 0%, #f0f8ff 100%);
+            border-left: 4px solid #007bff;
+        }
+
+        .checklist {
+            background: white;
+            border-radius: 15px;
+            padding: 18px;
+            margin: 14px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .checklist h3 {
+            color: #2c5aa0;
+            margin-bottom: 14px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checklist h3::before {
+            content: '✓';
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .checklist-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .checklist-item h4 {
+            color: #2c5aa0;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        .checklist-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist-item li {
+            margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .checklist-item li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .filter-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .filter-card {
+            background: white;
+            border-radius: 15px;
+            padding: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .filter-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .filter-card h4 {
+            color: #2c5aa0;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .filter-card ol {
+            padding-left: 18px;
+        }
+
+        .filter-card li {
+            margin-bottom: 6px;
+            padding: 4px 0;
+        }
+
+        .capacity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin: 14px 0;
+        }
+
+        .capacity-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+        }
+
+        .capacity-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .capacity-card .metric {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 6px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .conclusion {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 18px;
+            border-radius: 15px;
+            margin-top: 22px;
+            box-shadow: 0 15px 35px rgba(255, 154, 158, 0.3);
+        }
+
+        .conclusion h3 {
+            color: #2c5aa0;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .conclusion-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .conclusion-item h4 {
+            color: #2c5aa0;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 12px;
+            border-radius: 10px;
+            margin: 12px 0;
+            border-left: 4px solid #fdcb6e;
+        }
+
+        .highlight strong {
+            color: #2c5aa0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 6px;
+                border-radius: 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .content {
+                padding: 16px;
+            }
+            
+            .comparison-table {
+                font-size: 0.85rem;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 8px 6px;
+            }
+        }
+    </style>
+  </head>
+<body>
+  
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+  
+  <div class="container">
+    <div class="header">
+      <h1>💧 Comparative Water Filter Guide</h1>
+      <p>Berkey Royal vs Sawyer PointOne for Blackouts</p>
+    </div>
+
+    <div class="content">
+      <div class="intro">
+        <p>When the power supply goes out, access to microbiologically safe water becomes an <strong>absolute priority</strong>. Two proven solutions for blackout scenarios are stainless steel gravity filters (e.g., Royal Berkey) and hollow-fiber squeeze filters (e.g., Sawyer PointOne). This guide will help you choose, use, and maintain both systems, while also considering their compatibility with BPA-free jugs for safe storage afterward.</p>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">📊 Comparison Table</h2>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Criteria</th>
+              <th>Royal Berkey (Gravity)</th>
+              <th>Sawyer PointOne (Hollow-Fiber)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Production capacity</strong></td>
+              <td class="berkey-col">4 gal/hour with 2 cartridges; up to 7 gal/hour with 4 cartridges<br>(≈ 13–42 gal/day depending on refills)</td>
+              <td class="sawyer-col">Up to 0.5 gal/min when continuously squeezed<br>(≈ 5–8 gal/day per person, effort-dependent)</td>
+            </tr>
+            <tr>
+              <td><strong>Estimated lifespan</strong></td>
+              <td class="berkey-col">6,000 gal per set of 2 Black Berkey cartridges</td>
+              <td class="sawyer-col">100,000 gal per datasheet; independent tests show up to 250,000 gal</td>
+            </tr>
+            <tr>
+              <td><strong>Filtration speed</strong></td>
+              <td class="berkey-col">Steady gravity flow; no pumping required</td>
+              <td class="sawyer-col">Fast flow but depends on squeezing; slows if not backflushed</td>
+            </tr>
+            <tr>
+              <td><strong>Maintenance</strong></td>
+              <td class="berkey-col">Light scrubbing every 250 gal; occasional re-priming</td>
+              <td class="sawyer-col">Backflush with syringe every few gallons; protect from freezing to avoid fiber damage</td>
+            </tr>
+            <tr>
+              <td><strong>Weight / Portability</strong></td>
+              <td class="berkey-col">7 lbs empty; bulky, best for household base use</td>
+              <td class="sawyer-col">3 oz (filter) + bag; fits in pocket, great for mobility</td>
+            </tr>
+            <tr>
+              <td><strong>BPA-free compatibility</strong></td>
+              <td class="berkey-col">Water dispenses from lower spigot: fill any BPA-free jug or container</td>
+              <td class="sawyer-col">Threads onto standard 28 mm bottles or drains into any BPA-free container</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">✅ Practical Checklist</h2>
+
+        <div class="checklist">
+          <h3>Choosing the right system</h3>
+
+          <div class="checklist-item">
+            <h4>1. Group size:</h4>
+            <ul>
+              <li>Up to 4 mobile people → Sawyer (lightweight, individual use)</li>
+              <li>4+ people at a fixed base → Berkey (larger volume, minimal effort)</li>
+            </ul>
+          </div>
+
+          <div class="checklist-item">
+            <h4>2. Expected blackout duration:</h4>
+            <ul>
+              <li>Less than 1 week: either works</li>
+              <li>Weeks/months: prioritize longer lifespan (both qualify, but Berkey needs fewer replacement parts)</li>
+            </ul>
+          </div>
+
+          <div class="checklist-item">
+            <h4>3. Water source:</h4>
+            <ul>
+              <li>High turbidity favors Berkey (prefilter built into candle)</li>
+              <li>Clear streams: Sawyer is fine</li>
+            </ul>
+          </div>
+
+          <div class="checklist-item">
+            <h4>4. Space and transport:</h4>
+            <ul>
+              <li>Stable housing vs. fast evacuation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">🔧 Proper Filter Use</h2>
+
+        <div class="filter-steps">
+          <div class="filter-card">
+            <h4>Berkey (Gravity)</h4>
+            <ol>
+              <li>First use: wash tank, prime cartridges under faucet</li>
+              <li>Fill upper chamber with raw water; close lid</li>
+              <li>Collect filtered water from lower spigot into a BPA-free jug</li>
+              <li>Refill before empty to maintain steady flow</li>
+            </ol>
+          </div>
+
+          <div class="filter-card">
+            <h4>Sawyer PointOne (Squeeze)</h4>
+            <ol>
+              <li>Fill soft bag or bottle with untreated water</li>
+              <li>Screw on the filter; remove cap</li>
+              <li>Gently squeeze: steady flow, avoid excessive pressure</li>
+              <li>On long trips, switch to gravity mode (hang bag) to reduce hand fatigue</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">🛠️ Maintenance and Storage</h2>
+
+        <div class="filter-steps">
+          <div class="filter-card">
+            <h4>Berkey</h4>
+            <ul>
+              <li>Scrub cartridges every 1–2 weeks or when flow slows</li>
+              <li>Store dry and covered; avoid harsh detergents</li>
+            </ul>
+          </div>
+
+          <div class="filter-card">
+            <h4>Sawyer</h4>
+            <ul>
+              <li>Backflush with clean water after each day or when flow slows</li>
+              <li>Dry exterior; store indoors above 32 °F (0 °C)</li>
+              <li>Replace bag if punctured; filter works with standard threaded bottles</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-title">📈 Capacity and Lifespan Examples</h2>
+
+        <div class="capacity-grid">
+          <div class="capacity-card">
+            <h4>Royal Berkey (2 candles)</h4>
+            <div class="metric">24 gal/day</div>
+            <p>Practical output with regular refills</p>
+            <div class="metric">6,000 gal</div>
+            <p>Estimated lifespan before replacing candles</p>
+          </div>
+
+          <div class="capacity-card">
+            <h4>Sawyer PointOne</h4>
+            <div class="metric">1 qt / 35s</div>
+            <p>Filtration speed</p>
+            <div class="metric">5–8 gal/day</div>
+            <p>Without excessive hand fatigue</p>
+            <div class="metric">≥ 100,000 gal</div>
+            <p>Lifespan with regular backflushing</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="conclusion">
+        <h3>🎯 Practical Conclusion</h3>
+
+        <div class="conclusion-item">
+          <h4>👨‍👩‍👧‍👦 Families at home:</h4>
+          <p>A Royal Berkey provides high volume with minimal effort, ideal for multiple people during long power outages.</p>
+        </div>
+
+        <div class="conclusion-item">
+          <h4>🎒 Small groups or bug-outs:</h4>
+          <p>The Sawyer PointOne stands out for its light weight and flexibility; perfect as a solo or backup filter.</p>
+        </div>
+
+        <div class="highlight">
+          <strong>💡 Combined strategy:</strong> Berkey for the home base + Sawyer in mobile emergency kits ensures redundancy and flexibility.
+        </div>
+      </div>
+    </div>
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/sustento-material/almacena/" : "/en/material-support/store/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html> 
