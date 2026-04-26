@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Defensa del Hogar: Protege a tu Familia de Intrusos</title>
+   <meta name="description" content="Guía práctica para proteger tu hogar, disuadir intrusos y crear un plan familiar de seguridad con medidas simples y efectivas.">
+
+   <link rel="canonical" href="https://prepperfamily.org/es/resistencia-familiar/proteccion-del-hogar/defensa-del-hogar/">
+   <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/home-protection/home-defense-guide/">
+   <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/proteccion-del-hogar/defensa-del-hogar/">
+   <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/home-protection/home-defense-guide/">
+  
+  <style>
+    :root {
+      --color-bg: #eef2ff;
+      --color-primary: #e74c3c;
+      --color-primary-dark: #b93a2f;
+      --color-text-main: #0f172a;
+      --color-text-soft: #4b5563;
+      --color-accent: #6366f1;
+      --color-accent-soft: rgba(99, 102, 241, 0.14);
+      --radius-xl: 18px;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.22);
+      --shadow-subtle: 0 6px 20px rgba(15, 23, 42, 0.12);
+      --shadow-pill: 0 10px 30px rgba(15, 23, 42, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, sans-serif;
+      line-height: 1.65;
+      color: var(--color-text-main);
+      background:
+        radial-gradient(circle at top left, rgba(129, 140, 248, 0.35), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(244, 114, 182, 0.20), transparent 55%),
+        var(--color-bg);
+      padding: 18px 10px 28px;
+    }
+
+    .shell {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .container {
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.25), transparent 60%),
+                  linear-gradient(145deg, #ffffff 0%, #f9fafb 40%, #eef2ff 100%);
+      padding: 24px 16px 24px;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.10), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(239, 68, 68, 0.09), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.82);
+      color: #e5e7eb;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      box-shadow: var(--shadow-pill);
+    }
+
+    .eyebrow span {
+      font-size: 0.85rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      color: #020617;
+      margin-bottom: 8px;
+      line-height: 1.2;
+      text-align: left;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    h1 .icon-main {
+      font-size: 1.4em;
+      margin-top: 2px;
+      filter: drop-shadow(0 10px 25px rgba(15, 23, 42, 0.45));
+    }
+
+    .subtitle {
+      font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+      color: #374151;
+      margin-bottom: 16px;
+      font-style: italic;
+      line-height: 1.6;
+      max-width: 36rem;
+    }
+
+    .meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+      font-size: 0.75rem;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-pill);
+    }
+
+    .meta-strip strong {
+      color: #fbbf24;
+      font-weight: 600;
+    }
+
+    .meta-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .meta-pill {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.7);
+      font-size: 0.7rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+
+    .meta-pill span {
+      font-size: 0.75rem;
+    }
+
+    h2 {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      color: #111827;
+      margin-top: 28px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      line-height: 1.25;
+    }
+
+    .section-tag {
+      min-width: 34px;
+      padding: 3px 8px;
+      font-size: 0.7rem;
+    }
+
+    h2 .icon {
+      font-size: 1.1em;
+    }
+
+    h3 {
+      font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+      margin-top: 20px;
+      margin-bottom: 8px;
+      padding: 8px 10px;
+    }
+
+    h4 {
+      font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+      margin-bottom: 6px;
+    }
+
+    p {
+      margin-bottom: 12px;
+      font-size: clamp(0.95rem, 2.2vw, 1.02rem);
+    }
+
+    .intro-box {
+      padding: 16px 14px;
+      margin: 18px 0 14px;
+      font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+      line-height: 1.7;
+    }
+
+    .highlight-box,
+    .danger-box,
+    .success-box,
+    .info-box {
+      padding: 14px;
+      margin: 16px 0;
+      font-size: clamp(0.9rem, 2.2vw, 1rem);
+      line-height: 1.6;
+    }
+
+    ul,
+    ol {
+      margin: 12px 0 14px 20px;
+      font-size: clamp(0.95rem, 2.2vw, 1.02rem);
+    }
+
+    li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    blockquote {
+      padding: 8px 12px;
+      margin: 16px 0;
+      font-size: clamp(0.95rem, 2.3vw, 1.02rem);
+      line-height: 1.6;
+    }
+
+    .table-wrapper {
+      margin: 16px 0;
+    }
+
+    th, td {
+      padding: 10px 10px;
+      font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+    }
+
+    .divider {
+      margin: 24px 0;
+    }
+
+    .cta-box {
+      padding: 18px 14px;
+      margin: 22px 0 4px;
+    }
+
+    .cta-box h2 {
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      margin-bottom: 6px;
+    }
+
+    .cta-box p {
+      font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+    }
+
+    .floating-top {
+      right: 12px;
+      bottom: 12px;
+      padding: 6px 8px;
+      font-size: 0.7rem;
+    }
+
+    .floating-top span {
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        padding: 22px 14px 24px;
+      }
+
+      .meta-strip {
+        border-radius: 14px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 16px 8px 24px;
+      }
+
+      .container {
+        padding: 18px 12px 20px;
+      }
+
+      h1 {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .meta-strip {
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .floating-top {
+        right: 10px;
+        bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+  
+  <div class="shell">
+    <a id="top"></a>
+    <div class="container">
+      <div class="eyebrow">
+        <span>🛡️</span>
+        Seguridad familiar · Protección del hogar
+      </div>
+
+      <h1>
+        <span class="icon-main">🛡️</span>
+        <span>La Guía Suprema para Proteger tu Hogar de Intrusos</span>
+      </h1>
+
+      <p class="subtitle">
+        Cómo transformar tu casa en un territorio difícil, peligroso y profundamente inconveniente para cualquier atacante.
+      </p>
+
+      <div class="meta-strip">
+        <div>
+          Guía práctica basada en <strong>protocolos reales</strong> y psicología criminal aplicada.
+        </div>
+        <div class="meta-pill-group">
+          <div class="meta-pill"><span>🏠</span> Defensa del hogar</div>
+          <div class="meta-pill"><span>👨‍👩‍👧‍👦</span> Enfoque familiar</div>
+        </div>
+      </div>
+
+      
+      <div class="intro-box">
+        <p><strong>Hay momentos en la vida en que la verdad golpea sin pedir permiso:</strong><br>
+          La seguridad de tu familia no se delega. Se aprende, se entrena y se conquista.
+        </p>
+
+        <p>Lo que estás a punto de leer no es “otro artículo de seguridad”.<br>
+          Es una guía clara, directa y accionable para que cualquier familia pueda organizar su defensa sin caer en fantasías cinematográficas ni en paranoia.
+        </p>
+
+        <p>Todo lo aquí descrito está basado en análisis profesionales, protocolos reales, psicología criminal y experiencias de prevención ante intrusos en el hogar.</p>
+      </div>
+
+      <p><strong>Si tu familia alguna vez enfrenta una intrusión, estas páginas pueden marcar la diferencia entre el caos y la supervivencia.</strong></p>
+
+      <p>Verás que con cambios sencillos —en tus hábitos, en la organización del hogar y en algunos puntos clave de infraestructura— puedes multiplicar la seguridad de tu casa sin convertirla en una fortaleza hostil, sino en un hogar inteligente y preparado.</p>
+
+      <p><strong>Pero primero…<br>Conozcamos el terreno de batalla.</strong></p>
+
+      <hr class="divider">
+
+      <h2 id="sec1">
+        <span class="section-tag">1</span>
+        <span class="icon">🔥</span>
+        <span>El hogar es territorio sagrado — por eso debe ser defendido con inteligencia</span>
+      </h2>
+
+      <p><strong>Un intruso no busca pelear. Busca silencio, rapidez y vulnerabilidad.</strong></p>
+
+      <p><strong>Tu misión:</strong> romper ese triángulo en mil pedazos.</p>
+
+      <div class="success-box">
+        <p><strong>Tu hogar debe convertirse en:</strong></p>
+        <ul>
+          <li>un lugar <strong>ruidoso</strong> cuando alguien intenta entrar</li>
+          <li><strong>visible</strong> desde la calle en los puntos de acceso</li>
+          <li><strong>impredecible</strong> en rutinas y horarios</li>
+          <li><strong>fortalecido</strong> en puertas, ventanas y cerraduras</li>
+          <li>y <strong>mentalmente preparado</strong> para actuar sin pánico</li>
+        </ul>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>Las estadísticas son contundentes:</strong><br>
+          La mayoría de los intrusos huyen en menos de 15 segundos si perciben riesgo real de ser vistos, escuchados o retenidos.
+        </p>
+        <p>El objetivo de esta guía es convertir tu casa en ese riesgo real.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2 id="sec2">
+        <span class="section-tag">2</span>
+        <span class="icon">👁️‍🗨️</span>
+        <span>Lo que un intruso busca… y lo que más teme</span>
+      </h2>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>❌ Lo que busca</th>
+              <th>✅ Lo que teme</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Oscuridad total en el perímetro</td>
+              <td>Ruido súbito y alarmas inesperadas</td>
+            </tr>
+            <tr>
+              <td>Rutas de escape fáciles y sin obstáculos</td>
+              <td>Puertas y marcos reforzados que retrasan la entrada</td>
+            </tr>
+            <tr>
+              <td>Puertas con cerraduras débiles o viejas</td>
+              <td>Accesos visibles desde la calle o casas vecinas</td>
+            </tr>
+            <tr>
+              <td>Ventanas sin seguros o con vidrios frágiles</td>
+              <td>Luces que se activan con el movimiento</td>
+            </tr>
+            <tr>
+              <td>Familias que no entrenan qué hacer</td>
+              <td>Vecinos atentos y coordinados</td>
+            </tr>
+            <tr>
+              <td>Casas que parecen vacías siempre</td>
+              <td>Perros alertas (grandes o pequeños)</td>
+            </tr>
+            <tr>
+              <td>Patios llenos de objetos para ocultarse</td>
+              <td>Terreno despejado, sin zonas de sombra “perfectas”</td>
+            </tr>
+            <tr>
+              <td>Moradores distraídos y confiados</td>
+              <td>Reacción familiar rápida y coordinada</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box">
+        <p><strong>El intruso promedio no es un estratega: es un oportunista.</strong><br>
+          Si reduces las oportunidades evidentes, reduces de manera drástica la probabilidad de que tu casa sea elegida como objetivo.
+        </p>
+      </div>
+
+      <hr class="divider">
+
+      <h2 id="sec3">
+        <span class="section-tag">3</span>
+        <span class="icon">🧱</span>
+        <span>La Fortaleza Familiar: blindaje diario que cambia todo</span>
+      </h2>
+
+      <p>Aquí empieza la parte accionable.<br>
+        Lo que sigue son <strong>hábitos de élite para hogares que se toman la seguridad en serio</strong>, sin dejar de ser hogares normales.
+      </p>
+
+      <h3>3.1. Cierra como si importara — porque importa</h3>
+
+      <p>Cada puerta, cada ventana, cada salida secundaria.<br>
+        No solo cerrar: <strong>asegurar</strong>.
+      </p>
+
+      <blockquote>En una enorme cantidad de robos, la entrada no fue realmente “forzada”: fue aprovechada porque alguien dejó una puerta o ventana mal asegurada.</blockquote>
+
+      <div class="success-box">
+        <p><strong>Elementos clave para reforzar accesos:</strong></p>
+        <ul>
+          <li>Cerrojos de seguridad adicionales en la puerta principal</li>
+          <li>Pestillos metálicos anti-palanca en puertas secundarias</li>
+          <li>Barras de bloqueo internas en puertas corredizas o ligeras</li>
+        </ul>
+        <p>Estos refuerzos no hacen tu casa impenetrable, pero sí la vuelven un objetivo incómodo, lento y ruidoso para un intruso.</p>
+      </div>
+
+      <h3>3.2. El perímetro: tu mejor amigo o tu peor enemigo</h3>
+
+      <p>El perímetro de tu hogar (patio, cochera, pasillos, entradas) es tu primera línea de defensa. Debe ser un lugar <strong>donde el intruso se sienta expuesto</strong>, no protegido.</p>
+
+      <ul>
+        <li><strong>Podar arbustos y plantas altas</strong> que puedan servir de escondite</li>
+        <li><strong>Retirar escaleras externas</strong> que faciliten el acceso a ventanas altas</li>
+        <li><strong>Guardar herramientas</strong> (palas, picos, tubos) que puedan usarse para forzar accesos</li>
+        <li><strong>Iluminar zonas oscuras</strong> donde alguien pueda acercarse sin ser visto</li>
+      </ul>
+
+      <div class="success-box">
+        <p><strong>Medios prácticos para fortalecer este perímetro:</strong></p>
+        <ul>
+          <li>Reflectores con sensor de movimiento orientados a puertas y ventanas</li>
+          <li>Iluminación solar exterior en pasillos, patios y garajes</li>
+          <li>Láminas de seguridad en cristales expuestos, para evitar roturas silenciosas</li>
+        </ul>
+        <p>La combinación de luz, visibilidad y refuerzo físico convierte el perímetro en un filtro muy eficaz contra intrusos oportunistas.</p>
+      </div>
+
+      <h3>3.3. Rutinas que simulan presencia</h3>
+
+      <p><strong>Cuando la casa parece viva, el intruso la evita.</strong><br>
+        Una vivienda que muestra actividad irregular es mucho menos atractiva que una casa que se percibe vacía o “en automático”.</p>
+
+      <ul>
+        <li>Encender y apagar luces en horarios variables, no siempre idénticos</li>
+        <li>Mover cortinas o persianas de vez en cuando, para que no estén fijas todo el día</li>
+        <li>Usar sonido ambiental (radio, grabaciones) en ciertas franjas de tiempo</li>
+      </ul>
+
+      <div class="success-box">
+        <p><strong>Recursos que facilitan estas rutinas:</strong></p>
+        <ul>
+          <li>Temporizadores mecánicos o digitales para luces interiores</li>
+          <li>Pequeñas lámparas LED programables en salas y pasillos</li>
+          <li>Dispositivos que permiten encender una fuente de ruido suave por intervalos</li>
+        </ul>
+        <p>La clave no es la tecnología en sí misma, sino <strong>la sensación de actividad</strong> que percibe quien observa desde fuera.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2 id="sec4">
+        <span class="section-tag">4</span>
+        <span class="icon">🔎</span>
+        <span>Señales que advierten un peligro… antes de que el peligro entre</span>
+      </h2>
+
+      <div class="danger-box">
+        <p><strong>En muchos casos, una intrusión viene precedida de señales anómalas.</strong><br>
+          El problema no es que no existan, sino que la familia no está entrenada para reconocerlas.
+        </p>
+      </div>
+
+      <h3>4.1. Señales auditivas</h3>
+
+      <ul>
+        <li>Crujidos inusuales en puertas o ventanas en horarios extraños</li>
+        <li>Pasos lentos en el patio, cochera o pasillos externos</li>
+        <li>Manipulación de picaportes o rejas sin motivo aparente</li>
+        <li>Golpes metálicos suaves, como herramientas golpeando candados o marcos</li>
+      </ul>
+
+      <h3>4.2. Señales visuales</h3>
+
+      <ul>
+        <li>Sombras o siluetas cerca de puntos de acceso</li>
+        <li>Luces de linterna moviéndose en zonas oscuras</li>
+        <li>Vehículos extraños detenidos frente a tu casa por demasiado tiempo</li>
+        <li>Rejas, portones o puertas entreabiertas que tú sabes que dejaste cerradas</li>
+      </ul>
+
+      <h3>4.3. Señales conductuales</h3>
+
+      <ul>
+        <li>Timbres insistentes a horas poco habituales</li>
+        <li>“Promotores” o supuestos vendedores con historias confusas o incoherentes</li>
+        <li>Personas que preguntan por alguien que no vive allí, con actitud evasiva</li>
+        <li>Merodeadores que pasan una y otra vez por la misma zona observando</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p><strong>La diferencia entre un susto y un crimen puede ser tu reacción ante estas primeras señales.</strong><br>
+          Enseña a tu familia a reconocerlas y a avisar de inmediato cuando algo “no se siente bien”.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2 id="sec5">
+        <span class="section-tag">5</span>
+        <span class="icon">🧭</span>
+        <span>El Plan Familiar: tu escudo más poderoso</span>
+      </h2>
+
+      <p><strong>Aquí empieza el corazón táctico.</strong> Tener cámaras, luces o cerraduras sirve de poco si la familia no sabe qué hacer cuando algo ocurre.</p>
+
+      <div class="danger-box">
+        <p><strong>Entrena este plan como si fuera un simulacro de incendio.</strong></p>
+        <p>Tu familia debe saber con claridad:</p>
+        <ol>
+          <li><strong>Qué hacer</strong> si escuchan o ven algo sospechoso</li>
+          <li><strong>A dónde ir</strong> según la zona de la casa donde estén</li>
+          <li><strong>Quién hace qué</strong> (quién llama, quién guía a los niños, quién cierra puertas)</li>
+          <li><strong>Cómo actuar en silencio</strong> cuando el ruido pueda poneros en riesgo</li>
+        </ol>
+      </div>
+
+      <h3>5.1. Dos caminos: huir o atrincherarse</h3>
+
+      <div class="success-box">
+        <h4><strong>Opción A: Huir</strong></h4>
+        <p>Si el intruso está en otra zona de la casa y existe una ruta de salida clara y segura:</p>
+        <ul>
+          <li>Agarra a los niños, <strong>no objetos</strong></li>
+          <li>Sal sin hacer ruido innecesario, evitando puertas cercanas al intruso</li>
+          <li>Cruza la calle o busca un punto seguro donde puedas ser visto por vecinos</li>
+          <li>Llama a emergencias desde un lugar protegido</li>
+        </ul>
+        <p><strong>Detalles que marcan la diferencia:</strong></p>
+        <ul>
+          <li>Zapatos listos junto a la cama o la salida principal para no perder tiempo</li>
+          <li>Una linterna pequeña para moverte en oscuridad sin encender todas las luces</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h4><strong>Opción B: Refugiarse</strong></h4>
+        <p>Si salir implica cruzarte con el intruso, o si tienes niños pequeños o personas mayores:</p>
+        <ul>
+          <li>Dirígete al <strong>cuarto seguro</strong> previamente definido</li>
+          <li>Cierra con llave y, si es posible, <strong>atranca la puerta con un mueble pesado</strong></li>
+          <li>Apaga las luces y mantén silencio absoluto</li>
+          <li>Llama a emergencias y mantente en línea sin hacer ruido innecesario</li>
+        </ul>
+        <p><strong>Para que este cuarto seguro sea realmente útil, prepara:</strong></p>
+        <ul>
+          <li>Un sistema sencillo para reforzar la puerta desde dentro (barra, tope, cuña)</li>
+          <li>Una luz de emergencia de baja intensidad para ver sin ser visto desde fuera</li>
+          <li>Un mini botiquín y una botella de agua</li>
+        </ul>
+      </div>
+
+      <hr class="divider">
+
+      <h2 id="sec6">
+        <span class="section-tag">6</span>
+        <span class="icon">🛑</span>
+        <span>Si el intruso ya está dentro: la parte donde la vida depende de segundos</span>
+      </h2>
+
+      <p><strong>Aquí la psicología es más importante que la fuerza.</strong> La prioridad es preservar la vida, no defender objetos.</p>
+
+      <h3>6.1. Si no te ha visto</h3>
+
+      <ul>
+        <li><strong>No te acerques a “investigar”.</strong> No necesitas comprobar nada; ya es peligroso.</li>
+        <li>Escóndete en el punto seguro más cercano o sal de la casa si la puerta hacia la calle está despejada.</li>
+        <li>Llama a emergencias tan pronto como tengas cobertura mínima de seguridad.</li>
+      </ul>
+
+      <h3>6.2. Si te ve</h3>
+
+      <div class="danger-box">
+        <ul>
+          <li>Mantén las manos visibles y lejos de bolsillos u objetos</li>
+          <li>Evita movimientos bruscos o repentinos</li>
+          <li>Habla con tono calmado y bajo</li>
+          <li>No juegues al héroe ni intentes provocarlo</li>
+          <li>No lo mires fijamente como desafío</li>
+          <li><strong>Coopera en lo que pida si no amenaza directamente la vida de un tercero</strong></li>
+        </ul>
+        <p><strong>Este tipo de conducta reduce de forma drástica la probabilidad de agresión física.</strong><br>
+          El objetivo es que el intruso quiera marcharse lo antes posible, sin percibirte como una amenaza directa.</p>
+      </div>
+
+      <hr class="divider">
+
+      <h2 id="sec7">
+        <span class="section-tag">7</span>
+        <span class="icon">📞</span>
+        <span>Llamada a emergencias: el guion que debes memorizar</span>
+      </h2>
+
+      <p><strong>En una situación límite, tu cerebro puede bloquearse.</strong> Por eso conviene tener un guion muy simple, casi automático.</p>
+
+      <div class="highlight-box">
+        <p><strong>Al llamar, céntrate en cinco puntos esenciales:</strong></p>
+        <ol>
+          <li><strong>Frase clara inicial:</strong> “Hay un intruso en mi casa”.</li>
+          <li><strong>Dirección exacta:</strong> calle, número, referencias si las hay.</li>
+          <li>Indica si estás escondido, huyendo o encerrado con tu familia.</li>
+          <li>Describe brevemente al intruso: sexo, ropa, altura aproximada, si viste armas.</li>
+          <li><strong>No cuelgues.</strong> Deja que el operador te guíe y mantén la línea abierta.</li>
+        </ol>
+      </div>
+
+      <p><em>Los operadores están entrenados para entender silencio, susurros, miedo y respiración acelerada. Lo importante es no colgar y dar la información vital aunque sea en pocas palabras.</em></p>
+
+      <hr class="divider">
+
+      <h2 id="sec8">
+        <span class="section-tag">8</span>
+        <span class="icon">🎒</span>
+        <span>Tu kit mínimo de seguridad doméstica</span>
+      </h2>
+
+      <p>Un plan de seguridad se apoya en hábitos, pero también en ciertos <strong>recursos físicos</strong> que potencian tus decisiones. No hace falta empezar con grandes gastos: basta con elegir bien algunas piezas clave.</p>
+
+      <h3><span class="icon">🔒</span>Accesos</h3>
+      <ul>
+        <li>Barra de seguridad o tranca robusta para la puerta principal</li>
+        <li>Pestillos reforzados para ventanas y puertas corredizas</li>
+        <li>Lámina de seguridad o película antirotura en cristales expuestos</li>
+      </ul>
+
+      <h3><span class="icon">💡</span>Iluminación</h3>
+      <ul>
+        <li>Focos solares con sensor de movimiento para patio, garaje y pasillos externos</li>
+        <li>Luces interiores con temporizador para simular presencia</li>
+        <li>Linterna silenciosa y de buena autonomía para emergencias nocturnas</li>
+      </ul>
+
+      <h3><span class="icon">🐕</span>Detección auxiliar</h3>
+      <ul>
+        <li>Timbre o alarma con sensor de movimiento en zonas clave</li>
+        <li>Sensores magnéticos simples para puertas y ventanas (apertura/cierre)</li>
+        <li>Alarmas portátiles de alto sonido que puedan activarse rápidamente</li>
+      </ul>
+
+      <h3><span class="icon">🏃</span>Evacuación y refugio</h3>
+      <ul>
+        <li>Linterna pequeña en la mesita de noche y en el cuarto seguro</li>
+        <li>Botiquín compacto y accesible, no escondido bajo montones de objetos</li>
+        <li>Zapatos de salida rápida junto a la cama y cerca de la puerta</li>
+        <li>Copia de llaves dentro del cuarto seguro, fuera del alcance de niños pequeños</li>
+      </ul>
+
+      <hr class="divider">
+
+      <h2 id="sec9">
+        <span class="section-tag">9</span>
+        <span class="icon">✝️</span>
+        <span>Seguridad, prudencia y responsabilidad: una visión cristiana</span>
+      </h2>
+
+      <p><strong>Proteger el hogar no es paranoia.<br>
+          Es custodiar un don.</strong>
+      </p>
+
+      <div class="info-box">
+        <p>La familia es el santuario natural de la vida, y Dios confía a los padres la misión de custodiarla con prudencia, inteligencia y caridad.</p>
+        <p><strong>El objetivo no es vivir con miedo,<br>
+              sino vivir con sabiduría y vigilancia serena.</strong>
+        </p>
+        <p>Un hogar preparado no es un hogar dominado por el temor, sino una casa donde el amor se organiza, se anticipa y se fortalece para resistir la maldad cuando esta intenta entrar.</p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="cta-box">
+        <h2><span class="icon">🛡️</span>Tu familia merece lo mejor</h2>
+        <p><strong>Implementa esta guía en pasos pequeños pero constantes.</strong><br>
+          Habla del tema con tu familia, revisa tus accesos, organiza tu plan y prepara tu kit básico.
+        </p>
+        <p>La seguridad no es un lujo ni un capricho: es una forma concreta de amar y proteger.<br>
+          <strong>Y el mejor momento para empezar es hoy.</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <a href="#top" class="floating-top">
+    <span>⬆️</span> Arriba
+  </a>
+  
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/resistencia-familiar/proteccion-del-hogar/" : "/en/family-resilience/home-protection/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html>
