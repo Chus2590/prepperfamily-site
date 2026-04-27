@@ -264,59 +264,6 @@
 </url>
 
 <!-- ============================================================
-     ARTICLES — EN / Material Support / Store
+     ARTICLES
      ============================================================ -->
-
-<url>
-  <loc>https://prepperfamily.org/en/material-support/store/sealing-grains/</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/sealing-grains/"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/almacenar-granos/"/>
-  <changefreq>yearly</changefreq>
-  <priority>0.8</priority>
-</url>
-
-<url>
-  <loc>https://prepperfamily.org/en/material-support/store/canning-meat/</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/canning-meat/"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/enlatar-carne/"/>
-  <changefreq>yearly</changefreq>
-  <priority>0.8</priority>
-</url>
-
-<url>
-  <loc>https://prepperfamily.org/en/material-support/store/iodine-pills/</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/iodine-pills/"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/pastillas-de-yodo/"/>
-  <changefreq>yearly</changefreq>
-  <priority>0.8</priority>
-</url>
-
-<!-- ============================================================
-     ARTICLES — ES / Sustento Material / Almacena
-     ============================================================ -->
-
-<url>
-  <loc>https://prepperfamily.org/es/sustento-material/almacena/almacenar-granos/</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/sealing-grains/"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/almacenar-granos/"/>
-  <changefreq>yearly</changefreq>
-  <priority>0.8</priority>
-</url>
-
-<url>
-  <loc>https://prepperfamily.org/es/sustento-material/almacena/enlatar-carne/</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/canning-meat/"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/enlatar-carne/"/>
-  <changefreq>yearly</changefreq>
-  <priority>0.8</priority>
-</url>
-
-<url>
-  <loc>https://prepperfamily.org/es/sustento-material/almacena/pastillas-de-yodo/</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/iodine-pills/"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/pastillas-de-yodo/"/>
-  <changefreq>yearly</changefreq>
-  <priority>0.8</priority>
-</url>
-
-</urlset>
+https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/ monthly 0.6 https://prepperfamily.org/es/resistencia-familiar/roles-estructura/ monthly 0.6 https://prepperfamily.org/es/resistencia-familiar/educacion-en-casa/ monthly 0.6 https://prepperfamily.org/es/resistencia-familiar/proteccion-del-hogar/ monthly 0.6 https://prepperfamily.org/es/resistencia-familiar/economia-domestica/ monthly 0.6 https://prepperfamily.org/es/fortaleza-interior/conceptos-cristianos-basicos/ monthly 0.6 https://prepperfamily.org/es/fortaleza-interior/biblia/ monthly 0.6 https://prepperfamily.org/es/fortaleza-interior/oraciones/ monthly 0.6 https://prepperfamily.org/es/fortaleza-interior/fe-en-tiempos-dificiles/ monthly 0.6 https://prepperfamily.org/es/fortaleza-interior/apologetica/ monthly 0.6 https://prepperfamily.org/en/material-support/store/sealing-grains/ yearly 0.8 https://prepperfamily.org/en/material-support/store/canning-meat/ yearly 0.8 https://prepperfamily.org/en/material-support/store/iodine-pills/ yearly 0.8 https://prepperfamily.org/es/sustento-material/almacena/almacenar-granos/ yearly 0.8 https://prepperfamily.org/es/sustento-material/almacena/enlatar-carne/ yearly 0.8 https://prepperfamily.org/es/sustento-material/almacena/pastillas-de-yodo/ yearly 0.8 https://prepperfamily.org/en/material-support/store/bug-out-bag/ yearly 0.8 https://prepperfamily.org/es/sustento-material/almacena/mochila-72-horas/ yearly 0.8 https://prepperfamily.org/en/material-support/store/salt-storage/ yearly 0.8 https://prepperfamily.org/es/sustento-material/almacena/almacenar-sal/ yearly 0.8 https://prepperfamily.org/en/material-support/store/water-filters/ yearly 0.8 https://prepperfamily.org/es/sustento-material/almacena/filtros-agua/ yearly 0.8 https://prepperfamily.org/en/material-support/prepare/rocket-stove/ yearly 0.8 https://prepperfamily.org/es/sustento-material/prepara/estufa-cohete-familiar/ yearly 0.8 https://prepperfamily.org/en/material-support/prepare/dutch-oven/ yearly 0.8 https://prepperfamily.org/es/sustento-material/prepara/horno-holandes/ yearly 0.8 https://prepperfamily.org/en/material-support/prepare/hydration-drinks/ yearly 0.8 https://prepperfamily.org/es/sustento-material/prepara/bebidas-hidratacion/ yearly 0.8 https://prepperfamily.org/en/material-support/prepare/grain-milling/ yearly 0.8 https://prepperfamily.org/es/sustento-material/prepara/molienda-granos/ yearly 0.8 https://prepperfamily.org/en/material-support/prepare/herbal-tinctures/ yearly 0.8 https://prepperfamily.org/es/sustento-material/prepara/tinturas-herbales/ yearly 0.8 https://prepperfamily.org/en/material-support/prepare/cold-root-cellar/ yearly 0.8 https://prepperfamily.org/es/sustento-material/prepara/almacen-frio/ yearly 0.8 https://prepperfamily.org/en/material-support/grow/sprouting-guide/ yearly 0.8 https://prepperfamily.org/es/sustento-material/cultiva/germinados/ yearly 0.8 https://prepperfamily.org/en/material-support/grow/watering-spikes/ yearly 0.8 https://prepperfamily.org/es/sustento-material/cultiva/estacas-riego/ yearly 0.8 https://prepperfamily.org/en/inner-strength/bible/true-revealed/ yearly 0.8 https://prepperfamily.org/es/fortaleza-interior/biblia/verdad-revelada/ yearly 0.8 https://prepperfamily.org/en/inner-strength/prays/christian-petitions/ yearly 0.8 https://prepperfamily.org/es/fortaleza-interior/oraciones/peticiones-cristianas/ yearly 0.8 https://prepperfamily.org/en/family-resilience/home-protection/home-defense-guide/ yearly 0.8 https://prepperfamily.org/es/resistencia-familiar/proteccion-del-hogar/defensa-del-hogar/ yearly 0.8
