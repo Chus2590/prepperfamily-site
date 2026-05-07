@@ -1,0 +1,503 @@
+<style>
+#water-filters-partial {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+#water-filters-partial * {
+    box-sizing: border-box;
+}
+
+#water-filters-partial .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#water-filters-partial .header {
+    background: linear-gradient(135deg, #2c5aa0 0%, #1a365d 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#water-filters-partial .header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: waterFiltersPulse 4s ease-in-out infinite;
+}
+
+@keyframes waterFiltersPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.1;
+    }
+}
+
+#water-filters-partial .header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+#water-filters-partial .header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+}
+
+#water-filters-partial .content {
+    padding: 40px 30px;
+}
+
+#water-filters-partial .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin: 30px 0;
+}
+
+#water-filters-partial .product-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+#water-filters-partial .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    border-color: #667eea;
+}
+
+#water-filters-partial .product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    background: #f8f9fa;
+    padding: 10px;
+}
+
+#water-filters-partial .product-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2c5aa0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#water-filters-partial .product-features {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border-left: 4px solid #667eea;
+}
+
+#water-filters-partial .product-features h4 {
+    color: #2c5aa0;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+#water-filters-partial .product-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+#water-filters-partial .product-features li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+    font-size: 0.95rem;
+}
+
+#water-filters-partial .product-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #28a745;
+    font-weight: bold;
+}
+
+#water-filters-partial .cta-button {
+    display: block;
+    width: 100%;
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    margin-top: 20px;
+}
+
+#water-filters-partial .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+    text-decoration: none;
+    color: white;
+}
+
+#water-filters-partial .affiliate-notice {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+    padding: 25px;
+    border-radius: 15px;
+    margin: 40px 0;
+    text-align: center;
+    border-left: 4px solid #fdcb6e;
+    box-shadow: 0 10px 30px rgba(255, 234, 167, 0.3);
+}
+
+#water-filters-partial .affiliate-notice p {
+    font-size: 1rem;
+    color: #2c5aa0;
+    margin: 0;
+    font-weight: 500;
+}
+
+#water-filters-partial .sources-section {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    margin: 40px 0;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+#water-filters-partial .sources-title {
+    font-size: 1.8rem;
+    color: #2c5aa0;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 15px;
+}
+
+#water-filters-partial .sources-description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+#water-filters-partial .copy-button {
+    display: block;
+    width: 200px;
+    margin: 0 auto 30px;
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
+}
+
+#water-filters-partial .copy-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(40, 167, 69, 0.4);
+}
+
+#water-filters-partial .sources-list {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 4px solid #667eea;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+#water-filters-partial .sources-list ol {
+    padding-left: 20px;
+}
+
+#water-filters-partial .sources-list li {
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+#water-filters-partial .sources-list li:last-child {
+    border-bottom: none;
+}
+
+#water-filters-partial .popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#water-filters-partial .popup {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+}
+
+#water-filters-partial .popup h3 {
+    color: #28a745;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+#water-filters-partial .popup p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+#water-filters-partial .popup-close {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#water-filters-partial .hidden-sources {
+    display: none;
+}
+
+#water-filters-partial textarea {
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    #water-filters-partial {
+        padding: 10px;
+    }
+
+    #water-filters-partial .container {
+        border-radius: 15px;
+    }
+
+    #water-filters-partial .content {
+        padding: 20px;
+    }
+
+    #water-filters-partial .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    #water-filters-partial .header h2 {
+        font-size: 1.8rem;
+    }
+
+    #water-filters-partial .sources-section {
+        padding: 20px;
+    }
+}
+</style>
+
+  <div id="water-filters-partial">
+  <div class="container">
+    <div class="header">
+       <h2>🛒 Productos Recomendados</h2>
+       <p>Filtros de agua probados para emergencias y uso diario</p>
+     </div>
+
+        <div class="content">
+            <div class="products-grid">
+        <!-- Royal Berkey -->
+        <div class="product-card">
+          <img src="https://m.media-amazon.com/images/I/81dbVAB6WTL._AC_SL1500_.jpg"
+               alt="Royal Berkey Gravity-Fed Water Filter System"
+               class="product-image">
+
+          <h3 class="product-title">
+            Royal Berkey Gravity-Fed Water Filter System 3.25 Gallon
+          </h3>  
+                    <div class="product-features">
+                        <h4>Características principales:</h4>
+                        <ul>
+                            <li>Capacidad de 3.25 galones (12.3 litros)</li>
+                            <li>Incluye 2 elementos Black Berkey + 2 PF-2</li>
+                            <li>Filtrado por gravedad - sin electricidad</li>
+                            <li>Elimina más de 200 contaminantes</li>
+                            <li>Acero inoxidable de grado alimentario</li>
+                            <li>Ideal para familias de 1-4 personas</li>
+                            <li>Vida útil: 22,700 litros por juego</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="https://www.amazon.com/Berkey-Royal-Black-Filters-Fluoride/dp/B002R8ON3I?crid=1R3R0LH3Z8FDF&dib=eyJ2IjoiMSJ9.pVo2ZvyuXCumlidkyRaX1sv_hXqm3KDnwqN2rM849O143dZQ-VWjGhAxsc2FB8Q1r3XRx5YqY6ONSORNt4BSE4H1oHMaFbmB5T4mqfAbE-YmI3pzhZTuoeByfPLz5VX77MKulntk8C9GixWCosIAfSHRVNzj-xSK9vw7o8rJjddZth6HPcAkQI8kYM-KcLJU-angx3YA9ZIljFQ6OPUeWB_A7nnArCToXBDLOw9E3nvloXibFsKrwMnuhpse3xPWNcYcI0aki-FGaO1DafULDiYc_wr_sLTtWYrnPnkSH0A.AyNxevpVyrCa6fip9aQ-Eq9VaM4nKstQlXnv-QgGKbc&dib_tag=se&keywords=Royal%E2%80%AFBerkey+3.25%E2%80%AFgal%E2%80%AFSystem&qid=1752524810&sprefix=royal+berkey+3.25+gal+system%2Caps%2C194&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1&linkCode=ll1&tag=prepperfami0b-20&linkId=77d05abc1b85357ea685f9b3b2b5864f&language=en_US&ref_=as_li_ss_tl" 
+                       class="cta-button" 
+                       target="_blank" 
+                       rel="noopener">
+                        Ver en Amazon 🔗
+                    </a>
+                </div>
+
+                <!-- Sawyer PointOne -->
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/71PlK2Jo5uL._AC_SL1500_.jpg" 
+                         alt="Sawyer Squeeze Water Filtration System" 
+                         class="product-image">
+                    
+                    <h3 class="product-title">Sawyer Squeeze Water Filtration System</h3>
+                    
+                    <div class="product-features">
+                        <h4>Características principales:</h4>
+                        <ul>
+                            <li>Peso ultraliviano: solo 85 gramos</li>
+                            <li>Tecnología hollow-fiber avanzada</li>
+                            <li>Filtra hasta 1.7 L por minuto</li>
+                            <li>Elimina 99.99999% de bacterias</li>
+                            <li>Incluye bolsa de filtrado de 32 oz</li>
+                            <li>Perfecto para mochileros y emergencias</li>
+                            <li>Vida útil: 378,000+ litros</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="https://www.amazon.com/Sawyer-Products-SP129-Filtration-Squeezable/dp/B00B1OSU4W?crid=2UYILPD8ZW97A&dib=eyJ2IjoiMSJ9.1LXCMxAx5qJNbJjN-td8KWOEh5IO5WZZ-WCqR7JgwyTaegsGeolaF_Qz0YWmMB7CqHZRwA8q1gGPS97hBFtSRcqsdcgEnNLGKHq_WDDVRufHjr00mJqiPPPdVeIdxSNLh_XL4_gCVFkxL3LioscSWuc_RRHpmmihnL-PR-mEY9wI4X_ZmI9d5sa7tJaA0h-v6nj9iCfvaYhxS1kVb2uE3S4rP5sk705SYYYxfWd1gPPIDCDsG2LRF4P-AeDcYld6quNTF7hunQqZsIzUbEhQev3Zb5n0XRHIAPaa-FVivw8.vyOIcGKq7QRrKdznYyIUSBTmZSdpwjnTuHR5L3a8zVc&dib_tag=se&keywords=Sawyer%E2%80%AFSqueeze&qid=1752531430&sprefix=sawyer%2Bsqueeze%2Caps%2C243&sr=8-5&th=1&linkCode=ll1&tag=prepperfami0b-20&linkId=1eb7ac1e61279dc1e8f3f584aa57c5c6&language=en_US&ref_=as_li_ss_tl" 
+                       class="cta-button" 
+                       target="_blank" 
+                       rel="noopener">
+                        Ver en Amazon 🔗
+                    </a>
+                </div>
+            </div>
+
+            <div class="affiliate-notice">
+                <p>PrepperFamily.org participa en el Programa de Afiliados de Amazon. Usando este enlace contribuyes a la plataforma sin costo adicional para ti. Gracias por apoyar esta comunidad.</p>
+            </div>
+
+            <div class="sources-section">
+                <h3 class="sources-title">📚 Fuentes de Investigación</h3>
+                
+                <p class="sources-description">
+                    Copia con un solo clic todas las Super Fuentes de este artículo, para que puedas investigar con detalle más al respecto
+                </p>
+                
+                <button type="button"
+                class="copy-button"
+                onclick="(async function(btn){
+                  try {
+                    var sourceEl = document.getElementById('water-filters-sources-text');
+                    if (!sourceEl) return false;
+
+                    var text = sourceEl.value.trim();
+                    var original = btn.innerHTML;
+
+                    if (!navigator.clipboard || !window.isSecureContext) {
+                      throw new Error('Clipboard not available');
+                    }
+
+                    await navigator.clipboard.writeText(text);
+
+                    btn.innerHTML = '✅ Sources copied';
+                    btn.disabled = true;
+
+                    setTimeout(function(){
+                      btn.innerHTML = original;
+                      btn.disabled = false;
+                    }, 1600);
+
+                  } catch (err) {
+
+                    var fallback = document.getElementById('water-filters-sources-text-fallback');
+
+                    if (fallback) {
+                      fallback.style.display = 'block';
+                    }
+
+                    console.error(err);
+                  }
+
+                  return false;
+                })(this);">
+                    📋 Copiar Fuentes
+                </button>
+                
+                <div class="sources-list">
+                    <ol>
+                        <li><strong>World Health Organization (WHO).</strong> International Scheme to Evaluate Household Water Treatment Technologies. Herramienta oficial que clasifica la eficacia microbiana de decenas de productos HWT según criterios "Protección total", "Protección parcial" o "No aprobado".</li>
+                        
+                        <li><strong>Centers for Disease Control and Prevention (CDC).</strong> About Choosing Home Water Filters. Ficha técnica para consumidores sobre tipos de filtros, tamaños de poro y contaminantes que remueven; referencia práctica para explicar límites y alcances de cada tecnología.</li>
+                        
+                        <li><strong>NSF International.</strong> Standards for Water Treatment Systems – NSF/ANSI P231 y otros. Descripción de los protocolos voluntarios que certifican rendimiento microbiológico (P231) y reducción de químicos (42, 53, 401); útil para fundamentar la sección de normas.</li>
+                        
+                        <li><strong>Envirotek Laboratories.</strong> Black Berkey® Purification Element Test Report (Informe #14-260, 2014). Ensayo independiente que detalla reducciones ≥ 99 % en metales pesados, microorganismos y contaminantes orgánicos, avalando los datos de desempeño del sistema de gravedad.</li>
+                        
+                        <li><strong>Lantagne D. et al.</strong> "A Cluster Randomized Controlled Trial to Reduce Childhood Diarrhea in Cambodia using the Sawyer PointONE™ Filter" (Am. J. Trop. Med. Hyg., 2014). Evidencia científica revisada por pares que muestra disminución significativa de diarrea infantil con filtros hollow-fiber.</li>
+                    </ol>
+                </div>
+            <textarea id="water-filters-sources-text" class="hidden-sources">
+FUENTES DE INVESTIGACIÓN:
+
+1. Organización Mundial de la Salud (OMS). Esquema Internacional para Evaluar Tecnologías de Tratamiento de Agua en el Hogar. Herramienta oficial que clasifica la eficacia microbiana de decenas de productos de tratamiento de agua en el hogar según los criterios: “Protección integral,” “Protección limitada,” o “No aprobado.”
+
+2. Centros para el Control y la Prevención de Enfermedades (CDC). Acerca de la elección de filtros de agua para el hogar. Ficha técnica para consumidores sobre tipos de filtros, tamaños de poro y contaminantes eliminados; referencia práctica para explicar limitaciones y capacidades.
+
+3. NSF International. Normas para sistemas de tratamiento de agua – NSF/ANSI P231 y otras. Resumen de protocolos voluntarios que certifican el desempeño microbiológico (P231) y la reducción química (42, 53, 401); útil para la sección de normas.
+
+4. Envirotek Laboratories. Informe de prueba del elemento de purificación Black Berkey® (Informe #14-260, 2014). Prueba independiente que muestra reducciones ≥ 99% en metales pesados, microorganismos y contaminantes orgánicos, respaldando las afirmaciones de desempeño del sistema de gravedad.
+
+5. Lantagne D. et al. "Ensayo controlado aleatorizado por conglomerados para reducir la diarrea infantil en Camboya usando el filtro Sawyer PointONE™" (Am. J. Trop. Med. Hyg., 2014). Evidencia revisada por pares que muestra una reducción significativa de la diarrea infantil con filtros de fibra hueca.
+</textarea>
+
+<div id="water-filters-sources-text-fallback"
+     style="display:none; margin-top:20px;">
+
+  <p><strong>Copiar manualmente:</strong></p>
+
+  <textarea readonly rows="12">
+FUENTES DE INVESTIGACIÓN:
+
+1. Organización Mundial de la Salud (OMS). Esquema Internacional para Evaluar Tecnologías de Tratamiento de Agua en el Hogar. Herramienta oficial que clasifica la eficacia microbiana de decenas de productos de tratamiento de agua en el hogar según los criterios: “Protección integral,” “Protección limitada,” o “No aprobado.”
+
+2. Centros para el Control y la Prevención de Enfermedades (CDC). Acerca de la elección de filtros de agua para el hogar. Ficha técnica para consumidores sobre tipos de filtros, tamaños de poro y contaminantes eliminados; referencia práctica para explicar limitaciones y capacidades.
+
+3. NSF International. Normas para sistemas de tratamiento de agua – NSF/ANSI P231 y otras. Resumen de protocolos voluntarios que certifican el desempeño microbiológico (P231) y la reducción química (42, 53, 401); útil para la sección de normas.
+
+4. Envirotek Laboratories. Informe de prueba del elemento de purificación Black Berkey® (Informe #14-260, 2014). Prueba independiente que muestra reducciones ≥ 99% en metales pesados, microorganismos y contaminantes orgánicos, respaldando las afirmaciones de desempeño del sistema de gravedad.
+
+5. Lantagne D. et al. "Ensayo controlado aleatorizado por conglomerados para reducir la diarrea infantil en Camboya usando el filtro Sawyer PointONE™" (Am. J. Trop. Med. Hyg., 2014). Evidencia revisada por pares que muestra una reducción significativa de la diarrea infantil con filtros de fibra hueca.
+  </textarea>
+
+</div>
