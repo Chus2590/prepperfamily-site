@@ -1,0 +1,552 @@
+    <style>
+/* ROOT CONTAINER */
+.pf-rocket-stove {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* RESET INSIDE ROOT */
+.pf-rocket-stove *,
+.pf-rocket-stove *::before,
+.pf-rocket-stove *::after {
+    box-sizing: border-box;
+}
+
+/* HEADER */
+.pf-rocket-stove .pf-recs-header {
+    background: linear-gradient(135deg, #2c5aa0 0%, #1e3f73 100%);
+    color: #ffffff;
+    padding: 30px;
+    text-align: center;
+    margin: 0 -20px 30px -20px;
+}
+
+/* TITLE */
+.pf-rocket-stove .pf-recs-title {
+    font-size: 2em;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    line-height: 1.3;
+}
+
+/* SUBTITLE */
+.pf-rocket-stove .pf-recs-subtitle {
+    font-size: 1.1em;
+    margin: 10px 0 0 0;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* GRID */
+.pf-rocket-stove .pf-recs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* CARD */
+.pf-rocket-stove .pf-recs-card {
+    background: #ffffff;
+    border: 2px solid #e8f4f8;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* TOP ACCENT */
+.pf-rocket-stove .pf-recs-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #2c5aa0 0%, #1e3f73 100%);
+}
+
+/* CARD HOVER */
+.pf-rocket-stove .pf-recs-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    border-color: #2c5aa0;
+}
+
+/* PRODUCT IMAGE */
+.pf-rocket-stove .pf-recs-product-image {
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: #f8f9fa;
+    padding: 10px;
+    border: 1px solid #e9ecef;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* PRODUCT NAME */
+.pf-rocket-stove .pf-recs-product-name {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* AMAZON BUTTON */
+.pf-rocket-stove .pf-recs-amazon-btn {
+    background: linear-gradient(135deg, #ff9500 0%, #e67e00 100%);
+    color: #ffffff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255,149,0,0.3);
+    width: 100%;
+    max-width: 220px;
+}
+
+/* BUTTON HOVER */
+.pf-rocket-stove .pf-recs-amazon-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255,149,0,0.4);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* DISCLAIMER */
+.pf-rocket-stove .pf-recs-affiliate-notice {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 4px solid #6c757d;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 8px;
+    font-style: italic;
+    color: #495057;
+    line-height: 1.6;
+}
+
+/* SOURCES SECTION */
+.pf-rocket-stove .pf-recs-sources-section {
+    background: linear-gradient(135deg, #e8f5e8 0%, #d4f1d4 100%);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 40px;
+    border: 2px solid #28a745;
+}
+
+/* SOURCES TITLE */
+.pf-rocket-stove .pf-recs-sources-title {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #155724;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* SOURCES LIST */
+.pf-rocket-stove .pf-recs-sources-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+/* SOURCES ITEMS */
+.pf-rocket-stove .pf-recs-sources-list li {
+    background: rgba(255,255,255,0.8);
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    border-left: 3px solid #28a745;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+}
+
+/* COPY BUTTON */
+.pf-rocket-stove .pf-recs-copy-btn,
+.pf-rocket-stove .copy-sources-btn {
+    background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+    color: #ffffff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(40,167,69,0.3);
+    width: 100%;
+    max-width: 280px;
+}
+
+/* BUTTON HOVER */
+.pf-rocket-stove .pf-recs-copy-btn:hover,
+.pf-rocket-stove .copy-sources-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40,167,69,0.4);
+}
+
+/* FALLBACK */
+.pf-rocket-stove .copy-fallback {
+    display: none;
+    margin-top: 20px;
+}
+
+.pf-rocket-stove .copy-fallback textarea {
+    width: 100%;
+    min-height: 220px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    resize: vertical;
+    font-size: 13px;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .pf-rocket-stove {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .pf-rocket-stove .pf-recs-header {
+        padding: 25px 20px;
+        margin: 0 -15px 25px -15px;
+    }
+
+    .pf-rocket-stove .pf-recs-title {
+        font-size: 1.6em;
+    }
+
+    .pf-rocket-stove .pf-recs-subtitle {
+        font-size: 1em;
+    }
+
+    .pf-rocket-stove .pf-recs-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .pf-rocket-stove .pf-recs-card {
+        padding: 20px 15px;
+    }
+
+    .pf-rocket-stove .pf-recs-product-name {
+        font-size: 1.1em;
+        min-height: 50px;
+    }
+
+    .pf-rocket-stove .pf-recs-amazon-btn,
+    .pf-rocket-stove .pf-recs-copy-btn,
+    .pf-rocket-stove .copy-sources-btn {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .pf-rocket-stove .pf-recs-sources-section {
+        padding: 25px 20px;
+    }
+
+    .pf-rocket-stove .pf-recs-sources-title {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .pf-rocket-stove .pf-recs-product-image {
+        max-width: 150px;
+        height: 150px;
+    }
+
+    .pf-rocket-stove .pf-recs-sources-list li {
+        padding: 10px 12px;
+        font-size: 0.95em;
+    }
+}
+</style>
+
+    <div class="pf-rocket-stove">
+
+    <!-- Header -->
+    <div class="pf-recs-header">
+        <h2 class="pf-recs-title">
+            🛒 Materiales Recomendados
+        </h2>
+
+        <p class="pf-recs-subtitle">
+            Todo lo que necesitas para construir tu rocket stove
+        </p>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="pf-recs-grid">
+
+        <!-- Producto 1 -->
+        <div class="pf-recs-card">
+            <img src="https://m.media-amazon.com/images/I/81j9lyblUwL._AC_SL1500_.jpg"
+                 alt="Set de 3 Contenedores Galvanizados"
+                 class="pf-recs-product-image">
+
+            <div class="pf-recs-product-name">
+                Set de 3 Contenedores Galvanizados
+            </div>
+
+            <a href="https://amzn.to/3PrrtNJ"
+               class="pf-recs-amazon-btn"
+               target="_blank"
+               rel="noopener">
+                Ver en Amazon
+            </a>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="pf-recs-card">
+            <img src="https://m.media-amazon.com/images/I/71MP3J8DlEL._AC_SL1500_.jpg"
+                 alt="Cemento Refractario"
+                 class="pf-recs-product-image">
+
+            <div class="pf-recs-product-name">
+                Cemento Refractario 5 libras
+            </div>
+
+            <a href="https://amzn.to/4eQjt3o"
+               class="pf-recs-amazon-btn"
+               target="_blank"
+               rel="noopener">
+                Ver en Amazon
+            </a>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="pf-recs-card">
+            <img src="https://m.media-amazon.com/images/I/81kpfy4rtjL._SL1500_.jpg"
+                 alt="Arena de Sílice"
+                 class="pf-recs-product-image">
+
+            <div class="pf-recs-product-name">
+                Arena de Sílice #70
+            </div>
+
+            <a href="https://amzn.to/4tIjrym"
+               class="pf-recs-amazon-btn"
+               target="_blank"
+               rel="noopener">
+                Ver en Amazon
+            </a>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="pf-recs-card">
+            <img src="https://m.media-amazon.com/images/I/91E2BETv0cL._SL1500_.jpg"
+                 alt="Vermiculita"
+                 class="pf-recs-product-image">
+
+            <div class="pf-recs-product-name">
+                Vermiculita 4 qt
+            </div>
+
+            <a href="https://amzn.to/4nwNN5b"
+               class="pf-recs-amazon-btn"
+               target="_blank"
+               rel="noopener">
+                Ver en Amazon
+            </a>
+        </div>
+
+        <!-- Producto 5 -->
+        <div class="pf-recs-card">
+            <img src="https://m.media-amazon.com/images/I/617PaZa8rUL._AC_SL1500_.jpg"
+                 alt="Ladrillos Refractarios"
+                 class="pf-recs-product-image">
+
+            <div class="pf-recs-product-name">
+                Ladrillos Refractarios (2 unidades)
+            </div>
+
+            <a href="https://amzn.to/4nCv4oT"
+               class="pf-recs-amazon-btn"
+               target="_blank"
+               rel="noopener">
+                Ver en Amazon
+            </a>
+        </div>
+
+        <!-- Producto 6 -->
+        <div class="pf-recs-card">
+            <img src="https://m.media-amazon.com/images/I/81pUtHdT2AL._AC_SL1500_.jpg"
+                 alt="Arcilla Kaolin"
+                 class="pf-recs-product-image">
+
+            <div class="pf-recs-product-name">
+                Arcilla Kaolin 5 libras
+            </div>
+
+            <a href="https://amzn.to/4eTEfiv"
+               class="pf-recs-amazon-btn"
+               target="_blank"
+               rel="noopener">
+                Ver en Amazon
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Affiliate Notice -->
+    <div class="pf-recs-affiliate-notice">
+        PrepperFamily.org participa en el Programa de Afiliados de Amazon.
+        Usando estos enlaces contribuyes a la plataforma sin costo adicional para ti.
+        Gracias por apoyar esta comunidad.
+    </div>
+
+    <!-- Sources Section -->
+    <div class="pf-recs-sources-section">
+
+        <h3 class="pf-recs-sources-title">
+            📚 Fuentes
+        </h3>
+
+        <!-- Hidden Sources -->
+        <textarea id="pf-rocket-stove-sources-es" style="display:none;">1. Winiarski, Larry. Design Principles for Wood-Burning Cookstoves. Aprovecho Research Center, 2009.
+
+2. Still, Dean; MacCarty, Nordica. Capturing Heat II: The Improved Cookstove. Aprovecho Research Center, 2008.
+
+3. Evans, Ianto; Jackson, Leslie. Rocket Mass Heaters: Superefficient Woodstoves You Can Build (3rd ed.). Cob Cottage Company, 2014.
+
+4. World Health Organization. Guidelines for Indoor Air Quality: Household Fuel Combustion. WHO, 2014.
+
+5. Jetter, James J., et al. Pollutant Emissions and Fuel Efficiency of Biomass Cookstoves. Environmental Science & Technology 46(19), 2012.</textarea>
+
+        <!-- Visible Sources -->
+        <ol class="pf-recs-sources-list">
+
+            <li>
+                Winiarski, Larry.
+                <em>Design Principles for Wood-Burning Cookstoves</em>.
+                Aprovecho Research Center, 2009.
+            </li>
+
+            <li>
+                Still, Dean; MacCarty, Nordica.
+                <em>Capturing Heat II: The Improved Cookstove</em>.
+                Aprovecho Research Center, 2008.
+            </li>
+
+            <li>
+                Evans, Ianto; Jackson, Leslie.
+                <em>Rocket Mass Heaters: Superefficient Woodstoves You Can Build</em>
+                (3rd ed.). Cob Cottage Company, 2014.
+            </li>
+
+            <li>
+                World Health Organization.
+                <em>Guidelines for Indoor Air Quality: Household Fuel Combustion</em>.
+                WHO, 2014.
+            </li>
+
+            <li>
+                Jetter, James J., et al.
+                <em>Pollutant Emissions and Fuel Efficiency of Biomass Cookstoves</em>.
+                Environmental Science & Technology 46(19), 2012.
+            </li>
+
+        </ol>
+
+        <!-- Copy Button -->
+        <button type="button"
+                class="copy-sources-btn"
+                onclick="(async function(btn){
+
+                    try {
+
+                        var sourceEl = document.getElementById('pf-rocket-stove-sources-es');
+
+                        if (!sourceEl) return false;
+
+                        var text = sourceEl.value.trim();
+                        var original = btn.innerHTML;
+
+                        if (!navigator.clipboard || !window.isSecureContext) {
+                            throw new Error('Clipboard not available');
+                        }
+
+                        await navigator.clipboard.writeText(text);
+
+                        btn.innerHTML = '✅ Fuentes copiadas';
+                        btn.disabled = true;
+
+                        setTimeout(function(){
+                            btn.innerHTML = original;
+                            btn.disabled = false;
+                        }, 1600);
+
+                    } catch (err) {
+
+                        var fallback = document.getElementById('pf-rocket-stove-sources-es-fallback');
+
+                        if (fallback) {
+                            fallback.style.display = 'block';
+                        }
+
+                        console.error(err);
+                    }
+
+                    return false;
+
+                })(this);">
+            📋 Copiar Fuentes
+        </button>
+
+        <!-- Manual Fallback -->
+        <div id="pf-rocket-stove-sources-es-fallback"
+             class="copy-fallback">
+
+            <p><strong>Copiar manualmente:</strong></p>
+
+            <textarea readonly>1. Winiarski, Larry. Design Principles for Wood-Burning Cookstoves. Aprovecho Research Center, 2009.
+
+2. Still, Dean; MacCarty, Nordica. Capturing Heat II: The Improved Cookstove. Aprovecho Research Center, 2008.
+
+3. Evans, Ianto; Jackson, Leslie. Rocket Mass Heaters: Superefficient Woodstoves You Can Build (3rd ed.). Cob Cottage Company, 2014.
+
+4. World Health Organization. Guidelines for Indoor Air Quality: Household Fuel Combustion. WHO, 2014.
+
+5. Jetter, James J., et al. Pollutant Emissions and Fuel Efficiency of Biomass Cookstoves. Environmental Science & Technology 46(19), 2012.</textarea>
+
+        </div>
+
+    </div>
+
+</div>
