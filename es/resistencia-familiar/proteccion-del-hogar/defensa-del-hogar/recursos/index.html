@@ -1,0 +1,349 @@
+<style>
+  .pf-anti-intrusos-partial {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  .pf-anti-intrusos-partial,
+  .pf-anti-intrusos-partial * {
+    box-sizing: border-box;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-img-wrapper {
+    width: 100%;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 16px;
+    min-height: 48px;
+    line-height: 1.4;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-btn {
+    display: block;
+    width: 100%;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #FF9900 0%, #FF7A00 100%);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    margin-top: auto;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-btn:hover {
+    background: linear-gradient(135deg, #FF7A00 0%, #FF6600 100%);
+    transform: scale(1.02);
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-affiliate {
+    background: #f0f7ff;
+    border-left: 4px solid #3498db;
+    padding: 16px 20px;
+    margin: 32px 0;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-sources {
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 32px;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-sources-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-sources-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-copy-btn {
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-copy-btn:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-copy-btn:disabled {
+    cursor: default;
+    opacity: 0.85;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-sources-list {
+    list-style: decimal;
+    padding-left: 24px;
+    margin: 0;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-sources-list li {
+    margin-bottom: 12px;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-sources-storage {
+    display: none;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-sources-fallback {
+    display: none;
+    margin-top: 20px;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-sources-fallback p {
+    margin: 0 0 8px;
+    color: #555;
+    font-weight: 600;
+  }
+
+  .pf-anti-intrusos-partial .pf-recs-sources-fallback textarea {
+    width: 100%;
+    min-height: 180px;
+    padding: 12px;
+    border: 1px solid #d8dee4;
+    border-radius: 8px;
+    resize: vertical;
+    font: inherit;
+    line-height: 1.5;
+    color: #555;
+    background: #ffffff;
+  }
+
+  @media (max-width: 768px) {
+    .pf-anti-intrusos-partial .pf-recs-container {
+      padding: 16px;
+      margin: 24px auto;
+    }
+
+    .pf-anti-intrusos-partial .pf-recs-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .pf-anti-intrusos-partial .pf-recs-sources-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .pf-anti-intrusos-partial .pf-recs-copy-btn {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .pf-anti-intrusos-partial .pf-recs-container {
+      padding: 12px;
+    }
+
+    .pf-anti-intrusos-partial .pf-recs-card {
+      padding: 16px;
+    }
+
+    .pf-anti-intrusos-partial .pf-recs-img-wrapper {
+      height: 220px;
+    }
+
+    .pf-anti-intrusos-partial .pf-recs-sources {
+      padding: 18px;
+    }
+  }
+</style>
+
+<div class="pf-anti-intrusos-partial">
+  <div class="pf-recs-container">
+    <div class="pf-recs-grid">
+      <div class="pf-recs-card">
+        <div class="pf-recs-img-wrapper">
+          <img src="https://m.media-amazon.com/images/I/61p9m2ViIZL._AC_SL1500_.jpg" alt="Tope de seguridad portátil" class="pf-recs-img">
+        </div>
+        <h3 class="pf-recs-title">Tope de seguridad portátil</h3>
+        <a href="https://amzn.to/4dukAEM" target="_blank" rel="nofollow noopener" class="pf-recs-btn">Ver en Amazon</a>
+      </div>
+
+      <div class="pf-recs-card">
+        <div class="pf-recs-img-wrapper">
+          <img src="https://m.media-amazon.com/images/I/71gLGsuc1aL._AC_SL1500_.jpg" alt="Barra de seguridad 2 en 1" class="pf-recs-img">
+        </div>
+        <h3 class="pf-recs-title">Barra de seguridad 2 en 1 para puerta normal y corrediza</h3>
+        <a href="https://amzn.to/4uzc8dt" target="_blank" rel="nofollow noopener" class="pf-recs-btn">Ver en Amazon</a>
+      </div>
+
+      <div class="pf-recs-card">
+        <div class="pf-recs-img-wrapper">
+          <img src="https://m.media-amazon.com/images/I/81Pdbevk2SL._AC_SL1500_.jpg" alt="Luz solar para exteriores con sensor de movimiento" class="pf-recs-img">
+        </div>
+        <h3 class="pf-recs-title">Luz solar para exteriores con sensor de movimiento – 268 Leds</h3>
+        <a href="https://amzn.to/3PNqnw7" target="_blank" rel="nofollow noopener" class="pf-recs-btn">Ver en Amazon</a>
+      </div>
+
+      <div class="pf-recs-card">
+        <div class="pf-recs-img-wrapper">
+          <img src="https://m.media-amazon.com/images/I/71jJZHoWiPL._AC_SL1200_.jpg" alt="Alarma magnética para puerta/ventana" class="pf-recs-img">
+        </div>
+        <h3 class="pf-recs-title">Alarma magnética para puerta/ventana</h3>
+        <a href="https://amzn.to/4wR51P9" target="_blank" rel="nofollow noopener" class="pf-recs-btn">Ver en Amazon</a>
+      </div>
+
+      <div class="pf-recs-card">
+        <div class="pf-recs-img-wrapper">
+          <img src="https://m.media-amazon.com/images/I/51-QW9ramrL._AC_SL1000_.jpg" alt="Sensor magnético inteligente" class="pf-recs-img">
+        </div>
+        <h3 class="pf-recs-title">Sensor magnético inteligente para puerta/ventana</h3>
+        <a href="https://amzn.to/3PFw27u" target="_blank" rel="nofollow noopener" class="pf-recs-btn">Ver en Amazon</a>
+      </div>
+
+      <div class="pf-recs-card">
+        <div class="pf-recs-img-wrapper">
+          <img src="https://m.media-amazon.com/images/I/619vIsQo0KL._AC_SL1500_.jpg" alt="Cámara de vigilancia simulada" class="pf-recs-img">
+        </div>
+        <h3 class="pf-recs-title">Cámara de vigilancia simulada (dummy)</h3>
+        <a href="https://amzn.to/4fHb4iW" target="_blank" rel="nofollow noopener" class="pf-recs-btn">Ver en Amazon</a>
+      </div>
+
+      <div class="pf-recs-card">
+        <div class="pf-recs-img-wrapper">
+          <img src="https://m.media-amazon.com/images/I/71r+nlFd0mL._AC_SL1500_.jpg" alt="Gel pimienta para defensa personal" class="pf-recs-img">
+        </div>
+        <h3 class="pf-recs-title">Defensa personal: gel pimienta (como el gas pimienta)</h3>
+        <a href="https://amzn.to/4vb4uFU" target="_blank" rel="nofollow noopener" class="pf-recs-btn">Ver en Amazon</a>
+      </div>
+    </div>
+
+    <div class="pf-recs-affiliate">
+      PrepperFamily.org participa en el Programa de Afiliados de Amazon. Usando este enlace contribuyes a la plataforma sin costo adicional para ti. Gracias por apoyar esta comunidad.
+    </div>
+
+    <div class="pf-recs-sources">
+      <div class="pf-recs-sources-header">
+        <h3 class="pf-recs-sources-title">Fuentes</h3>
+
+        <textarea id="pf-anti-intrusos-sources-es" class="pf-recs-sources-storage" readonly>
+Home Burglary Prevention Tips and Preparation — California Department of Consumer Affairs
+https://lcf.ca.gov/home-burglary-prevention/
+
+"How to Prevent Home Burglaries" — Florida Sheriffs Association
+https://flsheriffs.org/blog/entry/how-to-prevent-a-home-burglary/
+
+"Residential Burglary Prevention Tips" — Cary Police Department (NC)
+https://www.carync.gov/services-publications/police/crime-prevention-and-safety/crime-prevention-safety-tips/residential-burglary-prevention-tips
+
+"Securing Your Home Against Burglary" — Insurance Information Institute
+https://www.iii.org/article/securing-your-home-against-burglary
+
+"Burglary Prevention" — Washington County Sheriff's Office (MN)
+https://www.washingtoncountymn.gov/2077/Burglary-Prevention
+</textarea>
+
+        <button type="button" class="pf-recs-copy-btn" onclick="(async function(btn){ try { var sourceEl = document.getElementById('pf-anti-intrusos-sources-es'); if (!sourceEl) return false; var text = sourceEl.value.trim(); var original = btn.innerHTML; if (!navigator.clipboard || !window.isSecureContext) { throw new Error('Clipboard not available'); } await navigator.clipboard.writeText(text); btn.innerHTML = '✅ Fuentes copiadas'; btn.disabled = true; setTimeout(function(){ btn.innerHTML = original; btn.disabled = false; }, 1600); } catch (err) { var fallback = document.getElementById('pf-anti-intrusos-sources-es-fallback'); if (fallback) fallback.style.display = 'block'; console.error(err); } return false; })(this);">📋 Copiar fuentes</button>
+      </div>
+
+      <ol class="pf-recs-sources-list">
+        <li>Home Burglary Prevention Tips and Preparation — California Department of Consumer Affairs<br>https://lcf.ca.gov/home-burglary-prevention/</li>
+        <li>"How to Prevent Home Burglaries" — Florida Sheriffs Association<br>https://flsheriffs.org/blog/entry/how-to-prevent-a-home-burglary/</li>
+        <li>"Residential Burglary Prevention Tips" — Cary Police Department (NC)<br>https://www.carync.gov/services-publications/police/crime-prevention-and-safety/crime-prevention-safety-tips/residential-burglary-prevention-tips</li>
+        <li>"Securing Your Home Against Burglary" — Insurance Information Institute<br>https://www.iii.org/article/securing-your-home-against-burglary</li>
+        <li>"Burglary Prevention" — Washington County Sheriff's Office (MN)<br>https://www.washingtoncountymn.gov/2077/Burglary-Prevention</li>
+      </ol>
+
+      <div id="pf-anti-intrusos-sources-es-fallback" class="pf-recs-sources-fallback">
+        <p>Copiar manualmente:</p>
+        <textarea readonly>
+Home Burglary Prevention Tips and Preparation — California Department of Consumer Affairs
+https://lcf.ca.gov/home-burglary-prevention/
+
+"How to Prevent Home Burglaries" — Florida Sheriffs Association
+https://flsheriffs.org/blog/entry/how-to-prevent-a-home-burglary/
+
+"Residential Burglary Prevention Tips" — Cary Police Department (NC)
+https://www.carync.gov/services-publications/police/crime-prevention-and-safety/crime-prevention-safety-tips/residential-burglary-prevention-tips
+
+"Securing Your Home Against Burglary" — Insurance Information Institute
+https://www.iii.org/article/securing-your-home-against-burglary
+
+"Burglary Prevention" — Washington County Sheriff's Office (MN)
+https://www.washingtoncountymn.gov/2077/Burglary-Prevention
+</textarea>
+      </div>
+    </div>
+  </div>
+</div>
