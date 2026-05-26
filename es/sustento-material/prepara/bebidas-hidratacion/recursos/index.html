@@ -1,0 +1,486 @@
+<style>
+  .hydrateddrinks-partial {
+    max-width: 100%;
+    margin: 2rem 0;
+    padding: 0 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .hydrateddrinks-partial,
+  .hydrateddrinks-partial * {
+    box-sizing: border-box;
+  }
+
+  .hydrateddrinks-partial .pf-recs-title {
+    color: #2c3e50;
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #27ae60;
+  }
+
+  .hydrateddrinks-partial .pf-recs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .hydrateddrinks-partial .pf-recs-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hydrateddrinks-partial .pf-recs-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #27ae60, #2ecc71);
+  }
+
+  .hydrateddrinks-partial .pf-recs-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .hydrateddrinks-partial .pf-recs-image-container {
+    text-align: center;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #fff;
+    padding: 1rem;
+  }
+
+  .hydrateddrinks-partial .pf-recs-image {
+    max-width: 100%;
+    width: auto;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+  }
+
+  .hydrateddrinks-partial .pf-recs-card:hover .pf-recs-image {
+    transform: scale(1.05);
+  }
+
+  .hydrateddrinks-partial .pf-recs-product-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-align: center;
+    margin: 0 0 1rem;
+    line-height: 1.4;
+    min-height: 2.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hydrateddrinks-partial .pf-recs-amazon-btn {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #ff9500 0%, #ff8c00 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(255, 149, 0, 0.3);
+  }
+
+  .hydrateddrinks-partial .pf-recs-amazon-btn:hover {
+    background: linear-gradient(135deg, #e6850e 0%, #cc7a00 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 149, 0, 0.4);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .hydrateddrinks-partial .pf-recs-affiliate-notice {
+    background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
+    border: 1px solid #27ae60;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    color: #2c5530;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+    position: relative;
+  }
+
+  .hydrateddrinks-partial .pf-recs-affiliate-notice::before {
+    content: '💡';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #27ae60;
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+
+  .hydrateddrinks-partial .pf-recs-sources-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  }
+
+  .hydrateddrinks-partial .pf-recs-sources-title {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hydrateddrinks-partial .pf-recs-sources-title::before {
+    content: '📚';
+    font-size: 1.2rem;
+  }
+
+  .hydrateddrinks-partial .pf-recs-sources-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    counter-reset: source-counter;
+  }
+
+  .hydrateddrinks-partial .pf-recs-sources-item {
+    counter-increment: source-counter;
+    margin-bottom: 0.8rem;
+    padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    border-left: 4px solid #3498db;
+    position: relative;
+    line-height: 1.5;
+    color: #2c3e50;
+  }
+
+  .hydrateddrinks-partial .pf-recs-sources-item::before {
+    content: counter(source-counter);
+    position: absolute;
+    left: 0.8rem;
+    top: 0.8rem;
+    background: #3498db;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .hydrateddrinks-partial .pf-recs-copy-btn {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0 auto;
+  }
+
+  .hydrateddrinks-partial .pf-recs-copy-btn:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #1f5f8b 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+  }
+
+  .hydrateddrinks-partial .pf-recs-copy-btn:disabled {
+    cursor: default;
+    opacity: 0.85;
+    transform: none;
+  }
+
+  .hydrateddrinks-partial .pf-recs-sources-storage {
+    display: none;
+  }
+
+  .hydrateddrinks-partial .pf-recs-sources-fallback {
+    display: none;
+    margin-top: 1rem;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .hydrateddrinks-partial .pf-recs-sources-fallback p {
+    margin: 0 0 0.75rem;
+    font-size: 0.95rem;
+    color: #2c3e50;
+    font-weight: 600;
+  }
+
+  .hydrateddrinks-partial .pf-recs-sources-fallback textarea {
+    width: 100%;
+    min-height: 180px;
+    resize: vertical;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #2c3e50;
+    background: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .hydrateddrinks-partial {
+      padding: 0 0.5rem;
+    }
+
+    .hydrateddrinks-partial .pf-recs-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .hydrateddrinks-partial .pf-recs-card {
+      padding: 1rem;
+    }
+
+    .hydrateddrinks-partial .pf-recs-image {
+      height: 180px;
+    }
+
+    .hydrateddrinks-partial .pf-recs-title {
+      font-size: 1.5rem;
+    }
+
+    .hydrateddrinks-partial .pf-recs-sources-section {
+      padding: 1.5rem;
+    }
+
+    .hydrateddrinks-partial .pf-recs-copy-btn {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hydrateddrinks-partial .pf-recs-image {
+      height: 150px;
+    }
+
+    .hydrateddrinks-partial .pf-recs-product-name {
+      font-size: 1rem;
+      min-height: 2.5rem;
+    }
+
+    .hydrateddrinks-partial .pf-recs-amazon-btn {
+      padding: 10px 16px;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<div class="hydrateddrinks-partial">
+  <h2 class="pf-recs-title">Productos recomendados</h2>
+
+  <div class="pf-recs-grid">
+    <div class="pf-recs-card">
+      <div class="pf-recs-image-container">
+        <img src="https://m.media-amazon.com/images/I/512yn5PDKUL._SX679_.jpg" alt="Organic Apple Cider Vinegar" class="pf-recs-image">
+      </div>
+      <h3 class="pf-recs-product-name">Vinagre de sidra de manzana orgánico</h3>
+      <a href="https://amzn.to/4dEaiRi" class="pf-recs-amazon-btn" target="_blank" rel="noopener">Ver en Amazon</a>
+    </div>
+
+    <div class="pf-recs-card">
+      <div class="pf-recs-image-container">
+        <img src="https://m.media-amazon.com/images/I/81CSahqbgHL._SY879_.jpg" alt="Tamarind Paste" class="pf-recs-image">
+      </div>
+      <h3 class="pf-recs-product-name">Pasta de tamarindo</h3>
+      <a href="https://amzn.to/3PZ35n2" class="pf-recs-amazon-btn" target="_blank" rel="noopener">Ver en Amazon</a>
+    </div>
+
+    <div class="pf-recs-card">
+      <div class="pf-recs-image-container">
+        <img src="https://m.media-amazon.com/images/I/A13ro-VnkfL._SX679_.jpg" alt="Goya Panela Brown Sugar Cane" class="pf-recs-image">
+      </div>
+      <h3 class="pf-recs-product-name">Panela de caña Goya</h3>
+      <a href="https://amzn.to/42YPcIq" class="pf-recs-amazon-btn" target="_blank" rel="noopener">Ver en Amazon</a>
+    </div>
+
+    <div class="pf-recs-card">
+      <div class="pf-recs-image-container">
+        <img src="https://m.media-amazon.com/images/I/7165qOTKJwL._SL1500_.jpg" alt="Frontier Co-op Hibiscus Flowers" class="pf-recs-image">
+      </div>
+      <h3 class="pf-recs-product-name">Flores de Jamaica</h3>
+      <a href="https://amzn.to/4v3irpj" class="pf-recs-amazon-btn" target="_blank" rel="noopener">Ver en Amazon</a>
+    </div>
+
+    <div class="pf-recs-card">
+      <div class="pf-recs-image-container">
+        <img src="https://m.media-amazon.com/images/I/814lgXV0xSL._SY879_.jpg" alt="Rani Black Salt (Kala Namak) Powder" class="pf-recs-image">
+      </div>
+      <h3 class="pf-recs-product-name">Sal negra en polvo (Kala Namak)</h3>
+      <a href="https://amzn.to/43fmQKh" class="pf-recs-amazon-btn" target="_blank" rel="noopener">Ver en Amazon</a>
+    </div>
+
+    <div class="pf-recs-card">
+      <div class="pf-recs-image-container">
+        <img src="https://m.media-amazon.com/images/I/81Pnj4h1XhL._SX679_.jpg" alt="Organic Whole Fennel Seed" class="pf-recs-image">
+      </div>
+      <h3 class="pf-recs-product-name">Semillas enteras de hinojo orgánico</h3>
+      <a href="https://amzn.to/4dtGNmq" class="pf-recs-amazon-btn" target="_blank" rel="noopener">Ver en Amazon</a>
+    </div>
+
+    <div class="pf-recs-card">
+      <div class="pf-recs-image-container">
+        <img src="https://m.media-amazon.com/images/I/81RBt-2ixRL._SX679_.jpg" alt="Pearl Barley" class="pf-recs-image">
+      </div>
+      <h3 class="pf-recs-product-name">Cebada perlada</h3>
+      <a href="https://amzn.to/4va17iE" class="pf-recs-amazon-btn" target="_blank" rel="noopener">Ver en Amazon</a>
+    </div>
+
+    <div class="pf-recs-card">
+      <div class="pf-recs-image-container">
+        <img src="https://m.media-amazon.com/images/I/81SWC0Vh3oL._SX679_.jpg" alt="Rani Sattu Flour" class="pf-recs-image">
+      </div>
+      <h3 class="pf-recs-product-name">Harina Sattu Rani</h3>
+      <a href="https://amzn.to/49gFaWM" class="pf-recs-amazon-btn" target="_blank" rel="noopener">Ver en Amazon</a>
+    </div>
+
+    <div class="pf-recs-card">
+      <div class="pf-recs-image-container">
+        <img src="https://m.media-amazon.com/images/I/61EYay46GoL._SL1500_.jpg" alt="Greek Yogurt Starter Culture" class="pf-recs-image">
+      </div>
+      <h3 class="pf-recs-product-name">Cultivo iniciador para yogur griego</h3>
+      <a href="https://amzn.to/4f8klk4" class="pf-recs-amazon-btn" target="_blank" rel="noopener">Ver en Amazon</a>
+    </div>
+
+    <div class="pf-recs-card">
+      <div class="pf-recs-image-container">
+        <img src="https://m.media-amazon.com/images/I/71CaG9TXkML._AC_SX679_PIbundle-6,TopRight,0,0_SH20_.jpg" alt="Glass Milk Bottle 1L (6 pack)" class="pf-recs-image">
+      </div>
+      <h3 class="pf-recs-product-name">Botellas de vidrio para leche de 1 L (paquete de 6)</h3>
+      <a href="https://amzn.to/4tXgN7R" class="pf-recs-amazon-btn" target="_blank" rel="noopener">Ver en Amazon</a>
+    </div>
+  </div>
+
+  <div class="pf-recs-affiliate-notice">
+    PrepperFamily.org participa en el Programa de Afiliados de Amazon. Usar estos enlaces contribuye a la plataforma sin costo adicional para ti. ¡Gracias por apoyar esta comunidad!
+  </div>
+
+  <div class="pf-recs-sources-section">
+    <h3 class="pf-recs-sources-title">Fuentes</h3>
+
+    <textarea id="hydrateddrinks-es-sources-storage" class="pf-recs-sources-storage" readonly>
+FUENTES DE INVESTIGACIÓN:
+
+1. Regimen in Acute Diseases
+
+2. Oxymel: A systematic review of preclinical and clinical studies
+
+3. Switchel: Drinking Vinegar to Stay Cool
+
+4. Microbial and Chemical Characteristics of Doogh (Iranian Fermented Yogurt Drink)
+
+5. Roman Food and Drink – Part 3: What were they drinking?
+    </textarea>
+
+    <ol class="pf-recs-sources-list">
+      <li class="pf-recs-sources-item"><em>Regimen in Acute Diseases</em></li>
+      <li class="pf-recs-sources-item"><em>Oxymel: A systematic review of preclinical and clinical studies</em></li>
+      <li class="pf-recs-sources-item"><em>Switchel: Drinking Vinegar to Stay Cool</em></li>
+      <li class="pf-recs-sources-item"><em>Microbial and Chemical Characteristics of Doogh (Iranian Fermented Yogurt Drink)</em></li>
+      <li class="pf-recs-sources-item"><em>Roman Food and Drink – Part 3: What were they drinking?</em></li>
+    </ol>
+
+    <button
+      type="button"
+      class="pf-recs-copy-btn"
+      onclick="(async function(btn){
+        try {
+          var sourceEl = document.getElementById('hydrateddrinks-es-sources-storage');
+          if (!sourceEl) return false;
+
+          var text = sourceEl.value.trim();
+          var original = btn.innerHTML;
+
+          if (!navigator.clipboard || !window.isSecureContext) {
+            throw new Error('Clipboard not available');
+          }
+
+          await navigator.clipboard.writeText(text);
+
+          btn.innerHTML = '✅ Fuentes copiadas';
+          btn.disabled = true;
+
+          setTimeout(function(){
+            btn.innerHTML = original;
+            btn.disabled = false;
+          }, 1600);
+
+        } catch (err) {
+          var fallback = document.getElementById('hydrateddrinks-es-sources-storage-fallback');
+          if (fallback) fallback.style.display = 'block';
+          console.error(err);
+        }
+        return false;
+      })(this);"
+    >
+      📋 Copiar todas las fuentes
+    </button>
+
+    <div id="hydrateddrinks-es-sources-storage-fallback" class="pf-recs-sources-fallback">
+      <p>Copiar manualmente:</p>
+      <textarea readonly>
+FUENTES DE INVESTIGACIÓN:
+
+1. Regimen in Acute Diseases
+
+2. Oxymel: A systematic review of preclinical and clinical studies
+
+3. Switchel: Drinking Vinegar to Stay Cool
+
+4. Microbial and Chemical Characteristics of Doogh (Iranian Fermented Yogurt Drink)
+
+5. Roman Food and Drink – Part 3: What were they drinking?
+      </textarea>
+    </div>
+  </div>
+</div>
