@@ -1,0 +1,398 @@
+<style>
+  .pf-amazon-recs-partial {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .pf-amazon-recs-partial,
+  .pf-amazon-recs-partial * {
+    box-sizing: border-box;
+  }
+
+  .pf-amazon-recs-partial .amazon-recommendations {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .pf-amazon-recs-partial .recommendations-header {
+    background: linear-gradient(135deg, #ff9500, #ffb366);
+    color: white;
+    padding: 25px;
+    text-align: center;
+  }
+
+  .pf-amazon-recs-partial .recommendations-header h2 {
+    font-size: 2.2em;
+    margin: 0 0 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .pf-amazon-recs-partial .recommendations-header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  .pf-amazon-recs-partial .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 30px;
+  }
+
+  .pf-amazon-recs-partial .product-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
+  }
+
+  .pf-amazon-recs-partial .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .pf-amazon-recs-partial .product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+    padding: 15px;
+    display: block;
+  }
+
+  .pf-amazon-recs-partial .product-info {
+    padding: 20px;
+  }
+
+  .pf-amazon-recs-partial .product-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 15px;
+    line-height: 1.4;
+  }
+
+  .pf-amazon-recs-partial .amazon-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff9500, #ffb366);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .pf-amazon-recs-partial .amazon-button:hover {
+    background: linear-gradient(135deg, #e8860d, #ff9500);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 149, 0, 0.3);
+  }
+
+  .pf-amazon-recs-partial .affiliate-disclaimer {
+    background: #f8f9fa;
+    padding: 20px 30px;
+    border-top: 1px solid #e9ecef;
+    color: #6c757d;
+    font-size: 0.9em;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .pf-amazon-recs-partial .affiliate-disclaimer p {
+    margin: 0;
+  }
+
+  .pf-amazon-recs-partial .sources-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-top: 1px solid #e9ecef;
+  }
+
+  .pf-amazon-recs-partial .sources-header {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .pf-amazon-recs-partial .sources-header h3 {
+    font-size: 1.8em;
+    color: #2c3e50;
+    margin: 0 0 10px;
+  }
+
+  .pf-amazon-recs-partial .sources-description {
+    color: #6c757d;
+    font-size: 1.1em;
+    margin: 0 0 20px;
+  }
+
+  .pf-amazon-recs-partial .copy-sources-btn {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    min-width: 200px;
+  }
+
+  .pf-amazon-recs-partial .copy-sources-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #004085);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  }
+
+  .pf-amazon-recs-partial .copy-sources-btn:disabled {
+    cursor: default;
+    opacity: 0.85;
+  }
+
+  .pf-amazon-recs-partial .sources-list {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 1px solid #e9ecef;
+  }
+
+  .pf-amazon-recs-partial .sources-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pf-amazon-recs-partial .sources-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f3f4;
+    color: #495057;
+    line-height: 1.5;
+  }
+
+  .pf-amazon-recs-partial .sources-list li:last-child {
+    border-bottom: none;
+  }
+
+  .pf-amazon-recs-partial .sources-storage {
+    display: none;
+  }
+
+  .pf-amazon-recs-partial .sources-fallback {
+    display: none;
+    margin-top: 20px;
+    text-align: left;
+  }
+
+  .pf-amazon-recs-partial .sources-fallback p {
+    margin: 0 0 8px;
+    color: #495057;
+    font-weight: 600;
+  }
+
+  .pf-amazon-recs-partial .sources-fallback textarea {
+    width: 100%;
+    min-height: 180px;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    resize: vertical;
+    font: inherit;
+    line-height: 1.5;
+    color: #495057;
+    background: white;
+  }
+
+  @media (max-width: 768px) {
+    .pf-amazon-recs-partial {
+      padding: 12px;
+    }
+
+    .pf-amazon-recs-partial .products-grid {
+      grid-template-columns: 1fr;
+      padding: 20px;
+    }
+
+    .pf-amazon-recs-partial .recommendations-header {
+      padding: 22px 18px;
+    }
+
+    .pf-amazon-recs-partial .recommendations-header h2 {
+      font-size: 1.8em;
+    }
+
+    .pf-amazon-recs-partial .sources-section {
+      padding: 20px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .pf-amazon-recs-partial .products-grid {
+      padding: 16px;
+      gap: 18px;
+    }
+
+    .pf-amazon-recs-partial .product-image {
+      height: 220px;
+    }
+
+    .pf-amazon-recs-partial .copy-sources-btn {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+</style>
+
+    <div class="pf-amazon-recs-partial">
+  <div class="amazon-recommendations">
+    <div class="recommendations-header">
+      <h2>🛒 Productos Recomendados</h2>
+      <p>Selección especial de productos para tu proyecto</p>
+    </div>
+
+    <div class="products-grid">
+      <!-- Producto 1: LG Air Conditioner -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71Arz9IIjdL._AC_SL1500_.jpg" alt="LG 6,000 BTU Window Air Conditioner" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">LG 6,000 BTU Window Air Conditioner</h3>
+          <a href="https://amzn.to/4tXDYio" target="_blank" class="amazon-button" rel="noopener">
+            Ver en Amazon
+          </a>
+        </div>
+      </div>
+
+      <!-- Producto 2: Thermometer -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/61-oV-L9T1L._SL1500_.jpg" alt="Thermometer Analog 2 in 1 Temperature & Humidity Gauge" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Thermometer Analog 2 in 1 Temperature & Humidity Gauge for Indoor</h3>
+          <a href="https://amzn.to/3PMGTMS" target="_blank" class="amazon-button" rel="noopener">
+            Ver en Amazon
+          </a>
+        </div>
+      </div>
+
+      <!-- Producto 3: Plastic Sheeting -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71Qw-jng9cL._AC_SL1500_.jpg" alt="Plastic Sheeting Roll 6 MIL" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Plastic Sheeting Roll 6 MIL (10'x100') Black Polyethylene Heavy Duty</h3>
+          <a href="https://amzn.to/4nUucfA" target="_blank" class="amazon-button" rel="noopener">
+            Ver en Amazon
+          </a>
+        </div>
+      </div>
+
+      <!-- Producto 4: SmartSHIELD Insulation -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/81FB1eYLTOL._AC_SL1500_.jpg" alt="SmartSHIELD Reflective Insulation" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">SmartSHIELD -5mm 48&quot;x100ft Reflective Foam Core Insulation roll</h3>
+          <a href="https://amzn.to/4uxXRxs" target="_blank" class="amazon-button" rel="noopener">
+            Ver en Amazon
+          </a>
+        </div>
+      </div>
+
+      <!-- Producto 5: Aluminum Tape -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/51goLjMWG3L._SL1500_.jpg" alt="Aluminum Tape" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">Aluminum Tape, Insulation Tape for Air Conditioner.</h3>
+          <a href="https://amzn.to/4e6fjDx" target="_blank" class="amazon-button" rel="noopener">
+            Ver en Amazon
+          </a>
+        </div>
+      </div>
+
+      <!-- Producto 6: CoolBot -->
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/81jdKVJeg2L._AC_SL1500_.jpg" alt="CoolBot Gen-6" class="product-image">
+        <div class="product-info">
+          <h3 class="product-title">CoolBot Gen-6 &quot;Blue&quot;</h3>
+          <a href="https://amzn.to/4dNLHtu" target="_blank" class="amazon-button" rel="noopener">
+            Ver en Amazon
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="affiliate-disclaimer">
+      <p>PrepperFamily.org participa en el Programa de Afiliados de Amazon. Usando este enlace contribuyes a la plataforma sin costo adicional para ti. Gracias por apoyar esta comunidad.</p>
+    </div>
+
+    <div class="sources-section">
+      <div class="sources-header">
+        <h3>📚 Super Fuentes del Artículo</h3>
+        <p class="sources-description">Copia con un solo clic todas las Super Fuentes de este artículo, para que puedas investigar con detalle más al respecto</p>
+
+        <textarea id="pf-amazon-recs-sources-az-rootcellar" class="sources-storage" readonly>
+University of Missouri Extension – "Home Storage of Fruits and Vegetables in Root Cellars" (practical guide & temperature/RH tables)
+
+University of Alaska Fairbanks Cooperative Extension – "Vegetable Storage in Root Cellars" (building & handling tips for cold climates)
+
+Michigan State University, John Biernbaum – "Cold Cellars for Year-Round Local Food and Farming" (PDF with diagrams & thermal load calculations)
+
+Store It Cold – "CoolBot Instruction Manual" (official installation & tuning manual)
+
+Practical Farmers of Iowa – "CoolBot vs. Commercial Chilling Systems in Walk-in Coolers" (energy use & cost comparison study)
+
+Colorado State University Extension – "Storage of Home-Grown Vegetables – Fact Sheet 7.601" (shelving design & crop rotation)
+</textarea>
+
+        <button type="button" class="copy-sources-btn" onclick="(async function(btn){ try { var sourceEl = document.getElementById('pf-amazon-recs-sources-az-rootcellar'); if (!sourceEl) return false; var text = sourceEl.value.trim(); var original = btn.innerHTML; if (!navigator.clipboard || !window.isSecureContext) { throw new Error('Clipboard not available'); } await navigator.clipboard.writeText(text); btn.innerHTML = '✅ Fuentes copiadas'; btn.disabled = true; setTimeout(function(){ btn.innerHTML = original; btn.disabled = false; }, 1600); } catch (err) { var fallback = document.getElementById('pf-amazon-recs-sources-az-rootcellar-fallback'); if (fallback) fallback.style.display = 'block'; console.error(err); } return false; })(this);">
+          📋 Copiar Fuentes
+        </button>
+      </div>
+
+      <div class="sources-list">
+        <ul>
+          <li>University of Missouri Extension – "Home Storage of Fruits and Vegetables in Root Cellars" (practical guide & temperature/RH tables)</li>
+          <li>University of Alaska Fairbanks Cooperative Extension – "Vegetable Storage in Root Cellars" (building & handling tips for cold climates)</li>
+          <li>Michigan State University, John Biernbaum – "Cold Cellars for Year-Round Local Food and Farming" (PDF with diagrams & thermal load calculations)</li>
+          <li>Store It Cold – "CoolBot Instruction Manual" (official installation & tuning manual)</li>
+          <li>Practical Farmers of Iowa – "CoolBot vs. Commercial Chilling Systems in Walk-in Coolers" (energy use & cost comparison study)</li>
+          <li>Colorado State University Extension – "Storage of Home-Grown Vegetables – Fact Sheet 7.601" (shelving design & crop rotation)</li>
+        </ul>
+      </div>
+
+      <div id="pf-amazon-recs-sources-az-rootcellar-fallback" class="sources-fallback">
+        <p>Copy manually:</p>
+        <textarea readonly>
+University of Missouri Extension – "Home Storage of Fruits and Vegetables in Root Cellars" (practical guide & temperature/RH tables)
+
+University of Alaska Fairbanks Cooperative Extension – "Vegetable Storage in Root Cellars" (building & handling tips for cold climates)
+
+Michigan State University, John Biernbaum – "Cold Cellars for Year-Round Local Food and Farming" (PDF with diagrams & thermal load calculations)
+
+Store It Cold – "CoolBot Instruction Manual" (official installation & tuning manual)
+
+Practical Farmers of Iowa – "CoolBot vs. Commercial Chilling Systems in Walk-in Coolers" (energy use & cost comparison study)
+
+Colorado State University Extension – "Storage of Home-Grown Vegetables – Fact Sheet 7.601" (shelving design & crop rotation)
+</textarea>
+      </div>
+    </div>
+  </div>
+</div>
