@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Christ, the Center of the Universe</title>
+   <meta name="description" content="Discover why creation, human freedom, and the fall only make sense when Christ is seen as the true center and final purpose of all things.">
+
+   <link rel="canonical" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/christ-center-universe/">
+   <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/christ-center-universe/">
+   <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/conceptos-cristianos-basicos/cristo-centro-universo/">
+   <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/christ-center-universe/">
+   
+   <style>
+    :root {
+      --ink: #1b130d;
+      --ink-soft: #4a3525;
+      --muted: #725a45;
+      --parchment: #fff8ea;
+      --parchment-deep: #f4e3bd;
+      --cream: #fffdf7;
+      --gold: #c79222;
+      --gold-bright: #f0c65a;
+      --gold-pale: #fff1c5;
+      --blue: #162947;
+      --blue-2: #233d67;
+      --marian: #2d5f9a;
+      --red: #8d2424;
+      --red-deep: #4a0f12;
+      --green: #476f38;
+      --violet: #51365f;
+      --line: rgba(154, 105, 30, 0.28);
+      --shadow: 0 24px 70px rgba(47, 29, 13, 0.16);
+      --shadow-soft: 0 12px 34px rgba(47, 29, 13, 0.10);
+      --radius: 24px;
+      --measure: 790px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.05rem, 0.28vw + 0.98rem, 1.28rem);
+      line-height: 1.68;
+      background:
+        radial-gradient(circle at 10% 5%, rgba(240,198,90,0.35) 0 9rem, transparent 22rem),
+        radial-gradient(circle at 86% 11%, rgba(45,95,154,0.18) 0 8rem, transparent 24rem),
+        radial-gradient(circle at 50% 100%, rgba(141,36,36,0.10) 0 10rem, transparent 28rem),
+        linear-gradient(180deg, #fffaf0 0%, #f7ead0 46%, #fff8ea 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.42;
+      background-image:
+        linear-gradient(rgba(111, 73, 21, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(111, 73, 21, 0.045) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+      z-index: -1;
+    }
+
+    a { color: inherit; }
+
+    .page-shell {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 72vh;
+      display: grid;
+      place-items: center;
+      padding: 3.6rem 0 3rem;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: min(66vw, 640px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255,244,191,0.95) 0 12%, rgba(240,198,90,0.48) 13% 28%, rgba(199,146,34,0.18) 29% 43%, transparent 44%),
+        conic-gradient(from 45deg, transparent, rgba(255,255,255,0.55), transparent 18%, rgba(240,198,90,0.25), transparent 34%, rgba(45,95,154,0.2), transparent 55%, rgba(255,255,255,0.45), transparent 78%);
+      filter: blur(0.2px);
+      opacity: 0.88;
+      z-index: -2;
+      animation: slowSpin 36s linear infinite;
+    }
+
+    .hero::after {
+      content: "✦";
+      position: absolute;
+      top: 11%;
+      right: 8%;
+      color: rgba(199,146,34,0.42);
+      font-size: clamp(3rem, 8vw, 8rem);
+      line-height: 1;
+      z-index: -1;
+      animation: pulseStar 5.5s ease-in-out infinite;
+    }
+
+    .hero-card {
+      position: relative;
+      max-width: 860px;
+      text-align: center;
+      padding: clamp(1.45rem, 4.8vw, 4.2rem) clamp(1.1rem, 4vw, 3.4rem);
+      background: rgba(255, 253, 247, 0.78);
+      border: 1px solid rgba(199,146,34,0.36);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      overflow: hidden;
+      animation: riseIn 900ms ease both;
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(199,146,34,0.24);
+      border-radius: calc(var(--radius) - 8px);
+      pointer-events: none;
+    }
+
+    .hero-card::after {
+      inset: 25px;
+      border-color: rgba(45,95,154,0.15);
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      padding: 0.38rem 0.95rem;
+      border: 1px solid rgba(199,146,34,0.45);
+      border-radius: 999px;
+      color: var(--blue);
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: rgba(255,241,197,0.62);
+    }
+
+    .kicker::before,
+    .kicker::after { content: "✧"; color: var(--gold); }
+
+    h1, h2, h3 { line-height: 1.1; }
+
+    h1 {
+      margin: 0;
+      font-family: "Cinzel", serif;
+      font-size: clamp(2rem, 5.8vw, 5.7rem);
+      letter-spacing: -0.045em;
+      font-weight: 700;
+      color: var(--blue);
+      text-wrap: balance;
+    }
+
+    .title-glow {
+      display: block;
+      color: transparent;
+      background: linear-gradient(90deg, #6d1f1f 0%, #c79222 38%, #162947 78%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      filter: drop-shadow(0 12px 22px rgba(199,146,34,0.15));
+    }
+
+    .subtitle {
+      max-width: 680px;
+      margin: 1rem auto 0;
+      color: var(--ink-soft);
+      font-size: clamp(1.08rem, 0.9vw + 0.94rem, 1.65rem);
+      font-style: italic;
+      text-wrap: balance;
+    }
+
+    .hero-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.65rem;
+      margin-top: 1.55rem;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .hero-nav a {
+      text-decoration: none;
+      padding: 0.55rem 0.82rem;
+      border-radius: 999px;
+      background: rgba(22,41,71,0.07);
+      border: 1px solid rgba(22,41,71,0.12);
+      color: var(--blue);
+      transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .hero-nav a:hover {
+      transform: translateY(-2px);
+      background: rgba(255,241,197,0.82);
+      box-shadow: var(--shadow-soft);
+    }
+
+    main {
+      padding-bottom: 4rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(170px, 240px);
+      gap: clamp(1.25rem, 4vw, 3.4rem);
+      align-items: start;
+    }
+
+    .article {
+      max-width: var(--measure);
+      margin: 0 auto;
+    }
+
+    .side-rail {
+      position: sticky;
+      top: 1rem;
+      display: grid;
+      gap: 0.85rem;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 0.84rem;
+    }
+
+    .rail-card {
+      border-radius: 20px;
+      border: 1px solid rgba(199,146,34,0.28);
+      background: rgba(255,253,247,0.66);
+      box-shadow: var(--shadow-soft);
+      padding: 0.9rem;
+    }
+
+    .rail-card strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: var(--blue);
+      font-family: "Cinzel", serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .rail-card span { color: var(--muted); }
+
+    .section {
+      position: relative;
+      margin: 0 0 1.75rem;
+      padding: clamp(1.25rem, 2.6vw, 2.15rem);
+      border-radius: var(--radius);
+      border: 1px solid rgba(199,146,34,0.22);
+      background: rgba(255,253,247,0.74);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      animation: revealUp 760ms ease both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+
+    @supports not (animation-timeline: view()) {
+      .section { animation: riseIn 780ms ease both; }
+    }
+
+    .section::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--gold), var(--marian), var(--red));
+      opacity: 0.85;
+    }
+
+    .section:nth-of-type(2n)::before { background: linear-gradient(90deg, var(--marian), var(--gold), var(--green)); }
+    .section:nth-of-type(3n)::before { background: linear-gradient(90deg, var(--violet), var(--red), var(--gold)); }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.65rem;
+      color: var(--gold);
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-label::before {
+      content: "";
+      width: 1.7rem;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h2 {
+      margin: 0 0 1rem;
+      color: var(--blue);
+      font-family: "Cinzel", serif;
+      font-size: clamp(1.38rem, 2.05vw, 2.25rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      text-wrap: balance;
+    }
+
+    h3 {
+      margin: 1.45rem 0 0.6rem;
+      color: var(--red);
+      font-family: "Cinzel", serif;
+      font-size: clamp(1.08rem, 1.1vw, 1.35rem);
+    }
+
+    p { margin: 0 0 0.88rem; }
+    p:last-child { margin-bottom: 0; }
+
+    .lead {
+      font-size: clamp(1.12rem, 0.72vw + 0.98rem, 1.5rem);
+      line-height: 1.56;
+      color: var(--ink-soft);
+    }
+
+    .dropcap::first-letter {
+      float: left;
+      margin: 0.07em 0.12em 0 0;
+      color: var(--gold);
+      font-family: "Cinzel", serif;
+      font-size: 4.1em;
+      line-height: 0.82;
+      text-shadow: 0 8px 20px rgba(199,146,34,0.22);
+    }
+
+    strong { color: #21120a; font-weight: 700; }
+    em { color: var(--red); }
+
+    .quote-card {
+      position: relative;
+      margin: 1.45rem 0;
+      padding: 1.25rem 1.35rem 1.25rem 1.65rem;
+      border-radius: 22px;
+      color: #fff7df;
+      background:
+        linear-gradient(135deg, rgba(22,41,71,0.98), rgba(42,78,128,0.94)),
+        radial-gradient(circle at 15% 10%, rgba(240,198,90,0.35), transparent 14rem);
+      box-shadow: 0 18px 45px rgba(22,41,71,0.20);
+      overflow: hidden;
+    }
+
+    .quote-card::before {
+      content: "“";
+      position: absolute;
+      top: -1.25rem;
+      left: 0.7rem;
+      color: rgba(240,198,90,0.28);
+      font-size: 6.8rem;
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+
+    .quote-card p {
+      position: relative;
+      margin: 0;
+      font-size: clamp(1.12rem, 0.72vw + 0.98rem, 1.48rem);
+      font-style: italic;
+      line-height: 1.42;
+    }
+
+    .scripture-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin: 1.15rem 0 0.35rem;
+    }
+
+    .scripture {
+      border-radius: 20px;
+      padding: 0.9rem;
+      background: linear-gradient(180deg, rgba(255,241,197,0.76), rgba(255,253,247,0.78));
+      border: 1px solid rgba(199,146,34,0.24);
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 0.88rem;
+      line-height: 1.48;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .scripture:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .scripture b {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 0.2rem;
+      font-family: "Cinzel", serif;
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+    }
+
+    .cosmic-order {
+      display: grid;
+      gap: 0.72rem;
+      margin: 1.25rem 0;
+      counter-reset: order;
+    }
+
+    .order-item {
+      counter-increment: order;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.75rem;
+      align-items: start;
+      padding: 0.9rem;
+      border-radius: 20px;
+      background: rgba(255,241,197,0.44);
+      border: 1px solid rgba(199,146,34,0.20);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .order-item:hover {
+      transform: translateX(5px);
+      background: rgba(255,241,197,0.72);
+    }
+
+    .order-item::before {
+      content: counter(order);
+      display: grid;
+      place-items: center;
+      width: 1.9rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      color: #fff8e5;
+      background: linear-gradient(135deg, var(--gold), #7a5214);
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+      line-height: 1;
+      box-shadow: 0 10px 24px rgba(199,146,34,0.22);
+    }
+
+    .order-item strong {
+      display: block;
+      color: var(--blue);
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 0.95rem;
+      margin-bottom: 0.08rem;
+    }
+
+    .order-item span {
+      display: block;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .hinge {
+      margin: 2rem 0;
+      padding: clamp(1.2rem, 2.5vw, 2rem);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 0 0, rgba(141,36,36,0.20), transparent 14rem),
+        linear-gradient(135deg, var(--red-deep), #842027 55%, #261014);
+      color: #fff2dd;
+      box-shadow: 0 24px 70px rgba(82,18,18,0.24);
+      animation: ember 5s ease-in-out infinite alternate;
+    }
+
+    .hinge .section-label { color: #f0c65a; }
+    .hinge h2 { color: #fff7df; }
+    .hinge p { color: #ffe9d2; }
+    .hinge em { color: #ffd16b; }
+
+    .fall-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 1.25rem;
+    }
+
+    .fall-card {
+      position: relative;
+      min-height: 160px;
+      padding: 0.95rem;
+      border-radius: 22px;
+      background: rgba(255, 248, 234, 0.10);
+      border: 1px solid rgba(255, 209, 107, 0.22);
+      overflow: hidden;
+      transition: transform 200ms ease, background 200ms ease;
+    }
+
+    .fall-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 248, 234, 0.16);
+    }
+
+    .fall-card::before {
+      content: attr(data-number);
+      position: absolute;
+      right: 0.85rem;
+      bottom: -1.25rem;
+      color: rgba(255, 209, 107, 0.13);
+      font-family: "Cinzel", serif;
+      font-size: 5.3rem;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .fall-card strong {
+      position: relative;
+      display: block;
+      margin-bottom: 0.38rem;
+      color: #fff7df;
+      font-family: "Cinzel", serif;
+      font-size: 1rem;
+    }
+
+    .fall-card span {
+      position: relative;
+      display: block;
+      color: #ffe9d2;
+      font-size: 0.98rem;
+      line-height: 1.42;
+    }
+
+    .nature-litany {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 1rem 0;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 0.84rem;
+    }
+
+    .nature-litany span {
+      padding: 0.42rem 0.68rem;
+      border-radius: 999px;
+      background: rgba(71,111,56,0.10);
+      border: 1px solid rgba(71,111,56,0.18);
+      color: #315027;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .nature-litany span:hover {
+      transform: translateY(-2px) rotate(-0.5deg);
+      background: rgba(71,111,56,0.16);
+    }
+
+    .final-question {
+      margin-top: 2rem;
+      border-radius: 26px;
+      padding: clamp(1.35rem, 3.2vw, 2.55rem);
+      text-align: center;
+      color: #fff8e8;
+      background:
+        radial-gradient(circle at 30% 0, rgba(240,198,90,0.34), transparent 18rem),
+        linear-gradient(135deg, #162947, #2a4d82 58%, #721f1f);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+      animation: revealUp 760ms ease both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+
+    .final-question::before {
+      content: "?";
+      position: absolute;
+      right: 5%;
+      top: -2.8rem;
+      color: rgba(255,248,232,0.08);
+      font-family: "Cinzel", serif;
+      font-size: clamp(7rem, 18vw, 17rem);
+      line-height: 1;
+    }
+
+    .final-question h2 { color: #fff8e8; }
+    .final-question p { color: #ffeed0; font-size: clamp(1.12rem, 0.72vw + 0.98rem, 1.48rem); }
+
+    .mini-note {
+      margin-top: 1rem;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 0.84rem;
+      color: rgba(255,248,232,0.78);
+    }
+
+    .footer-line {
+      width: min(680px, 90%);
+      margin: 2.5rem auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.85rem;
+      color: var(--gold);
+      font-family: "Cinzel", serif;
+      font-size: 0.84rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .footer-line::before,
+    .footer-line::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(199,146,34,0.55));
+    }
+
+    .footer-line::after { background: linear-gradient(90deg, rgba(199,146,34,0.55), transparent); }
+
+    @keyframes riseIn {
+      from { opacity: 0; transform: translateY(22px) scale(0.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes revealUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slowSpin {
+      from { transform: rotate(0deg) scale(1); }
+      to { transform: rotate(360deg) scale(1.03); }
+    }
+
+    @keyframes pulseStar {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.35; }
+      50% { transform: scale(1.08) rotate(7deg); opacity: 0.68; }
+    }
+
+    @keyframes ember {
+      from { box-shadow: 0 24px 70px rgba(82,18,18,0.18); }
+      to { box-shadow: 0 28px 84px rgba(141,36,36,0.34); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .side-rail { position: static; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .page-shell { width: min(100% - 20px, 1180px); }
+      .hero { min-height: auto; padding: 1.6rem 0 1.35rem; }
+      .hero::before { width: min(92vw, 420px); }
+      .hero::after { font-size: clamp(2.6rem, 13vw, 4.8rem); }
+      .hero-card { border-radius: 20px; padding: 1.2rem 1rem; }
+      .hero-card::before, .hero-card::after { display: none; }
+      .hero-nav { display: none; }
+      .kicker { margin-bottom: 0.8rem; padding: 0.34rem 0.78rem; font-size: 0.62rem; gap: 0.45rem; }
+      h1 { font-size: clamp(1.85rem, 10.5vw, 3rem); line-height: 1.04; }
+      .subtitle { margin-top: 0.8rem; font-size: clamp(1.02rem, 4.2vw, 1.22rem); line-height: 1.45; }
+      main { padding-bottom: 3rem; }
+      .content-grid { gap: 1rem; }
+      .section { margin-bottom: 1.2rem; padding: 1rem; border-radius: 20px; }
+      .section-label { font-size: 0.64rem; letter-spacing: 0.14em; margin-bottom: 0.55rem; }
+      .section-label::before { width: 1.25rem; }
+      h2 { font-size: clamp(1.26rem, 6.2vw, 1.75rem); margin-bottom: 0.8rem; }
+      h3 { font-size: 1.05rem; margin: 1.2rem 0 0.5rem; }
+      p { margin-bottom: 0.78rem; }
+      .lead { font-size: 1.06rem; line-height: 1.5; }
+      .quote-card { margin: 1.1rem 0; padding: 1.05rem 1rem 1.05rem 1.25rem; border-radius: 20px; }
+      .quote-card::before { font-size: 5.5rem; top: -1rem; left: 0.55rem; }
+      .quote-card p { font-size: 1.08rem; line-height: 1.38; }
+      .scripture-row, .fall-grid, .side-rail { grid-template-columns: 1fr; }
+      .scripture-row { gap: 0.7rem; margin-top: 1rem; }
+      .scripture { padding: 0.82rem; border-radius: 18px; font-size: 0.84rem; }
+      .cosmic-order { gap: 0.65rem; margin: 1rem 0; }
+      .order-item { padding: 0.78rem; gap: 0.65rem; border-radius: 18px; }
+      .order-item::before { width: 1.75rem; }
+      .order-item strong { font-size: 0.9rem; }
+      .order-item span { font-size: 0.95rem; line-height: 1.36; }
+      .hinge { margin: 1.4rem 0; padding: 1rem; border-radius: 20px; }
+      .fall-grid { gap: 0.75rem; margin-top: 1rem; }
+      .fall-card { min-height: auto; padding: 0.9rem; border-radius: 20px; }
+      .fall-card::before { font-size: 4.4rem; right: 0.7rem; bottom: -1rem; }
+      .fall-card strong { font-size: 0.96rem; }
+      .fall-card span { font-size: 0.95rem; line-height: 1.38; }
+      .nature-litany { gap: 0.45rem; margin: 0.9rem 0; font-size: 0.8rem; }
+      .nature-litany span { padding: 0.36rem 0.58rem; }
+      .final-question { margin-top: 1.4rem; padding: 1.1rem; border-radius: 22px; }
+      .final-question::before { font-size: clamp(5.5rem, 28vw, 8.5rem); top: -1.8rem; }
+      .final-question p { font-size: 1.08rem; line-height: 1.42; }
+      .mini-note { margin-top: 0.8rem; font-size: 0.8rem; }
+      .rail-card { padding: 0.82rem; border-radius: 18px; }
+      .footer-line { width: min(620px, 94%); margin-top: 2rem; gap: 0.6rem; font-size: 0.72rem; letter-spacing: 0.12em; }
+      .fall-card { min-height: auto; }
+      .dropcap::first-letter { font-size: 3.2em; }
+      body { font-size: 1.03rem; line-height: 1.62; }
+    }
+  </style>
+</head>
+<body>
+  
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+   
+   <body>
+  <header class="hero page-shell" id="inicio">
+    <div class="hero-card">
+      <span class="kicker">Theology of Creation</span>
+      <h1><span class="title-glow">Christ,</span> Burning Center of the Universe</h1>
+      <p class="subtitle">Man was not created to occupy the throne of the cosmos, but to be the friend of the Bridegroom, priest of creation, and living path of return to God.</p>
+      <nav class="hero-nav" aria-label="Article sections">
+        <a href="#plan">God’s plan</a>
+        <a href="#orden">The created order</a>
+        <a href="#cristo">Everything in Christ</a>
+        <a href="#pecado">The rupture</a>
+        <a href="#pregunta">The great question</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <div class="content-grid">
+      <article class="article">
+        <section class="section" id="plan">
+          <span class="section-label">I · Before man</span>
+          <h2>The center of the universe is not man</h2>
+          <p class="lead dropcap">In God’s plan, the center of the universe is not man, but <strong>Jesus Christ, the Incarnate Word</strong>: the eternal Son of God made man. God created all things for Christ. Through Our Lord Jesus Christ, in whom the Father is well pleased, and through Mary, His Mother, full of grace, God wished to create man and the universe.</p>
+          <p>To this Son, beloved by the Father, God wished to give friends. That is why He created man. In the Gospel, Our Lord speaks of the friends of the Bridegroom. Christ is the Bridegroom, and humanity is called to be His friend.</p>
+          <p>To this most beloved Son, the Father gave a house and a garden. That is why the universe was created. Man, created for Christ, was loved by Christ. That is why we are like a gift of goodness from God the Father to Jesus Christ, the Bridegroom.</p>
+
+          <div class="quote-card">
+            <p>In Him, through Him, and for Him, we are pleasing to the heavenly Father. Without Him, we are nothing.</p>
+          </div>
+
+          <p>This is decisive for understanding the Mass. Our sacrifices have full value only if they are united to the sacrifice of Christ. Since we have come forth from the heart of God to please Jesus, we are all brothers. The whole of creation is like a delicate gesture of thoughtfulness from the Father toward His divine Son.</p>
+        </section>
+
+        <section class="section" id="orden">
+          <span class="section-label">II · The architecture of the cosmos</span>
+          <h2>Creation as an image of Trinitarian fruitfulness</h2>
+          <p>Creation, called into existence by the loving power of God, will always retain something of Him, until the day it returns to the source of its perfection. There it will receive from that same source its final perfection and complete beauty.</p>
+          <p>Here the plan of creation appears as an image and a prolongation of the fruitfulness of the Most Holy Trinity. The order of this plan may be contemplated as follows:</p>
+
+          <div class="cosmic-order" aria-label="Order of the plan of creation">
+            <div class="order-item"><div><strong>Creation of heaven</strong><span>The higher realm of created reality, open to the mystery of God and His angels.</span></div></div>
+            <div class="order-item"><div><strong>Creation of earth</strong><span>The material dwelling where the visible history of man would unfold.</span></div></div>
+            <div class="order-item"><div><strong>Minerals, vegetation, and animals</strong><span>The patient preparation of the garden, with its foundations, its fruits, and its living creatures.</span></div></div>
+            <div class="order-item"><div><strong>Creation of man</strong><span>The visible king of that creation; but a subordinate king, not an absolute one.</span></div></div>
+          </div>
+
+          <p>Although man may be called king of that creation, because the other visible creatures preceded him and prepared his place, he is not the ultimate end of creation.</p>
+          <p>Man is only a link in a chain that ends in God. This chain passes through the Most Blessed Virgin Mary. She is the jewel most beloved by God, because in her was formed the One who was to contain and recapitulate all things: Jesus Christ.</p>
+        </section>
+
+        <section class="section" id="cristo">
+          <span class="section-label">III · The Word recapitulates everything</span>
+          <h2>All things were created through Him and for Him</h2>
+          <p><strong>Christ is the center of the universe.</strong> He is before all creatures: “He is before all things.” He is “the firstborn of all creation.” “In the beginning was the Word.” All things were created through Him and for Him.</p>
+
+          <div class="scripture-row">
+            <div class="scripture"><b>All things are through Him</b>Without Him nothing was made that exists. He sustains all things by the word of His power.</div>
+            <div class="scripture"><b>All things are in Him</b>God the Father blessed us in Christ with every spiritual blessing. Before creating the world, He chose us in Christ.</div>
+            <div class="scripture"><b>All things are His</b>God appointed Him heir of all things.</div>
+            <div class="scripture"><b>He is the end</b>“I am the Alpha and the Omega, the first and the last, the beginning and the end.”</div>
+          </div>
+
+          <p>Man has come forth from God and must return to Him. That is his final destiny. Saint Augustine said it this way: “You made us for Yourself, my God, and our heart will not rest until it rests in You.”</p>
+        </section>
+
+        <section class="section" id="himno">
+          <span class="section-label">IV · The world as gratitude</span>
+          <h2>Creation returns to God as a hymn</h2>
+          <p>Creation is a work of pure mercy. God inclined toward His creatures out of love. That is why creation returns to God as a hymn of prayer and gratitude.</p>
+
+          <div class="nature-litany" aria-label="Images of creation praising God">
+            <span>the flight of a bird</span>
+            <span>a ray of light</span>
+            <span>a melodious voice</span>
+            <span>a drop of water</span>
+            <span>an ant hurrying along</span>
+            <span>a seed sprouting</span>
+            <span>the stars turning</span>
+          </div>
+
+          <p>The flight of a bird, a ray of light, a melodious voice, a drop of water falling upon the earth, an ant hurrying along, a seed sprouting, the stars turning without colliding with one another: all this is led by God toward its end.</p>
+          <p>God placed order in all things. That order does not exist only for man’s usefulness. God ordered it first for the good of man, also for the happiness of Christ and, finally, for the glory of the Most Holy Trinity.</p>
+        </section>
+
+        <section class="hinge" id="pecado">
+          <span class="section-label">V · The rupture of harmony</span>
+          <h2>Sin fractured the universe</h2>
+          <p>Man is free. That is why he can break God’s harmonious plan. Everything was in balance, because everything tended toward God. All things were united to Him, because all had come forth from Him, the source of life and being.</p>
+          <p>But that union with God also had to be a free act of love. The freedom God gave man is an incomparable greatness. God thus receives a free prayer, not a forced one. However, that same freedom places man before a great danger: he can refuse to unite himself to God.</p>
+          <p>Man could raise his hands in an attitude of offering. But one day he raised them in a gesture of pride and rebellion. He rejected his role as servant and mediator. He no longer wished to live as priest of creation. He wanted <em>“to be like God”</em>.</p>
+          <p>Satan was the one who shouted again, through man, his battle cry: <em>“I will not serve”</em>.</p>
+
+          <div class="fall-grid">
+            <div class="fall-card" data-number="1"><strong>The body rebels</strong><span>First man’s own body rebelled. The disorder of the passions appeared, and the seven capital sins began to drive his desires and his acts.</span></div>
+            <div class="fall-card" data-number="2"><strong>The family is torn apart</strong><span>Then discord appeared in family and social life. The inner imbalance was matched by outer disorder.</span></div>
+            <div class="fall-card" data-number="3"><strong>The earth hardens</strong><span>The animal world and the earth itself also ceased to cooperate docilely. From then on, man wrests fruits from it with struggle and weariness.</span></div>
+          </div>
+        </section>
+
+        <section class="section" id="consecuencias">
+          <span class="section-label">VI · The cascading rebellion</span>
+          <h2>The “I will not serve” turned against man</h2>
+          <p>By rebelling, man fractured the universe. Creation rested upon him as upon a cornerstone. But man rose up against God, and creation, as if in chorus, hurled back against man the same phrase he had dared to direct at God: <em>“I will not serve”</em>.</p>
+          <p>Adam and Eve “realized that they were naked.” Man was wounded in the harmony of his own being.</p>
+          <p>Then discord appeared in family and social life. God said to the woman: “I will multiply your pains and your pregnancies; in pain you shall bring forth children. You shall feel drawn to your husband, and he shall rule over you.”</p>
+          <p>Looking at human history, we see the consequences: conflicts in families, wars between cities, wars between nations, world wars, and revolutions.</p>
+          <p>The animal world too, over which man had once reigned, rebelled. The earth itself ceased to cooperate docilely with man. From then on, man can only wrest some fruits from it with struggle and weariness: “Cursed shall be the ground because of you; in sorrow you shall draw your food from it all the days of your life.”</p>
+          <p>Man was left wounded and disoriented. From then on, suffering would be part of his daily life: “By the sweat of your brow you shall eat bread; in pain you shall bring forth your children.”</p>
+        </section>
+
+        <section class="final-question" id="pregunta">
+          <h2>What will God do before the suffering of His creature?</h2>
+          <p>Man had been created to be Christ’s friend, but he was lost through Adam’s disobedience. Humanity, separated from Christ, was left without form and without beauty.</p>
+          <p>Then the decisive question arises: Would God remain indifferent before the suffering of His creature? Would God punish man or forgive him?</p>
+          <div class="mini-note">Here begins the natural threshold toward the mystery of Redemption.</div>
+        </section>
+      </article>
+
+      <aside class="side-rail" aria-label="Reading notes">
+        <div class="rail-card"><strong>Central key</strong><span>Christ does not enter history late: everything was created from the beginning in reference to Him.</span></div>
+        <div class="rail-card"><strong>Liturgical key</strong><span>The Mass is better understood when all of life is united to the sacrifice of the Son.</span></div>
+        <div class="rail-card"><strong>Moral key</strong><span>Freedom is great because it can love; it is dangerous because it can also rebel.</span></div>
+      </aside>
+    </div>
+
+    <div class="footer-line">Inspired by the Introduction of the 1962 Roman Catholic Apostolic Daily Missal</div>
+   
+   </main>
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/fortaleza-interior/conceptos-cristianos-basicos/" : "/en/inner-strength/basic-christian-concepts/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html>
+   
