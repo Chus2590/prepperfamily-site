@@ -1,0 +1,391 @@
+<section class="pf-recs-partial pf-recs-emergency-family-gear">
+<style>
+.pf-recs-emergency-family-gear,
+.pf-recs-emergency-family-gear * {
+  box-sizing: border-box;
+}
+
+.pf-recs-emergency-family-gear {
+  margin: 2rem auto;
+  max-width: 1120px;
+  color: #263126;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-inner {
+  background: #f7f4ec;
+  border: 1px solid #e2dccd;
+  border-radius: 22px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  box-shadow: 0 10px 30px rgba(47, 56, 42, 0.08);
+}
+
+.pf-recs-emergency-family-gear .pf-recs-products h2,
+.pf-recs-emergency-family-gear .pf-recs-sources h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  color: #22301f;
+  letter-spacing: -0.02em;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e8e1d2;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(47, 56, 42, 0.07);
+}
+
+.pf-recs-emergency-family-gear .pf-recs-image-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 210px;
+  padding: 1rem;
+  background: #fbfaf6;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-image-wrap img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 190px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-card h3 {
+  margin: 0 0 1rem;
+  font-size: 1.02rem;
+  line-height: 1.35;
+  color: #263126;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-btn,
+.pf-recs-emergency-family-gear .pf-recs-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.78rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: #2f5d3a;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(47, 93, 58, 0.2);
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-btn {
+  margin-top: auto;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-btn:hover,
+.pf-recs-emergency-family-gear .pf-recs-copy-btn:hover {
+  background: #254a2e;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(47, 93, 58, 0.25);
+}
+
+.pf-recs-emergency-family-gear .pf-recs-btn:focus-visible,
+.pf-recs-emergency-family-gear .pf-recs-copy-btn:focus-visible,
+.pf-recs-emergency-family-gear .pf-recs-copy-fallback textarea:focus-visible {
+  outline: 3px solid #d9a441;
+  outline-offset: 3px;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-copy-btn:disabled {
+  cursor: default;
+  opacity: 0.85;
+  transform: none;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-affiliate-note {
+  margin: 1.25rem 0 0;
+  padding: 1rem;
+  background: #fffaf0;
+  border: 1px solid #eadfc8;
+  border-radius: 14px;
+  color: #4b4335;
+  font-size: 0.95rem;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-sources {
+  margin-top: 1.75rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid #ded7c8;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-source-list {
+  margin: 0 0 1rem;
+  padding-left: 1.35rem;
+  color: #3f463c;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-source-list li {
+  margin: 0 0 0.85rem;
+  padding-left: 0.25rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-copy-fallback {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #ffffff;
+  border: 1px solid #e8e1d2;
+  border-radius: 14px;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-copy-fallback p {
+  margin: 0 0 0.65rem;
+  font-weight: 700;
+  color: #263126;
+}
+
+.pf-recs-emergency-family-gear .pf-recs-copy-fallback textarea {
+  display: block;
+  width: 100%;
+  min-height: 180px;
+  padding: 0.85rem;
+  border: 1px solid #cfc6b5;
+  border-radius: 10px;
+  color: #263126;
+  background: #fbfaf6;
+  font: inherit;
+  line-height: 1.45;
+  resize: vertical;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .pf-recs-emergency-family-gear .pf-recs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .pf-recs-emergency-family-gear {
+    margin: 1.25rem auto;
+  }
+
+  .pf-recs-emergency-family-gear .pf-recs-inner {
+    border-radius: 18px;
+    padding: 1rem;
+  }
+
+  .pf-recs-emergency-family-gear .pf-recs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pf-recs-emergency-family-gear .pf-recs-btn,
+  .pf-recs-emergency-family-gear .pf-recs-copy-btn {
+    width: 100%;
+  }
+
+  .pf-recs-emergency-family-gear .pf-recs-image-wrap {
+    min-height: 190px;
+  }
+
+  .pf-recs-emergency-family-gear .pf-recs-image-wrap img {
+    height: 170px;
+  }
+}
+</style>
+
+<div class="pf-recs-inner">
+
+<section class="pf-recs-products">
+<h2>Productos recomendados</h2>
+<div class="pf-recs-grid">
+
+<article class="pf-recs-card">
+  <div class="pf-recs-image-wrap">
+    <img src="https://m.media-amazon.com/images/I/81xsA0yY79L.AC_UF1000,1000_QL80.jpg" alt="LifeStraw Personal Water Filter">
+  </div>
+  <div class="pf-recs-card-body">
+    <h3>LifeStraw Personal Water Filter</h3>
+    <a class="pf-recs-btn" href="https://amzn.to/4xnYrjs" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+  </div>
+</article>
+
+<article class="pf-recs-card">
+  <div class="pf-recs-image-wrap">
+    <img src="https://m.media-amazon.com/images/I/71kLXCvdg3L.AC_UF1000,1000_QL80_FMwebp.jpg" alt="Sawyer Squeeze Water Filtration System">
+  </div>
+  <div class="pf-recs-card-body">
+    <h3>Sawyer Squeeze Water Filtration System</h3>
+    <a class="pf-recs-btn" href="https://amzn.to/4e0AllO" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+  </div>
+</article>
+
+<article class="pf-recs-card">
+  <div class="pf-recs-image-wrap">
+    <img src="https://m.media-amazon.com/images/I/91auNAVkqSL.AC_UF1000,1000_QL80_FMwebp.jpg" alt="Adventure Medical Kits Smart Travel First Aid Kit">
+  </div>
+  <div class="pf-recs-card-body">
+    <h3>Adventure Medical Kits Smart Travel First Aid Kit</h3>
+    <a class="pf-recs-btn" href="https://amzn.to/49JbXE9" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+  </div>
+</article>
+
+<article class="pf-recs-card">
+  <div class="pf-recs-image-wrap">
+    <img src="https://m.media-amazon.com/images/I/71eqnTnkGJL.AC_UF894,1000_QL80.jpg" alt="Kaito KA500 5-Way Powered Emergency Radio">
+  </div>
+  <div class="pf-recs-card-body">
+    <h3>Kaito KA500 5-Way Powered Emergency Radio</h3>
+    <a class="pf-recs-btn" href="https://amzn.to/4uRlP6Z" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+  </div>
+</article>
+
+<article class="pf-recs-card">
+  <div class="pf-recs-image-wrap">
+    <img src="https://m.media-amazon.com/images/I/81yHmR6DxsL.AC_UF894,1000_QL80.jpg" alt="Swiss Safe Emergency Mylar Thermal Blankets">
+  </div>
+  <div class="pf-recs-card-body">
+    <h3>Swiss Safe Emergency Mylar Thermal Blankets</h3>
+    <a class="pf-recs-btn" href="https://amzn.to/3RMfQ56" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+  </div>
+</article>
+
+<article class="pf-recs-card">
+  <div class="pf-recs-image-wrap">
+    <img src="https://m.media-amazon.com/images/I/61WPcXe3N1L.AC_SL1500.jpg" alt="SHARPAL 101N 6-in-1 Pocket Knife Sharpener &amp; Survival Tool">
+  </div>
+  <div class="pf-recs-card-body">
+    <h3>SHARPAL 101N 6-in-1 Pocket Knife Sharpener &amp; Survival Tool</h3>
+    <a class="pf-recs-btn" href="https://amzn.to/3Q6y68u" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+  </div>
+</article>
+
+</div>
+<p class="pf-recs-affiliate-note">PrepperFamily.org participa en el Programa de Afiliados de Amazon. Usando este enlace contribuyes a la plataforma sin costo adicional para ti. Gracias por apoyar esta comunidad.</p>
+</section>
+
+<section class="pf-recs-sources">
+<h2>Fuentes</h2>
+<ol class="pf-recs-source-list">
+  <li>Ready.gov / U.S. Department of Homeland Security,
+Build A Kit,
+2026,
+tipo: guía oficial de preparación para emergencias. 
+Ready.gov</li>
+  <li>FEMA,
+What should I bring with me when I evacuate my home or during a disaster?,
+2025,
+tipo: guía oficial de evacuación y suministros. 
+FEMA</li>
+  <li>Centers for Disease Control and Prevention,
+How to Make Water Safe in an Emergency,
+2024,
+tipo: guía sanitaria oficial. 
+CDC</li>
+  <li>U.S. Environmental Protection Agency,
+Emergency Disinfection of Drinking Water,
+2026,
+tipo: guía técnica oficial. 
+epa.gov</li>
+  <li>American Red Cross,
+Survival Kit Supplies,
+2026,
+tipo: guía especializada de preparación familiar.</li>
+</ol>
+
+<textarea id="pf-recs-sources-emergency-family-gear" style="display:none;">
+Ready.gov / U.S. Department of Homeland Security,
+Build A Kit,
+2026,
+tipo: guía oficial de preparación para emergencias. 
+Ready.gov
+FEMA,
+What should I bring with me when I evacuate my home or during a disaster?,
+2025,
+tipo: guía oficial de evacuación y suministros. 
+FEMA
+Centers for Disease Control and Prevention,
+How to Make Water Safe in an Emergency,
+2024,
+tipo: guía sanitaria oficial. 
+CDC
+U.S. Environmental Protection Agency,
+Emergency Disinfection of Drinking Water,
+2026,
+tipo: guía técnica oficial. 
+epa.gov
+American Red Cross,
+Survival Kit Supplies,
+2026,
+tipo: guía especializada de preparación familiar.
+</textarea>
+
+<button type="button" class="pf-recs-copy-btn" onclick="(async function(btn){
+try{
+var sourceEl=document.getElementById('pf-recs-sources-emergency-family-gear');
+if(!sourceEl)return false;
+var text=sourceEl.value.trim();
+var original=btn.innerHTML;
+if(!navigator.clipboard||!window.isSecureContext){throw new Error('Clipboard not available');}
+await navigator.clipboard.writeText(text);
+btn.innerHTML='✅ Fuentes copiadas';
+btn.disabled=true;
+setTimeout(function(){btn.innerHTML=original;btn.disabled=false;},1600);
+}catch(err){
+var fallback=document.getElementById('pf-recs-sources-emergency-family-gear-fallback');
+if(fallback)fallback.style.display='block';
+console.error(err);
+}
+return false;
+})(this);">📋 Copiar fuentes</button>
+
+<div id="pf-recs-sources-emergency-family-gear-fallback" class="pf-recs-copy-fallback" style="display:none;">
+  <p>Copia manualmente:</p>
+  <textarea readonly>Ready.gov / U.S. Department of Homeland Security,
+Build A Kit,
+2026,
+tipo: guía oficial de preparación para emergencias. 
+Ready.gov
+FEMA,
+What should I bring with me when I evacuate my home or during a disaster?,
+2025,
+tipo: guía oficial de evacuación y suministros. 
+FEMA
+Centers for Disease Control and Prevention,
+How to Make Water Safe in an Emergency,
+2024,
+tipo: guía sanitaria oficial. 
+CDC
+U.S. Environmental Protection Agency,
+Emergency Disinfection of Drinking Water,
+2026,
+tipo: guía técnica oficial. 
+epa.gov
+American Red Cross,
+Survival Kit Supplies,
+2026,
+tipo: guía especializada de preparación familiar.</textarea>
+</div>
+</section>
+
+</div>
+</section>
