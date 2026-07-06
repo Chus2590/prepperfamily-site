@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+ <html lang="es"> 
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>De Moisés a Salomón: Lectura Familiar (Parte 2)</title> <meta name="description" content="Lectura para familias: recorrido de Moisés a Salomón con lecciones claras sobre obediencia, fe y vida del hogar."> 
+<link rel="canonical" href="https://prepperfamily.org/es/fortaleza-interior/biblia/moises-a-salomon/"> 
+<link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/from-moses-to-solomon/"> 
+<link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/moises-a-salomon/"> 
+<link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/from-moses-to-solomon/">
+  
+<style>
+.article-exodo-reino {
+  --bg: #0f1a2b;
+  --panel: #16263f;
+  --panel-soft: #1c2f4d;
+  --ink: #eef3fb;
+  --ink-soft: #c3d0e4;
+  --gold: #e0b25a;
+  --gold-deep: #c8933a;
+  --sand: #d9c6a0;
+  --sky: #7fb5e6;
+  --line: rgba(224,178,90,.28);
+  --radius: 18px;
+  --shadow: 0 18px 40px rgba(0,0,0,.35);
+  --maxw: 780px;
+
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 15% -10%, rgba(127,181,230,.18), transparent 60%),
+    radial-gradient(900px 500px at 110% 5%, rgba(224,178,90,.14), transparent 55%),
+    var(--bg);
+  font-family: "Georgia", "Iowan Old Style", serif;
+  line-height: 1.72;
+  padding: clamp(1rem, 4vw, 3rem) clamp(1rem, 5vw, 2rem);
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino * { box-sizing: border-box; }
+
+.article-exodo-reino .wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+
+.article-exodo-reino .hero {
+  text-align: center;
+  padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem,4vw,2rem);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 6px);
+  background:
+    linear-gradient(180deg, rgba(224,178,90,.12), rgba(28,47,77,.55));
+  box-shadow: var(--shadow);
+  position: relative;
+  animation: rise .9s ease both;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino .kicker {
+  display: inline-block;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: .72rem;
+  font-family: system-ui, sans-serif;
+  color: var(--gold);
+  border: 1px solid var(--line);
+  padding: .35rem .8rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino h1 {
+  font-size: clamp(1.8rem, 6vw, 3rem);
+  line-height: 1.12;
+  margin: .2rem 0 .6rem;
+  color: #fff;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino .hero .part {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.article-exodo-reino .subtitle {
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 2.6vw, 1.15rem);
+  max-width: 46ch;
+  margin: .4rem auto 0;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino .source {
+  margin-top: 1.1rem;
+  font-size: .82rem;
+  font-family: system-ui, sans-serif;
+  color: var(--sand);
+  opacity: .85;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino nav.toc {
+  margin: clamp(1.5rem,4vw,2.5rem) 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1rem,3vw,1.5rem);
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino nav.toc h2 {
+  font-family: system-ui, sans-serif;
+  font-size: .8rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 .8rem;
+}
+
+.article-exodo-reino nav.toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: .35rem;
+  counter-reset: toc;
+}
+
+.article-exodo-reino nav.toc a {
+  display: flex;
+  gap: .6rem;
+  align-items: baseline;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-family: system-ui, sans-serif;
+  font-size: .92rem;
+  padding: .35rem .5rem;
+  border-radius: 10px;
+  transition: background .2s, color .2s;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino nav.toc a::before {
+  counter-increment: toc;
+  content: counter(toc,decimal-leading-zero);
+  color: var(--gold);
+  font-size: .78rem;
+  min-width: 1.8em;
+}
+
+.article-exodo-reino nav.toc a:hover {
+  background: var(--panel-soft);
+  color: #fff;
+}
+
+.article-exodo-reino .intro p {
+  font-size: clamp(1.02rem, 2.6vw, 1.15rem);
+  color: var(--ink-soft);
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino section.block {
+  margin: clamp(2rem, 5vw, 3rem) 0;
+  animation: rise .8s ease both;
+}
+
+.article-exodo-reino h2.sec {
+  font-size: clamp(1.35rem, 4vw, 1.9rem);
+  color: #fff;
+  line-height: 1.2;
+  margin: 0 0 .8rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--line);
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino h2.sec .num {
+  color: var(--gold);
+  font-family: system-ui, sans-serif;
+  font-size: .85em;
+  margin-right: .4rem;
+}
+
+.article-exodo-reino p {
+  margin: 0 0 1rem;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino .quote {
+  margin: 1.5rem 0;
+  padding: 1.2rem 1.4rem;
+  background: linear-gradient(180deg, rgba(224,178,90,.1), rgba(28,47,77,.4));
+  border-left: 4px solid var(--gold);
+  border-radius: 12px;
+  font-style: italic;
+  font-size: 1.12rem;
+  color: #fff;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino .quote cite {
+  display: block;
+  margin-top: .5rem;
+  font-style: normal;
+  font-size: .82rem;
+  font-family: system-ui, sans-serif;
+  color: var(--gold);
+  letter-spacing: .05em;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino .figure {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.3rem;
+  margin: 1.4rem 0;
+  box-shadow: var(--shadow);
+  transition: transform .25s;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino .figure:hover { transform: translateY(-3px); }
+
+.article-exodo-reino .figure h3 {
+  margin: 0 0 .4rem;
+  font-size: 1.05rem;
+  color: var(--gold);
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino .figure p:last-child { margin: 0; }
+
+.article-exodo-reino .note {
+  background: rgba(127,181,230,.1);
+  border: 1px solid rgba(127,181,230,.3);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  margin: 1.4rem 0;
+  font-family: system-ui, sans-serif;
+  font-size: .95rem;
+  color: var(--ink-soft);
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino .note strong { color: var(--sky); }
+
+.article-exodo-reino .tribes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: 1.2rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article-exodo-reino .tribes li {
+  font-family: system-ui, sans-serif;
+  font-size: .85rem;
+  background: var(--panel-soft);
+  border: 1px solid var(--line);
+  color: var(--sand);
+  padding: .35rem .75rem;
+  border-radius: 999px;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino .lessons {
+  background: linear-gradient(180deg, rgba(224,178,90,.14), rgba(28,47,77,.5));
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 4px);
+  padding: clamp(1.3rem,4vw,2rem);
+  box-shadow: var(--shadow);
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino .lessons ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  gap: .6rem;
+}
+
+.article-exodo-reino .lessons li {
+  display: flex;
+  gap: .7rem;
+  align-items: flex-start;
+  font-family: system-ui, sans-serif;
+  font-size: .98rem;
+  color: var(--ink);
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino .lessons li span { flex-shrink: 0; }
+
+.article-exodo-reino .closing {
+  text-align: center;
+  margin-top: clamp(2rem,5vw,3rem);
+  padding: clamp(1.5rem,4vw,2.5rem) 1rem;
+  border-top: 2px solid var(--line);
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-exodo-reino .closing p {
+  font-size: clamp(1.05rem, 3vw, 1.25rem);
+  font-style: italic;
+  color: #fff;
+  max-width: 50ch;
+  margin: 0 auto;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-exodo-reino *, .article-exodo-reino .figure { animation: none !important; transition: none !important; }
+}
+
+@media screen and (max-width: 768px) {
+  .article-exodo-reino {
+    padding: 8px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .article-exodo-reino .hero {
+    padding: 24px 16px;
+    border-radius: 14px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.25);
+  }
+
+  .article-exodo-reino h1 {
+    font-size: 1.7em;
+  }
+
+  .article-exodo-reino h2.sec {
+    font-size: 1.4em;
+  }
+
+  .article-exodo-reino h3 {
+    font-size: 1.1em;
+  }
+
+  .article-exodo-reino nav.toc,
+  .article-exodo-reino .figure,
+  .article-exodo-reino .lessons {
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,.2);
+  }
+
+  .article-exodo-reino .figure {
+    padding: 16px;
+  }
+
+  .article-exodo-reino .quote {
+    border-left-width: 3px;
+    padding: 1rem 1.2rem;
+  }
+
+  .article-exodo-reino .note {
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+  }
+
+  .article-exodo-reino section.block {
+    margin: 1.5rem 0;
+  }
+
+  .article-exodo-reino .lessons {
+    padding: 16px;
+  }
+
+  .article-exodo-reino .tribes {
+    gap: 0.4rem;
+  }
+
+  .article-exodo-reino .tribes li {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.65rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .article-exodo-reino {
+    padding: 6px;
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  .article-exodo-reino .hero {
+    padding: 20px 14px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.2);
+  }
+
+  .article-exodo-reino h1 {
+    font-size: 1.5em;
+  }
+
+  .article-exodo-reino h2.sec {
+    font-size: 1.25em;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .article-exodo-reino h3 {
+    font-size: 1.0em;
+  }
+
+  .article-exodo-reino .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .article-exodo-reino nav.toc,
+  .article-exodo-reino .figure,
+  .article-exodo-reino .lessons {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.15);
+  }
+
+  .article-exodo-reino nav.toc a {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.4rem;
+  }
+
+  .article-exodo-reino .figure {
+    padding: 14px;
+  }
+
+  .article-exodo-reino .quote {
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    border-left-width: 3px;
+  }
+
+  .article-exodo-reino .note {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .article-exodo-reino section.block {
+    margin: 1.2rem 0;
+  }
+
+  .article-exodo-reino .lessons {
+    padding: 14px;
+  }
+
+  .article-exodo-reino .lessons li {
+    font-size: 0.92rem;
+    gap: 0.5rem;
+  }
+
+  .article-exodo-reino .tribes {
+    gap: 0.3rem;
+  }
+
+  .article-exodo-reino .tribes li {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.55rem;
+  }
+
+  .article-exodo-reino .closing {
+    padding: 1.2rem 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .article-exodo-reino .closing p {
+    font-size: 1rem;
+  }
+}
+</style>
+
+<section class="article-exodo-reino">
+  <div class="wrap">
+<header class="hero">
+  <span class="kicker">📖 Antiguo Testamento Parte 2</span>
+  <h1>De Moisés a Salomón</h1>
+  <p class="subtitle">Contado para leer en familia · Inspirado en el Catecismo Mayor, “Breve historia de la Religión".</p>
+ 
+</header>
+
+<nav class="toc" aria-label="Contenido del artículo">
+  <h2>En este recorrido</h2>
+  <ol>
+    <li><a href="#egipto">Egipto: paz que se vuelve esclavitud</a></li>
+    <li><a href="#moises">Moisés: un niño salvado para una misión</a></li>
+    <li><a href="#pascua">La primera Pascua</a></li>
+    <li><a href="#mar-rojo">La salida y el paso del mar Rojo</a></li>
+    <li><a href="#desierto">El desierto: libertad sin obediencia no basta</a></li>
+    <li><a href="#sinai">El Sinaí y los diez mandamientos</a></li>
+    <li><a href="#tabernaculo">El Tabernáculo y el Arca</a></li>
+    <li><a href="#serpiente">Murmuraciones y una señal de salvación</a></li>
+    <li><a href="#josue">Josué y la tierra prometida</a></li>
+    <li><a href="#job">Job: fidelidad en el sufrimiento</a></li>
+    <li><a href="#jueces">El tiempo de los jueces</a></li>
+    <li><a href="#saul-david">Saúl y David</a></li>
+    <li><a href="#salomon">Salomón: sabiduría y peligro</a></li>
+    <li><a href="#division">La división del reino</a></li>
+    <li><a href="#israel">El reino de Israel y su caída</a></li>
+    <li><a href="#juda">El reino de Judá y Babilonia</a></li>
+    <li><a href="#familia">Lo que enseña a una familia</a></li>
+  </ol>
+</nav>
+
+<div class="intro">
+  <p>Los descendientes de Jacob —los hebreos o israelitas— vivieron un tiempo en Egipto con cierta paz. Al principio fueron tolerados y respetados. Pero con los años crecieron tanto que llegaron a formar un pueblo numeroso dentro de aquella tierra.</p>
+</div>
+
+<section class="block" id="egipto">
+  <h2 class="sec"><span class="num">01</span>Egipto: paz que se vuelve esclavitud</h2>
+  <p>Subió al poder un nuevo Faraón que no miró a los hebreos con gratitud ni justicia, sino con miedo y dureza. Los sometió a trabajos pesados y a una servidumbre cruel. Su opresión llegó a un extremo terrible: ordenó que los hijos varones recién nacidos fueran arrojados al río Nilo.</p>
+  <p>Aquella decisión buscaba cortar el futuro del pueblo. No solo atacaba a los niños; atacaba a las familias, a la esperanza y a las promesas de Dios.</p>
+</section>
+
+<section class="block" id="moises">
+  <h2 class="sec"><span class="num">02</span>Moisés: un niño salvado para una misión</h2>
+  <p>En medio de esa persecución nació Moisés. Por una providencia especial fue salvado de las aguas del Nilo y recogido por la hija del Faraón, que lo llevó a la corte, donde recibió educación y formación. Dios preparaba, de modo oculto, al hombre que usaría para liberar a su pueblo.</p>
+  <p>Cuando Moisés creció, el Señor le ordenó presentarse ante el Faraón junto con su hermano Aarón para pedirle que dejara salir a los hebreos. Pero el Faraón se negó: su corazón permaneció cerrado, aun frente a las señales de Dios.</p>
+  <p>Entonces Egipto fue castigado con diez plagas, señales duras y extraordinarias dirigidas a quebrar la obstinación del rey. La última fue la muerte de los primogénitos egipcios, desde el hijo del Faraón hasta los primeros nacidos de los animales.</p>
+</section>
+
+<section class="block" id="pascua">
+  <h2 class="sec"><span class="num">03</span>La primera Pascua: preparados para salir</h2>
+  <p>La noche de aquella última plaga, Dios mandó a los hebreos celebrar la Pascua por primera vez. Cada familia debía sacrificar un cordero sin defecto, marcar con su sangre la puerta de la casa y comerlo de prisa, preparados para ponerse en camino.</p>
+  <p>La sangre en las puertas sería una señal de protección: el ángel pasaría sin herir aquellas casas. La Pascua significaba el paso del Señor y el comienzo de una liberación.</p>
+  <div class="quote">
+    Aquel cordero anunciaba a Jesucristo, el Cordero sin mancha, cuya sangre salva de la muerte eterna.
+    <cite>✝️ Cf. Jn 1,29</cite>
+  </div>
+  <div class="note">📌 <strong>Para la familia:</strong> cuando Dios llama a salir de la esclavitud, no basta desear la libertad. Hay que obedecer, prepararse y caminar.</div>
+</section>
+
+<section class="block" id="mar-rojo">
+  <h2 class="sec"><span class="num">04</span>La salida de Egipto y el paso del mar Rojo</h2>
+  <p>Tras la muerte de sus primogénitos, los egipcios apremiaron a los hebreos para que se fueran, e incluso les entregaron oro, plata y otros bienes. El pueblo salió y, después de tres días, llegó a la orilla del mar Rojo.</p>
+  <p>Pero el Faraón se arrepintió de haberlos dejado marchar. Reunió su ejército y salió en persecución. Los hebreos quedaron atrapados entre el mar y las tropas, y el miedo se apoderó de ellos.</p>
+  <p>Moisés animó al pueblo a confiar. Extendió su vara sobre el mar, y las aguas se abrieron, dejando un camino seco por donde cruzaron a pie. El Faraón, cegado por su obstinación, entró también con su ejército; pero cuando avanzaron, las aguas volvieron sobre ellos y quedaron sepultados en el mar.</p>
+  <p>Dios había liberado a Israel de una esclavitud que parecía imposible de romper.</p>
+</section>
+
+<section class="block" id="desierto">
+  <h2 class="sec"><span class="num">05</span>El desierto: libertad sin obediencia no basta</h2>
+  <p>Después del paso del mar Rojo, los hebreos entraron en el desierto. El camino hacia la tierra prometida pudo ser mucho más breve, pero el pueblo se rebeló repetidas veces contra Dios y contra Moisés. Por su desobediencia, Dios permitió que permanecieran cuarenta años en el desierto. De los que salieron adultos de Egipto, solo Caleb y Josué entraron en la tierra prometida.</p>
+  <p>Aun así, Dios no dejó de cuidarlos. Les dio el maná, un alimento menudo y blanco que cubría la tierra por la mañana; cada día recogían lo necesario, y antes del sábado el doble, porque ese día estaba reservado al descanso santo. También hizo brotar agua de la roca cuando Moisés la golpeaba con su vara. Y una nube los protegía del sol de día, convirtiéndose en columna de fuego por la noche para alumbrar el camino.</p>
+  <div class="note">🌿 <strong>Lección actual:</strong> Dios puede liberar a una familia de muchas esclavitudes, pero esa libertad debe aprender a vivir con obediencia, gratitud y disciplina.</div>
+</section>
+
+<section class="block" id="sinai">
+  <h2 class="sec"><span class="num">06</span>El Sinaí y los diez mandamientos</h2>
+  <p>Tres meses después de salir de Egipto, los hebreos llegaron al monte Sinaí. Allí Dios manifestó su presencia con señales imponentes y entregó su ley. Los diez mandamientos fueron escritos en dos tablas de piedra y entregados a Moisés. No eran una simple norma exterior: eran el camino para ordenar la vida del pueblo ante Dios, dentro de la familia y en la sociedad.</p>
+  <p>Mientras Moisés permanecía cuarenta días en el monte hablando con el Señor, el pueblo cayó en idolatría. Fabricaron un becerro de oro y lo adoraron. Habían sido liberados de Egipto, pero todavía llevaban dentro el desorden de un corazón poco fiel.</p>
+  <p>Al bajar, Moisés vio aquel pecado grave. Lleno de celo por Dios, rompió las tablas, destruyó el ídolo y castigó a los principales responsables. Luego volvió a subir, pidió perdón por el pueblo y recibió de nuevo las tablas. Cuando bajó, su rostro resplandecía por haber estado en presencia del Señor.</p>
+  <div class="note">🔥 <strong>Para el hogar:</strong> la fe no se conserva sola. Si no se cuida, el corazón fabrica sus propios ídolos: comodidad, miedo, dinero, orgullo o poder.</div>
+</section>
+
+<section class="block" id="tabernaculo">
+  <h2 class="sec"><span class="num">07</span>El Tabernáculo y el Arca: Dios en medio del pueblo</h2>
+  <p>Al pie del Sinaí, Moisés construyó el Tabernáculo siguiendo las indicaciones de Dios: una gran tienda sagrada, levantada en medio del campamento cuando el pueblo se detenía.</p>
+  <p>También se hizo el Arca de la Alianza, un cofre precioso revestido de oro. Dentro se colocaron las tablas de la ley, un recipiente con maná y la vara de Aarón que había florecido.</p>
+  <p>El Tabernáculo recordaba que Dios no era una idea lejana: acompañaba a su pueblo en el camino. El Arca era signo de su alianza, de su ley y de su protección. En la vida del hogar, esto ayuda a entender que la fe necesita un centro visible: oración, respeto por lo sagrado, memoria de lo recibido y fidelidad a lo que Dios manda.</p>
+</section>
+
+<section class="block" id="serpiente">
+  <h2 class="sec"><span class="num">08</span>Murmuraciones, castigos y una señal de salvación</h2>
+  <p>Durante el camino, los hebreos se quejaron muchas veces contra Moisés y contra Dios. La murmuración no era solo cansancio; muchas veces expresaba desconfianza, ingratitud y rebeldía.</p>
+  <p>Uno de los castigos más recordados fue el de las serpientes venenosas. Muchos fueron mordidos y murieron. Cuando el pueblo reconoció su pecado, Dios mandó a Moisés levantar una serpiente de metal sobre un asta: quienes la miraban con fe quedaban curados.</p>
+  <div class="quote">
+    Como los israelitas heridos miraban la serpiente levantada para sanar, el cristiano mira a Cristo crucificado para recibir vida y curación del pecado.
+    <cite>✝️ Cf. Jn 3,14-15</cite>
+  </div>
+</section>
+
+<section class="block" id="josue">
+  <h2 class="sec"><span class="num">09</span>Josué y la entrada en la tierra prometida</h2>
+  <p>Después de cuarenta años llegó el momento de entrar en la tierra prometida. Moisés pudo verla desde lejos, pero no entró en ella. Josué fue elegido para sucederlo y guiar al pueblo.</p>
+  <p>Los israelitas cruzaron el río Jordán precedidos por el Arca: las aguas se detuvieron y dejaron paso por el cauce. Luego tomaron Jericó y avanzaron sobre los pueblos de Canaán. La tierra fue dividida entre las tribus de Israel, que recibieron los nombres de los hijos de Jacob y de los hijos de José:</p>
+  <ul class="tribes">
+    <li>Rubén</li><li>Simeón</li><li>Leví</li><li>Judá</li><li>Isacar</li>
+    <li>Zabulón</li><li>Dan</li><li>Neftalí</li><li>Gad</li><li>Aser</li>
+    <li>Benjamín</li><li>Efraín</li><li>Manasés</li>
+  </ul>
+  <p>La tribu de Leví no recibió un territorio como las demás: fue destinada al servicio sacerdotal, pues Dios mismo sería su porción y herencia. Y de la tribu de Judá, según la profecía de Jacob antes de morir, nacería más tarde el Redentor del mundo.</p>
+</section>
+
+<section class="block" id="job">
+  <h2 class="sec"><span class="num">10</span>Job: fidelidad en medio del sufrimiento</h2>
+  <p>Por aquel tiempo vivía en Idumea un hombre justo llamado Job. Era rico, respetado y temeroso de Dios, y procuraba apartarse del mal. Dios permitió que fuera probado con sufrimientos muy duros: en poco tiempo perdió sus bienes, sus hijos y la salud, y su cuerpo quedó cubierto de llagas dolorosas.</p>
+  <p>A pesar de todo, Job no se rebeló. Postrado en tierra, adoró al Señor:</p>
+  <div class="quote">
+    El Señor me lo dio, el Señor me lo quitó; bendito sea el nombre del Señor.
+    <cite>📖 Job 1,21</cite>
+  </div>
+  <p>Job no entendía todo lo que le pasaba, pero no dejó de reconocer a Dios como Señor. Al final, Dios premió su paciencia, le devolvió la salud y le concedió mayores bienes que antes. Su historia enseña que la fe no es verdadera solo cuando todo va bien: también se muestra en la pérdida, la enfermedad y la prueba.</p>
+</section>
+
+<section class="block" id="jueces">
+  <h2 class="sec"><span class="num">11</span>El tiempo de los jueces</h2>
+  <p>Tras conquistar Palestina bajo el mando de Josué, los hebreos permanecieron en aquella tierra. Fueron gobernados por la ley de Moisés, por los ancianos y, durante un largo periodo, por jueces: personas suscitadas por Dios para liberar al pueblo cuando, por sus pecados, caía bajo el dominio de sus enemigos. Entre ellos hubo también mujeres valientes, como Débora y Jael.</p>
+  <div class="figure">
+    <h3>Sansón</h3>
+    <p>Recibió una fuerza extraordinaria y durante años combatió a los filisteos, enemigos poderosos de Israel. Más tarde fue traicionado y perdió su fuerza. Al final, reuniendo lo que le quedaba de vigor, derribó un templo filisteo, muriendo él junto con muchos enemigos.</p>
+  </div>
+  <div class="figure">
+    <h3>Samuel</h3>
+    <p>Fue el último de los jueces. Después de vencer a los filisteos, reunió al pueblo por mandato de Dios. Los israelitas pedían un rey; entonces Samuel ungió a Saúl, de la tribu de Benjamín, como primer rey de Israel.</p>
+  </div>
+</section>
+
+<section class="block" id="saul-david">
+  <h2 class="sec"><span class="num">12</span>Saúl y David: obediencia, caída y elección de Dios</h2>
+  <p>Saúl reinó durante muchos años. Al principio fue aceptado, pero después fue rechazado por Dios a causa de una grave desobediencia. Entonces Dios eligió a David, un joven de la tribu de Judá, que se hizo célebre al vencer en combate singular a Goliat, un gigante filisteo que desafiaba e insultaba al pueblo de Dios.</p>
+  <p>Más tarde, Saúl fue derrotado por los filisteos y se quitó la vida. David subió al trono y reinó cuarenta años. Completó la conquista de Palestina, sometió a los enemigos que quedaban y tomó Jerusalén, haciendo de ella la capital del reino.</p>
+  <div class="note">🕊️ <strong>Enseñanza:</strong> la autoridad no se sostiene solo por el cargo. Necesita obediencia a Dios, humildad y fidelidad.</div>
+</section>
+
+<section class="block" id="salomon">
+  <h2 class="sec"><span class="num">13</span>Salomón: sabiduría, gloria y peligro espiritual</h2>
+  <p>A David le sucedió su hijo Salomón, reconocido por su extraordinaria sabiduría. Durante su reinado se construyó el templo de Jerusalén, obra central para la vida religiosa del pueblo. Gozó de un reinado largo y glorioso.</p>
+  <p>Sin embargo, al final de su vida se dejó arrastrar por influencias extranjeras y cayó en la idolatría. Por eso, algunos han temido por su salvación eterna.</p>
+  <div class="quote">
+    Una persona puede comenzar bien, recibir grandes dones y aun así desviarse si descuida la fidelidad. La sabiduría no protege cuando el corazón deja de obedecer a Dios.
+    <cite>⚠️ Advertencia del relato</cite>
+  </div>
+</section>
+
+<section class="block" id="division">
+  <h2 class="sec"><span class="num">14</span>La división del reino</h2>
+  <p>Después de Salomón reinó su hijo Roboán. El pueblo pidió alivio ante los tributos pesados heredados del reinado anterior, pero Roboán no quiso escuchar ni moderar aquellas cargas.</p>
+  <p>Como consecuencia, diez tribus se rebelaron y siguieron a Jeroboán, jefe de los insurrectos. Solo Judá y Benjamín permanecieron fieles a Roboán. Así el pueblo hebreo quedó dividido en dos reinos: el reino de Israel y el reino de Judá, que nunca volvieron a unirse.</p>
+  <div class="note">📌 <strong>Habla a las familias:</strong> cuando quien tiene autoridad no escucha, carga injustamente o responde con dureza, puede romper lo que debía cuidar.</div>
+</section>
+
+<section class="block" id="israel">
+  <h2 class="sec"><span class="num">15</span>El reino de Israel y su caída</h2>
+  <p>El reino de Israel tuvo diecinueve reyes. Todos fueron malos y favorecieron la idolatría, arrastrando a gran parte del pueblo lejos de Dios. Después de doscientos cincuenta y cuatro años, el reino fue destruido. Como castigo por sus graves pecados, parte del pueblo fue dispersada y otra parte llevada cautiva a Asiria por Salmanasar. El reino de Israel cayó definitivamente en el año <strong>722 a. C.</strong></p>
+  <p>Para repoblar la región fueron llevadas colonias de pueblos gentiles, que con el tiempo se mezclaron con algunos israelitas retornados del destierro y con judíos infieles. De esa mezcla surgió el pueblo samaritano, que llegó a tener una fuerte enemistad con los judíos.</p>
+  <p>Entre los israelitas llevados cautivos a Nínive, capital de Asiria, estuvo Tobías, hombre justo y temeroso de Dios. Su historia enseña a valorar el santo temor de Dios y a confiar en la providencia incluso en tierra extranjera.</p>
+</section>
+
+<section class="block" id="juda">
+  <h2 class="sec"><span class="num">16</span>El reino de Judá y la cautividad en Babilonia</h2>
+  <p>El reino de Judá tuvo veinte reyes. Algunos fueron piadosos y buscaron obedecer al Señor; otros cometieron graves pecados. En conjunto, reinaron durante trescientos ochenta y ocho años.</p>
+  <p>En tiempos de Manasés, uno de los últimos reyes, se sitúa la historia de Judit, que mató a Holofernes, general del ejército asirio, y libró a Betulia y a Judea de una amenaza mortal.</p>
+  <p>Más tarde, Nabucodonosor, rey de Babilonia, puso fin al reino de Judá. Tomó Jerusalén, destruyó la ciudad y arrasó el templo de Salomón. Hizo prisionero a Sedecías, el último rey, le sacó los ojos y llevó cautivo al pueblo a Babilonia.</p>
+  <p>Así terminó una etapa dolorosa. La tierra prometida, el templo y el reino fueron perdidos por la infidelidad acumulada del pueblo y de sus gobernantes.</p>
+</section>
+
+<section class="block lessons" id="familia">
+  <h2 class="sec"><span class="num">17</span>Lo que esta historia enseña a una familia</h2>
+  <p>Esta parte de la historia sagrada no es solo una sucesión de reyes, guerras y castigos. Muestra cómo Dios guía, corrige, sostiene y cumple sus promesas. Y enseña que la libertad necesita obediencia: un pueblo puede salir de Egipto y seguir siendo esclavo por dentro si no aprende a confiar en Dios.</p>
+  <ul>
+    <li><span>🙏</span> Dios escucha el clamor de los oprimidos.</li>
+    <li><span>🚪</span> La obediencia abre camino incluso donde parece no haber salida.</li>
+    <li><span>⚠️</span> La murmuración y la idolatría destruyen la confianza.</li>
+    <li><span>⚖️</span> La autoridad debe ejercerse con justicia y temor de Dios.</li>
+    <li><span>🏚️</span> La prosperidad sin fidelidad puede terminar en ruina.</li>
+    <li><span>🌿</span> La paciencia en la prueba, como la de Job, es una fuerza espiritual.</li>
+    <li><span>🕯️</span> La historia familiar se construye con memoria, responsabilidad y fe.</li>
+  </ul>
+</section>
+
+<div class="closing">
+  <p>Una familia prudente aprende de Israel: recuerda lo que Dios ha hecho, evita los ídolos que desordenan el corazón, camina unida en la dificultad y conserva la fe incluso cuando el camino atraviesa el desierto. ✨</p>
+</div>
+    
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/fortaleza-interior/biblia/" : "/en/inner-strength/bible/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html>
