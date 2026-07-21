@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historia de la Iglesia: Fe, herejías y concilios</title>
+<meta name="description" content="Conoce la historia de la Iglesia católica: persecuciones, mártires, herejías, la Reforma Protestante y los concilios que defendieron la fe.">
+
+<link rel="canonical" href="https://prepperfamily.org/es/fortaleza-interior/biblia/historia-iglesia/">
+<link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/church-history/">
+<link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/historia-iglesia/">
+<link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/church-history/">
+  
+<style>
+.article-ecclesia-hist {
+  --ink: #2b2420;
+  --parchment: #f6efe2;
+  --parchment-deep: #ede2ce;
+  --gold: #b08327;
+  --gold-soft: #d8b45c;
+  --wine: #6e1e2b;
+  --wine-deep: #4d1420;
+  --stone: #8a7d6b;
+  --line: #d8c9ac;
+  --shadow: 0 10px 30px rgba(60,40,20,.12);
+  font-family: "Georgia", "Iowan Old Style", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% -10%, rgba(216,180,92,.18), transparent 40%),
+    radial-gradient(circle at 90% 5%, rgba(110,30,43,.10), transparent 45%),
+    var(--parchment);
+  line-height: 1.7;
+  padding: clamp(1rem, 3vw, 2.5rem);
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.article-ecclesia-hist * { box-sizing: border-box; }
+.article-ecclesia-hist .wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.article-ecclesia-hist .hero {
+  text-align: center;
+  padding: clamp(2rem, 6vw, 4rem) 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background:
+    linear-gradient(160deg, rgba(255,255,255,.5), rgba(237,226,206,.7));
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp .9s ease both;
+}
+.article-ecclesia-hist .hero::before {
+  content: "✝";
+  position: absolute;
+  font-size: 14rem;
+  color: rgba(176,131,39,.08);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  animation: glow 8s ease-in-out infinite;
+}
+.article-ecclesia-hist .kicker {
+  font-family: system-ui, sans-serif;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  font-size: .72rem;
+  color: var(--wine);
+  font-weight: 700;
+  position: relative;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.article-ecclesia-hist .hero h1 {
+  font-size: clamp(1.9rem, 6vw, 3.1rem);
+  margin: .6rem 0 .3rem;
+  line-height: 1.1;
+  color: var(--wine-deep);
+  position: relative;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.article-ecclesia-hist .hero p {
+  color: var(--stone);
+  font-style: italic;
+  max-width: 34ch;
+  margin: .5rem auto 0;
+  position: relative;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.article-ecclesia-hist nav {
+  margin: 2rem 0;
+  padding: 1.2rem 1.4rem;
+  border-radius: 16px;
+  background: var(--parchment-deep);
+  border: 1px dashed var(--gold-soft);
+}
+.article-ecclesia-hist nav h2 {
+  font-size: .8rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-family: system-ui, sans-serif;
+  margin: 0 0 .7rem;
+}
+.article-ecclesia-hist nav ul {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid;
+  gap: .4rem;
+}
+.article-ecclesia-hist nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: .95rem;
+  border-bottom: 1px solid transparent;
+  transition: color .2s, border-color .2s;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.article-ecclesia-hist nav a:hover {
+  color: var(--wine);
+  border-color: var(--gold-soft);
+}
+.article-ecclesia-hist section.block {
+  margin: 2.6rem 0;
+  animation: fadeUp .8s ease both;
+}
+.article-ecclesia-hist h2.section-title {
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  color: var(--wine-deep);
+  margin: 0 0 .3rem;
+  display: flex;
+  align-items: baseline;
+  gap: .6rem;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.article-ecclesia-hist h2.section-title .num {
+  font-family: system-ui, sans-serif;
+  font-size: .85rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--gold);
+  border-radius: 50%;
+  width: 1.9rem; height: 1.9rem;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  flex: none;
+}
+.article-ecclesia-hist h2.section-title + .rule {
+  height: 2px; width: 70px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin: 0 0 1rem;
+  border: 0;
+}
+.article-ecclesia-hist p {
+  margin: .9rem 0;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.article-ecclesia-hist .lead {
+  font-size: 1.12rem;
+}
+.article-ecclesia-hist figure.quote {
+  margin: 1.8rem 0;
+  padding: 1.4rem 1.6rem;
+  border-left: 4px solid var(--gold);
+  background: linear-gradient(120deg, rgba(216,180,92,.14), transparent);
+  border-radius: 0 14px 14px 0;
+}
+.article-ecclesia-hist figure.quote blockquote {
+  margin: 0;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--wine-deep);
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.article-ecclesia-hist figure.quote figcaption {
+  margin-top: .6rem;
+  font-family: system-ui, sans-serif;
+  font-size: .82rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.article-ecclesia-hist .note {
+  margin: 1.6rem 0;
+  padding: 1.2rem 1.4rem;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.article-ecclesia-hist .note h3 {
+  margin: 0 0 .5rem;
+  color: var(--wine);
+  font-size: 1.05rem;
+}
+.article-ecclesia-hist .heresy-list {
+  list-style: none;
+  margin: 1.2rem 0;
+  padding: 0;
+  display: grid;
+  gap: .7rem;
+}
+.article-ecclesia-hist .heresy-list li {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--wine);
+  border-radius: 10px;
+  padding: .8rem 1rem;
+  transition: transform .2s, box-shadow .2s;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.article-ecclesia-hist .heresy-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.article-ecclesia-hist .heresy-list strong {
+  color: var(--wine-deep);
+}
+.article-ecclesia-hist .closing {
+  margin-top: 3rem;
+  padding: clamp(1.6rem, 5vw, 2.6rem);
+  text-align: center;
+  border-radius: 20px;
+  background: linear-gradient(160deg, var(--wine), var(--wine-deep));
+  color: #f7ecd8;
+  box-shadow: var(--shadow);
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+.article-ecclesia-hist .closing h2 {
+  margin: 0 0 .6rem;
+  font-size: clamp(1.3rem, 4vw, 1.7rem);
+  color: #fff;
+}
+.article-ecclesia-hist .closing p {
+  color: rgba(247,236,216,.9);
+  max-width: 48ch;
+  margin: .6rem auto;
+}
+.article-ecclesia-hist .closing .next {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: system-ui, sans-serif;
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  border: 1px solid rgba(216,180,92,.4);
+  border-radius: 40px;
+  padding: .5rem 1.2rem;
+}
+.article-ecclesia-hist img,
+.article-ecclesia-hist video,
+.article-ecclesia-hist iframe {
+  max-width: 100%;
+  height: auto;
+}
+.article-ecclesia-hist table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes glow {
+  0%,100% { opacity: .06; transform: translate(-50%,-50%) scale(1); }
+  50% { opacity: .12; transform: translate(-50%,-50%) scale(1.05); }
+}
+
+@media (max-width: 768px) {
+  .article-ecclesia-hist {
+    padding: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .article-ecclesia-hist .wrap {
+    max-width: 100%;
+  }
+  .article-ecclesia-hist .hero {
+    padding: 24px 16px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(60,40,20,.1);
+  }
+  .article-ecclesia-hist .hero::before {
+    font-size: 9rem;
+  }
+  .article-ecclesia-hist .hero h1 {
+    font-size: 1.7em;
+  }
+  .article-ecclesia-hist nav {
+    margin: 1.4rem 0;
+    padding: 1rem 1.1rem;
+    border-radius: 12px;
+  }
+  .article-ecclesia-hist section.block {
+    margin: 1.8rem 0;
+  }
+  .article-ecclesia-hist h2.section-title {
+    font-size: 1.4em;
+    gap: .5rem;
+  }
+  .article-ecclesia-hist h3 {
+    font-size: 1.1em;
+  }
+  .article-ecclesia-hist .lead {
+    font-size: 1.02rem;
+  }
+  .article-ecclesia-hist figure.quote {
+    margin: 1.3rem 0;
+    padding: 1rem 1.1rem;
+    border-left-width: 3px;
+  }
+  .article-ecclesia-hist figure.quote blockquote {
+    font-size: 1.05rem;
+  }
+  .article-ecclesia-hist .note {
+    margin: 1.2rem 0;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 5px 14px rgba(60,40,20,.09);
+  }
+  .article-ecclesia-hist .heresy-list li {
+    padding: .7rem .85rem;
+    border-radius: 8px;
+    border-left-width: 3px;
+  }
+  .article-ecclesia-hist .closing {
+    margin-top: 2rem;
+    padding: 1.6rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 16px rgba(60,40,20,.1);
+  }
+  .article-ecclesia-hist table th,
+  .article-ecclesia-hist table td {
+    padding: .5rem;
+    font-size: .92em;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-ecclesia-hist {
+    padding: 6px;
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+  .article-ecclesia-hist .hero {
+    padding: 20px 14px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(60,40,20,.08);
+  }
+  .article-ecclesia-hist .hero::before {
+    font-size: 7rem;
+  }
+  .article-ecclesia-hist .hero h1 {
+    font-size: 1.5em;
+  }
+  .article-ecclesia-hist .kicker {
+    font-size: .66rem;
+    letter-spacing: .2em;
+  }
+  .article-ecclesia-hist nav {
+    margin: 1.1rem 0;
+    padding: .85rem .95rem;
+    border-radius: 10px;
+  }
+  .article-ecclesia-hist nav a {
+    font-size: .9rem;
+  }
+  .article-ecclesia-hist section.block {
+    margin: 1.4rem 0;
+  }
+  .article-ecclesia-hist h2.section-title {
+    font-size: 1.28em;
+    gap: .45rem;
+  }
+  .article-ecclesia-hist h2.section-title .num {
+    width: 1.7rem; height: 1.7rem;
+    font-size: .78rem;
+  }
+  .article-ecclesia-hist h3 {
+    font-size: 1.02em;
+  }
+  .article-ecclesia-hist .lead {
+    font-size: .98rem;
+  }
+  .article-ecclesia-hist p {
+    margin: .7rem 0;
+  }
+  .article-ecclesia-hist figure.quote {
+    margin: 1.1rem 0;
+    padding: .9rem 1rem;
+  }
+  .article-ecclesia-hist figure.quote blockquote {
+    font-size: 1rem;
+  }
+  .article-ecclesia-hist .note {
+    margin: 1rem 0;
+    padding: 14px;
+    border-radius: 9px;
+    box-shadow: 0 3px 10px rgba(60,40,20,.08);
+  }
+  .article-ecclesia-hist .heresy-list {
+    gap: .55rem;
+  }
+  .article-ecclesia-hist .heresy-list li {
+    padding: .65rem .75rem;
+  }
+  .article-ecclesia-hist .closing {
+    margin-top: 1.6rem;
+    padding: 1.4rem;
+    border-radius: 12px;
+  }
+  .article-ecclesia-hist .closing .next {
+    font-size: .72rem;
+    padding: .45rem 1rem;
+  }
+  .article-ecclesia-hist table th,
+  .article-ecclesia-hist table td {
+    padding: .4rem;
+    font-size: .88em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-ecclesia-hist *,
+  .article-ecclesia-hist .hero::before {
+    animation: none !important;
+  }
+}
+</style>
+</head>
+<body>
+  
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+
+<section class="article-ecclesia-hist">
+  <div class="wrap">
+    
+<header class="hero">
+  <span class="kicker">📖 Historia de la Iglesia · Parte I</span>
+  <h1>Sostenida por Dios en medio de la tormenta</h1>
+  <p>De las catacumbas a los concilios: veinte siglos custodiando la fe.</p>
+</header>
+
+<nav aria-label="Índice del artículo">
+  <h2>En esta parte</h2>
+  <ul>
+    <li><a href="#persecuciones">1 · Las persecuciones</a></li>
+    <li><a href="#martires">2 · Los mártires, testigos de Cristo</a></li>
+    <li><a href="#constantino">3 · La paz de Constantino</a></li>
+    <li><a href="#capital">4 · Nueva capital y un largo conflicto</a></li>
+    <li><a href="#interior">5 · La batalla dentro de la Iglesia</a></li>
+    <li><a href="#herejias">6 · Las primeras herejías</a></li>
+    <li><a href="#reforma">7 · La Reforma Protestante</a></li>
+    <li><a href="#concilios">8 · La defensa de la fe y los concilios</a></li>
+  </ul>
+</nav>
+
+<section class="block" id="persecuciones">
+  <h2 class="section-title"><span class="num">1</span> Las persecuciones</h2>
+  <hr class="rule">
+  <p class="lead">Desde sus comienzos, la fe cristiana atravesó pruebas durísimas. Aquellas dificultades mostraron que la Iglesia no era una obra puramente humana, sino sostenida por Dios.</p>
+  <p>Durante los tres primeros siglos del cristianismo, los discípulos de Jesucristo sufrieron numerosas y severas persecuciones ordenadas por distintos emperadores romanos. No fueron continuas, pero se repetían una y otra vez: tras breves tiempos de calma, la violencia volvía con renovada intensidad.</p>
+  <p>Cuando los cristianos eran descubiertos, debían dar razón de su fe. Las autoridades les exigían ofrecer incienso a los ídolos como señal de obediencia al culto pagano. Quienes se negaban eran sometidos a humillaciones, castigos y tormentos, hasta llegar, en muchos casos, a la muerte.</p>
+</section>
+
+<section class="block" id="martires">
+  <h2 class="section-title"><span class="num">2</span> Los mártires: testigos de Cristo</h2>
+  <hr class="rule">
+  <p>Los cristianos no provocaban desórdenes ni daban motivo para ser perseguidos. Se reunían para orar y asistir al Santo Sacrificio, generalmente en lugares subterráneos, apartados y silenciosos. Muchos de esos antiguos cementerios —las <strong>catacumbas</strong>— todavía pueden visitarse en Roma y otras ciudades.</p>
+  <p>Ni siquiera estas precauciones bastaban. Una multitud incontable de hombres, mujeres y niños prefirió entregar la vida antes que renunciar a Jesucristo. Con el derramamiento de su sangre confirmaron la misma fe por la que antes habían muerto los Apóstoles.</p>
+  <div class="note">
+    <h3>🕊️ ¿Por qué se llaman «mártires»?</h3>
+    <p>La palabra <em>mártir</em> significa <strong>testigo</strong>. Su testimonio mostró al mundo que la fe cristiana valía más que la propia vida.</p>
+  </div>
+  <p>Desde los primeros siglos, la Iglesia honró de manera especial a estos fieles. Recogía sus cuerpos y les daba digna sepultura en los lugares de descanso de los cristianos, llamados antiguamente <em>dormitorios</em> o lugares de dormición, porque la muerte se entendía como un sueño en espera de la resurrección. Así veneraba su memoria y los proponía como ejemplo para todos.</p>
+</section>
+
+<section class="block" id="constantino">
+  <h2 class="section-title"><span class="num">3</span> La paz concedida por Constantino</h2>
+  <hr class="rule">
+  <p>La Iglesia no disfrutó de una paz estable hasta el tiempo del emperador <strong>Constantino</strong>. Tras vencer a sus enemigos y recibir una visión del cielo que fortaleció su decisión, promulgó edictos que concedían a todos la libertad de abrazar la religión cristiana. No obligó a nadie a hacerse cristiano: puso fin a las persecuciones y reconoció el derecho de profesar libremente la fe.</p>
+  <p>Gracias a estas disposiciones, los cristianos recuperaron los bienes confiscados. Nadie podía ya perseguirlos por su religión; dejaron de ser excluidos de los cargos públicos y pudieron construir iglesias libremente. En varias ocasiones el propio emperador contribuyó con sus recursos para levantar templos dedicados al culto de Dios.</p>
+  <p>Los confesores de la fe que seguían encarcelados fueron puestos en libertad. Las celebraciones cristianas comenzaron a realizarse pública y solemnemente, y muchos paganos se sintieron atraídos hacia la fe en el verdadero Dios.</p>
+</section>
+
+<section class="block" id="capital">
+  <h2 class="section-title"><span class="num">4</span> La nueva capital y un largo conflicto</h2>
+  <hr class="rule">
+  <p>Derrotado su último rival, Constantino quedó como único señor del Imperio Romano. Entonces la cruz de Jesucristo comenzó a ondear en las banderas imperiales como signo visible del triunfo de la fe.</p>
+  <p>Más adelante dividió el Imperio en dos grandes regiones —Oriente y Occidente— y trasladó la capital oriental a la antigua ciudad de Bizancio, junto al estrecho del Bósforo. Tras embellecerla, la llamó <strong>Constantinopla</strong> (año 330), y con el tiempo llegó a ser una «nueva Roma» por su peso político.</p>
+  <p>Pero con ese crecimiento surgieron problemas. Algunos eclesiásticos de altas dignidades en Constantinopla dejaron que el orgullo y el deseo de novedades influyeran en sus decisiones. Ambicionaban una autoridad semejante a la del Romano Pontífice, e incluso el primado sobre toda la Iglesia.</p>
+  <div class="note">
+    <h3>⛪ El Cisma de Oriente</h3>
+    <p>De estas pretensiones nacieron graves conflictos que se prolongaron durante siglos. En el <strong>siglo IX</strong> se produjo el gran Cisma de Oriente: una parte importante de las Iglesias orientales rompió la comunión con la Iglesia de Occidente y dejó de reconocer la autoridad del Romano Pontífice, sucesor de san Pedro y Vicario de Jesucristo según la doctrina católica.</p>
+  </div>
+</section>
+
+<section class="block" id="interior">
+  <h2 class="section-title"><span class="num">5</span> Una nueva batalla dentro de la Iglesia</h2>
+  <hr class="rule">
+  <p>Tras salir victoriosa de las persecuciones del paganismo, la Iglesia afrontó un enemigo aún más difícil: los errores nacidos dentro de sus propias filas. Algunos cristianos se apartaron de la fe recibida de los Apóstoles y difundieron enseñanzas contrarias al Evangelio. Esta lucha doctrinal la ha acompañado durante siglos y, según la perspectiva católica, continúa de distintas formas hasta hoy.</p>
+  <p>Sin embargo, la Iglesia mantiene la confianza en la promesa hecha por Jesucristo al apóstol san Pedro:</p>
+  <figure class="quote">
+    <blockquote>«Tú eres Pedro, y sobre esta piedra edificaré mi Iglesia, y las puertas del infierno no prevalecerán contra ella.»</blockquote>
+    <figcaption>✝️ Mateo 16,18</figcaption>
+  </figure>
+  <p>Esta promesa sostiene la esperanza de que la Iglesia conservará íntegro el depósito de la fe hasta el fin de los tiempos.</p>
+</section>
+
+<section class="block" id="herejias">
+  <h2 class="section-title"><span class="num">6</span> Las primeras herejías</h2>
+  <hr class="rule">
+  <p>Ya en tiempos de los Apóstoles aparecieron personas que, movidas por la ambición, el interés o el deseo de imponer sus propias ideas, comenzaron a alterar la enseñanza cristiana. Los Apóstoles respondieron con la predicación, con sus escritos inspirados y mediante las decisiones del primer <strong>Concilio de Jerusalén</strong>, donde resolvieron cuestiones importantes para la Iglesia naciente.</p>
+  <p>Según la enseñanza católica, las herejías intentan alterar una u otra de las verdades que Dios ha revelado y que la Iglesia custodia fielmente. Entre las más conocidas se encuentran:</p>
+  <ul class="heresy-list">
+    <li><strong>Sabelio</strong> — negó la verdadera distinción de las Personas de la Santísima Trinidad.</li>
+    <li><strong>Manes</strong> — sostuvo doctrinas contrarias a la unidad de Dios y errores sobre la naturaleza del hombre.</li>
+    <li><strong>Arrio</strong> — negó la plena divinidad de nuestro Señor Jesucristo.</li>
+    <li><strong>Nestorio</strong> — rechazó el título de Madre de Dios para la Virgen María y separó indebidamente la persona de Cristo.</li>
+    <li><strong>Eutiques</strong> — afirmó que en Jesucristo existía una sola naturaleza.</li>
+    <li><strong>Macedonio</strong> — negó la divinidad del Espíritu Santo.</li>
+    <li><strong>Pelagio</strong> — rechazó el pecado original y la necesidad de la gracia para la salvación.</li>
+    <li><strong>Los iconoclastas</strong> — combatieron el culto a las sagradas imágenes y la veneración de las reliquias.</li>
+    <li><strong>Berengario</strong> — negó la presencia real de Jesucristo en el Santísimo Sacramento.</li>
+    <li><strong>Juan Hus</strong> — rechazó el primado de san Pedro y la autoridad del Romano Pontífice.</li>
+  </ul>
+</section>
+
+<section class="block" id="reforma">
+  <h2 class="section-title"><span class="num">7</span> La Reforma Protestante</h2>
+  <hr class="rule">
+  <p>Entre todas las herejías, el texto original concede especial importancia a la <strong>Reforma Protestante</strong>, surgida en el siglo XVI y promovida principalmente por Martín Lutero y Juan Calvino.</p>
+  <p>Desde la perspectiva de la doctrina católica, este movimiento rechazó la Tradición apostólica como fuente de la Revelación, reduciéndola únicamente a la Sagrada Escritura. Además, al separar la interpretación de la Biblia del Magisterio legítimo de la Iglesia, abrió el camino a múltiples interpretaciones particulares.</p>
+  <div class="note">
+    <h3>📌 La valoración del autor</h3>
+    <p>El autor considera que esta ruptura debilitó los fundamentos de la unidad doctrinal y favoreció la aparición de numerosos errores y divisiones dentro del cristianismo.</p>
+  </div>
+</section>
+
+<section class="block" id="concilios">
+  <h2 class="section-title"><span class="num">8</span> La defensa constante de la fe</h2>
+  <hr class="rule">
+  <p>Durante veinte siglos, la Iglesia ha procurado custodiar fielmente el depósito de la fe recibido de Jesucristo y proteger a los fieles de las doctrinas que considera contrarias al Evangelio. Cuando las circunstancias lo han requerido, ha reunido a sus obispos en <strong>Concilios Ecuménicos</strong> o Concilios Generales.</p>
+  <div class="note">
+    <h3>✨ ¿Qué es un Concilio Ecuménico?</h3>
+    <p>Es una solemne asamblea convocada por el Romano Pontífice, en la que participan los obispos de toda la Iglesia y otros prelados llamados por el Papa. Puede presidirla el mismo Pontífice o sus legados.</p>
+    <p>Según la doctrina católica, esta asamblea representa a la Iglesia docente y cuenta con la asistencia del Espíritu Santo. Por ello, cuando sus definiciones sobre la fe y las costumbres son aprobadas por el Romano Pontífice, constituyen una enseñanza segura e infalible para toda la Iglesia.</p>
+  </div>
+  <p><strong>El Concilio de Trento.</strong> El concilio que respondió a la Reforma fue el Sacrosanto Concilio de Trento, llamado así por la ciudad donde se celebró. En él la Iglesia reafirmó las principales verdades de la fe católica, corrigió abusos disciplinarios y promovió una profunda renovación de la vida eclesial.</p>
+  <p><strong>La división del protestantismo.</strong> El autor de este antiguo compendio sostiene que, después de su condena en Trento, el protestantismo comenzó a manifestar profundas divisiones internas. Con el tiempo aparecieron numerosas confesiones y comunidades separadas, cada una con interpretaciones distintas de la fe cristiana. Desde la perspectiva católica tradicional, esta multiplicidad de denominaciones es consecuencia de haber abandonado una autoridad doctrinal común.</p>
+</section>
+
+<footer class="closing">
+  <h2>Una historia que continúa 🕊️</h2>
+  <p>En la segunda parte veremos cómo la época moderna traería nuevas ideologías, profundas transformaciones sociales y acontecimientos que volverían a poner a prueba la misión de la Iglesia.</p>
+  <span class="next">Continúa en la Parte II →</span>
+</footer>
+ </div>
+</section>
+  
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/fortaleza-interior/biblia/" : "/en/inner-strength/bible/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html>
