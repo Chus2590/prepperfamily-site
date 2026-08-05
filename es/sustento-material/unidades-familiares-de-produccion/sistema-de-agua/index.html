@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema familiar de almacenamiento y purificación de agua</title>
+<meta name="description" content="Aprende a crear un sistema familiar para almacenar y purificar agua de forma segura, y prepara tu hogar ante cortes, escasez y emergencias.">
+
+<link rel="canonical" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/sistema-de-agua/">
+<link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/family-production-units/family-water-system/">
+<link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/sistema-de-agua/">
+<link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/family-production-units/family-water-system/">
+  
+<style>
+.article-agua-clo2{
+  --tinta:#20242a;
+  --tinta-suave:#4d5560;
+  --papel:#f7f4ee;
+  --papel-alt:#efe9dd;
+  --linea:#d8cfbe;
+  --acero:#2f6f7e;
+  --acero-claro:#e3f0f1;
+  --ambar:#c8860d;
+  --ambar-claro:#fdf3dd;
+  --alerta:#a12f22;
+  --alerta-claro:#fbeae7;
+  --radio:10px;
+  width:100%;
+  max-width:100%;
+  color:var(--tinta);
+  background:linear-gradient(180deg,#fbf9f4,var(--papel));
+  font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  font-size:clamp(1rem,.97rem + .25vw,1.09rem);
+  line-height:1.7;
+  padding:clamp(18px,4vw,44px);
+  border-top:5px solid var(--acero);
+  box-sizing:border-box;
+  overflow-x:hidden;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+
+.article-agua-clo2 *,
+.article-agua-clo2 *::before,
+.article-agua-clo2 *::after{
+  box-sizing:border-box;
+}
+
+.article-agua-clo2,
+.article-agua-clo2 .wrap,
+.article-agua-clo2 .ficha,
+.article-agua-clo2 .cap,
+.article-agua-clo2 .cap-h,
+.article-agua-clo2 .cap-h > div,
+.article-agua-clo2 .aviso,
+.article-agua-clo2 .dosis,
+.article-agua-clo2 .formula,
+.article-agua-clo2 .etapa,
+.article-agua-clo2 .cierre,
+.article-agua-clo2 figure,
+.article-agua-clo2 figcaption,
+.article-agua-clo2 h1,
+.article-agua-clo2 h2,
+.article-agua-clo2 h3,
+.article-agua-clo2 h4,
+.article-agua-clo2 p,
+.article-agua-clo2 ol,
+.article-agua-clo2 ul,
+.article-agua-clo2 li,
+.article-agua-clo2 table,
+.article-agua-clo2 caption,
+.article-agua-clo2 th,
+.article-agua-clo2 td,
+.article-agua-clo2 a,
+.article-agua-clo2 button,
+.article-agua-clo2 strong,
+.article-agua-clo2 small,
+.article-agua-clo2 span{
+  max-width:100%;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+
+.article-agua-clo2 img,
+.article-agua-clo2 video,
+.article-agua-clo2 iframe,
+.article-agua-clo2 embed,
+.article-agua-clo2 object,
+.article-agua-clo2 svg{
+  max-width:100%;
+}
+
+.article-agua-clo2 img,
+.article-agua-clo2 video{
+  height:auto;
+}
+
+.article-agua-clo2 iframe,
+.article-agua-clo2 embed,
+.article-agua-clo2 object{
+  width:100%;
+}
+
+.article-agua-clo2 .wrap{
+  width:100%;
+  max-width:820px;
+  margin:0 auto;
+}
+
+/* ── Cabecera tipo ficha de taller ── */
+.article-agua-clo2 .ficha{
+  position:relative;
+  overflow:hidden;
+  padding:clamp(18px,4vw,32px);
+  border:1px solid var(--linea);
+  border-radius:var(--radio);
+  background:#fff;
+  box-shadow:0 10px 26px -20px rgba(32,36,42,.55);
+}
+
+.article-agua-clo2 .ficha::before{
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:6px;
+  background:repeating-linear-gradient(
+    180deg,
+    var(--acero) 0 14px,
+    transparent 14px 26px
+  );
+}
+
+.article-agua-clo2 .sello{
+  display:inline-block;
+  margin-bottom:14px;
+  padding:5px 10px;
+  border:1px dashed var(--acero);
+  border-radius:4px;
+  color:var(--acero);
+  font-family:"Courier New",monospace;
+  font-size:.72rem;
+  letter-spacing:.18em;
+  line-height:1.4;
+  text-transform:uppercase;
+}
+
+.article-agua-clo2 h1{
+  margin:0 0 .5em;
+  font-size:clamp(1.6rem,1.2rem + 3vw,2.5rem);
+  font-weight:600;
+  line-height:1.15;
+}
+
+.article-agua-clo2 h1 em{
+  display:block;
+  margin-top:.35em;
+  color:var(--acero);
+  font-size:.62em;
+  font-style:normal;
+  letter-spacing:.02em;
+}
+
+.article-agua-clo2 .entradilla{
+  margin:0;
+  padding-left:14px;
+  border-left:3px solid var(--ambar);
+  color:var(--tinta-suave);
+  font-size:1.04em;
+}
+
+/* ── Capítulos ── */
+.article-agua-clo2 .cap{
+  margin-top:clamp(38px,7vw,64px);
+}
+
+.article-agua-clo2 .cap-h{
+  display:flex;
+  align-items:flex-start;
+  gap:14px;
+  margin-bottom:26px;
+  padding-bottom:12px;
+  border-bottom:2px solid var(--tinta);
+}
+
+.article-agua-clo2 .cap-h > div:last-child{
+  min-width:0;
+  flex:1 1 auto;
+}
+
+.article-agua-clo2 .cap-n{
+  display:flex;
+  flex:0 0 44px;
+  align-items:center;
+  justify-content:center;
+  width:44px;
+  min-width:44px;
+  height:44px;
+  border-radius:6px;
+  background:var(--tinta);
+  color:var(--papel);
+  font-family:"Courier New",monospace;
+  font-size:1.05rem;
+  font-weight:700;
+}
+
+.article-agua-clo2 .cap-h h2{
+  margin:0;
+  font-size:clamp(1.25rem,1.05rem + 1.3vw,1.65rem);
+  font-weight:600;
+  line-height:1.25;
+}
+
+.article-agua-clo2 .cap-h span{
+  display:block;
+  margin-bottom:4px;
+  color:var(--tinta-suave);
+  font-family:"Courier New",monospace;
+  font-size:.7rem;
+  letter-spacing:.16em;
+  line-height:1.4;
+  text-transform:uppercase;
+}
+
+.article-agua-clo2 h3{
+  margin:34px 0 12px;
+  padding-left:12px;
+  border-left:4px solid var(--acero);
+  font-size:1.12rem;
+  font-weight:600;
+  line-height:1.35;
+}
+
+.article-agua-clo2 h4{
+  margin:22px 0 8px;
+  color:var(--acero);
+  font-size:1rem;
+  font-weight:600;
+  line-height:1.4;
+}
+
+.article-agua-clo2 p{
+  margin:0 0 1.05em;
+}
+
+/* ── Pasos numerados ── */
+.article-agua-clo2 ol.pasos{
+  margin:0 0 1.4em;
+  padding:0;
+  list-style:none;
+  counter-reset:p;
+}
+
+.article-agua-clo2 ol.pasos li{
+  position:relative;
+  margin-bottom:12px;
+  padding:2px 0 14px 44px;
+  border-bottom:1px dotted var(--linea);
+  counter-increment:p;
+}
+
+.article-agua-clo2 ol.pasos li:last-child{
+  margin-bottom:0;
+  border-bottom:0;
+}
+
+.article-agua-clo2 ol.pasos li::before{
+  content:counter(p,decimal-leading-zero);
+  position:absolute;
+  top:1px;
+  left:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:var(--acero-claro);
+  color:var(--acero);
+  font-family:"Courier New",monospace;
+  font-size:.82rem;
+  font-weight:700;
+}
+
+/* ── Listas de comprobación ── */
+.article-agua-clo2 ul.check{
+  margin:0 0 1.3em;
+  padding:0;
+  list-style:none;
+}
+
+.article-agua-clo2 ul.check li{
+  position:relative;
+  margin-bottom:10px;
+  padding-left:30px;
+}
+
+.article-agua-clo2 ul.check li::before{
+  content:"";
+  position:absolute;
+  top:.42em;
+  left:0;
+  width:14px;
+  height:14px;
+  border:2px solid var(--acero);
+  border-radius:3px;
+  background:#fff;
+}
+
+.article-agua-clo2 ul.check li::after{
+  content:"";
+  position:absolute;
+  top:.62em;
+  left:4px;
+  width:7px;
+  height:4px;
+  border-bottom:2px solid var(--acero);
+  border-left:2px solid var(--acero);
+  transform:rotate(-45deg);
+}
+
+.article-agua-clo2 ul.simple{
+  margin:0 0 1.2em;
+  padding-left:1.15em;
+}
+
+.article-agua-clo2 ul.simple li{
+  margin-bottom:8px;
+}
+
+.article-agua-clo2 ul.simple li::marker{
+  color:var(--ambar);
+}
+
+/* ── Miniaturas ilustrativas ── */
+.article-agua-clo2 figure.mini{
+  float:right;
+  width:clamp(112px,30vw,150px);
+  margin:4px 0 16px 20px;
+  padding:8px;
+  border:1px solid var(--linea);
+  border-radius:8px;
+  background:#fff;
+  box-shadow:0 8px 18px -14px rgba(32,36,42,.7);
+  transform:rotate(1.1deg);
+  transition:transform .35s ease;
+}
+
+.article-agua-clo2 figure.mini:nth-of-type(even){
+  transform:rotate(-1.3deg);
+}
+
+.article-agua-clo2 figure.mini:hover{
+  transform:rotate(0) scale(1.02);
+}
+
+.article-agua-clo2 figure.mini img{
+  display:block;
+  width:100%;
+  height:105px;
+  object-fit:contain;
+  border-radius:5px;
+  background:var(--papel-alt);
+}
+
+.article-agua-clo2 figure.mini figcaption{
+  margin-top:7px;
+  color:var(--tinta-suave);
+  font-family:"Courier New",monospace;
+  font-size:.66rem;
+  letter-spacing:.06em;
+  line-height:1.4;
+  text-align:center;
+  text-transform:uppercase;
+}
+
+/* ── Avisos ── */
+.article-agua-clo2 .aviso{
+  margin:22px 0;
+  padding:16px 18px;
+  border:1px solid var(--linea);
+  border-radius:var(--radio);
+  background:var(--papel-alt);
+}
+
+.article-agua-clo2 .aviso p{
+  margin:0;
+}
+
+.article-agua-clo2 .aviso p + p{
+  margin-top:.7em;
+}
+
+.article-agua-clo2 .aviso strong{
+  display:block;
+  margin-bottom:6px;
+  font-family:"Courier New",monospace;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  line-height:1.4;
+  text-transform:uppercase;
+}
+
+.article-agua-clo2 .aviso.peligro{
+  border-color:#e6b7ae;
+  border-left:5px solid var(--alerta);
+  background:var(--alerta-claro);
+}
+
+.article-agua-clo2 .aviso.peligro strong{
+  color:var(--alerta);
+}
+
+.article-agua-clo2 .aviso.clave{
+  border-color:#e8d3a1;
+  border-left:5px solid var(--ambar);
+  background:var(--ambar-claro);
+}
+
+.article-agua-clo2 .aviso.clave strong{
+  color:#8a5c05;
+}
+
+.article-agua-clo2 .aviso.nota{
+  border-color:#bcd9dd;
+  border-left:5px solid var(--acero);
+  background:var(--acero-claro);
+}
+
+.article-agua-clo2 .aviso.nota strong{
+  color:var(--acero);
+}
+
+/* ── Dosis destacada ── */
+.article-agua-clo2 .dosis{
+  margin:24px 0;
+  padding:22px 18px;
+  border:2px solid var(--acero);
+  border-radius:var(--radio);
+  background:#fff;
+  text-align:center;
+}
+
+.article-agua-clo2 .dosis .cifra{
+  display:block;
+  color:var(--acero);
+  font-size:clamp(1.35rem,1.05rem + 2vw,2rem);
+  font-weight:600;
+  line-height:1.25;
+}
+
+.article-agua-clo2 .dosis small{
+  display:block;
+  margin-top:8px;
+  color:var(--tinta-suave);
+  font-family:"Courier New",monospace;
+  font-size:.72rem;
+  letter-spacing:.12em;
+  line-height:1.4;
+  text-transform:uppercase;
+}
+
+/* ── Tabla materiales ── */
+.article-agua-clo2 .tabla-wrap{
+  width:100%;
+  max-width:100%;
+  margin:20px 0 24px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  border:1px solid var(--linea);
+  border-radius:var(--radio);
+  background:#fff;
+  -webkit-overflow-scrolling:touch;
+}
+
+.article-agua-clo2 table{
+  width:100%;
+  min-width:440px;
+  border-collapse:collapse;
+  font-size:.94rem;
+}
+
+.article-agua-clo2 caption{
+  padding:12px 14px;
+  border-bottom:1px solid var(--linea);
+  caption-side:top;
+  color:var(--tinta-suave);
+  font-family:"Courier New",monospace;
+  font-size:.72rem;
+  letter-spacing:.13em;
+  line-height:1.4;
+  text-align:left;
+  text-transform:uppercase;
+}
+
+.article-agua-clo2 th,
+.article-agua-clo2 td{
+  padding:11px 14px;
+  border-bottom:1px solid var(--linea);
+  text-align:left;
+  vertical-align:top;
+}
+
+.article-agua-clo2 thead th{
+  background:var(--papel-alt);
+  font-size:.8rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.article-agua-clo2 tbody tr:last-child td{
+  border-bottom:0;
+}
+
+.article-agua-clo2 td:first-child{
+  font-weight:600;
+  white-space:nowrap;
+}
+
+/* ── Receta / fórmula ── */
+.article-agua-clo2 .formula{
+  margin:18px 0;
+  padding:16px 18px;
+  border:1px solid var(--linea);
+  border-left:5px solid var(--ambar);
+  border-radius:var(--radio);
+  background:#fff;
+}
+
+.article-agua-clo2 .formula h4{
+  margin-top:0;
+}
+
+.article-agua-clo2 .formula ul{
+  margin:0 0 10px;
+  padding:0;
+  list-style:none;
+  font-family:"Courier New",monospace;
+  font-size:.92rem;
+}
+
+.article-agua-clo2 .formula ul li{
+  padding:6px 0;
+  border-bottom:1px dotted var(--linea);
+}
+
+.article-agua-clo2 .formula ul li:last-child{
+  border-bottom:0;
+}
+
+.article-agua-clo2 .formula p:last-child{
+  margin-bottom:0;
+  color:var(--tinta-suave);
+  font-size:.96em;
+}
+
+/* ── Etapas del reactor ── */
+.article-agua-clo2 .etapa{
+  margin-bottom:16px;
+  padding:16px 18px;
+  border:1px solid var(--linea);
+  border-radius:var(--radio);
+  background:#fff;
+}
+
+.article-agua-clo2 .etapa .horas{
+  display:block;
+  margin-bottom:6px;
+  color:var(--acero);
+  font-family:"Courier New",monospace;
+  font-size:.7rem;
+  letter-spacing:.14em;
+  line-height:1.4;
+  text-transform:uppercase;
+}
+
+.article-agua-clo2 .etapa h4{
+  margin:0 0 10px;
+}
+
+.article-agua-clo2 .etapa ol{
+  margin:0;
+  padding-left:1.25em;
+}
+
+.article-agua-clo2 .etapa ol li{
+  margin-bottom:7px;
+}
+
+.article-agua-clo2 .etapa ol li:last-child{
+  margin-bottom:0;
+}
+
+.article-agua-clo2 .etapa ol li::marker{
+  color:var(--acero);
+  font-family:"Courier New",monospace;
+}
+
+/* ── Cierre ── */
+.article-agua-clo2 .cierre{
+  margin-top:clamp(38px,7vw,60px);
+  padding-top:20px;
+  border-top:2px solid var(--tinta);
+  color:var(--tinta-suave);
+  font-size:.95em;
+}
+
+.article-agua-clo2 .cierre p{
+  margin:0;
+}
+
+.article-agua-clo2 .fade{
+  animation:cloFade .6s ease both;
+}
+
+@keyframes cloFade{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+@media (max-width:768px){
+  .article-agua-clo2{
+    padding:8px;
+    border-top-width:4px;
+    font-size:14px;
+    line-height:1.58;
+  }
+
+  .article-agua-clo2 .wrap{
+    width:100%;
+    max-width:none;
+  }
+
+  .article-agua-clo2 .ficha{
+    padding:24px 16px;
+    border-radius:8px;
+    box-shadow:0 7px 18px -16px rgba(32,36,42,.45);
+  }
+
+  .article-agua-clo2 .ficha::before{
+    width:5px;
+  }
+
+  .article-agua-clo2 .sello{
+    margin-bottom:10px;
+    padding:4px 8px;
+    font-size:.68rem;
+    letter-spacing:.14em;
+  }
+
+  .article-agua-clo2 h1{
+    margin-bottom:.45em;
+    font-size:1.7em;
+    line-height:1.18;
+  }
+
+  .article-agua-clo2 h1 em{
+    margin-top:.3em;
+    font-size:.64em;
+  }
+
+  .article-agua-clo2 .entradilla{
+    padding-left:11px;
+    font-size:1em;
+  }
+
+  .article-agua-clo2 .cap{
+    margin-top:34px;
+  }
+
+  .article-agua-clo2 .cap-h{
+    gap:11px;
+    margin-bottom:19px;
+    padding-bottom:9px;
+  }
+
+  .article-agua-clo2 .cap-n{
+    flex-basis:38px;
+    width:38px;
+    min-width:38px;
+    height:38px;
+    border-radius:5px;
+    font-size:.92rem;
+  }
+
+  .article-agua-clo2 .cap-h h2{
+    font-size:1.4em;
+    line-height:1.25;
+  }
+
+  .article-agua-clo2 .cap-h span{
+    margin-bottom:3px;
+    font-size:.66rem;
+    letter-spacing:.13em;
+  }
+
+  .article-agua-clo2 h3{
+    margin:25px 0 9px;
+    padding-left:10px;
+    border-left-width:3px;
+    font-size:1.1em;
+  }
+
+  .article-agua-clo2 h4{
+    margin:17px 0 6px;
+    font-size:1em;
+  }
+
+  .article-agua-clo2 p{
+    margin-bottom:.88em;
+  }
+
+  .article-agua-clo2 ol.pasos{
+    margin-bottom:1.1em;
+  }
+
+  .article-agua-clo2 ol.pasos li{
+    margin-bottom:9px;
+    padding:1px 0 11px 39px;
+  }
+
+  .article-agua-clo2 ol.pasos li::before{
+    width:27px;
+    height:27px;
+    font-size:.76rem;
+  }
+
+  .article-agua-clo2 ul.check{
+    margin-bottom:1.05em;
+  }
+
+  .article-agua-clo2 ul.check li{
+    margin-bottom:8px;
+    padding-left:27px;
+  }
+
+  .article-agua-clo2 ul.simple{
+    margin-bottom:1em;
+  }
+
+  .article-agua-clo2 ul.simple li{
+    margin-bottom:6px;
+  }
+
+  .article-agua-clo2 figure.mini{
+    width:clamp(108px,27vw,140px);
+    margin:3px 0 13px 16px;
+    padding:7px;
+    border-radius:7px;
+    box-shadow:0 5px 13px -12px rgba(32,36,42,.55);
+  }
+
+  .article-agua-clo2 figure.mini img{
+    height:96px;
+    border-radius:4px;
+  }
+
+  .article-agua-clo2 figure.mini figcaption{
+    margin-top:5px;
+    font-size:.62rem;
+  }
+
+  .article-agua-clo2 .aviso,
+  .article-agua-clo2 .formula,
+  .article-agua-clo2 .etapa{
+    padding:16px;
+    border-radius:8px;
+  }
+
+  .article-agua-clo2 .aviso{
+    margin:17px 0;
+  }
+
+  .article-agua-clo2 .aviso.peligro,
+  .article-agua-clo2 .aviso.clave,
+  .article-agua-clo2 .aviso.nota,
+  .article-agua-clo2 .formula{
+    border-left-width:4px;
+  }
+
+  .article-agua-clo2 .dosis{
+    margin:18px 0;
+    padding:17px 15px;
+    border-radius:8px;
+  }
+
+  .article-agua-clo2 .dosis .cifra{
+    font-size:1.45em;
+  }
+
+  .article-agua-clo2 .tabla-wrap{
+    margin:16px 0 19px;
+    border-radius:8px;
+  }
+
+  .article-agua-clo2 table{
+    min-width:420px;
+    font-size:.88rem;
+  }
+
+  .article-agua-clo2 caption{
+    padding:9px 11px;
+    font-size:.67rem;
+    letter-spacing:.1em;
+  }
+
+  .article-agua-clo2 th,
+  .article-agua-clo2 td{
+    padding:8px 10px;
+  }
+
+  .article-agua-clo2 thead th{
+    font-size:.74rem;
+  }
+
+  .article-agua-clo2 .formula{
+    margin:15px 0;
+  }
+
+  .article-agua-clo2 .etapa{
+    margin-bottom:12px;
+  }
+
+  .article-agua-clo2 .etapa h4{
+    margin-bottom:7px;
+  }
+
+  .article-agua-clo2 .etapa ol li{
+    margin-bottom:5px;
+  }
+
+  .article-agua-clo2 .cierre{
+    margin-top:34px;
+    padding-top:15px;
+  }
+
+  .article-agua-clo2 [class*="grid"]{
+    grid-template-columns:minmax(0,1fr);
+    gap:12px;
+  }
+}
+
+@media (max-width:480px){
+  .article-agua-clo2{
+    padding:6px;
+    font-size:13.5px;
+    line-height:1.52;
+  }
+
+  .article-agua-clo2 .ficha{
+    padding:18px 14px;
+    border-radius:6px;
+    box-shadow:0 4px 12px -11px rgba(32,36,42,.4);
+  }
+
+  .article-agua-clo2 .ficha::before{
+    width:4px;
+  }
+
+  .article-agua-clo2 .sello{
+    margin-bottom:8px;
+    padding:4px 7px;
+    font-size:.62rem;
+    letter-spacing:.11em;
+  }
+
+  .article-agua-clo2 h1{
+    font-size:1.5em;
+    line-height:1.17;
+  }
+
+  .article-agua-clo2 h1 em{
+    margin-top:.26em;
+    font-size:.65em;
+    line-height:1.25;
+  }
+
+  .article-agua-clo2 .entradilla{
+    padding-left:9px;
+    border-left-width:2px;
+    font-size:.98em;
+  }
+
+  .article-agua-clo2 .cap{
+    margin-top:27px;
+  }
+
+  .article-agua-clo2 .cap-h{
+    gap:9px;
+    margin-bottom:15px;
+    padding-bottom:8px;
+  }
+
+  .article-agua-clo2 .cap-n{
+    flex-basis:34px;
+    width:34px;
+    min-width:34px;
+    height:34px;
+    border-radius:4px;
+    font-size:.82rem;
+  }
+
+  .article-agua-clo2 .cap-h h2{
+    font-size:1.28em;
+    line-height:1.22;
+  }
+
+  .article-agua-clo2 .cap-h span{
+    font-size:.6rem;
+    letter-spacing:.1em;
+  }
+
+  .article-agua-clo2 h3{
+    margin:20px 0 7px;
+    padding-left:8px;
+    border-left-width:3px;
+    font-size:1.04em;
+    line-height:1.3;
+  }
+
+  .article-agua-clo2 h4{
+    margin:14px 0 5px;
+    font-size:1em;
+  }
+
+  .article-agua-clo2 p{
+    margin-bottom:.76em;
+  }
+
+  .article-agua-clo2 ol.pasos{
+    margin-bottom:.9em;
+  }
+
+  .article-agua-clo2 ol.pasos li{
+    margin-bottom:7px;
+    padding:0 0 9px 34px;
+  }
+
+  .article-agua-clo2 ol.pasos li::before{
+    top:0;
+    width:24px;
+    height:24px;
+    font-size:.69rem;
+  }
+
+  .article-agua-clo2 ul.check{
+    margin-bottom:.9em;
+  }
+
+  .article-agua-clo2 ul.check li{
+    margin-bottom:7px;
+    padding-left:24px;
+  }
+
+  .article-agua-clo2 ul.check li::before{
+    top:.38em;
+    width:13px;
+    height:13px;
+    border-width:1.5px;
+  }
+
+  .article-agua-clo2 ul.check li::after{
+    top:.57em;
+    left:3px;
+    width:7px;
+    height:4px;
+  }
+
+  .article-agua-clo2 ul.simple{
+    margin-bottom:.85em;
+    padding-left:1.05em;
+  }
+
+  .article-agua-clo2 ul.simple li{
+    margin-bottom:5px;
+  }
+
+  .article-agua-clo2 figure.mini{
+    float:none;
+    width:min(170px,62%);
+    margin:0 auto 14px;
+    padding:6px;
+    border-radius:6px;
+    box-shadow:0 4px 10px -10px rgba(32,36,42,.45);
+  }
+
+  .article-agua-clo2 figure.mini img{
+    height:92px;
+  }
+
+  .article-agua-clo2 figure.mini figcaption{
+    margin-top:4px;
+    font-size:.59rem;
+    letter-spacing:.04em;
+  }
+
+  .article-agua-clo2 .aviso,
+  .article-agua-clo2 .formula,
+  .article-agua-clo2 .etapa{
+    padding:14px;
+    border-radius:6px;
+  }
+
+  .article-agua-clo2 .aviso{
+    margin:14px 0;
+  }
+
+  .article-agua-clo2 .aviso strong{
+    margin-bottom:4px;
+    font-size:.66rem;
+    letter-spacing:.11em;
+  }
+
+  .article-agua-clo2 .aviso p + p{
+    margin-top:.55em;
+  }
+
+  .article-agua-clo2 .dosis{
+    margin:15px 0;
+    padding:14px 10px;
+    border-width:1.5px;
+    border-radius:6px;
+  }
+
+  .article-agua-clo2 .dosis .cifra{
+    font-size:1.28em;
+    line-height:1.22;
+  }
+
+  .article-agua-clo2 .dosis small{
+    margin-top:6px;
+    font-size:.64rem;
+    letter-spacing:.09em;
+  }
+
+  .article-agua-clo2 .tabla-wrap{
+    margin:13px 0 16px;
+    border-radius:6px;
+  }
+
+  .article-agua-clo2 table{
+    min-width:390px;
+    font-size:.82rem;
+  }
+
+  .article-agua-clo2 caption{
+    padding:8px 9px;
+    font-size:.62rem;
+    letter-spacing:.08em;
+  }
+
+  .article-agua-clo2 th,
+  .article-agua-clo2 td{
+    padding:7px 8px;
+    line-height:1.4;
+  }
+
+  .article-agua-clo2 thead th{
+    font-size:.69rem;
+    letter-spacing:.04em;
+  }
+
+  .article-agua-clo2 .formula{
+    margin:12px 0;
+  }
+
+  .article-agua-clo2 .formula ul{
+    margin-bottom:7px;
+    font-size:.86rem;
+  }
+
+  .article-agua-clo2 .formula ul li{
+    padding:4px 0;
+  }
+
+  .article-agua-clo2 .etapa{
+    margin-bottom:10px;
+  }
+
+  .article-agua-clo2 .etapa .horas{
+    margin-bottom:4px;
+    font-size:.63rem;
+    letter-spacing:.1em;
+  }
+
+  .article-agua-clo2 .etapa h4{
+    margin-bottom:6px;
+  }
+
+  .article-agua-clo2 .etapa ol{
+    padding-left:1.1em;
+  }
+
+  .article-agua-clo2 .etapa ol li{
+    margin-bottom:4px;
+  }
+
+  .article-agua-clo2 .cierre{
+    margin-top:27px;
+    padding-top:12px;
+  }
+
+  .article-agua-clo2 [class*="grid"]{
+    grid-template-columns:minmax(0,1fr);
+    gap:9px;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .article-agua-clo2 .fade{
+    animation:none;
+  }
+
+  .article-agua-clo2 figure.mini{
+    transition:none;
+  }
+}
+</style>
+</head>
+<body>
+  
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+
+<div class="article-agua-clo2">
+<div class="wrap">
+
+
+  <header class="ficha fade">
+    <span class="sello">Manual de reserva de agua ·</span>
+    <h1>Agua segura, sin depender de nadie. -Parte 1-
+      <em>Almacenamiento en barriles y purificación con Dióxido de Cloro (CDS).</em>
+    </h1>
+    <p class="entradilla">Para un padre de familia, la reserva de agua más sensata no es la más sofisticada: es la que se mantiene sola durante años sin pedirle nada.</p>
+  </header>
+
+  <!-- ══ CAPÍTULO 1 ══ -->
+  <section class="cap">
+    <div class="cap-h">
+      <div class="cap-n">01</div>
+      <div>
+        <span>Capítulo uno</span>
+        <h2>Fundamentos y seguridad crítica</h2>
+      </div>
+    </div>
+
+    <h3>Montar la reserva: barriles HDPE</h3>
+
+    <figure class="mini">
+      <img src="https://m.media-amazon.com/images/I/71pAh9QxG8L.AC_SL1500.jpg" alt="Barril de plástico HDPE oscuro para almacenar agua" loading="lazy">
+      <figcaption>Barril HDPE oscuro</figcaption>
+    </figure>
+
+    <p>Primero calcule cuántos barriles de plástico HDPE puede necesitar según el tamaño de su familia. Se recomienda que sean de color oscuro.</p>
+
+    <figure class="mini">
+      <img src="https://m.media-amazon.com/images/I/61T7yjZC3RL.AC_SL1500.jpg" alt="Llave de paso de plástico para barril" loading="lazy">
+      <figcaption>Llave de paso plástica</figcaption>
+    </figure>
+
+    <p>Cuando los tenga, añádales una llave de paso de plástico —nunca de metal— en la parte inferior. Coloque los barriles sobre una base elevada, de modo que quede espacio para poner los recipientes debajo.</p>
+
+    <h4>El sistema es simple</h4>
+    <ol class="pasos">
+      <li>Lave muy bien el interior con jabón neutro y enjuague varias veces.</li>
+      <li>Llene los barriles con agua de la llave.</li>
+      <li>Desinfecte con una cantidad mínima de cloro: 1 cucharadita por barril, y déjelo actuar 30 minutos.</li>
+      <li>Asegúrese de que el barril no haya almacenado químicos antes. Si es nuevo, perfecto.</li>
+      <li>Manténgalo tapado para evitar insectos, polvo y algas.</li>
+      <li>No lo deje al sol directo durante meses: el calor favorece el crecimiento de microorganismos.</li>
+    </ol>
+
+    <div class="aviso nota">
+      <strong>Por qué la llave inferior</strong>
+      <p>Le permite servir sin destapar ni cargar peso, y vaciar el barril por completo cuando toque lavarlo y volver a llenarlo. Así el agua queda protegida desde el primer día y no depende de que usted haga nada el día de la emergencia. La purificación antes de consumir vendrá después, con un gas: el <strong style="display:inline;font-family:inherit;font-size:inherit;letter-spacing:0;text-transform:none;color:inherit">Dióxido de Cloro</strong>.</p>
+    </div>
+
+    <h3>1 · ¿Qué es el Dióxido de Cloro (ClO₂)?</h3>
+    <p>El Dióxido de Cloro es un gas de color amarillo-ámbar que, a diferencia del cloro común, actúa como un oxidante selectivo. Su función principal es eliminar bacterias, virus, hongos y parásitos mediante un proceso de oxidación que desintegra la pared celular de los patógenos de pH ácido.</p>
+
+    <h4>Diferencias críticas que debe conocer</h4>
+    <div class="tabla-wrap">
+      <table>
+        <caption>Sustancias que suelen confundirse</caption>
+        <thead>
+          <tr><th scope="col">Sustancia</th><th scope="col">Qué es realmente</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>No es lejía<br><small>(hipoclorito)</small></td>
+            <td>La lejía genera subproductos tóxicos y cancerígenos (trihalometanos) al reaccionar con materia orgánica. El Dióxido de Cloro es una molécula distinta, no carcinógena, con una calidad desinfectante infinitamente superior.</td>
+          </tr>
+          <tr>
+            <td>Clorito de sodio<br><small>(NaClO₂)</small></td>
+            <td>Es el precursor, la sal indispensable. Por sí solo no purifica: requiere mezclarse con un activador ácido para liberar el gas de Dióxido de Cloro.</td>
+          </tr>
+          <tr>
+            <td>CDS frente a MMS</td>
+            <td>El MMS es la mezcla directa de las gotas de clorito de sodio y acido citrico, por eso conserva residuos de la reacción. El CDS es el gas puro capturado en agua: pH neutro, sin sabor desagradable, y la opción ideal para la potabilización de agua.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>2 · Reglas de oro de los materiales</h3>
+    <p>El Dióxido de Cloro es un oxidante potente y reacciona de forma inmediata con ciertos materiales, lo cual puede arruinar su reserva de agua o contaminarla con metales pesados.</p>
+
+    <div class="aviso peligro">
+      <strong>⚠️ Prohibición absoluta del metal</strong>
+      <p>Nunca utilice recipientes, cucharas, tapas o filtros de metal —incluido el acero inoxidable— para manipular el concentrado o el agua tratada. El gas oxida el metal y absorbe partículas tóxicas de este.</p>
+    </div>
+
+    <h4>Plásticos y materiales permitidos</h4>
+    <div class="tabla-wrap">
+      <table>
+        <caption>Solo materiales de alta resistencia</caption>
+        <thead><tr><th scope="col">Material</th><th scope="col">Uso adecuado</th></tr></thead>
+        <tbody>
+          <tr><td>HDPE</td><td>Polietileno de alta densidad: el estándar para barriles de agua y botellas de reactivos.</td></tr>
+          <tr><td>PP</td><td>Polipropileno: ideal para tapas y goteros.</td></tr>
+          <tr><td>PVC</td><td>Permitido para tuberías de conducción de agua.</td></tr>
+          <tr><td>Cristal</td><td>Solo para guardar el concentrado puro (CDS) en el refrigerador; preferiblemente ámbar.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>3 · La “regla de oro” de potabilización</h3>
+    <p>Para garantizar que cualquier fuente de agua —llave, pozo o almacenamiento— sea apta para el consumo humano, se establece esta dosis estándar de seguridad:</p>
+
+    <div class="dosis">
+      <span class="cifra">1 ml de CDS a 3000 ppm<br>por cada 1 litro de agua. ¿Botellón de 5 galones? = 19ml</span>
+      <small>Ratio estándar de potabilización.</small>
+    </div>
+
+    <p>Este ratio asegura la eliminación de patógenos sin alterar el pH del agua de consumo. Se recomienda utilizar una jeringa de plástico, sin aguja, para medir los mililitros con precisión.</p>
+
+    <h3>4 · Seguridad y primeros auxilios</h3>
+    <p>Aunque el Dióxido de Cloro es seguro en las dosis recomendadas, la manipulación de los reactivos concentrados requiere precaución.</p>
+    <ul class="check">
+      <li><strong>Almacenamiento seguro:</strong> guarde siempre los reactivos y el CDS fuera del alcance de los niños y debidamente etiquetados.</li>
+      <li><strong>Neutralización en emergencias:</strong> en caso de ingestión accidental de una cantidad grande de concentrado (clorito o activador), tome inmediatamente un vaso de agua con una cucharadita de bicarbonato de sodio.</li>
+      <li><strong>Inhalación:</strong> evite respirar directamente el gas que sale del frasco reactor durante la fabricación. Realice siempre los trasvases en exteriores o áreas muy ventiladas.</li>
+    </ul>
+
+    <div class="aviso peligro">
+      <strong>⚠️ Advertencia sobre la vitamina C</strong>
+      <p>Nunca utilice vitamina C (ácido ascórbico) para neutralizar un derrame o una ingestión accidental: el ácido reacciona con el clorito liberando gas de forma violenta y no deseada.</p>
+    </div>
+  </section>
+
+  <!-- ══ CAPÍTULO 2 ══ -->
+  <section class="cap">
+    <div class="cap-h">
+      <div class="cap-n">02</div>
+      <div>
+        <span>Capítulo dos</span>
+        <h2>Gestión de suministros: insumos en polvo</h2>
+      </div>
+    </div>
+
+    <p>Para un sistema de supervivencia familiar, la adquisición de reactivos en polvo es la estrategia más eficiente. El polvo ocupa mucho menos espacio de almacenamiento y tiene una vida útil significativamente más larga que las soluciones líquidas ya preparadas, lo que garantiza autonomía por años.</p>
+
+    <h3>1 · Adquisición de materia prima</h3>
+
+    <figure class="mini">
+      <img src="https://m.media-amazon.com/images/I/81boZLIkBKL.AC_SL1500.jpg" alt="Clorito de sodio en polvo al 80%" loading="lazy">
+      <figcaption>Clorito de sodio 80%</figcaption>
+    </figure>
+
+    <p>Para fabricar su purificador (CDS) necesita dos insumos básicos, fáciles de encontrar en plataformas comerciales:</p>
+    <ul class="simple">
+      <li><strong>Clorito de sodio (NaClO₂) al 80%:</strong> se vende habitualmente en esta pureza; el 20% restante es sal común, que le da estabilidad.</li>
+      <li><strong>Ácido cítrico en polvo:</strong> se utiliza para crear el activador. Aunque para el consumo directo se prefiere el ácido clorhídrico, el ácido cítrico es excelente y seguro para la fabricación de CDS, ya que este ácido nunca entra en contacto con el agua que su familia beberá.</li>
+    </ul>
+
+    <h3>2 · Conversión de polvo a líquido</h3>
+    <p>Para obtener las concentraciones estándar requeridas por los protocolos, siga estas proporciones exactas utilizando una báscula de cocina.</p>
+
+    <div class="formula">
+      <h4>A · Clorito de sodio al 25% · precursor</h4>
+      <p>Solución base. Para preparar 1 kilogramo de solución líquida:</p>
+      <ul>
+        <li>700 g de agua destilada</li>
+        <li>300 g de clorito de sodio en polvo (al 80%)</li>
+      </ul>
+      <p>Vierta el polvo en el agua y remueva con un utensilio de plástico o vidrio hasta que se disuelva por completo.</p>
+    </div>
+
+    <figure class="mini">
+      <img src="https://m.media-amazon.com/images/I/61ODbiZ2xqL.AC_UF1000,1000_QL80.jpg" alt="Ácido cítrico en polvo" loading="lazy">
+      <figcaption>Ácido cítrico en polvo</figcaption>
+    </figure>
+
+    <div class="formula">
+      <h4>B · Ácido cítrico al 50% · activador</h4>
+      <p>Esta solución se encarga de liberar el gas del clorito. La proporción es de 1:1 en peso:</p>
+      <ul>
+        <li>500 g de agua destilada</li>
+        <li>500 g de ácido cítrico en polvo</li>
+      </ul>
+      <p>Disuelva el polvo en el agua. Notará que el recipiente se enfría durante el proceso (reacción endotérmica): es normal.</p>
+    </div>
+
+    <h3>3 · Almacenamiento y seguridad de las reservas</h3>
+
+    <figure class="mini">
+      <img src="https://m.media-amazon.com/images/I/81rRou2X5qL.AC_SL1500.jpg" alt="Botellas de cristal ámbar para reactivos" loading="lazy">
+      <figcaption>Botellas de cristal ámbar</figcaption>
+    </figure>
+
+    <p>Una vez que haya transformado los polvos en líquidos, el manejo correcto de estas botellas concentradas es vital para la seguridad familiar:</p>
+    <ul class="check">
+      <li><strong>Envases correctos:</strong> trasvase los líquidos resultantes a botellas de cristal ámbar. Así protege las sustancias de la luz, que podría degradar su potencia.</li>
+      <li><strong>Etiquetado crítico:</strong> marque cada botella claramente con su nombre —“Clorito de Sodio 25%” y “Activador Ácido Cítrico 50%”—, la concentración y la fecha de preparación.</li>
+      <li><strong>Zona de seguridad:</strong> guárdelas en un lugar fresco, seco y estrictamente bajo llave o fuera del alcance de los niños.</li>
+    </ul>
+
+    <div class="aviso peligro">
+      <strong>⚠️ Recuerde</strong>
+      <p>La ingestión accidental de estas soluciones concentradas es peligrosa y requiere neutralización inmediata con bicarbonato.</p>
+    </div>
+  </section>
+
+  <!-- ══ CAPÍTULO 3 ══ -->
+  <section class="cap">
+    <div class="cap-h">
+      <div class="cap-n">03</div>
+      <div>
+        <span>Capítulo tres</span>
+        <h2>Fabricación del CDS puro · método hermético</h2>
+      </div>
+    </div>
+
+    <p>A diferencia del MMS (mezcla directa de gotas), el CDS se obtiene capturando únicamente el gas de ClO₂ en agua. La principal ventaja para una familia es que los residuos de la reacción inicial —sales y ácidos— permanecen en el vaso interno y nunca entran en contacto con el agua que se consumirá, eliminando el sabor fuerte y las molestias digestivas.</p>
+
+    <h3>1 · El reactor: materiales y configuración</h3>
+
+    <figure class="mini">
+      <img src="https://m.media-amazon.com/images/I/61TovpC5UwL.AC_SL1500.jpg" alt="Frasco de cristal con cierre hermético tipo conserva" loading="lazy">
+      <figcaption>Frasco hermético de cristal</figcaption>
+    </figure>
+
+    <p>Para fabricar 250 ml de concentrado a 3000 ppm necesitará:</p>
+    <ul class="simple">
+      <li><strong>Frasco grande de cristal:</strong> con tapa de cierre hermético, tipo conserva con goma. Si la tapa es de metal, debe envolverse en film plástico para evitar la corrosión y la contaminación del gas.</li>
+      <li><strong>Vaso interno:</strong> un vaso pequeño tipo “chupito” que quepa seco dentro del frasco grande.</li>
+      <li><strong>Agua:</strong> 250 ml de agua destilada, filtrada o mineral, fría.</li>
+      <li><strong>Reactivos:</strong> sus soluciones líquidas de clorito de sodio al 25% y activador (ácido cítrico al 50% o HCl al 4%).</li>
+    </ul>
+
+    <h3>2 · Protocolo de fabricación · ciclo de 24 horas</h3>
+    <p>La saturación óptima del agua se logra en dos etapas de 12 horas cada una, para asegurar que el gas sea capturado eficientemente.</p>
+
+    <div class="etapa">
+      <span class="horas">Etapa 1 · Horas 0 a 12</span>
+      <h4>Carga inicial</h4>
+      <ol>
+        <li>Vierta los 250 ml de agua fría en el frasco grande.</li>
+        <li>Coloque el vaso pequeño seco dentro del frasco, cuidando que el agua no entre en él.</li>
+        <li>Vierta 5 ml de clorito de sodio y 5 ml de activador en el vaso pequeño.</li>
+        <li>Cierre el frasco herméticamente de inmediato y guárdelo en un lugar oscuro, a temperatura ambiente, durante 12 horas.</li>
+      </ol>
+    </div>
+
+    <div class="etapa">
+      <span class="horas">Etapa 2 · Horas 12 a 24</span>
+      <h4>Segunda carga</h4>
+      <ol>
+        <li>Tras las primeras 12 horas, meta el frasco sin abrir en el refrigerador un momento, para enfriar el líquido y evitar que el gas escape al abrirlo.</li>
+        <li>En un área ventilada o en exteriores, abra el frasco brevemente, saque el vaso pequeño y deseche su contenido residual.</li>
+        <li>Coloque una mezcla fresca —5 ml de clorito + 5 ml de activador— en el vaso interno.</li>
+        <li>Cierre el frasco y espere otras 12 horas en la oscuridad.</li>
+      </ol>
+    </div>
+
+    <h3>3 · Control de calidad y verificación</h3>
+    <p>Una vez terminado el ciclo, el proceso se considera exitoso si se cumplen estos criterios:</p>
+    <ul class="check">
+      <li><strong>Verificación visual:</strong> el agua debe haber adquirido un color amarillo intenso, idéntico al del aceite de girasol.</li>
+      <li><strong>Tiras reactivas:</strong> puede utilizar tiras de Dióxido de Cloro (tipo La Motte 3002) para confirmar la concentración. Para medir 3000 ppm con tiras de rango menor, diluya 1 parte de su CDS en 9 partes de agua; la tira debería marcar 300 ppm.</li>
+    </ul>
+
+    <h3>4 · Almacenamiento crítico</h3>
+    <p>El CDS es gas disuelto en agua y su estabilidad es sumamente frágil ante el calor y la luz.</p>
+
+    <div class="aviso clave">
+      <strong>Tres condiciones no negociables</strong>
+      <p><strong style="display:inline;font-family:inherit;font-size:inherit;letter-spacing:0;text-transform:none;color:inherit">Refrigeración obligatoria.</strong> Debe mantenerse siempre por debajo de 11 °C. Por encima de esa temperatura, el gas se evapora al abrir la botella y la solución pierde su fuerza rápidamente.</p>
+      <p><strong style="display:inline;font-family:inherit;font-size:inherit;letter-spacing:0;text-transform:none;color:inherit">Protección UV.</strong> Utilice siempre botellas de cristal ámbar: la luz solar desintegra la molécula de dióxido de cloro.</p>
+      <p><strong style="display:inline;font-family:inherit;font-size:inherit;letter-spacing:0;text-transform:none;color:inherit">Seguridad y etiquetado.</strong> Marque la botella claramente como “CDS 3000 ppm” y manténgala fuera del alcance de los niños.</p>
+    </div>
+  </section>
+
+  <footer class="cierre">
+    <p>Con los barriles llenos y tapados, los reactivos en polvo guardados y una botella de CDS en el refrigerador, estamos listos para la segunda parte de esta guia.</p>
+  </footer>
+
+</div>
+</div>
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/sustento-material/unidades-familiares-de-produccion/" : "/en/material-support/family-production-units/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html>         
