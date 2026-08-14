@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema familiar de agua: Parte 2</title>
+<meta name="description" content="Continúa construyendo un sistema familiar para almacenar y purificar agua con medidas prácticas que mejoran la seguridad y preparación del hogar.">
+
+<link rel="canonical" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/sistema-agua-dos/">
+<link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/family-production-units/family-water-system-part-2/">
+<link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/sistema-agua-dos/">
+<link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/family-production-units/family-water-system-part-2/">
+  
+<style>
+.article-clo2-protocolos{
+  --tinta:#1c2126;
+  --tinta-2:#4a535d;
+  --lienzo:#f4f1ea;
+  --lienzo-2:#e9e3d7;
+  --raya:#d5cbb8;
+  --verde:#2d6a4b;
+  --verde-luz:#e4f0e8;
+  --cobre:#b06a1c;
+  --cobre-luz:#fbeeda;
+  --rojo:#9c2b1f;
+  --rojo-luz:#faeae7;
+  --azul:#25576f;
+  --azul-luz:#e2eef3;
+  color:var(--tinta);
+  background:var(--lienzo);
+  font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  line-height:1.72;
+  font-size:clamp(1rem,.97rem + .25vw,1.08rem);
+  padding:clamp(16px,4vw,44px);
+  box-sizing:border-box;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+.article-clo2-protocolos *{box-sizing:border-box}
+.article-clo2-protocolos .lienzo{max-width:840px;margin:0 auto}
+.article-clo2-protocolos p{margin:0 0 1.05em}
+
+.article-clo2-protocolos .placa{
+  background:var(--tinta);color:var(--lienzo);
+  border-radius:4px;padding:clamp(22px,5vw,40px);
+  position:relative;overflow:hidden;
+}
+.article-clo2-protocolos .placa::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
+  background:linear-gradient(90deg,var(--verde) 0 25%,var(--azul) 25% 50%,var(--cobre) 50% 75%,var(--rojo) 75% 100%);
+}
+.article-clo2-protocolos .parte{
+  display:inline-block;font-family:"Courier New",monospace;
+  font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;
+  border:1px solid rgba(244,241,234,.45);border-radius:3px;
+  padding:5px 11px;margin-bottom:18px;color:#e8dfcb;
+}
+.article-clo2-protocolos h1{
+  margin:0;font-weight:500;line-height:1.16;
+  font-size:clamp(1.55rem,1.15rem + 2.9vw,2.45rem);
+  overflow-wrap:break-word;
+}
+.article-clo2-protocolos h1 b{display:block;font-weight:600}
+.article-clo2-protocolos h1 span{
+  display:block;margin-top:.5em;font-size:.44em;font-weight:400;
+  letter-spacing:.16em;text-transform:uppercase;
+  font-family:"Courier New",monospace;color:#c9bda3;
+}
+.article-clo2-protocolos .sumario{
+  margin:22px 0 0;padding-top:18px;
+  border-top:1px solid rgba(244,241,234,.22);
+  color:#ded4bf;font-size:.98em;
+}
+
+.article-clo2-protocolos .indice{
+  display:grid;gap:1px;background:var(--raya);
+  border:1px solid var(--raya);margin-top:2px;
+}
+@media(min-width:620px){.article-clo2-protocolos .indice{grid-template-columns:repeat(4,1fr)}}
+.article-clo2-protocolos .indice div{
+  background:#fff;padding:12px 14px;
+  font-family:"Courier New",monospace;font-size:.74rem;
+  letter-spacing:.05em;color:var(--tinta-2);
+}
+.article-clo2-protocolos .indice div b{display:block;color:var(--tinta);font-size:.9rem;margin-bottom:3px}
+
+.article-clo2-protocolos .cap{margin-top:clamp(40px,7vw,66px)}
+.article-clo2-protocolos .cap-cab{
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+  padding-bottom:10px;margin-bottom:24px;
+  border-bottom:3px double var(--tinta);
+}
+.article-clo2-protocolos .cap-cab .num{
+  font-family:"Courier New",monospace;font-size:2.1rem;font-weight:700;
+  line-height:1;color:var(--raya);
+}
+.article-clo2-protocolos .cap-cab h2{
+  margin:0;font-size:clamp(1.2rem,1.02rem + 1.2vw,1.6rem);
+  font-weight:600;line-height:1.28;flex:1 1 260px;
+  overflow-wrap:break-word;
+}
+.article-clo2-protocolos h3{
+  font-size:1.1rem;font-weight:600;margin:32px 0 12px;
+  display:flex;align-items:center;gap:10px;
+  overflow-wrap:break-word;
+}
+.article-clo2-protocolos h3::before{
+  content:"";width:9px;height:9px;flex:none;
+  background:var(--verde);transform:rotate(45deg);
+}
+.article-clo2-protocolos h4{font-size:.98rem;font-weight:600;margin:20px 0 8px;color:var(--azul)}
+
+.article-clo2-protocolos ul.lista{list-style:none;margin:0 0 1.2em;padding:0}
+.article-clo2-protocolos ul.lista li{position:relative;padding-left:22px;margin-bottom:11px;overflow-wrap:break-word}
+.article-clo2-protocolos ul.lista li::before{
+  content:"";position:absolute;left:0;top:.62em;width:11px;height:2px;background:var(--cobre);
+}
+.article-clo2-protocolos ol.orden{margin:0 0 1.2em;padding-left:1.35em}
+.article-clo2-protocolos ol.orden li{margin-bottom:9px;overflow-wrap:break-word}
+.article-clo2-protocolos ol.orden li::marker{font-family:"Courier New",monospace;font-weight:700;color:var(--verde)}
+
+.article-clo2-protocolos .regla{
+  background:#fff;border:1px solid var(--raya);
+  border-top:4px solid var(--verde);
+  padding:20px;margin:22px 0;text-align:center;
+}
+.article-clo2-protocolos .regla .rot{
+  font-family:"Courier New",monospace;font-size:.7rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--tinta-2);display:block;margin-bottom:10px;
+}
+.article-clo2-protocolos .regla .val{
+  display:block;font-size:clamp(1.2rem,.98rem + 1.7vw,1.75rem);
+  font-weight:600;color:var(--verde);line-height:1.3;
+}
+
+.article-clo2-protocolos .tbl{overflow-x:auto;border:1px solid var(--raya);background:#fff;margin:18px 0 24px;-webkit-overflow-scrolling:touch}
+.article-clo2-protocolos table{width:100%;border-collapse:collapse;min-width:390px;font-size:.94rem}
+.article-clo2-protocolos caption{
+  caption-side:top;text-align:left;padding:11px 14px;border-bottom:1px solid var(--raya);
+  font-family:"Courier New",monospace;font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--tinta-2);
+}
+.article-clo2-protocolos th,.article-clo2-protocolos td{
+  padding:10px 14px;text-align:left;border-bottom:1px solid var(--raya);vertical-align:top;
+  overflow-wrap:break-word;
+}
+.article-clo2-protocolos thead th{background:var(--lienzo-2);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.article-clo2-protocolos tbody tr:last-child td{border-bottom:0}
+.article-clo2-protocolos td:first-child{font-weight:600;white-space:nowrap;font-family:"Courier New",monospace}
+
+.article-clo2-protocolos .ficha{
+  background:#fff;border:1px solid var(--raya);
+  margin:22px 0;padding:0;overflow:hidden;
+}
+.article-clo2-protocolos .ficha > header{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 18px;border-bottom:1px solid var(--raya);
+  background:var(--lienzo-2);
+}
+.article-clo2-protocolos .ficha .letra{
+  font-family:"Courier New",monospace;font-weight:700;font-size:1.15rem;
+  width:40px;height:40px;flex:none;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--tinta);color:var(--lienzo);
+}
+.article-clo2-protocolos .ficha h3{margin:0;font-size:1.05rem}
+.article-clo2-protocolos .ficha h3::before{display:none}
+.article-clo2-protocolos .ficha .cuerpo{padding:18px}
+.article-clo2-protocolos .ficha .cuerpo > *:last-child{margin-bottom:0}
+.article-clo2-protocolos .ficha.f-h .letra{background:var(--azul)}
+.article-clo2-protocolos .ficha.f-q .letra{background:var(--rojo)}
+.article-clo2-protocolos .ficha.f-i .letra{background:var(--cobre)}
+.article-clo2-protocolos .ficha.f-j .letra{background:var(--verde)}
+.article-clo2-protocolos .ficha.f-k .letra{background:var(--azul)}
+.article-clo2-protocolos .ficha.f-p .letra{background:var(--verde)}
+
+.article-clo2-protocolos .nota{
+  padding:15px 17px;margin:20px 0;border:1px solid var(--raya);
+  background:var(--lienzo-2);border-left:5px solid var(--tinta-2);
+  overflow-wrap:break-word;
+}
+.article-clo2-protocolos .nota > p{margin:0}
+.article-clo2-protocolos .nota > p + p{margin-top:.65em}
+.article-clo2-protocolos .nota .tit{
+  display:block;font-family:"Courier New",monospace;font-size:.7rem;
+  letter-spacing:.15em;text-transform:uppercase;margin-bottom:7px;font-weight:700;
+}
+.article-clo2-protocolos .nota.roja{background:var(--rojo-luz);border-color:#e7bdb6;border-left-color:var(--rojo)}
+.article-clo2-protocolos .nota.roja .tit{color:var(--rojo)}
+.article-clo2-protocolos .nota.ambar{background:var(--cobre-luz);border-color:#eacfa6;border-left-color:var(--cobre)}
+.article-clo2-protocolos .nota.ambar .tit{color:#8b5210}
+.article-clo2-protocolos .nota.azul{background:var(--azul-luz);border-color:#bcd4de;border-left-color:var(--azul)}
+.article-clo2-protocolos .nota.azul .tit{color:var(--azul)}
+.article-clo2-protocolos .nota.verde{background:var(--verde-luz);border-color:#bcd9c8;border-left-color:var(--verde)}
+.article-clo2-protocolos .nota.verde .tit{color:var(--verde)}
+
+.article-clo2-protocolos .prohibidos{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0 0 14px}
+.article-clo2-protocolos .prohibidos li{
+  background:#fff;border:1px solid #e0b3ab;color:var(--rojo);
+  padding:5px 11px;font-size:.85rem;border-radius:3px;
+}
+.article-clo2-protocolos .prohibidos li::before{content:"✕ ";font-size:.8em}
+
+.article-clo2-protocolos .cierre{
+  margin-top:clamp(40px,7vw,62px);padding:22px;
+  border:1px solid var(--raya);border-top:4px solid var(--tinta);
+  background:#fff;font-size:.96em;color:var(--tinta-2);
+  overflow-wrap:break-word;
+}
+.article-clo2-protocolos .cierre p{margin:0}
+
+.article-clo2-protocolos .entra{animation:clo2Up .55s ease both}
+@keyframes clo2Up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.article-clo2-protocolos .entra{animation:none}}
+
+.article-clo2-protocolos img,
+.article-clo2-protocolos video,
+.article-clo2-protocolos iframe{max-width:100%;height:auto}
+
+@media (max-width:768px){
+  .article-clo2-protocolos{
+    padding:8px;
+    font-size:14px;
+    line-height:1.6;
+  }
+  .article-clo2-protocolos .lienzo{max-width:100%}
+  .article-clo2-protocolos .placa{
+    border-radius:3px;
+    padding:24px 16px;
+    box-shadow:none;
+  }
+  .article-clo2-protocolos h1{font-size:1.7em;line-height:1.2}
+  .article-clo2-protocolos h1 span{font-size:.5em}
+  .article-clo2-protocolos .parte{margin-bottom:12px;font-size:.65rem;padding:4px 9px}
+  .article-clo2-protocolos .sumario{margin-top:16px;padding-top:14px}
+  .article-clo2-protocolos .indice{grid-template-columns:1fr}
+  .article-clo2-protocolos .indice div{padding:10px 12px}
+  .article-clo2-protocolos .cap{margin-top:32px}
+  .article-clo2-protocolos .cap-cab{margin-bottom:16px;padding-bottom:8px;border-bottom-width:2px;gap:8px}
+  .article-clo2-protocolos .cap-cab .num{font-size:1.6rem}
+  .article-clo2-protocolos .cap-cab h2{font-size:1.4em}
+  .article-clo2-protocolos h3{font-size:1.1em;margin:22px 0 10px}
+  .article-clo2-protocolos h4{font-size:.95em;margin:16px 0 6px}
+  .article-clo2-protocolos .regla{padding:16px;margin:16px 0}
+  .article-clo2-protocolos .tbl{margin:14px 0 18px}
+  .article-clo2-protocolos table{min-width:340px;font-size:.88rem}
+  .article-clo2-protocolos th,.article-clo2-protocolos td{padding:8px 10px}
+  .article-clo2-protocolos .ficha{margin:16px 0}
+  .article-clo2-protocolos .ficha > header{padding:12px 14px;gap:10px}
+  .article-clo2-protocolos .ficha .letra{width:34px;height:34px;font-size:1rem}
+  .article-clo2-protocolos .ficha .cuerpo{padding:16px}
+  .article-clo2-protocolos .nota{padding:14px;margin:16px 0;border-left-width:4px}
+  .article-clo2-protocolos .cierre{margin-top:32px;padding:16px;border-top-width:3px}
+}
+
+@media (max-width:480px){
+  .article-clo2-protocolos{
+    padding:6px;
+    font-size:13.5px;
+    line-height:1.55;
+  }
+  .article-clo2-protocolos .placa{padding:20px 14px;border-radius:2px}
+  .article-clo2-protocolos h1{font-size:1.5em}
+  .article-clo2-protocolos h1 span{font-size:.48em}
+  .article-clo2-protocolos .parte{font-size:.6rem;padding:4px 8px;margin-bottom:10px;letter-spacing:.18em}
+  .article-clo2-protocolos .sumario{margin-top:14px;padding-top:12px;font-size:.92em}
+  .article-clo2-protocolos .indice div{padding:9px 10px;font-size:.7rem}
+  .article-clo2-protocolos .cap{margin-top:26px}
+  .article-clo2-protocolos .cap-cab{margin-bottom:14px}
+  .article-clo2-protocolos .cap-cab .num{font-size:1.3rem}
+  .article-clo2-protocolos .cap-cab h2{font-size:1.28em}
+  .article-clo2-protocolos h3{font-size:1.05em;margin:18px 0 8px;gap:8px}
+  .article-clo2-protocolos h3::before{width:7px;height:7px}
+  .article-clo2-protocolos h4{font-size:.92em;margin:14px 0 6px}
+  .article-clo2-protocolos .regla{padding:14px;margin:14px 0}
+  .article-clo2-protocolos .regla .val{font-size:1.15rem}
+  .article-clo2-protocolos .tbl{margin:12px 0 16px}
+  .article-clo2-protocolos table{min-width:300px;font-size:.82rem}
+  .article-clo2-protocolos th,.article-clo2-protocolos td{padding:6px 8px}
+  .article-clo2-protocolos ul.lista li{padding-left:18px;margin-bottom:8px}
+  .article-clo2-protocolos ol.orden{padding-left:1.1em}
+  .article-clo2-protocolos ol.orden li{margin-bottom:7px}
+  .article-clo2-protocolos .ficha{margin:14px 0}
+  .article-clo2-protocolos .ficha > header{padding:10px 12px;gap:8px}
+  .article-clo2-protocolos .ficha .letra{width:30px;height:30px;font-size:.9rem}
+  .article-clo2-protocolos .ficha .cuerpo{padding:14px}
+  .article-clo2-protocolos .nota{padding:12px;margin:12px 0;border-left-width:3px}
+  .article-clo2-protocolos .nota .tit{font-size:.65rem}
+  .article-clo2-protocolos .prohibidos li{font-size:.78rem;padding:4px 9px}
+  .article-clo2-protocolos .cierre{margin-top:26px;padding:14px;font-size:.9em}
+}
+</style>
+</head>
+<body>
+  
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+
+<div class="article-clo2-protocolos">
+<div class="lienzo">
+
+  <header class="placa entra">
+    <span class="parte">Manual de campo · Parte 2 de 2</span>
+    <h1>Agua segura, sin depender de nadie
+      <b>—Parte 2—</b>
+      <span>Almacenamiento, dosificación y protocolos de emergencia</span>
+    </h1>
+    <p class="sumario">Con el concentrado de CDS a 3000 ppm ya en el refrigerador, esta segunda parte cubre cómo tratar la reserva, cuánto administrar según el peso y qué hacer cuando no hay farmacia ni veterinario cerca.</p>
+  </header>
+
+  <nav class="indice" aria-label="Contenido de esta parte">
+    <div><b>04</b> Almacenamiento y potabilización</div>
+    <div><b>05</b> Pilares de bioseguridad</div>
+    <div><b>06</b> Botiquín de emergencia</div>
+    <div><b>07</b> Sinergia Biológica Avanzada</div>
+  </nav>
+
+  <!-- ═══ CAPÍTULO 4 ═══ -->
+  <section class="cap">
+    <div class="cap-cab">
+      <span class="num">04</span>
+      <h2>Sistema de almacenamiento y potabilización</h2>
+    </div>
+
+    <p>Una vez que cuenta con el concentrado de CDS a 3000 ppm en su refrigerador, el siguiente paso es asegurar que el agua almacenada en sus reservas sea apta para el consumo humano, eliminando bacterias, virus, hongos y parásitos mediante oxidación selectiva.</p>
+
+    <h3>1 · Selección y preparación de contenedores</h3>
+    <p>El éxito del almacenamiento depende de evitar la proliferación de algas y la corrosión de los materiales.</p>
+    <ul class="lista">
+      <li><strong>Contenedores primarios:</strong> use barriles de plástico de alta densidad (HDPE) de color negro u opaco. La opacidad es crítica para bloquear los rayos UV, que desintegran el dióxido de cloro y facilitan el crecimiento de algas.</li>
+      <li><strong>Sistema de extracción:</strong> las llaves de paso deben ser estrictamente de plástico (PVC o PP).</li>
+    </ul>
+
+    <div class="nota roja">
+      <span class="tit">⚠️ Prohibición de metales</span>
+      <p>Nunca utilice válvulas ni tuberías de metal: el ClO₂ corroerá el material y contaminará el agua con residuos metálicos tóxicos.</p>
+    </div>
+
+    <h3>2 · La “regla de oro” de la potabilización</h3>
+    <p>Para garantizar la seguridad biológica del agua clara —de red o de pozo— para el consumo diario, aplique la dosis estándar:</p>
+
+    <div class="regla">
+      <span class="rot">Dosis estándar de potabilización</span>
+      <span class="val">1 ml de CDS a 3000 ppm<br>por cada litro de agua</span>
+    </div>
+
+    <div class="tbl">
+      <table>
+        <caption>Cálculo para recipientes comunes</caption>
+        <thead><tr><th scope="col">Recipiente</th><th scope="col">CDS a añadir</th></tr></thead>
+        <tbody>
+          <tr><td>1 litro</td><td>1 ml</td></tr>
+          <tr><td>5 litros</td><td>5 ml</td></tr>
+          <tr><td>10 litros</td><td>10 ml</td></tr>
+          <tr><td>200 litros</td><td>200 ml</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>Procedimiento:</strong> utilice una jeringa de plástico sin aguja para medir el CDS directamente de la botella refrigerada y viértalo en el contenedor de agua. Tras añadirlo, el agua es segura para beber, manteniendo un pH neutro y un sabor suave, ideal para toda la familia.</p>
+
+    <h3>3 · Gestión del biofilm y mantenimiento</h3>
+    <p>Con el tiempo, las paredes de los barriles pueden desarrollar biofilm, una capa viscosa bacteriana. A diferencia del cloro común, el CDS tiene la capacidad única de penetrar y desmantelar esa estructura.</p>
+    <ul class="lista">
+      <li><strong>Choque de limpieza:</strong> si observa sedimentos o mucosidad al inspeccionar sus barriles, añada 5 ml de CDS por cada litro de capacidad y deje actuar 24 horas antes de enjuagar y rellenar.</li>
+      <li><strong>Estabilidad térmica:</strong> el gas de ClO₂ se mantiene mejor disuelto en agua fría. Si la temperatura del agua tratada sube de los 11 °C, el gas puede evaporarse gradualmente y disminuir su poder desinfectante a largo plazo.</li>
+    </ul>
+
+    <h3>4 · Seguridad en el consumo</h3>
+    <div class="nota verde">
+      <span class="tit">Residuo inocuo</span>
+      <p>Tras la reacción de oxidación, el residuo final en el agua es oxígeno y una cantidad mínima de sal común (cloruro sódico), totalmente inofensiva para el organismo.</p>
+    </div>
+    <p><strong>Protección final:</strong> para el agua ya potabilizada que se moverá a la mesa o al uso diario, prefiera botellas de cristal ámbar o recipientes HDPE, para protegerla de la luz ambiental.</p>
+  </section>
+
+  <!-- ═══ CAPÍTULO 5 ═══ -->
+  <section class="cap">
+    <div class="cap-cab">
+      <span class="num">05</span>
+      <h2>Los pilares de la bioseguridad familiar</h2>
+    </div>
+
+    <p>Tras asegurar el almacenamiento y la potabilización del agua en el capítulo anterior, es imperativo que la familia comprenda la lógica biológica que hace del Dióxido de Cloro una herramienta superior a los desinfectantes comunes. Antes de proceder al uso del botiquín químico en situaciones críticas, debemos establecer los fundamentos de seguridad y acción que protegen la integridad de nuestra reserva y de nuestra salud.</p>
+
+    <h3>1 · El mecanismo de acción: oxidación selectiva por pH</h3>
+    <p>A diferencia de los antibióticos o venenos químicos, que actúan por procesos metabólicos complejos, el Dióxido de Cloro purifica el agua y el cuerpo mediante un proceso físico simple: la oxidación.</p>
+    <ul class="lista">
+      <li><strong>Selectividad:</strong> el gas ClO₂ es un oxidante selectivo que solo reacciona con patógenos de pH ácido: virus, bacterias anaerobias, hongos y parásitos pequeños.</li>
+      <li><strong>Seguridad celular:</strong> debido a que el cuerpo humano tiene un pH ligeramente alcalino (~7,4) y la capacidad de disipar cargas eléctricas, el CDS no daña el tejido sano en las dosis recomendadas.</li>
+      <li><strong>Sin resistencias:</strong> al actuar “quemando” —oxidando— la estructura proteica del enemigo, ningún patógeno puede desarrollar resistencia al Dióxido de Cloro. Su eficacia no disminuye con los años de almacenamiento.</li>
+    </ul>
+
+    <h3>2 · Seguridad y residuos: el ciclo de la sal y el oxígeno</h3>
+    <p>Una preocupación legítima de cualquier padre de familia es el residuo químico que queda en el agua tras el tratamiento.</p>
+
+    <div class="regla">
+      <span class="rot">Qué queda tras la oxidación</span>
+      <span class="val">Oxígeno + una cantidad ínfima<br>de sal común</span>
+    </div>
+
+    <div class="nota verde">
+      <span class="tit">Inocuidad probada</span>
+      <p>Estudios científicos, como los realizados por Lubbers y su equipo, han demostrado que la ingestión de estas soluciones en dosis controladas es segura para el ser humano, sin efectos secundarios negativos en parámetros sanguíneos o inmunológicos.</p>
+    </div>
+
+    <h3>3 · Reglas de oro para la manipulación familiar</h3>
+    <p>Para que el sistema de purificación sea efectivo y no se vuelva peligroso, la familia debe respetar cuatro reglas absolutas.</p>
+
+    <div class="tbl">
+      <table>
+        <caption>Las cuatro reglas absolutas</caption>
+        <thead><tr><th scope="col">Regla</th><th scope="col">Por qué</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>01<br>Nada de metal</td>
+            <td>El Dióxido de Cloro oxida el metal instantáneamente. Nunca use cucharas, tapas ni recipientes de metal —ni siquiera acero inoxidable— para manipular el CDS o el agua potabilizada: absorbería partículas metálicas tóxicas.</td>
+          </tr>
+          <tr>
+            <td>02<br>Sin antioxidantes</td>
+            <td>La vitamina C (ácido ascórbico), el café, el alcohol y los zumos procesados neutralizan el efecto del purificador. Si el agua se consume con estos elementos, el CDS “muere” antes de poder eliminar los patógenos.</td>
+          </tr>
+          <tr>
+            <td>03<br>Solo bicarbonato</td>
+            <td>En caso de ingestión accidental de concentrado puro, el único agente neutralizante seguro es el bicarbonato de sodio disuelto en agua.</td>
+          </tr>
+          <tr>
+            <td>04<br>El concentrado no se bebe</td>
+            <td>El CDS puro a 3000 ppm es un agente purificador químico potente, no un producto de consumo directo. Nunca debe beberse solo ni directamente del frasco de reserva.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nota roja">
+      <span class="tit">⚠️ Recuerde siempre</span>
+      <p>La función del concentrado es ser diluido en la reserva de agua para que esta sea segura para la familia. La dosis de potabilización —1 ml por litro— es lo que garantiza la inocuidad y la eficacia del sistema.</p>
+    </div>
+
+    <h3>4 · Preparación para la acción</h3>
+    <p>Este sistema no es solo una reserva pasiva: es un activo de bioseguridad. Al comprender que el CDS es un gas atrapado en agua que busca patógenos ácidos para oxidarlos, estamos listos para utilizar esta misma tecnología no solo para potabilizar agua, sino para enfrentar quemaduras, picaduras e infecciones mediante el botiquín químico de emergencia que se detalla en el siguiente capítulo.</p>
+  </section>
+
+  <!-- ═══ CAPÍTULO 6 ═══ -->
+  <section class="cap">
+    <div class="cap-cab">
+      <span class="num">06</span>
+      <h2>El botiquín químico de emergencia</h2>
+    </div>
+
+    <p>En una situación de emergencia o aislamiento, el CDS a 3000 ppm se convierte en una herramienta multiusos que puede sustituir a una gran variedad de fármacos convencionales. Estos son los protocolos para incidentes comunes que requieren respuesta rápida.</p>
+
+    <div class="ficha f-h">
+      <header>
+        <span class="letra">H</span>
+        <h3>Prevención de contagios · desinfección del aire</h3>
+      </header>
+      <div class="cuerpo">
+        <p>Vital cuando un miembro de la familia está enfermo de una afección respiratoria y se quiere evitar que el resto se contagie. Se basa en la liberación lenta del gas ClO₂ en el ambiente.</p>
+        <ul class="lista">
+          <li><strong>Procedimiento:</strong> active de 6 a 12 gotas de clorito de sodio y activador en un vaso seco, sin añadir agua.</li>
+          <li><strong>Ubicación:</strong> coloque el vaso a una distancia de 1 a 2 metros del enfermo.</li>
+          <li><strong>Regulación:</strong> si desea que el gas se libere más lentamente y dure toda la noche, añada una cucharada de agua a la mezcla.</li>
+          <li><strong>Efecto:</strong> el gas evaporado elimina los patógenos suspendidos en el aire antes de que sean inhalados por otras personas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ficha f-q">
+      <header>
+        <span class="letra">Q</span>
+        <h3>Quemaduras y regeneración de tejido</h3>
+      </header>
+      <div class="cuerpo">
+        <p>El CDS es excepcionalmente eficaz para tratar quemaduras: elimina el dolor casi al instante y acelera la recuperación del tejido sin dejar cicatrices profundas.</p>
+        <ol class="orden">
+          <li><strong>Enfriamiento:</strong> lave primero la quemadura con abundante agua fría para detener el daño térmico.</li>
+          <li><strong>Aplicación:</strong> rocíe CDS a 3000 ppm sin diluir directamente sobre la zona afectada.</li>
+          <li><strong>Frecuencia:</strong> si el dolor reaparece tras unos minutos, vuelva a rociar cada 30 minutos hasta que el malestar cese definitivamente.</li>
+        </ol>
+        <p>Generalmente, de uno a tres tratamientos bastan para estabilizar la zona y regenerar el tejido rápidamente.</p>
+      </div>
+    </div>
+
+    <div class="ficha f-i">
+      <header>
+        <span class="letra">I</span>
+        <h3>Picaduras y mordeduras</h3>
+      </header>
+      <div class="cuerpo">
+        <p>Sirve para neutralizar las toxinas inyectadas por insectos, arañas, medusas e incluso garrapatas.</p>
+        <ul class="lista">
+          <li><strong>Procedimiento inmediato:</strong> empape una gasa o algodón con CDS a 3000 ppm frío del refrigerador y aplíquelo directamente sobre la picadura.</li>
+          <li><strong>Acción del gas:</strong> el ClO₂ penetra en la herida y oxida las proteínas ácidas del veneno, neutralizando su efecto tóxico en el acto.</li>
+          <li><strong>Casos graves:</strong> en picaduras de arañas venenosas (como la de rincón) o de escorpiones, puede combinarse con el Protocolo K, añadiendo DMSO, para que el purificador alcance mayor profundidad rápidamente.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ficha f-j">
+      <header>
+        <span class="letra">J</span>
+        <h3>Higiene bucal y prevención de infecciones</h3>
+      </header>
+      <div class="cuerpo">
+        <p>En entornos sin acceso a un dentista, el CDS previene infecciones graves, elimina el biofilm dental y cura aftas bucales en tiempo récord.</p>
+        <ul class="lista">
+          <li><strong>Enjuague estándar:</strong> diluya 10 ml de CDS en un vaso con 200 ml de agua.</li>
+          <li><strong>Aplicación:</strong> realice gárgaras y enjuagues durante un minuto, asegurando que el líquido recorra toda la boca.</li>
+          <li><strong>Beneficios:</strong> es un tratamiento letal para la gingivitis (sangrado de encías) y la piorrea, y elimina el mal aliento de raíz al destruir las bacterias anaerobias.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CAPÍTULO 7 ═══ -->
+  <section class="cap">
+    <div class="cap-cab">
+      <span class="num">07</span>
+      <h2>Sinergia Biológica Avanzada</h2>
+    </div>
+
+    <p>Remineralización y el "Abrepuertas" Químico.</p>
+
+    <div class="ficha f-k">
+      <header>
+        <span class="letra">K</span>
+        <h3>El “abrepuertas” químico · CDS + DMSO</h3>
+      </header>
+      <div class="cuerpo">
+        <p>El DMSO (dimetilsulfóxido) es una sustancia que, al combinarse con el CDS, actúa como vehículo de transporte que atraviesa instantáneamente la piel y las membranas celulares.</p>
+        <ul class="lista">
+          <li><strong>Función:</strong> lleva el gas purificador a zonas profundas —músculos, huesos o articulaciones— donde el agua por sí sola no llega fácilmente.</li>
+          <li><strong>Preparación crítica:</strong> utilice siempre DMSO al 50%, mezclado con agua destilada; en concentraciones más altas puede irritar la piel.</li>
+          <li><strong>Aplicación:</strong> rocíe el CDS a 3000 ppm sobre la piel limpia y, acto seguido, aplique el DMSO encima frotando suavemente.</li>
+        </ul>
+        <div class="nota roja">
+          <span class="tit">⚠️ Regla de oro de seguridad</span>
+          <p>Jamás guarde el DMSO en frascos con goteros de goma: es un disolvente potente que derretirá la goma y contaminará la solución con toxinas. Use solo vidrio o plásticos de alta densidad (HDPE).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ficha f-p">
+      <header>
+        <span class="letra">🌊</span>
+        <h3>Remineralización crítica: el plasma de mar</h3>
+      </header>
+      <div class="cuerpo">
+        <p>En situaciones de emergencia prolongada, consumir únicamente agua almacenada o filtrada puede potabilizar el cuerpo, pero también puede “lavar” los minerales esenciales si estos no se reponen adecuadamente.</p>
+        <ul class="lista">
+          <li><strong>Sinergia con el CDS:</strong> el agua de mar es totalmente compatible con el dióxido de cloro. Puede añadirse a la reserva de agua ya tratada sin neutralizar el efecto oxidante del purificador, permitiendo desinfectar y nutrir el organismo en un solo paso.</li>
+          <li><strong>Soporte biológico:</strong> contiene todos los minerales y oligoelementos de la tabla periódica en proporciones casi idénticas al suero sanguíneo humano (el concepto de Plasma de Quinton). Esto facilita la recarga energética inmediata y la regeneración celular bajo condiciones de estrés.</li>
+          <li><strong>La mezcla isotónica:</strong> para que sea segura y agradable para toda la familia, se recomienda la proporción 1:3 — una parte de agua de mar por tres partes de su reserva de agua dulce. Esta mezcla imita la salinidad interna de nuestro cuerpo y es el hidratante más completo que existe en la naturaleza.</li>
+          <li><strong>¿Sin agua de mar?</strong> Añada 9 gramos de sal por litro de agua. Al seguir siendo 1 litro de agua, la dosis de CDS concentrado no cambia: solo 1 ml.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>3 · Higiene alimentaria y conservación extrema</h3>
+    <p>En situaciones de escasez o de falta de refrigeración eléctrica, el CDS es el mejor aliado para la seguridad alimentaria.</p>
+    <ul class="lista">
+      <li><strong>Lavado de vegetales:</strong> el ClO₂ elimina <em>Listeria</em>, <em>E. coli</em> y moho de frutas y verduras sin dejar residuos tóxicos.</li>
+      <li><strong>El “truco del frigorífico”:</strong> coloque una botella abierta con una mezcla de reactivos activados en la puerta del refrigerador. El gas liberado lentamente crea una atmósfera conservadora que evita que los alimentos se enmohezcan, prolongando su vida útil por semanas.</li>
+      <li><strong>Desinfección de utensilios:</strong> use el residuo líquido sobrante de la fabricación de CDS para esterilizar tablas de cortar y trapos de cocina.</li>
+    </ul>
+
+    <h3>4 · Autonomía veterinaria</h3>
+    <p>La supervivencia de una familia a menudo depende de sus animales. El CDS es una herramienta de bioseguridad animal de bajo costo y alta eficacia.</p>
+    <ul class="lista">
+      <li><strong>Prevención de epidemias:</strong> añadir CDS al agua de bebida de aves o ganado previene contagios masivos.</li>
+      <li><strong>Tratamiento de heridas:</strong> es letal contra infecciones en cortes y pezuñas, y acelera la regeneración del tejido sin necesidad de fármacos costosos.</li>
+      <li><strong>Universalidad:</strong> ha sido probado con éxito en perros, gatos, caballos e incluso peces y abejas, sin generar resistencias bacterianas.</li>
+    </ul>
+  </section>
+
+  <footer class="cierre">
+    <p>Con la reserva tratada, las dosis claras y los protocolos a mano, su casa deja de depender de un suministro externo para lo más básico: agua limpia y una respuesta serena cuando algo ocurre.</p>
+  </footer>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/sustento-material/unidades-familiares-de-produccion/" : "/en/material-support/family-production-units/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html>
