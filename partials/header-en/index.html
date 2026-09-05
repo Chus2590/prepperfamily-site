@@ -175,7 +175,7 @@ margin-left:0;
 </div>
 
   <div class="header-right">
-                    <button class="language-switcher" data-lang-link="/es/">
+                    <button class="language-switcher" type="button" aria-label="Cambiar a español">
                         <i class="fas fa-globe"></i>
                         Español
                     </button>
@@ -197,4 +197,48 @@ margin-left:0;
 
 </div>
     
+
+<script>
+(function () {
+    function setupLanguageSwitcher() {
+        const button = document.querySelector('.language-switcher');
+        if (!button) return;
+
+        // Primero intenta usar el hreflang de la página actual.
+        const alternate = document.querySelector(
+            'link[rel="alternate"][hreflang="es"]'
+        );
+
+        if (alternate && alternate.href) {
+            button.onclick = function () {
+                window.location.href = alternate.href;
+            };
+            return;
+        }
+
+        // Respaldo para la portada en inglés si todavía no existe hreflang en el <head>.
+        const path = window.location.pathname.replace(/\/+$/, '') || '/';
+
+        if (path === '/') {
+            button.onclick = function () {
+                window.location.href = '/es/';
+            };
+            return;
+        }
+
+        // Si no existe una traducción declarada, el botón queda desactivado
+        // para evitar enviar al visitante a una página incorrecta.
+        button.disabled = true;
+        button.setAttribute('aria-disabled', 'true');
+        button.title = 'Esta página todavía no tiene una versión en español.';
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupLanguageSwitcher);
+    } else {
+        setupLanguageSwitcher();
+    }
+})();
+</script>
+
 </header>
