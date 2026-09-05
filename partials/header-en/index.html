@@ -60,18 +60,13 @@
   align-items: center;
   gap: 0.5rem;
   box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+  text-decoration:none;
 }
 
 .language-switcher:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(46, 204, 113, 0.4);
-}
-
-.language-switcher:disabled{
-  opacity: .5;
-  cursor: not-allowed;
-  transform:none;
-  box-shadow:none;
+  color:white;
 }
 
 .language-switcher i{ font-size: 0.9rem; }
@@ -137,10 +132,10 @@
   </div>
 
   <div class="header-right">
-    <button class="language-switcher" type="button" aria-label="Cambiar a español">
+    <a href="/es/" class="language-switcher" aria-label="Cambiar a español">
       <i class="fas fa-globe"></i>
       Español
-    </button>
+    </a>
 
     <input type="checkbox" id="menu-toggle" class="menu-toggle">
     <label for="menu-toggle" class="menu-icon" aria-label="Open menu">☰</label>
@@ -155,55 +150,5 @@
 
   </div>
 </div>
-
-<script>
-(function () {
-  function setupLanguageSwitcher() {
-    const button = document.querySelector('.language-switcher');
-    if (!button) return;
-
-    // 1) Intenta usar el <link rel="alternate" hreflang="es"> si existe
-    const alternate = document.querySelector('link[rel="alternate"][hreflang="es"]');
-    if (alternate && alternate.getAttribute('href')) {
-      button.disabled = false;
-      button.onclick = function () {
-        window.location.href = alternate.href;
-      };
-      return;
-    }
-
-    // 2) Fallback: mapeo manual de rutas EN -> ES
-    const path = window.location.pathname.replace(/\/+$/, '') || '/';
-
-    const routeMap = {
-      '/': '/es/',
-      '/en/material-support': '/es/apoyo-material/',
-      '/en/family-resilience': '/es/resiliencia-familiar/',
-      '/en/inner-strength': '/es/fortaleza-interior/'
-      // Agrega aquí más rutas según tu sitio
-    };
-
-    if (routeMap[path]) {
-      button.disabled = false;
-      button.onclick = function () {
-        window.location.href = routeMap[path];
-      };
-      return;
-    }
-
-    // 3) Si no hay traducción conocida, deshabilita el botón
-    button.disabled = true;
-    button.setAttribute('aria-disabled', 'true');
-    button.title = 'Esta página todavía no tiene una versión en español.';
-    console.warn('[language-switcher] No se encontró traducción para:', path);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupLanguageSwitcher);
-  } else {
-    setupLanguageSwitcher();
-  }
-})();
-</script>
 
 </header>
