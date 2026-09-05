@@ -1,243 +1,208 @@
 <header class="site-header">
 
 <style>
-
 .site-header{
-background:#fff;
-border-bottom:1px solid #e6e6e6;
-position:sticky;
-top:0;
-z-index:1000;
-font-family:system-ui,Arial,sans-serif;
+  background:#fff;
+  border-bottom:1px solid #e6e6e6;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  font-family:system-ui,Arial,sans-serif;
 }
 
 .header-container{
-max-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:10px 20px;
-gap:20px;
-position:relative;
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 20px;
+  gap:20px;
+  position:relative;
 }
 
-.logo{
-flex:0 0 auto;
-}
-
-.logo img{
-height:52px;
-display:block;
-}
-
-/* NAV */
+.logo{ flex:0 0 auto; }
+.logo img{ height:52px; display:block; }
 
 .nav{
-display:flex;
-gap:26px;
-align-items:center;
-margin-left:auto;
+  display:flex;
+  gap:26px;
+  align-items:center;
+  margin-left:auto;
 }
 
 .nav a{
-text-decoration:none;
-color:#222;
-font-size:16px;
-font-weight:500;
-line-height:1.2;
-display:inline-flex;
-align-items:center;
+  text-decoration:none;
+  color:#222;
+  font-size:16px;
+  font-weight:500;
+  line-height:1.2;
+  display:inline-flex;
+  align-items:center;
 }
 
-.nav a:hover{
-color:#2c7be5;
-}
+.nav a:hover{ color:#2c7be5; }
 
 .home-link,
-.lang{
-font-weight:600;
+.lang{ font-weight:600; }
+
+.language-switcher {
+  background: linear-gradient(45deg, #2ecc71, #1a2a6c);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
 }
 
-  /* Botón de idioma elegante */
-        .language-switcher {
-            background: linear-gradient(45deg, #2ecc71, #1a2a6c);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            padding: 0.5rem 1rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
-        }
-
-        .language-switcher:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(46, 204, 113, 0.4);
-        }
-
-        .language-switcher i {
-            font-size: 0.9rem;
-        }
-  
-/* MOBILE TOGGLE */
-
-.menu-toggle{
-display:none;
+.language-switcher:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(46, 204, 113, 0.4);
 }
+
+.language-switcher:disabled{
+  opacity: .5;
+  cursor: not-allowed;
+  transform:none;
+  box-shadow:none;
+}
+
+.language-switcher i{ font-size: 0.9rem; }
+
+.menu-toggle{ display:none; }
 
 .menu-icon{
-display:none;
-font-size:32px;
-line-height:1;
-cursor:pointer;
-padding:8px 10px;
-user-select:none;
-color:#111;
+  display:none;
+  font-size:32px;
+  line-height:1;
+  cursor:pointer;
+  padding:8px 10px;
+  user-select:none;
+  color:#111;
 }
-
-/* MOBILE */
 
 @media (max-width:768px){
+  .header-container{ padding:12px 16px; align-items:center; }
+  .logo img{ height:50px; }
+  .menu-icon{ display:block; margin-left:auto; }
 
-.header-container{
-padding:12px 16px;
-align-items:center;
+  .nav{
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:#fff;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    padding:10px 0 14px;
+    border-top:1px solid #eee;
+    border-bottom:1px solid #eee;
+    box-shadow:0 12px 24px rgba(0,0,0,0.06);
+    display:none;
+    margin-left:0;
+  }
+
+  .menu-toggle:checked + .menu-icon + .nav{ display:flex; }
+
+  .nav a{
+    display:block;
+    padding:14px 22px;
+    font-size:18px;
+    font-weight:600;
+    color:#222;
+    text-decoration:none;
+    border-top:1px solid #f2f2f2;
+  }
+
+  .nav a:first-child{ border-top:none; }
+  .nav a:hover{ color:#2c7be5; }
+  .lang{ margin-left:0; }
 }
-
-.logo img{
-height:50px;
-}
-
-.menu-icon{
-display:block;
-margin-left:auto;
-}
-
-.nav{
-position:absolute;
-top:100%;
-left:0;
-right:0;
-background:#fff;
-flex-direction:column;
-align-items:stretch;
-gap:0;
-padding:10px 0 14px;
-border-top:1px solid #eee;
-border-bottom:1px solid #eee;
-box-shadow:0 12px 24px rgba(0,0,0,0.06);
-display:none;
-margin-left:0;
-}
-
-.menu-toggle:checked + .menu-icon + .nav{
-display:flex;
-}
-
-.nav a{
-display:block;
-padding:14px 22px;
-font-size:18px;
-font-weight:600;
-color:#222;
-text-decoration:none;
-border-top:1px solid #f2f2f2;
-}
-
-.nav a:first-child{
-border-top:none;
-}
-
-.nav a:hover{
-color:#2c7be5;
-}
-
-.lang{
-margin-left:0;
-}
-
-}
-
 </style>
 
 <div class="header-container">
 
-<div class="logo">
-<a href="/">
-<img src="/assets/images/header/logo.webp" alt="PrepperFamily">
-</a>
-</div>
+  <div class="logo">
+    <a href="/">
+      <img src="/assets/images/header/logo.webp" alt="PrepperFamily">
+    </a>
+  </div>
 
   <div class="header-right">
-                    <button class="language-switcher" type="button" aria-label="Cambiar a español">
-                        <i class="fas fa-globe"></i>
-                        Español
-                    </button>
-  
-<input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <button class="language-switcher" type="button" aria-label="Cambiar a español">
+      <i class="fas fa-globe"></i>
+      Español
+    </button>
 
-<label for="menu-toggle" class="menu-icon" aria-label="Open menu">
-☰
-</label>
-  
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon" aria-label="Open menu">☰</label>
 
-<nav class="nav">
-<a href="/" class="home-link">Home</a>
-<a href="/en/material-support/">Material Support</a>
-<a href="/en/family-resilience/">Family Resilience</a>
-<a href="/en/inner-strength/">Inner Strength</a>
-<a href="/#community">Community</a>
-</nav>
+    <nav class="nav">
+      <a href="/" class="home-link">Home</a>
+      <a href="/en/material-support/">Material Support</a>
+      <a href="/en/family-resilience/">Family Resilience</a>
+      <a href="/en/inner-strength/">Inner Strength</a>
+      <a href="/#community">Community</a>
+    </nav>
 
+  </div>
 </div>
-    
 
 <script>
 (function () {
-    function setupLanguageSwitcher() {
-        const button = document.querySelector('.language-switcher');
-        if (!button) return;
+  function setupLanguageSwitcher() {
+    const button = document.querySelector('.language-switcher');
+    if (!button) return;
 
-        // Primero intenta usar el hreflang de la página actual.
-        const alternate = document.querySelector(
-            'link[rel="alternate"][hreflang="es"]'
-        );
-
-        if (alternate && alternate.href) {
-            button.onclick = function () {
-                window.location.href = alternate.href;
-            };
-            return;
-        }
-
-        // Respaldo para la portada en inglés si todavía no existe hreflang en el <head>.
-        const path = window.location.pathname.replace(/\/+$/, '') || '/';
-
-        if (path === '/') {
-            button.onclick = function () {
-                window.location.href = '/es/';
-            };
-            return;
-        }
-
-        // Si no existe una traducción declarada, el botón queda desactivado
-        // para evitar enviar al visitante a una página incorrecta.
-        button.disabled = true;
-        button.setAttribute('aria-disabled', 'true');
-        button.title = 'Esta página todavía no tiene una versión en español.';
+    // 1) Intenta usar el <link rel="alternate" hreflang="es"> si existe
+    const alternate = document.querySelector('link[rel="alternate"][hreflang="es"]');
+    if (alternate && alternate.getAttribute('href')) {
+      button.disabled = false;
+      button.onclick = function () {
+        window.location.href = alternate.href;
+      };
+      return;
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupLanguageSwitcher);
-    } else {
-        setupLanguageSwitcher();
+    // 2) Fallback: mapeo manual de rutas EN -> ES
+    const path = window.location.pathname.replace(/\/+$/, '') || '/';
+
+    const routeMap = {
+      '/': '/es/',
+      '/en/material-support': '/es/apoyo-material/',
+      '/en/family-resilience': '/es/resiliencia-familiar/',
+      '/en/inner-strength': '/es/fortaleza-interior/'
+      // Agrega aquí más rutas según tu sitio
+    };
+
+    if (routeMap[path]) {
+      button.disabled = false;
+      button.onclick = function () {
+        window.location.href = routeMap[path];
+      };
+      return;
     }
+
+    // 3) Si no hay traducción conocida, deshabilita el botón
+    button.disabled = true;
+    button.setAttribute('aria-disabled', 'true');
+    button.title = 'Esta página todavía no tiene una versión en español.';
+    console.warn('[language-switcher] No se encontró traducción para:', path);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupLanguageSwitcher);
+  } else {
+    setupLanguageSwitcher();
+  }
 })();
 </script>
 
