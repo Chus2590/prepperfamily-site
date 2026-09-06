@@ -22,10 +22,7 @@
   box-shadow:var(--sh-shadow);
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   -webkit-font-smoothing:antialiased;
-  transition:box-shadow .4s var(--sh-ease);
 }
-
-.site-header.is-scrolled{ box-shadow:var(--sh-shadow-lg); }
 
 .header-container{
   max-width:1200px;
@@ -36,19 +33,15 @@
   gap:clamp(12px,3vw,24px);
   padding:16px clamp(16px,4vw,32px);
   position:relative;
-  transition:padding .35s var(--sh-ease);
 }
-
-.site-header.is-scrolled .header-container{ padding-top:10px; padding-bottom:10px; }
 
 .logo{ flex:0 0 auto; }
 .logo a{ display:block; line-height:0; }
 .logo img{
-  height:52px;
+  height:68px;
   display:block;
   transition:height .35s var(--sh-ease);
 }
-.site-header.is-scrolled .logo img{ height:42px; }
 
 .header-right{
   display:flex;
@@ -139,14 +132,14 @@
   box-shadow:0 8px 20px rgba(138,96,6,.3), 0 0 0 3px rgba(138,96,6,.3);
 }
 
+/* --- CHECKBOX HACK: sin JS --- */
+.menu-toggle{ display:none; }
+
 .menu-icon{
   display:none;
   position:relative;
   width:40px;
   height:40px;
-  padding:0;
-  border:none;
-  background:transparent;
   border-radius:8px;
   cursor:pointer;
   flex:0 0 auto;
@@ -154,11 +147,6 @@
 }
 
 .menu-icon:hover{ background:rgba(42,36,30,.06); }
-
-.menu-icon:focus-visible{
-  outline:none;
-  box-shadow:0 0 0 3px rgba(138,96,6,.3);
-}
 
 .menu-icon-bar{
   position:absolute;
@@ -174,14 +162,13 @@
 .menu-icon-bar:nth-child(2){ top:19px; }
 .menu-icon-bar:nth-child(3){ top:24px; }
 
-.site-header.menu-open .menu-icon-bar:nth-child(1){ top:19px; transform:rotate(45deg); }
-.site-header.menu-open .menu-icon-bar:nth-child(2){ opacity:0; }
-.site-header.menu-open .menu-icon-bar:nth-child(3){ top:19px; transform:rotate(-45deg); }
+.menu-toggle:checked ~ .menu-icon .menu-icon-bar:nth-child(1){ top:19px; transform:rotate(45deg); }
+.menu-toggle:checked ~ .menu-icon .menu-icon-bar:nth-child(2){ opacity:0; }
+.menu-toggle:checked ~ .menu-icon .menu-icon-bar:nth-child(3){ top:19px; transform:rotate(-45deg); }
 
 @media (max-width:768px){
   .header-container{ padding:12px clamp(16px,5vw,24px); }
-  .logo img{ height:44px; }
-  .site-header.is-scrolled .logo img{ height:38px; }
+  .logo img{ height:56px; }
 
   .header-right{ gap:10px; }
 
@@ -202,17 +189,11 @@
     border-top:1px solid var(--sh-border);
     border-bottom:1px solid var(--sh-border);
     box-shadow:0 24px 34px -22px rgba(30,24,16,.28);
-    opacity:0;
-    visibility:hidden;
-    transform:translateY(-8px);
-    transition:opacity .3s var(--sh-ease), transform .3s var(--sh-ease), visibility 0s linear .3s;
+    display:none;
   }
 
-  .site-header.menu-open .nav{
-    opacity:1;
-    visibility:visible;
-    transform:translateY(0);
-    transition:opacity .3s var(--sh-ease), transform .3s var(--sh-ease), visibility 0s linear 0s;
+  .menu-toggle:checked ~ .nav{
+    display:flex;
   }
 
   .nav a{
@@ -220,28 +201,10 @@
     font-size:17px;
     font-weight:600;
     border-top:1px solid rgba(138,96,6,.12);
-    opacity:0;
-    transform:translateY(-6px);
-    transition:opacity .3s var(--sh-ease), transform .3s var(--sh-ease), color .2s var(--sh-ease);
   }
 
   .nav a::after{ display:none; }
   .nav a:first-child{ border-top:none; }
-
-  .site-header.menu-open .nav a{ opacity:1; transform:translateY(0); }
-  .site-header.menu-open .nav a:nth-child(1){ transition-delay:.05s; }
-  .site-header.menu-open .nav a:nth-child(2){ transition-delay:.09s; }
-  .site-header.menu-open .nav a:nth-child(3){ transition-delay:.13s; }
-  .site-header.menu-open .nav a:nth-child(4){ transition-delay:.17s; }
-  .site-header.menu-open .nav a:nth-child(5){ transition-delay:.21s; }
-}
-
-@media (prefers-reduced-motion:reduce){
-  .site-header,
-  .site-header *{
-    animation-duration:.01ms !important;
-    transition-duration:.01ms !important;
-  }
 }
 </style>
 
@@ -263,13 +226,15 @@
       Español
     </a>
 
-    <button type="button" class="menu-icon" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-      <span class="menu-icon-bar"></span>
-      <span class="menu-icon-bar"></span>
-      <span class="menu-icon-bar"></span>
-    </button>
+    <input type="checkbox" id="nav-toggle" class="menu-toggle">
 
-    <nav class="nav" id="site-nav" aria-label="Primary">
+    <label for="nav-toggle" class="menu-icon" aria-label="Abrir menú">
+      <span class="menu-icon-bar"></span>
+      <span class="menu-icon-bar"></span>
+      <span class="menu-icon-bar"></span>
+    </label>
+
+    <nav class="nav" aria-label="Primary">
       <a href="/" class="home-link">Home</a>
       <a href="/en/material-support/">Material Support</a>
       <a href="/en/family-resilience/">Family Resilience</a>
@@ -279,50 +244,5 @@
 
   </div>
 </div>
-
-<script>
-(function(){
-  var header = document.getElementById('site-header');
-  var toggle = document.getElementById('nav-toggle');
-  var nav = document.getElementById('site-nav');
-  if(!header || !toggle || !nav) return;
-
-  function closeMenu(){
-    header.classList.remove('menu-open');
-    toggle.setAttribute('aria-expanded','false');
-  }
-  function openMenu(){
-    header.classList.add('menu-open');
-    toggle.setAttribute('aria-expanded','true');
-  }
-
-  toggle.addEventListener('click', function(){
-    if(header.classList.contains('menu-open')){ closeMenu(); } else { openMenu(); }
-  });
-
-  nav.addEventListener('click', function(e){
-    if(e.target.tagName === 'A'){ closeMenu(); }
-  });
-
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){ closeMenu(); }
-  });
-
-  document.addEventListener('click', function(e){
-    if(header.classList.contains('menu-open') && !header.contains(e.target)){ closeMenu(); }
-  });
-
-  var scrolled = false;
-  function onScroll(){
-    var shouldBeScrolled = window.scrollY > 8;
-    if(shouldBeScrolled !== scrolled){
-      scrolled = shouldBeScrolled;
-      header.classList.toggle('is-scrolled', scrolled);
-    }
-  }
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive:true });
-})();
-</script>
 
 </header>
