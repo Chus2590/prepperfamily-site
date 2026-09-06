@@ -1,168 +1,268 @@
-<header class="site-header">
+<header class="site-header" id="site-header">
 
 <style>
-
 .site-header{
-background:#fff;
-border-bottom:1px solid #e6e6e6;
-position:sticky;
-top:0;
-z-index:1000;
-font-family:system-ui,Arial,sans-serif;
+  --sh-bg:#fdfaf4;
+  --sh-text:#2a2420;
+  --sh-border:rgba(42,36,30,.08);
+  --sh-gold-light:#f0d493;
+  --sh-gold-deep:#cfa435;
+  --sh-gold-ink:#3a2c0e;
+  --sh-accent:#8a6006;
+  --sh-shadow:0 1px 0 rgba(42,36,30,.05);
+  --sh-shadow-lg:0 20px 36px -22px rgba(30,24,16,.32), 0 1px 0 rgba(42,36,30,.08);
+  --sh-ease:cubic-bezier(.4,0,.2,1);
+
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:var(--sh-bg);
+  border-bottom:1px solid var(--sh-border);
+  box-shadow:var(--sh-shadow);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
 }
 
 .header-container{
-max-width:1200px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:10px 20px;
-gap:20px;
-position:relative;
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:clamp(12px,3vw,24px);
+  padding:16px clamp(16px,4vw,32px);
+  position:relative;
 }
 
-.logo{
-flex:0 0 auto;
-}
-
+.logo{ flex:0 0 auto; }
+.logo a{ display:block; line-height:0; }
 .logo img{
-height:52px;
-display:block;
+  height:68px;
+  display:block;
+  transition:height .35s var(--sh-ease);
 }
 
-/* NAV */
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:clamp(14px,2.4vw,24px);
+  margin-left:auto;
+}
 
 .nav{
-display:flex;
-gap:26px;
-align-items:center;
-margin-left:auto;
+  display:flex;
+  gap:clamp(18px,2.2vw,30px);
+  align-items:center;
 }
 
 .nav a{
-text-decoration:none;
-color:#222;
-font-size:16px;
-font-weight:500;
-line-height:1.2;
-display:inline-flex;
-align-items:center;
+  position:relative;
+  text-decoration:none;
+  color:var(--sh-text);
+  font-size:15.5px;
+  font-weight:500;
+  letter-spacing:.01em;
+  line-height:1.2;
+  padding:8px 1px;
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+  transition:color .25s var(--sh-ease);
 }
 
-.nav a:hover{
-color:#2c7be5;
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:2px;
+  height:2px;
+  border-radius:2px;
+  background:linear-gradient(90deg,var(--sh-gold-deep),var(--sh-accent));
+  transform:scaleX(0);
+  transform-origin:right;
+  transition:transform .3s var(--sh-ease);
 }
 
-.home-link,
-.lang{
-font-weight:600;
+.nav a:hover,
+.nav a:focus-visible{ color:var(--sh-accent); }
+
+.nav a:hover::after,
+.nav a:focus-visible::after{
+  transform:scaleX(1);
+  transform-origin:left;
 }
 
-/* MOBILE TOGGLE */
-
-.menu-toggle{
-display:none;
+.nav a:focus-visible{
+  outline:none;
+  border-radius:4px;
+  box-shadow:0 0 0 3px rgba(138,96,6,.28);
 }
+
+.home-link{ font-weight:700; }
+
+.language-switcher{
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  background:linear-gradient(135deg,var(--sh-gold-light),var(--sh-gold-deep));
+  color:var(--sh-gold-ink);
+  border:none;
+  border-radius:999px;
+  padding:.5rem 1rem;
+  font-size:.82rem;
+  font-weight:600;
+  letter-spacing:.01em;
+  text-decoration:none;
+  white-space:nowrap;
+  flex:0 0 auto;
+  box-shadow:0 4px 14px rgba(138,96,6,.22);
+  transition:transform .25s var(--sh-ease), box-shadow .25s var(--sh-ease);
+}
+
+.language-switcher svg{ width:15px; height:15px; flex:0 0 auto; }
+
+.language-switcher:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(138,96,6,.3);
+  color:var(--sh-gold-ink);
+}
+
+.language-switcher:focus-visible{
+  outline:none;
+  box-shadow:0 8px 20px rgba(138,96,6,.3), 0 0 0 3px rgba(138,96,6,.3);
+}
+
+/* --- CHECKBOX HACK: sin JS --- */
+.menu-toggle{ display:none; }
 
 .menu-icon{
-display:none;
-font-size:32px;
-line-height:1;
-cursor:pointer;
-padding:8px 10px;
-user-select:none;
-color:#111;
+  display:none;
+  position:relative;
+  width:40px;
+  height:40px;
+  border-radius:8px;
+  cursor:pointer;
+  flex:0 0 auto;
+  z-index:1101;
+  -webkit-tap-highlight-color:transparent;
 }
 
-/* MOBILE */
+.menu-icon:hover{ background:rgba(42,36,30,.06); }
+
+.menu-icon-bar{
+  position:absolute;
+  left:9px;
+  right:9px;
+  height:2px;
+  background:var(--sh-text);
+  border-radius:2px;
+  transition:transform .3s var(--sh-ease), opacity .2s var(--sh-ease), top .3s var(--sh-ease);
+}
+
+.menu-icon-bar:nth-child(1){ top:14px; }
+.menu-icon-bar:nth-child(2){ top:19px; }
+.menu-icon-bar:nth-child(3){ top:24px; }
+
+.menu-toggle:checked ~ .menu-icon .menu-icon-bar:nth-child(1){ top:19px; transform:rotate(45deg); }
+.menu-toggle:checked ~ .menu-icon .menu-icon-bar:nth-child(2){ opacity:0; }
+.menu-toggle:checked ~ .menu-icon .menu-icon-bar:nth-child(3){ top:19px; transform:rotate(-45deg); }
+
+/* --- OVERLAY para cerrar al tocar fuera --- */
+.nav-overlay{
+  display:none;
+}
 
 @media (max-width:768px){
+  .header-container{ padding:12px clamp(16px,5vw,24px); }
+  .logo img{ height:56px; }
 
-.header-container{
-padding:12px 16px;
-align-items:center;
+  .header-right{ gap:10px; }
+
+  .language-switcher{ padding:.42rem .85rem; font-size:.76rem; }
+
+  .menu-icon{ display:block; }
+
+  .nav{
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:var(--sh-bg);
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    padding:8px 0 16px;
+    border-top:1px solid var(--sh-border);
+    border-bottom:1px solid var(--sh-border);
+    box-shadow:0 24px 34px -22px rgba(30,24,16,.28);
+    display:none;
+    z-index:1100;
+  }
+
+  .menu-toggle:checked ~ .nav{
+    display:flex;
+  }
+
+  .nav a{
+    padding:14px 24px;
+    font-size:17px;
+    font-weight:600;
+    border-top:1px solid rgba(138,96,6,.12);
+  }
+
+  .nav a::after{ display:none; }
+  .nav a:first-child{ border-top:none; }
+
+  /* El overlay solo aparece en móvil cuando el checkbox está marcado */
+  .menu-toggle:checked ~ .nav-overlay{
+    display:block;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:transparent;
+    z-index:1050;
+    cursor:default;
+  }
 }
-
-.logo img{
-height:50px;
-}
-
-.menu-icon{
-display:block;
-margin-left:auto;
-}
-
-.nav{
-position:absolute;
-top:100%;
-left:0;
-right:0;
-background:#fff;
-flex-direction:column;
-align-items:stretch;
-gap:0;
-padding:10px 0 14px;
-border-top:1px solid #eee;
-border-bottom:1px solid #eee;
-box-shadow:0 12px 24px rgba(0,0,0,0.06);
-display:none;
-margin-left:0;
-}
-
-.menu-toggle:checked + .menu-icon + .nav{
-display:flex;
-}
-
-.nav a{
-display:block;
-padding:14px 22px;
-font-size:18px;
-font-weight:600;
-color:#222;
-text-decoration:none;
-border-top:1px solid #f2f2f2;
-}
-
-.nav a:first-child{
-border-top:none;
-}
-
-.nav a:hover{
-color:#2c7be5;
-}
-
-.lang{
-margin-left:0;
-}
-
-}
-
 </style>
 
 <div class="header-container">
 
-<div class="logo">
-<a href="/es/">
-<img src="/assets/images/header/logo.webp" alt="PrepperFamily">
-</a>
+  <div class="logo">
+    <a href="/es/">
+      <img src="/assets/images/header/logo.webp" alt="PrepperFamily">
+    </a>
+  </div>
+
+  <div class="header-right">
+
+    <a href="/" class="language-switcher" aria-label="Switch to English">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9s1.3-6.4 3.8-9Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      English
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="menu-toggle">
+
+    <label for="nav-toggle" class="menu-icon" aria-label="Abrir menú">
+      <span class="menu-icon-bar"></span>
+      <span class="menu-icon-bar"></span>
+      <span class="menu-icon-bar"></span>
+    </label>
+
+    <nav class="nav" aria-label="Principal">
+      <a href="/es/" class="home-link">Inicio</a>
+      <a href="/es/sustento-material/">Sustento Material</a>
+      <a href="/es/resistencia-familiar/">Resistencia Familiar</a>
+      <a href="/es/fortaleza-interior/">Fortaleza Interior</a>
+      <a href="/es/#community">Comunidad</a>
+    </nav>
+
+    <!-- Overlay invisible: al tocarlo, cierra el menú -->
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+
+  </div>
 </div>
-
-<input type="checkbox" id="menu-toggle" class="menu-toggle">
-
-<label for="menu-toggle" class="menu-icon" aria-label="Abrir menú">
-☰
-</label>
-
-<nav class="nav">
-<a href="/es/" class="home-link">Inicio</a>
-<a href="/es/sustento-material/">Sustento Material</a>
-<a href="/es/resistencia-familiar/">Resistencia Familiar</a>
-<a href="/es/fortaleza-interior/">Fortaleza Interior</a>
-<a href="/es/#community">Comunidad</a>
-<a href="/" class="lang">English</a>
-</nav>
-
-</div>
-
-</header>
