@@ -1066,7 +1066,6 @@
 </head>
 <body>
         
-    <!-- HEADER PARTIAL PLACEHOLDER -->
     <div id="pf-header"></div>
  
     <!-- HERO SECTION -->
@@ -1340,6 +1339,9 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- FOOTER PARTIAL PLACEHOLDER -->
+    <div id="pf-footer"></div>
 
             <!-- AFFILIATE POLICY / TRANSPARENCY -->
             <div class="row mt-8">
@@ -1491,9 +1493,6 @@
         </div>
     </section>
 
-    <!-- FOOTER PARTIAL PLACEHOLDER -->
-    <div id="pf-footer"></div>
-
     <script>
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1533,39 +1532,35 @@
         window.addEventListener('load', animateOnScroll);
         window.addEventListener('scroll', animateOnScroll);
 
-        // PARTIALS LOADER
-        (function () {
-            const isGitHub = location.hostname.endsWith("github.io");
-            const base = isGitHub ? "/prepperfamily-site" : "";
-            const isES = location.pathname.includes("/es/");
-            const lang = isES ? "es" : "en";
+        <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
 
-            function setHTML(id, html) {
-                const el = document.getElementById(id);
-                if (el) el.innerHTML = html;
-            }
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
 
-            function loadHTML(url, targetId) {
-                return fetch(url)
-                    .then(res => {
-                        if (!res.ok) throw new Error("Failed to load " + url);
-                        return res.text();
-                    })
-                    .then(html => setHTML(targetId, html))
-                    .catch(err => console.error(err));
-            }
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
 
-            // Nota: Asegúrate de que los archivos existan en la ruta especificada
-            // Si tus partials son archivos HTML directos (ej: header-en.html):
-            loadHTML(`${base}/partials/header-${lang}.html`, "pf-header");
-            loadHTML(`${base}/partials/footer-${lang}.html`, "pf-footer");
-            
-            /* 
-               Si tus partials están estructurados en carpetas con index.html (ej: /partials/header-en/index.html):
-               loadHTML(`${base}/partials/header-${lang}/index.html`, "pf-header");
-               loadHTML(`${base}/partials/footer-${lang}/index.html`, "pf-footer");
-            */
-        })();
-    </script>
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+  </script>
+
 </body>
-</html>
+</html> 
