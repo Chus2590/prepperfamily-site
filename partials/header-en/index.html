@@ -143,6 +143,7 @@
   border-radius:8px;
   cursor:pointer;
   flex:0 0 auto;
+  z-index:1101;
   -webkit-tap-highlight-color:transparent;
 }
 
@@ -165,6 +166,11 @@
 .menu-toggle:checked ~ .menu-icon .menu-icon-bar:nth-child(1){ top:19px; transform:rotate(45deg); }
 .menu-toggle:checked ~ .menu-icon .menu-icon-bar:nth-child(2){ opacity:0; }
 .menu-toggle:checked ~ .menu-icon .menu-icon-bar:nth-child(3){ top:19px; transform:rotate(-45deg); }
+
+/* --- OVERLAY para cerrar al tocar fuera --- */
+.nav-overlay{
+  display:none;
+}
 
 @media (max-width:768px){
   .header-container{ padding:12px clamp(16px,5vw,24px); }
@@ -190,6 +196,7 @@
     border-bottom:1px solid var(--sh-border);
     box-shadow:0 24px 34px -22px rgba(30,24,16,.28);
     display:none;
+    z-index:1100;
   }
 
   .menu-toggle:checked ~ .nav{
@@ -205,6 +212,19 @@
 
   .nav a::after{ display:none; }
   .nav a:first-child{ border-top:none; }
+
+  /* El overlay solo aparece en móvil cuando el checkbox está marcado */
+  .menu-toggle:checked ~ .nav-overlay{
+    display:block;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:transparent;
+    z-index:1050;
+    cursor:default;
+  }
 }
 </style>
 
@@ -241,6 +261,9 @@
       <a href="/en/inner-strength/">Inner Strength</a>
       <a href="/#community">Community</a>
     </nav>
+
+    <!-- Overlay invisible: al tocarlo, cierra el menú -->
+    <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
 
   </div>
 </div>
