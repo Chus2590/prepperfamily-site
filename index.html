@@ -1552,9 +1552,9 @@
             return res.text();
           })
           .then(html => setHTML(targetId, html))
-          .catch(() => {});
-      }
-
+          .catch(error => {
+    console.error("Error cargando partial:", error);
+});
       // HEADER
       loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
 
