@@ -1529,39 +1529,48 @@
             });
         };
 
-        window.addEventListener('load', animateOnScroll);
-        window.addEventListener('scroll', animateOnScroll);
-        <script>
-            
-        <script>
-    (function () {
-      const isGitHub = location.hostname.endsWith("github.io");
-      const base = isGitHub ? "/prepperfamily-site" : "";
-      const isES = location.pathname.includes("/es/");
-      const lang = isES ? "es" : "en";
+       
+    window.addEventListener('load', animateOnScroll);
+    window.addEventListener('scroll', animateOnScroll);
 
-      function setHTML(id, html) {
+(function () {
+    const isGitHub = location.hostname.endsWith("github.io");
+    const base = isGitHub ? "/prepperfamily-site" : "";
+    const isES = location.pathname.includes("/es/");
+    const lang = isES ? "es" : "en";
+
+    function setHTML(id, html) {
         const el = document.getElementById(id);
-        if (el) el.innerHTML = html;
-      }
 
-      function loadHTML(url, targetId) {
+        if (el) {
+            el.innerHTML = html;
+        }
+    }
+
+    function loadHTML(url, targetId) {
         return fetch(url)
-          .then(res => {
-            if (!res.ok) throw new Error("Failed to load " + url);
-            return res.text();
-          })
-          .then(html => setHTML(targetId, html))
-          .catch(error => {
-    console.error("Error cargando partial:", error);
-});
-      // HEADER
-      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error("Failed to load " + url);
+                }
 
-      // FOOTER
-      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+                return res.text();
+            })
+            .then(html => {
+                setHTML(targetId, html);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
 
-  </script>
+    // HEADER
+    loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+    // FOOTER
+    loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+})();
+</script>
 
 </body>
-</html> 
+                    </html>
