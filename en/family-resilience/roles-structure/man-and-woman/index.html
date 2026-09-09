@@ -10,3 +10,1059 @@
 <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/roles-structure/man-and-woman/">
 <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/roles-estructura/hombre-y-mujer/">
 <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/roles-structure/man-and-woman/">
+
+<style>
+.article-two-become-one {
+  --tbo-ink: #23201d;
+  --tbo-ink-soft: #4a443d;
+  --tbo-parchment: #faf7f1;
+  --tbo-parchment-deep: #f3ece0;
+  --tbo-line: #ddd2bf;
+  --tbo-gold: #a4813c;
+  --tbo-gold-soft: #c9a961;
+  --tbo-blue: #2f4a63;
+  --tbo-blue-soft: #5b7794;
+  --tbo-rose: #8d5a5a;
+
+  color: var(--tbo-ink);
+  background: var(--tbo-parchment);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: clamp(1.02rem, 0.98rem + 0.28vw, 1.14rem);
+  line-height: 1.78;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.article-two-become-one *,
+.article-two-become-one *::before,
+.article-two-become-one *::after { box-sizing: border-box; }
+
+.article-two-become-one p,
+.article-two-become-one h1,
+.article-two-become-one h2,
+.article-two-become-one h3,
+.article-two-become-one ul,
+.article-two-become-one ol,
+.article-two-become-one figure,
+.article-two-become-one blockquote { margin: 0; overflow-wrap: break-word; word-break: normal; }
+
+.article-two-become-one img,
+.article-two-become-one video,
+.article-two-become-one iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.article-two-become-one table {
+  width: 100%;
+  border-collapse: collapse;
+  max-width: 100%;
+}
+
+.article-two-become-one .tbo-wrap {
+  width: 100%;
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.1rem, 5vw, 2.6rem);
+}
+
+/* ─────────── APERTURA: dos columnas que se unen ─────────── */
+
+.article-two-become-one .tbo-open {
+  position: relative;
+  padding: clamp(3rem, 9vw, 5.5rem) 0 clamp(2.2rem, 6vw, 3.4rem);
+  background:
+    radial-gradient(120% 90% at 15% 0%, #fffdf8 0%, rgba(255,253,248,0) 60%),
+    radial-gradient(120% 90% at 88% 8%, #f0f3f7 0%, rgba(240,243,247,0) 62%),
+    var(--tbo-parchment);
+  border-bottom: 1px solid var(--tbo-line);
+  overflow: hidden;
+}
+
+.article-two-become-one .tbo-open::before,
+.article-two-become-one .tbo-open::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  opacity: .5;
+}
+.article-two-become-one .tbo-open::before {
+  left: 22%;
+  background: linear-gradient(180deg, transparent, var(--tbo-gold-soft) 45%, transparent);
+}
+.article-two-become-one .tbo-open::after {
+  right: 22%;
+  background: linear-gradient(180deg, transparent, var(--tbo-blue-soft) 45%, transparent);
+}
+
+.article-two-become-one .tbo-emblem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  margin-bottom: clamp(1.4rem, 4vw, 2.1rem);
+}
+.article-two-become-one .tbo-emblem span {
+  display: block;
+  height: 1px;
+  width: clamp(2rem, 12vw, 4.5rem);
+  background: var(--tbo-gold-soft);
+}
+.article-two-become-one .tbo-emblem b {
+  font-size: .8rem;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--tbo-gold);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.article-two-become-one .tbo-q {
+  display: block;
+  margin: 1.4em 0;
+  padding-left: clamp(.9rem, 3vw, 1.4rem);
+  border-left: 2px solid var(--tbo-gold-soft);
+  font-style: italic;
+  font-size: clamp(1.08rem, 1rem + 0.6vw, 1.28rem);
+  line-height: 1.55;
+  color: var(--tbo-blue);
+}
+
+/* Secciones */
+
+.article-two-become-one section { margin-top: clamp(3rem, 8vw, 4.4rem); }
+
+.article-two-become-one h2 {
+  font-size: clamp(1.5rem, 1.15rem + 1.9vw, 2.1rem);
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  padding-bottom: .55rem;
+  border-bottom: 1px solid var(--tbo-line);
+  margin-bottom: clamp(1.2rem, 4vw, 1.7rem);
+}
+.article-two-become-one h2 .tbo-num {
+  display: block;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .72rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--tbo-gold);
+  font-weight: 700;
+  margin-bottom: .55rem;
+}
+
+.article-two-become-one section p + p { margin-top: 1.05em; }
+
+.article-two-become-one h3 {
+  font-size: clamp(1.08rem, 1rem + 0.5vw, 1.22rem);
+  font-weight: 700;
+  margin: 1.9em 0 .5em;
+  color: var(--tbo-blue);
+  letter-spacing: .005em;
+}
+
+.article-two-become-one .tbo-tight { margin-top: .45em; }
+
+/* Frase-eje aislada */
+.article-two-become-one .tbo-beat {
+  margin: 1.7em 0;
+  text-align: center;
+  font-size: clamp(1.14rem, 1rem + 0.85vw, 1.4rem);
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--tbo-ink);
+  text-wrap: balance;
+}
+.article-two-become-one .tbo-beat::before,
+.article-two-become-one .tbo-beat::after {
+  content: "·";
+  color: var(--tbo-gold);
+  padding: 0 .6em;
+  font-style: normal;
+}
+
+/* Panel de dos voces (esposo / esposa) */
+.article-two-become-one .tbo-duet {
+  display: grid;
+  gap: 1px;
+  background: var(--tbo-line);
+  border: 1px solid var(--tbo-line);
+  margin: 1.6em 0;
+}
+.article-two-become-one .tbo-duet > div {
+  background: #fffdf8;
+  padding: clamp(1rem, 4vw, 1.5rem);
+}
+.article-two-become-one .tbo-duet h4 {
+  margin: 0 0 .5rem;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .7rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--tbo-gold);
+}
+.article-two-become-one .tbo-duet p {
+  font-size: .97rem;
+  line-height: 1.62;
+  color: var(--tbo-ink-soft);
+}
+@media (min-width: 640px) {
+  .article-two-become-one .tbo-duet { grid-template-columns: 1fr 1fr; }
+}
+
+/* Malentendidos: pares en espejo */
+.article-two-become-one .tbo-mirror {
+  list-style: none;
+  padding: 0;
+  margin: 1.5em 0;
+  display: grid;
+  gap: .85rem;
+}
+.article-two-become-one .tbo-mirror li {
+  background: var(--tbo-parchment-deep);
+  border-left: 3px solid var(--tbo-blue-soft);
+  padding: .95rem clamp(.9rem, 3vw, 1.2rem);
+}
+.article-two-become-one .tbo-mirror b {
+  display: block;
+  font-weight: 400;
+  font-size: .98rem;
+  line-height: 1.55;
+}
+.article-two-become-one .tbo-mirror i {
+  display: block;
+  margin-top: .35rem;
+  font-size: .92rem;
+  color: var(--tbo-rose);
+  font-style: italic;
+}
+
+/* Casos: escenas numeradas */
+.article-two-become-one .tbo-cases {
+  counter-reset: tbocase;
+  display: grid;
+  gap: clamp(1.1rem, 4vw, 1.6rem);
+  margin: 1.5em 0;
+}
+.article-two-become-one .tbo-case {
+  position: relative;
+  border: 1px solid var(--tbo-line);
+  background: #fffdf8;
+  padding: clamp(1.1rem, 4vw, 1.6rem) clamp(1rem, 4vw, 1.6rem) clamp(1.1rem, 4vw, 1.6rem);
+  counter-increment: tbocase;
+}
+.article-two-become-one .tbo-case::before {
+  content: counter(tbocase, decimal-leading-zero);
+  display: block;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .74rem;
+  letter-spacing: .2em;
+  color: var(--tbo-gold);
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+.article-two-become-one .tbo-case h3 {
+  margin: 0 0 .55rem;
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.18rem);
+  color: var(--tbo-ink);
+}
+.article-two-become-one .tbo-case p { font-size: .98rem; }
+.article-two-become-one .tbo-case p + p { margin-top: .7em; }
+.article-two-become-one .tbo-case .tbo-key {
+  margin-top: .9rem;
+  padding-top: .8rem;
+  border-top: 1px dashed var(--tbo-line);
+  font-size: .95rem;
+  color: var(--tbo-blue);
+}
+.article-two-become-one .tbo-case .tbo-key strong {
+  display: block;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .66rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--tbo-ink-soft);
+  margin-bottom: .3rem;
+  font-weight: 700;
+}
+.article-two-become-one .tbo-said {
+  margin: .8em 0 0;
+  padding-left: .95rem;
+  border-left: 2px solid var(--tbo-gold-soft);
+  font-style: italic;
+  color: var(--tbo-ink-soft);
+  font-size: .97rem;
+}
+
+/* Reglas del hogar */
+.article-two-become-one .tbo-rules {
+  list-style: none;
+  padding: 0;
+  margin: 1.4em 0;
+  border-top: 1px solid var(--tbo-line);
+}
+.article-two-become-one .tbo-rules li {
+  border-bottom: 1px solid var(--tbo-line);
+  padding: 1rem 0 1rem 2.1rem;
+  position: relative;
+}
+.article-two-become-one .tbo-rules li::before {
+  content: "";
+  position: absolute;
+  left: .45rem;
+  top: 1.55rem;
+  width: .42rem;
+  height: .42rem;
+  border: 1px solid var(--tbo-gold);
+  transform: rotate(45deg);
+}
+.article-two-become-one .tbo-rules strong {
+  display: block;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: .2rem;
+}
+.article-two-become-one .tbo-rules span {
+  display: block;
+  font-size: .96rem;
+  color: var(--tbo-ink-soft);
+  line-height: 1.6;
+}
+
+.article-two-become-one .tbo-check {
+  list-style: none;
+  margin: .9em 0;
+  padding: 0;
+  display: grid;
+  gap: .4rem;
+}
+.article-two-become-one .tbo-check li {
+  padding-left: 1.4rem;
+  position: relative;
+  font-size: .98rem;
+}
+.article-two-become-one .tbo-check li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--tbo-gold);
+}
+
+/* Aviso grave */
+.article-two-become-one .tbo-warn {
+  margin: 1.5em 0;
+  border: 1px solid #c8b3a6;
+  border-left: 4px solid var(--tbo-rose);
+  background: #fbf4f1;
+  padding: clamp(1.1rem, 4vw, 1.6rem);
+}
+.article-two-become-one .tbo-warn h3 {
+  margin: 0 0 .6rem;
+  color: var(--tbo-rose);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .74rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+.article-two-become-one .tbo-warn p { font-size: .99rem; }
+.article-two-become-one .tbo-warn p + p { margin-top: .7em; }
+
+/* Falsas soluciones */
+.article-two-become-one .tbo-false {
+  list-style: none;
+  padding: 0;
+  margin: 1.3em 0;
+  display: grid;
+  gap: .1rem;
+}
+.article-two-become-one .tbo-false li {
+  padding: .7rem 0 .7rem 2rem;
+  position: relative;
+  border-bottom: 1px dotted var(--tbo-line);
+  font-size: .99rem;
+  color: var(--tbo-ink-soft);
+}
+.article-two-become-one .tbo-false li::before {
+  content: "✕";
+  position: absolute;
+  left: .2rem;
+  top: .72rem;
+  color: var(--tbo-rose);
+  font-size: .82rem;
+}
+
+/* Plan de cuatro semanas */
+.article-two-become-one .tbo-weeks {
+  display: grid;
+  gap: 0;
+  margin: 1.5em 0;
+  border: 1px solid var(--tbo-line);
+  background: #fffdf8;
+}
+.article-two-become-one .tbo-week {
+  padding: clamp(1.05rem, 4vw, 1.5rem);
+  display: grid;
+  gap: .45rem;
+  border-bottom: 1px solid var(--tbo-line);
+}
+.article-two-become-one .tbo-week:last-child { border-bottom: 0; }
+.article-two-become-one .tbo-week > b {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: .68rem;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--tbo-gold);
+  font-weight: 700;
+}
+.article-two-become-one .tbo-week h3 {
+  margin: 0;
+  font-size: clamp(1.02rem, 1rem + 0.35vw, 1.15rem);
+  color: var(--tbo-ink);
+}
+.article-two-become-one .tbo-week p {
+  font-size: .97rem;
+  color: var(--tbo-ink-soft);
+  line-height: 1.62;
+}
+@media (min-width: 700px) {
+  .article-two-become-one .tbo-weeks { grid-template-columns: 1fr 1fr; }
+  .article-two-become-one .tbo-week:nth-child(odd) { border-right: 1px solid var(--tbo-line); }
+  .article-two-become-one .tbo-week:nth-last-child(-n+2) { border-bottom: 0; }
+  .article-two-become-one .tbo-week:nth-child(3) { border-bottom: 0; }
+}
+
+/* Cierre */
+.article-two-become-one .tbo-close {
+  margin-top: clamp(3rem, 8vw, 4.4rem);
+  background: var(--tbo-blue);
+  color: #f4f1ea;
+  padding: clamp(2.4rem, 8vw, 4rem) 0;
+}
+.article-two-become-one .tbo-close h2 {
+  color: #fff;
+  border-bottom-color: rgba(255,255,255,.22);
+}
+.article-two-become-one .tbo-close h2 .tbo-num { color: var(--tbo-gold-soft); }
+.article-two-become-one .tbo-close p { color: #e7e3d9; }
+.article-two-become-one .tbo-close .tbo-beat { color: #fff; }
+.article-two-become-one .tbo-close .tbo-beat::before,
+.article-two-become-one .tbo-close .tbo-beat::after { color: var(--tbo-gold-soft); }
+
+.article-two-become-one .tbo-bridge {
+  margin: 1.6em 0;
+  text-align: center;
+  font-size: clamp(1.3rem, 1.05rem + 1.6vw, 1.85rem);
+  line-height: 1.35;
+  color: #fff;
+  font-style: italic;
+  text-wrap: balance;
+}
+
+.article-two-become-one .tbo-final {
+  margin-top: clamp(2rem, 6vw, 3rem);
+  padding-top: clamp(1.4rem, 5vw, 2rem);
+  border-top: 1px solid rgba(255,255,255,.18);
+  text-align: center;
+}
+.article-two-become-one .tbo-final p {
+  font-size: clamp(1.05rem, 1rem + 0.5vw, 1.2rem);
+  line-height: 1.6;
+  color: #f4f1ea;
+  text-wrap: balance;
+}
+.article-two-become-one .tbo-final p + p { margin-top: .8em; }
+.article-two-become-one .tbo-final .tbo-mark {
+  display: block;
+  margin: 1.6rem auto 0;
+  font-size: 1rem;
+  letter-spacing: .5em;
+  color: var(--tbo-gold-soft);
+}
+
+/* Animación discreta */
+@media (prefers-reduced-motion: no-preference) {
+  .article-two-become-one .tbo-emblem,
+  .article-two-become-one .tbo-title,
+  .article-two-become-one .tbo-sub {
+    animation: tboRise .9s cubic-bezier(.22,.7,.3,1) both;
+  }
+  .article-two-become-one .tbo-title { animation-delay: .1s; }
+  .article-two-become-one .tbo-sub { animation-delay: .2s; }
+}
+@keyframes tboRise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ═══════════════ MOBILE / TABLET ═══════════════ */
+
+@media (max-width: 768px) {
+  .article-two-become-one {
+    padding: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .article-two-become-one .tbo-wrap {
+    max-width: 100%;
+    padding: 0 12px;
+  }
+
+  .article-two-become-one .tbo-open {
+    padding: 24px 16px;
+    border-radius: 0;
+  }
+
+  .article-two-become-one h1,
+  .article-two-become-one .tbo-title {
+    font-size: 1.7em;
+  }
+
+  .article-two-become-one h2 {
+    font-size: 1.4em;
+    margin-bottom: 1rem;
+    padding-bottom: .4rem;
+  }
+
+  .article-two-become-one h3 {
+    font-size: 1.1em;
+    margin: 1.4em 0 .4em;
+  }
+
+  .article-two-become-one section {
+    margin-top: 2rem;
+  }
+
+  .article-two-become-one .tbo-q {
+    padding-left: .8rem;
+    border-left-width: 2px;
+    margin: 1.1em 0;
+  }
+
+  .article-two-become-one .tbo-beat {
+    margin: 1.3em 0;
+    font-size: 1.15em;
+  }
+
+  .article-two-become-one .tbo-duet,
+  .article-two-become-one .tbo-cases,
+  .article-two-become-one .tbo-weeks {
+    grid-template-columns: 1fr !important;
+    gap: 1px;
+  }
+
+  .article-two-become-one .tbo-duet > div,
+  .article-two-become-one .tbo-case,
+  .article-two-become-one .tbo-week {
+    padding: 16px;
+  }
+
+  .article-two-become-one .tbo-week:nth-child(odd) {
+    border-right: 0 !important;
+  }
+
+  .article-two-become-one .tbo-mirror li {
+    padding: .8rem 1rem;
+    border-left-width: 3px;
+  }
+
+  .article-two-become-one .tbo-rules li {
+    padding: .8rem 0 .8rem 1.8rem;
+  }
+
+  .article-two-become-one .tbo-warn {
+    padding: 16px;
+    border-left-width: 3px;
+  }
+
+  .article-two-become-one .tbo-close {
+    padding: 32px 0;
+    margin-top: 2rem;
+  }
+
+  .article-two-become-one .tbo-bridge {
+    font-size: 1.35em;
+    margin: 1.2em 0;
+  }
+
+  .article-two-become-one .tbo-final {
+    padding-top: 1.2rem;
+    margin-top: 1.6rem;
+  }
+
+  .article-two-become-one .tbo-emblem {
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-two-become-one {
+    padding: 6px;
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  .article-two-become-one .tbo-wrap {
+    padding: 0 10px;
+  }
+
+  .article-two-become-one .tbo-open {
+    padding: 20px 14px;
+  }
+
+  .article-two-become-one h1,
+  .article-two-become-one .tbo-title {
+    font-size: 1.5em;
+  }
+
+  .article-two-become-one h2 {
+    font-size: 1.28em;
+    margin-bottom: .8rem;
+    padding-bottom: .35rem;
+  }
+
+  .article-two-become-one h3 {
+    font-size: 1.02em;
+    margin: 1.2em 0 .35em;
+  }
+
+  .article-two-become-one section {
+    margin-top: 1.6rem;
+  }
+
+  .article-two-become-one .tbo-q {
+    padding-left: .65rem;
+    font-size: 1.05em;
+    margin: .9em 0;
+  }
+
+  .article-two-become-one .tbo-beat {
+    margin: 1em 0;
+    font-size: 1.05em;
+  }
+
+  .article-two-become-one .tbo-duet > div,
+  .article-two-become-one .tbo-case,
+  .article-two-become-one .tbo-week,
+  .article-two-become-one .tbo-warn {
+    padding: 14px;
+  }
+
+  .article-two-become-one .tbo-mirror li {
+    padding: .65rem .8rem;
+  }
+
+  .article-two-become-one .tbo-rules li {
+    padding: .65rem 0 .65rem 1.6rem;
+  }
+
+  .article-two-become-one .tbo-close {
+    padding: 24px 0;
+    margin-top: 1.6rem;
+  }
+
+  .article-two-become-one .tbo-bridge {
+    font-size: 1.15em;
+  }
+
+  .article-two-become-one .tbo-final {
+    padding-top: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .article-two-become-one .tbo-emblem b {
+    letter-spacing: .2em;
+    font-size: .7rem;
+  }
+
+  .article-two-become-one .tbo-emblem {
+    margin-bottom: .9rem;
+  }
+}
+</style>
+</head>
+<body>
+  
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+
+<article class="article-two-become-one">
+ 
+<header class="tbo-open">
+    <div class="tbo-wrap">
+      <p class="tbo-emblem"><span></span><b>Married life</b><span></span></p>
+      <h1 class="tbo-title">Two who complement each other</h1>
+      <p class="tbo-sub">Neither competition nor domination: an alliance in which two different people give themselves, correct each other, and support one another.</p>
+      <div class="tbo-open-rule" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <div class="tbo-wrap tbo-body">
+
+<p class="tbo-lead">Few institutions have been discussed as much as marriage. People debate what it means to be a husband or wife, whether the differences between men and women are essential or merely cultural, who should lead the household, and how responsibilities should be divided. But behind many of these discussions lies a deeper question:</p>
+
+<p class="tbo-q">What did God intend when He created man and woman and called them to become one flesh?</p>
+
+<p>The Christian answer does not begin with the trends of each age, but with the beginning. God created the human person male and female, equal in dignity and different in their way of being. That difference is not an imperfection to be eliminated, but a richness ordered toward communion, love, and the transmission of life.</p>
+
+<p>Christian marriage, therefore, is not a competition between the sexes. Nor does it consist of one dominating the other. It is an alliance in which two different people give themselves to one another, help each other, correct each other, support each other, and seek holiness together.</p>
+
+<section aria-labelledby="tbo-s1">
+  <h2 id="tbo-s1"><span class="tbo-num">The first truth</span>Equal in dignity, different for the sake of self-giving</h2>
+
+  <p>Genesis presents man and woman as created in the image of God and called to become one flesh. When God declares that it is not good for man to be alone and gives him a “suitable helper,” He is not placing woman beneath man. Scripture even uses this same idea of help to refer to God’s assistance.</p>
+
+  <p class="tbo-beat">Woman is not man’s servant. Nor is man woman’s master.</p>
+
+  <p>Both possess the same personal dignity, and both are called to give themselves. Sexual difference, however, is not irrelevant either. The male and female body expresses a personal reality: man and woman can give each other what neither can give themselves. Fatherhood and motherhood are not simply interchangeable roles, although the specific circumstances of each family may vary enormously.</p>
+
+  <h3>Doctrine and prudence are not the same</h3>
+
+  <p class="tbo-tight">The Church teaches the equal dignity of man and woman, the unity and indissolubility of marriage, openness to life, the education of children, and the sanctification of the spouses. By contrast, many characteristics traditionally attributed to men and women are <em>tendencies</em>, not universal laws.</p>
+
+  <p>There are deeply sensitive men and extraordinarily analytical women. There are fathers who are excellent cooks and mothers who are excellent administrators. Virtue has no sex: intelligence, fortitude, prudence, patience, chastity, and the capacity for sacrifice belong to both.</p>
+
+  <p>Complementarity, therefore, does not consist of confining each spouse within a caricature. It consists of recognizing that, often, the strengths of one compensate for the limitations of the other.</p>
+
+  <p class="tbo-beat">And that is precisely where the beauty begins</p>
+</section>
+
+<section aria-labelledby="tbo-s2">
+  <h2 id="tbo-s2"><span class="tbo-num">The husband</span>Leadership understood as sacrifice</h2>
+
+  <p>Saint Paul calls the husband the “head” of the wife, but immediately establishes the measure of that authority: Christ giving Himself for the Church. This completely changes the meaning of leadership.</p>
+
+  <p>The Christian husband does not receive a license to command. He receives a greater responsibility to serve. His leadership is measured by the weight he is willing to carry, not by the number of orders he can give.</p>
+
+  <p>He must be concerned for his family’s material well-being, manage resources prudently, work according to his abilities, and prevent money from becoming an instrument of control. But providing does not end with paying the bills. He must also protect.</p>
+
+  <div class="tbo-duet">
+    <div>
+      <h4>Protect</h4>
+      <p><strong>Physically</strong>, when necessary. <strong>Morally</strong>, by watching what enters the home. <strong>Spiritually</strong>, by fostering prayer and the sacraments. And <strong>emotionally</strong>: by being a man with whom his wife and children can speak without fear of ridicule, outbursts, or contempt.</p>
+    </div>
+    <div>
+      <h4>Be present</h4>
+      <p>A father cannot replace his absence with money. Children need conversation, correction, play, attention, and time. They need to discover what it means to be a man by observing their own father.</p>
+    </div>
+  </div>
+
+  <h3>Particular temptations</h3>
+
+  <p class="tbo-tight">Pride, authoritarianism, harshness, emotional isolation, and perhaps especially passivity. Because a man can abdicate his responsibility without saying a single word: he can take refuge in work, his phone, video games, or sports while his wife bears the decisions, the children, the household, and the family’s spiritual life alone.</p>
+
+  <p>That is not leadership either.</p>
+
+  <p class="tbo-beat">The Christian man does not ask, “Who is in charge here?” but rather, “What burden is mine to carry?”</p>
+</section>
+
+<section aria-labelledby="tbo-s3">
+  <h2 id="tbo-s3"><span class="tbo-num">The wife</span>A strength that sustains the home</h2>
+
+  <p>Motherhood expresses in a particular way the feminine capacity to welcome and care for life, but a woman’s fruitfulness cannot be reduced to having biological children. Spiritual motherhood also exists: caring for, forming, teaching, accompanying, and giving human and spiritual life to others.</p>
+
+  <p>In countless homes, a woman perceives things that others overlook. She notices that a child is restless, that there is tension at the table, that a relative feels excluded, or that something is wrong even though no one has said a word. This sensitivity should not be dismissed as mere sentimentality: it can constitute an extraordinarily valuable form of practical intelligence.</p>
+
+  <p class="tbo-beat">That is why the prudent husband listens</p>
+
+  <p>The wife should not be someone who “makes suggestions” while the husband makes every decision unilaterally. She is a responsible adult with her own intelligence, conscience, and experience. When a decision affects the family, her judgment must be heard and seriously valued. A husband who systematically decides without consulting his wife is wasting a considerable part of the wisdom available in his own home.</p>
+
+  <h3>Particular temptations</h3>
+
+  <p class="tbo-tight">Oversensitivity, accumulated resentment, constant criticism, unspoken expectations, or the tendency to use silence, guilt, or tears as instruments of pressure may arise. No one is required to guess what the other person needs.</p>
+
+  <p>Marital maturity requires learning to say two phrases:</p>
+
+  <p class="tbo-said">“This is what I need from you.”<br>“This is what I did wrong. Forgive me.”</p>
+
+  <div class="tbo-duet" style="margin-top:1.6em">
+    <div>
+      <h4>He learns</h4>
+      <p>Tenderness. Rationality needs humanity.</p>
+    </div>
+    <div>
+      <h4>She learns</h4>
+      <p>Firmness. Sensitivity needs order.</p>
+    </div>
+  </div>
+
+  <p>Both need to grow precisely where it is naturally most difficult for them.</p>
+</section>
+
+<section aria-labelledby="tbo-s4">
+  <h2 id="tbo-s4"><span class="tbo-num">Translating each other</span>When difference becomes a source of help</h2>
+
+  <p>Many marital conflicts do not arise because husband and wife are different, but because they interpret those differences as personal attacks.</p>
+
+  <ul class="tbo-mirror">
+    <li><b>He immediately tries to solve a problem.</b><i>She thinks, “He does not care how I feel.”</i></li>
+    <li><b>She needs to talk at length about a concern.</b><i>He thinks, “Nothing I do will ever be enough.”</i></li>
+    <li><b>He remains silent during a financial crisis because he is looking for a solution.</b><i>She interprets the silence as rejection.</i></li>
+    <li><b>She insists on talking because she needs reassurance.</b><i>He feels that he is being interrogated.</i></li>
+  </ul>
+
+  <p>Two people can love each other deeply and yet misinterpret one another’s actions. The solution is not to make both of them think exactly alike.</p>
+
+  <p class="tbo-beat">The solution is to learn to translate each other</p>
+
+  <p>Firmness can provide stability when uncertainty reigns. Sensitivity can prevent stability from becoming coldness. He can help distinguish between what is urgent and what is important. She can help him see the people behind the problems.</p>
+
+  <p>It is not about one becoming the other. It is about both learning from the other without ceasing to be who they are. Authentic complementarity produces growth.</p>
+</section>
+
+<section aria-labelledby="tbo-s5">
+  <h2 id="tbo-s5"><span class="tbo-num">Four scenarios</span>Conflicts that can transform a marriage</h2>
+
+  <div class="tbo-cases">
+
+    <article class="tbo-case">
+      <h3>An argument about money</h3>
+      <p>He discovers an expense that was not discussed and reacts harshly. She feels that she is being treated like a child. He thinks she is irresponsible; she thinks he is controlling.</p>
+      <p>But beneath the conflict are legitimate needs: he seeks security and foresight; she needs respect and shared responsibility.</p>
+      <p class="tbo-key"><strong>Solution</strong>A shared budget, transparency, and a spending limit that both agree to discuss beforehand.</p>
+    </article>
+
+    <article class="tbo-case">
+      <h3>She shares a problem; he responds with solutions</h3>
+      <p>He believes he is helping. She feels that she was not heard.</p>
+      <p class="tbo-said">“Do you want me to listen, or do you want me to help you solve it?”</p>
+      <p class="tbo-key"><strong>Solution</strong>A single question can prevent an argument that might otherwise last an hour.</p>
+    </article>
+
+    <article class="tbo-case">
+      <h3>The husband distressed by a financial crisis</h3>
+      <p>He becomes silent and distant. She thinks he is upset with her. But he could say:</p>
+      <p class="tbo-said">“I am worried about money, not about you. I do not have the solution yet, but I want us to face this together.”</p>
+      <p class="tbo-said">“We will face it together. Tell me how I can help you.”</p>
+      <p class="tbo-key"><strong>Solution</strong>Name the real concern so that silence is not interpreted as rejection.</p>
+    </article>
+
+    <article class="tbo-case">
+      <h3>Disciplining the children</h3>
+      <p>He thinks she is too lenient. She thinks he is too harsh. The child quickly discovers that this division can be exploited.</p>
+      <p class="tbo-key"><strong>Golden rule</strong>Never turn the children into referees of marital disagreement. Parents can discuss matters privately, review their standards, and correct each other; but in front of the child, they should strive to present a consistent authority.</p>
+    </article>
+
+  </div>
+</section>
+
+<section aria-labelledby="tbo-s6">
+  <h2 id="tbo-s6"><span class="tbo-num">Organization</span>The home needs rules, not improvisation</h2>
+
+  <p>Love does not eliminate the need for organization. A strong family needs regular conversations, a budget, a reasonable division of tasks, and protected time together.</p>
+
+  <ul class="tbo-rules">
+    <li>
+      <strong>Twenty minutes each week</strong>
+      <span>A brief conversation may be enough to ask three questions:</span>
+      <ul class="tbo-check">
+        <li>How are we doing?</li>
+        <li>What is coming up this week?</li>
+        <li>What do you need from me?</li>
+      </ul>
+    </li>
+    <li>
+      <strong>The right moment</strong>
+      <span>Important discussions should be avoided when both are exhausted, hungry, or overcome by anger.</span>
+    </li>
+    <li>
+      <strong>Behaviors, not character</strong>
+      <span>“You arrived late three times” is very different from “you are irresponsible.”</span>
+    </li>
+    <li>
+      <strong>Financial transparency</strong>
+      <span>Both spouses should know the family’s actual financial situation.</span>
+    </li>
+    <li>
+      <strong>Tasks according to reality</strong>
+      <span>Available time, abilities, outside employment, children, and particular needs. Domestic work is not inferior to paid work: it directly sustains family life.</span>
+    </li>
+    <li>
+      <strong>Protected family time</strong>
+      <span>One daily meal without screens can form children more profoundly than many expensive activities. And Sunday Mass must occupy the central place that belongs to it in Christian life.</span>
+    </li>
+    <li>
+      <strong>Brief and consistent prayer</strong>
+      <span>Five minutes of prayer together each night can become, over the years, one of the home’s invisible pillars.</span>
+    </li>
+    <li>
+      <strong>Marital intimacy</strong>
+      <span>It is not a luxury added to family life: it belongs to the language of marital self-giving. It requires tenderness, respect, fidelity, and a responsible understanding of the Church’s teaching on openness to life.</span>
+    </li>
+  </ul>
+</section>
+
+<section aria-labelledby="tbo-s7">
+  <h2 id="tbo-s7"><span class="tbo-num">Absolute limit</span>An authority that must never become abuse</h2>
+
+  <div class="tbo-warn">
+    <h3>⚠️ Without any ambiguity</h3>
+    <p>Christian doctrine on marital authority <strong>never</strong> justifies violence, humiliation, threats, abusive financial control, isolation, coercion, or infidelity.</p>
+    <p>Anyone who uses Scripture to dominate his wife is not defending Christianity: he is using religion to justify his sin.</p>
+    <p>When there is physical violence, threats, habitual abuse, or danger to the children, the response is not simply to endure in silence. <strong>Protection and appropriate help must be sought.</strong></p>
+  </div>
+
+  <p>Saint Paul begins his teaching on marriage by speaking of mutual self-giving in Christ. The husband is called to love in such a way that his authority resembles the Cross. Likewise, the wife’s cooperation does not mean remaining silent in the face of injustice: a woman is not required to obey anything unjust, dangerous, or gravely imprudent.</p>
+
+  <h3>Not every problem requires the same remedy</h3>
+
+  <p class="tbo-tight">It is important to distinguish between spiritual direction, therapy, and other forms of assistance. Spiritual life needs spiritual direction; psychological wounds and certain destructive patterns may require professional treatment; and marital conflicts may require specialized guidance.</p>
+</section>
+
+<section aria-labelledby="tbo-s8">
+  <h2 id="tbo-s8"><span class="tbo-num">Prudence</span>When life does not resemble the ideal</h2>
+
+  <p>Marital doctrine remains unchanged, but its application requires prudence.</p>
+
+  <ul class="tbo-rules">
+    <li><strong>If illness comes</strong><span>The healthy spouse may have to assume a much greater share of the work without humiliating the one who is ill.</span></li>
+    <li><strong>If the husband loses his job</strong><span>He does not thereby lose his dignity or his worth as a man. He can take on more household and childcare responsibilities while looking for work.</span></li>
+    <li><strong>If both work outside the home</strong><span>The solution is not to pretend that the circumstances do not exist. Responsibilities must be explicitly divided and family time protected.</span></li>
+    <li><strong>If infertility arises</strong><span>It does not destroy the fullness of marriage either. Fruitfulness can be expressed in other ways: adoption, foster care, service, and self-giving.</span></li>
+    <li><strong>If one is temporarily absent</strong><span>The other cannot magically become both “father and mother” at the same time. Help will be needed.</span></li>
+    <li><strong>If a crisis arises</strong><span>Seeking help early is usually much wiser than waiting until resentment has turned small wounds into a wall.</span></li>
+  </ul>
+</section>
+
+<section aria-labelledby="tbo-s9">
+  <h2 id="tbo-s9"><span class="tbo-num">Warning</span>False solutions</h2>
+
+  <p>Some errors appear religious but destroy marriage.</p>
+
+  <ul class="tbo-false">
+    <li>Turning complementarity into a rigid list of tasks.</li>
+    <li>Using Bible verses as weapons.</li>
+    <li>Demanding obedience without assuming responsibility.</li>
+    <li>Disparaging the spouse who works at home, or disparaging the one who works outside the home.</li>
+    <li>Justifying faults by saying, “that is how men are” or “that is how women are.”</li>
+    <li>Confusing Christian sacrifice with tolerating abuse.</li>
+    <li>Competing over who has greater authority.</li>
+    <li>Expecting love to make learning how to communicate unnecessary.</li>
+  </ul>
+
+  <p>And perhaps the most dangerous error of all: expecting marital differences to resolve themselves.</p>
+
+  <p class="tbo-beat">They do not resolve themselves. They are worked through. They are discussed. They are forgiven. And above all, they are brought to God.</p>
+</section>
+
+<section aria-labelledby="tbo-s10">
+  <h2 id="tbo-s10"><span class="tbo-num">A concrete plan</span>One month to begin again</h2>
+
+  <p>You do not need to transform the entire household tomorrow.</p>
+
+  <div class="tbo-weeks">
+    <div class="tbo-week">
+      <b>Week 1</b>
+      <h3>Listen to each other</h3>
+      <p>Twenty minutes without phones. Each person answers: “What is weighing on you most right now?” The other does not correct or offer solutions. Listen.</p>
+    </div>
+    <div class="tbo-week">
+      <b>Week 2</b>
+      <h3>Face reality</h3>
+      <p>Write down the actual household and childcare tasks. Not to assign blame, but to discover the reality. Redistribute some of the burdens.</p>
+    </div>
+    <div class="tbo-week">
+      <b>Week 3</b>
+      <h3>Decide together</h3>
+      <p>Review the finances and make one financial decision together. In addition, each parent can set aside special one-on-one time with each child.</p>
+    </div>
+    <div class="tbo-week">
+      <b>Week 4</b>
+      <h3>Give thanks and ask</h3>
+      <p>Name three specific things each person appreciates about the other. Then make one request for improvement, expressed as a request: “It would help me if….” And finish by bringing everything to God: prayer and confession.</p>
+    </div>
+  </div>
+<div class="tbo-wrap tbo-body-cont">
+    <p>Because perhaps the problem in many marriages is not that they lack love, but that they have forgotten that love must become concrete actions every day.</p>
+  </div>
+
+  <section class="tbo-close" aria-labelledby="tbo-s11">
+    <div class="tbo-wrap">
+      <h2 id="tbo-s11"><span class="tbo-num">The true secret</span>From trench to bridge</h2>
+
+      <p>The difference between man and woman is not a defect to be corrected. Nor is it an excuse to establish a hierarchy of dignity. It is a difference that can become a gift.</p>
+
+      <p class="tbo-beat">Marriage is not about finding someone identical to us. It is about learning to love someone who is not us.</p>
+
+      <p>That is why the husband needs his wife. And the wife needs her husband. Not because either is incomplete as a person, but because marital love is precisely a vocation of mutual self-giving.</p>
+
+      <p>The Christian home is built when he stops asking how much he can demand and begins asking how much he can carry; when she stops expecting him to guess and begins clearly expressing what she needs; when both stop gathering evidence against each other and begin seeking the good of the family together.</p>
+
+      <p class="tbo-bridge">Then difference ceases to be a trench.<br>It becomes a bridge.</p>
+
+      <p>And the home ceases to be the place where two people compete to prove who is right. It becomes the place where two sinners learn, through the grace of God, to help each other reach Heaven.</p>
+
+      <h3 style="color:#fff;margin-top:2.2em;font-family:'Helvetica Neue',Arial,sans-serif;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase">Five principles can summarize it all</h3>
+
+      <ol class="tbo-principles">
+        <li><strong>Do not compete: complement.</strong> Your spouse is not your rival.</li>
+        <li><strong>Command less and carry more.</strong> Christian leadership is measured by sacrifice.</li>
+        <li><strong>Say what you need.</strong> No one can keep guessing forever.</li>
+        <li><strong>Correct your own faults first.</strong> Conversion begins at home and with oneself.</li>
+        <li><strong>Pray and forgive.</strong> No technique can replace grace, the sacraments, and sincere repentance.</li>
+      </ol>
+
+      <div class="tbo-final">
+        <p>Because, in the end, a strong Christian marriage is not one in which differences never exist.</p>
+        <p><strong>It is one in which differences ultimately serve love.</strong></p>
+        <span class="tbo-mark" aria-hidden="true">✝︎</span>
+      </div>
+    </div>
+  </section>
+
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/resistencia-familiar/roles-estructura/" : "/en/family-resilience/roles-structure/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html>
