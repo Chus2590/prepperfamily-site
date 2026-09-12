@@ -605,252 +605,8 @@
         }
 
         /* ============================================================
-           COMPONENTES Y BOTONES
+           1. COMUNIDAD (#community)
            ============================================================ */
-        .btn {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border-radius: 0.75rem;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.15s ease-in-out;
-            cursor: pointer;
-            outline: none;
-            border: none;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            line-height: 1;
-        }
-
-        .btn-primary {
-            background: linear-gradient(to right, #2ecc71, #1a2a6c);
-            color: white;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-primary:hover {
-            color: white;
-            opacity: 0.9;
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #2ecc71;
-            border: 2px solid #2ecc71;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-secondary:hover {
-            background: #2ecc71;
-            color: white;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Sections */
-        .section { padding: 6rem 0; }
-        .section-sm { padding: 4rem 0; }
-
-        .section-title {
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 2px;
-            background: #2ecc71;
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: var(--color-text-light);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Cards */
-        .card {
-            background-color: white;
-            border-radius: var(--border-radius-md);
-            box-shadow: var(--shadow-md);
-            overflow: hidden;
-            transition: var(--transition);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .card-img-top {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .card-img-top img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .card:hover .card-img-top img {
-            transform: scale(1.05);
-        }
-
-        .card-body {
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            position: relative;
-            padding-bottom: 0.75rem;
-        }
-
-        .card-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: #2ecc71;
-        }
-
-        .card-text {
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-        .card-features {
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.2rem;
-            padding: 0.75rem;
-            background: rgba(46, 204, 113, 0.05);
-            border-radius: 8px;
-            border-left: 3px solid #2ecc71;
-        }
-
-        .feature-icon {
-            color: #2ecc71;
-            margin-right: 0.75rem;
-            margin-top: 0.25rem;
-            flex-shrink: 0;
-        }
-
-        .card-link {
-            display: inline-flex;
-            align-items: center;
-            font-weight: 600;
-            color: #2ecc71;
-            margin-top: auto;
-            padding: 0.75rem 0;
-            font-size: 1.05rem;
-        }
-
-        .card-link i {
-            margin-left: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .card-link:hover i {
-            transform: translateX(3px);
-        }
-
-        /* Resource Cards */
-        .resource-card {
-            background-color: white;
-            border-radius: var(--border-radius-md);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-            border-top: 3px solid #2ecc71;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .resource-icon {
-            font-size: 2.5rem;
-            color: #2ecc71;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            position: relative;
-        }
-
-        .resource-icon::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background-color: rgba(26, 42, 108, 0.1);
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-        }
-
-        .resource-title {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .resource-text {
-            margin-bottom: 2rem;
-            flex-grow: 1;
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        /* Community Section */
         #community.section.community {
             --lt-bg: #fdfbf7;
             --lt-text: #2c3440;
@@ -991,77 +747,293 @@
             }
         }
 
-        /* Grid System */
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin-right: -1rem;
-            margin-left: -1rem;
+
+        /* ============================================================
+           2. MISIÓN Y PROPÓSITO (#discover)
+           ============================================================ */
+        #discover {
+            padding: 5rem 0;
+            background-color: #ffffff;
         }
 
-        .col {
+        .discover-badge {
+            display: inline-block;
+            background: rgba(46, 204, 113, 0.12);
+            color: var(--color-primary-dark);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .discover-card {
+            background: #ffffff;
+            border-radius: var(--border-radius-md);
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #edf2f7;
+            transition: var(--transition);
+        }
+
+        .discover-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+            border-color: rgba(46, 204, 113, 0.4);
+        }
+
+        .discover-card .feature-icon {
+            font-size: 1.75rem;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .discover-img-wrapper {
             position: relative;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 100%;
+            min-height: 380px;
+        }
+
+        .discover-img-wrapper img {
             width: 100%;
-            padding-right: 1rem;
-            padding-left: 1rem;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        @media (min-width: 576px) {
-            .col-sm-6 { flex: 0 0 50%; max-width: 50%; }
+        /* ============================================================
+           3. PILARES FUNDAMENTALES (#resources)
+           ============================================================ */
+        #resources {
+            background-color: var(--color-light);
+            padding: 5rem 0;
         }
 
-        @media (min-width: 768px) {
-            .col-md-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
-            .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+        .pillar-card {
+            background: #ffffff;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.04);
         }
 
-        @media (min-width: 992px) {
-            .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
-            .col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
-            .col-lg-6 { flex: 0 0 50%; max-width: 50%; }
-            .col-lg-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+        .pillar-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow-lg);
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .pillar-card .card-img-top {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes slideInBottom {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .pillar-card .card-img-top img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .fade-in { animation: fadeIn 1s ease forwards; }
-        .slide-in { animation: slideInBottom 0.8s ease forwards; }
+        .pillar-card:hover .card-img-top img {
+            transform: scale(1.08);
+        }
 
-        /* Utilities */
-        .text-center { text-align: center; }
-        .mx-auto { margin-left: auto; margin-right: auto; }
-        .mt-auto { margin-top: auto; }
-        .mb-0 { margin-bottom: 0; }
-        .mb-4 { margin-bottom: 1rem; }
-        .mb-8 { margin-bottom: 2rem; }
-        .mt-8 { margin-top: 2rem; }
-        .my-8 { margin-top: 2rem; margin-bottom: 2rem; }
-        .d-flex { display: flex; }
-        .align-items-center { align-items: center; }
-        .justify-content-center { justify-content: center; }
-        .justify-content-between { justify-content: space-between; }
-        .flex-column { flex-direction: column; }
-        .bg-white { background-color: white; }
-        .bg-light { background-color: var(--color-light); }
-        .bg-primary { background-color: var(--color-primary); color: white; }
-        .bg-secondary { background-color: var(--color-secondary); color: white; }
-        .text-primary { color: var(--color-primary); }
-        .text-secondary { color: var(--color-secondary); }
-        .text-white { color: white; }
-        .rounded { border-radius: var(--border-radius-md); }
-        .shadow { box-shadow: var(--shadow-md); }
-        .p-4 { padding: 1rem; }
-        .p-8 { padding: 2rem; }
-        .hidden { display: none; }
+        .pillar-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(13, 26, 69, 0.85);
+            color: #ffffff;
+            backdrop-filter: blur(4px);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .pillar-card .card-body {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .pillar-card .card-title {
+            font-size: 1.35rem;
+            margin-bottom: 1.25rem;
+            color: var(--color-dark);
+        }
+
+        .card-features {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.92rem;
+            color: #4a5568;
+        }
+
+        .feature-item .feature-icon {
+            color: var(--color-primary);
+            font-size: 1rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .card-link {
+            color: var(--color-primary-dark);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .card-link:hover {
+            gap: 0.75rem;
+            color: var(--color-primary);
+        }
+
+        /* ============================================================
+           4. RECURSOS GRATUITOS / LEAD MAGNETS (#free-resources)
+           ============================================================ */
+        #free-resources {
+            background-color: #ffffff;
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .lead-card {
+            background: #ffffff;
+            border-radius: var(--border-radius-md);
+            padding: 2.5rem 1.75rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border-top: 4px solid var(--color-primary);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lead-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .lead-tag {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #2ecc71, #1a2a6c);
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            padding: 0.25rem 0.9rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
+        }
+
+        .lead-icon-box {
+            width: 70px;
+            height: 70px;
+            margin: 0.5rem auto 1.5rem;
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .resource-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--color-dark);
+        }
+
+        .resource-text {
+            font-size: 0.95rem;
+            color: #718096;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        /* ============================================================
+           5. TRANSPARENCIA Y AFILIADOS (#transparency)
+           ============================================================ */
+        #transparency {
+            background-color: #f4f6f8;
+            padding: 4.5rem 0;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .transparency-card {
+            background: #ffffff;
+            border-radius: var(--border-radius-md);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+            border: 1px solid #e9ecef;
+            transition: var(--transition);
+        }
+
+        .transparency-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .transparency-icon {
+            font-size: 2rem;
+            color: var(--color-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* ============================================================
+           6. FOOTER Y ANIMACIONES SCROLL
+           ============================================================ */
+        #site-footer {
+            background-color: #111827;
+            margin-top: 0;
+            width: 100%;
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -1243,11 +1215,63 @@
             </div>
         </div>
     </section>
-
-    <!-- RESOURCES SECTION -->
-    <section id="resources" class="section bg-light">
+    <!-- ============================================================
+         1. DISCOVER / OUR MISSION SECTION
+         ============================================================ -->
+    <section id="discover" class="section">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title reveal-on-scroll">
+                <span class="discover-badge">Faith & Action</span>
+                <h2>Strengthen Your Family for the Future with Faith</h2>
+                <p class="section-subtitle">
+                    In a world full of uncertainty and digital distractions, we feel the deep need to protect our families and pass on solid values. We are not just another survival website.
+                </p>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col col-lg-6 reveal-on-scroll">
+                    <div class="p-2">
+                        <p class="lead-text" style="font-size: 1.1rem; color: var(--color-dark); margin-bottom: 1.5rem;">
+                            We are the only platform that deeply and organically merges <strong>practical preparedness</strong> with <strong>traditional Christian Faith</strong>, focusing on your home as the ultimate sanctuary of resistance.
+                        </p>
+                        
+                        <div class="discover-card">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="fas fa-shield-alt feature-icon"></i>
+                                <div>
+                                    <h3 class="card-title" style="font-size: 1.25rem; margin-bottom: 0.5rem;">Transform Anxiety into Action</h3>
+                                    <p class="mb-0" style="font-size: 0.95rem;">With our practical and spiritual tools, preparation is complete when it encompasses body, mind, and spirit.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="discover-card">
+                            <div class="d-flex align-items-start gap-3">
+                                <i class="fas fa-handshake-angle feature-icon"></i>
+                                <div>
+                                    <h3 class="card-title" style="font-size: 1.25rem; margin-bottom: 0.5rem;">Unshakeable Trust & Absolute Transparency</h3>
+                                    <p class="mb-0" style="font-size: 0.95rem;">In an online world full of noise, we commit to total integrity. Every recommendation is authentic, tested, and aligned with Christian ethics.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col col-lg-6 reveal-on-scroll">
+                    <div class="discover-img-wrapper">
+                        <img src="https://prepperfamily.org/assets/images/home/family-natural-setting.webp" alt="United family in a natural setting, symbolizing preparation and self-sufficiency." loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         2. FUNDAMENTAL PILLARS SECTION (#resources)
+         ============================================================ -->
+    <section id="resources" class="section">
+        <div class="container">
+            <div class="section-title reveal-on-scroll">
                 <h2>Our Fundamental Pillars of Preparedness</h2>
                 <p class="section-subtitle">
                     We have organized our practical wisdom into three major pillars for resilient family life:
@@ -1255,322 +1279,289 @@
             </div>
 
             <div class="row">
-                <div class="col col-md-4">
-                    <div class="card">
+                <!-- Pillar 1 -->
+                <div class="col col-md-4 mb-4 reveal-on-scroll">
+                    <div class="pillar-card">
                         <div class="card-img-top">
-                            <img src="https://prepperfamily.org/assets/images/home/material-support.webp" alt="Material Sustenance: Hands cultivating plants">
+                            <span class="pillar-badge">Pillar I</span>
+                            <img src="https://prepperfamily.org/assets/images/home/material-support.webp" alt="Material Sustenance" loading="lazy">
                         </div>
                         <div class="card-body">
                             <h3 class="card-title">Material Support</h3>
                             <div class="card-features">
                                 <div class="feature-item">
                                     <i class="fas fa-check-circle feature-icon"></i>
-                                    <span>The hidden power of salt: Discover how this essential mineral regulates body electricity and preserves life.</span>
+                                    <span><strong>The power of salt:</strong> Discover how this essential mineral preserves life and health.</span>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check-circle feature-icon"></i>
-                                    <span>Your own Food Production Units: Learn to set up cultivation systems with a family approach to self-sufficiency.</span>
+                                    <span><strong>Food Production:</strong> Set up cultivation systems tailored for family self-sufficiency.</span>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check-circle feature-icon"></i>
-                                    <span>Grow your medicine by geographic region: Proven recipes and uses of the most effective plants in your geographic area.</span>
+                                    <span><strong>Natural Medicine:</strong> Practical uses of effective medicinal plants by region.</span>
                                 </div>
                             </div>
                             <a href="https://prepperfamily.org/en/material-support/" class="card-link">
-                                Learn more <i class="fas fa-arrow-right"></i>
+                                Explore Pillar <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col col-md-4">
-                    <div class="card">
+                <!-- Pillar 2 -->
+                <div class="col col-md-4 mb-4 reveal-on-scroll">
+                    <div class="pillar-card">
                         <div class="card-img-top">
-                            <img src="https://prepperfamily.org/assets/images/home/family-resilience.webp" alt="Family Resilience: Group of people supporting each other">
+                            <span class="pillar-badge">Pillar II</span>
+                            <img src="https://prepperfamily.org/assets/images/home/family-resilience.webp" alt="Family Resilience" loading="lazy">
                         </div>
                         <div class="card-body">
                             <h3 class="card-title">Family Resilience</h3>
                             <div class="card-features">
                                 <div class="feature-item">
                                     <i class="fas fa-check-circle feature-icon"></i>
-                                    <span>Differences that matter: Understand the real foundations of male and female psychology, beyond the myth of gender.</span>
+                                    <span><strong>Complementary Roles:</strong> Understand the real foundations of male and female psychology.</span>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check-circle feature-icon"></i>
-                                    <span>Don't mess with my children: Defend your right to educate without ideological indoctrination at school or in the media.</span>
+                                    <span><strong>Protect Your Children:</strong> Defend education against ideological indoctrination.</span>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check-circle feature-icon"></i>
-                                    <span>Break the spiral of silence: Identify the mechanisms that censor your ideas and learn to resist with firmness and clarity.</span>
+                                    <span><strong>Break the Silence:</strong> Stand firm in your principles with clarity and confidence.</span>
                                 </div>
                             </div>
                             <a href="https://prepperfamily.org/en/family-resilience/" class="card-link">
-                                Learn more <i class="fas fa-arrow-right"></i>
+                                Explore Pillar <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col col-md-4">
-                    <div class="card">
+                <!-- Pillar 3 -->
+                <div class="col col-md-4 mb-4 reveal-on-scroll">
+                    <div class="pillar-card">
                         <div class="card-img-top">
-                            <img src="https://prepperfamily.org/assets/images/home/inner-strength.webp" alt="Inner Strength: Person meditating or in spiritual reflection">
+                            <span class="pillar-badge">Pillar III</span>
+                            <img src="https://prepperfamily.org/assets/images/home/inner-strength.webp" alt="Inner Strength" loading="lazy">
                         </div>
                         <div class="card-body">
                             <h3 class="card-title">Inner Strength</h3>
                             <div class="card-features">
                                 <div class="feature-item">
                                     <i class="fas fa-check-circle feature-icon"></i>
-                                    <span>Sacred Science: Delve into the branches of Theology: what we believe (doctrine), how we live (morality), how we celebrate (liturgy), and how we pray (spirituality).</span>
+                                    <span><strong>Sacred Science:</strong> Deepen your understanding of doctrine, morality, and liturgy.</span>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check-circle feature-icon"></i>
-                                    <span>Where God dwells: From the ancient Ark of the Covenant to the Tabernacle of our days: contemplate how God has chosen to dwell among His people.</span>
+                                    <span><strong>Where God Dwells:</strong> From the Ark of the Covenant to modern tabernacles.</span>
                                 </div>
                                 <div class="feature-item">
                                     <i class="fas fa-check-circle feature-icon"></i>
-                                    <span>Watch the day and hour: Learn to situate yourself in the history of Salvation, interpreting the signs of the times.</span>
+                                    <span><strong>Signs of the Times:</strong> Learn to navigate history with faith and spiritual alertness.</span>
                                 </div>
                             </div>
                             <a href="https://prepperfamily.org/en/inner-strength/" class="card-link">
-                                Learn more <i class="fas fa-arrow-right"></i>
+                                Explore Pillar <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- FOOTER PARTIAL PLACEHOLDER -->
-    <div id="pf-footer"></div>
+        </div>
+    </section>
 
-            <!-- AFFILIATE POLICY / TRANSPARENCY -->
-            <div class="row mt-8">
-                <div class="col col-md-4">
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-eye"></i>
+    <!-- ============================================================
+         3. FREE DOWNLOADABLE GUIDES SECTION (LEAD MAGNETS)
+         ============================================================ -->
+    <section id="free-resources" class="section">
+        <div class="container">
+            <div class="section-title reveal-on-scroll">
+                <h2>Featured Free Resources</h2>
+                <p class="section-subtitle">
+                    Start your family's journey today with these free downloadable guides and workshops!
+                </p>
+            </div>
+
+            <div class="row">
+                <!-- Guide 1 -->
+                <div class="col col-md-4 mb-4 reveal-on-scroll">
+                    <div class="lead-card">
+                        <span class="lead-tag">Free PDF</span>
+                        <div class="lead-icon-box">
+                            <i class="fas fa-leaf"></i>
                         </div>
-                        <h3 class="resource-title">Total Transparency</h3>
+                        <h3 class="resource-title">Natural Healing at Home</h3>
                         <p class="resource-text">
-                            We will always clearly indicate when a link is an affiliate link. You'll see it before each recommendation.
+                            Learn to use herbal medicine with confidence for your family's wellbeing. A guide to transform your home cabinet.
+                        </p>
+                        <a href="https://prepperfamily.org/en/material-support/" class="btn btn-primary mt-auto">Download Free Guide</a>
+                    </div>
+                </div>
+
+                <!-- Guide 2 -->
+                <div class="col col-md-4 mb-4 reveal-on-scroll">
+                    <div class="lead-card">
+                        <span class="lead-tag">Free Workshop</span>
+                        <div class="lead-icon-box">
+                            <i class="fas fa-bread-slice"></i>
+                        </div>
+                        <h3 class="resource-title">Your Best Homemade Bread</h3>
+                        <p class="resource-text">
+                            Master the essential art of baking delicious, nutritious bread at home regardless of the recipe.
+                        </p>
+                        <a href="https://prepperfamily.org/en/family-resilience/" class="btn btn-primary mt-auto">Download Free Guide</a>
+                    </div>
+                </div>
+
+                <!-- Guide 3 -->
+                <div class="col col-md-4 mb-4 reveal-on-scroll">
+                    <div class="lead-card">
+                        <span class="lead-tag">Free Prayer Book</span>
+                        <div class="lead-icon-box">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="resource-title">Prayers for Uncertain Times</h3>
+                        <p class="resource-text">
+                            Fundamental spiritual prayers to strengthen faith, sustain the soul, and maintain family peace during trials.
+                        </p>
+                        <a href="https://prepperfamily.org/en/inner-strength/" class="btn btn-primary mt-auto">Download Free Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         4. TRANSPARENCY & AFFILIATE POLICY
+         ============================================================ -->
+    <section id="transparency" class="section">
+        <div class="container">
+            <div class="section-title reveal-on-scroll">
+                <h2>Our Commitment to Transparency</h2>
+                <p class="section-subtitle">
+                    Trust is the foundation of our community. Here is how we handle product recommendations:
+                </p>
+            </div>
+
+            <div class="row">
+                <div class="col col-md-4 mb-4 reveal-on-scroll">
+                    <div class="transparency-card">
+                        <i class="fas fa-eye transparency-icon"></i>
+                        <h3 class="resource-title" style="font-size: 1.2rem;">Full Disclosure</h3>
+                        <p class="resource-text" style="font-size: 0.95rem;">
+                            We always clearly indicate when a link is an affiliate link before you click on any recommendation.
                         </p>
                     </div>
                 </div>
 
-                <div class="col col-md-4">
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h3 class="resource-title">Genuine Recommendations</h3>
-                        <p class="resource-text">
-                            We only suggest products that we ourselves have tested, believe in, or would personally use for our family.
+                <div class="col col-md-4 mb-4 reveal-on-scroll">
+                    <div class="transparency-card">
+                        <i class="fas fa-award transparency-icon"></i>
+                        <h3 class="resource-title" style="font-size: 1.2rem;">Tested Products Only</h3>
+                        <p class="resource-text" style="font-size: 0.95rem;">
+                            We only suggest items we have tested ourselves or would wholeheartedly trust for our own family.
                         </p>
                     </div>
                 </div>
 
-                <div class="col col-md-4">
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-book-reader"></i>
-                        </div>
-                        <h3 class="resource-title">Added Value</h3>
-                        <p class="resource-text">
-                            Our links are a natural extension of our educational content, making it easier for you to find and acquire exactly what you need for your preparation.
+                <div class="col col-md-4 mb-4 reveal-on-scroll">
+                    <div class="transparency-card">
+                        <i class="fas fa-hand-holding-heart transparency-icon"></i>
+                        <h3 class="resource-title" style="font-size: 1.2rem;">Educational Value</h3>
+                        <p class="resource-text" style="font-size: 0.95rem;">
+                            Our recommendations seamlessly extend our educational guides, helping you find reliable tools efficiently.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <div class="text-center mt-8">
-                <a href="#" class="btn btn-primary">
-                    Understand our affiliate policy
+            <div class="text-center mt-4 reveal-on-scroll">
+                <a href="https://prepperfamily.org/en/affiliate-policy/" class="btn btn-secondary">
+                    Read Our Full Affiliate Policy <i class="fas fa-shield-halved ms-1"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- FREE RESOURCES SECTION -->
-    <section id="free-resources" class="section bg-white">
-        <div class="container">
-            <div class="section-title">
-                <h2>Featured Free Resources</h2>
-                <p class="section-subtitle">
-                    Don't miss these FREE downloadable guides to start your journey today!
-                </p>
-            </div>
-            <div class="row">
-                <div class="col col-md-4">
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <h3 class="resource-title">Natural Healing at Home</h3>
-                        <p class="resource-text">
-                            Learn to use herbal medicine with confidence for your family's wellbeing. A guide that will transform your medicine cabinet!
-                        </p>
-                        <a href="https://prepperfamily.org/en/material-support/" class="btn btn-primary">Download Guide</a>
-                    </div>
-                </div>
+    <!-- ============================================================
+         5. SITE FOOTER (PARTIAL HOLDER)
+         ============================================================ -->
+    <footer id="site-footer">
+        <div id="pf-footer"></div>
+    </footer>
 
-                <div class="col col-md-4">
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-bread-slice"></i>
-                        </div>
-                        <h3 class="resource-title">Free Guide: Your Best Homemade Bread</h3>
-                        <p class="resource-text">
-                            A workshop to learn how to make delicious homemade bread, regardless of the recipe. The essential skill your family will love!
-                        </p>
-                        <a href="https://prepperfamily.org/en/family-resilience/" class="btn btn-primary">Download Guide</a>
-                    </div>
-                </div>
-
-                <div class="col col-md-4">
-                    <div class="resource-card">
-                        <div class="resource-icon">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <h3 class="resource-title">Basic Prayers for Uncertain Times</h3>
-                        <p class="resource-text">
-                            An essential spiritual guide for difficult times. Contains fundamental prayers to strengthen faith, find inner peace, and sustain the soul amid trials. Pray with your family, even when everything else fails!
-                        </p>
-                        <a href="https://prepperfamily.org/en/inner-strength/" class="btn btn-primary">Download Guide</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DISCOVER SECTION -->
-    <section id="discover" class="section bg-white">
-        <div class="container">
-            <div class="section-title">
-                <h2>Discover How to Strengthen Your Family for the Future with Faith</h2>
-                <p class="section-subtitle">
-                    In a world full of uncertainty and digital distractions, we feel the deep need to protect our families and pass on solid values to them. We are not just another "survival" site.
-                </p>
-            </div>
-
-            <div class="row">
-                <div class="col col-lg-6">
-                    <div class="p-4">
-                        <p>
-                            We are the only platform that deeply and organically merges practical preparedness with traditional Faith, focusing on your home as the core of resistance.
-                        </p>
-                        
-                        <div class="card p-8 mb-4 shadow">
-                            <div class="feature-item">
-                                <i class="fas fa-shield-alt feature-icon fa-2x"></i>
-                                <div>
-                                    <h3 class="card-title">Transform anxiety into action</h3>
-                                    <p class="mb-0">With our practical and spiritual tools, preparation is complete when it encompasses body, soul, and spirit.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card p-8 mb-4 shadow">
-                            <div class="feature-item">
-                                <i class="fas fa-handshake-angle feature-icon fa-2x"></i>
-                                <div>
-                                    <h3 class="card-title">Unshakeable Trust and Absolute Transparency</h3>
-                                    <p class="mb-0">In an online world full of distrust, we commit to total transparency. Every product recommendation is authentic and tested, with clear disclosures about our affiliate links. Your trust is our priority.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <p>
-                            Here you will find the tools, knowledge, and spiritual inspiration you need to face challenges with hope and strength. We help you prepare on a physical and spiritual level, transforming anxiety into prudent action and overwhelm into clear purpose.
-                        </p>
-                    </div>
-                </div>
-                <div class="col col-lg-6">
-                    <div class="p-4">
-                        <img src="https://prepperfamily.org/assets/images/home/family-natural-setting.webp" alt="United family in a natural setting, symbolizing preparation and self-sufficiency." class="rounded shadow" style="width:100%; height:auto; object-fit:cover; aspect-ratio: 4/3;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- ============================================================
+         6. SCRIPTS (SMOOTH SCROLL, OBSERVER & PARTIAL LOADERS)
+         ============================================================ -->
     <script>
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetHref = this.getAttribute('href');
-                if (targetHref === '#') return;
-                
-                const targetElement = document.querySelector(targetHref);
-                if (targetElement) {
-                    e.preventDefault();
-                    
-                    const headerHeight = document.querySelector('header') ? document.querySelector('header').offsetHeight : 0;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
+        document.addEventListener('DOMContentLoaded', function () {
+            // Smooth Scroll for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetHref = this.getAttribute('href');
+                    if (targetHref === '#') return;
+
+                    const targetElement = document.querySelector(targetHref);
+                    if (targetElement) {
+                        e.preventDefault();
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
+
+            // Modern Scroll Animations using IntersectionObserver
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.15
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+                revealObserver.observe(el);
+            });
+
+            // Load Partials (Header & Footer)
+            (function loadPartials() {
+                const isGitHub = location.hostname.endsWith("github.io");
+                const base = isGitHub ? "/prepperfamily-site" : "";
+                const isES = location.pathname.includes("/es/");
+                const lang = isES ? "es" : "en";
+
+                function fetchAndInsert(url, targetId) {
+                    fetch(url)
+                        .then(response => {
+                            if (!response.ok) throw new Error("Failed to load: " + url);
+                            return response.text();
+                        })
+                        .then(html => {
+                            const target = document.getElementById(targetId);
+                            if (target) target.innerHTML = html;
+                        })
+                        .catch(error => console.error("Partial Loader Error:", error));
+                }
+
+                fetchAndInsert(`${base}/partials/header-${lang}/`, "pf-header");
+                fetchAndInsert(`${base}/partials/footer-${lang}/`, "pf-footer");
+            })();
         });
-
-        // Activate animations on scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.card, .resource-card, .section-title h2');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementPosition < windowHeight - 100) {
-                    element.classList.add('slide-in');
-                }
-            });
-        };
-
-       
-    window.addEventListener('load', animateOnScroll);
-    window.addEventListener('scroll', animateOnScroll);
-
-(function () {
-    const isGitHub = location.hostname.endsWith("github.io");
-    const base = isGitHub ? "/prepperfamily-site" : "";
-    const isES = location.pathname.includes("/es/");
-    const lang = isES ? "es" : "en";
-
-    function setHTML(id, html) {
-        const el = document.getElementById(id);
-
-        if (el) {
-            el.innerHTML = html;
-        }
-    }
-
-    function loadHTML(url, targetId) {
-        return fetch(url)
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error("Failed to load " + url);
-                }
-
-                return res.text();
-            })
-            .then(html => {
-                setHTML(targetId, html);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }
-
-    // HEADER
-    loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
-
-    // FOOTER
-    loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
-})();
-</script>
-
+    </script>
 </body>
-                    </html>
+</html>
