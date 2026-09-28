@@ -99,6 +99,45 @@
 
 .home-link{ font-weight:700; }
 
+/* --- BOTÓN DE DONACIONES --- */
+.donate-button{
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  background:linear-gradient(135deg,#3a2c0e,#5a4312);
+  color:var(--sh-gold-light);
+  border:1px solid rgba(240,212,147,.35);
+  border-radius:999px;
+  padding:.5rem 1rem;
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.02em;
+  text-decoration:none;
+  white-space:nowrap;
+  flex:0 0 auto;
+  box-shadow:0 4px 14px rgba(58,44,14,.28);
+  transition:transform .25s var(--sh-ease), box-shadow .25s var(--sh-ease), background .25s var(--sh-ease);
+}
+.donate-button svg{
+  width:18px;
+  height:18px;
+  flex:0 0 auto;
+  transition:transform .3s var(--sh-ease);
+}
+
+.donate-button:hover{
+  transform:translateY(-2px);
+  background:linear-gradient(135deg,#4a380f,#6b5016);
+  box-shadow:0 8px 22px rgba(58,44,14,.36);
+  color:#fff3d4;
+}
+.donate-button:hover svg{ transform:rotate(-8deg) scale(1.08); }
+
+.donate-button:focus-visible{
+  outline:none;
+  box-shadow:0 8px 22px rgba(58,44,14,.36), 0 0 0 3px rgba(207,164,53,.45);
+}
+
 .language-switcher{
   display:inline-flex;
   align-items:center;
@@ -116,9 +155,7 @@
   flex:0 0 auto;
   box-shadow:0 4px 14px rgba(138,96,6,.22);
   transition:transform .25s var(--sh-ease), box-shadow .25s var(--sh-ease);
-}
-
-.language-switcher svg{ width:15px; height:15px; flex:0 0 auto; }
+}.language-switcher svg{ width:15px; height:15px; flex:0 0 auto; }
 
 .language-switcher:hover{
   transform:translateY(-2px);
@@ -179,6 +216,9 @@
 
   .language-switcher{ padding:.42rem .85rem; font-size:.76rem; }
 
+  .donate-button{ padding:.42rem .85rem; font-size:.76rem; }
+  .donate-button svg{ width:16px; height:16px; }
+
   .menu-icon{ display:block; }
 
   .nav{
@@ -225,6 +265,19 @@
     cursor:default;
   }
 }
+
+/* En pantallas muy pequeñas, el botón de donar muestra solo el icono */
+@media (max-width:420px){
+  .donate-button{ padding:.45rem; gap:0; }
+  .donate-button .donate-text{
+    position:absolute;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    clip:rect(0 0 0 0);
+    white-space:nowrap;
+  }
+}
 </style>
 
 <div class="header-container">
@@ -236,6 +289,16 @@
   </div>
 
   <div class="header-right">
+
+    <a href="https://ko-fi.com/prepperfamily" class="donate-button" target="_blank" rel="noopener noreferrer" aria-label="Donar a PrepperFamily en Ko-fi (se abre en una nueva pestaña)">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+        <rect x="2.5" y="5" width="19" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M2.5 9.5h19" stroke="currentColor" stroke-width="2.4"/>
+        <rect x="5.5" y="13" width="4" height="3" rx=".7" fill="currentColor"/>
+        <path d="M13 15.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span class="donate-text">Donar</span>
+    </a>
 
     <a href="/" class="language-switcher" aria-label="Switch to English">
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
