@@ -5,7 +5,657 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Prueba</title>
 </head>
+<style>
+.article-ecclesia-visibilis{
+  --ev-ink:#1d2433;
+  --ev-ink-soft:#4a5266;
+  --ev-paper:#fbf8f2;
+  --ev-paper-deep:#f3ede1;
+  --ev-line:#e2d8c6;
+  --ev-gold:#a77b2c;
+  --ev-gold-soft:#efe2c6;
+  --ev-wine:#7a2e2e;
+  --ev-wine-soft:#f6e9e6;
+  --ev-sky:#2f4a6d;
+  --ev-sky-soft:#e8eef5;
+  --ev-serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --ev-sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --ev-measure:40rem;
+  font-family:var(--ev-serif);
+  color:var(--ev-ink);
+  background:var(--ev-paper);
+  line-height:1.72;
+  font-size:clamp(1.02rem,0.97rem + 0.25vw,1.14rem);
+  max-width:56rem;
+  margin:0 auto;
+  border:1px solid var(--ev-line);
+  box-shadow:0 1px 2px rgba(29,36,51,.04),0 18px 48px -24px rgba(29,36,51,.18);
+  overflow:hidden;
+}
+.article-ecclesia-visibilis *,
+.article-ecclesia-visibilis *::before,
+.article-ecclesia-visibilis *::after{box-sizing:border-box}
+.article-ecclesia-visibilis p{margin:0 0 1.05em}
+.article-ecclesia-visibilis a{color:var(--ev-sky);text-underline-offset:3px}
+.article-ecclesia-visibilis a:focus-visible{outline:2px solid var(--ev-gold);outline-offset:3px;border-radius:2px}
+
+/* ── Breadcrumb ── */
+.article-ecclesia-visibilis .ev-trail{
+  font-family:var(--ev-sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ev-ink-soft);padding:1rem clamp(1.2rem,5vw,3.5rem);
+  border-bottom:1px solid var(--ev-line);display:flex;flex-wrap:wrap;gap:.35rem .6rem;margin:0;list-style:none;
+}
+.article-ecclesia-visibilis .ev-trail li+li::before{content:"›";margin-right:.6rem;color:var(--ev-gold)}
+.article-ecclesia-visibilis .ev-trail li:last-child{color:var(--ev-wine);font-weight:600}
+
+/* ── Portada: dos círculos que se cruzan ── */
+.article-ecclesia-visibilis .ev-cover{
+  position:relative;padding:clamp(2.5rem,8vw,5rem) clamp(1.2rem,5vw,3.5rem) clamp(2.2rem,6vw,4rem);
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(167,123,44,.10),transparent 60%),
+    var(--ev-paper);
+  text-align:center;
+}
+.article-ecclesia-visibilis .ev-emblem{
+  width:clamp(7.5rem,24vw,10rem);height:clamp(5rem,16vw,6.6rem);margin:0 auto 1.6rem;position:relative;
+}
+.article-ecclesia-visibilis .ev-emblem span{
+  position:absolute;top:0;width:66%;aspect-ratio:1;border-radius:50%;
+  border:1.5px solid var(--ev-sky);
+  animation:ev-breathe 9s ease-in-out infinite;
+}
+.article-ecclesia-visibilis .ev-emblem span:first-child{left:0;background:rgba(47,74,109,.06)}
+.article-ecclesia-visibilis .ev-emblem span:nth-child(2){right:0;border-color:var(--ev-gold);background:rgba(167,123,44,.07);animation-delay:-4.5s}
+.article-ecclesia-visibilis .ev-emblem em{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-style:normal;
+  font-size:1.35rem;color:var(--ev-wine);
+}
+@keyframes ev-breathe{50%{transform:scale(1.035)}}
+.article-ecclesia-visibilis .ev-series{
+  font-family:var(--ev-sans);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ev-gold);margin:0 0 .9rem;font-weight:600;
+}
+.article-ecclesia-visibilis .ev-cover h1{
+  font-size:clamp(2rem,1.3rem + 4vw,3.6rem);line-height:1.08;font-weight:500;margin:0 auto;max-width:15ch;letter-spacing:-.01em;
+}
+.article-ecclesia-visibilis .ev-cover h1 b{font-weight:500;font-style:italic;color:var(--ev-wine)}
+.article-ecclesia-visibilis .ev-question{
+  max-width:34rem;margin:1.8rem auto 0;color:var(--ev-ink-soft);font-size:1.05em;
+}
+.article-ecclesia-visibilis .ev-hinge{
+  margin:2rem auto 0;max-width:34rem;padding:1.1rem 1.2rem;border-top:1px solid var(--ev-line);border-bottom:1px solid var(--ev-line);
+  font-family:var(--ev-sans);font-size:.84rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--ev-sky);line-height:1.5;
+}
+
+/* ── Cuerpo ── */
+.article-ecclesia-visibilis .ev-body{padding:0 clamp(1.2rem,5vw,3.5rem) clamp(2rem,6vw,3.5rem)}
+.article-ecclesia-visibilis .ev-body>*{max-width:var(--ev-measure);margin-left:auto;margin-right:auto}
+
+/* Índice */
+.article-ecclesia-visibilis .ev-toc{
+  background:var(--ev-paper-deep);border-radius:4px;padding:1.4rem 1.3rem;margin-top:0;margin-bottom:3rem;
+}
+.article-ecclesia-visibilis .ev-toc h2{
+  font-family:var(--ev-sans);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ev-ink-soft);margin:0 0 .8rem;font-weight:700;
+}
+.article-ecclesia-visibilis .ev-toc ol{margin:0;padding:0;list-style:none;counter-reset:ev-toc;columns:1;font-family:var(--ev-sans);font-size:.9rem;line-height:1.45}
+.article-ecclesia-visibilis .ev-toc li{counter-increment:ev-toc;break-inside:avoid;padding:.32rem 0;display:flex;gap:.6rem}
+.article-ecclesia-visibilis .ev-toc li::before{content:counter(ev-toc,decimal-leading-zero);color:var(--ev-gold);font-variant-numeric:tabular-nums;font-weight:600;min-width:1.4rem}
+.article-ecclesia-visibilis .ev-toc li.ev-toc-x::before{content:"—"}
+.article-ecclesia-visibilis .ev-toc a{color:var(--ev-ink);text-decoration:none}
+.article-ecclesia-visibilis .ev-toc a:hover{color:var(--ev-wine);text-decoration:underline}
+
+/* Respuesta corta */
+.article-ecclesia-visibilis .ev-verdict{
+  position:relative;padding:1.8rem 1.4rem 1.4rem;margin-bottom:3.5rem;
+  border:1px solid var(--ev-gold);border-radius:4px;background:#fff;
+}
+.article-ecclesia-visibilis .ev-verdict h2{
+  position:absolute;top:0;left:1.2rem;transform:translateY(-50%);background:var(--ev-paper);padding:0 .6rem;margin:0;
+  font-family:var(--ev-sans);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ev-gold);font-weight:700;
+}
+.article-ecclesia-visibilis .ev-verdict .ev-lead{font-size:1.22em;line-height:1.45;margin-bottom:1rem}
+.article-ecclesia-visibilis .ev-verdict .ev-lead strong{color:var(--ev-wine);font-weight:600}
+.article-ecclesia-visibilis .ev-define{
+  font-size:.94em;padding:.8rem 1rem;background:var(--ev-sky-soft);border-left:3px solid var(--ev-sky);border-radius:0 3px 3px 0;
+}
+.article-ecclesia-visibilis .ev-pair{display:grid;gap:.9rem;margin:1.2rem 0}
+.article-ecclesia-visibilis .ev-pair div{padding:1rem;border-radius:3px;font-size:.95em}
+.article-ecclesia-visibilis .ev-pair div:first-child{background:var(--ev-gold-soft)}
+.article-ecclesia-visibilis .ev-pair div:last-child{background:var(--ev-sky-soft)}
+.article-ecclesia-visibilis .ev-pair h3{font-family:var(--ev-sans);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin:0 0 .4rem}
+.article-ecclesia-visibilis .ev-pair p{margin:0}
+
+/* Secciones numeradas */
+.article-ecclesia-visibilis .ev-sec{margin-bottom:3.6rem;scroll-margin-top:1.5rem}
+.article-ecclesia-visibilis .ev-sec-head{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:baseline;margin-bottom:1.3rem;padding-bottom:.9rem;border-bottom:1px solid var(--ev-line)}
+.article-ecclesia-visibilis .ev-num{
+  font-size:clamp(2.2rem,1.6rem + 2.6vw,3.2rem);line-height:1;color:var(--ev-gold);font-variant-numeric:oldstyle-nums;font-style:italic;
+}
+.article-ecclesia-visibilis .ev-sec h2{font-size:clamp(1.35rem,1.1rem + 1.1vw,1.8rem);line-height:1.2;font-weight:500;margin:0}
+
+/* Escritura */
+.article-ecclesia-visibilis .ev-scripture{
+  margin:1.6rem 0;padding:1.4rem 1.3rem 1.2rem 1.5rem;background:#fff;border-radius:3px;position:relative;
+  border:1px solid var(--ev-line);box-shadow:0 10px 24px -20px rgba(29,36,51,.35);
+}
+.article-ecclesia-visibilis .ev-scripture::before{
+  content:"";position:absolute;left:0;top:.9rem;bottom:.9rem;width:3px;background:var(--ev-wine);border-radius:0 2px 2px 0;
+}
+.article-ecclesia-visibilis .ev-scripture blockquote{margin:0;font-style:italic;color:#2a3142}
+.article-ecclesia-visibilis .ev-scripture blockquote p{margin:0 0 .7em}
+.article-ecclesia-visibilis .ev-scripture blockquote p:last-child{margin:0}
+.article-ecclesia-visibilis .ev-scripture figcaption{
+  margin-top:.9rem;font-family:var(--ev-sans);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ev-wine);font-weight:600;
+}
+.article-ecclesia-visibilis .ev-scripture figcaption::before{content:"📖 "}
+.article-ecclesia-visibilis mark{background:linear-gradient(transparent 58%,var(--ev-gold-soft) 58%);color:inherit;font-style:normal;font-weight:600;padding:0 .1em}
+
+/* Frase pivote */
+.article-ecclesia-visibilis .ev-pivot{
+  font-size:1.3em;line-height:1.35;text-align:center;margin:1.8rem auto;padding:0 .5rem;color:var(--ev-wine);
+}
+.article-ecclesia-visibilis .ev-pivot small{display:block;font-size:.62em;color:var(--ev-ink-soft);font-family:var(--ev-sans);letter-spacing:.08em;margin-bottom:.4rem}
+
+/* Lista de iglesias locales: mapa de puntos */
+.article-ecclesia-visibilis .ev-places{list-style:none;padding:0;margin:1.2rem 0 1.4rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.article-ecclesia-visibilis .ev-places li{
+  font-family:var(--ev-sans);font-size:.86rem;padding:.4rem .8rem .4rem .7rem;border:1px solid var(--ev-line);border-radius:2rem;background:#fff;
+}
+.article-ecclesia-visibilis .ev-places li::before{content:"◉";color:var(--ev-sky);margin-right:.4rem;font-size:.75em}
+
+/* Secuencia Mt 18 */
+.article-ecclesia-visibilis .ev-steps{list-style:none;padding:0;margin:1.4rem 0;counter-reset:ev-step;display:grid;gap:.6rem}
+.article-ecclesia-visibilis .ev-steps li{
+  counter-increment:ev-step;display:grid;grid-template-columns:2.2rem 1fr;gap:.8rem;align-items:center;
+  padding:.75rem 1rem;background:var(--ev-paper-deep);border-radius:3px;font-family:var(--ev-sans);font-size:.92rem;line-height:1.4;
+}
+.article-ecclesia-visibilis .ev-steps li::before{
+  content:counter(ev-step);width:2.2rem;height:2.2rem;border-radius:50%;display:grid;place-items:center;
+  background:#fff;border:1.5px solid var(--ev-sky);color:var(--ev-sky);font-weight:700;
+}
+.article-ecclesia-visibilis .ev-steps li:last-child{background:var(--ev-sky);color:#fff}
+.article-ecclesia-visibilis .ev-steps li:last-child::before{background:var(--ev-gold);border-color:var(--ev-gold);color:#fff}
+
+/* Rasgos */
+.article-ecclesia-visibilis .ev-traits{list-style:none;padding:0;margin:1.2rem 0;display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem}
+.article-ecclesia-visibilis .ev-traits li{
+  font-family:var(--ev-sans);font-size:.86rem;text-align:center;padding:.8rem .5rem;border:1px dashed var(--ev-gold);border-radius:3px;background:#fff;line-height:1.3;
+}
+
+/* Libro de evidencias: prueba / no prueba */
+.article-ecclesia-visibilis .ev-ledger{margin:1.6rem 0 0;display:grid;gap:0;border:1px solid var(--ev-line);border-radius:4px;overflow:hidden;font-size:.95em}
+.article-ecclesia-visibilis .ev-ledger>div{padding:1rem 1.1rem}
+.article-ecclesia-visibilis .ev-ledger dt{
+  font-family:var(--ev-sans);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:.35rem;display:flex;align-items:center;gap:.45rem;
+}
+.article-ecclesia-visibilis .ev-ledger dd{margin:0;line-height:1.55}
+.article-ecclesia-visibilis .ev-yes{background:#fff}
+.article-ecclesia-visibilis .ev-yes dt{color:var(--ev-sky)}
+.article-ecclesia-visibilis .ev-yes dt::before{content:"✓";display:grid;place-items:center;width:1.25rem;height:1.25rem;border-radius:50%;background:var(--ev-sky);color:#fff;font-size:.72rem}
+.article-ecclesia-visibilis .ev-no{background:var(--ev-paper-deep);border-top:1px solid var(--ev-line)}
+.article-ecclesia-visibilis .ev-no dt{color:var(--ev-wine)}
+.article-ecclesia-visibilis .ev-no dt::before{content:"—";display:grid;place-items:center;width:1.25rem;height:1.25rem;border-radius:50%;border:1.5px solid var(--ev-wine);font-size:.72rem}
+
+/* Nota de matiz */
+.article-ecclesia-visibilis .ev-nuance{
+  font-size:.93em;color:var(--ev-ink-soft);padding:.9rem 1.1rem;border:1px solid var(--ev-line);border-radius:3px;background:var(--ev-paper);
+}
+.article-ecclesia-visibilis .ev-nuance strong{font-family:var(--ev-sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ev-gold);display:block;margin-bottom:.25rem}
+
+/* Texto / inferencia */
+.article-ecclesia-visibilis .ev-reason{display:grid;gap:.7rem;margin:1.4rem 0}
+.article-ecclesia-visibilis .ev-reason p{margin:0;padding:1rem 1.1rem;border-radius:3px}
+.article-ecclesia-visibilis .ev-reason p:first-child{background:#fff;border:1px solid var(--ev-line)}
+.article-ecclesia-visibilis .ev-reason p:last-child{background:var(--ev-sky-soft)}
+.article-ecclesia-visibilis .ev-reason b{font-family:var(--ev-sans);font-size:.72rem;letter-spacing:.16em;color:var(--ev-sky);display:block;margin-bottom:.2rem}
+
+/* Ambas */
+.article-ecclesia-visibilis .ev-both{
+  text-align:center;margin:1.6rem 0;
+}
+.article-ecclesia-visibilis .ev-both s{color:var(--ev-ink-soft);text-decoration-color:var(--ev-wine)}
+.article-ecclesia-visibilis .ev-both strong{
+  display:inline-block;margin-top:.6rem;font-family:var(--ev-sans);letter-spacing:.3em;font-size:1.1rem;padding:.5rem 1.2rem;border:1.5px solid var(--ev-gold);color:var(--ev-wine);
+}
+.article-ecclesia-visibilis .ev-formula{
+  margin:1.8rem 0 0;padding:1.4rem 1.3rem;text-align:center;font-size:1.1em;line-height:1.55;
+  border-top:2px solid var(--ev-gold);border-bottom:2px solid var(--ev-gold);
+}
+
+/* Objeciones */
+.article-ecclesia-visibilis .ev-objection{margin:0 0 1.2rem;border-radius:4px;overflow:hidden;border:1px solid var(--ev-line);background:#fff}
+.article-ecclesia-visibilis .ev-objection h3{
+  margin:0;padding:1rem 1.1rem;background:var(--ev-wine-soft);font-size:1.02em;font-weight:500;font-style:italic;line-height:1.4;color:var(--ev-wine);
+}
+.article-ecclesia-visibilis .ev-objection h3 span{
+  display:block;font-style:normal;font-family:var(--ev-sans);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:.3rem;color:var(--ev-ink-soft);
+}
+.article-ecclesia-visibilis .ev-objection .ev-reply{padding:1rem 1.1rem .2rem;font-size:.97em}
+.article-ecclesia-visibilis .ev-objection .ev-reply::before{
+  content:"Respuesta";display:block;font-family:var(--ev-sans);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--ev-sky);margin-bottom:.4rem;
+}
+.article-ecclesia-visibilis .ev-objection.ev-serious{border-color:var(--ev-gold)}
+.article-ecclesia-visibilis .ev-objection.ev-serious h3{background:var(--ev-gold-soft);color:#5c4318}
+
+/* Inventario de conclusiones */
+.article-ecclesia-visibilis .ev-inventory{list-style:none;padding:0;margin:1.2rem 0;border-top:1px solid var(--ev-line)}
+.article-ecclesia-visibilis .ev-inventory li{padding:.55rem 0 .55rem 1.9rem;border-bottom:1px solid var(--ev-line);position:relative;line-height:1.45}
+.article-ecclesia-visibilis .ev-inventory li::before{content:"✓";position:absolute;left:.2rem;color:var(--ev-gold);font-weight:700;font-family:var(--ev-sans)}
+.article-ecclesia-visibilis .ev-field{
+  font-size:1.12em;text-align:center;margin-top:1.4rem;
+}
+.article-ecclesia-visibilis .ev-field em{color:var(--ev-wine)}
+
+/* Conclusión */
+.article-ecclesia-visibilis .ev-finale{
+  max-width:none;margin:0 calc(-1 * clamp(1.2rem,5vw,3.5rem));padding:clamp(2.5rem,7vw,4rem) clamp(1.2rem,5vw,3.5rem);
+  background:var(--ev-ink);color:#eef0f4;
+}
+.article-ecclesia-visibilis .ev-finale>*{max-width:var(--ev-measure);margin-left:auto;margin-right:auto}
+.article-ecclesia-visibilis .ev-finale .ev-series{color:#d9b56f;text-align:center}
+.article-ecclesia-visibilis .ev-finale h2{font-weight:500;font-size:clamp(1.7rem,1.3rem + 2vw,2.5rem);text-align:center;margin:0 auto 1.6rem;line-height:1.15}
+.article-ecclesia-visibilis .ev-cascade{list-style:none;padding:0;margin:1.6rem auto;text-align:center;font-size:1.15em;line-height:1.4}
+.article-ecclesia-visibilis .ev-cascade li{padding:.32rem 0;opacity:.92}
+.article-ecclesia-visibilis .ev-cascade li:nth-child(odd){color:#fff}
+.article-ecclesia-visibilis .ev-cascade li:nth-child(even){color:#c9d2e0}
+.article-ecclesia-visibilis .ev-cascade li.ev-turn{margin-top:1rem;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.18);font-style:italic;color:#e9cf98}
+.article-ecclesia-visibilis .ev-seal{
+  text-align:center;margin:2rem auto;
+}
+.article-ecclesia-visibilis .ev-seal small{display:block;font-family:var(--ev-sans);font-size:.78rem;color:#b6bfcf;letter-spacing:.06em;margin-bottom:.8rem}
+.article-ecclesia-visibilis .ev-seal strong{
+  display:inline-block;font-family:var(--ev-sans);letter-spacing:.24em;font-size:clamp(.95rem,.8rem + .8vw,1.25rem);padding:.85rem 1.3rem;border:1.5px solid #d9b56f;color:#f3e4c4;
+}
+.article-ecclesia-visibilis .ev-next{
+  margin-top:2.2rem;padding:1.4rem 1.2rem;border:1px solid rgba(255,255,255,.2);border-radius:4px;text-align:center;
+}
+.article-ecclesia-visibilis .ev-next p{margin:0 0 .6rem;color:#c9d2e0;font-size:.95em}
+.article-ecclesia-visibilis .ev-next h3{margin:0;font-weight:500;font-size:clamp(1.15rem,1rem + .8vw,1.45rem);line-height:1.3;color:#fff}
+
+/* Fuentes */
+.article-ecclesia-visibilis .ev-sources{padding:2rem clamp(1.2rem,5vw,3.5rem) 2.4rem;background:var(--ev-paper-deep);border-top:1px solid var(--ev-line)}
+.article-ecclesia-visibilis .ev-sources>*{max-width:var(--ev-measure);margin-left:auto;margin-right:auto}
+.article-ecclesia-visibilis .ev-sources h2{font-family:var(--ev-sans);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ev-ink-soft);margin:0 0 .9rem}
+.article-ecclesia-visibilis .ev-refs{list-style:none;padding:0;margin:0 auto;display:flex;flex-wrap:wrap;gap:.45rem}
+.article-ecclesia-visibilis .ev-refs li{font-family:var(--ev-sans);font-size:.82rem;padding:.3rem .65rem;background:#fff;border:1px solid var(--ev-line);border-radius:2px}
+.article-ecclesia-visibilis .ev-keep{margin-top:1.6rem;font-family:var(--ev-sans);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ev-wine)}
+.article-ecclesia-visibilis .ev-keep::after{content:" →"}
+
+/* ── Pantallas medianas ── */
+@media (min-width:40em){
+  .article-ecclesia-visibilis .ev-toc{padding:1.6rem 1.8rem}
+  .article-ecclesia-visibilis .ev-toc ol{columns:2;column-gap:2rem}
+  .article-ecclesia-visibilis .ev-pair{grid-template-columns:1fr 1fr}
+  .article-ecclesia-visibilis .ev-ledger{grid-template-columns:1fr 1fr}
+  .article-ecclesia-visibilis .ev-no{border-top:0;border-left:1px solid var(--ev-line)}
+  .article-ecclesia-visibilis .ev-traits{grid-template-columns:repeat(4,1fr)}
+  .article-ecclesia-visibilis .ev-traits li:first-child{grid-column:span 2}
+  .article-ecclesia-visibilis .ev-reason{grid-template-columns:1fr 1fr}
+  .article-ecclesia-visibilis .ev-scripture{padding:1.7rem 1.8rem 1.4rem 2rem}
+  .article-ecclesia-visibilis .ev-inventory{columns:2;column-gap:2rem;border-top:0}
+  .article-ecclesia-visibilis .ev-inventory li{break-inside:avoid}
+}
+@media (min-width:60em){
+  .article-ecclesia-visibilis .ev-sec-head{grid-template-columns:4.5rem 1fr;margin-left:-5.4rem;max-width:calc(var(--ev-measure) + 5.4rem)}
+  .article-ecclesia-visibilis .ev-num{text-align:right}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .article-ecclesia-visibilis *{animation:none!important;transition:none!important}
+}
+@media print{
+  .article-ecclesia-visibilis{box-shadow:none}
+  .article-ecclesia-visibilis .ev-finale{background:#fff;color:var(--ev-ink)}
+}
+</style>
 <body>
-  <h1>¡La página ya está visible!</h1>
+
+<article class="article-ecclesia-visibilis" aria-labelledby="ev-title">
+
+  <nav aria-label="Ruta de navegación">
+    <ol class="ev-trail">
+      <li>Aprende</li>
+      <li>Fe</li>
+      <li>Catolicismo</li>
+      <li>La Iglesia</li>
+    </ol>
+  </nav>
+
+  <header class="ev-cover">
+    <div class="ev-emblem" aria-hidden="true"><span></span><span></span><em>✝</em></div>
+    <p class="ev-series">Knowledge Guide 01 · Cluster La Iglesia</p>
+    <h1 id="ev-title">¿Jesucristo fundó una Iglesia <b>visible</b>?</h1>
+    <p class="ev-question">Cuando Jesús predicó el Evangelio, ¿dejó únicamente creyentes individuales unidos espiritualmente a Él, o fundó también una comunidad visible, capaz de enseñar, bautizar, disciplinar, organizarse y continuar su misión?</p>
+    <p class="ev-question" style="margin-top:1rem;font-size:.95em">La respuesta importa porque muchas discusiones posteriores —autoridad, sucesión apostólica, papado, sacramentos, concilios— dependen primero de una cuestión más básica:</p>
+    <p class="ev-hinge">¿Qué tipo de Iglesia aparece realmente en el Nuevo Testamento?</p>
+  </header>
+
+  <div class="ev-body">
+
+    <nav class="ev-toc" aria-labelledby="ev-toc-title">
+      <h2 id="ev-toc-title">En esta guía</h2>
+      <ol>
+        <li><a href="#ev-1">¿Qué significa “Iglesia”?</a></li>
+        <li><a href="#ev-2">Jesús dice: “Edificaré mi iglesia”</a></li>
+        <li><a href="#ev-3">Mateo 18 y la Iglesia puramente invisible</a></li>
+        <li><a href="#ev-4">Después de Pentecostés</a></li>
+        <li><a href="#ev-5">Ministros y pastores</a></li>
+        <li><a href="#ev-6">La Iglesia y la verdad</a></li>
+        <li><a href="#ev-7">¿Visible o espiritual?</a></li>
+        <li><a href="#ev-8">¿Una Iglesia o muchas?</a></li>
+        <li><a href="#ev-9">Permanencia y asistencia</a></li>
+        <li><a href="#ev-10">Objeciones importantes</a></li>
+        <li><a href="#ev-11">Qué podemos concluir</a></li>
+        <li class="ev-toc-x"><a href="#ev-fin">Conclusión: la primera huella</a></li>
+      </ol>
+    </nav>
+
+    <section class="ev-verdict" aria-labelledby="ev-short">
+      <h2 id="ev-short">Respuesta corta</h2>
+      <p class="ev-lead">El Nuevo Testamento presenta una Iglesia que es al mismo tiempo <strong>espiritual y visible</strong>.</p>
+      <p class="ev-define">En esta guía, <em>visible</em> significa históricamente reconocible en comunidades concretas, con pertenencia, ministros, enseñanza, culto y misión.</p>
+      <div class="ev-pair">
+        <div>
+          <h3>🕊️ Es espiritual</h3>
+          <p>Porque es llamada Cuerpo de Cristo, casa de Dios y pueblo unido al Señor.</p>
+        </div>
+        <div>
+          <h3>🌿 Es visible</h3>
+          <p>Porque tiene comunidades concretas, miembros identificables, ministros, disciplina, doctrina, bautismo, partimiento del pan, decisiones comunes y una misión pública.</p>
+        </div>
+      </div>
+      <p>Jesús habla de “mi iglesia”; en Mateo 18 manda llevar determinados conflictos “a la iglesia”; después de Pentecostés, Hechos muestra iglesias localizables en Jerusalén, Antioquía y otros lugares; Pablo habla de ministros establecidos para apacentar la Iglesia y llama a la Iglesia del Dios vivo “columna y baluarte de la verdad”.</p>
+      <p style="margin:0">Por tanto, reducir la Iglesia fundada por Cristo a una realidad completamente invisible no explica adecuadamente el conjunto de los datos bíblicos.</p>
+    </section>
+
+    <!-- 1 -->
+    <section class="ev-sec" id="ev-1" aria-labelledby="ev-1-t">
+      <div class="ev-sec-head"><span class="ev-num" aria-hidden="true">1</span><h2 id="ev-1-t">¿Qué significa “Iglesia”?</h2></div>
+      <p>La palabra griega del Nuevo Testamento es <em lang="el">ekklesía</em>, término usado para una asamblea o comunidad convocada. En el cristianismo puede referirse a una iglesia local y también a la Iglesia en sentido universal.</p>
+      <p>Esto evita dos errores:</p>
+      <p><strong>Iglesia no significa simplemente un edificio.</strong> Los primeros cristianos podían reunirse en casas y seguir siendo Iglesia.</p>
+      <p><strong>Pero tampoco significa una realidad puramente interior o invisible.</strong> El Nuevo Testamento habla de comunidades concretas:</p>
+      <ul class="ev-places">
+        <li>Iglesia de Jerusalén</li>
+        <li>Iglesia de Antioquía</li>
+        <li>Iglesia de Corinto</li>
+        <li>Iglesias de Galacia</li>
+        <li>Las siete iglesias del Apocalipsis</li>
+      </ul>
+      <p>Son comunidades que pueden ser identificadas, reunidas, corregidas, perseguidas y gobernadas.</p>
+      <dl class="ev-ledger">
+        <div class="ev-yes"><dt>Qué prueba</dt><dd>La Iglesia bíblica posee una dimensión social e histórica real.</dd></div>
+        <div class="ev-no"><dt>Qué no prueba</dt><dd>La palabra <em lang="el">ekklesía</em>, por sí sola, no demuestra todavía toda la estructura católica posterior.</dd></div>
+      </dl>
+    </section>
+
+    <!-- 2 -->
+    <section class="ev-sec" id="ev-2" aria-labelledby="ev-2-t">
+      <div class="ev-sec-head"><span class="ev-num" aria-hidden="true">2</span><h2 id="ev-2-t">Jesús dice: “Edificaré mi iglesia”</h2></div>
+      <figure class="ev-scripture">
+        <blockquote>
+          <p>“Y yo también te digo, que tú eres Pedro, y sobre esta roca edificaré <mark>mi iglesia</mark>; y las puertas del Hades no prevalecerán contra ella.</p>
+          <p>Y a ti te daré las llaves del reino de los cielos; y todo lo que atares en la tierra será atado en los cielos; y todo lo que desatares en la tierra será desatado en los cielos.”</p>
+        </blockquote>
+        <figcaption>Mateo 16:18–19 · RVR1960</figcaption>
+      </figure>
+      <p>El primer dato es sencillo pero decisivo: Jesús habla de una Iglesia que Él mismo edificará.</p>
+      <p>No dice “una idea”, “un movimiento informal” o “una colección invisible de creyentes”.</p>
+      <p class="ev-pivot"><small>Dice:</small>“mi iglesia”.</p>
+      <p>Además, la Iglesia aparece en el mismo contexto que autoridad, llaves y atar/desatar.</p>
+      <dl class="ev-ledger">
+        <div class="ev-yes"><dt>Qué prueba</dt><dd>Cristo se presenta como fundador de una Iglesia que le pertenece.</dd></div>
+        <div class="ev-no"><dt>Qué no prueba por sí solo</dt><dd>Mateo 16 todavía no demuestra toda la doctrina del papado ni la estructura eclesial completa de siglos posteriores.</dd></div>
+      </dl>
+    </section>
+
+    <!-- 3 -->
+    <section class="ev-sec" id="ev-3" aria-labelledby="ev-3-t">
+      <div class="ev-sec-head"><span class="ev-num" aria-hidden="true">3</span><h2 id="ev-3-t">Mateo 18 hace muy difícil una Iglesia puramente invisible</h2></div>
+      <figure class="ev-scripture">
+        <blockquote>
+          <p>“Por tanto, si tu hermano peca contra ti, ve y repréndele estando tú y él solos; si te oyere, has ganado a tu hermano.</p>
+          <p>Mas si no te oyere, toma aún contigo a uno o dos, para que en boca de dos o tres testigos conste toda palabra.</p>
+          <p>Si no los oyere a ellos, <mark>dilo a la iglesia</mark>; y si no oyere a la iglesia, tenle por gentil y publicano.</p>
+          <p>De cierto os digo que todo lo que atéis en la tierra, será atado en el cielo; y todo lo que desatéis en la tierra, será desatado en el cielo.”</p>
+        </blockquote>
+        <figcaption>Mateo 18:15–18 · RVR1960</figcaption>
+      </figure>
+      <p>Este pasaje es uno de los textos más importantes para la cuestión de la visibilidad. Jesús describe una secuencia disciplinaria:</p>
+      <ol class="ev-steps">
+        <li>Corrección privada</li>
+        <li>Con uno o dos testigos</li>
+        <li>“Dilo a la iglesia”</li>
+      </ol>
+      <p>La Iglesia puede recibir un caso, escuchar, y su decisión tiene una consecuencia real.</p>
+      <p class="ev-pivot">Una realidad completamente invisible no puede ser convocada para resolver una controversia concreta.</p>
+      <dl class="ev-ledger">
+        <div class="ev-yes"><dt>Qué prueba</dt><dd>La Iglesia prevista por Cristo posee una dimensión visible, comunitaria y disciplinaria.</dd></div>
+        <div class="ev-no"><dt>Punto en disputa</dt><dd>El pasaje no define por sí solo toda la estructura de autoridad universal de la Iglesia. Sí demuestra que la Iglesia es más que una realidad espiritual invisible.</dd></div>
+      </dl>
+    </section>
+
+    <!-- 4 -->
+    <section class="ev-sec" id="ev-4" aria-labelledby="ev-4-t">
+      <div class="ev-sec-head"><span class="ev-num" aria-hidden="true">4</span><h2 id="ev-4-t">Después de Pentecostés, la Iglesia es perfectamente reconocible</h2></div>
+      <p>La teoría debe compararse con lo que ocurre en Hechos.</p>
+      <figure class="ev-scripture">
+        <blockquote>
+          <p>“Así que, los que recibieron su palabra fueron bautizados; y se añadieron aquel día como tres mil personas.</p>
+          <p>Y perseveraban en la doctrina de los apóstoles, en la comunión unos con otros, en el partimiento del pan y en las oraciones.”</p>
+        </blockquote>
+        <figcaption>Hechos 2:41–42 · RVR1960</figcaption>
+      </figure>
+      <p>Aquí encontramos una comunidad con rasgos visibles:</p>
+      <ul class="ev-traits">
+        <li>Personas que son añadidas</li>
+        <li>Doctrina apostólica</li>
+        <li>Comunión</li>
+        <li>Partimiento del pan</li>
+        <li>Oración</li>
+      </ul>
+      <p>Hechos 2:47 refuerza este punto al describir la incorporación diaria de nuevos creyentes a la Iglesia.</p>
+      <figure class="ev-scripture">
+        <blockquote><p>“En aquel día hubo una gran persecución contra <mark>la iglesia que estaba en Jerusalén</mark>…”</p></blockquote>
+        <figcaption>Hechos 8:1 · RVR1960</figcaption>
+      </figure>
+      <p>Existe una Iglesia que estaba en Jerusalén. Eso es geográfico, histórico y reconocible.</p>
+    </section>
+
+    <!-- 5 -->
+    <section class="ev-sec" id="ev-5" aria-labelledby="ev-5-t">
+      <div class="ev-sec-head"><span class="ev-num" aria-hidden="true">5</span><h2 id="ev-5-t">La Iglesia tiene ministros y pastores</h2></div>
+      <figure class="ev-scripture">
+        <blockquote><p>“Y <mark>constituyeron ancianos en cada iglesia</mark>, y habiendo orado con ayunos, los encomendaron al Señor en quien habían creído.”</p></blockquote>
+        <figcaption>Hechos 14:23 · RVR1960</figcaption>
+      </figure>
+      <p>Pablo y Bernabé no dejan simplemente grupos espontáneos de creyentes: constituyen ancianos en cada iglesia.</p>
+      <figure class="ev-scripture">
+        <blockquote><p>“Por tanto, mirad por vosotros, y por todo el rebaño en que el Espíritu Santo os ha puesto por obispos, para <mark>apacentar la iglesia del Señor</mark>, la cual él ganó por su propia sangre.”</p></blockquote>
+        <figcaption>Hechos 20:28 · RVR1960</figcaption>
+      </figure>
+      <p>Aquí aparecen: <strong>rebaño · supervisores/obispos · pastoreo · Iglesia.</strong></p>
+      <p class="ev-nuance"><strong>Matiz necesario</strong>La terminología ministerial todavía se desarrollará en la Iglesia antigua. No debemos proyectar sin matices toda la organización posterior sobre cada texto apostólico.</p>
+      <p class="ev-pivot"><small>Pero el dato fundamental permanece:</small>la Iglesia del Nuevo Testamento no carece de ministros ni de gobierno.</p>
+    </section>
+
+    <!-- 6 -->
+    <section class="ev-sec" id="ev-6" aria-labelledby="ev-6-t">
+      <div class="ev-sec-head"><span class="ev-num" aria-hidden="true">6</span><h2 id="ev-6-t">La Iglesia enseña y está relacionada con la verdad</h2></div>
+      <figure class="ev-scripture">
+        <blockquote><p>“Para que si tardo, sepas cómo debes conducirte en la casa de Dios, que es la iglesia del Dios viviente, <mark>columna y baluarte de la verdad</mark>.”</p></blockquote>
+        <figcaption>1 Timoteo 3:15 · RVR1960</figcaption>
+      </figure>
+      <p>Este texto no significa automáticamente que cada dirigente cristiano sea infalible. Tampoco significa que la Iglesia sea la fuente de la verdad en lugar de Dios.</p>
+      <p class="ev-pivot"><small>Pero sí significa algo muy fuerte:</small>Pablo atribuye a la Iglesia una función institucional respecto de la verdad.</p>
+      <dl class="ev-ledger">
+        <div class="ev-yes"><dt>Qué prueba</dt><dd>La Iglesia no aparece como un accesorio opcional para cristianos que en realidad podrían vivir la fe de manera totalmente independiente.</dd></div>
+        <div class="ev-no"><dt>Qué no prueba</dt><dd>1 Timoteo 3:15, aislado, no define toda la doctrina posterior de infalibilidad.</dd></div>
+              </dl>
+    </section>
+
+    <!-- 7 -->
+    <section class="ev-sec" id="ev-7" aria-labelledby="ev-7-t">
+      <div class="ev-sec-head"><span class="ev-num" aria-hidden="true">7</span><h2 id="ev-7-t">¿Iglesia visible o Iglesia espiritual?</h2></div>
+      <div class="ev-both">
+        <p style="margin:0">La respuesta bíblica no parece ser <s>una u otra</s>.</p>
+        <p style="margin:0">Es:</p>
+        <strong>LAS DOS</strong>
+      </div>
+      <figure class="ev-scripture">
+        <blockquote>
+          <p>“Y sometió todas las cosas bajo sus pies, y lo dio por cabeza sobre todas las cosas a la iglesia,</p>
+          <p>la cual es <mark>su cuerpo</mark>, la plenitud de Aquel que todo lo llena en todo.”</p>
+        </blockquote>
+        <figcaption>Efesios 1:22–23 · RVR1960</figcaption>
+      </figure>
+      <p>La Iglesia tiene una realidad sobrenatural porque está unida a Cristo. Pero esa misma Iglesia aparece en Mateo y Hechos como una comunidad que actúa visiblemente.</p>
+      <p>Por eso, una formulación equilibrada sería:</p>
+      <p class="ev-formula">La Iglesia de Cristo es espiritual sin ser invisible en el sentido de carecer de expresión histórica; y es visible sin reducirse a una institución meramente humana.</p>
+    </section>
+
+    <!-- 8 -->
+    <section class="ev-sec" id="ev-8" aria-labelledby="ev-8-t">
+      <div class="ev-sec-head"><span class="ev-num" aria-hidden="true">8</span><h2 id="ev-8-t">¿Una Iglesia o muchas?</h2></div>
+      <figure class="ev-scripture">
+        <blockquote>
+          <p>“<mark>un cuerpo</mark>, y un Espíritu, como fuisteis también llamados en una misma esperanza de vuestra vocación;</p>
+          <p>un Señor, una fe, un bautismo”</p>
+        </blockquote>
+        <figcaption>Efesios 4:4–5 · RVR1960</figcaption>
+      </figure>
+      <p class="ev-pivot">La diversidad geográfica no destruye la unidad.</p>
+      <p>Jerusalén y Antioquía pueden ser comunidades distintas y seguir perteneciendo a una misma realidad cristiana.</p>
+      <p class="ev-nuance"><strong>Próxima guía</strong>La siguiente guía desarrollará precisamente qué características permiten reconocer esa unidad.</p>
+    </section>
+
+    <!-- 9 -->
+    <section class="ev-sec" id="ev-9" aria-labelledby="ev-9-t">
+      <div class="ev-sec-head"><span class="ev-num" aria-hidden="true">9</span><h2 id="ev-9-t">Jesús promete permanencia y asistencia</h2></div>
+      <figure class="ev-scripture">
+        <blockquote>
+          <p>“Y Jesús se acercó y les habló diciendo: Toda potestad me es dada en el cielo y en la tierra.</p>
+          <p>Por tanto, id, y haced discípulos a todas las naciones, bautizándolos en el nombre del Padre, y del Hijo, y del Espíritu Santo;</p>
+          <p>enseñándoles que guarden todas las cosas que os he mandado; y he aquí <mark>yo estoy con vosotros todos los días, hasta el fin del mundo</mark>. Amén.”</p>
+        </blockquote>
+        <figcaption>Mateo 28:18–20 · RVR1960</figcaption>
+      </figure>
+      <div class="ev-reason">
+        <p><b>TEXTO</b>Cristo encomienda una misión universal y promete su presencia durante toda esa misión.</p>
+        <p><b>INFERENCIA</b>Como esa misión excede la vida de los discípulos presentes, el mandato presupone alguna forma de continuidad de la misión apostólica.</p>
+      </div>
+      <p>Eso no explica todavía exactamente cómo se transmite cada oficio, pero sí hace difícil imaginar que la misión eclesial estuviera destinada a desaparecer poco después de los Apóstoles.</p>
+    </section>
+
+    <!-- 10 -->
+    <section class="ev-sec" id="ev-10" aria-labelledby="ev-10-t">
+      <div class="ev-sec-head"><span class="ev-num" aria-hidden="true">10</span><h2 id="ev-10-t">Objeciones importantes</h2></div>
+
+      <article class="ev-objection" aria-labelledby="ev-o1">
+        <h3 id="ev-o1"><span>Objeción</span>“La Iglesia verdadera es invisible”</h3>
+        <div class="ev-reply">
+          <p>La existencia de una dimensión espiritual no elimina los datos visibles de Mateo 18, Hechos y 1 Timoteo.</p>
+          <p>La cuestión correcta no es si existe una dimensión invisible, sino qué relación existe entre la Iglesia espiritual y la Iglesia históricamente reconocible.</p>
+        </div>
+      </article>
+
+      <article class="ev-objection ev-serious" aria-labelledby="ev-o2">
+        <h3 id="ev-o2"><span>Objeción reformada · objeción seria</span>“Acepto una Iglesia visible, pero eso no exige una única institución universal”</h3>
+        <div class="ev-reply">
+          <p>Ésta es una objeción seria. Demostrar visibilidad todavía no demuestra por sí solo una única institución universal ni identifica automáticamente al catolicismo.</p>
+          <p>La Guía 01 establece solamente el primer criterio. Las siguientes guías examinarán unidad, autoridad, apostolicidad y continuidad histórica.</p>
+        </div>
+      </article>
+
+      <article class="ev-objection" aria-labelledby="ev-o3">
+        <h3 id="ev-o3"><span>Objeción</span>“Iglesia solo significa los creyentes, no una institución”</h3>
+        <div class="ev-reply">
+          <p>La Iglesia está formada por personas, no por edificios. Pero esas personas aparecen organizadas en comunidades con ministros, disciplina, doctrina, bautismo, culto y decisiones.</p>
+          <p>Llamarla “comunidad de creyentes” es correcto. Usar esa expresión para borrar toda estructura visible no explica el conjunto de los textos.</p>
+        </div>
+      </article>
+
+      <article class="ev-objection" aria-labelledby="ev-o4">
+        <h3 id="ev-o4"><span>Objeción</span>“Jesús nunca dijo ‘Iglesia católica’”</h3>
+        <div class="ev-reply">
+          <p><strong>Correcto.</strong> Esta guía todavía no intenta demostrar una denominación moderna. Primero establece una cuestión anterior:</p>
+          <p><em>¿Cristo fundó una Iglesia visible y reconocible?</em></p>
+          <p>La identificación histórica concreta viene después.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- 11 -->
+    <section class="ev-sec" id="ev-11" aria-labelledby="ev-11-t">
+      <div class="ev-sec-head"><span class="ev-num" aria-hidden="true">11</span><h2 id="ev-11-t">Qué podemos concluir</h2></div>
+      <p>La Iglesia del Nuevo Testamento:</p>
+      <ul class="ev-inventory">
+        <li>pertenece a Cristo;</li>
+        <li>posee dimensión espiritual;</li>
+        <li>posee dimensión visible;</li>
+        <li>puede recibir y resolver conflictos;</li>
+        <li>tiene miembros reconocibles;</li>
+        <li>tiene ministros;</li>
+        <li>bautiza;</li>
+        <li>celebra el partimiento del pan;</li>
+        <li>persevera en doctrina apostólica;</li>
+        <li>está vinculada con la verdad;</li>
+        <li>existe en comunidades locales;</li>
+        <li>participa de una unidad más amplia;</li>
+        <li>recibe una misión destinada a continuar.</li>
+      </ul>
+      <p class="ev-field">Eso no demuestra todavía todo el catolicismo.<br><em>Pero establece el terreno de juego.</em></p>
+    </section>
+
+    <!-- Conclusión -->
+    <section class="ev-finale" id="ev-fin" aria-labelledby="ev-fin-t">
+      <p class="ev-series">Conclusión</p>
+      <h2 id="ev-fin-t">La primera huella</h2>
+      <p>Jesucristo no aparece dejando únicamente una enseñanza para que individuos separados construyan después cualquier forma de comunidad.</p>
+      <p style="text-align:center;font-size:1.2em;color:#f3e4c4;margin-top:1.4rem">Habla de <em>su</em> Iglesia.</p>
+      <ul class="ev-cascade">
+        <li>Esa Iglesia puede ser escuchada.</li>
+        <li>Puede disciplinar.</li>
+        <li>Puede enseñar.</li>
+        <li>Tiene ministros.</li>
+        <li>Bautiza.</li>
+        <li>Celebra.</li>
+        <li>Se reúne.</li>
+        <li>Se expande.</li>
+        <li>Es perseguida.</li>
+        <li>Tiene comunidades concretas.</li>
+        <li class="ev-turn">Y, al mismo tiempo, es el Cuerpo de Cristo.</li>
+      </ul>
+      <div class="ev-seal">
+        <small>La evidencia bíblica apunta, por tanto, hacia una Iglesia:</small>
+        <strong>ESPIRITUAL Y VISIBLE</strong>
+      </div>
+      <p style="text-align:center">Éste es solamente el primer paso. Una vez establecido que Cristo fundó una Iglesia visible, surge inmediatamente la siguiente pregunta:</p>
+      <div class="ev-next">
+        <p>✨ La pregunta que abre la Guía 02</p>
+        <h3>¿Qué características debería tener esa Iglesia para poder reconocerla?</h3>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="ev-sources" aria-labelledby="ev-src">
+    <h2 id="ev-src">Fuentes base · Biblia</h2>
+    <ul class="ev-refs">
+      <li>Mt 16:13–19</li>
+      <li>Mt 18:15–20</li>
+      <li>Mt 28:18–20</li>
+      <li>Hch 2:38–47</li>
+      <li>Hch 8:1</li>
+      <li>Hch 14:23</li>
+      <li>Hch 20:28</li>
+      <li>1 Tim 3:15</li>
+      <li>Ef 1:22–23</li>
+      <li>Ef 4:4–5</li>
+    </ul>
+    <p class="ev-keep">Sigue investigando</p>
+  </footer>
+
+</article>
 </body>
-</html>
+                                                                                                                              </html>
