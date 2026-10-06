@@ -1,0 +1,198 @@
+<section class="pf-recs-partial pf-recs-despensa-polvo">
+<style>
+.pf-recs-despensa-polvo,
+.pf-recs-despensa-polvo *,
+.pf-recs-despensa-polvo *::before,
+.pf-recs-despensa-polvo *::after{box-sizing:border-box;}
+.pf-recs-despensa-polvo{
+  width:100%;max-width:100%;min-width:0;margin:0;
+  padding:clamp(2rem,5vw,3.5rem) clamp(1rem,4vw,2.5rem);
+  background:linear-gradient(180deg,#fbf1ea 0%,#f5efe3 100%);
+  border-top:4px solid #b2542d;
+  color:#2a241f;
+  font-family:"Source Sans 3","Segoe UI",system-ui,-apple-system,sans-serif;
+  font-size:1rem;line-height:1.6;
+}
+.pf-recs-despensa-polvo .pf-recs-inner{max-width:72rem;margin:0 auto;min-width:0;}
+.pf-recs-despensa-polvo .pf-recs-eyebrow{
+  margin:0 0 .5rem;font-size:.78rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:#6b7a56;
+  overflow-wrap:break-word;
+}
+.pf-recs-despensa-polvo .pf-recs-products h2,
+.pf-recs-despensa-polvo .pf-recs-sources h2{
+  margin:0 0 1.25rem;
+  font-family:"Fraunces",Georgia,"Times New Roman",serif;
+  font-weight:600;font-size:clamp(1.5rem,2.5vw+1rem,2rem);
+  line-height:1.25;color:#2a241f;overflow-wrap:break-word;text-wrap:balance;
+}
+.pf-recs-despensa-polvo .pf-recs-products h2::after,
+.pf-recs-despensa-polvo .pf-recs-sources h2::after{
+  content:"";display:block;width:3.5rem;height:3px;margin-top:.5rem;
+  background:#b2542d;border-radius:2px;
+}
+.pf-recs-despensa-polvo .pf-recs-grid{
+  display:grid;gap:1.25rem;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));
+}
+.pf-recs-despensa-polvo .pf-recs-card{
+  min-width:0;display:flex;flex-direction:column;gap:.8rem;
+  background:#fffdf8;border:1px solid #d8cbb2;border-radius:.6rem;
+  padding:1rem;box-shadow:0 2px 12px rgba(90,45,22,.08);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.pf-recs-despensa-polvo .pf-recs-card:hover{
+  transform:translateY(-3px);box-shadow:0 8px 22px rgba(90,45,22,.14);
+}
+.pf-recs-despensa-polvo .pf-recs-img-wrap{
+  display:flex;align-items:center;justify-content:center;
+  background:#fbf1ea;border:1px solid #e6dccb;border-radius:.4rem;
+  aspect-ratio:1/1;overflow:hidden;min-width:0;
+}
+.pf-recs-despensa-polvo .pf-recs-img{
+  max-width:100%;max-height:100%;width:auto;height:auto;
+  object-fit:contain;display:block;
+}
+.pf-recs-despensa-polvo .pf-recs-name{
+  margin:0;font-family:"Fraunces",Georgia,serif;font-weight:600;
+  font-size:1.05rem;line-height:1.35;color:#2a241f;overflow-wrap:break-word;
+}
+.pf-recs-despensa-polvo .pf-recs-btn{
+  margin-top:auto;display:inline-block;max-width:100%;
+  background:#b2542d;color:#fffdf8 !important;
+  font-weight:700;text-decoration:none;text-align:center;
+  padding:.7rem 1.3rem;border-radius:999px;border:2px solid #b2542d;
+  transition:background .2s ease,border-color .2s ease;
+  overflow-wrap:break-word;
+}
+.pf-recs-despensa-polvo .pf-recs-btn:hover{
+  background:#933f1f;border-color:#933f1f;color:#fffdf8 !important;
+}
+.pf-recs-despensa-polvo .pf-recs-affiliate-note{
+  margin:1.5rem 0 0;padding-left:.9rem;
+  border-left:3px solid #c7a471;
+  font-size:.86rem;color:#5a5048;font-style:italic;
+  overflow-wrap:break-word;
+}
+.pf-recs-despensa-polvo .pf-recs-sources{
+  margin-top:2.75rem;background:rgba(255,253,248,.75);
+  border:1px solid #d8cbb2;border-radius:.6rem;
+  padding:clamp(1.25rem,3vw,2rem);min-width:0;
+}
+.pf-recs-despensa-polvo .pf-recs-source-list{
+  margin:0 0 1.25rem;padding-left:1.6rem;
+  display:flex;flex-direction:column;gap:.8rem;
+}
+.pf-recs-despensa-polvo .pf-recs-source-list li{
+  overflow-wrap:anywhere;word-break:break-word;
+  line-height:1.65;color:#2a241f;min-width:0;
+}
+.pf-recs-despensa-polvo .pf-recs-source-list li::marker{
+  color:#9c7a47;font-weight:700;
+}
+.pf-recs-despensa-polvo .pf-recs-copy-btn{
+  display:inline-block;max-width:100%;cursor:pointer;
+  background:transparent;color:#4f5f3c;
+  border:2px solid #6b7a56;border-radius:999px;
+  padding:.6rem 1.3rem;font-weight:700;font-size:.95rem;font-family:inherit;
+  transition:background .2s ease,color .2s ease;
+}
+.pf-recs-despensa-polvo .pf-recs-copy-btn:hover:not(:disabled){
+  background:#6b7a56;color:#fffdf8;
+}
+.pf-recs-despensa-polvo .pf-recs-copy-btn:disabled{opacity:.75;cursor:default;}
+.pf-recs-despensa-polvo .pf-recs-copy-fallback{margin-top:1rem;min-width:0;}
+.pf-recs-despensa-polvo .pf-recs-copy-fallback p{
+  margin:0 0 .5rem;font-weight:700;color:#2a241f;overflow-wrap:break-word;
+}
+.pf-recs-despensa-polvo .pf-recs-copy-fallback textarea{
+  width:100%;max-width:100%;min-height:11rem;resize:vertical;
+  font-family:inherit;font-size:.85rem;line-height:1.6;color:#2a241f;
+  background:#fffdf8;border:1px solid #d8cbb2;border-radius:.4rem;
+  padding:.8rem;
+}
+.pf-recs-despensa-polvo a:focus-visible,
+.pf-recs-despensa-polvo button:focus-visible{
+  outline:3px solid #6b7a56;outline-offset:3px;
+}
+@media (max-width:768px){
+  .pf-recs-despensa-polvo .pf-recs-grid{grid-template-columns:1fr;}
+  .pf-recs-despensa-polvo .pf-recs-btn{width:100%;}
+  .pf-recs-despensa-polvo .pf-recs-copy-btn{width:100%;}
+}
+</style>
+<div class="pf-recs-inner">
+<section class="pf-recs-products" aria-labelledby="pf-recs-despensa-polvo-prod-title">
+<p class="pf-recs-eyebrow">Selección PrepperFamily</p>
+<h2 id="pf-recs-despensa-polvo-prod-title">Productos recomendados</h2>
+<div class="pf-recs-grid">
+<article class="pf-recs-card">
+<div class="pf-recs-img-wrap"><img class="pf-recs-img" src="https://m.media-amazon.com/images/I/81VZ9fooRYL.jpg" alt="Deshidratador de alimentos" loading="lazy"></div>
+<h3 class="pf-recs-name">Deshidratador de alimentos</h3>
+<a class="pf-recs-btn" href="https://amzn.to/3VLpYNe" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+</article>
+<article class="pf-recs-card">
+<div class="pf-recs-img-wrap"><img class="pf-recs-img" src="https://m.media-amazon.com/images/I/A1e3SajgZfL.jpg" alt="Huevo en polvo pasteurizado" loading="lazy"></div>
+<h3 class="pf-recs-name">Huevo en polvo pasteurizado</h3>
+<a class="pf-recs-btn" href="https://amzn.to/4ywcVO8" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+</article>
+<article class="pf-recs-card">
+<div class="pf-recs-img-wrap"><img class="pf-recs-img" src="https://m.media-amazon.com/images/I/61BDgXFfTTL.AC_UF894,1000_QL80_FMwebp.jpg" alt="Molino de granos" loading="lazy"></div>
+<h3 class="pf-recs-name">Molino de granos</h3>
+<a class="pf-recs-btn" href="https://amzn.to/4AK7Q6s" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+</article>
+<article class="pf-recs-card">
+<div class="pf-recs-img-wrap"><img class="pf-recs-img" src="https://m.media-amazon.com/images/I/91d8vAw+TcL.AC_UF894,1000_QL80_FMwebp.jpg" alt="Leche en polvo descremada" loading="lazy"></div>
+<h3 class="pf-recs-name">Leche en polvo descremada</h3>
+<a class="pf-recs-btn" href="https://amzn.to/4rMyLua" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+</article>
+<article class="pf-recs-card">
+<div class="pf-recs-img-wrap"><img class="pf-recs-img" src="https://m.media-amazon.com/images/I/81Bt3lZ+PbL.AC_SL1500.jpg" alt="Bolsas Mylar de 1 galón con absorbedores de oxígeno" loading="lazy"></div>
+<h3 class="pf-recs-name">Bolsas Mylar de 1 galón con absorbedores de oxígeno</h3>
+<a class="pf-recs-btn" href="https://amzn.to/4rOUXnr" target="_blank" rel="nofollow sponsored noopener">Ver en Amazon</a>
+</article>
+</div>
+<p class="pf-recs-affiliate-note">Como asociado de Amazon, obtengo ingresos por las compras que califican. Las compras realizadas mediante este enlace pueden generar una comisión para PrepperFamily.org sin costo adicional para ti. Gracias por apoyar esta comunidad.</p>
+</section>
+<section class="pf-recs-sources" aria-labelledby="pf-recs-despensa-polvo-src-title">
+<h2 id="pf-recs-despensa-polvo-src-title">Fuentes</h2>
+<ol class="pf-recs-source-list">
+<li>National Center for Home Food Preservation (NCHFP), Servicio de Extensión Cooperativa de la Universidad de Georgia, "Drying", 2014, guía técnica. https://nchfp.uga.edu/how/dry/</li>
+<li>USDA, Food Safety and Inspection Service (FSIS), "FSIS Food Safety Guideline for Egg Products", 2020, guía oficial / documento regulatorio. https://www.fsis.usda.gov/sites/default/files/media_file/2021-01/food-safety-guideline-egg-products.pdf</li>
+<li>U.S. Food and Drug Administration (FDA), Center for Food Safety and Applied Nutrition (CFSAN), "Bad Bug Book: Foodborne Pathogenic Microorganisms and Natural Toxins Handbook", 2.ª edición, capítulo "Phytohaemagglutinin", 2012, manual oficial. https://www.fda.gov/media/83271/download</li>
+<li>National Center for Home Food Preservation (NCHFP), Servicio de Extensión Cooperativa de la Universidad de Georgia, "Packaging and Storing Dried Foods", 2014, guía técnica. https://nchfp.uga.edu/how/dry/drying-general/packaging-and-storing-dried-foods/</li>
+</ol>
+<textarea id="pf-recs-sources-despensa-polvo" style="display:none;">
+1. National Center for Home Food Preservation (NCHFP), Servicio de Extensión Cooperativa de la Universidad de Georgia, "Drying", 2014, guía técnica. https://nchfp.uga.edu/how/dry/
+2. USDA, Food Safety and Inspection Service (FSIS), "FSIS Food Safety Guideline for Egg Products", 2020, guía oficial / documento regulatorio. https://www.fsis.usda.gov/sites/default/files/media_file/2021-01/food-safety-guideline-egg-products.pdf
+3. U.S. Food and Drug Administration (FDA), Center for Food Safety and Applied Nutrition (CFSAN), "Bad Bug Book: Foodborne Pathogenic Microorganisms and Natural Toxins Handbook", 2.ª edición, capítulo "Phytohaemagglutinin", 2012, manual oficial. https://www.fda.gov/media/83271/download
+4. National Center for Home Food Preservation (NCHFP), Servicio de Extensión Cooperativa de la Universidad de Georgia, "Packaging and Storing Dried Foods", 2014, guía técnica. https://nchfp.uga.edu/how/dry/drying-general/packaging-and-storing-dried-foods/
+</textarea>
+<button type="button" class="pf-recs-copy-btn" onclick="(async function(btn){
+try{
+var sourceEl=document.getElementById('pf-recs-sources-despensa-polvo');
+if(!sourceEl)return false;
+var text=sourceEl.value.trim();
+var original=btn.innerHTML;
+if(!navigator.clipboard||!window.isSecureContext){throw new Error('Clipboard not available');}
+await navigator.clipboard.writeText(text);
+btn.innerHTML='✅ Fuentes copiadas';
+btn.disabled=true;
+setTimeout(function(){btn.innerHTML=original;btn.disabled=false;},1600);
+}catch(err){
+var fallback=document.getElementById('pf-recs-sources-despensa-polvo-fallback');
+if(fallback)fallback.style.display='block';
+console.error(err);
+}
+return false;
+})(this);">📋 Copiar fuentes</button>
+<div id="pf-recs-sources-despensa-polvo-fallback" class="pf-recs-copy-fallback" style="display:none;">
+<p>Copia manualmente:</p>
+<textarea readonly>1. National Center for Home Food Preservation (NCHFP), Servicio de Extensión Cooperativa de la Universidad de Georgia, "Drying", 2014, guía técnica. https://nchfp.uga.edu/how/dry/
+2. USDA, Food Safety and Inspection Service (FSIS), "FSIS Food Safety Guideline for Egg Products", 2020, guía oficial / documento regulatorio. https://www.fsis.usda.gov/sites/default/files/media_file/2021-01/food-safety-guideline-egg-products.pdf
+3. U.S. Food and Drug Administration (FDA), Center for Food Safety and Applied Nutrition (CFSAN), "Bad Bug Book: Foodborne Pathogenic Microorganisms and Natural Toxins Handbook", 2.ª edición, capítulo "Phytohaemagglutinin", 2012, manual oficial. https://www.fda.gov/media/83271/download
+4. National Center for Home Food Preservation (NCHFP), Servicio de Extensión Cooperativa de la Universidad de Georgia, "Packaging and Storing Dried Foods", 2014, guía técnica. https://nchfp.uga.edu/how/dry/drying-general/packaging-and-storing-dried-foods/</textarea>
+</div>
+</section>
+</div>
+</section>
