@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The School You Carry With You: A Homeschooling Guide</title>
+<meta name="description" content="A homeschooling manual for prepared families: screen-free learning, hands-on biology, an emergency home library, and a 30-day plan toward educational self-reliance.">
+
+<link rel="canonical" href="https://prepperfamily.org/en/family-resilience/homeschooling/school-with-you/">
+<link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/homeschooling/school-with-you/">
+<link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/educacion-en-casa/escuela-contigo/">
+<link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/homeschooling/school-with-you/">
+<style>
+.article-escuela-contigo{
+  --papel:#faf6ec;
+  --papel-oscuro:#f1eadb;
+  --linea:#d9cfb8;
+  --tinta:#1e2a33;
+  --tinta-suave:#4a5560;
+  --rojo-margen:#c4674a;
+  --verde:#2f5d4b;
+  --ocre:#b27a2a;
+  --azul:#2c5f7c;
+  --blanco:#fff;
+  --ff-texto:Georgia,"Times New Roman",serif;
+  --ff-rotulo:"Trebuchet MS","Segoe UI",Helvetica,Arial,sans-serif;
+  --ff-mono:"Courier New",Courier,monospace;
+  --radio:4px;
+  font-family:var(--ff-texto);
+  color:var(--tinta);
+  background:var(--papel);
+  line-height:1.65;
+  font-size:clamp(1rem,.95rem + .3vw,1.125rem);
+  max-width:60rem;
+  margin:0 auto;
+  padding:clamp(1rem,4vw,2.5rem) clamp(.9rem,4vw,2.5rem);
+  box-sizing:border-box;
+}
+.article-escuela-contigo *,
+.article-escuela-contigo *::before,
+.article-escuela-contigo *::after{box-sizing:border-box}
+body,.article-escuela-contigo,.article-escuela-contigo *{
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+.article-escuela-contigo *{min-width:0}
+.article-escuela-contigo p{margin:0 0 1rem}
+.article-escuela-contigo strong{color:var(--tinta);font-weight:700}
+.article-escuela-contigo em{font-style:italic}
+.article-escuela-contigo ul,
+.article-escuela-contigo ol{padding-left:1.25rem;margin:0 0 1rem}
+.article-escuela-contigo li{margin-bottom:.5rem}
+.article-escuela-contigo li::marker{color:var(--rojo-margen);font-weight:700}
+.article-escuela-contigo img,
+.article-escuela-contigo video,
+.article-escuela-contigo iframe,
+.article-escuela-contigo object,
+.article-escuela-contigo embed,
+.article-escuela-contigo audio,
+.article-escuela-contigo canvas,
+.article-escuela-contigo svg{max-width:100%}
+.article-escuela-contigo img,
+.article-escuela-contigo video{height:auto}
+.article-escuela-contigo figure{max-width:100%;margin-inline:0}
+.article-escuela-contigo pre{max-width:100%;overflow-x:auto}
+.article-escuela-contigo button,
+.article-escuela-contigo input,
+.article-escuela-contigo select,
+.article-escuela-contigo textarea{max-width:100%}
+.article-escuela-contigo table{max-width:100%}
+
+/* Portada */
+.article-escuela-contigo .ec-portada{
+  position:relative;
+  border:2px solid var(--tinta);
+  padding:clamp(1.5rem,6vw,3.5rem) clamp(1.1rem,5vw,3rem);
+  margin-bottom:clamp(2rem,6vw,3.5rem);
+  background:repeating-linear-gradient(0deg,transparent 0 1.85rem,var(--linea) 1.85rem calc(1.85rem + 1px));
+  background-color:var(--blanco);
+  animation:ec-aparecer .8s ease-out both;
+}
+.article-escuela-contigo .ec-portada::before{
+  content:"";position:absolute;inset:6px;
+  border:1px solid var(--linea);pointer-events:none;
+}
+.article-escuela-contigo .ec-portada::after{
+  content:"";position:absolute;top:0;bottom:0;
+  left:clamp(2rem,8vw,3.5rem);
+  width:1px;background:var(--rojo-margen);opacity:.6;
+}
+.article-escuela-contigo .ec-etiqueta{
+  display:inline-block;max-width:100%;
+  font-family:var(--ff-rotulo);
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  background:var(--papel-oscuro);border:1px solid var(--tinta);
+  padding:.35rem .75rem;margin-bottom:1.25rem;
+  position:relative;z-index:1;color:var(--tinta);
+}
+.article-escuela-contigo .ec-portada h1{
+  font-size:clamp(2.1rem,7vw,4rem);line-height:1.05;
+  margin:0 0 .75rem;font-weight:400;letter-spacing:-.01em;
+  position:relative;z-index:1;background:var(--blanco);
+  display:inline;box-decoration-break:clone;
+  -webkit-box-decoration-break:clone;padding:0 .15em;
+}
+.article-escuela-contigo .ec-portada h1 span{display:block;color:var(--rojo-margen)}
+.article-escuela-contigo .ec-subtitulo{
+  margin:1.25rem 0 0;font-family:var(--ff-rotulo);
+  font-size:1rem;color:var(--tinta-suave);
+  position:relative;z-index:1;background:var(--blanco);
+  display:inline-block;max-width:100%;padding:.15em .4em;
+}
+.article-escuela-contigo .ec-lema{
+  margin:1.5rem 0 0;font-size:clamp(1.05rem,2.6vw,1.3rem);
+  font-style:italic;max-width:34ch;position:relative;z-index:1;
+  background:var(--blanco);padding:.4rem .5rem .4rem 0;
+}
+.article-escuela-contigo .ec-indice{
+  margin:1.75rem 0 0;padding:0;list-style:none;
+  display:grid;grid-template-columns:minmax(0,1fr);gap:.35rem;
+  font-family:var(--ff-rotulo);font-size:.9rem;
+  position:relative;z-index:1;
+}
+.article-escuela-contigo .ec-indice li{
+  margin:0;display:flex;gap:.6rem;align-items:baseline;
+  background:var(--blanco);padding:.2rem .4rem;
+}
+.article-escuela-contigo .ec-indice li span{
+  color:var(--rojo-margen);font-weight:700;min-width:1.6rem;flex-shrink:0;
+}
+.article-escuela-contigo .ec-indice a{
+  color:var(--tinta);text-decoration:none;
+  border-bottom:1px dotted var(--tinta-suave);
+}
+.article-escuela-contigo .ec-indice a:hover,
+.article-escuela-contigo .ec-indice a:focus-visible{
+  color:var(--rojo-margen);border-bottom-style:solid;outline:none;
+}
+
+/* Módulos */
+.article-escuela-contigo .ec-modulo{margin:0 0 clamp(2.5rem,7vw,4rem)}
+.article-escuela-contigo .ec-modulo-cab{
+  display:flex;flex-direction:column;gap:.35rem;
+  border-bottom:2px solid var(--tinta);padding-bottom:.6rem;margin-bottom:1.5rem;
+}
+.article-escuela-contigo .ec-modulo-num{
+  font-family:var(--ff-rotulo);font-size:.75rem;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--blanco);background:var(--verde);
+  display:inline-block;padding:.3rem .7rem;align-self:flex-start;max-width:100%;
+}
+.article-escuela-contigo .ec-modulo-cab h2{
+  font-size:clamp(1.5rem,4.5vw,2.1rem);
+  font-weight:400;line-height:1.15;margin:0;
+}
+.article-escuela-contigo h3{
+  font-family:var(--ff-rotulo);font-size:1.1rem;font-weight:700;
+  margin:1.75rem 0 .6rem;color:var(--verde);
+  display:flex;gap:.6rem;align-items:baseline;
+}
+.article-escuela-contigo h3 .ec-n{
+  font-family:var(--ff-mono);font-size:.85rem;
+  color:var(--rojo-margen);flex-shrink:0;
+}
+.article-escuela-contigo h4{
+  font-family:var(--ff-rotulo);font-size:.95rem;
+  margin:1.1rem 0 .4rem;color:var(--tinta);
+  text-transform:uppercase;letter-spacing:.08em;
+}
+.article-escuela-contigo .ec-pregunta{
+  border-left:3px solid var(--rojo-margen);
+  padding:.6rem 0 .6rem 1rem;margin:1.25rem 0;
+  font-size:1.15rem;font-style:italic;
+}
+.article-escuela-contigo .ec-clave{
+  background:var(--papel-oscuro);padding:1rem 1.1rem;
+  margin:1.25rem 0;border-top:1px solid var(--linea);
+  border-bottom:1px solid var(--linea);font-size:1.05rem;
+}
+
+/* Vehículo biológico */
+.article-escuela-contigo .ec-vehiculo{margin:1.25rem 0 1.5rem}
+.article-escuela-contigo .ec-barra{
+  display:flex;width:100%;height:2.6rem;border:2px solid var(--tinta);
+  font-family:var(--ff-rotulo);font-size:.8rem;font-weight:700;overflow:hidden;
+}
+.article-escuela-contigo .ec-barra div{
+  display:flex;align-items:center;justify-content:center;
+  padding:0 .3rem;text-align:center;line-height:1.1;
+}
+.article-escuela-contigo .ec-barra .ec-b70{
+  flex:0 0 70%;background:var(--verde);color:var(--blanco);
+}
+.article-escuela-contigo .ec-barra .ec-b30{
+  flex:0 0 30%;background:var(--papel-oscuro);color:var(--tinta);
+  border-left:2px solid var(--tinta);
+}
+.article-escuela-contigo .ec-vehiculo-def{
+  display:grid;grid-template-columns:minmax(0,1fr);gap:1rem;margin-top:1rem;
+}
+.article-escuela-contigo .ec-vehiculo-def > div{
+  border-top:4px solid var(--verde);padding-top:.6rem;
+}
+.article-escuela-contigo .ec-vehiculo-def > div:last-child{border-top-color:var(--ocre)}
+.article-escuela-contigo .ec-vehiculo-def h4{margin-top:0}
+.article-escuela-contigo .ec-vehiculo-def ul{margin-bottom:0}
+.article-escuela-contigo .ec-formula{
+  font-family:var(--ff-mono);background:var(--blanco);
+  border:1px dashed var(--tinta-suave);padding:1rem;
+  margin:1.25rem 0;font-size:.95rem;line-height:1.6;text-align:center;
+}
+.article-escuela-contigo .ec-formula .ec-flecha{
+  display:block;color:var(--rojo-margen);
+  font-size:1.4rem;line-height:1;margin:.3rem 0;
+}
+.article-escuela-contigo .ec-dato{
+  font-family:var(--ff-mono);font-size:.92em;background:var(--papel-oscuro);
+  padding:0 .3em;border-radius:var(--radio);white-space:nowrap;
+}
+
+/* Receta */
+.article-escuela-contigo .ec-receta{
+  background:var(--blanco);border:1px solid var(--linea);
+  box-shadow:3px 3px 0 var(--linea);padding:1.25rem 1.1rem;
+  margin:1.25rem 0;position:relative;
+}
+.article-escuela-contigo .ec-receta::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--ocre);
+}
+.article-escuela-contigo .ec-receta h4{margin-top:0;color:var(--ocre)}
+.article-escuela-contigo .ec-receta dl{
+  margin:0 0 1rem;display:grid;grid-template-columns:minmax(0,1fr);gap:.6rem;
+}
+.article-escuela-contigo .ec-receta dt{
+  font-family:var(--ff-rotulo);font-weight:700;font-size:.9rem;
+}
+.article-escuela-contigo .ec-receta dd{margin:0;font-family:var(--ff-mono);font-size:.95rem}
+.article-escuela-contigo .ec-receta p:last-child{margin-bottom:0}
+
+/* Tarjeta */
+.article-escuela-contigo .ec-tarjeta{
+  background:var(--blanco);border:2px solid var(--tinta);
+  padding:1.1rem 1rem;margin:1.25rem 0 2rem;
+  box-shadow:5px 5px 0 var(--papel-oscuro),5px 5px 0 1px var(--linea);
+  background-image:repeating-linear-gradient(0deg,transparent 0 2rem,var(--linea) 2rem calc(2rem + 1px));
+}
+.article-escuela-contigo .ec-tarjeta-titulo{
+  font-family:var(--ff-rotulo);text-align:center;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;font-size:.85rem;
+  margin:0 0 .9rem;padding-bottom:.5rem;border-bottom:2px solid var(--tinta);
+}
+.article-escuela-contigo .ec-tarjeta ol{
+  list-style:none;padding:0;margin:0;display:grid;gap:.55rem;counter-reset:ec-h;
+}
+.article-escuela-contigo .ec-tarjeta li{
+  display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:.6rem;align-items:baseline;margin:0;background:var(--blanco);padding:.2rem .3rem;
+}
+.article-escuela-contigo .ec-tarjeta li b{
+  font-family:var(--ff-rotulo);color:var(--rojo-margen);
+  letter-spacing:.06em;white-space:nowrap;
+}
+.article-escuela-contigo .ec-tarjeta li b::before{
+  content:counter(ec-h) ". ";counter-increment:ec-h;color:var(--tinta);
+}
+
+/* Pasos */
+.article-escuela-contigo .ec-pasos{list-style:none;padding:0;margin:0;counter-reset:ec-p}
+.article-escuela-contigo .ec-pasos > li{
+  position:relative;padding-left:3rem;margin:0 0 1.5rem;
+}
+.article-escuela-contigo .ec-pasos > li::before{
+  counter-increment:ec-p;content:counter(ec-p);position:absolute;left:0;top:0;
+  width:2.2rem;height:2.2rem;border:2px solid var(--tinta);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--ff-rotulo);font-weight:700;background:var(--blanco);
+}
+.article-escuela-contigo .ec-pasos > li::after{
+  content:"";position:absolute;left:1.05rem;top:2.4rem;
+  bottom:-1.3rem;width:2px;background:var(--linea);
+}
+.article-escuela-contigo .ec-pasos > li:last-child::after{display:none}
+.article-escuela-contigo .ec-paso-t{
+  font-family:var(--ff-rotulo);font-weight:700;margin:0 0 .35rem;font-size:1.05rem;
+}
+.article-escuela-contigo .ec-paso-t small{
+  font-weight:400;color:var(--tinta-suave);font-size:.85rem;
+}
+.article-escuela-contigo .ec-pasos dl{margin:0}
+.article-escuela-contigo .ec-pasos dt{
+  font-family:var(--ff-rotulo);font-size:.75rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--rojo-margen);margin-top:.5rem;
+}
+.article-escuela-contigo .ec-pasos dd{margin:0 0 .3rem}
+
+/* Biblioteca */
+.article-escuela-contigo .ec-estante{
+  list-style:none;padding:0;margin:1.25rem 0;display:grid;
+  grid-template-columns:minmax(0,1fr);gap:.75rem;counter-reset:ec-e;
+}
+.article-escuela-contigo .ec-estante li{
+  margin:0;background:var(--blanco);border:1px solid var(--linea);
+  border-bottom:5px solid var(--tinta);padding:.9rem 1rem .8rem;
+}
+.article-escuela-contigo .ec-estante li::before{
+  counter-increment:ec-e;content:"0" counter(ec-e);display:block;
+  font-family:var(--ff-mono);font-size:.8rem;color:var(--rojo-margen);margin-bottom:.2rem;
+}
+.article-escuela-contigo .ec-estante strong{
+  display:block;font-family:var(--ff-rotulo);margin-bottom:.3rem;
+}
+.article-escuela-contigo .ec-estante span{font-size:.95rem;color:var(--tinta-suave)}
+
+/* Laboratorio */
+.article-escuela-contigo .ec-lab{margin:1rem 0}
+.article-escuela-contigo .ec-lab > div{border-top:1px solid var(--linea);padding:1rem 0}
+.article-escuela-contigo .ec-lab > div:last-child{border-bottom:1px solid var(--linea)}
+.article-escuela-contigo .ec-lab h4{margin-top:0}
+.article-escuela-contigo .ec-lab h4 span{
+  color:var(--tinta-suave);font-weight:400;text-transform:none;
+  letter-spacing:0;display:block;font-size:.85rem;
+}
+.article-escuela-contigo .ec-lab ul{margin-bottom:0}
+
+/* Horario */
+.article-escuela-contigo .ec-horario{
+  width:100%;border-collapse:collapse;margin:1rem 0;
+  font-size:.95rem;background:var(--blanco);
+}
+.article-escuela-contigo .ec-horario caption{
+  caption-side:top;text-align:left;font-family:var(--ff-rotulo);
+  font-size:.85rem;color:var(--tinta-suave);padding-bottom:.5rem;
+}
+.article-escuela-contigo .ec-horario th,
+.article-escuela-contigo .ec-horario td{
+  border:1px solid var(--linea);padding:.6rem;
+  vertical-align:top;text-align:left;
+}
+.article-escuela-contigo .ec-horario th{
+  font-family:var(--ff-rotulo);font-size:.78rem;letter-spacing:.1em;
+  text-transform:uppercase;background:var(--papel-oscuro);
+}
+.article-escuela-contigo .ec-horario td:first-child{
+  font-family:var(--ff-mono);white-space:nowrap;font-size:.85rem;width:1%;
+}
+.article-escuela-contigo .ec-horario td em{display:block;color:var(--tinta-suave);font-size:.9rem}
+.article-escuela-contigo .ec-horario tr.ec-descanso td{background:var(--papel)}
+
+/* Plan */
+.article-escuela-contigo .ec-plan{
+  list-style:none;padding:0;margin:1.25rem 0 0;display:grid;
+  grid-template-columns:minmax(0,1fr);gap:0;border:2px solid var(--tinta);
+}
+.article-escuela-contigo .ec-plan li{
+  margin:0;padding:1rem;background:var(--blanco);border-bottom:1px solid var(--linea);
+}
+.article-escuela-contigo .ec-plan li:last-child{border-bottom:0}
+.article-escuela-contigo .ec-plan-sem{
+  font-family:var(--ff-rotulo);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--blanco);background:var(--azul);
+  display:inline-block;max-width:100%;padding:.2rem .5rem;margin-bottom:.5rem;
+}
+.article-escuela-contigo .ec-plan strong{
+  display:block;font-family:var(--ff-rotulo);margin-bottom:.35rem;
+}
+.article-escuela-contigo .ec-plan p{margin:0;font-size:.95rem;color:var(--tinta-suave)}
+.article-escuela-contigo .ec-cierre{
+  margin-top:2.5rem;padding-top:1.25rem;border-top:2px solid var(--tinta);
+  font-style:italic;font-size:1.1rem;text-align:center;
+}
+.article-escuela-contigo .ec-cierre::after{
+  content:"";display:block;width:3rem;height:3px;
+  background:var(--rojo-margen);margin:1rem auto 0;
+}
+
+@keyframes ec-aparecer{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .article-escuela-contigo .ec-portada{animation:none}
+}
+
+@media (min-width:769px){
+  .article-escuela-contigo .ec-indice,
+  .article-escuela-contigo .ec-estante{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .article-escuela-contigo .ec-vehiculo-def{grid-template-columns:minmax(0,7fr) minmax(0,3fr)}
+  .article-escuela-contigo .ec-receta dl{grid-template-columns:auto minmax(0,1fr);column-gap:1.25rem}
+  .article-escuela-contigo .ec-receta dd{align-self:center}
+  .article-escuela-contigo .ec-formula .ec-flecha{display:inline;margin:0 .5rem}
+  .article-escuela-contigo .ec-plan{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .article-escuela-contigo .ec-plan li{border-bottom:0;border-right:1px solid var(--linea)}
+  .article-escuela-contigo .ec-plan li:last-child{border-right:0}
+}
+
+@media (max-width:768px){
+  body{padding:8px;font-size:14px}
+  .article-escuela-contigo{
+    --radio:3px;
+    width:100%;max-width:100%;margin:0 auto;
+    padding:16px;font-size:14px;line-height:1.55;
+  }
+  .article-escuela-contigo p{margin-bottom:12px}
+  .article-escuela-contigo ul,
+  .article-escuela-contigo ol{margin-bottom:12px;padding-left:1.2em}
+  .article-escuela-contigo li{margin-bottom:6px}
+  .article-escuela-contigo .ec-portada{padding:24px 16px;margin-bottom:24px}
+  .article-escuela-contigo .ec-portada::before{inset:4px}
+  .article-escuela-contigo .ec-portada::after{left:24px}
+  .article-escuela-contigo .ec-portada h1{font-size:1.7em;line-height:1.12}
+  .article-escuela-contigo .ec-etiqueta{
+    font-size:.75em;letter-spacing:.14em;padding:4px 9px;margin-bottom:14px;
+  }
+  .article-escuela-contigo .ec-subtitulo{font-size:1em;margin-top:14px}
+  .article-escuela-contigo .ec-lema{font-size:1.1em;margin-top:16px;padding:5px 6px 5px 0}
+  .article-escuela-contigo .ec-indice{
+    grid-template-columns:minmax(0,1fr);font-size:.95em;margin-top:18px;gap:4px;padding:0;
+  }
+  .article-escuela-contigo .ec-indice li{gap:8px;padding:3px 5px}
+  .article-escuela-contigo .ec-modulo{margin-bottom:28px}
+  .article-escuela-contigo .ec-modulo-cab{gap:5px;padding-bottom:7px;margin-bottom:16px}
+  .article-escuela-contigo .ec-modulo-num{font-size:.78em;letter-spacing:.16em;padding:4px 8px}
+  .article-escuela-contigo .ec-modulo-cab h2{font-size:1.4em;line-height:1.22}
+  .article-escuela-contigo h3{font-size:1.1em;line-height:1.3;margin:20px 0 8px;gap:7px}
+  .article-escuela-contigo h3 .ec-n{font-size:.85em}
+  .article-escuela-contigo h4{font-size:1em;line-height:1.35;margin:14px 0 6px}
+  .article-escuela-contigo .ec-pregunta{
+    border-left-width:2px;padding:8px 0 8px 12px;margin:16px 0;font-size:1.08em;
+  }
+  .article-escuela-contigo .ec-clave,
+  .article-escuela-contigo .ec-formula,
+  .article-escuela-contigo .ec-receta,
+  .article-escuela-contigo .ec-tarjeta{padding:16px;margin:16px 0}
+  .article-escuela-contigo .ec-clave{font-size:1.03em}
+  .article-escuela-contigo .ec-formula{font-size:.95em;line-height:1.5}
+  .article-escuela-contigo .ec-receta{box-shadow:2px 2px 0 var(--linea)}
+  .article-escuela-contigo .ec-receta::before{width:4px}
+  .article-escuela-contigo .ec-receta dl{
+    grid-template-columns:minmax(0,1fr);gap:6px;margin-bottom:12px;
+  }
+  .article-escuela-contigo .ec-receta dt{font-size:.95em}
+  .article-escuela-contigo .ec-receta dd{font-size:1em}
+  .article-escuela-contigo .ec-tarjeta{
+    box-shadow:3px 3px 0 var(--papel-oscuro),3px 3px 0 1px var(--linea);
+  }
+  .article-escuela-contigo .ec-tarjeta-titulo{font-size:.9em;letter-spacing:.12em;margin-bottom:10px}
+  .article-escuela-contigo .ec-tarjeta ol{padding:0;margin:0;gap:7px}
+  .article-escuela-contigo .ec-tarjeta li{gap:7px}
+  .article-escuela-contigo .ec-tarjeta li b{white-space:normal}
+  .article-escuela-contigo .ec-vehiculo{margin:16px 0}
+  .article-escuela-contigo .ec-barra{height:auto;min-height:38px;font-size:.85em}
+  .article-escuela-contigo .ec-barra div{padding:6px 4px}
+  .article-escuela-contigo .ec-vehiculo-def{grid-template-columns:minmax(0,1fr);gap:14px;margin-top:14px}
+  .article-escuela-contigo .ec-vehiculo-def > div{border-top-width:3px;padding-top:8px}
+  .article-escuela-contigo .ec-dato{white-space:normal}
+  .article-escuela-contigo .ec-pasos{padding:0;margin:0}
+  .article-escuela-contigo .ec-pasos > li{padding-left:38px;margin-bottom:20px}
+  .article-escuela-contigo .ec-pasos > li::before{width:28px;height:28px}
+  .article-escuela-contigo .ec-pasos > li::after{left:13px;top:31px;bottom:-17px}
+  .article-escuela-contigo .ec-paso-t{font-size:1.05em}
+  .article-escuela-contigo .ec-paso-t small{font-size:.85em}
+  .article-escuela-contigo .ec-pasos dt{font-size:.8em;letter-spacing:.1em}
+  .article-escuela-contigo .ec-estante{
+    grid-template-columns:minmax(0,1fr);gap:10px;margin:16px 0;padding:0;
+  }
+  .article-escuela-contigo .ec-estante li{padding:14px 16px;border-bottom-width:4px}
+  .article-escuela-contigo .ec-estante li::before{font-size:.85em}
+  .article-escuela-contigo .ec-estante span{font-size:1em}
+  .article-escuela-contigo .ec-lab{margin:12px 0}
+  .article-escuela-contigo .ec-lab > div{padding:12px 0}
+  .article-escuela-contigo .ec-lab h4 span{font-size:.9em}
+  .article-escuela-contigo table{width:100%;table-layout:fixed}
+  .article-escuela-contigo th,
+  .article-escuela-contigo td{white-space:normal}
+  .article-escuela-contigo .ec-horario{font-size:.94em;margin:14px 0}
+  .article-escuela-contigo .ec-horario caption{font-size:.9em;padding-bottom:6px}
+  .article-escuela-contigo .ec-horario th,
+  .article-escuela-contigo .ec-horario td{padding:8px 6px}
+  .article-escuela-contigo .ec-horario th{font-size:.85em;letter-spacing:.05em}
+  .article-escuela-contigo .ec-horario td:first-child{width:25%;white-space:normal;font-size:.9em}
+  .article-escuela-contigo .ec-horario td em{font-size:.95em}
+  .article-escuela-contigo .ec-plan{
+    grid-template-columns:minmax(0,1fr);margin-top:16px;padding:0;
+  }
+  .article-escuela-contigo .ec-plan li{padding:16px;border-right:0;border-bottom:1px solid var(--linea)}
+  .article-escuela-contigo .ec-plan li:last-child{border-bottom:0}
+  .article-escuela-contigo .ec-plan-sem{font-size:.78em;letter-spacing:.14em}
+  .article-escuela-contigo .ec-plan p{font-size:1em}
+  .article-escuela-contigo .ec-cierre{font-size:1.08em;margin-top:26px;padding-top:16px}
+  .article-escuela-contigo .ec-cierre::after{margin-top:12px}
+}
+
+@media (max-width:480px){
+  body{padding:6px;font-size:13.5px}
+  .article-escuela-contigo{--radio:2px;padding:14px;font-size:13.5px;line-height:1.5}
+  .article-escuela-contigo p{margin-bottom:10px}
+  .article-escuela-contigo ul,
+  .article-escuela-contigo ol{margin-bottom:10px}
+  .article-escuela-contigo li{margin-bottom:5px}
+  .article-escuela-contigo .ec-portada{padding:20px 14px;margin-bottom:20px}
+  .article-escuela-contigo .ec-portada::before{inset:3px}
+  .article-escuela-contigo .ec-portada::after{left:20px}
+  .article-escuela-contigo .ec-portada h1{font-size:1.5em;line-height:1.12}
+  .article-escuela-contigo .ec-etiqueta{padding:4px 7px;margin-bottom:10px;letter-spacing:.1em}
+  .article-escuela-contigo .ec-subtitulo{margin-top:10px}
+  .article-escuela-contigo .ec-lema{font-size:1.05em;margin-top:12px}
+  .article-escuela-contigo .ec-indice{margin-top:14px;gap:3px}
+  .article-escuela-contigo .ec-indice li{gap:6px;padding:2px 4px}
+  .article-escuela-contigo .ec-modulo{margin-bottom:22px}
+  .article-escuela-contigo .ec-modulo-cab{gap:4px;margin-bottom:12px;padding-bottom:6px}
+  .article-escuela-contigo .ec-modulo-cab h2{font-size:1.28em;line-height:1.23}
+  .article-escuela-contigo h3{font-size:1.05em;line-height:1.3;margin:16px 0 6px;gap:5px}
+  .article-escuela-contigo h4{margin:12px 0 5px;letter-spacing:.05em}
+  .article-escuela-contigo .ec-pregunta{padding:6px 0 6px 10px;margin:12px 0;font-size:1.04em}
+  .article-escuela-contigo .ec-clave,
+  .article-escuela-contigo .ec-formula,
+  .article-escuela-contigo .ec-receta,
+  .article-escuela-contigo .ec-tarjeta{padding:14px;margin:12px 0}
+  .article-escuela-contigo .ec-receta{box-shadow:1px 1px 0 var(--linea)}
+  .article-escuela-contigo .ec-receta::before{width:3px}
+  .article-escuela-contigo .ec-tarjeta{
+    box-shadow:2px 2px 0 var(--papel-oscuro),2px 2px 0 1px var(--linea);
+  }
+  .article-escuela-contigo .ec-tarjeta-titulo{letter-spacing:.08em;margin-bottom:8px}
+  .article-escuela-contigo .ec-tarjeta li{grid-template-columns:minmax(0,1fr);gap:2px;padding:3px 4px}
+  .article-escuela-contigo .ec-tarjeta ol{gap:6px}
+  .article-escuela-contigo .ec-vehiculo{margin:12px 0}
+  .article-escuela-contigo .ec-barra{font-size:.8em;min-height:36px}
+  .article-escuela-contigo .ec-barra .ec-b30{border-left-width:1px}
+  .article-escuela-contigo .ec-vehiculo-def{gap:10px;margin-top:10px}
+  .article-escuela-contigo .ec-vehiculo-def > div{padding-top:6px}
+  .article-escuela-contigo .ec-pasos > li{padding-left:32px;margin-bottom:16px}
+  .article-escuela-contigo .ec-pasos > li::before{width:24px;height:24px;border-width:1px}
+  .article-escuela-contigo .ec-pasos > li::after{left:11px;top:27px;bottom:-13px;width:1px}
+  .article-escuela-contigo .ec-estante{gap:8px;margin:12px 0}
+  .article-escuela-contigo .ec-estante li{padding:12px 14px;border-bottom-width:3px}
+  .article-escuela-contigo .ec-lab{margin:10px 0}
+  .article-escuela-contigo .ec-lab > div{padding:10px 0}
+  .article-escuela-contigo .ec-horario{font-size:.91em;margin:12px 0}
+  .article-escuela-contigo .ec-horario th,
+  .article-escuela-contigo .ec-horario td{padding:6px 4px}
+  .article-escuela-contigo .ec-horario th{letter-spacing:.02em}
+  .article-escuela-contigo .ec-horario td:first-child{width:26%}
+  .article-escuela-contigo .ec-plan{margin-top:12px}
+  .article-escuela-contigo .ec-plan li{padding:14px}
+  .article-escuela-contigo .ec-plan-sem{letter-spacing:.1em}
+  .article-escuela-contigo .ec-cierre{font-size:1.04em;margin-top:20px;padding-top:14px}
+  .article-escuela-contigo .ec-cierre::after{margin-top:10px;width:2.5rem}
+}
+</style>
+
+</head>
+<body>
+  
+<div id="pf-header"></div>
+<div id="pf-article-nav-top"></div>
+
+
+<article class="article-escuela-contigo">
+
+  <header class="ec-portada">
+    <p class="ec-etiqueta">An Integrative Pedagogical Manual · For Homeschooling Families</p>
+    <h1>The School <span>You Carry With You</span></h1>
+    <p class="ec-subtitulo">A Workbook for Learning at Home (Homeschooling)</p>
+    <p class="ec-lema">The school you carry with you doesn't fit inside a mere box of books: it lives in what your children know how to understand, do, and keep learning.</p>
+    <nav aria-label="Índice de módulos">
+      <ol class="ec-indice">
+        <li><span>I</span><a href="#ec-mod-1">The Inalienable School and the Biological Vehicle</a></li>
+        <li><span>II</span><a href="#ec-mod-2">Biophysics and Physiology of Home Life</a></li>
+        <li><span>III</span><a href="#ec-mod-3">The 4-Tool Method</a></li>
+        <li><span>IV</span><a href="#ec-mod-4">The Home Library and the Home Laboratory</a></li>
+        <li><span>V</span><a href="#ec-mod-5">A Screen-Free School Day</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <!-- ───────── MÓDULO I ───────── -->
+  <section class="ec-modulo" id="ec-mod-1" aria-labelledby="ec-t1">
+    <div class="ec-modulo-cab">
+      <span class="ec-modulo-num">Module I</span>
+      <h2 id="ec-t1">The Inalienable School and the Biological Vehicle</h2>
+    </div>
+
+    <h3><span class="ec-n">1.1</span> When the Connection Goes Down</h3>
+    <p>Let's imagine a real situation at home: the internet connection fails or the power supply is interrupted for several days. Most modern school materials remain locked behind passwords or digital platforms. The family then discovers an unnoticed dependency that brings learning to a halt.</p>
+    <p class="ec-pregunta">Would our children know how to keep learning without that digital connection?</p>
+    <p>Storing files on a screen is not the same as understanding reality. True education does not depend on electronic devices; it is the inalienable ability to observe, reason, investigate, and apply knowledge using the mind, the senses, and one's own body.</p>
+
+    <h3><span class="ec-n">1.2</span> The Biological Vehicle</h3>
+    <p>Before opening any textbook, the first "school" and the first "laboratory" a human being lives with is their own body. To lay the groundwork for Unani medicine and the understanding of constitutional biotypes, we teach our children the concept of the <strong>biological vehicle</strong>:</p>
+
+    <div class="ec-vehiculo">
+      <div class="ec-barra" role="img" aria-label="Proporción aproximada: 70 % biología de fábrica, 30 % experiencia aprendida">
+        <div class="ec-b70">≈ 70% Factory Biology</div>
+        <div class="ec-b30">≈ 30% Learned</div>
+      </div>
+      <div class="ec-vehiculo-def">
+        <div>
+          <h4>≈ 70% · Factory Biology (the Biotype)</h4>
+          <p>It is the unchangeable constitution each person arrives in the world with. It comes in a single, integrated package:</p>
+          <ul>
+            <li><strong>Anatomy and morphology:</strong> the bone architecture, the shape of the face, the proportions between torso and limbs, the muscle pattern, and the natural distribution of fat.</li>
+            <li><strong>Physiology:</strong> the way the body processes energy, oxygen, temperature, water, and electrolytes.</li>
+            <li><strong>Spontaneous temperament:</strong> the nervous system's natural response to environmental stimuli (initiative, exploration, calm observation, or relational empathy).</li>
+          </ul>
+        </div>
+        <div>
+          <h4>≈ 30% · Learned Experience (Personality)</h4>
+          <p>It is the habitual way of functioning a person develops throughout life. It is built from family upbringing, lived events, training, acquired skills, and adaptation to circumstances.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ec-clave">
+      <p><strong>Family pedagogical value.</strong> No vehicle is superior to another. A sports car, a cargo truck, or a compact car have different factory designs for different functions. When parents and children understand that factory biology determines nearly 70% of their physical and physiological tendencies, destructive comparisons between siblings disappear, and the foundations are laid for self-care adapted to each body's real needs.</p>
+    </div>
+
+    <h3><span class="ec-n">1.3</span> Basic Morphology and Anatomy: The Entry Door</h3>
+    <p>To identify the needs of our bodily vehicle, anatomy offers an observational entry door based on physical architecture:</p>
+    <ul>
+      <li><strong>Bone structure and proportions:</strong> observe whether the torso is longer or shorter relative to the limbs, the width of shoulders and hips, and the prominence of the joints.</li>
+      <li><strong>Musculature and fat:</strong> distinguish between bodies with dense, factory-defined muscle mass, soft structures with rounded contours, or lean constitutions with little volume but high definition.</li>
+      <li><strong>Facial geometry:</strong> observe the shape of the head and jaw (rectangular, triangular, square, or rounded) and the expression of the eyes.</li>
+    </ul>
+    <p>This initial anatomical observation lays the groundwork for later understanding the <strong>4 traditional Unani biotypes</strong> (Choleric/Fire, Sanguine/Air, Phlegmatic/Water, Melancholic/Earth), helping the family understand why not all children run at the same pace or need exactly the same foods or stimuli.</p>
+  </section>
+
+  <!-- ───────── MÓDULO II ───────── -->
+  <section class="ec-modulo" id="ec-mod-2" aria-labelledby="ec-t2">
+    <div class="ec-modulo-cab">
+      <span class="ec-modulo-num">Module II</span>
+      <h2 id="ec-t2">Biophysics and Physiology of Home Life</h2>
+    </div>
+
+    <h3><span class="ec-n">2.1</span> The Physiology of Energy: Combustion and Breathing</h3>
+    <p>In the biophysical model of health, every illness or unexplained fatigue is, at bottom, a <strong>lack of available energy</strong>. For a student's brain and a child's muscles to work, the body needs to generate energy through a physiological process of combustion:</p>
+    <p class="ec-formula">
+      Nutrients (fats, proteins, sugars) + Oxygen (O<sub>2</sub>)
+      <span class="ec-flecha" aria-label="produce">⟶</span>
+      Energy (ATP) + Body heat (36.5 °C) + CO<sub>2</sub> + H<sub>2</sub>O
+    </p>
+    <ul>
+      <li><strong>The role of oxygen:</strong> we breathe between <span class="ec-dato">15,000</span> and <span class="ec-dato">25,000 liters</span> of air per day. In the lung alveoli, red blood cells load up on oxygen to carry it to deep tissues. Without enough oxygen, combustion becomes inefficient and cells accumulate acidic waste.</li>
+      <li><strong>Alkalization through breathing:</strong> as we exhale carbon dioxide (CO<sub>2</sub>), venous blood (<span class="ec-dato">pH ≈ 7.35</span>) becomes more alkaline arterial blood (<span class="ec-dato">pH ≈ 7.45</span>). Continuous breathing is the body's main mechanism for maintaining its pH balance second by second.</li>
+    </ul>
+
+    <h3><span class="ec-n">2.2</span> The Bioelectric System and Proper Hydration</h3>
+    <p>A frequent mistake at home is to think of hydration as the simple act of "drinking lots of plain water." From human physiology and Unani medicine:</p>
+    <ol>
+      <li><strong>The body as a bioelectric circuit:</strong> the brain, nerves, heart, and muscles transmit information through electrical impulses (membrane potentials of approximately <span class="ec-dato">−90 mV</span>).</li>
+      <li><strong>The conductive medium:</strong> ionized salts and minerals (especially sodium, Na<sup>+</sup>, and chlorine, Cl<sup>−</sup>) are the "invisible wires" that allow current to flow. All body fluids (blood, tears, interstitial fluid) are saline and equivalent to an isotonic solution (<span class="ec-dato">~0.9%</span> salinity).</li>
+      <li><strong>The danger of overhydration with plain water:</strong> drinking large amounts of demineralized water dilutes the electrolytes in the extracellular space, reduces bioelectric conductivity, and forces cells to absorb water by osmosis, causing cellular edema, headaches, heaviness, and mental fatigue.</li>
+    </ol>
+
+    <h3><span class="ec-n">2.3</span> Family Practice: Recipe and Protocol for the Daily Serum</h3>
+    <p>To maintain the bioelectric conductivity of the brain and muscles during the home school day, the family will prepare the <strong>daily serum</strong>:</p>
+    <div class="ec-receta">
+      <h4>Daily Recipe</h4>
+      <dl>
+        <dt>Pure water (filtered or boiled)</dt>
+        <dd>1 liter</dd>
+        <dt>Pure sea salt or unrefined marine salt</dt>
+        <dd>4 to 6 g per liter (approx. one level teaspoon)</dd>
+        <dt>Fresh lemon juice</dt>
+        <dd>Half a lemon or a whole lemon, to taste</dd>
+      </dl>
+      <h4>Physiological Explanation for the Children</h4>
+      <p>Sea salt provides the sodium chloride and trace minerals needed to restore the conductivity of body fluids, while lemon adds potassium, citrates, and improves the flavor. This serum prevents demineralization, quenches thirst for real, and keeps the mind clear without refined sugars or industrial drinks.</p>
+    </div>
+
+    <h3><span class="ec-n">2.4</span> Biorhythms and Liver Physiology</h3>
+    <p>The human body operates under <strong>circadian rhythms</strong> regulated by sunlight and darkness.</p>
+    <ul>
+      <li><strong>The liver as metabolic center:</strong> during the night, the liver performs critical tasks of cleansing, fat transformation, and preparation of hormonal precursors.</li>
+      <li><strong>The early-dinner rule:</strong> if children eat a heavy dinner or eat very late (after 6:00 or 7:00 p.m.), they force the liver to spend its nighttime energy on heavy digestion, interfering with the natural production of melatonin. The result is restless sleep, nightmares, and waking up tired.</li>
+      <li><strong>Light hygiene:</strong> dim bright artificial lights two hours before bed so the pineal gland can register the darkness and prepare the body for restorative rest.</li>
+    </ul>
+  </section>
+
+  <!-- ───────── MÓDULO III ───────── -->
+  <section class="ec-modulo" id="ec-mod-3" aria-labelledby="ec-t3">
+    <div class="ec-modulo-cab">
+      <span class="ec-modulo-num">Module III</span>
+      <h2 id="ec-t3">The 4-Tool Pedagogical Method</h2>
+    </div>
+    <p>To ensure learning stays active, deep, and screen-free, write the <strong>4 study tools</strong> on a family card:</p>
+
+    <div class="ec-tarjeta" role="group" aria-label="Tarjeta familiar: método de las 4 herramientas">
+      <p class="ec-tarjeta-titulo">The 4-Tool Method</p>
+      <ol>
+        <li><b>Read</b><span>Study a manageable passage.</span></li>
+        <li><b>Explain</b><span>Retell in your own words or drawings.</span></li>
+        <li><b>Practice</b><span>Measure, calculate, or experiment.</span></li>
+        <li><b>Demonstrate</b><span>Apply the idea to a new situation.</span></li>
+      </ol>
+    </div>
+
+    <h3>Step-by-Step Application in Anatomy and Physiology</h3>
+    <ol class="ec-pasos">
+      <li>
+        <p class="ec-paso-t">Read <small>· entry step</small></p>
+        <dl>
+          <dt>Action</dt>
+          <dd>The parent or child reads a short passage (2 to 3 pages) about a system of the human body in a printed book or atlas.</dd>
+          <dt>Example</dt>
+          <dd>Read how red blood cells carry oxygen from the lungs to the muscles.</dd>
+        </dl>
+      </li>
+      <li>
+        <p class="ec-paso-t">Explain <small>· ownership step</small></p>
+        <dl>
+          <dt>Action</dt>
+          <dd>The book is closed. The child explains what they understood without memorizing stock phrases, using drawings, diagrams, or everyday analogies.</dd>
+          <dt>Example</dt>
+          <dd>The child draws the heart and blood vessels, explaining: <em>"Arteries carry oxygen-loaded blood like delivery trucks, and veins bring carbon dioxide back to breathe it out."</em></dd>
+        </dl>
+      </li>
+      <li>
+        <p class="ec-paso-t">Practice <small>· body-laboratory step</small></p>
+        <dl>
+          <dt>Action</dt>
+          <dd>Carry out a hands-on measuring or direct experimentation activity at home.</dd>
+          <dt>Example 1</dt>
+          <dd>Measure heart rate (beats per minute) at rest, then measure it again after doing 20 squats, recording the difference in a chart.</dd>
+          <dt>Example 2</dt>
+          <dd>Prepare the daily serum, calculating the salt-to-water proportions per liter.</dd>
+        </dl>
+      </li>
+      <li>
+        <p class="ec-paso-t">Demonstrate <small>· real-application step</small></p>
+        <dl>
+          <dt>Action</dt>
+          <dd>The child solves a new question or explains a real situation by applying the biological principle.</dd>
+          <dt>Example</dt>
+          <dd>Ask the child: <em>"If an athlete runs for an hour under the sun and only drinks purified water without salt, why might they feel cramps or dizziness?"</em> The child demonstrates understanding by explaining the bioelectric imbalance and sodium loss through sweat.</dd>
+        </dl>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ───────── MÓDULO IV ───────── -->
+  <section class="ec-modulo" id="ec-mod-4" aria-labelledby="ec-t4">
+    <div class="ec-modulo-cab">
+      <span class="ec-modulo-num">Module IV</span>
+      <h2 id="ec-t4">The Home Library and the Home Laboratory</h2>
+    </div>
+
+    <h3><span class="ec-n">4.1</span> The Emergency Library: Six Essential Areas</h3>
+    <p>Set up a bookshelf or wooden box protected from moisture, organized into 6 areas:</p>
+    <ol class="ec-estante">
+      <li><strong>Reading and Writing</strong><span>A dictionary of the language, a grammar and spelling manual with clear examples, a composition text, and classic literary works for reading aloud.</span></li>
+      <li><strong>Mathematics</strong><span>Manuals of arithmetic, fractions, geometry, and problems applied to everyday life, with answer keys for the adult.</span></li>
+      <li><strong>Natural Sciences and Biology</strong><span>An illustrated human anatomy atlas, books on botany, basic zoology, physics, and meteorology.</span></li>
+      <li><strong>History and Geography</strong><span>Physical and political geographic atlases, timelines, and histories that explain causes and consequences.</span></li>
+      <li><strong>Practical Knowledge</strong><span>Reliable manuals on first aid, growing plants, sewing, food preservation, and basic carpentry.</span></li>
+      <li><strong>Moral Formation and Values</strong><span>Biographies of exemplary figures, universal classics, and texts for spiritual or family formation.</span></li>
+    </ol>
+
+    <h3><span class="ec-n">4.2</span> Turning Daily Chores into a Biological Laboratory</h3>
+    <p>There is no need to turn every minute into a formal lesson; simply add <strong>one question, one measurement, and one record</strong> to the necessary household tasks:</p>
+    <div class="ec-lab">
+      <div>
+        <h4>In the Kitchen <span>Physics, Chemistry, and Nutritional Density</span></h4>
+        <ul>
+          <li>Calculate half or double a recipe (fractions).</li>
+          <li>Observe how food transforms through heat or fermentation (like sourdough bread or vinegar).</li>
+          <li>Analyze nutritional density: compare the fullness produced by a meal rich in protein and healthy fats versus a meal based on refined carbohydrates.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>In the Garden and Pots <span>Botany and Minerals</span></h4>
+        <ul>
+          <li>Sow seeds in reused containers, measure daily growth, and record the variables of light, water, and soil.</li>
+          <li>Compare how plants absorb minerals from the soil analogously to how the body absorbs electrolytes.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>In Rhythms and Rest <span>Sleep Physiology</span></h4>
+        <ul>
+          <li>Record the time of the last meal and assess the quality of rest the next day.</li>
+          <li>Observe the impact of morning natural light on the day's energy level.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÓDULO V -->
+  <section class="ec-modulo" id="ec-mod-5" aria-labelledby="ec-mod-5t">
+    <div class="ec-modulo-cab">
+      <span class="ec-modulo-num">Module V</span>
+      <h2 id="ec-mod-5t">Organizing the Screen-Free School Day</h2>
+    </div>
+
+    <h3><span class="ec-n">5.1</span> Sample Daily Schedule</h3>
+    <table class="ec-horario">
+      <caption>For children ages 12 to 15 (adaptable to age and family dynamics)</caption>
+      <thead><tr><th scope="col">Time</th><th scope="col">Activity</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">08:00 – 08:30</th><td><strong>Outdoor Body Movement</strong><span>Morning sunlight and hydration with the daily serum.</span></td></tr>
+        <tr><th scope="row">08:30 – 09:15</th><td><strong>Reading and Writing (45 min)</strong><span>Close reading and paragraph writing.</span></td></tr>
+        <tr><th scope="row">09:15 – 10:00</th><td><strong>Applied Mathematics (45 min)</strong><span>Arithmetic, geometry, or practical problems.</span></td></tr>
+        <tr class="ec-descanso"><th scope="row">10:00 – 10:30</th><td><strong>Active Break</strong><span>Nutrient-dense lunch and free play.</span></td></tr>
+        <tr><th scope="row">10:30 – 11:00</th><td><strong>Natural Sciences / Anatomy and Physiology (30 min)</strong><span>Applying the 4 tools.</span></td></tr>
+        <tr><th scope="row">11:00 – 11:45</th><td><strong>Practical Home Work (45 min)</strong><span>Kitchen, garden, repairs, or first aid.</span></td></tr>
+        <tr><th scope="row">11:45 – 12:15</th><td><strong>Free Reading / Family Oral Storytelling (30 min)</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h3><span class="ec-n">5.2</span> 30-Day Family Plan for Educational Self-Reliance</h3>
+    <ol class="ec-plan">
+      <li><strong>Know Your Starting Point</strong><span>Assess abilities (reading, writing, arithmetic) and observe the anatomical and physiological traits of each child.</span></li>
+      <li><strong>Gather the Essentials</strong><span>Complete the emergency library with printed books, atlases, sea salt, and notebooks. Eliminate dependence on digital files.</span></li>
+      <li><strong>Practice the Screen-Free Routine</strong><span>Rehearse short blocks applying the 4 tools with gradual supervision (show → guide → review).</span></li>
+      <li><strong>Full Trial Day</strong><span>Carry out an entire day of self-directed learning with no internet and no electric light for study activities, then assess the results.</span></li>
+    </ol>
+  </section>
+
+  <footer class="ec-cierre">
+    <p>The school you carry with you lives in what your children know how to understand, do, and keep learning.</p>
+  </footer>
+
+</article>
+
+<div id="pf-sources"></div>
+<div id="pf-article-nav-bottom"></div>
+<div id="pf-footer"></div>
+
+  <script>
+    (function () {
+      const isGitHub = location.hostname.endsWith("github.io");
+      const base = isGitHub ? "/prepperfamily-site" : "";
+      const isES = location.pathname.includes("/es/");
+      const lang = isES ? "es" : "en";
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function loadHTML(url, targetId) {
+        return fetch(url)
+          .then(res => {
+            if (!res.ok) throw new Error("Failed to load " + url);
+            return res.text();
+          })
+          .then(html => setHTML(targetId, html))
+          .catch(() => {});
+      }
+
+      // HEADER
+      loadHTML(`${base}/partials/header-${lang}/`, "pf-header");
+
+      // FOOTER
+      loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
+
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
+
+      // ARTICLE NAV
+      const navScript = document.createElement("script");
+      navScript.src = `${base}/partials/article-nav/index.js`;
+      navScript.dataset.categoryUrl = `${base}${isES ? "/es/resistencia-familiar/educacion-en-casa/" : "/en/family-resilience/homeschooling/"}`;
+      document.body.appendChild(navScript);
+    })();
+  </script>
+
+</body>
+</html>
