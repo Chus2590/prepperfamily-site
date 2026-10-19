@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>404 — Página no encontrada | PrepperFamily.org</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#2c6d4c; --green-dark:#1a5535; --navy:#1a2a6c;
+    --gold:#f8b84e; --cream:#fdfbf7; --ink:#2c3440; --muted:#6e7c8c;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Montserrat',-apple-system,'Segoe UI',Roboto,sans-serif;
+    background:var(--cream); color:var(--ink);
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    padding:2rem 1.25rem; line-height:1.6;
+  }
+  .lang-switch{position:fixed; top:1.25rem; right:1.25rem; display:flex; gap:.4rem}
+  .lang-switch button{
+    font-family:inherit; font-size:.8rem; font-weight:600; letter-spacing:.06em;
+    padding:.45rem .9rem; border:1px solid rgba(44,109,76,.35); border-radius:999px;
+    background:transparent; color:var(--green-dark); cursor:pointer; transition:all .25s ease;
+  }
+  .lang-switch button.active{background:var(--green); border-color:var(--green); color:#fff}
+  .card{max-width:560px; text-align:center}
+  .shield{width:96px; height:96px; border-radius:22px; box-shadow:0 12px 28px -12px rgba(26,85,53,.35); margin-bottom:1.5rem}
+  .code{
+    font-family:'Cormorant Garamond',Georgia,serif; font-weight:700;
+    font-size:clamp(4.5rem,14vw,7rem); line-height:1; color:var(--green-dark);
+  }
+  .code span{color:var(--gold)}
+  h1{
+    font-family:'Cormorant Garamond',Georgia,serif; font-weight:600;
+    font-size:clamp(1.6rem,5vw,2.2rem); color:var(--navy); margin:.75rem 0;
+  }
+  p{color:var(--muted); margin-bottom:2rem; font-size:1.02rem}
+  .btn{
+    display:inline-block; font-weight:600; font-size:.95rem; letter-spacing:.02em;
+    color:#fff; background:var(--green); padding:.9rem 2.2rem; border-radius:999px;
+    text-decoration:none; transition:all .25s ease;
+    box-shadow:0 10px 22px -10px rgba(26,85,53,.5);
+  }
+  .btn:hover{background:var(--green-dark); transform:translateY(-2px)}
+  .foot{margin-top:2.5rem; font-size:.8rem; color:var(--muted); opacity:.75}
+</style>
+</head>
+<body>
+  <div class="lang-switch">
+    <button type="button" data-lang="es" class="active">ES</button>
+    <button type="button" data-lang="en">EN</button>
+  </div>
+  <main class="card">
+    <img class="shield" src="/apple-touch-icon.png" alt="PrepperFamily.org">
+    <div class="code">4<span>0</span>4</div>
+    <h1 id="t-title">Página no encontrada</h1>
+    <p id="t-text">Parece que este sendero no lleva a ningún refugio. La página que buscas fue movida o ya no existe.</p>
+    <a class="btn" id="t-home" href="/es/">Volver al inicio</a>
+    <div class="foot">PrepperFamily.org — Resistencia Familiar</div>
+  </main>
+<script>
+(function(){
+  var T = {
+    es: {lang:'es', title:'Página no encontrada',
+         text:'Parece que este sendero no lleva a ningún refugio. La página que buscas fue movida o ya no existe.',
+         home:'Volver al inicio', homeHref:'/es/',
+         doc:'404 — Página no encontrada | PrepperFamily.org'},
+    en: {lang:'en', title:'Page not found',
+         text:'Looks like this trail doesn\u2019t lead to any shelter. The page you\u2019re looking for was moved or no longer exists.',
+         home:'Back to home', homeHref:'/',
+         doc:'404 — Page not found | PrepperFamily.org'}
+  };
+  function setLang(l){
+    var t = T[l] || T.es;
+    document.documentElement.lang = t.lang;
+    document.getElementById('t-title').textContent = t.title;
+    document.getElementById('t-text').textContent = t.text;
+    var b = document.getElementById('t-home');
+    b.textContent = t.home; b.href = t.homeHref;
+    document.title = t.doc;
+    document.querySelectorAll('.lang-switch button').forEach(function(btn){
+      btn.classList.toggle('active', btn.dataset.lang === l);
+    });
+  }
+  document.querySelectorAll('.lang-switch button').forEach(function(btn){
+    btn.addEventListener('click', function(){ setLang(btn.dataset.lang); });
+  });
+  var nav = (navigator.language || 'en').toLowerCase();
+  setLang(nav.indexOf('es') === 0 ? 'es' : 'en');
+})();
+</script>
+</body>
+</html>
