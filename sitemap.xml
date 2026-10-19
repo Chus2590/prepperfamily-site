@@ -29,6 +29,10 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://prepperfamily.org/en/family-resilience/homeschooling/school-with-you/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
     <loc>https://prepperfamily.org/en/family-resilience/household-economy/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -37,6 +41,10 @@
     <loc>https://prepperfamily.org/en/family-resilience/roles-structure/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/en/family-resilience/roles-structure/man-and-woman/</loc>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/</loc>
@@ -127,6 +135,10 @@
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
+    <loc>https://prepperfamily.org/en/material-support/family-production-units/family-water-system-part-2/</loc>
+    <lastmod>2026-08-14</lastmod>
+  </url>
+  <url>
     <loc>https://prepperfamily.org/en/material-support/grow/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -165,6 +177,10 @@
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
+    <loc>https://prepperfamily.org/en/material-support/prepare/family-rocket-stove/</loc>
+    <lastmod>2026-05-18</lastmod>
+  </url>
+  <url>
     <loc>https://prepperfamily.org/en/material-support/store/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/"/>
@@ -186,6 +202,26 @@
   <url>
     <loc>https://prepperfamily.org/en/material-support/store/water-filters/</loc>
     <lastmod>2026-08-05</lastmod>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/en/material-support/store/canning-meat/</loc>
+    <lastmod>2026-04-13</lastmod>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/en/material-support/store/iodine-pills/</loc>
+    <lastmod>2026-04-13</lastmod>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/en/material-support/store/powder-pantry-foods/</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/en/material-support/store/sealing-grains/</loc>
+    <lastmod>2026-04-13</lastmod>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/en/material-support/store/three-antiseptics/</loc>
+    <lastmod>2026-04-14</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/</loc>
@@ -284,6 +320,10 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://prepperfamily.org/es/resistencia-familiar/educacion-en-casa/escuela-contigo/</loc>
+    <lastmod>2026-10-16</lastmod>
+  </url>
+  <url>
     <loc>https://prepperfamily.org/es/resistencia-familiar/proteccion-del-hogar/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -296,6 +336,10 @@
     <loc>https://prepperfamily.org/es/resistencia-familiar/roles-estructura/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/es/resistencia-familiar/roles-estructura/hombre-y-mujer/</loc>
+    <lastmod>2026-08-19</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/</loc>
@@ -326,6 +370,26 @@
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/almacena/mochila-72-horas/</loc>
     <lastmod>2026-08-05</lastmod>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/es/sustento-material/almacena/almacenar-granos/</loc>
+    <lastmod>2026-04-14</lastmod>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/es/sustento-material/almacena/despensa-en-polvo/</loc>
+    <lastmod>2026-10-02</lastmod>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/es/sustento-material/almacena/enlatar-carne/</loc>
+    <lastmod>2026-04-14</lastmod>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/es/sustento-material/almacena/pastillas-de-yodo/</loc>
+    <lastmod>2026-04-14</lastmod>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/es/sustento-material/almacena/tres-antisepticos/</loc>
+    <lastmod>2026-04-13</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/cultiva/</loc>
@@ -377,5 +441,9 @@
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/sistema-de-agua/</loc>
     <lastmod>2026-08-05</lastmod>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/sistema-agua-dos/</loc>
+    <lastmod>2026-08-14</lastmod>
   </url>
 </urlset>
