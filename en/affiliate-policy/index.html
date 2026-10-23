@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Affiliate Policy | PrepperFamily.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://prepperfamily.org/en/affiliate-policy/">
+  <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/affiliate-policy/">
+  <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/politica-de-afiliados/">
+  <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/affiliate-policy/">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #2c6d4c;
+      --color-secondary: #1a2a6c;
+      --color-accent: #f8b84e;
+      --color-background: #fdfbf7;
+      --color-text: #333;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--color-background); color: var(--color-text); line-height: 1.7; }
+    .policy-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .policy-wrap h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.75rem; color: var(--color-primary); margin: 0 0 0.5rem; line-height: 1.2; }
+    .policy-rule { width: 64px; height: 4px; background: var(--color-accent); border: 0; margin: 0 0 2rem; }
+    .policy-wrap p { font-size: 1.05rem; }
+    .policy-note { background: #fff; border-left: 4px solid var(--color-accent); padding: 1.25rem 1.5rem; border-radius: 0 12px 12px 0; box-shadow: 0 4px 16px rgba(0,0,0,0.06); font-size: 1.05rem; margin: 2rem 0; }
+    .policy-wrap h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; color: var(--color-primary); margin-top: 2.5rem; }
+    .policy-wrap ul { padding-left: 1.25rem; }
+    .policy-wrap li { margin-bottom: 0.9rem; font-size: 1.05rem; }
+    .policy-back { display: inline-block; margin-top: 3rem; color: var(--color-primary); font-weight: 600; text-decoration: none; }
+    .policy-back:hover { text-decoration: underline; }
+    @media (max-width: 640px) {
+      .policy-wrap h1 { font-size: 2.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="pf-header"></div>
+
+<main class="policy-wrap">
+  <h1>Affiliate Policy</h1>
+  <hr class="policy-rule">
+  <p>PrepperFamily.org recommends products inside its guides and in the recommended-products sections of its articles.</p>
+  <p class="policy-note">As an Amazon Associate I earn from qualifying purchases. If you buy through my links, I earn a commission at no extra cost to you. Thank you for supporting PrepperFamily.org!</p>
+  <h2>What this means in practice</h2>
+  <ul>
+    <li><strong>Full disclosure.</strong> We always clearly indicate when a link is an affiliate link before you click on any recommendation.</li>
+    <li><strong>Tested products only.</strong> We only suggest items we have tested ourselves or would wholeheartedly trust for our own family.</li>
+    <li><strong>Educational value.</strong> Our recommendations seamlessly extend our educational guides, helping you find reliable tools efficiently.</li>
+    <li><strong>No extra cost to you.</strong> The commission is paid by the store, not added to the price you pay.</li>
+    <li><strong>Your choice.</strong> Clicking an affiliate link is optional, and the guides are complete without buying anything.</li>
+  </ul>
+  <a class="policy-back" href="https://prepperfamily.org/">&larr; Back to PrepperFamily.org</a>
+</main>
+
+<div id="pf-footer"></div>
+
+<script>
+(async () => {
+  const isGitHub = location.hostname.endsWith("github.io");
+  const base = isGitHub ? `${location.origin}/prepperfamily-site` : "";
+  const lang = location.pathname.includes("/es/") ? "es" : "en";
+
+  const headerUrl = `${base}/partials/header-${lang}/`;
+  const footerUrl = `${base}/partials/footer-${lang}/`;
+
+  async function inject(url, id){
+    const r = await fetch(url, { cache: "no-store" });
+    if(!r.ok) throw new Error(`Failed ${url}`);
+    document.getElementById(id).innerHTML = await r.text();
+  }
+
+  await inject(headerUrl, "pf-header");
+  await inject(footerUrl, "pf-footer");
+})();
+</script>
+
+</body>
+</html>
