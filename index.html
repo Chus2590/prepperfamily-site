@@ -213,7 +213,7 @@
     </section>
 
     <section class="section library" id="library">
-        <div class="wrap reveal-on-scroll">
+        <div class="wrap">
             <p class="section-kicker">The complete library</p>
             <h2 class="section-title">Every Guide, on One Shelf</h2>
             <p class="section-lead">Pick a pillar, or search for a topic. Everything we have written lives here.</p>
@@ -475,12 +475,17 @@
                 });
             });
 
-            var revealObserver = new IntersectionObserver(function (entries, observer) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
-                });
-            }, { root: null, rootMargin: '0px 0px -50px 0px', threshold: 0.15 });
-            document.querySelectorAll('.reveal-on-scroll').forEach(function (el) { revealObserver.observe(el); });
+            var revealEls = document.querySelectorAll('.reveal-on-scroll');
+            if ('IntersectionObserver' in window) {
+                var revealObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+                    });
+                }, { root: null, rootMargin: '0px 0px -50px 0px', threshold: 0 });
+                revealEls.forEach(function (el) { revealObserver.observe(el); });
+            } else {
+                revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+            }
 
             (function loadPartials() {
                 var isGitHub = location.hostname.endsWith("github.io");
