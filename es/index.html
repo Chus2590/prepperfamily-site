@@ -8,17 +8,13 @@
     <link rel="alternate" href="https://prepperfamily.org/es/" hreflang="es" />
     <link rel="alternate" href="https://prepperfamily.org/" hreflang="x-default" />
     <link rel="canonical" href="https://prepperfamily.org/es/" />
-  
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <style>
         :root {
             --color-primary: #2c6d4c;
-            --color-primary-light: #3a8a61;
             --color-primary-dark: #1a5535;
             --color-secondary: #1a2a6c;
-            --color-secondary-light: #283b8b;
             --color-secondary-dark: #0d1a45;
             --color-accent: #f8b84e;
             --color-light: #fdfbf7;
@@ -27,1541 +23,539 @@
             --color-text-light: #6e7c8c;
             --font-heading: 'Cormorant Garamond', serif;
             --font-body: 'Montserrat', sans-serif;
-            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --border-radius-sm: 0.375rem;
+            --shadow-sm: 0 4px 6px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.08), 0 10px 10px -5px rgba(0,0,0,0.04);
             --border-radius-md: 0.75rem;
             --border-radius-lg: 1.5rem;
-            --transition: all 0.3s ease;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            font-weight: 400;
-            line-height: 1.6;
-            color: var(--color-text);
-            background-color: var(--color-light);
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-            color: #1a2a6c;
-        }
-
-        a {
-            text-decoration: none;
-            color: #2ecc71;
-            transition: var(--transition);
-        }
-
-        a:hover {
-            color: #1a2a6c;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* ============================================================
-           HERO PREMIUM
-           ============================================================ */
-        #hero.hero {
-            --pfh-navy: #0d1a45;
-            --pfh-navy-2: #1a2a6c;
-            --pfh-green: #2ecc71;
-            --pfh-green-2: #27ae60;
-            --pfh-gold: #f8b84e;
-            --pfh-ease: cubic-bezier(.16, 1, .3, 1);
-            --pfh-ease-soft: cubic-bezier(.22, .61, .36, 1);
-
-            position: relative;
-            height: 100svh;
-            min-height: 620px;
-            max-height: 1080px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            isolation: isolate;
-            background: #070d20;
-            perspective: 1400px;
-            perspective-origin: 50% 45%;
-        }
-
-        #hero.hero .hero-background {
-            position: absolute;
-            inset: -6% -6% -6% -6%;
-            overflow: hidden;
-            z-index: 0;
-            transform-style: preserve-3d;
-            will-change: transform;
-            transform: translate3d(calc(var(--pfh-px, 0) * 14px), calc(var(--pfh-py, 0) * 12px), 0) translateY(calc(var(--pfh-scroll, 0) * 90px)) scale(1.04);
-            transition: transform .9s var(--pfh-ease-soft);
-        }
-
-        #hero.hero .hero-bg-image {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center 42%;
-            filter: brightness(.72) saturate(1.15) contrast(1.04);
-            transform: scale(1.1);
-            will-change: transform, filter;
-            animation: pfhKenBurns 26s var(--pfh-ease-soft) infinite alternate;
-        }
-
-        #hero.hero:hover .hero-bg-image {
-            animation-play-state: paused;
-        }
-
-        @keyframes pfhKenBurns {
-            0% { transform: scale(1.14) translate3d(-1.2%, 0.6%, 0); filter: brightness(.70) saturate(1.22) contrast(1.05); }
-            50% { transform: scale(1.22) translate3d(1.4%, -1.2%, 0); filter: brightness(.76) saturate(1.32) contrast(1.09); }
-            100% { transform: scale(1.16) translate3d(-0.8%, -0.4%, 0); filter: brightness(.71) saturate(1.24) contrast(1.06); }
-        }
-
-        #hero.hero .hero-overlay {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            background: radial-gradient(120% 85% at 50% 12%, rgba(46, 204, 113, .20) 0%, rgba(46, 204, 113, 0) 58%),
-                        radial-gradient(110% 90% at 12% 90%, rgba(26, 42, 108, .55) 0%, rgba(26, 42, 108, 0) 62%),
-                        linear-gradient(180deg, rgba(7, 13, 32, .72) 0%, rgba(13, 26, 69, .42) 34%, rgba(7, 13, 32, .78) 100%);
-            mix-blend-mode: normal;
-            animation: pfhOverlayIn 1.6s var(--pfh-ease) both;
-        }
-
-        @keyframes pfhOverlayIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        #hero.hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-            pointer-events: none;
-            background: radial-gradient(100% 78% at 50% 50%, rgba(0, 0, 0, 0) 44%, rgba(0, 0, 0, .55) 100%),
-                        repeating-linear-gradient(0deg, rgba(255, 255, 255, .014) 0 1px, rgba(0, 0, 0, 0) 1px 3px);
-            opacity: .9;
-        }
-
-        #hero.hero::before {
-            content: "";
-            position: absolute;
-            z-index: 2;
-            top: -40%;
-            left: -30%;
-            width: 70%;
-            height: 180%;
-            pointer-events: none;
-            background: linear-gradient(105deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .10) 45%, rgba(255, 255, 255, .02) 60%, rgba(255, 255, 255, 0) 100%);
-            filter: blur(28px);
-            transform: rotate(8deg) translate3d(0, 0, 0);
-            animation: pfhSweep 11s var(--pfh-ease-soft) 1.2s infinite;
-            opacity: 0;
-        }
-
-        @keyframes pfhSweep {
-            0% { opacity: 0; transform: rotate(8deg) translateX(-30%); }
-            12% { opacity: .85; }
-            55% { opacity: .55; }
-            80% { opacity: 0; transform: rotate(8deg) translateX(190%); }
-            100% { opacity: 0; transform: rotate(8deg) translateX(190%); }
-        }
-
-        #hero.hero .pfh-aurora {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            pointer-events: none;
-            overflow: hidden;
-            transform: translate3d(calc(var(--pfh-px, 0) * -26px), calc(var(--pfh-py, 0) * -20px), 0);
-            transition: transform 1.1s var(--pfh-ease-soft);
-            will-change: transform;
-        }
-
-        #hero.hero .pfh-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(72px);
-            opacity: 0;
-            will-change: transform, opacity;
-        }
-
-        #hero.hero .pfh-orb--a {
-            width: 46vw; height: 46vw;
-            max-width: 620px; max-height: 620px;
-            top: -12%; left: -8%;
-            background: radial-gradient(circle at 35% 35%, rgba(46, 204, 113, .55), rgba(46, 204, 113, 0) 70%);
-            animation: pfhOrbIn 2.2s var(--pfh-ease) .25s forwards, pfhFloatA 18s ease-in-out 2.2s infinite;
-        }
-
-        #hero.hero .pfh-orb--b {
-            width: 52vw; height: 52vw;
-            max-width: 700px; max-height: 700px;
-            bottom: -20%; right: -12%;
-            background: radial-gradient(circle at 60% 55%, rgba(26, 42, 108, .75), rgba(26, 42, 108, 0) 70%);
-            animation: pfhOrbIn 2.4s var(--pfh-ease) .45s forwards, pfhFloatB 22s ease-in-out 2.4s infinite;
-        }
-
-        #hero.hero .pfh-orb--c {
-            width: 26vw; height: 26vw;
-            max-width: 340px; max-height: 340px;
-            top: 34%; right: 16%;
-            background: radial-gradient(circle at 50% 50%, rgba(248, 184, 78, .32), rgba(248, 184, 78, 0) 70%);
-            animation: pfhOrbIn 2.6s var(--pfh-ease) .7s forwards, pfhFloatC 26s ease-in-out 2.6s infinite;
-        }
-
-        @keyframes pfhOrbIn { to { opacity: .85; } }
-        @keyframes pfhFloatA { 0%, 100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(5%, 6%, 0) scale(1.12); } }
-        @keyframes pfhFloatB { 0%, 100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(-6%, -5%, 0) scale(1.1); } }
-        @keyframes pfhFloatC { 0%, 100% { transform: translate3d(0,0,0) scale(1); } 50% { transform: translate3d(-8%, 7%, 0) scale(1.18); } }
-
-        #hero.hero .pfh-particles {
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-            pointer-events: none;
-            overflow: hidden;
-            transform: translate3d(calc(var(--pfh-px, 0) * -46px), calc(var(--pfh-py, 0) * -34px), 0);
-            transition: transform 1.3s var(--pfh-ease-soft);
-            will-change: transform;
-        }
-
-        #hero.hero .pfh-particle {
-            position: absolute;
-            width: var(--s, 4px);
-            height: var(--s, 4px);
-            border-radius: 50%;
-            background: rgba(255, 255, 255, .85);
-            box-shadow: 0 0 12px rgba(255, 255, 255, .55), 0 0 26px rgba(46, 204, 113, .35);
-            opacity: 0;
-            animation: pfhDrift var(--d, 16s) linear var(--dl, 0s) infinite;
-        }
-
-        @keyframes pfhDrift {
-            0% { opacity: 0; transform: translate3d(0, 12vh, 0) scale(.6); }
-            10% { opacity: .75; }
-            70% { opacity: .55; }
-            100% { opacity: 0; transform: translate3d(var(--tx, 20px), -78vh, 0) scale(1.05); }
-        }
-
-        #hero.hero .pfh-baseline {
-            position: absolute;
-            left: 0; right: 0; bottom: 0;
-            height: 140px;
-            z-index: 3;
-            pointer-events: none;
-            background: linear-gradient(180deg, rgba(7, 13, 32, 0) 0%, rgba(7, 13, 32, .55) 55%, rgba(7, 13, 32, .92) 100%);
-        }
-
-        #hero.hero .pfh-baseline::after {
-            content: "";
-            position: absolute;
-            left: 0; right: 0; bottom: 0;
-            height: 3px;
-            background: linear-gradient(90deg, rgba(46, 204, 113, 0) 0%, rgba(46, 204, 113, .9) 22%, rgba(248, 184, 78, .95) 50%, rgba(26, 42, 108, .9) 78%, rgba(26, 42, 108, 0) 100%);
-            background-size: 220% 100%;
-            animation: pfhLineFlow 9s linear infinite;
-            opacity: .9;
-        }
-
-        @keyframes pfhLineFlow {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 220% 50%; }
-        }
-
-        #hero.hero .hero-content {
-            position: relative;
-            z-index: 5;
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            text-align: center;
-            transform-style: preserve-3d;
-            will-change: transform, opacity;
-            transform: translate3d(calc(var(--pfh-px, 0) * -8px), calc(var(--pfh-scroll, 0) * -60px), 0) rotateX(calc(var(--pfh-py, 0) * 2.2deg)) rotateY(calc(var(--pfh-px, 0) * -2.6deg));
-            opacity: calc(1 - (var(--pfh-scroll, 0) * .85));
-            transition: transform .7s var(--pfh-ease-soft);
-        }
-
-        #hero.hero .hero-content h1 {
-            font-family: var(--font-heading, 'Cormorant Garamond', serif);
-            font-size: clamp(2rem, 6.2vw, 4.4rem);
-            font-weight: 700;
-            line-height: 1.12;
-            letter-spacing: .2px;
-            color: #fff;
-            margin: 0 0 1.35rem;
-            text-shadow: 0 10px 40px rgba(0, 0, 0, .55), 0 2px 6px rgba(0, 0, 0, .35);
-            animation: none;
-        }
-
-        #hero.hero .fade-in,
-        #hero.hero .slide-in {
-            animation: none;
-        }
-
-        #hero.hero .pfh-line {
-            display: block;
-            overflow: hidden;
-            padding-bottom: .06em;
-        }
-
-        #hero.hero .pfh-line > span {
-            display: block;
-            transform: translate3d(0, 118%, 0) rotate(2.4deg);
-            opacity: 0;
-            filter: blur(10px);
-            animation: pfhLineReveal 1.25s var(--pfh-ease) forwards;
-        }
-
-        #hero.hero .pfh-line:nth-child(1) > span { animation-delay: .35s; }
-        #hero.hero .pfh-line:nth-child(2) > span { animation-delay: .50s; }
-        #hero.hero .pfh-line:nth-child(3) > span { animation-delay: .65s; }
-
-        @keyframes pfhLineReveal {
-            0% { transform: translate3d(0, 118%, 0) rotate(2.4deg); opacity: 0; filter: blur(10px); }
-            60% { filter: blur(0); }
-            100% { transform: translate3d(0, 0, 0) rotate(0); opacity: 1; filter: blur(0); }
-        }
-
-        #hero.hero .pfh-line > span em {
-            font-style: normal;
-            background: linear-gradient(100deg, #ffffff 0%, #c8f6dd 38%, var(--pfh-gold) 78%, #ffffff 100%);
-            background-size: 220% 100%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent;
-            animation: pfhShimmer 7s linear 1.8s infinite;
-        }
-
-        @keyframes pfhShimmer {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 220% 50%; }
-        }
-
-        #hero.hero .hero-content h1 span.pfh-sub {
-            display: block;
-            font-family: var(--font-body, 'Montserrat', sans-serif);
-            font-size: clamp(.72rem, 1.55vw, 1rem);
-            font-weight: 600;
-            letter-spacing: .26em;
-            text-transform: uppercase;
-            line-height: 1.6;
-            margin-top: 1.35rem;
-            color: rgba(255, 255, 255, .9);
-            text-shadow: 0 4px 18px rgba(0, 0, 0, .5);
-            opacity: 0;
-            transform: translate3d(0, 26px, 0);
-            animation: pfhFadeUp 1.1s var(--pfh-ease) .95s forwards;
-        }
-
-        #hero.hero .hero-content h1 span.pfh-sub::after {
-            content: "";
-            display: block;
-            width: 0;
-            height: 2px;
-            margin: 1.15rem auto 0;
-            border-radius: 2px;
-            background: linear-gradient(90deg, rgba(46, 204, 113, 0), var(--pfh-green) 30%, var(--pfh-gold) 70%, rgba(248, 184, 78, 0));
-            animation: pfhRule 1.4s var(--pfh-ease) 1.35s forwards;
-        }
-
-        @keyframes pfhRule { to { width: min(320px, 62%); } }
-        @keyframes pfhFadeUp { to { opacity: 1; transform: translate3d(0, 0, 0); } }
-
-        #hero.hero .hero-tagline {
-            font-family: var(--font-body, 'Montserrat', sans-serif);
-            font-size: clamp(1rem, 1.85vw, 1.32rem);
-            font-weight: 400;
-            line-height: 1.7;
-            color: rgba(255, 255, 255, .92);
-            max-width: 760px;
-            margin: 0 auto 2.6rem;
-            text-shadow: 0 4px 22px rgba(0, 0, 0, .55);
-            opacity: 0;
-            transform: translate3d(0, 32px, 0);
-            filter: blur(7px);
-            animation: pfhTagIn 1.25s var(--pfh-ease) 1.15s forwards;
-        }
-
-        @keyframes pfhTagIn { to { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); } }
-
-        #hero.hero .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem 1.15rem;
-            opacity: 1;
-            transform: none;
-        }
-
-        #hero.hero .hero-buttons .btn {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: .6rem;
-            padding: 1.02rem 2.3rem;
-            border-radius: 999px;
-            font-family: var(--font-body, 'Montserrat', sans-serif);
-            font-size: .94rem;
-            font-weight: 700;
-            letter-spacing: .045em;
-            text-transform: uppercase;
-            text-decoration: none;
-            cursor: pointer;
-            overflow: hidden;
-            isolation: isolate;
-            transform: translate3d(0, 34px, 0) scale(.94);
-            opacity: 0;
-            animation: pfhBtnIn 1s var(--pfh-ease) forwards;
-            transition: transform .45s var(--pfh-ease), box-shadow .45s var(--pfh-ease), color .35s ease, border-color .35s ease, background-color .35s ease;
-            will-change: transform;
-        }
-
-        #hero.hero .hero-buttons .btn:nth-child(1) { animation-delay: 1.5s; }
-        #hero.hero .hero-buttons .btn:nth-child(2) { animation-delay: 1.65s; }
-
-        @keyframes pfhBtnIn { to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); } }
-
-        #hero.hero .hero-buttons .btn-primary {
-            color: #062012;
-            background: linear-gradient(135deg, #3ee88a 0%, var(--pfh-green) 46%, var(--pfh-green-2) 100%);
-            border: 1px solid rgba(255, 255, 255, .22);
-            box-shadow: 0 12px 34px rgba(46, 204, 113, .34), 0 2px 0 rgba(255, 255, 255, .30) inset, 0 -10px 26px rgba(0, 0, 0, .14) inset;
-        }
-
-        #hero.hero .hero-buttons .btn-primary::after {
-            content: "";
-            position: absolute;
-            inset: -2px;
-            z-index: -2;
-            border-radius: inherit;
-            background: radial-gradient(60% 100% at 50% 50%, rgba(46, 204, 113, .55), rgba(46, 204, 113, 0) 70%);
-            opacity: .0;
-            animation: pfhHalo 3.6s ease-in-out 2.4s infinite;
-        }
-
-        @keyframes pfhHalo {
-            0%, 100% { opacity: .15; transform: scale(1); }
-            50% { opacity: .55; transform: scale(1.14); }
-        }
-
-        #hero.hero .hero-buttons .btn::before {
-            content: "";
-            position: absolute;
-            top: 0; bottom: 0; left: -140%;
-            width: 60%; z-index: -1;
-            background: linear-gradient(100deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .55) 50%, rgba(255, 255, 255, 0) 100%);
-            transform: skewX(-18deg);
-            transition: left .75s var(--pfh-ease);
-        }
-
-        #hero.hero .hero-buttons .btn:hover::before,
-        #hero.hero .hero-buttons .btn:focus-visible::before { left: 170%; }
-
-        #hero.hero .hero-buttons .btn-primary:hover,
-        #hero.hero .hero-buttons .btn-primary:focus-visible {
-            transform: translate3d(0, -5px, 0) scale(1.035);
-            box-shadow: 0 20px 46px rgba(46, 204, 113, .46), 0 2px 0 rgba(255, 255, 255, .35) inset;
-        }
-
-        #hero.hero .hero-buttons .btn-outline {
-            color: #fff;
-            background: rgba(255, 255, 255, .07);
-            border: 1.5px solid rgba(255, 255, 255, .42);
-            -webkit-backdrop-filter: blur(12px) saturate(140%);
-            backdrop-filter: blur(12px) saturate(140%);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, .28), 0 1px 0 rgba(255, 255, 255, .18) inset;
-        }
-
-        #hero.hero .hero-buttons .btn-outline:hover,
-        #hero.hero .hero-buttons .btn-outline:focus-visible {
-            color: #fff;
-            background: rgba(255, 255, 255, .16);
-            border-color: #fff;
-            transform: translate3d(0, -5px, 0) scale(1.035);
-            box-shadow: 0 20px 44px rgba(0, 0, 0, .36), 0 1px 0 rgba(255, 255, 255, .3) inset;
-        }
-
-        #hero.hero .hero-buttons .btn-outline i {
-            font-size: 1rem;
-            transition: transform .45s var(--pfh-ease);
-        }
-
-        #hero.hero .hero-buttons .btn-outline:hover i {
-            transform: scale(1.18) rotate(-6deg);
-        }
-
-        #hero.hero .hero-buttons .btn:active {
-            transform: translate3d(0, -1px, 0) scale(.985);
-        }
-
-        #hero.hero .hero-buttons .btn:focus-visible {
-            outline: 3px solid rgba(248, 184, 78, .9);
-            outline-offset: 3px;
-        }
-
-        #hero.hero .pfh-scrollcue {
-            position: absolute;
-            left: 50%; bottom: 26px; z-index: 6;
-            transform: translateX(-50%);
-            display: flex; flex-direction: column; align-items: center; gap: .6rem;
-            opacity: 0;
-            animation: pfhFadeUp 1s var(--pfh-ease) 2.15s forwards;
-            pointer-events: none;
-        }
-
-        #hero.hero .pfh-scrollcue-rail {
-            position: relative; width: 1px; height: 56px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .45), rgba(255, 255, 255, 0));
-            overflow: hidden;
-        }
-
-        #hero.hero .pfh-scrollcue-rail::after {
-            content: ""; position: absolute; left: -1.5px; width: 4px; height: 16px;
-            border-radius: 4px;
-            background: linear-gradient(180deg, var(--pfh-green), var(--pfh-gold));
-            box-shadow: 0 0 14px rgba(46, 204, 113, .85);
-            animation: pfhCue 2.4s var(--pfh-ease-soft) infinite;
-        }
-
-        @keyframes pfhCue {
-            0% { top: -20px; opacity: 0; }
-            25% { opacity: 1; }
-            75% { opacity: 1; }
-            100% { top: 60px; opacity: 0; }
-        }
-
-        #hero.hero.pfh-ready .hero-content { visibility: visible; }
-
-        @media (max-width:991px){
-            #hero.hero { perspective: none; }
-            #hero.hero .hero-content { transform: translate3d(0, calc(var(--pfh-scroll,0) * -34px), 0); }
-        }
-
-        @media (max-width:768px){
-            #hero.hero { height: auto; min-height: 92svh; padding: 7.5rem 0 6.5rem; }
-            #hero.hero .hero-content h1 { line-height: 1.16; }
-            #hero.hero .hero-content h1 span.pfh-sub { letter-spacing: .18em; margin-top: 1.1rem; }
-            #hero.hero .hero-tagline { margin-bottom: 2.1rem; }
-            #hero.hero .hero-buttons { flex-direction: column; width: 100%; gap: .85rem; }
-            #hero.hero .hero-buttons .btn { width: 100%; max-width: 340px; padding: 1rem 1.6rem; }
-            #hero.hero .pfh-orb { filter: blur(56px); }
-            #hero.hero .pfh-baseline { height: 110px; }
-            #hero.hero .pfh-scrollcue { display: none; }
-        }
-
-        @media (max-width:420px){
-            #hero.hero .hero-content { padding: 0 1.15rem; }
-            #hero.hero .hero-content h1 { font-size: clamp(1.72rem, 8.2vw, 2.3rem); }
-        }
-
-        @media (max-height:560px) and (orientation:landscape){
-            #hero.hero { height: auto; min-height: 0; padding: 6rem 0 4.5rem; }
-            #hero.hero .pfh-scrollcue { display: none; }
-        }
-
-        @media (prefers-reduced-motion:reduce){
-            #hero.hero *, #hero.hero *::before, #hero.hero *::after { animation: none !important; transition: none !important; }
-            #hero.hero .hero-background, #hero.hero .hero-content, #hero.hero .pfh-aurora, #hero.hero .pfh-particles { transform: none !important; }
-            #hero.hero .hero-content { opacity: 1 !important; }
-            #hero.hero .pfh-line > span, #hero.hero .hero-content h1 span.pfh-sub, #hero.hero .hero-tagline, #hero.hero .hero-buttons .btn { opacity: 1 !important; transform: none !important; filter: none !important; }
-            #hero.hero .hero-content h1 span.pfh-sub::after { width: min(320px,62%); }
-            #hero.hero .pfh-orb { opacity: .7; }
-        }
-
-        /* ============================================================
-           1. COMUNIDAD (#community)
-           ============================================================ */
-        #community.section.community {
-            --lt-bg: #fdfbf7;
-            --lt-text: #2c3440;
-            --lt-text-light: #6e7c8c;
-            --lt-primary: #2c6d4c;
-            --lt-primary-hover: #1a5535;
-            --lt-border: #e2e8f0;
-            --lt-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --lt-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
-            background-color: var(--color-secondary);
-            color: white;
-            position: relative;
-            overflow: hidden;
-            padding: 4rem 1.5rem;
-        }
-
-        #community.section.community::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(26, 42, 108, 0.95), rgba(26, 42, 108, 0.7));
-            z-index: 1;
-        }
-
-        #community .lt-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        #community .lt-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-
-        #community .lt-title {
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            margin: 0 0 0.75rem 0;
-            line-height: 1.3;
-        }
-
-        #community .lt-title::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 2px;
-            background: linear-gradient(90deg, #2ecc71, white);
-            border-radius: 2px;
-        }
-
-        #community .lt-subtitle {
-            font-family: var(--font-body);
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin: 0 0 2rem 0;
-            line-height: 1.6;
-        }
-
-        #community .lt-image-container {
-            max-width: 600px;
-            margin: 0 auto 2.5rem auto;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        #community .lt-image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        #community .lt-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        #community .lt-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.25rem 1.5rem;
-            background: white;
-            border: 1px solid var(--lt-border);
-            border-radius: 0.75rem;
-            text-decoration: none;
-            color: var(--lt-text);
-            font-family: var(--font-body);
-            font-size: 1.125rem;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            box-shadow: var(--lt-shadow);
-        }
-
-        #community .lt-link:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--lt-shadow-hover);
-            border-color: var(--lt-primary);
-            color: var(--lt-text);
-        }
-
-        #community .lt-link:focus-visible {
-            outline: 3px solid var(--lt-primary);
-            outline-offset: 2px;
-        }
-
-        #community .lt-icon {
-            width: 28px;
-            height: 28px;
-            flex-shrink: 0;
-        }
-
-        @media (min-width: 640px) {
-            #community.section.community { padding: 5rem 1.5rem; }
-            #community .lt-title { font-size: 2.5rem; }
-            #community .lt-subtitle { font-size: 1.125rem; }
-            #community .lt-grid {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 800px;
-                gap: 1.25rem;
-            }
-        }
-
-        @media (min-width: 992px) {
-            #community .lt-grid {
-                grid-template-columns: repeat(3, 1fr);
-                max-width: 1000px;
-            }
-        }
-
-
-        /* ============================================================
-           2. MISIÓN Y PROPÓSITO (#discover)
-           ============================================================ */
-        #discover {
-            padding: 5rem 0;
-            background-color: #ffffff;
-        }
-
-        .discover-badge {
-            display: inline-block;
-            background: rgba(46, 204, 113, 0.12);
-            color: var(--color-primary-dark);
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            margin-bottom: 1rem;
-        }
-
-        .discover-card {
-            background: #ffffff;
-            border-radius: var(--border-radius-md);
-            padding: 1.75rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid #edf2f7;
-            transition: var(--transition);
-        }
-
-        .discover-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-3px);
-            border-color: rgba(46, 204, 113, 0.4);
-        }
-
-        .discover-card .feature-icon {
-            font-size: 1.75rem;
-            color: var(--color-primary);
-            margin-bottom: 0.75rem;
-        }
-
-        .discover-img-wrapper {
-            position: relative;
-            border-radius: var(--border-radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            height: 100%;
-            min-height: 380px;
-        }
-
-        .discover-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* ============================================================
-           3. PILARES FUNDAMENTALES (#resources)
-           ============================================================ */
-        #resources {
-            background-color: var(--color-light);
-            padding: 5rem 0;
-        }
-
-        .pillar-card {
-            background: #ffffff;
-            border-radius: var(--border-radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(0,0,0,0.04);
-        }
-
-        .pillar-card:hover {
-            transform: translateY(-7px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .pillar-card .card-img-top {
-            height: 220px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pillar-card .card-img-top img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .pillar-card:hover .card-img-top img {
-            transform: scale(1.08);
-        }
-
-        .pillar-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(13, 26, 69, 0.85);
-            color: #ffffff;
-            backdrop-filter: blur(4px);
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .pillar-card .card-body {
-            padding: 1.75rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .pillar-card .card-title {
-            font-size: 1.35rem;
-            margin-bottom: 1.25rem;
-            color: var(--color-dark);
-        }
-
-        .card-features {
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.6rem;
-            margin-bottom: 0.8rem;
-            font-size: 0.92rem;
-            color: #4a5568;
-        }
-
-        .feature-item .feature-icon {
-            color: var(--color-primary);
-            font-size: 1rem;
-            margin-top: 0.2rem;
-            flex-shrink: 0;
-        }
-
-        .card-link {
-            color: var(--color-primary-dark);
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .card-link:hover {
-            gap: 0.75rem;
-            color: var(--color-primary);
-        }
-
-        /* ============================================================
-           4. RECURSOS GRATUITOS / LEAD MAGNETS (#free-resources)
-           ============================================================ */
-        #free-resources {
-            background-color: #ffffff;
-            padding: 5rem 0;
-            position: relative;
-        }
-
-        .lead-card {
-            background: #ffffff;
-            border-radius: var(--border-radius-md);
-            padding: 2.5rem 1.75rem 2rem;
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-            border-top: 4px solid var(--color-primary);
-            position: relative;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .lead-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .lead-tag {
-            position: absolute;
-            top: -14px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #2ecc71, #1a2a6c);
-            color: #ffffff;
-            font-size: 0.7rem;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            padding: 0.25rem 0.9rem;
-            border-radius: 50px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 10px rgba(46, 204, 113, 0.3);
-        }
-
-        .lead-icon-box {
-            width: 70px;
-            height: 70px;
-            margin: 0.5rem auto 1.5rem;
-            background: rgba(46, 204, 113, 0.1);
-            color: var(--color-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-        }
-
-        .resource-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--color-dark);
-        }
-
-        .resource-text {
-            font-size: 0.95rem;
-            color: #718096;
-            margin-bottom: 1.5rem;
-            line-height: 1.5;
-        }
-
-        /* ============================================================
-           5. TRANSPARENCIA Y AFILIADOS (#transparency)
-           ============================================================ */
-        #transparency {
-            background-color: #f4f6f8;
-            padding: 4.5rem 0;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .transparency-card {
-            background: #ffffff;
-            border-radius: var(--border-radius-md);
-            padding: 2rem 1.5rem;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            height: 100%;
-            border: 1px solid #e9ecef;
-            transition: var(--transition);
-        }
-
-        .transparency-card:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-3px);
-        }
-
-        .transparency-icon {
-            font-size: 2rem;
-            color: var(--color-secondary);
-            margin-bottom: 1rem;
-        }
-
-        /* ============================================================
-           6. FOOTER Y ANIMACIONES SCROLL
-           ============================================================ */
-        #site-footer {
-            background-color: #111827;
-            margin-top: 0;
-            width: 100%;
-        }
-
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .reveal-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); font-weight: 400; line-height: 1.6; color: var(--color-text); background: var(--color-light); }
+        h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; line-height: 1.3; color: var(--color-dark); }
+        a { color: inherit; }
+        .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+        .section { padding: 5rem 0; }
+        .section-kicker { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 0.75rem; }
+        .section-title { font-size: 2.4rem; margin-bottom: 1rem; }
+        .section-lead { font-size: 1.05rem; color: var(--color-text-light); max-width: 640px; margin-bottom: 2.5rem; }
+        .reveal-on-scroll { opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal-on-scroll.is-visible { opacity: 1; transform: none; }
+
+        /* ---------- HERO ---------- */
+        .hero { position: relative; min-height: 100svh; display: flex; align-items: center; overflow: hidden; background: #0d1a45; isolation: isolate; }
+        .hero-bg { position: absolute; inset: -4%; background-image: url('/assets/images/home/header.webp'); background-size: cover; background-position: center 30%; animation: kenburns 32s ease-in-out infinite alternate; z-index: -3; }
+        @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.09); } }
+        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(13,26,69,0.45) 0%, rgba(13,26,69,0.25) 45%, rgba(13,26,69,0.82) 100%); z-index: -2; }
+        .hero-glow { position: absolute; inset: 0; background: radial-gradient(60% 50% at 70% 30%, rgba(248,184,78,0.28), rgba(248,184,78,0) 70%); animation: sunbreath 9s ease-in-out infinite alternate; z-index: -1; }
+        @keyframes sunbreath { from { opacity: 0.55; } to { opacity: 1; } }
+        .pollen { position: absolute; border-radius: 50%; background: rgba(255,236,190,0.85); filter: blur(1px); animation: drift linear infinite; z-index: -1; }
+        @keyframes drift { from { transform: translate3d(0, 10vh, 0); opacity: 0; } 15% { opacity: 0.9; } 85% { opacity: 0.6; } to { transform: translate3d(4vw, -90vh, 0); opacity: 0; } }
+        .hero-content { max-width: 1100px; margin: 0 auto; padding: 7rem 1.5rem 5rem; color: #fff; }
+        .hero-title { font-size: clamp(2.6rem, 6vw, 4.6rem); color: #fff; line-height: 1.12; margin-bottom: 1.5rem; }
+        .hero-title .u-gold { position: relative; white-space: nowrap; }
+        .hero-title .u-gold::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0.08em; height: 0.09em; background: var(--color-accent); border-radius: 2px; transform-origin: left; animation: underlineDraw 1.2s ease both 1.1s; }
+        @keyframes underlineDraw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        .hero-sub { font-size: 1.15rem; max-width: 620px; color: rgba(255,255,255,0.92); margin-bottom: 2rem; animation: riseIn 1s ease both 0.6s; }
+        @keyframes riseIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+        .hero-buttons { display: flex; flex-wrap: wrap; gap: 1rem; animation: riseIn 1s ease both 0.9s; }
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 1.7rem; border-radius: 999px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; }
+        .btn-primary { background: var(--color-primary); color: #fff; box-shadow: 0 12px 30px rgba(26,85,53,0.45); }
+        .btn-primary:hover { transform: translateY(-3px); background: var(--color-primary-dark); }
+        .btn-outline { background: rgba(255,255,255,0.10); color: #fff; border: 1.5px solid rgba(255,255,255,0.55); backdrop-filter: blur(8px); }
+        .btn-outline:hover { transform: translateY(-3px); background: rgba(255,255,255,0.20); }
+        .hero-figures { margin-top: 3rem; font-family: var(--font-heading); font-size: 1.5rem; color: #fff; animation: riseIn 1s ease both 1.2s; }
+        .hero-figures span { color: var(--color-accent); }
+
+        /* ---------- SAVE BAND ---------- */
+        .save-band { background: linear-gradient(135deg, #fdf3dd, #fdfbf7); border-top: 1px solid rgba(248,184,78,0.5); border-bottom: 1px solid rgba(248,184,78,0.5); padding: 2.5rem 0; }
+        .save-band-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; justify-content: space-between; }
+        .save-band h2 { font-size: 1.7rem; margin-bottom: 0.25rem; }
+        .save-band p { color: var(--color-text-light); }
+        .save-help { display: none; margin-top: 1rem; background: #fff; border: 1px solid rgba(248,184,78,0.6); border-radius: var(--border-radius-md); padding: 1rem 1.25rem; font-size: 0.95rem; }
+        .save-help.open { display: block; }
+
+        /* ---------- PILLARS ---------- */
+        .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+        .pillar-card { background: #fff; border-radius: var(--border-radius-md); overflow: hidden; box-shadow: var(--shadow-md); display: flex; flex-direction: column; height: 100%; transition: transform 0.45s ease, box-shadow 0.45s ease; }
+        .pillar-card:hover { transform: translateY(-7px); box-shadow: var(--shadow-lg); }
+        .pillar-card .card-img-top { height: 220px; overflow: hidden; }
+        .pillar-card .card-img-top img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .pillar-card:hover .card-img-top img { transform: scale(1.08); }
+        .pillar-card .card-body { padding: 1.75rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .pillar-card .card-title { font-size: 1.35rem; margin-bottom: 0.75rem; }
+        .pillar-card p { margin-bottom: 1.5rem; flex-grow: 1; }
+        .card-link { color: var(--color-primary-dark); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; }
+        .card-link:hover { gap: 0.75rem; color: var(--color-primary); }
+
+        /* ---------- LIBRARY ---------- */
+        .library { background: #fff; }
+        .lib-controls { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+        .lib-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+        .chip { border: 1.5px solid #e2e8f0; background: #fff; color: var(--color-text); font-family: var(--font-body); font-weight: 600; font-size: 0.9rem; padding: 0.5rem 1.1rem; border-radius: 999px; cursor: pointer; transition: all 0.25s ease; }
+        .chip:hover { border-color: var(--color-primary); color: var(--color-primary); }
+        .chip.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+        .lib-search input { font-family: var(--font-body); font-size: 0.95rem; padding: 0.6rem 1rem; border: 1.5px solid #e2e8f0; border-radius: 999px; min-width: 240px; }
+        .lib-results { color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 2rem; }
+        .lib-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .lib-card { background: var(--color-light); border-radius: var(--border-radius-md); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.45s ease, box-shadow 0.45s ease; position: relative; }
+        .lib-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+        .lib-card a { text-decoration: none; display: block; }
+        .lib-img { display: block; height: 190px; overflow: hidden; position: relative; }
+        .lib-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
+        .lib-card:hover .lib-img img { transform: scale(1.07); }
+        .lib-card:hover .lib-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255,255,255,0) 30%, rgba(255,236,190,0.35) 50%, rgba(255,255,255,0) 70%); }
+        .lib-body { display: block; padding: 1.25rem 1.35rem 1.5rem; }
+        .lib-pillar { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-primary); margin-bottom: 0.4rem; }
+        .lib-title { display: block; font-family: var(--font-heading); font-weight: 700; font-size: 1.2rem; line-height: 1.3; color: var(--color-dark); }
+        .lib-empty { display: none; text-align: center; padding: 3rem 1rem; color: var(--color-text-light); }
+        .lib-empty.show { display: block; }
+
+        /* ---------- COMMUNITY ---------- */
+        .community { background: var(--color-light); text-align: center; }
+        .community .section-lead { margin-left: auto; margin-right: auto; }
+        .social-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1rem; }
+        .social-btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.8rem 1.5rem; border-radius: 999px; background: #fff; border: 1.5px solid #e2e8f0; font-weight: 700; font-size: 0.95rem; text-decoration: none; color: var(--color-dark); box-shadow: var(--shadow-sm); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+        .social-btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--color-accent); }
+        .social-btn i { font-size: 1.15rem; }
+
+        /* ---------- TRANSPARENCY ---------- */
+        .transparency { background: #fff; }
+        .trans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+        .trans-item h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+
+        .community-photo { max-width: 760px; margin: 0 auto 2rem; }
+        .community-photo img { width: 100%; border-radius: var(--border-radius-lg); box-shadow: var(--shadow-lg); display: block; }
+        .social-row { position: relative; isolation: isolate; }
+        .social-row::before { content: ""; position: absolute; inset: -1.5rem -2rem; background: radial-gradient(50% 60% at 50% 50%, rgba(248,184,78,0.25), rgba(248,184,78,0) 70%); animation: sunbreath 9s ease-in-out infinite alternate; z-index: -1; }
+        .social-btn i { transition: transform 0.35s ease; }
+        .social-btn:hover i { transform: scale(1.25); }
+        .social-btn:hover { border-color: var(--color-accent); }
+
+        @media (max-width: 900px) {
+            .pillar-grid, .trans-grid { grid-template-columns: 1fr 1fr; }
+            .lib-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 640px) {
+            .section { padding: 3.5rem 0; }
+            .section-title { font-size: 1.9rem; }
+            .pillar-grid, .trans-grid, .lib-grid { grid-template-columns: 1fr; }
+            .hero-content { padding-top: 6rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-bg, .hero-glow, .pollen, .hero-title .u-gold::after { animation: none !important; }
+            .reveal-on-scroll { opacity: 1; transform: none; transition: none; }
+            *, *::before, *::after { transition-duration: 0.01ms !important; }
         }
     </style>
 </head>
 <body>
-        
     <div id="pf-header"></div>
- 
-    <!-- HERO SECTION -->
-    <section id="hero" class="hero">
-        <div class="hero-background">
-            <div class="hero-bg-image" style="background-image: url('https://prepperfamily.org/assets/images/home/header.webp');"></div>
-            <div class="hero-overlay"></div>
-        </div>
 
-        <div class="pfh-aurora" aria-hidden="true">
-            <span class="pfh-orb pfh-orb--a"></span>
-            <span class="pfh-orb pfh-orb--b"></span>
-            <span class="pfh-orb pfh-orb--c"></span>
-        </div>
-
-        <div class="pfh-particles" aria-hidden="true">
-            <span class="pfh-particle" style="--s:3px; left:8%; bottom:-4%; --tx:36px; --d:19s; --dl:0s"></span>
-            <span class="pfh-particle" style="--s:5px; left:18%; bottom:-8%; --tx:-28px; --d:23s; --dl:2.4s"></span>
-            <span class="pfh-particle" style="--s:2px; left:27%; bottom:-2%; --tx:52px; --d:16s; --dl:5.1s"></span>
-            <span class="pfh-particle" style="--s:4px; left:38%; bottom:-6%; --tx:-40px; --d:25s; --dl:1.2s"></span>
-            <span class="pfh-particle" style="--s:3px; left:46%; bottom:-3%; --tx:24px; --d:20s; --dl:7.3s"></span>
-            <span class="pfh-particle" style="--s:6px; left:57%; bottom:-9%; --tx:-56px; --d:27s; --dl:3.6s"></span>
-            <span class="pfh-particle" style="--s:2px; left:66%; bottom:-2%; --tx:30px; --d:17s; --dl:9.0s"></span>
-            <span class="pfh-particle" style="--s:4px; left:74%; bottom:-7%; --tx:-34px; --d:22s; --dl:4.8s"></span>
-            <span class="pfh-particle" style="--s:3px; left:83%; bottom:-4%; --tx:44px; --d:24s; --dl:6.4s"></span>
-            <span class="pfh-particle" style="--s:5px; left:92%; bottom:-6%; --tx:-22px; --d:21s; --dl:10.2s"></span>
-        </div>
-
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-glow"></div>
+        <span class="pollen" style="left:12%; bottom:8%; width:6px; height:6px; animation-duration:26s;"></span>
+        <span class="pollen" style="left:28%; bottom:4%; width:4px; height:4px; animation-duration:32s; animation-delay:6s;"></span>
+        <span class="pollen" style="left:55%; bottom:10%; width:5px; height:5px; animation-duration:29s; animation-delay:3s;"></span>
+        <span class="pollen" style="left:72%; bottom:6%; width:7px; height:7px; animation-duration:36s; animation-delay:10s;"></span>
+        <span class="pollen" style="left:86%; bottom:12%; width:4px; height:4px; animation-duration:24s; animation-delay:1s;"></span>
         <div class="hero-content">
-            <h1 class="fade-in">
-                <span class="pfh-line"><span>Resiste sin <em>miedo.</em></span></span>
-                <span class="pfh-line"><span>Prepara sin <em>caos.</em></span></span>
-                <span class="pfh-line"><span>Vive con <em>propósito.</em></span></span>
-                <span class="pfh-sub">PrepperFamily.org: RESISTENCIA FAMILIAR CRISTIANA.</span>
-            </h1>
-
-            <p class="hero-tagline slide-in">
-                Refugio de sabiduría práctica y espiritual para familias que desean resistir con dignidad y fe en tiempos de incertidumbre.
-            </p>
-
-            <div class="hero-buttons slide-in">
+            <h1 class="hero-title">Resiste sin miedo.<br>Prepara sin caos.<br>Vive con <span class="u-gold">propósito.</span></h1>
+            <p class="hero-sub">Refugio de sabiduría práctica y espiritual para familias que desean resistir con dignidad y fe en tiempos inciertos.</p>
+            <div class="hero-buttons">
                 <a href="#resources" class="btn btn-primary">Descubre cómo empezar</a>
-                <a href="#community" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
-                    <i class="fab fa-facebook-f"></i> Únete a la Comunidad
-                </a>
+                <a href="#community" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-facebook-f"></i> Únete a la Comunidad</a>
             </div>
+            <p class="hero-figures">Un solo estante <span>&middot;</span> Toda la colección</p>
         </div>
-
-        <div class="pfh-scrollcue" aria-hidden="true">
-            <span class="pfh-scrollcue-rail"></span>
-        </div>
-
-        <div class="pfh-baseline" aria-hidden="true"></div>
     </section>
 
-    <script>
-        (function () {
-            var hero = document.getElementById('hero');
-            if (!hero) return;
-
-            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            hero.classList.add('pfh-ready');
-            if (reduce) return;
-
-            var px = 0, py = 0, tpx = 0, tpy = 0, scrollVal = 0, raf = null;
-
-            function render() {
-                px += (tpx - px) * 0.085;
-                py += (tpy - py) * 0.085;
-                hero.style.setProperty('--pfh-px', px.toFixed(4));
-                hero.style.setProperty('--pfh-py', py.toFixed(4));
-                if (Math.abs(tpx - px) > 0.0008 || Math.abs(tpy - py) > 0.0008) {
-                    raf = requestAnimationFrame(render);
-                } else {
-                    raf = null;
-                }
-            }
-
-            function queue() { if (!raf) raf = requestAnimationFrame(render); }
-
-            if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-                hero.addEventListener('pointermove', function (e) {
-                    var r = hero.getBoundingClientRect();
-                    tpx = ((e.clientX - r.left) / r.width - 0.5) * 2;
-                    tpy = ((e.clientY - r.top) / r.height - 0.5) * 2;
-                    queue();
-                }, { passive: true });
-
-                hero.addEventListener('pointerleave', function () {
-                    tpx = 0; tpy = 0; queue();
-                }, { passive: true });
-            }
-
-            window.addEventListener('deviceorientation', function (e) {
-                if (e.gamma == null || e.beta == null) return;
-                tpx = Math.max(-1, Math.min(1, e.gamma / 32));
-                tpy = Math.max(-1, Math.min(1, (e.beta - 45) / 42));
-                queue();
-            }, { passive: true });
-
-            var ticking = false;
-            function onScroll() {
-                if (ticking) return;
-                ticking = true;
-                requestAnimationFrame(function () {
-                    var h = hero.offsetHeight || 1;
-                    var p = Math.min(1, Math.max(0, window.pageYOffset / h));
-                    if (Math.abs(p - scrollVal) > 0.002) {
-                        scrollVal = p;
-                        hero.style.setProperty('--pfh-scroll', p.toFixed(4));
-                    }
-                    ticking = false;
-                });
-            }
-
-            window.addEventListener('scroll', onScroll, { passive: true });
-            onScroll();
-        })();
-    </script>
-
-    <!-- COMMUNITY SECTION -->
-    <section id="community" class="section community">
-  <div class="lt-container">
-    <div class="lt-header">
-      <h2 class="lt-title">No Estás Solo: Conecta con Familias que Comparten Tu Camino</h2>
-      <p class="lt-subtitle">El camino de vivir una vida tradicional en un mundo moderno a veces puede sentirse solitario. Queremos que sepas que no lo estás.</p>
-      
-      <div class="lt-image-container">
-        <img src="https://prepperfamily.org/assets/images/home/community.webp" alt="Comunidad PrepperFamily">
-      </div>
-    </div>
-    
-    <div class="lt-grid">
-      <a href="https://youtube.com/@prepperfamily.org1" target="_blank" rel="noopener noreferrer" class="lt-link" aria-label="Visita nuestro canal de YouTube">
-        <svg class="lt-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FF0000"/>
-        </svg>
-        <span>YouTube</span>
-      </a>
-      
-      <a href="https://www.instagram.com/prepperfamily?igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" class="lt-link" aria-label="Síguenos en Instagram">
-        <svg class="lt-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" fill="url(#instagram-gradient)"/>
-          <defs>
-            <linearGradient id="instagram-gradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#FD5949"/>
-              <stop offset="0.5" stop-color="#D6249F"/>
-              <stop offset="1" stop-color="#285AEB"/>
-            </linearGradient>
-          </defs>
-        </svg>
-        <span>Instagram</span>
-      </a>
-      
-      <a href="https://www.facebook.com/profile.php?id=100094190691995&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" class="lt-link" aria-label="Únete a nuestra comunidad en Facebook">
-        <svg class="lt-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="#1877F2"/>
-        </svg>
-        <span>Facebook</span>
-      </a>
-      
-      <a href="https://www.tiktok.com/@prepperfamily?_r=1&_t=ZT-91Dm5XE3Umt" target="_blank" rel="noopener noreferrer" class="lt-link" aria-label="Descubre nuestro contenido en TikTok">
-        <svg class="lt-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" fill="#000000"/>
-        </svg>
-        <span>TikTok</span>
-      </a>
-      
-      <a href="https://x.com/Chus2590?s=09" target="_blank" rel="noopener noreferrer" class="lt-link" aria-label="Síguenos en X (Twitter)">
-        <svg class="lt-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="#000000"/>
-        </svg>
-        <span>X</span>
-      </a>
-    </div>
-  </div>
-</section>
-    <!-- ============================================================
-         1. DISCOVER / OUR MISSION SECTION
-         ============================================================ -->
-    <section id="discover" class="section">
-        <div class="container">
-            <div class="section-title reveal-on-scroll">
-                <span class="discover-badge">Fe y Acción</span>
-                <h2>Fortalece a Tu Familia para el Futuro con Fe</h2>
-                <p class="section-subtitle">
-                    En un mundo lleno de incertidumbre y distracciones digitales, sentimos la profunda necesidad de proteger a nuestras familias y transmitir valores sólidos. No somos simplemente otro sitio web de supervivencia.
-                </p>
+    <section class="save-band">
+        <div class="wrap save-band-inner">
+            <div>
+                <h2>Guarda esta biblioteca en tu estante</h2>
+                <p>Guarda esta página y todas las guías te estarán esperando cuando las necesites.</p>
             </div>
+            <button class="btn btn-primary" id="saveBtn" type="button">Guardar esta página</button>
+        </div>
+        <div class="wrap">
+            <div class="save-help" id="saveHelp">En una computadora, presiona <strong>Ctrl+D</strong> (Windows) o <strong>Cmd+D</strong> (Mac) para guardar esta página en favoritos. En tu teléfono, abre el menú del navegador y elige <strong>Añadir a pantalla de inicio</strong>.</div>
+        </div>
+    </section>
 
-            <div class="row align-items-center">
-                <div class="col col-lg-6 reveal-on-scroll">
-                    <div class="p-2">
-                        <p class="lead-text" style="font-size: 1.1rem; color: var(--color-dark); margin-bottom: 1.5rem;">
-                            Somos la única plataforma que fusiona de manera profunda y orgánica la <strong>preparación práctica</strong> con la <strong>Fe Cristiana tradicional</strong>, enfocándonos en tu hogar como el santuario definitivo de resistencia.
-                        </p>
-                        
-                        <div class="discover-card">
-                            <div class="d-flex align-items-start gap-3">
-                                <i class="fas fa-shield-alt feature-icon"></i>
-                                <div>
-                                    <h3 class="card-title" style="font-size: 1.25rem; margin-bottom: 0.5rem;">Transforma la Ansiedad en Acción</h3>
-                                    <p class="mb-0" style="font-size: 0.95rem;">Con nuestras herramientas prácticas y espirituales, la preparación es completa cuando abarca cuerpo, mente y espíritu.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="discover-card">
-                            <div class="d-flex align-items-start gap-3">
-                                <i class="fas fa-handshake-angle feature-icon"></i>
-                                <div>
-                                    <h3 class="card-title" style="font-size: 1.25rem; margin-bottom: 0.5rem;">Confianza Inquebrantable y Transparencia Absoluta</h3>
-                                    <p class="mb-0" style="font-size: 0.95rem;">En un mundo en línea lleno de ruido, nos comprometemos con la integridad total. Cada recomendación es auténtica, probada y alineada con la ética cristiana.</p>
-                                </div>
-                            </div>
-                        </div>
+    <section class="section" id="resources">
+        <div class="wrap reveal-on-scroll">
+            <p class="section-kicker">Por dónde empezar</p>
+            <h2 class="section-title">Nuestros Pilares Fundamentales de Preparación</h2>
+            <p class="section-lead">Hemos organizado nuestra sabiduría práctica en tres grandes pilares para una vida familiar resiliente.</p>
+            <div class="pillar-grid">
+                <article class="pillar-card">
+                    <div class="card-img-top"><img src="/assets/images/home/material-support.webp" alt="Sustento Material" loading="lazy"></div>
+                    <div class="card-body">
+                        <h3 class="card-title">Pilar I &middot; Sustento Material</h3>
+                        <p>Almacenamiento y producción de alimentos, medicina natural y las habilidades prácticas que mantienen a una familia alimentada, sana y autosuficiente.</p>
+                        <a class="card-link" href="/es/sustento-material/">Explorar Pilar &rarr;</a>
                     </div>
-                </div>
-
-                <div class="col col-lg-6 reveal-on-scroll">
-                    <div class="discover-img-wrapper">
-                        <img src="https://prepperfamily.org/assets/images/home/family-natural-setting.webp" alt="Familia unida en un entorno natural, simbolizando la preparación y la autosuficiencia." loading="lazy">
+                </article>
+                <article class="pillar-card">
+                    <div class="card-img-top"><img src="/assets/images/home/family-resilience.webp" alt="Resistencia Familiar" loading="lazy"></div>
+                    <div class="card-body">
+                        <h3 class="card-title">Pilar II &middot; Resistencia Familiar</h3>
+                        <p>Los fundamentos de la vida familiar: roles complementarios, proteger a tus hijos y mantenerte firme en tus principios con claridad.</p>
+                        <a class="card-link" href="/es/resistencia-familiar/">Explorar Pilar &rarr;</a>
                     </div>
-                </div>
+                </article>
+                <article class="pillar-card">
+                    <div class="card-img-top"><img src="/assets/images/home/inner-strength.webp" alt="Fortaleza Interior" loading="lazy"></div>
+                    <div class="card-body">
+                        <h3 class="card-title">Pilar III &middot; Fortaleza Interior</h3>
+                        <p>Resumen de la Biblia, oración y los fundamentos de la vida cristiana, para fortalecer el alma de la familia en tiempos inciertos.</p>
+                        <a class="card-link" href="/es/fortaleza-interior/">Explorar Pilar &rarr;</a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- ============================================================
-         2. FUNDAMENTAL PILLARS SECTION (#resources)
-         ============================================================ -->
-    <section id="resources" class="section">
-        <div class="container">
-            <div class="section-title reveal-on-scroll">
-                <h2>Nuestros Pilares Fundamentales de Preparación</h2>
-                <p class="section-subtitle">
-                    Hemos organizado nuestra sabiduría práctica en tres grandes pilares para una vida familiar resiliente:
-                </p>
+    <section class="section library" id="library">
+        <div class="wrap">
+            <p class="section-kicker">La biblioteca completa</p>
+            <h2 class="section-title">Todas las Guías, en un Solo Estante</h2>
+            <p class="section-lead">Elige un pilar o busca un tema. Todo lo que hemos escrito vive aquí.</p>
+            <div class="lib-controls">
+                <div class="lib-chips" role="group" aria-label="Filter by pillar">
+                    <button class="chip active" type="button" data-filter="all">Todas las guías</button>
+                    <button class="chip" type="button" data-filter="sustento-material">Sustento Material</button>
+                    <button class="chip" type="button" data-filter="resistencia-familiar">Resistencia Familiar</button>
+                    <button class="chip" type="button" data-filter="fortaleza-interior">Fortaleza Interior</button>
+                </div>
+                <div class="lib-search"><input type="search" id="libSearch" placeholder="Buscar en la biblioteca&hellip;" aria-label="Buscar en la biblioteca"></div>
             </div>
+            <p class="lib-results" id="libResults">Toda la colección, en un solo estante</p>
+            <div class="lib-grid" id="libGrid">
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/almacena/almacenar-sal/">
+          <span class="lib-img"><img src="/assets/images/material-support/store/almacenar-sal.webp" alt="Sal almacenada en grandes cantidades para conservación y uso prolongado" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Almacenar sal: por qué toda familia necesita una reserva a largo plazo</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/almacena/bicarbonato-hogar/">
+          <span class="lib-img"><img src="/assets/images/material-support/store/bicarbonato-hogar.webp" alt="Bicarbonato de sodio como recurso doméstico versátil para el hogar" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Bicarbonato: Recurso doméstico permanente</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/almacena/filtros-agua/">
+          <span class="lib-img"><img src="/assets/images/material-support/store/filtros-agua.webp" alt="Filtros de agua portátiles para obtener agua potable segura en emergencias" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Filtros de agua: cómo asegurar agua potable en cualquier lugar</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/almacena/mochila-72-horas/">
+          <span class="lib-img"><img src="/assets/images/material-support/store/mochila-72-horas.webp" alt="Mochila familiar de 72 horas con suministros esenciales de emergencia" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Mochila de 72 horas: lo que tu familia realmente necesita</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/almacena/almacenar-granos/">
+          <span class="lib-img"><img src="/assets/images/material-support/store/almacenar-granos.webp" alt="Granos almacenados correctamente en recipientes herméticos para larga duración" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Cómo almacenar granos para larga duración sin que se dañen</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/almacena/despensa-en-polvo/">
+          <span class="lib-img"><img src="/assets/images/material-support/store/despensa-en-polvo.webp" alt="Despensa en polvo con cuatro alimentos nutritivos en frascos pequeños" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">La despensa en polvo: 4 alimentos nutritivos que ahorran espacio</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/almacena/enlatar-carne/">
+          <span class="lib-img"><img src="/assets/images/material-support/store/enlatar-carne.webp" alt="Carne enlatada en casa conservada de forma segura en frascos" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Cómo enlatar carne de forma segura para almacenarla a largo plazo</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/almacena/pastillas-de-yodo/">
+          <span class="lib-img"><img src="/assets/images/material-support/store/pastillas-de-yodo.webp" alt="Pastillas de yodo para emergencias de radiación en un kit familiar" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Pastillas de yodo: cuándo y cómo usarlas en emergencias</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/almacena/tres-antisepticos/">
+          <span class="lib-img"><img src="/assets/images/material-support/store/tres-antisepticos.webp" alt="Tres antisépticos multiuso: agua oxigenada, violeta de genciana y yodo povidona" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Tres Antisépticos Multiuso</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/cultiva/estacas-riego/">
+          <span class="lib-img"><img src="/assets/images/material-support/grow/estacas-riego.webp" alt="Estacas de riego que proporcionan hidratación constante a las plantas" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Estacas de riego: hidratación simple para un crecimiento constante</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/cultiva/germinados/">
+          <span class="lib-img"><img src="/assets/images/material-support/grow/germinados.webp" alt="Germinados frescos cultivados en casa en frascos de vidrio" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Germinados: cultiva alimentos frescos en cualquier lugar todo el año</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/prepara/almacen-frio/">
+          <span class="lib-img"><img src="/assets/images/material-support/prepare/almacen-frio.webp" alt="Almacén frío subterráneo para conservar alimentos sin electricidad" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Almacén frío: conserva alimentos sin necesidad de electricidad</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/prepara/bebidas-hidratacion/">
+          <span class="lib-img"><img src="/assets/images/material-support/prepare/bebidas-hidratacion.webp" alt="Bebidas de hidratación caseras con electrolitos para emergencias" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Bebidas de hidratación: cómo mantenerte hidratado en emergencias</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/prepara/estufa-cohete-familiar/">
+          <span class="lib-img"><img src="/assets/images/material-support/prepare/estufa-cohete-familiar.webp" alt="Estufa cohete casera para cocinar de forma eficiente sin electricidad" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Estufa cohete familiar: cocina eficiente sin depender de electricidad</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/prepara/horno-holandes/">
+          <span class="lib-img"><img src="/assets/images/material-support/prepare/horno-holandes.webp" alt="Horno holandés de hierro fundido para cocinar en exteriores o emergencias" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Horno holandés: cocina confiable en cualquier situación</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/prepara/molienda-granos/">
+          <span class="lib-img"><img src="/assets/images/material-support/prepare/molienda-granos.webp" alt="Proceso de molienda de granos para hacer harina en casa" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Molienda de granos: convierte reservas en harina utilizable</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/prepara/tinturas-herbales/">
+          <span class="lib-img"><img src="/assets/images/material-support/prepare/tinturas-herbales.webp" alt="Tinturas herbales preparadas en frascos para remedios naturales" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Tinturas herbales: conserva remedios naturales a largo plazo</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/unidades-familiares-de-produccion/sistema-de-agua/">
+          <span class="lib-img"><img src="/assets/images/material-support/family-production-units/sistema-de-agua.webp" alt="Sistema familiar de almacenamiento y purificación de agua" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Sistema familiar de almacenamiento y purificación de agua (1).</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="sustento-material">
+        <a href="/es/sustento-material/unidades-familiares-de-produccion/sistema-agua-dos/">
+          <span class="lib-img"><img src="/assets/images/material-support/family-production-units/sistema-agua-dos.webp" alt="Segunda parte del sistema familiar de almacenamiento y purificación de agua" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Sustento Material</span><span class="lib-title">Sistema de almacenamiento y purificación de agua (2)</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="resistencia-familiar">
+        <a href="/es/resistencia-familiar/educacion-en-casa/escuela-contigo/">
+          <span class="lib-img"><img src="/assets/images/family-resilience/homeschooling/escuela-contigo.webp" alt="Educación en casa sin pantallas: la escuela que la familia lleva consigo" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Resistencia Familiar</span><span class="lib-title">La escuela que llevas contigo</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="resistencia-familiar">
+        <a href="/es/resistencia-familiar/proteccion-del-hogar/defensa-del-hogar/">
+          <span class="lib-img"><img src="/assets/images/family-resilience/home-protection/defensa-del-hogar.webp" alt="Plan de defensa del hogar con medidas de seguridad para proteger a la familia" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Resistencia Familiar</span><span class="lib-title">Defensa del hogar: cómo proteger a tu familia con un plan práctico</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="resistencia-familiar">
+        <a href="/es/resistencia-familiar/roles-estructura/hombre-y-mujer/">
+          <span class="lib-img"><img src="/assets/images/family-resilience/roles-structure/roles-estructura.webp" alt="El hombre y la mujer como pilares de la resiliencia familiar" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Resistencia Familiar</span><span class="lib-title">Hombre y mujer: los pilares de la resiliencia familiar</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="fortaleza-interior">
+        <a href="/es/fortaleza-interior/biblia/adan-a-jose/">
+          <span class="lib-img"><img src="/assets/images/inner-strength/bible/adan-a-jose.webp" alt="Resumen bíblico desde Adán hasta José en el Antiguo Testamento" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Fortaleza Interior</span><span class="lib-title">Resumen del Antiguo Testamento (1): de Adán a José</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="fortaleza-interior">
+        <a href="/es/fortaleza-interior/biblia/cristo-primeras-iglesias/">
+          <span class="lib-img"><img src="/assets/images/inner-strength/bible/cristo-primeras-iglesias.webp" alt="Resumen del Nuevo Testamento desde la Pasión de Cristo hasta las primeras iglesias" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Fortaleza Interior</span><span class="lib-title">Resumen del Nuevo Testamento (2): de la Pasión de Cristo a las primeras iglesias</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="fortaleza-interior">
+        <a href="/es/fortaleza-interior/biblia/iglesia-primeros-siglos/">
+          <span class="lib-img"><img src="/assets/images/inner-strength/bible/iglesia-primeros-siglos.webp" alt="Resumen de la historia de la Iglesia cristiana en los primeros siglos" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Fortaleza Interior</span><span class="lib-title">Resumen de la Historia del Cristianismo (1): La Iglesia en los Primeros Siglos</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="fortaleza-interior">
+        <a href="/es/fortaleza-interior/biblia/moises-a-salomon/">
+          <span class="lib-img"><img src="/assets/images/inner-strength/bible/moises-a-salomon.webp" alt="Resumen del Antiguo Testamento desde Moisés hasta el rey Salomón" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Fortaleza Interior</span><span class="lib-title">Resumen del Antiguo Testamento (2): De Moisés a Salomón</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="fortaleza-interior">
+        <a href="/es/fortaleza-interior/biblia/profetas-a-cristo/">
+          <span class="lib-img"><img src="/assets/images/inner-strength/bible/profetas-a-cristo.webp" alt="Resumen del período de los profetas hasta la llegada de Cristo" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Fortaleza Interior</span><span class="lib-title">Resumen del Antiguo Testamento (3): De los Profetas a Cristo</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="fortaleza-interior">
+        <a href="/es/fortaleza-interior/biblia/verdad-revelada/">
+          <span class="lib-img"><img src="/assets/images/inner-strength/bible/verdad-revelada.webp" alt="Biblia abierta que representa la verdad revelada a través de las Escrituras" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Fortaleza Interior</span><span class="lib-title">Verdad revelada: entendiendo la verdad a través de la Biblia</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="fortaleza-interior">
+        <a href="/es/fortaleza-interior/biblia/vida-publica-jesus/">
+          <span class="lib-img"><img src="/assets/images/inner-strength/bible/vida-publica-jesus.webp" alt="Resumen del Nuevo Testamento: de la Anunciación a la resurrección de Lázaro" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Fortaleza Interior</span><span class="lib-title">Resumen del Nuevo Testamento (1): De la Anunciación a la resurrección de Lázaro</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="fortaleza-interior">
+        <a href="/es/fortaleza-interior/conceptos-cristianos-basicos/cristo-centro-universo/">
+          <span class="lib-img"><img src="/assets/images/inner-strength/basic-christian-concepts/cristo-centro-universo.webp" alt="Cristo como centro del universo y fundamento de la fe cristiana" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Fortaleza Interior</span><span class="lib-title">Cristo, centro del universo: fundamento para una vida con propósito</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="fortaleza-interior">
+        <a href="/es/fortaleza-interior/conceptos-cristianos-basicos/revelacion-de-dios-iglesia/">
+          <span class="lib-img"><img src="/assets/images/inner-strength/basic-christian-concepts/revelacion-de-dios-iglesia.webp" alt="La revelación de Dios y el propósito de su Iglesia" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Fortaleza Interior</span><span class="lib-title">La Revelación de Dios y su Iglesia</span></span>
+        </a>
+      </article>
+      <article class="lib-card" data-pillar="fortaleza-interior">
+        <a href="/es/fortaleza-interior/oraciones/peticiones-cristianas/">
+          <span class="lib-img"><img src="/assets/images/inner-strength/prays/peticiones-cristianas.webp" alt="Oración cristiana con peticiones dirigidas a Dios en un momento de fe" loading="lazy"></span>
+          <span class="lib-body"><span class="lib-pillar">Fortaleza Interior</span><span class="lib-title">Peticiones cristianas: cómo orar con fe y propósito</span></span>
+        </a>
+      </article>
+            </div>
+            <p class="lib-empty" id="libEmpty">Nada en este estante coincide con tu búsqueda todavía. Prueba con otra palabra.</p>
+        </div>
+    </section>
 
-            <div class="row">
-                <!-- Pillar 1 -->
-                <div class="col col-md-4 mb-4 reveal-on-scroll">
-                    <div class="pillar-card">
-                        <div class="card-img-top">
-                            <span class="pillar-badge">Pilar I</span>
-                            <img src="https://prepperfamily.org/assets/images/home/material-support.webp" alt="Sustento Material" loading="lazy">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Sustento Material</h3>
-                            <div class="card-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-check-circle feature-icon"></i>
-                                    <span><strong>El poder de la sal:</strong> Descubre cómo este mineral esencial preserva la vida y la salud.</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check-circle feature-icon"></i>
-                                    <span><strong>Producción de Alimentos:</strong> Establece sistemas de cultivo adaptados a la autosuficiencia familiar.</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check-circle feature-icon"></i>
-                                    <span><strong>Medicina Natural:</strong> Usos prácticos de plantas medicinales efectivas según la región.</span>
-                                </div>
-                            </div>
-                            <a href="https://prepperfamily.org/es/sustento-material/" class="card-link">
-                                Explorar Pilar <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pillar 2 -->
-                <div class="col col-md-4 mb-4 reveal-on-scroll">
-                    <div class="pillar-card">
-                        <div class="card-img-top">
-                            <span class="pillar-badge">Pilar II</span>
-                            <img src="https://prepperfamily.org/assets/images/home/family-resilience.webp" alt="Resiliencia Familiar" loading="lazy">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Resistencia Familiar</h3>
-                            <div class="card-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-check-circle feature-icon"></i>
-                                    <span><strong>Roles Complementarios:</strong> Comprende los verdaderos fundamentos de la psicología masculina y femenina.</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check-circle feature-icon"></i>
-                                    <span><strong>Protege a tus Hijos:</strong> Defiende la educación contra el adoctrinamiento ideológico.</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check-circle feature-icon"></i>
-                                    <span><strong>Rompe el Silencio:</strong> Mantente firme en tus principios con claridad y confianza.</span>
-                                </div>
-                            </div>
-                            <a href="https://prepperfamily.org/es/resistencia-familiar/" class="card-link">
-                                Explorar Pilar <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pillar 3 -->
-                <div class="col col-md-4 mb-4 reveal-on-scroll">
-                    <div class="pillar-card">
-                        <div class="card-img-top">
-                            <span class="pillar-badge">Pilar III</span>
-                            <img src="https://prepperfamily.org/assets/images/home/inner-strength.webp" alt="Fuerza Interior" loading="lazy">
-                        </div>
-                        <div class="card-body">
-                            <h3 class="card-title">Fortaleza Interior</h3>
-                            <div class="card-features">
-                                <div class="feature-item">
-                                    <i class="fas fa-check-circle feature-icon"></i>
-                                    <span><strong>Ciencia Sagrada:</strong> Profundiza en tu comprensión de la doctrina, la moral y la liturgia.</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check-circle feature-icon"></i>
-                                    <span><strong>Donde Habita Dios:</strong> Desde el Arca de la Alianza hasta los sagrarios modernos.</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-check-circle feature-icon"></i>
-                                    <span><strong>Signos de los Tiempos:</strong> Aprende a transitar la historia con fe y alerta espiritual.</span>
-                                </div>
-                            </div>
-                            <a href="https://prepperfamily.org/es/fortaleza-interior/" class="card-link">
-                                Explorar Pilar <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+    <section class="section community" id="community">
+        <div class="wrap reveal-on-scroll">
+            <p class="section-kicker">Community</p>
+            <h2 class="section-title">No Estás Solo: Conecta con Familias que Comparten Tu Camino</h2>
+            <p class="section-lead">El camino de vivir una vida tradicional en un mundo moderno a veces puede sentirse solitario. Queremos que sepas que no lo estás.</p>
+            <div class="community-photo"><img src="/assets/images/home/community.webp" alt="PrepperFamily Community" loading="lazy"></div>
+            <div class="social-row">
+                <a class="social-btn" href="https://youtube.com/@prepperfamily.org1" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a>
+                <a class="social-btn" href="https://www.instagram.com/prepperfamily" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
+                <a class="social-btn" href="https://www.facebook.com/profile.php?id=100094190691995" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a class="social-btn" href="https://www.tiktok.com/@prepperfamily" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> TikTok</a>
+                <a class="social-btn" href="https://x.com/Chus2590" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i> X</a>
             </div>
         </div>
     </section>
 
-    <!-- ============================================================
-         3. FREE DOWNLOADABLE GUIDES SECTION (LEAD MAGNETS)
-         ============================================================ -->
-    <section id="free-resources" class="section">
-        <div class="container">
-            <div class="section-title reveal-on-scroll">
-                <h2>Recursos Gratuitos Destacados</h2>
-                <p class="section-subtitle">
-                    ¡Comienza el viaje de tu familia hoy mismo con estas guías y talleres descargables gratuitos!
-                </p>
+    <section class="section transparency">
+        <div class="wrap reveal-on-scroll">
+            <p class="section-kicker">Trust</p>
+            <h2 class="section-title">Nuestro Compromiso con la Transparencia</h2>
+            <p class="section-lead">La confianza es la base de nuestra comunidad. Así es como gestionamos las recomendaciones de productos:</p>
+            <div class="trans-grid">
+                <div class="trans-item"><h3>Divulgación Total</h3><p>Siempre indicamos con claridad cuándo un enlace es de afiliado antes de que hagas clic en cualquier recomendación.</p></div>
+                <div class="trans-item"><h3>Solo Productos Probados</h3><p>Solo sugerimos artículos que hemos probado personalmente o en los que confiaríamos plenamente para nuestra propia familia.</p></div>
+                <div class="trans-item"><h3>Valor Educativo</h3><p>Nuestras recomendaciones extienden de forma natural nuestras guías educativas, ayudándote a encontrar herramientas confiables con eficiencia.</p></div>
             </div>
 
-            <div class="row">
-                <!-- Guide 1 -->
-                <div class="col col-md-4 mb-4 reveal-on-scroll">
-                    <div class="lead-card">
-                        <span class="lead-tag">PDF Gratuito</span>
-                        <div class="lead-icon-box">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <h3 class="resource-title">Sanación Natural en el Hogar</h3>
-                        <p class="resource-text">
-                            Aprende a usar la medicina herbaria con confianza para el bienestar de tu familia. Una guía para transformar tu botiquín casero.
-                        </p>
-                        <a href="https://prepperfamily.org/es/sustento-material/" class="btn btn-primary mt-auto">Descargar Guía Gratuita</a>
-                    </div>
-                </div>
-
-                <!-- Guide 2 -->
-                <div class="col col-md-4 mb-4 reveal-on-scroll">
-                    <div class="lead-card">
-                        <span class="lead-tag">Taller Gratuito</span>
-                        <div class="lead-icon-box">
-                            <i class="fas fa-bread-slice"></i>
-                        </div>
-                        <h3 class="resource-title">Tu Mejor Pan Casero</h3>
-                        <p class="resource-text">
-                            Domina el arte esencial de hornear pan delicioso y nutritivo en casa, sin importar la receta.
-                        </p>
-                        <a href="https://prepperfamily.org/es/resistencia-familiar/" class="btn btn-primary mt-auto">Descargar Guía Gratuita</a>
-                    </div>
-                </div>
-
-                <!-- Guide 3 -->
-                <div class="col col-md-4 mb-4 reveal-on-scroll">
-                    <div class="lead-card">
-                        <span class="lead-tag">Devocionario Gratuito</span>
-                        <div class="lead-icon-box">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <h3 class="resource-title">Oraciones para Tiempos de Incertidumbre</h3>
-                        <p class="resource-text">
-                            Oraciones espirituales fundamentales para fortalecer la fe, sostener el alma y mantener la paz familiar durante tiempos dificiles.
-                        </p>
-                        <a href="https://prepperfamily.org/es/fortaleza-interior/" class="btn btn-primary mt-auto">Descargar Guía Gratuita</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- ============================================================
-         4. TRANSPARENCY & AFFILIATE POLICY
-         ============================================================ -->
-    <section id="transparency" class="section">
-        <div class="container">
-            <div class="section-title reveal-on-scroll">
-                <h2>Nuestro Compromiso con la Transparencia</h2>
-                <p class="section-subtitle">
-                    La confianza es la base de nuestra comunidad. Así es como gestionamos las recomendaciones de productos:
-                </p>
-            </div>
-
-            <div class="row">
-                <div class="col col-md-4 mb-4 reveal-on-scroll">
-                    <div class="transparency-card">
-                        <i class="fas fa-eye transparency-icon"></i>
-                        <h3 class="resource-title" style="font-size: 1.2rem;">Divulgación Total</h3>
-                        <p class="resource-text" style="font-size: 0.95rem;">
-                            Siempre indicamos con claridad cuándo un enlace es de afiliado antes de que hagas clic en cualquier recomendación.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col col-md-4 mb-4 reveal-on-scroll">
-                    <div class="transparency-card">
-                        <i class="fas fa-award transparency-icon"></i>
-                        <h3 class="resource-title" style="font-size: 1.2rem;">Solo Productos Probados</h3>
-                        <p class="resource-text" style="font-size: 0.95rem;">
-                            Solo sugerimos artículos que hemos probado personalmente o en los que confiaríamos plenamente para nuestra propia familia.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col col-md-4 mb-4 reveal-on-scroll">
-                    <div class="transparency-card">
-                        <i class="fas fa-hand-holding-heart transparency-icon"></i>
-                        <h3 class="resource-title" style="font-size: 1.2rem;">Valor Educativo</h3>
-                        <p class="resource-text" style="font-size: 0.95rem;">
-                            Nuestras recomendaciones amplían de manera natural nuestras guías educativas, ayudándote a encontrar herramientas confiables con eficiencia.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-4 reveal-on-scroll">
-                <a href="https://prepperfamily.org/en/affiliate-policy/" class="btn btn-secondary">
-                    Lee Nuestra Política de Afiliados Completa <i class="fas fa-shield-halved ms-1"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         5. SITE FOOTER (PARTIAL HOLDER)
-         ============================================================ -->
     <footer id="site-footer">
         <div id="pf-footer"></div>
     </footer>
 
-    <!-- ============================================================
-         6. SCRIPTS (SMOOTH SCROLL, OBSERVER & PARTIAL LOADERS)
-         ============================================================ -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Smooth Scroll for Anchor Links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
                 anchor.addEventListener('click', function (e) {
-                    const targetHref = this.getAttribute('href');
+                    var targetHref = this.getAttribute('href');
                     if (targetHref === '#') return;
-
-                    const targetElement = document.querySelector(targetHref);
+                    var targetElement = document.querySelector(targetHref);
                     if (targetElement) {
                         e.preventDefault();
-                        const headerOffset = 80;
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
+                        var headerOffset = 80;
+                        var elementPosition = targetElement.getBoundingClientRect().top;
+                        var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                     }
                 });
             });
 
-            // Modern Scroll Animations using IntersectionObserver
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px 0px -50px 0px',
-                threshold: 0.15
-            };
+            var revealEls = document.querySelectorAll('.reveal-on-scroll');
+            if ('IntersectionObserver' in window) {
+                var revealObserver = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+                    });
+                }, { root: null, rootMargin: '0px 0px -50px 0px', threshold: 0 });
+                revealEls.forEach(function (el) { revealObserver.observe(el); });
+            } else {
+                revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+            }
 
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-                revealObserver.observe(el);
-            });
-
-            // Load Partials (Header & Footer)
             (function loadPartials() {
-                const isGitHub = location.hostname.endsWith("github.io");
-                const base = isGitHub ? "/prepperfamily-site" : "";
-                const isES = location.pathname.includes("/es/");
-                const lang = isES ? "es" : "en";
-
+                var isGitHub = location.hostname.endsWith("github.io");
+                var base = isGitHub ? "/prepperfamily-site" : "";
+                var isES = location.pathname.includes("/es/");
+                var lang = isES ? "es" : "en";
                 function fetchAndInsert(url, targetId) {
-                    fetch(url)
-                        .then(response => {
-                            if (!response.ok) throw new Error("Failed to load: " + url);
-                            return response.text();
-                        })
-                        .then(html => {
-                            const target = document.getElementById(targetId);
-                            if (target) target.innerHTML = html;
-                        })
-                        .catch(error => console.error("Partial Loader Error:", error));
+                    fetch(url).then(function (response) {
+                        if (!response.ok) throw new Error("Failed to load: " + url);
+                        return response.text();
+                    }).then(function (html) {
+                        var target = document.getElementById(targetId);
+                        if (target) target.innerHTML = html;
+                    }).catch(function (error) { console.error("Partial Loader Error:", error); });
                 }
-
-                fetchAndInsert(`${base}/partials/header-${lang}/`, "pf-header");
-                fetchAndInsert(`${base}/partials/footer-${lang}/`, "pf-footer");
+                fetchAndInsert(base + "/partials/header-" + lang + "/", "pf-header");
+                fetchAndInsert(base + "/partials/footer-" + lang + "/", "pf-footer");
             })();
+
+            var saveBtn = document.getElementById('saveBtn');
+            var saveHelp = document.getElementById('saveHelp');
+            if (saveBtn && saveHelp) {
+                saveBtn.addEventListener('click', function () { saveHelp.classList.toggle('open'); });
+            }
+
+            var chips = document.querySelectorAll('.chip');
+            var searchInput = document.getElementById('libSearch');
+            var resultsLine = document.getElementById('libResults');
+            var emptyMsg = document.getElementById('libEmpty');
+            var cards = document.querySelectorAll('.lib-card');
+            var activeFilter = 'all';
+            var pillarNames = { 'sustento-material': 'Sustento Material', 'resistencia-familiar': 'Resistencia Familiar', 'fortaleza-interior': 'Fortaleza Interior' };
+            function applyFilter() {
+                var q = searchInput.value.trim().toLowerCase();
+                var visible = 0;
+                cards.forEach(function (card) {
+                    var okPillar = (activeFilter === 'all') || (card.getAttribute('data-pillar') === activeFilter);
+                    var okSearch = !q || (card.textContent.toLowerCase().indexOf(q) !== -1);
+                    var show = okPillar && okSearch;
+                    card.style.display = show ? '' : 'none';
+                    if (show) visible++;
+                });
+                emptyMsg.classList.toggle('show', visible === 0);
+                if (activeFilter === 'all' && !q) {
+                    resultsLine.textContent = 'Toda la colección, en un solo estante';
+                } else if (activeFilter !== 'all' && !q) {
+                    resultsLine.textContent = 'En este estante \u2014 ' + pillarNames[activeFilter];
+                } else if (activeFilter !== 'all') {
+                    resultsLine.textContent = 'En este estante \u2014 ' + pillarNames[activeFilter];
+                } else {
+                    resultsLine.textContent = 'Buscando en toda la colección';
+                }
+            }
+            chips.forEach(function (chip) {
+                chip.addEventListener('click', function () {
+                    chips.forEach(function (c) { c.classList.remove('active'); });
+                    chip.classList.add('active');
+                    activeFilter = chip.getAttribute('data-filter');
+                    applyFilter();
+                });
+            });
+            searchInput.addEventListener('input', applyFilter);
         });
     </script>
 </body>
