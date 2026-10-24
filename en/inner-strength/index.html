@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Inner Strength | PrepperFamily</title><meta name="description" content="Build spiritual resilience for your family: Scripture, prayer, faith under pressure, apologetics, and a simple itinerary for steady spiritual growth.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -12,17 +13,17 @@
 
   <style>
   :root{
-    --fi-bg-hero:linear-gradient(135deg,#fff9f6 0%,#f5f9ff 100%);
-    --fi-bg-accent:#f0f4f8;
+    --fi-bg-hero:linear-gradient(135deg,#fdfbf7 0%,#f9f0dc 100%);
+    --fi-bg-accent:#fdfbf7;
     --fi-bg-callout:#fff4e5;
-    --fi-clr-main:#243246;
-    --fi-clr-accent:#3a6b68;
-    --fi-clr-muted:#6f7d8a;
-    --fi-clr-gold:#c3a56c;
+    --fi-clr-main:#333;
+    --fi-clr-accent:#2c6d4c;
+    --fi-clr-muted:#6b7280;
+    --fi-clr-gold:#8a6b2a;
   }
 
   .fi-wrapper{
-    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-family:'Montserrat',sans-serif;
     color:var(--fi-clr-main);
     padding:.85rem 0 3rem;
   }
@@ -49,6 +50,7 @@
   }
 
   .fi-hero h1{
+    font-family:'Cormorant Garamond',serif;
     font-size:clamp(1.75rem,3vw,2.25rem);
     margin:0 0 .3rem;
   }
@@ -90,7 +92,8 @@
   }
 
   .fi-topics h3{
-    font-size:1.25rem;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.5rem;
     text-align:center;
     margin-bottom:1.55rem;
     color:var(--fi-clr-accent);
@@ -103,14 +106,14 @@
 
   .fi-btn-main{
     display:inline-block;
-    background:linear-gradient(135deg, var(--fi-clr-accent) 0%, #2d5654 100%);
+    background:linear-gradient(135deg, #2c6d4c 0%, #1a5535 100%);
     color:#ffffff;
     padding:.92rem 1.8rem;
     border-radius:10px;
     font-size:1.08rem;
     font-weight:700;
     text-decoration:none;
-    box-shadow:0 6px 16px rgba(58,107,104,.22);
+    box-shadow:0 6px 16px rgba(44,109,76,.22);
     transition:all 0.3s ease;
     position:relative;
     overflow:hidden;
@@ -130,7 +133,7 @@
 
   .fi-btn-main:hover{
     transform:translateY(-3px) scale(1.02);
-    box-shadow:0 9px 22px rgba(58,107,104,.28);
+    box-shadow:0 9px 22px rgba(44,109,76,.28);
   }
 
   .fi-btn-main:hover::before{
@@ -171,11 +174,11 @@
   }
 
   .fi-btn-sub:hover{
-    background:var(--fi-clr-gold);
-    border-color:var(--fi-clr-gold);
-    color:#243246;
+    background:#f8b84e;
+    border-color:#f8b84e;
+    color:#1a2a1a;
     transform:translateY(-2px);
-    box-shadow:0 6px 16px rgba(195,165,108,.22);
+    box-shadow:0 6px 16px rgba(248,184,78,.35);
   }
 
   .fi-btn-sub:hover::after{
@@ -188,7 +191,8 @@
   }
 
   .fi-itinerary h3{
-    font-size:1.15rem;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.4rem;
     margin-bottom:1.15rem;
     text-align:center;
     color:var(--fi-clr-accent);
@@ -210,7 +214,7 @@
   }
 
   .fi-itinerary tbody td{
-    border:1px solid #d6dee4;
+    border:1px solid #e8e0d8;
     padding:.65rem .85rem;
   }
 
@@ -244,6 +248,51 @@
     color:var(--fi-clr-muted);
     text-align:center;
     margin-top:2rem;
+  }
+
+
+  .fi-articles{
+    margin: 2.2rem 0;
+  }
+  .fi-articles h3{
+    font-family: 'Cormorant Garamond',serif;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.4rem;
+    color: var(--fi-clr-main);
+  }
+  .fi-article-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .85rem;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .fi-article{
+    display: block;
+    text-decoration: none;
+    color: var(--fi-clr-main);
+    background: #ffffff;
+    border: 1px solid #e8e0d8;
+    border-radius: 9px;
+    overflow: hidden;
+    box-shadow: 0 3px 9px rgba(0,0,0,.045);
+  }
+  .fi-article img{
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+  }
+  .fi-article-title{
+    display: block;
+    padding: .7rem .9rem .85rem;
+    font-weight: 700;
+    font-size: .92rem;
+    line-height: 1.4;
+  }
+  .fi-article:hover{
+    border-color: rgba(44,109,76,.35);
   }
 
   @media (min-width:900px){
@@ -314,6 +363,9 @@
     .fi-subcategories{
       grid-template-columns:1fr;
       gap:.7rem;
+    }
+    .fi-article-grid{
+      grid-template-columns:1fr;
     }
 
     .fi-btn-sub{
@@ -401,7 +453,53 @@ box-shadow:0 10px 25px rgba(0,0,0,0.15);
   </section>
 
   <!-- ITINERARIO -->
-  <div class="fi-itinerary">
+  <section class="fi-articles">
+<h3>Some Inner Strength articles</h3>
+<div class="fi-article-grid">
+      <a class="fi-article" href="/en/inner-strength/basic-christian-concepts/christ-center-universe/">
+        <img src="/assets/images/inner-strength/basic-christian-concepts/christ-center-universe.webp" alt="Christ as the center of the universe and foundation of Christian faith" loading="lazy">
+        <span class="fi-article-title">Christ, Center of the Universe: A Foundation for Purposeful Living</span>
+      </a>
+      <a class="fi-article" href="/en/inner-strength/basic-christian-concepts/gods-revelation-church/">
+        <img src="/assets/images/inner-strength/basic-christian-concepts/gods-revelation-church.webp" alt="God&#x27;s Revelation and the Purpose of His Church" loading="lazy">
+        <span class="fi-article-title">God&#x27;s Revelation and His Church</span>
+      </a>
+      <a class="fi-article" href="/en/inner-strength/bible/adam-to-joseph/">
+        <img src="/assets/images/inner-strength/bible/adam-to-joseph.webp" alt="Bible overview from Adam to Joseph in the Old Testament" loading="lazy">
+        <span class="fi-article-title">Old Testament Overview (1): From Adam to Joseph</span>
+      </a>
+      <a class="fi-article" href="/en/inner-strength/bible/christ-early-church/">
+        <img src="/assets/images/inner-strength/bible/christ-early-church.webp" alt="New Testament summary from Christ’s Passion to the early Church" loading="lazy">
+        <span class="fi-article-title">New Testament Summary (2): From Christ’s Passion to the Early Church</span>
+      </a>
+      <a class="fi-article" href="/en/inner-strength/bible/church-first-centuries/">
+        <img src="/assets/images/inner-strength/bible/church-first-centuries.webp" alt="Summary of the history of the Christian Church in the first centuries" loading="lazy">
+        <span class="fi-article-title">History of Christianity Summary (1): The Church in the First Centuries</span>
+      </a>
+      <a class="fi-article" href="/en/inner-strength/bible/from-moses-to-solomon/">
+        <img src="/assets/images/inner-strength/bible/from-moses-to-solomon.webp" alt="Old Testament historical summary from Moses to King Solomon" loading="lazy">
+        <span class="fi-article-title">Old Testament Summary (2): From Moses to Solomon</span>
+      </a>
+      <a class="fi-article" href="/en/inner-strength/bible/from-prophets-to-christ/">
+        <img src="/assets/images/inner-strength/bible/from-prophets-to-christ.webp" alt="Historical biblical summary from the Old Testament prophets to Jesus Christ" loading="lazy">
+        <span class="fi-article-title">Old Testament Summary (3): From the Prophets to Christ</span>
+      </a>
+      <a class="fi-article" href="/en/inner-strength/bible/public-life-of-jesus/">
+        <img src="/assets/images/inner-strength/bible/public-life-of-jesus.webp" alt="New Testament summary: From the Annunciation to the raising of Lazarus" loading="lazy">
+        <span class="fi-article-title">New Testament Summary (1): From the Annunciation to the Raising of Lazarus</span>
+      </a>
+      <a class="fi-article" href="/en/inner-strength/bible/true-revealed/">
+        <img src="/assets/images/inner-strength/bible/true-revealed.webp" alt="Open Bible representing truth revealed through scripture and understanding" loading="lazy">
+        <span class="fi-article-title">True Revealed: Understanding Truth Through the Bible</span>
+      </a>
+      <a class="fi-article" href="/en/inner-strength/prays/christian-petitions/">
+        <img src="/assets/images/inner-strength/prays/christian-petitions.webp" alt="Christian prayer with petitions offered to God in faith" loading="lazy">
+        <span class="fi-article-title">Christian Petitions: How to Pray with Faith and Purpose</span>
+      </a>
+</div>
+</section>
+
+<div class="fi-itinerary">
     <h3>Spiritual Growth Itinerary</h3>
     <table>
       <thead>

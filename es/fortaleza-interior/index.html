@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Fortaleza Interior | PrepperFamily</title><meta name="description" content="Construye fortaleza espiritual para tu familia: Escritura, oración, fe bajo presión, apologética y un itinerario sencillo para un crecimiento espiritual constante.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -12,17 +13,17 @@
 
   <style>
   :root{
-    --fi-bg-hero:linear-gradient(135deg,#fff9f6 0%,#f5f9ff 100%);
-    --fi-bg-accent:#f0f4f8;
+    --fi-bg-hero:linear-gradient(135deg,#fdfbf7 0%,#f9f0dc 100%);
+    --fi-bg-accent:#fdfbf7;
     --fi-bg-callout:#fff4e5;
-    --fi-clr-main:#243246;
-    --fi-clr-accent:#3a6b68;
-    --fi-clr-muted:#6f7d8a;
-    --fi-clr-gold:#c3a56c;
+    --fi-clr-main:#333;
+    --fi-clr-accent:#2c6d4c;
+    --fi-clr-muted:#6b7280;
+    --fi-clr-gold:#8a6b2a;
   }
 
   .fi-wrapper{
-    font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-family:'Montserrat',sans-serif;
     color:var(--fi-clr-main);
     padding:.85rem 0 3rem;
   }
@@ -49,6 +50,7 @@
   }
 
   .fi-hero h1{
+    font-family:'Cormorant Garamond',serif;
     font-size:clamp(1.75rem,3vw,2.25rem);
     margin:0 0 .3rem;
   }
@@ -90,7 +92,8 @@
   }
 
   .fi-topics h3{
-    font-size:1.25rem;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.5rem;
     text-align:center;
     margin-bottom:1.55rem;
     color:var(--fi-clr-accent);
@@ -103,14 +106,14 @@
 
   .fi-btn-main{
     display:inline-block;
-    background:linear-gradient(135deg, var(--fi-clr-accent) 0%, #2d5654 100%);
+    background:linear-gradient(135deg, #2c6d4c 0%, #1a5535 100%);
     color:#ffffff;
     padding:.92rem 1.8rem;
     border-radius:10px;
     font-size:1.08rem;
     font-weight:700;
     text-decoration:none;
-    box-shadow:0 6px 16px rgba(58,107,104,.22);
+    box-shadow:0 6px 16px rgba(44,109,76,.22);
     transition:all 0.3s ease;
     position:relative;
     overflow:hidden;
@@ -130,7 +133,7 @@
 
   .fi-btn-main:hover{
     transform:translateY(-3px) scale(1.02);
-    box-shadow:0 9px 22px rgba(58,107,104,.28);
+    box-shadow:0 9px 22px rgba(44,109,76,.28);
   }
 
   .fi-btn-main:hover::before{
@@ -171,11 +174,11 @@
   }
 
   .fi-btn-sub:hover{
-    background:var(--fi-clr-gold);
-    border-color:var(--fi-clr-gold);
-    color:#243246;
+    background:#f8b84e;
+    border-color:#f8b84e;
+    color:#1a2a1a;
     transform:translateY(-2px);
-    box-shadow:0 6px 16px rgba(195,165,108,.22);
+    box-shadow:0 6px 16px rgba(248,184,78,.35);
   }
 
   .fi-btn-sub:hover::after{
@@ -188,7 +191,8 @@
   }
 
   .fi-itinerary h3{
-    font-size:1.15rem;
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.4rem;
     margin-bottom:1.15rem;
     text-align:center;
     color:var(--fi-clr-accent);
@@ -210,7 +214,7 @@
   }
 
   .fi-itinerary tbody td{
-    border:1px solid #d6dee4;
+    border:1px solid #e8e0d8;
     padding:.65rem .85rem;
   }
 
@@ -244,6 +248,51 @@
     color:var(--fi-clr-muted);
     text-align:center;
     margin-top:2rem;
+  }
+
+
+  .fi-articles{
+    margin: 2.2rem 0;
+  }
+  .fi-articles h3{
+    font-family: 'Cormorant Garamond',serif;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.4rem;
+    color: var(--fi-clr-main);
+  }
+  .fi-article-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .85rem;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .fi-article{
+    display: block;
+    text-decoration: none;
+    color: var(--fi-clr-main);
+    background: #ffffff;
+    border: 1px solid #e8e0d8;
+    border-radius: 9px;
+    overflow: hidden;
+    box-shadow: 0 3px 9px rgba(0,0,0,.045);
+  }
+  .fi-article img{
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+  }
+  .fi-article-title{
+    display: block;
+    padding: .7rem .9rem .85rem;
+    font-weight: 700;
+    font-size: .92rem;
+    line-height: 1.4;
+  }
+  .fi-article:hover{
+    border-color: rgba(44,109,76,.35);
   }
 
   @media (min-width:900px){
@@ -314,6 +363,9 @@
     .fi-subcategories{
       grid-template-columns:1fr;
       gap:.7rem;
+    }
+    .fi-article-grid{
+      grid-template-columns:1fr;
     }
 
     .fi-btn-sub{
@@ -403,6 +455,52 @@ box-shadow:0 10px 25px rgba(0,0,0,0.15);
 <span>🛡️ Apologética: defensa de la fe</span>
 </a>
 
+</div>
+</section>
+
+<section class="fi-articles">
+<h3>Algunos artículos de Fortaleza Interior</h3>
+<div class="fi-article-grid">
+      <a class="fi-article" href="/es/fortaleza-interior/biblia/adan-a-jose/">
+        <img src="/assets/images/inner-strength/bible/adan-a-jose.webp" alt="Resumen bíblico desde Adán hasta José en el Antiguo Testamento" loading="lazy">
+        <span class="fi-article-title">Resumen del Antiguo Testamento (1): de Adán a José</span>
+      </a>
+      <a class="fi-article" href="/es/fortaleza-interior/biblia/cristo-primeras-iglesias/">
+        <img src="/assets/images/inner-strength/bible/cristo-primeras-iglesias.webp" alt="Resumen del Nuevo Testamento desde la Pasión de Cristo hasta las primeras iglesias" loading="lazy">
+        <span class="fi-article-title">Resumen del Nuevo Testamento (2): de la Pasión de Cristo a las primeras iglesias</span>
+      </a>
+      <a class="fi-article" href="/es/fortaleza-interior/biblia/iglesia-primeros-siglos/">
+        <img src="/assets/images/inner-strength/bible/iglesia-primeros-siglos.webp" alt="Resumen de la historia de la Iglesia cristiana en los primeros siglos" loading="lazy">
+        <span class="fi-article-title">Resumen de la Historia del Cristianismo (1): La Iglesia en los Primeros Siglos</span>
+      </a>
+      <a class="fi-article" href="/es/fortaleza-interior/biblia/moises-a-salomon/">
+        <img src="/assets/images/inner-strength/bible/moises-a-salomon.webp" alt="Resumen del Antiguo Testamento desde Moisés hasta el rey Salomón" loading="lazy">
+        <span class="fi-article-title">Resumen del Antiguo Testamento (2): De Moisés a Salomón</span>
+      </a>
+      <a class="fi-article" href="/es/fortaleza-interior/biblia/profetas-a-cristo/">
+        <img src="/assets/images/inner-strength/bible/profetas-a-cristo.webp" alt="Resumen del período de los profetas hasta la llegada de Cristo" loading="lazy">
+        <span class="fi-article-title">Resumen del Antiguo Testamento (3): De los Profetas a Cristo</span>
+      </a>
+      <a class="fi-article" href="/es/fortaleza-interior/biblia/verdad-revelada/">
+        <img src="/assets/images/inner-strength/bible/verdad-revelada.webp" alt="Biblia abierta que representa la verdad revelada a través de las Escrituras" loading="lazy">
+        <span class="fi-article-title">Verdad revelada: entendiendo la verdad a través de la Biblia</span>
+      </a>
+      <a class="fi-article" href="/es/fortaleza-interior/biblia/vida-publica-jesus/">
+        <img src="/assets/images/inner-strength/bible/vida-publica-jesus.webp" alt="Resumen del Nuevo Testamento: de la Anunciación a la resurrección de Lázaro" loading="lazy">
+        <span class="fi-article-title">Resumen del Nuevo Testamento (1): De la Anunciación a la resurrección de Lázaro</span>
+      </a>
+      <a class="fi-article" href="/es/fortaleza-interior/conceptos-cristianos-basicos/cristo-centro-universo/">
+        <img src="/assets/images/inner-strength/basic-christian-concepts/cristo-centro-universo.webp" alt="Cristo como centro del universo y fundamento de la fe cristiana" loading="lazy">
+        <span class="fi-article-title">Cristo, centro del universo: fundamento para una vida con propósito</span>
+      </a>
+      <a class="fi-article" href="/es/fortaleza-interior/conceptos-cristianos-basicos/revelacion-de-dios-iglesia/">
+        <img src="/assets/images/inner-strength/basic-christian-concepts/revelacion-de-dios-iglesia.webp" alt="La revelación de Dios y el propósito de su Iglesia" loading="lazy">
+        <span class="fi-article-title">La Revelación de Dios y su Iglesia</span>
+      </a>
+      <a class="fi-article" href="/es/fortaleza-interior/oraciones/peticiones-cristianas/">
+        <img src="/assets/images/inner-strength/prays/peticiones-cristianas.webp" alt="Oración cristiana con peticiones dirigidas a Dios en un momento de fe" loading="lazy">
+        <span class="fi-article-title">Peticiones cristianas: cómo orar con fe y propósito</span>
+      </a>
 </div>
 </section>
 
