@@ -197,56 +197,46 @@
       margin: 0;
     }
 
-    /* METHOD 1: KO-FI */
-    #pf-support-combined .pf-kofi-wrap {
+    /* METHOD 1: DIRECT DONATION (Stripe) */
+    #pf-support-combined .pf-donate-wrap {
       padding: 18px;
     }
 
-    #pf-support-combined .pf-kofi-card {
+    #pf-support-combined .pf-donate-card {
       max-width: 720px;
       margin: 0 auto;
       font-family: var(--pf-font-ui);
-    }
-
-    #pf-support-combined .pf-kofi-link {
-      display: block;
-      color: inherit;
-      background: #f9f3ea;
+      background: #fdfbf7;
       border: 1px solid #e8e0d8;
       border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 8px 28px rgba(26,110,245,0.08), 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform .2s ease, box-shadow .2s ease;
+      box-shadow: 0 8px 28px rgba(44,109,76,0.10), 0 2px 8px rgba(0,0,0,0.05);
     }
 
-    #pf-support-combined .pf-kofi-link:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 36px rgba(26,110,245,0.14), 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    #pf-support-combined .pf-kofi-top {
-      background: linear-gradient(135deg, #161b49 0%, #14336d 100%);
+    #pf-support-combined .pf-donate-top {
+      background: linear-gradient(135deg, #2c6d4c 0%, #1a5535 100%);
       padding: 22px 22px 20px;
       display: flex;
       align-items: center;
       gap: 16px;
     }
 
-    #pf-support-combined .pf-kofi-icon {
+    #pf-support-combined .pf-donate-icon {
       width: 74px;
       height: 74px;
-      border-radius: 22px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       font-size: 36px;
       line-height: 1;
-      background: linear-gradient(135deg, #ff9f1c 0%, #ff5a36 100%);
-      box-shadow: 0 10px 24px rgba(255, 121, 44, 0.35);
+      color: #2c6d4c;
+      background: #f8b84e;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.20);
     }
 
-    #pf-support-combined .pf-kofi-title {
+    #pf-support-combined .pf-donate-title {
       color: #fff;
       font-family: var(--pf-font-ui);
       font-size: var(--pf-fs-md);
@@ -256,8 +246,8 @@
       margin: 0;
     }
 
-    #pf-support-combined .pf-kofi-subtitle {
-      color: rgba(255,255,255,0.72);
+    #pf-support-combined .pf-donate-subtitle {
+      color: rgba(255,255,255,0.82);
       font-size: var(--pf-fs-sm);
       font-weight: 400;
       letter-spacing: 0.002em;
@@ -265,72 +255,20 @@
       line-height: 1.45;
     }
 
-    #pf-support-combined .pf-kofi-body {
-      background: #f9f3ea;
-      padding: 18px 18px 20px;
-    }
-
-    #pf-support-combined .pf-kofi-toggle {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      background: #ececec;
-      border-radius: 22px;
-      padding: 6px;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
-      margin-bottom: 14px;
-    }
-
-    #pf-support-combined .pf-kofi-tab {
+    #pf-support-combined .pf-donate-body {
+      background: #fdfbf7;
+      padding: 20px 22px 22px;
       text-align: center;
-      padding: 16px 12px;
-      font-family: var(--pf-font-ui);
+    }
+
+    #pf-support-combined .pf-donate-text {
       font-size: var(--pf-fs-sm);
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      line-height: 1.2;
-      color: #6b7280;
-      border-radius: 18px;
+      color: #4b5563;
+      line-height: 1.6;
+      margin: 0 0 18px;
     }
 
-    #pf-support-combined .pf-kofi-tab.is-active {
-      background: #ffffff;
-      color: #1473e6;
-      font-weight: 700;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-    }
-
-    #pf-support-combined .pf-kofi-amounts {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    #pf-support-combined .pf-kofi-amount {
-      text-align: center;
-      padding: 22px 10px;
-      border-radius: 18px;
-      background: #fff;
-      border: 2px solid #ddd7cf;
-      font-family: var(--pf-font-ui);
-      font-size: var(--pf-fs-md);
-      font-weight: 800;
-      letter-spacing: -0.015em;
-      line-height: 1.1;
-      font-variant-numeric: lining-nums tabular-nums;
-      color: #111827;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-    }
-
-    #pf-support-combined .pf-kofi-amount.is-active {
-      background: #eaf2ff;
-      border-color: #1a6ef5;
-      color: #1a6ef5;
-      box-shadow: 0 0 0 3px rgba(26,110,245,0.12);
-    }
-
-    #pf-support-combined .pf-kofi-button {
+    #pf-support-combined .pf-donate-button {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -338,18 +276,25 @@
       width: 100%;
       padding: 18px 20px;
       border-radius: 18px;
-      background: linear-gradient(135deg, #1e90ff 0%, #1677f0 100%);
-      color: #fff;
+      background: linear-gradient(135deg, #f8b84e 0%, #e8a83c 100%);
+      color: #1a2a1a;
       font-family: var(--pf-font-ui);
       font-size: var(--pf-fs-md);
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.012em;
       line-height: 1.2;
-      box-shadow: 0 10px 24px rgba(26,110,245,0.28);
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(248,184,78,0.35);
+      transition: transform .2s ease, box-shadow .2s ease;
       margin-bottom: 16px;
     }
 
-    #pf-support-combined .pf-kofi-note {
+    #pf-support-combined .pf-donate-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(248,184,78,0.45);
+    }
+
+    #pf-support-combined .pf-donate-note {
       font-size: var(--pf-fs-xs);
       font-weight: 400;
       color: #6b7280;
@@ -357,21 +302,6 @@
       line-height: 1.6;
       letter-spacing: 0.004em;
       margin: 0;
-      text-wrap: pretty;
-    }
-
-    #pf-support-combined .pf-kofi-footer {
-      border-top: 1px solid #e8e0d8;
-      padding: 14px 18px;
-      background: #fbfbfb;
-      text-align: center;
-      color: #b1b6c0;
-      font-family: var(--pf-font-ui);
-      font-size: var(--pf-fs-xs);
-      font-weight: 600;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      line-height: 1.4;
     }
 
     /* METHOD 2: AFFILIATE */
@@ -615,56 +545,36 @@
         font-size: 1.14rem;
       }
 
-      #pf-support-combined .pf-kofi-top {
+      #pf-support-combined .pf-donate-top {
         padding: 18px 16px;
         gap: 12px;
       }
 
-      #pf-support-combined .pf-kofi-icon {
+      #pf-support-combined .pf-donate-icon {
         width: 58px;
         height: 58px;
-        border-radius: 18px;
         font-size: 28px;
       }
 
-      #pf-support-combined .pf-kofi-title {
+      #pf-support-combined .pf-donate-title {
         font-size: 1rem;
       }
 
-      #pf-support-combined .pf-kofi-subtitle {
+      #pf-support-combined .pf-donate-subtitle {
         font-size: 0.88rem;
       }
 
-      #pf-support-combined .pf-kofi-body {
-        padding: 14px;
+      #pf-support-combined .pf-donate-body {
+        padding: 16px 14px;
       }
 
-      #pf-support-combined .pf-kofi-tab {
-        padding: 13px 8px;
-        font-size: 0.9rem;
-      }
-
-      #pf-support-combined .pf-kofi-amounts {
-        gap: 8px;
-      }
-
-      #pf-support-combined .pf-kofi-amount {
-        padding: 18px 8px;
-        font-size: 1rem;
-      }
-
-      #pf-support-combined .pf-kofi-button {
+      #pf-support-combined .pf-donate-button {
         padding: 16px 14px;
         font-size: 1rem;
       }
 
-      #pf-support-combined .pf-kofi-note {
+      #pf-support-combined .pf-donate-note {
         font-size: 0.84rem;
-      }
-
-      #pf-support-combined .pf-kofi-footer {
-        font-size: 0.76rem;
-        letter-spacing: .05em;
       }
 
       #pf-support-combined .pf-step {
@@ -720,36 +630,20 @@
           </div>
         </div>
 
-        <div class="pf-kofi-wrap">
-          <div class="pf-kofi-card">
-            <a class="pf-kofi-link" href="https://ko-fi.com/prepperfamily" target="_blank" rel="noopener noreferrer" aria-label="Support PrepperFamily on Ko-fi">
-              <div class="pf-kofi-top">
-                <div class="pf-kofi-icon">☕</div>
-                <div>
-                  <p class="pf-kofi-title">Invite us a Ko-fi</p>
-                  <p class="pf-kofi-subtitle">Help PrepperFamily.org to keep the guides coming</p>
-                </div>
+        <div class="pf-donate-wrap">
+          <div class="pf-donate-card">
+            <div class="pf-donate-top">
+              <div class="pf-donate-icon">♥</div>
+              <div>
+                <p class="pf-donate-title">Support PrepperFamily.org</p>
+                <p class="pf-donate-subtitle">Your support keeps the guides free for families.</p>
               </div>
-
-              <div class="pf-kofi-body">
-                <div class="pf-kofi-toggle">
-                  <div class="pf-kofi-tab is-active">One time</div>
-                  <div class="pf-kofi-tab">Monthly</div>
-                </div>
-
-                <div class="pf-kofi-amounts">
-                  <div class="pf-kofi-amount">$3</div>
-                  <div class="pf-kofi-amount is-active">$5</div>
-                  <div class="pf-kofi-amount">$10</div>
-                </div>
-
-                <div class="pf-kofi-button">☕ <span>Tip us on Ko-fi</span></div>
-
-                <p class="pf-kofi-note">Hosting, domain, research, and tools to keep PrepperFamily publishing practical guides. Note: Tips are voluntary and not tax-deductible.</p>
-              </div>
-
-              <div class="pf-kofi-footer">Powered by Ko-fi • No account needed</div>
-            </a>
+            </div>
+            <div class="pf-donate-body">
+              <p class="pf-donate-text">Hosting, domain, research, and tools to keep PrepperFamily publishing practical guides.</p>
+              <a class="pf-donate-button" href="https://buy.stripe.com/cNiaEX14C07fgWM5Xrd7q00" target="_blank" rel="noopener noreferrer">♥ <span>Donate</span></a>
+              <p class="pf-donate-note">Note: Donations are voluntary and not tax-deductible.</p>
+            </div>
           </div>
         </div>
       </section>
