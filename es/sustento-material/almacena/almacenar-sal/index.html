@@ -472,81 +472,9 @@
 
 </section>
 
-        <section class="recommendation-section">
-            <h2>🛒 Recomendación de Sal Natural</h2>
-            <div class="product-card">
-                <img class="product-image" src="https://m.media-amazon.com/images/I/81F8nOTvGzL._SL1500_.jpg" alt="Redmond Real Sea Salt" />
-                <h3>Sal Marina Natural Redmond</h3>
-                <p>Esta sal marina sin refinar de Redmond conserva todos sus minerales naturales, incluyendo más de 60 oligoelementos esenciales. Es la sal más pura y natural disponible, extraída de depósitos marinos antiguos en Utah, Estados Unidos.</p>
-                <p>Como afiliado de Amazon, si compras a través de mis enlaces gano una comisión por las compras elegibles, sin costo extra para ti. Gracias por apoyar a PrepperFamily.org.</p>
-                <a href="https://www.amazon.com/Redmond-Real-Sea-Salt-Unrefined/dp/B01N3S64KZ?crid=2KY51PXXWYF50&dib=eyJ2IjoiMSJ9.Aaw0yhTrWghlQD0lUzxkpLKPGd2ra49JQN0lqlLnrbmdBKGpTF0k6aOOBgDUMJoqNatjE0nUuuNeVlQnLFxbjsX-tWwedTR-RQDnoa6NTFriANjQ4vxn6GeI6xvzQPDVdWkPRzE-eobf60qhX9ErQ49jH-ZSGcpa8qVbEf1lMbmhG0XCR2CBKwOSj-7jz5iS1jkCqi9xR1k_VEftLQIrfc13mKaXbLyimoBDW952KIvT0hZ0RRt5oCLnbjPzvXSCw53vPjhcPaInvcTonWnFrhUajHrp5Wn2Pr6NxTsRVww.jNYKTGnmKhDr83CjKVjIM3AWhCXp6yE8qO7wH76t3gQ&dib_tag=se&keywords=Sal%2BMarina%2Bredmond&qid=1750627170&sprefix=sal%2Bmarina%2Bredmond%2Caps%2C150&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll1&tag=prepperfami0b-20&linkId=4b867346925e78a05a271fe3acfe209a&language=en_US&ref_=as_li_ss_tl" class="amazon-button" target="_blank">
-                    🛒 Comprar en Amazon
-                </a>
-            </div>
-        </section>
-
-        <section class="sources-section">
-            <h2>📚 Fuentes de Información</h2>
-            <div class="sources-list" id="sourcesList">
-1. Análisis histórico de consumo de sal basado en registros arqueológicos y documentos históricos
-2. Estudios de comunidades cazadoras-recolectoras contemporáneas (Cordain et al., 2005)
-3. Registros fiscales de la gabelle francesa (Archives Nationales, París)
-4. Encuestas NHANES (National Health and Nutrition Examination Survey), CDC
-5. Análisis de 187 países sobre consumo de sal (OMS, 2023)
-6. MedlinePlus - Equilibrio hidroelectrolítico
-7. Academia de Nutrición y Dietética - Electrolitos
-8. Merck Manuals - Introducción a los electrolitos
-9. Estudios sobre función neuronal y electrolitos (American Journal of Physiology)
-10. Investigación sobre transmisión sináptica y sodio (Nature Neuroscience)
-11. Amazon.com - Información de productos de sal marina natural
-12. Redmond Trading Company - Especificaciones técnicas del producto
-            </div>
-            <button class="copy-button" onclick="copyToClipboard()">
-                📋 Copy Sources
-            </button>
-        </section>
 </div>
 
     <script>
-        function copyToClipboard() {
-            const sourcesEl = document.getElementById('sourcesList');
-            const sourcesText = sourcesEl ? sourcesEl.innerText.trim() : '';
-            const button = document.querySelector('.copy-button');
-            const originalText = button ? button.innerHTML : '';
-
-            function showSuccess() {
-                if (!button) return;
-                button.innerHTML = '✅ Sources Copied!';
-                button.classList.add('copy-success');
-                setTimeout(function() {
-                    button.innerHTML = originalText;
-                    button.classList.remove('copy-success');
-                }, 2000);
-            }
-
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(sourcesText).then(showSuccess).catch(function() {
-                    fallbackCopy(sourcesText, showSuccess);
-                });
-            } else {
-                fallbackCopy(sourcesText, showSuccess);
-            }
-        }
-
-        function fallbackCopy(text, callback) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.setAttribute('readonly', '');
-            textarea.style.position = 'fixed';
-            textarea.style.top = '-9999px';
-            textarea.style.left = '-9999px';
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            callback();
-        }
-
         // Timeline entry animation
         document.addEventListener('DOMContentLoaded', function() {
             const timelineItems = document.querySelectorAll('.timeline-item');
@@ -568,6 +496,7 @@
             });
         });
     </script>
+<div id="pf-sources"></div>
 <div id="pf-article-nav-bottom"></div>
 <div id="pf-footer"></div>
 
@@ -599,6 +528,11 @@
       // FOOTER
       loadHTML(`${base}/partials/footer-${lang}/`, "pf-footer");
 
+      // SOURCES / RECURSOS
+      let path = location.pathname;
+      if (!path.endsWith("/")) path += "/";
+      const sourcesPath = isES ? `${path}recursos/` : `${path}sources/`;
+      loadHTML(sourcesPath, "pf-sources");
 
       // ARTICLE NAV
       const navScript = document.createElement("script");
