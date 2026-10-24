@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <title>Sustento Material | PrepperFamily</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sustento Material: almacenamiento y producción de alimentos, medicina natural y habilidades prácticas para que tu familia siga alimentada, sana y autosuficiente.">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -13,12 +15,12 @@
 <section class="sm-wrapper">
   <style>
   :root{
-    --sm-bg-hero: linear-gradient(135deg,#f6fff7 0%,#eef7ff 100%);
-    --sm-ink:#1f2937;
+    --sm-bg-hero: linear-gradient(135deg,#fdfbf7 0%,#f9f0dc 100%);
+    --sm-ink:#333;
     --sm-muted:#6b7280;
-    --sm-green:#2f6b3a;
-    --sm-green-2:#2c5f2d;
-    --sm-gold:#c3a56c;
+    --sm-green:#2c6d4c;
+    --sm-green-2:#1a5535;
+    --sm-gold:#8a6b2a;
     --sm-card:#ffffff;
     --sm-border: rgba(17,24,39,.08);
     --sm-shadow: 0 14px 32px rgba(0,0,0,.08);
@@ -28,10 +30,10 @@
   }
 
   .sm-wrapper{
-    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-family: 'Montserrat',sans-serif;
     color: var(--sm-ink);
     padding: .85rem .85rem 3rem;
-    background: #f7fafc;
+    background: #fdfbf7;
   }
 
   .sm-container{max-width: 900px; margin: 0 auto;}
@@ -56,6 +58,7 @@
   }
 
   .sm-hero h1{
+    font-family: 'Cormorant Garamond',serif;
     font-size: clamp(1.75rem, 2.6vw, 2.2rem);
     margin: 0 0 .3rem;
     letter-spacing: -.02em;
@@ -79,6 +82,8 @@
   }
 
   .sm-section-title{
+    font-family: 'Cormorant Garamond',serif;
+    font-size: 1.35rem;
     text-align:center;
     margin: 1.8rem 0 1rem;
     color: var(--sm-green);
@@ -124,7 +129,7 @@
     font-weight: 700;
     font-size: .92rem;
   }
-  .sm-btn:hover{border-color: rgba(47,107,58,.25);}
+  .sm-btn:hover{border-color: rgba(44,109,76,.25);}
 
   .sm-steps{
     margin-top: 1.8rem;
@@ -136,6 +141,8 @@
   }
 
   .sm-steps h3{
+    font-family: 'Cormorant Garamond',serif;
+    font-size: 1.3rem;
     text-align:center;
     margin: 0 0 .9rem;
     color: var(--sm-green);
@@ -178,7 +185,7 @@
 
   .sm-callout{
     margin-top: 1.25rem;
-    background: linear-gradient(135deg, #2f6b3a 0%, #224f2b 100%);
+    background: linear-gradient(135deg, #2c6d4c 0%, #1a5535 100%);
     color: #fff;
     border-radius: 12px;
     padding: 1.05rem 1rem;
@@ -198,8 +205,30 @@
   .sm-note a{color: inherit; font-weight:800; text-decoration:none;}
   .sm-note a:hover{text-decoration:underline;}
 
+  .sm-step a{color: var(--sm-green); font-weight: 700;}
+  .sm-articles{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: .85rem;
+    margin-top: .9rem;
+  }
+  .sm-article{
+    display:block;
+    text-decoration:none;
+    color: var(--sm-ink);
+    background: var(--sm-card);
+    border: 1px solid var(--sm-border);
+    border-radius: 10px;
+    overflow:hidden;
+    box-shadow: 0 5px 12px rgba(0,0,0,.04);
+  }
+  .sm-article img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
+  .sm-article-title{display:block;padding:.7rem .85rem .85rem;font-weight:700;font-size:.92rem;line-height:1.4;}
+  .sm-article:hover{border-color: rgba(44,109,76,.25);}
+
   @media (max-width: 900px){
     .sm-grid{grid-template-columns: 1fr;}
+    .sm-articles{grid-template-columns: 1fr;}
     .sm-wrapper{padding: .75rem .7rem 3rem;}
   }
 
@@ -231,17 +260,96 @@
     <!-- TOPICS -->
     <h3 class="sm-section-title">Explora los Temas de Sustento Material</h3>
 
-    <!-- Main pill button (for now points to same pillar) -->
     <a class="sm-main-btn" href="/es/sustento-material/almacena/">📦 ALMACENA: Alimento y Medicina</a>
 
     <div class="sm-grid">
-      <!-- For now ALL go to the same pillar. Later you replace href="./" with the real URLs. -->
-      <a class="sm-btn" href="/es/sustento-material/cultiva">🌱 CULTIVA: Alimento y Medicina</a>
+      <a class="sm-btn" href="/es/sustento-material/cultiva/">🌱 CULTIVA: Alimento y Medicina</a>
       <a class="sm-btn" href="/es/sustento-material/prepara/">🛠 PREPARA: Materiales Básicos</a>
       <a class="sm-btn" href="/es/sustento-material/unidades-familiares-de-produccion/">🏡 Unidades Familiares de Producción</a>
     </div>
 
-    <!-- FIRST STEPS -->
+    <!-- ARTÍCULOS DEL PILAR -->
+    <h3 class="sm-section-title">Todos los artículos de Sustento Material</h3>
+    <div class="sm-articles">
+      <a class="sm-article" href="/es/sustento-material/almacena/almacenar-sal/">
+        <img src="/assets/images/material-support/store/almacenar-sal.webp" alt="Sal almacenada en grandes cantidades para conservación y uso prolongado" loading="lazy">
+        <span class="sm-article-title">Almacenar sal: por qué toda familia necesita una reserva a largo plazo</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/almacena/bicarbonato-hogar/">
+        <img src="/assets/images/material-support/store/bicarbonato-hogar.webp" alt="Bicarbonato de sodio como recurso doméstico versátil para el hogar" loading="lazy">
+        <span class="sm-article-title">Bicarbonato: Recurso doméstico permanente</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/almacena/filtros-agua/">
+        <img src="/assets/images/material-support/store/filtros-agua.webp" alt="Filtros de agua portátiles para obtener agua potable segura en emergencias" loading="lazy">
+        <span class="sm-article-title">Filtros de agua: cómo asegurar agua potable en cualquier lugar</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/almacena/mochila-72-horas/">
+        <img src="/assets/images/material-support/store/mochila-72-horas.webp" alt="Mochila familiar de 72 horas con suministros esenciales de emergencia" loading="lazy">
+        <span class="sm-article-title">Mochila de 72 horas: lo que tu familia realmente necesita</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/almacena/almacenar-granos/">
+        <img src="/assets/images/material-support/store/almacenar-granos.webp" alt="Granos almacenados correctamente en recipientes herméticos para larga duración" loading="lazy">
+        <span class="sm-article-title">Cómo almacenar granos para larga duración sin que se dañen</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/almacena/despensa-en-polvo/">
+        <img src="/assets/images/material-support/store/despensa-en-polvo.webp" alt="Despensa en polvo con cuatro alimentos nutritivos en frascos pequeños" loading="lazy">
+        <span class="sm-article-title">La despensa en polvo: 4 alimentos nutritivos que ahorran espacio</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/almacena/enlatar-carne/">
+        <img src="/assets/images/material-support/store/enlatar-carne.webp" alt="Carne enlatada en casa conservada de forma segura en frascos" loading="lazy">
+        <span class="sm-article-title">Cómo enlatar carne de forma segura para almacenarla a largo plazo</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/almacena/pastillas-de-yodo/">
+        <img src="/assets/images/material-support/store/pastillas-de-yodo.webp" alt="Pastillas de yodo para emergencias de radiación en un kit familiar" loading="lazy">
+        <span class="sm-article-title">Pastillas de yodo: cuándo y cómo usarlas en emergencias</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/almacena/tres-antisepticos/">
+        <img src="/assets/images/material-support/store/tres-antisepticos.webp" alt="Tres antisépticos multiuso: agua oxigenada, violeta de genciana y yodo povidona" loading="lazy">
+        <span class="sm-article-title">Tres Antisépticos Multiuso</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/cultiva/estacas-riego/">
+        <img src="/assets/images/material-support/grow/estacas-riego.webp" alt="Estacas de riego que proporcionan hidratación constante a las plantas" loading="lazy">
+        <span class="sm-article-title">Estacas de riego: hidratación simple para un crecimiento constante</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/cultiva/germinados/">
+        <img src="/assets/images/material-support/grow/germinados.webp" alt="Germinados frescos cultivados en casa en frascos de vidrio" loading="lazy">
+        <span class="sm-article-title">Germinados: cultiva alimentos frescos en cualquier lugar todo el año</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/prepara/almacen-frio/">
+        <img src="/assets/images/material-support/prepare/almacen-frio.webp" alt="Almacén frío subterráneo para conservar alimentos sin electricidad" loading="lazy">
+        <span class="sm-article-title">Almacén frío: conserva alimentos sin necesidad de electricidad</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/prepara/bebidas-hidratacion/">
+        <img src="/assets/images/material-support/prepare/bebidas-hidratacion.webp" alt="Bebidas de hidratación caseras con electrolitos para emergencias" loading="lazy">
+        <span class="sm-article-title">Bebidas de hidratación: cómo mantenerte hidratado en emergencias</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/prepara/estufa-cohete-familiar/">
+        <img src="/assets/images/material-support/prepare/estufa-cohete-familiar.webp" alt="Estufa cohete casera para cocinar de forma eficiente sin electricidad" loading="lazy">
+        <span class="sm-article-title">Estufa cohete familiar: cocina eficiente sin depender de electricidad</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/prepara/horno-holandes/">
+        <img src="/assets/images/material-support/prepare/horno-holandes.webp" alt="Horno holandés de hierro fundido para cocinar en exteriores o emergencias" loading="lazy">
+        <span class="sm-article-title">Horno holandés: cocina confiable en cualquier situación</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/prepara/molienda-granos/">
+        <img src="/assets/images/material-support/prepare/molienda-granos.webp" alt="Proceso de molienda de granos para hacer harina en casa" loading="lazy">
+        <span class="sm-article-title">Molienda de granos: convierte reservas en harina utilizable</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/prepara/tinturas-herbales/">
+        <img src="/assets/images/material-support/prepare/tinturas-herbales.webp" alt="Tinturas herbales preparadas en frascos para remedios naturales" loading="lazy">
+        <span class="sm-article-title">Tinturas herbales: conserva remedios naturales a largo plazo</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/unidades-familiares-de-produccion/sistema-de-agua/">
+        <img src="/assets/images/material-support/family-production-units/sistema-de-agua.webp" alt="Sistema familiar de almacenamiento y purificación de agua" loading="lazy">
+        <span class="sm-article-title">Sistema familiar de almacenamiento y purificación de agua (1).</span>
+      </a>
+      <a class="sm-article" href="/es/sustento-material/unidades-familiares-de-produccion/sistema-agua-dos/">
+        <img src="/assets/images/material-support/family-production-units/sistema-agua-dos.webp" alt="Segunda parte del sistema familiar de almacenamiento y purificación de agua" loading="lazy">
+        <span class="sm-article-title">Sistema de almacenamiento y purificación de agua (2)</span>
+      </a>
+    </div>
+
+        <!-- FIRST STEPS -->
     <section class="sm-steps">
       <h3>Primeros pasos hoy mismo</h3>
 
@@ -257,7 +365,7 @@
 
       <div class="sm-step">
         <div class="sm-badge">3</div>
-        <p>Elige un micro-proyecto piloto (germinando lentejas en 72 h) y comparte tu avance.</p>
+        <p>Elige un micro-proyecto piloto (germinando lentejas en 72 h) y <a href="mailto:editor@prepperfamily.org">comparte tu avance</a> con la comunidad.</p>
       </div>
     </section>
 

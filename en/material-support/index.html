@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <title>Material Support | PrepperFamily</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Material Support: food storage and production, natural medicine, and practical skills to keep your family fed, healthy, and self-sufficient.">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -13,12 +15,12 @@
 <section class="sm-wrapper">
   <style>
   :root{
-    --sm-bg-hero: linear-gradient(135deg,#f6fff7 0%,#eef7ff 100%);
-    --sm-ink:#1f2937;
+    --sm-bg-hero: linear-gradient(135deg,#fdfbf7 0%,#f9f0dc 100%);
+    --sm-ink:#333;
     --sm-muted:#6b7280;
-    --sm-green:#2f6b3a;
-    --sm-green-2:#2c5f2d;
-    --sm-gold:#c3a56c;
+    --sm-green:#2c6d4c;
+    --sm-green-2:#1a5535;
+    --sm-gold:#8a6b2a;
     --sm-card:#ffffff;
     --sm-border: rgba(17,24,39,.08);
     --sm-shadow: 0 14px 32px rgba(0,0,0,.08);
@@ -28,10 +30,10 @@
   }
 
   .sm-wrapper{
-    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-family: 'Montserrat',sans-serif;
     color: var(--sm-ink);
     padding: .85rem .85rem 3rem;
-    background: #f7fafc;
+    background: #fdfbf7;
   }
 
   .sm-container{max-width: 900px; margin: 0 auto;}
@@ -56,6 +58,7 @@
   }
 
   .sm-hero h1{
+    font-family: 'Cormorant Garamond',serif;
     font-size: clamp(1.75rem, 2.6vw, 2.2rem);
     margin: 0 0 .3rem;
     letter-spacing: -.02em;
@@ -79,6 +82,8 @@
   }
 
   .sm-section-title{
+    font-family: 'Cormorant Garamond',serif;
+    font-size: 1.35rem;
     text-align:center;
     margin: 1.8rem 0 1rem;
     color: var(--sm-green);
@@ -124,7 +129,7 @@
     font-weight: 700;
     font-size: .92rem;
   }
-  .sm-btn:hover{border-color: rgba(47,107,58,.25);}
+  .sm-btn:hover{border-color: rgba(44,109,76,.25);}
 
   .sm-steps{
     margin-top: 1.8rem;
@@ -136,6 +141,8 @@
   }
 
   .sm-steps h3{
+    font-family: 'Cormorant Garamond',serif;
+    font-size: 1.3rem;
     text-align:center;
     margin: 0 0 .9rem;
     color: var(--sm-green);
@@ -178,7 +185,7 @@
 
   .sm-callout{
     margin-top: 1.25rem;
-    background: linear-gradient(135deg, #2f6b3a 0%, #224f2b 100%);
+    background: linear-gradient(135deg, #2c6d4c 0%, #1a5535 100%);
     color: #fff;
     border-radius: 12px;
     padding: 1.05rem 1rem;
@@ -198,8 +205,30 @@
   .sm-note a{color: inherit; font-weight:800; text-decoration:none;}
   .sm-note a:hover{text-decoration:underline;}
 
+  .sm-step a{color: var(--sm-green); font-weight: 700;}
+  .sm-articles{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: .85rem;
+    margin-top: .9rem;
+  }
+  .sm-article{
+    display:block;
+    text-decoration:none;
+    color: var(--sm-ink);
+    background: var(--sm-card);
+    border: 1px solid var(--sm-border);
+    border-radius: 10px;
+    overflow:hidden;
+    box-shadow: 0 5px 12px rgba(0,0,0,.04);
+  }
+  .sm-article img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;}
+  .sm-article-title{display:block;padding:.7rem .85rem .85rem;font-weight:700;font-size:.92rem;line-height:1.4;}
+  .sm-article:hover{border-color: rgba(44,109,76,.25);}
+
   @media (max-width: 900px){
     .sm-grid{grid-template-columns: 1fr;}
+    .sm-articles{grid-template-columns: 1fr;}
     .sm-wrapper{padding: .75rem .7rem 3rem;}
   }
 
@@ -231,17 +260,96 @@
     <!-- TOPICS -->
     <h3 class="sm-section-title">Explore the Material Support Topics</h3>
 
-    <!-- Main pill button (for now points to same pillar) -->
     <a class="sm-main-btn" href="/en/material-support/store/">📦 STORE: Food and Medicine</a>
 
     <div class="sm-grid">
-      <!-- For now ALL go to the same pillar. Later you replace href="./" with the real URLs. -->
       <a class="sm-btn" href="/en/material-support/grow/">🌱 GROW: Food and Medicine</a>
       <a class="sm-btn" href="/en/material-support/prepare/">🧱 PREPARE: Basic Materials</a>
       <a class="sm-btn" href="/en/material-support/family-production-units/">🧑‍🌾 Family Production Units</a>
     </div>
 
-    <!-- FIRST STEPS -->
+    <!-- ARTÍCULOS DEL PILAR -->
+    <h3 class="sm-section-title">All Material Support articles</h3>
+    <div class="sm-articles">
+      <a class="sm-article" href="/en/material-support/family-production-units/family-water-system/">
+        <img src="/assets/images/material-support/family-production-units/family-water-system.webp" alt="Family water storage and purification system for a reliable household supply" loading="lazy">
+        <span class="sm-article-title">Family Water Storage and Purification System (1).</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/family-production-units/family-water-system-part-2/">
+        <img src="/assets/images/material-support/family-production-units/family-water-system-part-2.webp" alt="Second part of a family water storage and purification system" loading="lazy">
+        <span class="sm-article-title">Family Water Storage and Purification System (2).</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/grow/sprouting-guide/">
+        <img src="/assets/images/material-support/grow/sprouting-guide.webp" alt="Home sprouting guide with jars and fresh sprouts growing indoors" loading="lazy">
+        <span class="sm-article-title">Sprouting Guide: Grow Fresh Food Anywhere Year-Round</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/grow/watering-spikes/">
+        <img src="/assets/images/material-support/grow/watering-spikes.webp" alt="Plant watering spikes providing slow irrigation for home gardening" loading="lazy">
+        <span class="sm-article-title">Watering Spikes: Simple Irrigation for Consistent Plant Growth</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/prepare/cold-root-cellar/">
+        <img src="/assets/images/material-support/prepare/cold-root-cellar.webp" alt="Underground root cellar used for natural cold food storage" loading="lazy">
+        <span class="sm-article-title">Cold Root Cellar: Store Food Naturally Without Electricity</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/prepare/dutch-oven/">
+        <img src="/assets/images/material-support/prepare/dutch-oven.webp" alt="Cast iron Dutch oven used for outdoor and emergency cooking" loading="lazy">
+        <span class="sm-article-title">Dutch Oven Cooking: A Reliable Method for Any Situation</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/prepare/grain-milling/">
+        <img src="/assets/images/material-support/prepare/grain-milling.webp" alt="Manual grain milling process for producing flour at home" loading="lazy">
+        <span class="sm-article-title">Grain Milling: Turn Stored Grains into Usable Flour</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/prepare/herbal-tinctures/">
+        <img src="/assets/images/material-support/prepare/herbal-tinctures.webp" alt="Herbal tinctures prepared in glass jars for natural remedies" loading="lazy">
+        <span class="sm-article-title">Herbal Tinctures: Preserve Natural Remedies for Long-Term Use</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/prepare/hydration-drinks/">
+        <img src="/assets/images/material-support/prepare/hydration-drinks.webp" alt="Homemade hydration drinks with essential electrolytes for emergencies" loading="lazy">
+        <span class="sm-article-title">Hydration Drinks: How to Stay Properly Hydrated in Emergencies</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/prepare/family-rocket-stove/">
+        <img src="/assets/images/material-support/prepare/family-rocket-stove.webp" alt="Homemade rocket stove for efficient off-grid cooking" loading="lazy">
+        <span class="sm-article-title">Rocket Stove: Build an Efficient Off-Grid Cooking System</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/store/baking-soda-household/">
+        <img src="/assets/images/material-support/store/baking-soda-household.webp" alt="Baking soda as a versatile long-lasting household resource" loading="lazy">
+        <span class="sm-article-title">Baking Soda: Permanent Household Resource</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/store/bug-out-bag/">
+        <img src="/assets/images/material-support/store/bug-out-bag.webp" alt="Family bug-out bag with essential emergency supplies ready for evacuation" loading="lazy">
+        <span class="sm-article-title">72-Hour Bug-Out Bag: What Your Family Actually Needs</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/store/salt-storage/">
+        <img src="/assets/images/material-support/store/salt-storage.webp" alt="Bulk salt stored properly for long-term preservation and use" loading="lazy">
+        <span class="sm-article-title">Salt Storage: Why Every Family Needs a Long-Term Supply</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/store/water-filters/">
+        <img src="/assets/images/material-support/store/water-filters.webp" alt="Portable water filters for safe drinking water during emergencies" loading="lazy">
+        <span class="sm-article-title">Water Filters: How to Secure Safe Drinking Water Anywhere</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/store/canning-meat/">
+        <img src="/assets/images/material-support/store/canning-meat.webp" alt="Home canned meat preserved safely in glass jars for storage" loading="lazy">
+        <span class="sm-article-title">Canning Meat Safely for Long-Term Family Storage</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/store/iodine-pills/">
+        <img src="/assets/images/material-support/store/iodine-pills.webp" alt="Iodine tablets for radiation emergencies in a family preparedness kit" loading="lazy">
+        <span class="sm-article-title">Iodine Pills: When and How to Use Them in Emergencies</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/store/powder-pantry-foods/">
+        <img src="/assets/images/material-support/store/powder-pantry-foods.webp" alt="Powder pantry with four nutritious foods in small jars for family storage" loading="lazy">
+        <span class="sm-article-title">The Powder Pantry: 4 Nutritious Foods That Save Space</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/store/sealing-grains/">
+        <img src="/assets/images/material-support/store/sealing-grains.webp" alt="Properly sealed grains stored long term in airtight containers" loading="lazy">
+        <span class="sm-article-title">Sealing Grains for Long-Term Storage Without Spoilage</span>
+      </a>
+      <a class="sm-article" href="/en/material-support/store/three-antiseptics/">
+        <img src="/assets/images/material-support/store/three-antiseptics.webp" alt="Three multi-purpose antiseptics: hydrogen peroxide, gentian violet and povidone iodine" loading="lazy">
+        <span class="sm-article-title">Three Multi-Purpose Antiseptics</span>
+      </a>
+    </div>
+
+        <!-- FIRST STEPS -->
     <section class="sm-steps">
       <h3>First steps today</h3>
 
@@ -257,7 +365,7 @@
 
       <div class="sm-step">
         <div class="sm-badge">3</div>
-        <p>Choose a pilot micro-project (sprouting lentils in 72 h) and share your progress.</p>
+        <p>Choose a pilot micro-project (sprouting lentils in 72 h) and <a href="mailto:editor@prepperfamily.org">share your progress</a> with the community.</p>
       </div>
     </section>
 
