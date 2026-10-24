@@ -301,7 +301,7 @@ if (typeof document !== 'undefined') {
     if (!b || terminado) return;
     const r = +b.dataset.r, c = +b.dataset.c;
     const idx = sel.findIndex(p => p[0] === r && p[1] === c);
-    if (idx === sel.length - 1) { sel.pop(); beep(300, 0.06); }
+    if (sel.length && idx === sel.length - 1) { sel.pop(); beep(300, 0.06); }
     else if (idx >= 0) { sel = sel.slice(0, idx + 1); beep(300, 0.06); }
     else if (!sel.length || isAdjacent(sel[sel.length - 1], [r, c])) { sel.push([r, c]); beep(520, 0.06); }
     else return;
