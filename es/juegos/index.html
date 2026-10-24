@@ -352,10 +352,28 @@ if (typeof document !== 'undefined') {
     if (!villain) { el.style.display = 'none'; el.innerHTML = ''; return; }
     el.style.display = 'flex';
     const pct = Math.max(0, Math.round(villain.hp / villain.max * 100));
-    const foto = '<span class="vfoto"><img class="foto" src="' + IMG_BASE + villain.img + '" alt="' + villain.nombre + '" onerror="this.style.display=\'none\'">' + (villain.corona ? '<span class="corona">👑</span>' : '') + '</span>';
-    el.innerHTML = foto + '<span class="vtexto">' + villain.emoji + ' <b>' + villain.nombre + '</b> quiere robar tu despensa<br>' +
+    el.innerHTML = '';
+    const foto = document.createElement('span');
+    foto.className = 'vfoto';
+    const img = document.createElement('img');
+    img.className = 'foto';
+    img.src = IMG_BASE + villain.img;
+    img.alt = villain.nombre;
+    img.addEventListener('error', () => { img.style.display = 'none'; });
+    foto.appendChild(img);
+    if (villain.corona) {
+      const cor = document.createElement('span');
+      cor.className = 'corona';
+      cor.textContent = '👑';
+      foto.appendChild(cor);
+    }
+    const texto = document.createElement('span');
+    texto.className = 'vtexto';
+    texto.innerHTML = villain.emoji + ' <b>' + villain.nombre + '</b> quiere robar tu despensa<br>' +
       '<span class="vbar"><i style="width:' + pct + '%"></i></span>' +
-      villain.hp + ' / ' + villain.max + ' HP · contraataca en ' + villain.cuenta + ' palabra' + (villain.cuenta === 1 ? '' : 's') + '</span>';
+      villain.hp + ' / ' + villain.max + ' HP · contraataca en ' + villain.cuenta + ' palabra' + (villain.cuenta === 1 ? '' : 's');
+    el.appendChild(foto);
+    el.appendChild(texto);
   }
   function setVillainForWorld() {
     const v = WORLDS[worldIdx].villain;
