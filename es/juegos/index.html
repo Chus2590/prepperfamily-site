@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Borrador sin enlazar: quitar esta línea al lanzar la sección de Juegos -->
+<meta name="robots" content="noindex">
+<title>Despensa de Palabras · Juegos | PrepperFamily</title>
+<meta name="description" content="Ayuda a Nuez, la ardilla, a llenar su despensa antes del invierno: forma palabras con las letras del tablero, junta bellotas doradas y recorre los cinco mundos.">
+<style>
+  :root { --verde:#2c6d4c; --verde-osc:#1f5138; --dorado:#f8b84e; --dorado-txt:#8a6b2a; --crema:#fdfbf7; --tinta:#2b2b2b; --suave:#6b6b6b; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--crema); color:var(--tinta); font-family:Georgia,'Times New Roman',serif; }
+  .juego { max-width:560px; margin:0 auto; padding:18px 14px 40px; font-family:Verdana,Geneva,sans-serif; }
+  .juego h1 { font-family:Georgia,'Times New Roman',serif; color:var(--verde); text-align:center; font-size:clamp(1.6rem,6vw,2.3rem); margin:8px 0 2px; }
+  .juego .sub { text-align:center; color:var(--suave); margin:0 0 16px; font-size:.95rem; }
+  .juego .sub b { color:var(--dorado-txt); }
+  .hud { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:12px; }
+  .hud .chip { background:#fff; border:1.5px solid var(--verde); border-radius:999px; padding:6px 12px; font-size:.85rem; color:var(--verde-osc); }
+  .hud .chip b { color:var(--tinta); }
+  .mundo { text-align:center; background:var(--verde); color:#fff; border-radius:12px; padding:10px 12px; margin-bottom:12px; }
+  .mundo .nombre { font-family:Georgia,serif; font-size:1.25rem; }
+  .mundo .meta { font-size:.85rem; opacity:.9; }
+  .barra { height:10px; background:#e8e0cf; border-radius:999px; overflow:hidden; margin-top:8px; }
+  .barra i { display:block; height:100%; background:var(--dorado); width:0%; transition:width .4s; }
+  .palabra { min-height:64px; text-align:center; margin:10px 0 4px; }
+  .palabra .letras { font-family:Georgia,serif; font-size:1.7rem; letter-spacing:.12em; min-height:40px; color:var(--verde-osc); }
+  .palabra .letras:empty::before { content:"Toca las letras para formar una palabra"; color:#b9b0a0; font-size:.95rem; letter-spacing:0; }
+  .palabra .puntos { font-size:.85rem; color:var(--dorado-txt); min-height:18px; }
+  .tablero { display:grid; grid-template-columns:repeat(8,1fr); gap:6px; margin:12px 0; touch-action:manipulation; }
+  .tile { aspect-ratio:1; border:2px solid #ddd3bd; border-radius:10px; background:#fff; font-family:Georgia,serif; font-size:clamp(1.15rem,5.2vw,1.6rem); font-weight:bold; color:var(--tinta); cursor:pointer; position:relative; padding:0; -webkit-tap-highlight-color:transparent; }
+  .tile small { position:absolute; right:5px; bottom:3px; font-size:.6rem; font-family:Verdana,sans-serif; color:var(--suave); }
+  .tile.sel { background:var(--verde); color:#fff; border-color:var(--verde-osc); transform:scale(1.06); }
+  .tile.sel small { color:#d8eadf; }
+  .tile.acorn { background:linear-gradient(160deg,#ffe9a8,#f8b84e); border-color:#d99a1f; }
+  .tile.acorn::after { content:"×2"; position:absolute; left:4px; top:2px; font-size:.55rem; font-family:Verdana,sans-serif; color:#7a5a10; }
+  .tile.hint { animation:parpadeo .45s ease-in-out 4; border-color:var(--dorado); }
+  @keyframes parpadeo { 50% { background:#ffe9a8; transform:scale(1.08); } }
+  .tile.shake { animation:temblor .3s; }
+  @keyframes temblor { 25% { transform:translateX(-4px); } 75% { transform:translateX(4px); } }
+  .botones { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:10px 0; }
+  .botones button { border:none; border-radius:999px; padding:11px 18px; font-size:.95rem; cursor:pointer; font-family:Verdana,sans-serif; }
+  .btn-verde { background:var(--verde); color:#fff; }
+  .btn-dorado { background:var(--dorado); color:#3a2a05; }
+  .btn-blanco { background:#fff; color:var(--verde-osc); border:1.5px solid var(--verde) !important; }
+  .botones button:disabled { opacity:.45; cursor:default; }
+  .msg { min-height:26px; text-align:center; font-size:.95rem; margin:6px 0; }
+  .msg.ok { color:var(--verde-osc); font-weight:bold; }
+  .msg.mal { color:#a33a2a; }
+  .como { background:#fff; border:1.5px solid #e8e0cf; border-radius:12px; padding:14px 16px; margin-top:18px; font-size:.9rem; line-height:1.55; color:#4a4a4a; }
+  .como h2 { font-family:Georgia,serif; color:var(--verde); font-size:1.1rem; margin:0 0 6px; }
+  .como ul { margin:6px 0; padding-left:20px; }
+  .final { display:none; text-align:center; background:#fff; border:2px solid var(--dorado); border-radius:14px; padding:22px 16px; margin-top:14px; }
+  .final.show { display:block; }
+  .final h2 { font-family:Georgia,serif; color:var(--verde); margin:0 0 8px; }
+  .nota { text-align:center; font-size:.8rem; color:#a79d8a; margin-top:16px; }
+</style>
+</head>
+<body>
+<div id="pf-header"></div>
+<main class="juego">
+  <h1>🐿️ Despensa de Palabras</h1>
+  <p class="sub">Ayuda a <b>Nuez, la ardilla</b>, a llenar su despensa antes del invierno. Forma palabras y guarda provisiones.</p>
+
+  <div class="hud">
+    <span class="chip">Puntos: <b id="hudPuntos">0 / 300</b></span>
+    <span class="chip">Total: <b id="hudTotal">0</b></span>
+    <span class="chip">Racha: <b id="hudRacha">0</b></span>
+    <span class="chip">Récord: <b id="hudBest">0</b></span>
+  </div>
+
+  <div class="mundo">
+    <div class="nombre" id="mundoNombre">🌱 El Huerto</div>
+    <div class="meta" id="mundoMeta">Empieza la cosecha: junta palabras y guarda tus primeras provisiones.</div>
+    <div class="barra"><i id="barraProg"></i></div>
+  </div>
+
+  <div class="palabra">
+    <div class="letras" id="palabraActual"></div>
+    <div class="puntos" id="palabraPuntos"></div>
+  </div>
+
+  <div class="tablero" id="tablero" role="group" aria-label="Tablero de letras"></div>
+
+  <div class="botones">
+    <button type="button" class="btn-verde" id="btnGuardar">Guardar palabra</button>
+    <button type="button" class="btn-blanco" id="btnBorrar">Borrar</button>
+    <button type="button" class="btn-dorado" id="btnPista">Pista (<span id="nPistas">5</span>)</button>
+    <button type="button" class="btn-dorado" id="btnMezclar">Mezclar (<span id="nMezclas">3</span>)</button>
+    <button type="button" class="btn-blanco" id="btnSonido" aria-label="Activar o silenciar sonido">🔊</button>
+  </div>
+
+  <div class="msg" id="msg"></div>
+
+  <div class="final" id="final">
+    <h2>🎉 ¡Despensa llena!</h2>
+    <p id="finalTexto"></p>
+    <div class="botones"><button type="button" class="btn-verde" id="btnOtra">Jugar de nuevo</button></div>
+  </div>
+
+  <div class="como">
+    <h2>Cómo se juega</h2>
+    <ul>
+      <li>Toca letras vecinas (también en diagonal) para formar una palabra de 3 letras o más.</li>
+      <li>Pulsa <b>Guardar palabra</b> para guardarla: las letras se van y caen unas nuevas.</li>
+      <li>Las letras doradas son <b>bellotas</b>: valen el doble. Las palabras de 6 letras o más dan +50.</li>
+      <li>Cada palabra seguida suma un extra por racha. Completa la meta de cada mundo para avanzar.</li>
+    </ul>
+  </div>
+  <p class="nota">Juego original de PrepperFamily.org. Formar palabras con letras es una mecánica genérica: el nombre, el personaje y el arte son propios.</p>
+</main>
+<div id="pf-footer"></div>
+<script>
+  const isGitHub = location.hostname.endsWith("github.io");
+  const base = isGitHub ? "/prepperfamily-site" : "";
+  function setHTML(id, html) { const el = document.getElementById(id); if (el) el.innerHTML = html; }
+  function loadHTML(url, targetId) {
+    return fetch(url).then(res => { if (!res.ok) throw new Error("Failed to load " + url); return res.text(); })
+      .then(html => setHTML(targetId, html)).catch(() => {});
+  }
+  loadHTML(`${base}/partials/header-es/`, "pf-header");
+  loadHTML(`${base}/partials/footer-es/`, "pf-footer");
+</script>
+<script>
+/* ===== Lógica pura (sin DOM): también se prueba con node ===== */
+function pfNorm(s) {
+  return s.toLowerCase().replace(/[áéíóúü]/g, c => ({'á':'a','é':'e','í':'i','ó':'o','ú':'u','ü':'u'}[c]));
+}
+const LETTER_VALUES = { A:1,E:1,O:1,S:1,R:1,N:1,I:1,L:1,U:1,T:1, D:2,G:2, C:3,M:3,B:3,P:3, F:4,H:4,V:4,Y:4, Q:5, J:8,'Ñ':8,X:8, K:10,W:10,Z:10 };
+const LETTER_BAG = [];
+(function () {
+  const freq = { E:12,A:11,O:9,S:8,R:7,N:7,I:6,L:5,C:5,T:5,U:5,D:4,M:3,P:3,B:3,G:2,V:2,Y:1,Q:1,H:1,F:1,Z:1,J:1,'Ñ':1,X:1,K:1,W:1 };
+  for (const l in freq) for (let i = 0; i < freq[l]; i++) LETTER_BAG.push(l);
+})();
+const WORLDS = [
+  { nombre: '🌱 El Huerto', meta: 300, texto: 'Empieza la cosecha: junta palabras y guarda tus primeras provisiones.' },
+  { nombre: '🥫 La Despensa', meta: 650, texto: 'La despensa se llena. Las palabras largas valen más.' },
+  { nombre: '🌲 El Bosque', meta: 1100, texto: 'Entre los árboles hay bellotas doradas: valen el doble.' },
+  { nombre: '🏺 La Bodega', meta: 1600, texto: 'Fresco y oscuro, como una buena bodega. Aquí van las reservas.' },
+  { nombre: '🏠 El Refugio', meta: 2200, texto: 'Último mundo: llena el refugio antes de que llegue el invierno.' },
+];
+const ACORN_CHANCE = 0.12;
+function randomTile(rng) {
+  const letter = LETTER_BAG[Math.floor(rng() * LETTER_BAG.length)];
+  return { letter, value: LETTER_VALUES[letter], acorn: rng() < ACORN_CHANCE };
+}
+function buildTrie(words) {
+  const root = {};
+  for (const w of words) {
+    let node = root;
+    for (const ch of w) node = node[ch] = node[ch] || {};
+    node.$ = true;
+  }
+  return root;
+}
+function findWord(grid, trie) {
+  const R = grid.length, C = grid[0].length, DIRS = [-1, 0, 1];
+  let best = null;
+  const seen = new Set();
+  function dfs(r, c, node, path, word) {
+    if (node.$ && word.length >= 3) {
+      if (word.length >= 4) { best = path.slice(); return true; }
+      if (!best) best = path.slice();
+    }
+    if (word.length >= 10) return false;
+    for (const dr of DIRS) for (const dc of DIRS) {
+      if (!dr && !dc) continue;
+      const nr = r + dr, nc = c + dc;
+      if (nr < 0 || nr >= R || nc < 0 || nc >= C) continue;
+      const key = nr + ',' + nc;
+      if (seen.has(key)) continue;
+      const next = node[grid[nr][nc].letter.toLowerCase()];
+      if (!next) continue;
+      seen.add(key); path.push([nr, nc]);
+      if (dfs(nr, nc, next, path, word + grid[nr][nc].letter)) return true;
+      path.pop(); seen.delete(key);
+    }
+    return false;
+  }
+  const starts = [];
+  for (let r = 0; r < R; r++) for (let c = 0; c < C; c++) starts.push([r, c]);
+  for (let i = starts.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [starts[i], starts[j]] = [starts[j], starts[i]]; }
+  for (const [r, c] of starts) {
+    const node = trie[grid[r][c].letter.toLowerCase()];
+    if (!node) continue;
+    seen.clear();
+    seen.add(r + ',' + c);
+    if (dfs(r, c, node, [[r, c]], grid[r][c].letter)) break;
+    if (best && best.length >= 4) break;
+  }
+  return best;
+}
+function scoreWord(tiles) {
+  let base = 0;
+  for (const t of tiles) base += t.acorn ? t.value * 2 : t.value;
+  const larga = tiles.length >= 6 ? 50 : 0;
+  return { base, larga, total: base + larga };
+}
+function rachaBonus(racha) { return 5 * Math.min(racha, 10); }
+function applyGravity(grid, rng) {
+  const R = grid.length, C = grid[0].length;
+  for (let c = 0; c < C; c++) {
+    const col = [];
+    for (let r = R - 1; r >= 0; r--) if (grid[r][c]) col.push(grid[r][c]);
+    for (let r = R - 1, i = 0; r >= 0; r--, i++) grid[r][c] = i < col.length ? col[i] : randomTile(rng);
+  }
+}
+function isAdjacent(a, b) {
+  return Math.abs(a[0] - b[0]) <= 1 && Math.abs(a[1] - b[1]) <= 1 && !(a[0] === b[0] && a[1] === b[1]);
+}
+/* ===== Juego (DOM) ===== */
+if (typeof document !== 'undefined') {
+  const $ = id => document.getElementById(id);
+  const SIZE = 8;
+  let trie = null, wordSet = null, wordArray = [], grid = [], sel = [];
+  let worldIdx = 0, puntosMundo = 0, puntosTotal = 0, racha = 0;
+  let pistas = 5, mezclas = 3, terminado = false;
+  let sonido = true;
+  try { sonido = localStorage.getItem('pf-despensa-sonido') !== '0'; } catch (e) {}
+  let best = 0;
+  try { best = parseInt(localStorage.getItem('pf-despensa-best') || '0', 10) || 0; } catch (e) {}
+  let audioCtx = null;
+  function beep(freq, dur, delay) {
+    if (!sonido) return;
+    try {
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      const t = audioCtx.currentTime + (delay || 0);
+      const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.type = 'sine'; o.frequency.value = freq;
+      g.gain.setValueAtTime(0.08, t); g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start(t); o.stop(t + dur);
+    } catch (e) {}
+  }
+  function msg(texto, clase) { const m = $('msg'); m.textContent = texto; m.className = 'msg ' + (clase || ''); }
+  function actualizarHud() {
+    const w = WORLDS[worldIdx];
+    $('hudPuntos').textContent = puntosMundo + ' / ' + w.meta;
+    $('hudTotal').textContent = puntosTotal;
+    $('hudRacha').textContent = racha;
+    $('hudBest').textContent = best;
+    $('mundoNombre').textContent = w.nombre;
+    $('mundoMeta').textContent = w.texto;
+    $('barraProg').style.width = Math.min(100, Math.round(puntosMundo / w.meta * 100)) + '%';
+    $('nPistas').textContent = pistas;
+    $('nMezclas').textContent = mezclas;
+    $('btnPista').disabled = pistas <= 0 || terminado;
+    $('btnMezclar').disabled = mezclas <= 0 || terminado;
+    $('btnSonido').textContent = sonido ? '🔊' : '🔇';
+  }
+  function pintarTablero() {
+    const tb = $('tablero');
+    tb.innerHTML = '';
+    for (let r = 0; r < SIZE; r++) for (let c = 0; c < SIZE; c++) {
+      const t = grid[r][c];
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'tile' + (t.acorn ? ' acorn' : '');
+      b.setAttribute('aria-label', 'Letra ' + t.letter);
+      b.dataset.r = r; b.dataset.c = c;
+      b.innerHTML = t.letter + '<small>' + t.value + '</small>';
+      if (sel.some(p => p[0] === r && p[1] === c)) b.classList.add('sel');
+      tb.appendChild(b);
+    }
+  }
+  function pintarPalabra() {
+    const letras = sel.map(p => grid[p[0]][p[1]].letter).join('');
+    $('palabraActual').textContent = letras;
+    if (sel.length) {
+      const tiles = sel.map(p => grid[p[0]][p[1]]);
+      const s = scoreWord(tiles);
+      $('palabraPuntos').textContent = s.total + ' puntos' + (s.larga ? ' (incluye +50 por palabra larga)' : '') + (racha ? ' + ' + rachaBonus(racha) + ' por racha' : '');
+    } else $('palabraPuntos').textContent = '';
+  }
+  function nuevoTablero() {
+    for (let intento = 0; intento < 40; intento++) {
+      grid = [];
+      for (let r = 0; r < SIZE; r++) { const fila = []; for (let c = 0; c < SIZE; c++) fila.push(randomTile(Math.random)); grid.push(fila); }
+      if (findWord(grid, trie)) return;
+    }
+    // Garantía: si ningún intento tuvo palabra, plantamos una para no entregar un tablero muerto.
+    grid = [];
+    for (let r = 0; r < SIZE; r++) { const fila = []; for (let c = 0; c < SIZE; c++) fila.push(randomTile(Math.random)); grid.push(fila); }
+    const cortas = wordArray.filter(w => w.length === 4);
+    const palabra = cortas[Math.floor(Math.random() * cortas.length)] || 'casa';
+    const fila = Math.floor(Math.random() * SIZE);
+    for (let i = 0; i < palabra.length; i++) {
+      const ch = palabra[i].toUpperCase();
+      grid[fila][i] = { letter: ch, value: LETTER_VALUES[ch] || 1, acorn: false };
+    }
+  }
+  function limpiarSeleccion() { sel = []; pintarTablero(); pintarPalabra(); }
+  function temblorSeleccion() {
+    sel.forEach(p => {
+      const b = document.querySelector('.tile[data-r="' + p[0] + '"][data-c="' + p[1] + '"]');
+      if (b) b.classList.add('shake');
+    });
+    setTimeout(() => document.querySelectorAll('.tile.shake').forEach(b => b.classList.remove('shake')), 350);
+  }
+  $('tablero').addEventListener('click', e => {
+    const b = e.target.closest('.tile');
+    if (!b || terminado) return;
+    const r = +b.dataset.r, c = +b.dataset.c;
+    const idx = sel.findIndex(p => p[0] === r && p[1] === c);
+    if (idx === sel.length - 1) { sel.pop(); beep(300, 0.06); }
+    else if (idx >= 0) { sel = sel.slice(0, idx + 1); beep(300, 0.06); }
+    else if (!sel.length || isAdjacent(sel[sel.length - 1], [r, c])) { sel.push([r, c]); beep(520, 0.06); }
+    else return;
+    pintarTablero(); pintarPalabra();
+  });
+  $('btnBorrar').addEventListener('click', () => { if (!terminado) limpiarSeleccion(); });
+  $('btnGuardar').addEventListener('click', () => {
+    if (terminado) return;
+    if (sel.length < 3) { msg('Mínimo 3 letras para guardar una palabra.', 'mal'); beep(160, 0.15); temblorSeleccion(); return; }
+    const palabra = pfNorm(sel.map(p => grid[p[0]][p[1]].letter).join(''));
+    if (!wordSet.has(palabra)) { msg('«' + palabra.toUpperCase() + '» no está en la lista. Prueba otra.', 'mal'); beep(140, 0.2); temblorSeleccion(); limpiarSeleccion(); return; }
+    const tiles = sel.map(p => grid[p[0]][p[1]]);
+    const s = scoreWord(tiles);
+    const bonus = rachaBonus(racha);
+    const total = s.total + bonus;
+    puntosMundo += total; puntosTotal += total; racha++;
+    beep(660, 0.1); beep(880, 0.12, 0.1);
+    const tieneBellota = tiles.some(t => t.acorn);
+    msg('¡' + palabra.toUpperCase() + '! +' + total + ' puntos' + (tieneBellota ? ' (con bellota dorada)' : '') + (s.larga ? ' +50 por palabra larga' : '') + (bonus ? ' +' + bonus + ' por racha' : ''), 'ok');
+    sel.forEach(p => { grid[p[0]][p[1]] = null; });
+    sel = [];
+    applyGravity(grid, Math.random);
+    if (!findWord(grid, trie)) { nuevoTablero(); msg('No quedaban palabras: ¡mezclamos el tablero!', ''); }
+    pintarTablero(); pintarPalabra();
+    const w = WORLDS[worldIdx];
+    if (puntosMundo >= w.meta) {
+      if (worldIdx === WORLDS.length - 1) {
+        terminado = true;
+        if (puntosTotal > best) { best = puntosTotal; try { localStorage.setItem('pf-despensa-best', String(best)); } catch (e) {} }
+        $('finalTexto').textContent = 'Nuez guardó ' + puntosTotal + ' puntos de provisiones en los cinco mundos. ' + (puntosTotal >= best ? '¡Nuevo récord!' : 'Récord: ' + best + ' puntos.');
+        $('final').classList.add('show');
+        beep(523, 0.15); beep(659, 0.15, 0.15); beep(784, 0.25, 0.3);
+      } else {
+        worldIdx++; puntosMundo = 0; pistas = 5; mezclas = 3;
+        msg('¡Mundo completado! Ahora: ' + WORLDS[worldIdx].nombre, 'ok');
+        beep(523, 0.12); beep(659, 0.12, 0.12); beep(784, 0.2, 0.24);
+      }
+    }
+    actualizarHud();
+  });
+  $('btnPista').addEventListener('click', () => {
+    if (terminado || pistas <= 0) return;
+    const sol = findWord(grid, trie);
+    if (!sol) { nuevoTablero(); pintarTablero(); msg('No había palabras: ¡tablero nuevo!', ''); return; }
+    pistas--;
+    sol.forEach(p => {
+      const b = document.querySelector('.tile[data-r="' + p[0] + '"][data-c="' + p[1] + '"]');
+      if (b) b.classList.add('hint');
+    });
+    setTimeout(() => document.querySelectorAll('.tile.hint').forEach(b => b.classList.remove('hint')), 1900);
+    msg('Pista: sigue las letras que brillan.', '');
+    actualizarHud();
+  });
+  $('btnMezclar').addEventListener('click', () => {
+    if (terminado || mezclas <= 0) return;
+    mezclas--;
+    nuevoTablero(); limpiarSeleccion();
+    msg('Tablero mezclado.', '');
+    actualizarHud();
+  });
+  $('btnSonido').addEventListener('click', () => {
+    sonido = !sonido;
+    try { localStorage.setItem('pf-despensa-sonido', sonido ? '1' : '0'); } catch (e) {}
+    actualizarHud();
+  });
+  $('btnOtra').addEventListener('click', () => {
+    worldIdx = 0; puntosMundo = 0; puntosTotal = 0; racha = 0; pistas = 5; mezclas = 3; terminado = false;
+    $('final').classList.remove('show');
+    nuevoTablero(); limpiarSeleccion(); actualizarHud();
+    msg('¡Nueva partida! A llenar la despensa.', '');
+  });
+  msg('Cargando palabras…', '');
+  fetch('palabras-es.txt').then(r => { if (!r.ok) throw new Error('lista'); return r.text(); }).then(texto => {
+    const words = texto.split('\n').map(w => w.trim()).filter(Boolean);
+    wordArray = words;
+    wordSet = new Set(words);
+    trie = buildTrie(words);
+    nuevoTablero(); limpiarSeleccion(); actualizarHud();
+    msg('¡A jugar! Toca las letras para formar tu primera palabra.', '');
+  }).catch(() => {
+    msg('No se pudo cargar la lista de palabras. Recarga la página para intentarlo de nuevo.', 'mal');
+  });
+}
+</script>
+</body>
+</html>
