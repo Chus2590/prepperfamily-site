@@ -58,6 +58,18 @@
   .btn-dorado { background:var(--dorado); color:#3a2a05; }
   .btn-blanco { background:#fff; color:var(--verde-osc); border:1.5px solid var(--verde) !important; }
   .botones button:disabled { opacity:.45; cursor:default; }
+  .botones button.off { opacity:.45; filter:grayscale(1); }
+  .alias-row { text-align:center; margin:0 0 12px; font-size:.9rem; color:var(--verde-osc); }
+  .alias-row input { border:1.5px solid var(--verde); border-radius:999px; padding:7px 12px; font-size:.9rem; font-family:Verdana,sans-serif; width:170px; }
+  .alias-row .alias-nota { color:var(--suave); font-size:.8rem; }
+  .records { background:#fff; border:1.5px solid #e8e0cf; border-radius:12px; padding:14px 16px; margin-top:18px; font-size:.9rem; line-height:1.55; color:#4a4a4a; }
+  .records h2 { font-family:Georgia,serif; color:var(--verde); font-size:1.1rem; margin:0 0 4px; }
+  .records h3 { font-family:Georgia,serif; color:var(--verde); font-size:1rem; margin:10px 0 4px; }
+  .records .nota-rec { font-size:.8rem; color:var(--suave); margin:0 0 6px; }
+  .records-cols { display:flex; flex-wrap:wrap; gap:8px 24px; }
+  .records-cols > div { flex:1; min-width:220px; }
+  .records ol { margin:6px 0; padding-left:20px; }
+  .records li { margin-bottom:2px; }
   .msg { min-height:26px; text-align:center; font-size:.95rem; margin:6px 0; }
   .msg.ok { color:var(--verde-osc); font-weight:bold; }
   .msg.mal { color:#a33a2a; }
@@ -85,6 +97,8 @@
     <span class="chip">Récord: <b id="hudBest">0</b></span>
   </div>
 
+  <div class="alias-row"><label for="aliasInput">Tu alias:</label> <input id="aliasInput" type="text" maxlength="16" placeholder="p. ej. ArdillaVeloz" autocomplete="off"> <span class="alias-nota">para los récords</span></div>
+
   <div class="mundo">
     <div class="nombre" id="mundoNombre">🌱 El Huerto</div>
     <div class="meta" id="mundoMeta">Empieza la cosecha: junta palabras y guarda tus primeras provisiones.</div>
@@ -105,7 +119,8 @@
     <button type="button" class="btn-blanco" id="btnBorrar">Borrar</button>
     <button type="button" class="btn-dorado" id="btnPista">Pista (<span id="nPistas">5</span>)</button>
     <button type="button" class="btn-dorado" id="btnMezclar">Mezclar (<span id="nMezclas">3</span>)</button>
-    <button type="button" class="btn-blanco" id="btnSonido" aria-label="Activar o silenciar sonido">🔊</button>
+    <button type="button" class="btn-blanco" id="btnMusica" aria-label="Música activada" title="Silenciar música">🎵</button>
+    <button type="button" class="btn-blanco" id="btnSonido" aria-label="Efectos activados" title="Silenciar efectos">🔊</button>
   </div>
 
   <div class="msg" id="msg"></div>
@@ -114,6 +129,15 @@
     <h2>🎉 ¡Despensa llena!</h2>
     <p id="finalTexto"></p>
     <div class="botones"><button type="button" class="btn-verde" id="btnOtra">Jugar de nuevo</button></div>
+  </div>
+
+  <div class="records">
+    <h2>🏆 Récords en este dispositivo</h2>
+    <p class="nota-rec">Solo se guardan en tu dispositivo: no salen de aquí y no guardan partidas.</p>
+    <div class="records-cols">
+      <div><h3>Mejores puntuaciones</h3><ol id="listaTop"></ol></div>
+      <div><h3>Mejores palabras</h3><ol id="listaPalabras"></ol></div>
+    </div>
   </div>
 
   <div class="como">
@@ -126,7 +150,8 @@
       <li>🔒 <b>Letras bajo llave:</b> no se pueden tocar. Usa una llave 🔑 dentro de una palabra para liberarlas (a veces esconden bellotas).</li>
       <li>🐭 <b>Villanos:</b> desde el segundo mundo, un ladrón quiere robar tu despensa. Si no lo derrotas, <b>contraataca cada 4 palabras</b> infectando una letra (las llaves la curan). Al derrotarlo: +150 puntos, +1 pista y +1 mezcla.</li>
       <li>Cada palabra seguida suma un extra por racha. Completa la meta de cada mundo para avanzar.</li>
-      <li>🔊 La música y los efectos empiezan con tu primer toque; el botón 🔊 los silencia.</li>
+      <li>🏆 Tus récords (mejores puntuaciones y mejores palabras) se guardan solo en tu dispositivo.</li>
+      <li>🎵 La música y los efectos empiezan con tu primer toque; los botones 🎵 y 🔊 los silencian por separado.</li>
     </ul>
   </div>
   <p class="nota">Juego original de PrepperFamily.org. Formar palabras con letras es una mecánica genérica: el nombre, el personaje y el arte son propios.</p>
@@ -224,6 +249,12 @@ function attackDamage(tiles) {
   for (const t of tiles) if (t.acorn) d += 2;
   return d;
 }
+function addRecord(lista, entrada, max) {
+  const l = lista.slice();
+  l.push(entrada);
+  l.sort((a, b) => b.puntos - a.puntos);
+  return l.slice(0, max || 10);
+}
 function rachaBonus(racha) { return 5 * Math.min(racha, 10); }
 function applyGravity(grid, rng) {
   const R = grid.length, C = grid[0].length;
@@ -242,8 +273,14 @@ if (typeof document !== 'undefined') {
   let villain = null;
   let worldIdx = 0, puntosMundo = 0, puntosTotal = 0, racha = 0;
   let pistas = 5, mezclas = 3, terminado = false;
-  let sonido = true;
-  try { sonido = localStorage.getItem('pf-despensa-sonido') !== '0'; } catch (e) {}
+  let musica = true, efectos = true;
+  try {
+    const m = localStorage.getItem('pf-despensa-musica');
+    const e = localStorage.getItem('pf-despensa-efectos');
+    const viejo = localStorage.getItem('pf-despensa-sonido');
+    musica = m !== null ? m !== '0' : (viejo !== '0');
+    efectos = e !== null ? e !== '0' : (viejo !== '0');
+  } catch (e) {}
   let best = 0;
   try { best = parseInt(localStorage.getItem('pf-despensa-best') || '0', 10) || 0; } catch (e) {}
   let audioCtx = null;
@@ -255,7 +292,7 @@ if (typeof document !== 'undefined') {
     } catch (e) { return null; }
   }
   function tone(freq, dur, delay, type, vol, slideTo) {
-    if (!sonido) return;
+    if (!efectos) return;
     const ac = ctx(); if (!ac) return;
     try {
       const t = ac.currentTime + (delay || 0);
@@ -268,7 +305,7 @@ if (typeof document !== 'undefined') {
     } catch (e) {}
   }
   function noiseHit(dur, delay, vol, fromF, toF) {
-    if (!sonido) return;
+    if (!efectos) return;
     const ac = ctx(); if (!ac) return;
     try {
       const t = ac.currentTime + (delay || 0);
@@ -326,7 +363,7 @@ if (typeof document !== 'undefined') {
     for (let i = 0; i < 16; i++) musicNote(ac, MUSIC_MELODY[i], t0 + i * MUSIC_BEAT, MUSIC_BEAT * 0.95, 'triangle', 0.06);
   }
   function startMusic() {
-    if (musicTimer || !sonido) return;
+    if (musicTimer || !musica) return;
     const ac = ctx(); if (!ac) return;
     nextLoopTime = ac.currentTime + 0.1;
     musicTimer = setInterval(() => {
@@ -335,7 +372,7 @@ if (typeof document !== 'undefined') {
     }, 500);
   }
   function stopMusic() { if (musicTimer) { clearInterval(musicTimer); musicTimer = null; } }
-  function despertarAudio() { if (sonido) startMusic(); }
+  function despertarAudio() { if (musica) startMusic(); }
   document.addEventListener('pointerdown', despertarAudio);
   function msg(texto, clase) { const m = $('msg'); m.textContent = texto; m.className = 'msg ' + (clase || ''); }
   let nuezTimer = null;
@@ -399,7 +436,30 @@ if (typeof document !== 'undefined') {
     $('btnPista').disabled = pistas <= 0 || terminado;
     $('btnMezclar').disabled = mezclas <= 0 || terminado;
     $('btnGuardar').textContent = villain ? '¡Atacar! ⚔️' : 'Guardar palabra';
-    $('btnSonido').textContent = sonido ? '🔊' : '🔇';
+    $('btnMusica').classList.toggle('off', !musica);
+    $('btnMusica').setAttribute('aria-label', musica ? 'Música activada' : 'Música desactivada');
+    $('btnMusica').setAttribute('title', musica ? 'Silenciar música' : 'Activar música');
+    $('btnSonido').classList.toggle('off', !efectos);
+    $('btnSonido').setAttribute('aria-label', efectos ? 'Efectos activados' : 'Efectos desactivados');
+    $('btnSonido').setAttribute('title', efectos ? 'Silenciar efectos' : 'Activar efectos');
+  }
+  function leerLista(clave) {
+    try { const l = JSON.parse(localStorage.getItem(clave) || '[]'); return Array.isArray(l) ? l : []; } catch (e) { return []; }
+  }
+  function guardarLista(clave, lista) { try { localStorage.setItem(clave, JSON.stringify(lista)); } catch (e) {} }
+  function aliasActual() {
+    const v = ($('aliasInput').value || '').replace(/\s+/g, ' ').trim().slice(0, 16);
+    return v || 'Anónimo';
+  }
+  function pintarRecords() {
+    const top = leerLista('pf-despensa-top');
+    const pals = leerLista('pf-despensa-palabras-top');
+    const lt = $('listaTop'), lp = $('listaPalabras');
+    lt.innerHTML = ''; lp.innerHTML = '';
+    if (!top.length) { const li = document.createElement('li'); li.textContent = 'Todavía no hay puntuaciones. ¡Completa los 5 mundos!'; lt.appendChild(li); }
+    else top.forEach(r => { const li = document.createElement('li'); li.textContent = r.alias + ' — ' + r.puntos + ' puntos'; lt.appendChild(li); });
+    if (!pals.length) { const li = document.createElement('li'); li.textContent = 'Todavía no hay palabras guardadas. ¡Juega!'; lp.appendChild(li); }
+    else pals.forEach(r => { const li = document.createElement('li'); li.textContent = r.palabra + ' — ' + r.puntos + ' puntos (' + r.alias + ')'; lp.appendChild(li); });
   }
   function pintarTablero() {
     const tb = $('tablero');
@@ -496,6 +556,8 @@ if (typeof document !== 'undefined') {
     const total = s.total + bonus;
     puntosMundo += total; puntosTotal += total; racha++;
     if (villain) sfxAttack(); else sfxSave();
+    guardarLista('pf-despensa-palabras-top', addRecord(leerLista('pf-despensa-palabras-top'), { palabra: palabra.toUpperCase(), puntos: s.total, alias: aliasActual() }, 10));
+    pintarRecords();
     const tieneBellota = tiles.some(t => t.acorn);
     const llaves = tiles.filter(t => t.key).length;
     let texto = '¡' + palabra.toUpperCase() + '! +' + total + ' puntos' + (tieneBellota ? ' (con bellota dorada)' : '') + (s.larga ? ' +50 por palabra larga' : '') + (bonus ? ' +' + bonus + ' por racha' : '');
@@ -547,6 +609,8 @@ if (typeof document !== 'undefined') {
         if (puntosTotal > best) { best = puntosTotal; try { localStorage.setItem('pf-despensa-best', String(best)); } catch (e) {} }
         $('finalTexto').textContent = 'Nuez guardó ' + puntosTotal + ' puntos de provisiones en los cinco mundos. ' + (puntosTotal >= best ? '¡Nuevo récord!' : 'Récord: ' + best + ' puntos.');
         $('final').classList.add('show');
+        guardarLista('pf-despensa-top', addRecord(leerLista('pf-despensa-top'), { alias: aliasActual(), puntos: puntosTotal }, 10));
+        pintarRecords();
         decirNuez('¡Lo logramos!');
         sfxWin();
       } else {
@@ -583,10 +647,15 @@ if (typeof document !== 'undefined') {
     sfxShuffle();
     actualizarHud();
   });
+  $('btnMusica').addEventListener('click', () => {
+    musica = !musica;
+    try { localStorage.setItem('pf-despensa-musica', musica ? '1' : '0'); } catch (e) {}
+    if (musica) startMusic(); else stopMusic();
+    actualizarHud();
+  });
   $('btnSonido').addEventListener('click', () => {
-    sonido = !sonido;
-    try { localStorage.setItem('pf-despensa-sonido', sonido ? '1' : '0'); } catch (e) {}
-    if (sonido) startMusic(); else stopMusic();
+    efectos = !efectos;
+    try { localStorage.setItem('pf-despensa-efectos', efectos ? '1' : '0'); } catch (e) {}
     actualizarHud();
   });
   $('btnOtra').addEventListener('click', () => {
@@ -603,6 +672,9 @@ if (typeof document !== 'undefined') {
     wordSet = new Set(words);
     setVillainForWorld();
     nuevoTablero(); limpiarSeleccion(); actualizarHud();
+    try { const a = localStorage.getItem('pf-despensa-alias'); if (a) $('aliasInput').value = a; } catch (e) {}
+    $('aliasInput').addEventListener('input', () => { try { localStorage.setItem('pf-despensa-alias', $('aliasInput').value); } catch (e) {} });
+    pintarRecords();
     msg('¡A jugar! Toca las letras para formar tu primera palabra.', '');
   }).catch(() => {
     msg('No se pudo cargar la lista de palabras. Recarga la página para intentarlo de nuevo.', 'mal');
