@@ -531,12 +531,27 @@
             var cards = document.querySelectorAll('.lib-card');
             var activeFilter = 'all';
             var pillarNames = { 'sustento-material': 'Sustento Material', 'resistencia-familiar': 'Resistencia Familiar', 'fortaleza-interior': 'Fortaleza Interior' };
+            var contentByUrl = {};
+            var contentLoading = false;
+            function norm(s) { return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+            function ensureContent() {
+                if (contentLoading) return;
+                contentLoading = true;
+                fetch('/assets/search-index-es.json').then(function (r) { if (!r.ok) throw new Error('index'); return r.json(); }).then(function (data) {
+                    (data.articles || []).forEach(function (a) { contentByUrl[a.url] = norm(a.text || ''); });
+                    applyFilter();
+                }).catch(function () { /* sin índice: sigue buscando en títulos y descripciones */ });
+            }
             function applyFilter() {
-                var q = searchInput.value.trim().toLowerCase();
+                var q = norm(searchInput.value.trim());
+                var words = q ? q.split(/\s+/) : [];
                 var visible = 0;
                 cards.forEach(function (card) {
                     var okPillar = (activeFilter === 'all') || (card.getAttribute('data-pillar') === activeFilter);
-                    var okSearch = !q || (card.textContent.toLowerCase().indexOf(q) !== -1);
+                    var link = card.querySelector('a');
+                    var url = link ? link.getAttribute('href') : '';
+                    var hay = norm(card.textContent) + ' ' + (contentByUrl[url] || '');
+                    var okSearch = words.length === 0 || words.every(function (w) { return hay.indexOf(w) !== -1; });
                     var show = okPillar && okSearch;
                     card.style.display = show ? '' : 'none';
                     if (show) visible++;
@@ -560,7 +575,8 @@
                     applyFilter();
                 });
             });
-            searchInput.addEventListener('input', applyFilter);
+            searchInput.addEventListener('input', function () { ensureContent(); applyFilter(); });
+            searchInput.addEventListener('focus', ensureContent);
         });
     </script>
 </body>
