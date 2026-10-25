@@ -190,9 +190,9 @@ const WORLDS = [
   { nombre: '🍳 La Cocina', meta: 2300, texto: 'La rata se cuela en la cocina a robar provisiones. ¡Cuidado! Es inmune a palabras de 3 letras: atácala con 4 o más. Y ojo: de vez en cuando aparece una ficha ⚡ rayo que duplica el daño.', locks: 7, villain: { emoji: '🐀', nombre: 'La rata', hp: 80, img: 'rata.webp', inmune3: true } },
   { nombre: '🌾 El Granero', meta: 2500, texto: 'Último mundo: el granero guarda la cosecha del año. La Reina Hormiga también es inmune a palabras de 3 letras y tiene 100 HP.', locks: 8, villain: { emoji: '👑🐜', nombre: 'La Reina Hormiga', hp: 100, img: 'hormiga.webp', corona: true, inmune3: true } },
 ];
-/* Pistas de música: una por mundo cuando haya varias; si un mundo no tiene pista propia, suena la primera */
-const PISTAS = ['../../assets/audio/pista-epica-1.mp3'];
-function pistaParaMundo(i) { return PISTAS[i] || PISTAS[0]; }
+/* Pistas de música: se reparten por mundo en ciclo (1-2-3-1-2-3-1) */
+const PISTAS = ['../../assets/audio/pista-epica-1.mp3', '../../assets/audio/pista-epica-2.mp3', '../../assets/audio/pista-epica-3.mp3'];
+function pistaParaMundo(i) { return PISTAS[i % PISTAS.length]; }
 const ACORN_CHANCE = 0.12;
 const KEY_CHANCE = 0.08;
 const RAYO_CHANCE = 0.04;
