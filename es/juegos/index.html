@@ -45,6 +45,8 @@
   .tile.acorn { background:linear-gradient(160deg,#ffe9a8,#f8b84e); border-color:#d99a1f; }
   .tile.acorn::after { content:"×2"; position:absolute; left:4px; top:2px; font-size:.55rem; font-family:Verdana,sans-serif; color:#7a5a10; }
   .tile.key::after { content:"🔑"; position:absolute; left:3px; top:1px; font-size:.6rem; }
+  .tile.rayo { background:linear-gradient(160deg,#fff7c4,#ffe066); border-color:#d9a91f; }
+  .tile.rayo::after { content:"⚡"; position:absolute; left:3px; top:1px; font-size:.6rem; }
   .tile.locked { background:#e3ddd0; border-color:#b9b0a0; color:#8a8478; cursor:default; }
   .tile.hint { animation:parpadeo .45s ease-in-out 4; border-color:var(--dorado); }
   @keyframes parpadeo { 50% { background:#ffe9a8; transform:scale(1.08); } }
@@ -145,6 +147,7 @@
       <li>Toca las letras que quieras, en el orden que quieras: <b>todas sirven</b>, no hace falta que sean vecinas. Forma una palabra de 3 letras o más.</li>
       <li>Pulsa <b>¡Atacar!</b> para lanzar tu palabra contra el villano (o <b>Guardar palabra</b> cuando no hay villano): las letras se van y caen unas nuevas.</li>
       <li>⚔️ <b>Daño:</b> cada letra de tu palabra hace 1 de daño al villano; cada bellota dorada añade +2. ¡Palabras largas = golpes fuertes!</li>
+      <li>⚡ <b>Superpoder:</b> de vez en cuando aparece una ficha rayo: duplica el daño de tu palabra y da +50 puntos. 🛡️ Algunos villanos son <b>inmunes a palabras de 3 letras</b>: contra ellos, usa 4 o más.</li>
       <li>Las letras doradas son <b>bellotas</b>: valen el doble en puntos. Las palabras de 6 letras o más dan +50.</li>
       <li>🔒 <b>Letras bajo llave:</b> no se pueden tocar. Usa una llave 🔑 dentro de una palabra para liberarlas (a veces esconden bellotas).</li>
       <li>🐭 <b>Villanos:</b> desde el segundo mundo, un ladrón quiere robar tu despensa. Si no lo derrotas, <b>contraataca cada 4 palabras</b> infectando una letra (las llaves la curan). Al derrotarlo: +150 puntos, +1 pista y +1 mezcla.</li>
@@ -183,14 +186,17 @@ const WORLDS = [
   { nombre: '🥫 La Despensa', meta: 650, texto: '¡Un ratón quiere robar tu despensa! Atácalo con tus palabras: cada letra hace 1 de daño.', locks: 3, villain: { emoji: '🐭', nombre: 'El ratón', hp: 20, img: 'raton.webp' } },
   { nombre: '🌲 El Bosque', meta: 1100, texto: 'Entre los árboles hay bellotas doradas: valen el doble y hacen +2 de daño.', locks: 4, villain: { emoji: '🐛', nombre: 'El gorgojo', hp: 30, img: 'gorgojo.webp' } },
   { nombre: '🏺 La Bodega', meta: 1600, texto: 'Fresco y oscuro, como una buena bodega. Aquí van las reservas.', locks: 5, villain: { emoji: '🦝', nombre: 'El mapache', hp: 45, img: 'mapache.webp' } },
-  { nombre: '🏠 El Refugio', meta: 2200, texto: 'Último mundo: llena el refugio antes de que llegue el invierno.', locks: 6, villain: { emoji: '👑🐛', nombre: 'El Rey Gorgojo', hp: 60, img: 'gorgojo.webp', corona: true } },
+  { nombre: '🏠 El Refugio', meta: 2200, texto: 'Llena el refugio antes de que llegue el invierno.', locks: 6, villain: { emoji: '👑🐛', nombre: 'El Rey Gorgojo', hp: 60, img: 'gorgojo.webp', corona: true } },
+  { nombre: '🍳 La Cocina', meta: 2300, texto: 'La rata se cuela en la cocina a robar provisiones. ¡Cuidado! Es inmune a palabras de 3 letras: atácala con 4 o más. Y ojo: de vez en cuando aparece una ficha ⚡ rayo que duplica el daño.', locks: 7, villain: { emoji: '🐀', nombre: 'La rata', hp: 80, img: 'rata.webp', inmune3: true } },
+  { nombre: '🌾 El Granero', meta: 2500, texto: 'Último mundo: el granero guarda la cosecha del año. La Reina Hormiga también es inmune a palabras de 3 letras y tiene 100 HP.', locks: 8, villain: { emoji: '👑🐜', nombre: 'La Reina Hormiga', hp: 100, img: 'hormiga.webp', corona: true, inmune3: true } },
 ];
 const ACORN_CHANCE = 0.12;
 const KEY_CHANCE = 0.08;
+const RAYO_CHANCE = 0.04;
 function randomTile(rng) {
   const letter = LETTER_BAG[Math.floor(rng() * LETTER_BAG.length)];
   const roll = rng();
-  return { letter, value: LETTER_VALUES[letter], acorn: roll < ACORN_CHANCE, key: roll >= ACORN_CHANCE && roll < ACORN_CHANCE + KEY_CHANCE, locked: false };
+  return { letter, value: LETTER_VALUES[letter], acorn: roll < ACORN_CHANCE, key: roll >= ACORN_CHANCE && roll < ACORN_CHANCE + KEY_CHANCE, rayo: roll >= ACORN_CHANCE + KEY_CHANCE && roll < ACORN_CHANCE + KEY_CHANCE + RAYO_CHANCE, locked: false };
 }
 function letterCounts(letters) {
   const m = {};
@@ -241,11 +247,14 @@ function scoreWord(tiles) {
   let base = 0;
   for (const t of tiles) base += t.acorn ? t.value * 2 : t.value;
   const larga = tiles.length >= 6 ? 50 : 0;
-  return { base, larga, total: base + larga };
+  const rayo = tiles.some(t => t.rayo) ? 50 : 0;
+  return { base, larga, rayo, total: base + larga + rayo };
 }
-function attackDamage(tiles) {
+function attackDamage(tiles, villain) {
+  if (villain && villain.inmune3 && tiles.length === 3) return 0;
   let d = tiles.length;
   for (const t of tiles) if (t.acorn) d += 2;
+  if (tiles.some(t => t.rayo)) d *= 2;
   return d;
 }
 function addRecord(lista, entrada, max) {
@@ -407,13 +416,14 @@ if (typeof document !== 'undefined') {
     texto.className = 'vtexto';
     texto.innerHTML = villain.emoji + ' <b>' + villain.nombre + '</b> quiere robar tu despensa<br>' +
       '<span class="vbar"><i style="width:' + pct + '%"></i></span>' +
-      villain.hp + ' / ' + villain.max + ' HP · contraataca en ' + villain.cuenta + ' palabra' + (villain.cuenta === 1 ? '' : 's');
+      villain.hp + ' / ' + villain.max + ' HP · contraataca en ' + villain.cuenta + ' palabra' + (villain.cuenta === 1 ? '' : 's') +
+      (villain.inmune3 ? '<br>🛡️ Inmune a palabras de 3 letras' : '');
     el.appendChild(foto);
     el.appendChild(texto);
   }
   function setVillainForWorld() {
     const v = WORLDS[worldIdx].villain;
-    villain = v ? { emoji: v.emoji, nombre: v.nombre, hp: v.hp, max: v.hp, cuenta: 4, img: v.img, corona: !!v.corona } : null;
+    villain = v ? { emoji: v.emoji, nombre: v.nombre, hp: v.hp, max: v.hp, cuenta: 4, img: v.img, corona: !!v.corona, inmune3: !!v.inmune3 } : null;
     pintarVillano();
   }
   function unlockedLetters() {
@@ -455,7 +465,7 @@ if (typeof document !== 'undefined') {
     const pals = leerLista('pf-despensa-palabras-top');
     const lt = $('listaTop'), lp = $('listaPalabras');
     lt.innerHTML = ''; lp.innerHTML = '';
-    if (!top.length) { const li = document.createElement('li'); li.textContent = 'Todavía no hay puntuaciones. ¡Completa los 5 mundos!'; lt.appendChild(li); }
+    if (!top.length) { const li = document.createElement('li'); li.textContent = 'Todavía no hay puntuaciones. ¡Completa los ' + WORLDS.length + ' mundos!'; lt.appendChild(li); }
     else top.forEach(r => { const li = document.createElement('li'); li.textContent = r.alias + ' — ' + r.puntos + ' puntos'; lt.appendChild(li); });
     if (!pals.length) { const li = document.createElement('li'); li.textContent = 'Todavía no hay palabras guardadas. ¡Juega!'; lp.appendChild(li); }
     else pals.forEach(r => { const li = document.createElement('li'); li.textContent = r.palabra + ' — ' + r.puntos + ' puntos (' + r.alias + ')'; lp.appendChild(li); });
@@ -473,7 +483,7 @@ if (typeof document !== 'undefined') {
         b.setAttribute('aria-label', 'Letra bajo llave');
         b.innerHTML = '🔒';
       } else {
-        b.className = 'tile' + (t.acorn ? ' acorn' : '') + (t.key ? ' key' : '');
+        b.className = 'tile' + (t.acorn ? ' acorn' : '') + (t.key ? ' key' : '') + (t.rayo ? ' rayo' : '');
         b.setAttribute('aria-label', 'Letra ' + t.letter);
         b.innerHTML = t.letter + '<small>' + t.value + '</small>';
       }
@@ -487,8 +497,8 @@ if (typeof document !== 'undefined') {
     if (sel.length) {
       const tiles = sel.map(p => grid[p[0]][p[1]]);
       const s = scoreWord(tiles);
-      let t = s.total + ' puntos' + (s.larga ? ' (incluye +50 por palabra larga)' : '') + (racha ? ' + ' + rachaBonus(racha) + ' por racha' : '');
-      if (villain) t += ' · ⚔️ ' + attackDamage(tiles) + ' de daño';
+      let t = s.total + ' puntos' + (s.larga ? ' (incluye +50 por palabra larga)' : '') + (s.rayo ? ' (incluye +50 superpoder ⚡)' : '') + (racha ? ' + ' + rachaBonus(racha) + ' por racha' : '');
+      if (villain) t += (villain.inmune3 && tiles.length === 3) ? ' · 🛡️ inmune a palabras de 3 letras (usa 4 o más)' : ' · ⚔️ ' + attackDamage(tiles, villain) + ' de daño' + (tiles.some(x => x.rayo) ? ' (¡daño doble ⚡!)' : '');
       $('palabraPuntos').textContent = t;
     } else $('palabraPuntos').textContent = '';
   }
@@ -518,7 +528,7 @@ if (typeof document !== 'undefined') {
     const fila = Math.floor(Math.random() * SIZE);
     for (let i = 0; i < palabra.length; i++) {
       const ch = palabra[i].toUpperCase();
-      grid[fila][i] = { letter: ch, value: LETTER_VALUES[ch] || 1, acorn: false, key: false, locked: false };
+      grid[fila][i] = { letter: ch, value: LETTER_VALUES[ch] || 1, acorn: false, key: false, rayo: false, locked: false };
     }
     const rest = [];
     for (let r = 0; r < SIZE; r++) for (let c = 0; c < SIZE; c++) if (!(r === fila && c < palabra.length)) rest.push([r, c]);
@@ -558,8 +568,9 @@ if (typeof document !== 'undefined') {
     guardarLista('pf-despensa-palabras-top', addRecord(leerLista('pf-despensa-palabras-top'), { palabra: palabra.toUpperCase(), puntos: s.total, alias: aliasActual() }, 10));
     pintarRecords();
     const tieneBellota = tiles.some(t => t.acorn);
+    const tieneRayo = tiles.some(t => t.rayo);
     const llaves = tiles.filter(t => t.key).length;
-    let texto = '¡' + palabra.toUpperCase() + '! +' + total + ' puntos' + (tieneBellota ? ' (con bellota dorada)' : '') + (s.larga ? ' +50 por palabra larga' : '') + (bonus ? ' +' + bonus + ' por racha' : '');
+    let texto = '¡' + palabra.toUpperCase() + '! +' + total + ' puntos' + (tieneBellota ? ' (con bellota dorada)' : '') + (s.larga ? ' +50 por palabra larga' : '') + (tieneRayo ? ' ⚡ ¡Superpoder! +50 puntos' + (villain ? ' y daño doble' : '') : '') + (bonus ? ' +' + bonus + ' por racha' : '');
     if (s.larga) decirNuez(ELOGIOS[Math.floor(Math.random() * ELOGIOS.length)]);
     sel.forEach(p => { grid[p[0]][p[1]] = null; });
     sel = [];
@@ -574,7 +585,7 @@ if (typeof document !== 'undefined') {
     }
     if (!findFormableWord(unlockedLetters(), wordArray)) { nuevoTablero(); texto += ' No quedaban palabras: ¡mezclamos el tablero!'; }
     if (villain) {
-      const dano = attackDamage(tiles);
+      const dano = attackDamage(tiles, villain);
       villain.hp -= dano;
       if (villain.hp <= 0) {
         puntosMundo += 150; puntosTotal += 150; pistas++; mezclas++;
@@ -583,7 +594,8 @@ if (typeof document !== 'undefined') {
         decirNuez('¡Toma eso, ladrón!');
         sfxDefeat();
       } else {
-        texto += ' ⚔️ ' + dano + ' de daño a ' + villain.nombre + ' (le quedan ' + villain.hp + ' HP).';
+        if (dano === 0 && villain.inmune3 && tiles.length === 3) texto += ' 🛡️ ' + villain.nombre + ' es inmune a palabras de 3 letras: no recibió daño. ¡Prueba con 4 o más!';
+        else texto += ' ⚔️ ' + dano + ' de daño a ' + villain.nombre + ' (le quedan ' + villain.hp + ' HP).';
         villain.cuenta--;
         if (villain.cuenta <= 0) {
           villain.cuenta = 4;
@@ -606,7 +618,7 @@ if (typeof document !== 'undefined') {
       if (worldIdx === WORLDS.length - 1) {
         terminado = true;
         if (puntosTotal > best) { best = puntosTotal; try { localStorage.setItem('pf-despensa-best', String(best)); } catch (e) {} }
-        $('finalTexto').textContent = 'Nuez guardó ' + puntosTotal + ' puntos de provisiones en los cinco mundos. ' + (puntosTotal >= best ? '¡Nuevo récord!' : 'Récord: ' + best + ' puntos.');
+        $('finalTexto').textContent = 'Nuez guardó ' + puntosTotal + ' puntos de provisiones en los ' + WORLDS.length + ' mundos. ' + (puntosTotal >= best ? '¡Nuevo récord!' : 'Récord: ' + best + ' puntos.');
         $('final').classList.add('show');
         guardarLista('pf-despensa-top', addRecord(leerLista('pf-despensa-top'), { alias: aliasActual(), puntos: puntosTotal }, 10));
         pintarRecords();

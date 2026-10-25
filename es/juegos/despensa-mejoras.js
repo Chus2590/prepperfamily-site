@@ -127,7 +127,7 @@
   }).observe(vil, { childList: true });
 
   /* ---- Mundos: ambiente por mundo y celebración al avanzar ---- */
-  var MUNDOS = [['🌱', 'huerto'], ['🥫', 'despensa'], ['🌲', 'bosque'], ['🏺', 'bodega'], ['🏠', 'refugio']], idxPrev = -1;
+  var MUNDOS = [['🌱', 'huerto'], ['🥫', 'despensa'], ['🌲', 'bosque'], ['🏺', 'bodega'], ['🏠', 'refugio'], ['🍳', 'cocina'], ['🌾', 'granero']], idxPrev = -1;
   function mundo() {
     var t = wn.textContent, idx = 0;
     MUNDOS.forEach(function (m, i) { if (t.indexOf(m[0]) === 0) idx = i; });
