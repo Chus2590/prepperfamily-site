@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pantry Words · Games | PrepperFamily</title>
+<meta name="description" content="Help Nutty, the squirrel, fill the pantry before winter: form words with the board letters, attack thieves with long words, collect golden acorns and free locked letters.">
+<style>
+  :root { --verde:#2c6d4c; --verde-osc:#1f5138; --dorado:#f8b84e; --dorado-txt:#8a6b2a; --crema:#fdfbf7; --tinta:#2b2b2b; --suave:#6b6b6b; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--crema); color:var(--tinta); font-family:Georgia,'Times New Roman',serif; }
+  .juego { max-width:560px; margin:0 auto; padding:18px 14px 40px; font-family:Verdana,Geneva,sans-serif; }
+  .juego h1 { font-family:Georgia,'Times New Roman',serif; color:var(--verde); text-align:center; font-size:clamp(1.6rem,6vw,2.3rem); margin:8px 0 2px; }
+  .juego .sub { text-align:center; color:var(--suave); margin:0 0 16px; font-size:.95rem; }
+  .juego .sub b { color:var(--dorado-txt); }
+  .hud { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:12px; }
+  .hud .chip { background:#fff; border:1.5px solid var(--verde); border-radius:999px; padding:6px 12px; font-size:.85rem; color:var(--verde-osc); }
+  .hud .chip b { color:var(--tinta); }
+  .mundo { text-align:center; background:var(--verde); color:#fff; border-radius:12px; padding:10px 12px; margin-bottom:12px; }
+  .mundo .nombre { font-family:Georgia,serif; font-size:1.25rem; }
+  .mundo .meta { font-size:.85rem; opacity:.9; }
+  .barra { height:10px; background:#e8e0cf; border-radius:999px; overflow:hidden; margin-top:8px; }
+  .barra i { display:block; height:100%; background:var(--dorado); width:0%; transition:width .4s; }
+  .villano { display:none; text-align:center; background:#fdf0ec; border:1.5px solid #d99a86; border-radius:12px; padding:10px 12px; margin-bottom:12px; font-size:.95rem; color:#7a3226; }
+  .villano .vbar { display:block; height:8px; background:#e8c9c0; border-radius:999px; overflow:hidden; margin:6px 0; }
+  .villano .vbar i { display:block; height:100%; background:#c0392b; transition:width .3s; }
+  .nuez-dice { display:none; text-align:center; background:#fff; border:1.5px solid var(--verde); border-radius:14px; padding:8px 12px; margin:0 auto 12px; max-width:340px; font-size:.95rem; color:var(--verde-osc); }
+  .nuez-dice.show { display:flex; align-items:center; gap:10px; text-align:left; }
+  .nuez-dice img { width:44px; height:44px; border-radius:50%; object-fit:cover; flex:none; border:2px solid var(--dorado); background:#fff; }
+  .nuez-hero { display:block; width:96px; height:96px; border-radius:50%; object-fit:cover; margin:0 auto 4px; border:3px solid var(--dorado); background:#fff; }
+  .villano { align-items:center; gap:10px; text-align:left; }
+  .villano .vfoto { position:relative; flex:none; }
+  .villano img.foto { width:56px; height:56px; border-radius:50%; object-fit:cover; border:2px solid #d99a86; background:#fff; display:block; }
+  .villano .corona { position:absolute; left:-4px; top:-12px; font-size:1.2rem; }
+  .villano .vtexto { flex:1; min-width:0; }
+  .palabra { min-height:64px; text-align:center; margin:10px 0 4px; }
+  .palabra .letras { font-family:Georgia,serif; font-size:1.7rem; letter-spacing:.12em; min-height:40px; color:var(--verde-osc); }
+  .palabra .letras:empty::before { content:"Tap the letters to form a word"; color:#b9b0a0; font-size:.95rem; letter-spacing:0; }
+  .palabra .puntos { font-size:.85rem; color:var(--dorado-txt); min-height:18px; }
+  .tablero { display:grid; grid-template-columns:repeat(6,1fr); gap:6px; margin:12px 0; touch-action:manipulation; }
+  .tile { aspect-ratio:1; border:2px solid #ddd3bd; border-radius:10px; background:#fff; font-family:Georgia,serif; font-size:clamp(1.15rem,5.2vw,1.6rem); font-weight:bold; color:var(--tinta); cursor:pointer; position:relative; padding:0; -webkit-tap-highlight-color:transparent; }
+  .tile small { position:absolute; right:5px; bottom:3px; font-size:.6rem; font-family:Verdana,sans-serif; color:var(--suave); }
+  .tile.sel { background:var(--verde); color:#fff; border-color:var(--verde-osc); transform:scale(1.06); }
+  .tile.sel small { color:#d8eadf; }
+  .tile.acorn { background:linear-gradient(160deg,#ffe9a8,#f8b84e); border-color:#d99a1f; }
+  .tile.acorn::after { content:"×2"; position:absolute; left:4px; top:2px; font-size:.55rem; font-family:Verdana,sans-serif; color:#7a5a10; }
+  .tile.key::after { content:"🔑"; position:absolute; left:3px; top:1px; font-size:.6rem; }
+  .tile.rayo { background:linear-gradient(160deg,#fff7c4,#ffe066); border-color:#d9a91f; }
+  .tile.rayo::after { content:"⚡"; position:absolute; left:3px; top:1px; font-size:.6rem; }
+  .tile.locked { background:#e3ddd0; border-color:#b9b0a0; color:#8a8478; cursor:default; }
+  .tile.hint { animation:parpadeo .45s ease-in-out 4; border-color:var(--dorado); }
+  @keyframes parpadeo { 50% { background:#ffe9a8; transform:scale(1.08); } }
+  .tile.shake { animation:temblor .3s; }
+  @keyframes temblor { 25% { transform:translateX(-4px); } 75% { transform:translateX(4px); } }
+  .botones { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:10px 0; }
+  .botones button { border:none; border-radius:999px; padding:11px 18px; font-size:.95rem; cursor:pointer; font-family:Verdana,sans-serif; }
+  .btn-verde { background:var(--verde); color:#fff; }
+  .btn-dorado { background:var(--dorado); color:#3a2a05; }
+  .btn-blanco { background:#fff; color:var(--verde-osc); border:1.5px solid var(--verde) !important; }
+  .botones button:disabled { opacity:.45; cursor:default; }
+  .botones button.off { opacity:.45; filter:grayscale(1); }
+  .alias-row { text-align:center; margin:0 0 12px; font-size:.9rem; color:var(--verde-osc); }
+  .alias-row input { border:1.5px solid var(--verde); border-radius:999px; padding:7px 12px; font-size:.9rem; font-family:Verdana,sans-serif; width:170px; }
+  .alias-row .alias-nota { color:var(--suave); font-size:.8rem; }
+  .records { background:#fff; border:1.5px solid #e8e0cf; border-radius:12px; padding:14px 16px; margin-top:18px; font-size:.9rem; line-height:1.55; color:#4a4a4a; }
+  .records h2 { font-family:Georgia,serif; color:var(--verde); font-size:1.1rem; margin:0 0 4px; }
+  .records h3 { font-family:Georgia,serif; color:var(--verde); font-size:1rem; margin:10px 0 4px; }
+  .records .nota-rec { font-size:.8rem; color:var(--suave); margin:0 0 6px; }
+  .records-cols { display:flex; flex-wrap:wrap; gap:8px 24px; }
+  .records-cols > div { flex:1; min-width:220px; }
+  .records ol { margin:6px 0; padding-left:20px; }
+  .records li { margin-bottom:2px; }
+  .msg { min-height:26px; text-align:center; font-size:.95rem; margin:6px 0; }
+  .msg.ok { color:var(--verde-osc); font-weight:bold; }
+  .msg.mal { color:#a33a2a; }
+  .como { background:#fff; border:1.5px solid #e8e0cf; border-radius:12px; padding:14px 16px; margin-top:18px; font-size:.9rem; line-height:1.55; color:#4a4a4a; }
+  .como h2 { font-family:Georgia,serif; color:var(--verde); font-size:1.1rem; margin:0 0 6px; }
+  .como ul { margin:6px 0; padding-left:20px; }
+  .final { display:none; text-align:center; background:#fff; border:2px solid var(--dorado); border-radius:14px; padding:22px 16px; margin-top:14px; }
+  .final.show { display:block; }
+  .final h2 { font-family:Georgia,serif; color:var(--verde); margin:0 0 8px; }
+  .nota { text-align:center; font-size:.8rem; color:#a79d8a; margin-top:16px; }
+</style>
+<link rel="stylesheet" href="pantry-improvements.css">
+</head>
+<body>
+<div id="pf-header"></div>
+<main class="juego">
+  <img class="nuez-hero" src="../../assets/images/games/nuez.webp" alt="Nutty, the squirrel" onerror="this.style.display='none'">
+  <h1>Pantry Words</h1>
+  <p class="sub">Help <b>Nutty, the squirrel</b>, fill the pantry before winter. Form words and store provisions.</p>
+  <div class="nuez-dice" id="nuezDice"><img src="../../assets/images/games/nuez.webp" alt="Nutty" onerror="this.style.display='none'"><span id="nuezDiceTexto"></span></div>
+
+  <div class="hud">
+    <span class="chip">Points: <b id="hudPuntos">0 / 300</b></span>
+    <span class="chip">Total: <b id="hudTotal">0</b></span>
+    <span class="chip">Streak: <b id="hudRacha">0</b></span>
+    <span class="chip">Record: <b id="hudBest">0</b></span>
+  </div>
+
+  <div class="alias-row"><label for="aliasInput">Your alias:</label> <input id="aliasInput" type="text" maxlength="16" placeholder="e.g. SwiftSquirrel" autocomplete="off"> <span class="alias-nota">for the records</span></div>
+
+  <div class="mundo">
+    <div class="nombre" id="mundoNombre">🌱 The Garden</div>
+    <div class="meta" id="mundoMeta">Start the harvest: make words and store your first provisions.</div>
+    <div class="barra"><i id="barraProg"></i></div>
+  </div>
+
+  <div class="villano" id="villano"></div>
+
+  <div class="palabra">
+    <div class="letras" id="palabraActual"></div>
+    <div class="puntos" id="palabraPuntos"></div>
+  </div>
+
+  <div class="tablero" id="tablero" role="group" aria-label="Letter board"></div>
+
+  <div class="botones">
+    <button type="button" class="btn-verde" id="btnGuardar">Save word</button>
+    <button type="button" class="btn-blanco" id="btnBorrar">Clear</button>
+    <button type="button" class="btn-dorado" id="btnPista">Hint (<span id="nPistas">5</span>)</button>
+    <button type="button" class="btn-dorado" id="btnMezclar">Shuffle (<span id="nMezclas">3</span>)</button>
+    <button type="button" class="btn-blanco" id="btnMusica" aria-label="Music on" title="Mute music">🎵</button>
+    <button type="button" class="btn-blanco" id="btnSonido" aria-label="Sound effects on" title="Mute sound effects">🔊</button>
+  </div>
+
+  <div class="msg" id="msg"></div>
+
+  <div class="final" id="final">
+    <h2>🎉 Pantry full!</h2>
+    <p id="finalTexto"></p>
+    <div class="botones"><button type="button" class="btn-verde" id="btnOtra">Play again</button></div>
+  </div>
+
+  <div class="records">
+    <h2>🏆 Records on this device</h2>
+    <p class="nota-rec">Only saved on your device: they never leave here and don't save games.</p>
+    <div class="records-cols">
+      <div><h3>Best scores</h3><ol id="listaTop"></ol></div>
+      <div><h3>Best words</h3><ol id="listaPalabras"></ol></div>
+    </div>
+  </div>
+
+  <div class="como">
+    <h2>How to play</h2>
+    <ul>
+      <li>Tap any letters you want, in any order: <b>all of them work</b>, they don't need to be neighbors. Form a word of 3 letters or more.</li>
+      <li>Press <b>Attack!</b> to throw your word at the villain (or <b>Save word</b> when there is no villain): the letters go away and new ones fall in.</li>
+      <li>⚔️ <b>Damage:</b> each letter in your word deals 1 damage to the villain; each golden acorn adds +2. Long words = strong hits!</li>
+      <li>⚡ <b>Superpower:</b> once in a while a lightning tile appears: it doubles your word's damage and gives +50 points. 🛡️ Some villains are <b>immune to 3-letter words</b>: against them, use 4 or more.</li>
+      <li>The golden letters are <b>acorns</b>: they are worth double points. Words of 6 letters or more give +50.</li>
+      <li>🔒 <b>Locked letters:</b> you can't tap them. Use a key 🔑 inside a word to free them (they sometimes hide acorns).</li>
+      <li>🐭 <b>Villains:</b> from the second world on, a thief wants to rob your pantry. If you don't defeat it, it <b>counterattacks every 4 words</b> by infecting a letter (keys cure them). When you defeat it: +150 points, +1 hint and +1 shuffle.</li>
+      <li>Each word in a row adds a streak bonus. Reach each world's goal to advance.</li>
+      <li>🏆 Your records (best scores and best words) are saved only on your device.</li>
+      <li>🎵 The music and sound effects start with your first tap; the 🎵 and 🔊 buttons mute them separately.</li>
+    </ul>
+  </div>
+  <p class="nota">Original PrepperFamily.org game. Forming words with letters is a generic mechanic: the name, character and art are our own.</p>
+</main>
+<div id="pf-footer"></div>
+<script>
+  const isGitHub = location.hostname.endsWith("github.io");
+  const base = isGitHub ? "/prepperfamily-site" : "";
+  function setHTML(id, html) { const el = document.getElementById(id); if (el) el.innerHTML = html; }
+  function loadHTML(url, targetId) {
+    return fetch(url).then(res => { if (!res.ok) throw new Error("Failed to load " + url); return res.text(); })
+      .then(html => setHTML(targetId, html)).catch(() => {});
+  }
+  loadHTML(`${base}/partials/header-en/`, "pf-header");
+  loadHTML(`${base}/partials/footer-en/`, "pf-footer");
+</script>
+<script>
+/* ===== Lógica pura (sin DOM): también se prueba con node ===== */
+function pfNorm(s) {
+  return s.toLowerCase().replace(/[áéíóúü]/g, c => ({'á':'a','é':'e','í':'i','ó':'o','ú':'u','ü':'u'}[c]));
+}
+const LETTER_VALUES = { A:1,E:1,I:1,O:1,U:1,L:1,N:1,S:1,T:1,R:1, D:2,G:2, B:3,C:3,M:3,P:3, F:4,H:4,V:4,W:4,Y:4, K:5, J:8,X:8, Q:10,Z:10 };
+const LETTER_BAG = [];
+(function () {
+  const freq = { E:12,T:9,A:8,O:8,I:8,N:7,S:7,H:6,R:6,D:5,L:5,U:4,C:4,M:4,W:4,F:3,G:3,Y:3,P:3,B:2,V:2,K:2,J:1,X:1,Q:1,Z:1 };
+  for (const l in freq) for (let i = 0; i < freq[l]; i++) LETTER_BAG.push(l);
+})();
+const WORLDS = [
+  { nombre: '🌱 The Garden', meta: 300, texto: 'Start the harvest: make words and store your first provisions.', locks: 0, villain: null },
+  { nombre: '🥫 The Pantry', meta: 650, texto: 'A mouse wants to rob your pantry! Attack it with your words: each letter deals 1 damage.', locks: 3, villain: { emoji: '🐭', nombre: 'The Mouse', hp: 20, img: 'raton.webp' } },
+  { nombre: '🌲 The Forest', meta: 1100, texto: 'Among the trees there are golden acorns: they are worth double and deal +2 damage.', locks: 4, villain: { emoji: '🐛', nombre: 'The Weevil', hp: 30, img: 'gorgojo.webp' } },
+  { nombre: '🏺 The Cellar', meta: 1600, texto: 'Cool and dark, like a good cellar. This is where the reserves go.', locks: 5, villain: { emoji: '🦝', nombre: 'The Raccoon', hp: 45, img: 'mapache.webp' } },
+  { nombre: '🏠 The Shelter', meta: 2200, texto: 'Fill the shelter before winter comes.', locks: 6, villain: { emoji: '👑🐛', nombre: 'The Weevil King', hp: 60, img: 'gorgojo.webp', corona: true } },
+  { nombre: '🍳 The Kitchen', meta: 2300, texto: 'The rat sneaks into the kitchen to steal provisions. Watch out! It is immune to 3-letter words: attack it with 4 or more. And watch: once in a while a ⚡ lightning tile appears that doubles damage.', locks: 7, villain: { emoji: '🐀', nombre: 'The Rat', hp: 80, img: 'rata.webp', inmune3: true } },
+  { nombre: '🌾 The Barn', meta: 2500, texto: 'Final world: the barn holds the harvest of the year. The Ant Queen is also immune to 3-letter words and has 100 HP.', locks: 8, villain: { emoji: '👑🐜', nombre: 'The Ant Queen', hp: 100, img: 'hormiga.webp', corona: true, inmune3: true } },
+];
+/* Pistas de música: se reparten por mundo en ciclo (1-2-3-1-2-3-1) */
+const PISTAS = ['../../assets/audio/pista-epica-1.mp3', '../../assets/audio/pista-epica-2.mp3', '../../assets/audio/pista-epica-3.mp3'];
+function pistaParaMundo(i) { return PISTAS[i % PISTAS.length]; }
+const ACORN_CHANCE = 0.12;
+const KEY_CHANCE = 0.08;
+const RAYO_CHANCE = 0.04;
+function randomTile(rng) {
+  const letter = LETTER_BAG[Math.floor(rng() * LETTER_BAG.length)];
+  const roll = rng();
+  return { letter, value: LETTER_VALUES[letter], acorn: roll < ACORN_CHANCE, key: roll >= ACORN_CHANCE && roll < ACORN_CHANCE + KEY_CHANCE, rayo: roll >= ACORN_CHANCE + KEY_CHANCE && roll < ACORN_CHANCE + KEY_CHANCE + RAYO_CHANCE, locked: false };
+}
+function letterCounts(letters) {
+  const m = {};
+  for (const l of letters) m[l] = (m[l] || 0) + 1;
+  return m;
+}
+function canForm(word, counts) {
+  const need = {};
+  for (const ch of word) {
+    need[ch] = (need[ch] || 0) + 1;
+    if (need[ch] > (counts[ch] || 0)) return false;
+  }
+  return true;
+}
+function findFormableWord(letters, words) {
+  const counts = letterCounts(letters.map(l => l.toLowerCase()));
+  const start = Math.floor(Math.random() * words.length);
+  let best4 = null, best3 = null;
+  for (let i = 0; i < words.length; i++) {
+    const w = words[(start + i) % words.length];
+    if (w.length < 3 || w.length > 10) continue;
+    if (!canForm(w, counts)) continue;
+    if (w.length >= 6) return w;
+    if (w.length >= 4 && !best4) best4 = w;
+    if (!best3) best3 = w;
+  }
+  return best4 || best3;
+}
+function cellsForWord(word, grid) {
+  const used = new Set(), path = [];
+  for (const ch of word) {
+    let found = false;
+    for (let r = 0; r < grid.length && !found; r++) for (let c = 0; c < grid[0].length && !found; c++) {
+      const key = r + ',' + c;
+      const t = grid[r][c];
+      if (!t.locked && !used.has(key) && t.letter.toLowerCase() === ch) { used.add(key); path.push([r, c]); found = true; }
+    }
+    if (!found) return null;
+  }
+  return path;
+}
+function chooseCells(cells, n, rng) {
+  const arr = cells.slice();
+  for (let i = arr.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [arr[i], arr[j]] = [arr[j], arr[i]]; }
+  return arr.slice(0, n);
+}
+function scoreWord(tiles) {
+  let base = 0;
+  for (const t of tiles) base += t.acorn ? t.value * 2 : t.value;
+  const larga = tiles.length >= 6 ? 50 : 0;
+  const rayo = tiles.some(t => t.rayo) ? 50 : 0;
+  return { base, larga, rayo, total: base + larga + rayo };
+}
+function attackDamage(tiles, villain) {
+  if (villain && villain.inmune3 && tiles.length === 3) return 0;
+  let d = tiles.length;
+  for (const t of tiles) if (t.acorn) d += 2;
+  if (tiles.some(t => t.rayo)) d *= 2;
+  return d;
+}
+function addRecord(lista, entrada, max) {
+  const l = lista.slice();
+  l.push(entrada);
+  l.sort((a, b) => b.puntos - a.puntos);
+  return l.slice(0, max || 10);
+}
+function rachaBonus(racha) { return 5 * Math.min(racha, 10); }
+function applyGravity(grid, rng) {
+  const R = grid.length, C = grid[0].length;
+  for (let c = 0; c < C; c++) {
+    const col = [];
+    for (let r = R - 1; r >= 0; r--) if (grid[r][c]) col.push(grid[r][c]);
+    for (let r = R - 1, i = 0; r >= 0; r--, i++) grid[r][c] = i < col.length ? col[i] : randomTile(rng);
+  }
+}
+/* ===== Juego (DOM) ===== */
+if (typeof document !== 'undefined') {
+  const $ = id => document.getElementById(id);
+  const SIZE = 6;
+  const IMG_BASE = '../../assets/images/games/';
+  let wordSet = null, wordArray = [], grid = [], sel = [];
+  let villain = null;
+  let worldIdx = 0, puntosMundo = 0, puntosTotal = 0, racha = 0;
+  let pistas = 5, mezclas = 3, terminado = false;
+  let musica = true, efectos = true;
+  try {
+    const m = localStorage.getItem('pf-pantry-music');
+    const e = localStorage.getItem('pf-pantry-effects');
+    musica = m !== null ? m !== '0' : true;
+    efectos = e !== null ? e !== '0' : true;
+  } catch (e) {}
+  let best = 0;
+  try { best = parseInt(localStorage.getItem('pf-pantry-best') || '0', 10) || 0; } catch (e) {}
+  let audioCtx = null;
+  function ctx() {
+    try {
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.resume) audioCtx.resume();
+      return audioCtx;
+    } catch (e) { return null; }
+  }
+  function tone(freq, dur, delay, type, vol, slideTo) {
+    if (!efectos) return;
+    const ac = ctx(); if (!ac) return;
+    try {
+      const t = ac.currentTime + (delay || 0);
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = type || 'sine'; o.frequency.setValueAtTime(freq, t);
+      if (slideTo) o.frequency.exponentialRampToValueAtTime(slideTo, t + dur);
+      g.gain.setValueAtTime(vol || 0.12, t); g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+      o.connect(g); g.connect(ac.destination);
+      o.start(t); o.stop(t + dur + 0.05);
+    } catch (e) {}
+  }
+  function noiseHit(dur, delay, vol, fromF, toF) {
+    if (!efectos) return;
+    const ac = ctx(); if (!ac) return;
+    try {
+      const t = ac.currentTime + (delay || 0);
+      const len = Math.max(1, Math.floor(ac.sampleRate * dur));
+      const buf = ac.createBuffer(1, len, ac.sampleRate);
+      const d = buf.getChannelData(0);
+      for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+      const src = ac.createBufferSource(); src.buffer = buf;
+      const f = ac.createBiquadFilter(); f.type = 'bandpass'; f.Q.value = 1.2;
+      f.frequency.setValueAtTime(fromF, t); f.frequency.exponentialRampToValueAtTime(toF, t + dur);
+      const g = ac.createGain();
+      g.gain.setValueAtTime(vol || 0.15, t); g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+      src.connect(f); f.connect(g); g.connect(ac.destination);
+      src.start(t); src.stop(t + dur + 0.05);
+    } catch (e) {}
+  }
+  function beep(freq, dur, delay) { tone(freq, dur, delay, 'sine', 0.08); }
+  function sfxSelect() { tone(520, 0.06, 0, 'triangle', 0.12); }
+  function sfxDeselect() { tone(300, 0.06, 0, 'triangle', 0.10); }
+  function sfxError() { tone(140, 0.2, 0, 'sawtooth', 0.10); }
+  function sfxAttack() { noiseHit(0.18, 0, 0.20, 3000, 400); tone(130, 0.18, 0.05, 'sine', 0.25, 55); }
+  function sfxSave() { tone(988, 0.09, 0, 'sine', 0.15); tone(1319, 0.14, 0.07, 'sine', 0.15); }
+  function sfxDefeat() { [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.16, i * 0.09, 'triangle', 0.14)); }
+  function sfxUnlock() { tone(1800, 0.05, 0, 'square', 0.06); tone(2400, 0.08, 0.04, 'sine', 0.10); }
+  function sfxCounter() { tone(110, 0.3, 0, 'sawtooth', 0.12); tone(98, 0.3, 0.05, 'sawtooth', 0.10); }
+  function sfxShuffle() { noiseHit(0.25, 0, 0.12, 500, 2500); }
+  function sfxHint() { tone(1568, 0.12, 0, 'sine', 0.12); }
+  function sfxWorld() { [523, 659, 784].forEach((f, i) => tone(f, 0.16, i * 0.12, 'triangle', 0.14)); }
+  function sfxWin() { [523, 659, 784, 1047, 784, 1047].forEach((f, i) => tone(f, 0.2, i * 0.14, 'triangle', 0.14)); }
+  /* Bucle sintetizado de reserva (si la pista real falla): Am – F – C – G a 96 BPM */
+  const MUSIC_BEAT = 60 / 96 / 2; // una corchea
+  const MUSIC_CHORDS = [[110.00, 130.81, 164.81], [87.31, 110.00, 130.81], [130.81, 164.81, 196.00], [98.00, 123.47, 146.83]];
+  const MUSIC_MELODY = [220.00, 261.63, 329.63, 261.63, 220.00, 174.61, 220.00, 261.63, 329.63, 293.66, 261.63, 246.94, 261.63, 293.66, 329.63, 196.00];
+  let musicTimer = null, nextLoopTime = 0, musicBus = null;
+  function musicNote(ac, freq, t, dur, type, vol, slideTo) {
+    try {
+      const o = ac.createOscillator(), g = ac.createGain();
+      o.type = type; o.frequency.setValueAtTime(freq, t);
+      if (slideTo) o.frequency.exponentialRampToValueAtTime(slideTo, t + dur);
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol, t + 0.08);
+      g.gain.setValueAtTime(vol, t + dur - 0.15); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g); g.connect(musicBus);
+      o.start(t); o.stop(t + dur + 0.05);
+    } catch (e) {}
+  }
+  function scheduleLoop(t0) {
+    const ac = ctx(); if (!ac) return;
+    if (!musicBus) { musicBus = ac.createGain(); musicBus.gain.value = 0.5; musicBus.connect(ac.destination); }
+    for (let c = 0; c < 4; c++) {
+      const t = t0 + c * 4 * MUSIC_BEAT;
+      for (const f of MUSIC_CHORDS[c]) musicNote(ac, f, t, 4 * MUSIC_BEAT, 'sawtooth', 0.035);
+      musicNote(ac, MUSIC_CHORDS[c][0], t, 4 * MUSIC_BEAT, 'sine', 0.08);
+      musicNote(ac, 150, t, 0.25, 'sine', 0.20, 50);
+    }
+    for (let i = 0; i < 16; i++) musicNote(ac, MUSIC_MELODY[i], t0 + i * MUSIC_BEAT, MUSIC_BEAT * 0.95, 'triangle', 0.06);
+  }
+  function startSynth() {
+    if (musicTimer || !musica) return;
+    const ac = ctx(); if (!ac) return;
+    nextLoopTime = ac.currentTime + 0.1;
+    musicTimer = setInterval(() => {
+      const ac2 = ctx(); if (!ac2) return;
+      while (nextLoopTime < ac2.currentTime + 1.2) { scheduleLoop(nextLoopTime); nextLoopTime += 16 * MUSIC_BEAT; }
+    }, 500);
+  }
+  function stopSynth() { if (musicTimer) { clearInterval(musicTimer); musicTimer = null; } }
+  /* Música: pista real en bucle; si el archivo falla, bucle sintetizado */
+  let audioPista = null, pistaError = false, pistaSonando = '';
+  function ponerPista() {
+    if (!audioPista) {
+      audioPista = new Audio();
+      audioPista.loop = true; audioPista.volume = 0.5;
+      audioPista.addEventListener('error', () => { pistaError = true; if (musica) startSynth(); });
+    }
+    const src = pistaParaMundo(worldIdx);
+    if (pistaSonando !== src) { pistaSonando = src; audioPista.src = src; }
+    if (pistaError) return;
+    try { const p = audioPista.play(); if (p && p.catch) p.catch(() => {}); } catch (e) {}
+  }
+  function pararPista() { if (audioPista) { try { audioPista.pause(); } catch (e) {} } }
+  function startMusic() { if (!musica) return; if (pistaError) startSynth(); else ponerPista(); }
+  function stopMusic() { pararPista(); stopSynth(); }
+  function despertarAudio() { if (musica) startMusic(); }
+  document.addEventListener('pointerdown', despertarAudio);
+  function msg(texto, clase) { const m = $('msg'); m.textContent = texto; m.className = 'msg ' + (clase || ''); }
+  let nuezTimer = null;
+  const ELOGIOS = ['EXCELLENT!', 'INCREDIBLE!', 'What a word!', 'To the pantry!'];
+  function decirNuez(texto) {
+    const el = $('nuezDice');
+    $('nuezDiceTexto').textContent = texto;
+    el.classList.add('show');
+    if (nuezTimer) clearTimeout(nuezTimer);
+    nuezTimer = setTimeout(() => el.classList.remove('show'), 2600);
+  }
+  function pintarVillano() {
+    const el = $('villano');
+    if (!villain) { el.style.display = 'none'; el.innerHTML = ''; return; }
+    el.style.display = 'flex';
+    const pct = Math.max(0, Math.round(villain.hp / villain.max * 100));
+    el.innerHTML = '';
+    const foto = document.createElement('span');
+    foto.className = 'vfoto';
+    const img = document.createElement('img');
+    img.className = 'foto';
+    img.src = IMG_BASE + villain.img;
+    img.alt = villain.nombre;
+    img.addEventListener('error', () => { img.style.display = 'none'; });
+    foto.appendChild(img);
+    if (villain.corona) {
+      const cor = document.createElement('span');
+      cor.className = 'corona';
+      cor.textContent = '👑';
+      foto.appendChild(cor);
+    }
+    const texto = document.createElement('span');
+    texto.className = 'vtexto';
+    texto.innerHTML = villain.emoji + ' <b>' + villain.nombre + '</b> wants to rob your pantry<br>' +
+      '<span class="vbar"><i style="width:' + pct + '%"></i></span>' +
+      villain.hp + ' / ' + villain.max + ' HP · counterattacks in ' + villain.cuenta + ' word' + (villain.cuenta === 1 ? '' : 's') +
+      (villain.inmune3 ? '<br>🛡️ Immune to 3-letter words' : '');
+    el.appendChild(foto);
+    el.appendChild(texto);
+  }
+  function setVillainForWorld() {
+    const v = WORLDS[worldIdx].villain;
+    villain = v ? { emoji: v.emoji, nombre: v.nombre, hp: v.hp, max: v.hp, cuenta: 4, img: v.img, corona: !!v.corona, inmune3: !!v.inmune3 } : null;
+    pintarVillano();
+  }
+  function unlockedLetters() {
+    const letters = [];
+    for (const fila of grid) for (const t of fila) if (!t.locked) letters.push(t.letter);
+    return letters;
+  }
+  function actualizarHud() {
+    const w = WORLDS[worldIdx];
+    $('hudPuntos').textContent = puntosMundo + ' / ' + w.meta;
+    $('hudTotal').textContent = puntosTotal;
+    $('hudRacha').textContent = racha;
+    $('hudBest').textContent = best;
+    $('mundoNombre').textContent = w.nombre;
+    $('mundoMeta').textContent = w.texto;
+    $('barraProg').style.width = Math.min(100, Math.round(puntosMundo / w.meta * 100)) + '%';
+    $('nPistas').textContent = pistas;
+    $('nMezclas').textContent = mezclas;
+    $('btnPista').disabled = pistas <= 0 || terminado;
+    $('btnMezclar').disabled = mezclas <= 0 || terminado;
+    $('btnGuardar').textContent = villain ? 'Attack! ⚔️' : 'Save word';
+    $('btnMusica').classList.toggle('off', !musica);
+    $('btnMusica').setAttribute('aria-label', musica ? 'Music on' : 'Music off');
+    $('btnMusica').setAttribute('title', musica ? 'Mute music' : 'Turn music on');
+    $('btnSonido').classList.toggle('off', !efectos);
+    $('btnSonido').setAttribute('aria-label', efectos ? 'Sound effects on' : 'Sound effects off');
+    $('btnSonido').setAttribute('title', efectos ? 'Mute sound effects' : 'Turn sound effects on');
+  }
+  function leerLista(clave) {
+    try { const l = JSON.parse(localStorage.getItem(clave) || '[]'); return Array.isArray(l) ? l : []; } catch (e) { return []; }
+  }
+  function guardarLista(clave, lista) { try { localStorage.setItem(clave, JSON.stringify(lista)); } catch (e) {} }
+  function aliasActual() {
+    const v = ($('aliasInput').value || '').replace(/\s+/g, ' ').trim().slice(0, 16);
+    return v || 'Anonymous';
+  }
+  function pintarRecords() {
+    const top = leerLista('pf-pantry-top');
+    const pals = leerLista('pf-pantry-words-top');
+    const lt = $('listaTop'), lp = $('listaPalabras');
+    lt.innerHTML = ''; lp.innerHTML = '';
+    if (!top.length) { const li = document.createElement('li'); li.textContent = 'No scores yet. Complete the ' + WORLDS.length + ' worlds!'; lt.appendChild(li); }
+    else top.forEach(r => { const li = document.createElement('li'); li.textContent = r.alias + ' — ' + r.puntos + ' points'; lt.appendChild(li); });
+    if (!pals.length) { const li = document.createElement('li'); li.textContent = 'No words saved yet. Play!'; lp.appendChild(li); }
+    else pals.forEach(r => { const li = document.createElement('li'); li.textContent = r.palabra + ' — ' + r.puntos + ' points (' + r.alias + ')'; lp.appendChild(li); });
+  }
+  function pintarTablero() {
+    const tb = $('tablero');
+    tb.innerHTML = '';
+    for (let r = 0; r < SIZE; r++) for (let c = 0; c < SIZE; c++) {
+      const t = grid[r][c];
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.dataset.r = r; b.dataset.c = c;
+      if (t.locked) {
+        b.className = 'tile locked';
+        b.setAttribute('aria-label', 'Locked letter');
+        b.innerHTML = '🔒';
+      } else {
+        b.className = 'tile' + (t.acorn ? ' acorn' : '') + (t.key ? ' key' : '') + (t.rayo ? ' rayo' : '');
+        b.setAttribute('aria-label', 'Letter ' + t.letter);
+        b.innerHTML = t.letter + '<small>' + t.value + '</small>';
+      }
+      if (sel.some(p => p[0] === r && p[1] === c)) b.classList.add('sel');
+      tb.appendChild(b);
+    }
+  }
+  function pintarPalabra() {
+    const letras = sel.map(p => grid[p[0]][p[1]].letter).join('');
+    $('palabraActual').textContent = letras;
+    if (sel.length) {
+      const tiles = sel.map(p => grid[p[0]][p[1]]);
+      const s = scoreWord(tiles);
+      let t = s.total + ' points' + (s.larga ? ' (includes +50 for long word)' : '') + (s.rayo ? ' (includes +50 superpower ⚡)' : '') + (racha ? ' + ' + rachaBonus(racha) + ' streak bonus' : '');
+      if (villain) t += (villain.inmune3 && tiles.length === 3) ? ' · 🛡️ immune to 3-letter words (use 4 or more)' : ' · ⚔️ ' + attackDamage(tiles, villain) + ' damage' + (tiles.some(x => x.rayo) ? ' (double damage ⚡!)' : '');
+      $('palabraPuntos').textContent = t;
+    } else $('palabraPuntos').textContent = '';
+  }
+  function genBoard() {
+    const g = [];
+    for (let r = 0; r < SIZE; r++) { const fila = []; for (let c = 0; c < SIZE; c++) fila.push(randomTile(Math.random)); g.push(fila); }
+    return g;
+  }
+  function lockTilesForWorld() {
+    const n = WORLDS[worldIdx].locks;
+    for (const fila of grid) for (const t of fila) t.locked = false;
+    if (!n) return true;
+    const cells = [];
+    for (let r = 0; r < SIZE; r++) for (let c = 0; c < SIZE; c++) cells.push([r, c]);
+    for (const [r, c] of chooseCells(cells, n, Math.random)) grid[r][c].locked = true;
+    return !!findFormableWord(unlockedLetters(), wordArray);
+  }
+  function nuevoTablero() {
+    for (let intento = 0; intento < 40; intento++) {
+      grid = genBoard();
+      if (lockTilesForWorld()) return;
+    }
+    // Garantía: si ningún intento tuvo palabra, plantamos una en celdas libres y bloqueamos otras.
+    grid = genBoard();
+    const cortas = wordArray.filter(w => w.length === 4);
+    const palabra = cortas[Math.floor(Math.random() * cortas.length)] || 'home';
+    const fila = Math.floor(Math.random() * SIZE);
+    for (let i = 0; i < palabra.length; i++) {
+      const ch = palabra[i].toUpperCase();
+      grid[fila][i] = { letter: ch, value: LETTER_VALUES[ch] || 1, acorn: false, key: false, rayo: false, locked: false };
+    }
+    const rest = [];
+    for (let r = 0; r < SIZE; r++) for (let c = 0; c < SIZE; c++) if (!(r === fila && c < palabra.length)) rest.push([r, c]);
+    for (const [r, c] of chooseCells(rest, WORLDS[worldIdx].locks, Math.random)) grid[r][c].locked = true;
+  }
+  function limpiarSeleccion() { sel = []; pintarTablero(); pintarPalabra(); }
+  function temblorSeleccion() {
+    sel.forEach(p => {
+      const b = document.querySelector('.tile[data-r="' + p[0] + '"][data-c="' + p[1] + '"]');
+      if (b) b.classList.add('shake');
+    });
+    setTimeout(() => document.querySelectorAll('.tile.shake').forEach(b => b.classList.remove('shake')), 350);
+  }
+  $('tablero').addEventListener('click', e => {
+    const b = e.target.closest('.tile');
+    if (!b || terminado) return;
+    const r = +b.dataset.r, c = +b.dataset.c;
+    if (grid[r][c].locked) { msg('That letter is locked 🔒. Use a key 🔑 inside a word to free it.', ''); return; }
+    const idx = sel.findIndex(p => p[0] === r && p[1] === c);
+    if (sel.length && idx === sel.length - 1) { sel.pop(); sfxDeselect(); }
+    else if (idx >= 0) { sel = sel.slice(0, idx + 1); sfxDeselect(); }
+    else { sel.push([r, c]); sfxSelect(); }
+    pintarTablero(); pintarPalabra();
+  });
+  $('btnBorrar').addEventListener('click', () => { if (!terminado) limpiarSeleccion(); });
+  $('btnGuardar').addEventListener('click', () => {
+    if (terminado) return;
+    if (sel.length < 3) { msg('At least 3 letters to save a word.', 'mal'); sfxError(); temblorSeleccion(); return; }
+    const palabra = pfNorm(sel.map(p => grid[p[0]][p[1]].letter).join(''));
+    if (!wordSet.has(palabra)) { msg('«' + palabra.toUpperCase() + '» is not in the list. Try another.', 'mal'); sfxError(); temblorSeleccion(); limpiarSeleccion(); return; }
+    const tiles = sel.map(p => grid[p[0]][p[1]]);
+    const s = scoreWord(tiles);
+    const bonus = rachaBonus(racha);
+    const total = s.total + bonus;
+    puntosMundo += total; puntosTotal += total; racha++;
+    if (villain) sfxAttack(); else sfxSave();
+    guardarLista('pf-pantry-words-top', addRecord(leerLista('pf-pantry-words-top'), { palabra: palabra.toUpperCase(), puntos: s.total, alias: aliasActual() }, 10));
+    pintarRecords();
+    const tieneBellota = tiles.some(t => t.acorn);
+    const tieneRayo = tiles.some(t => t.rayo);
+    const llaves = tiles.filter(t => t.key).length;
+    let texto = palabra.toUpperCase() + '! +' + total + ' points' + (tieneBellota ? ' (with golden acorn)' : '') + (s.larga ? ' +50 for long word' : '') + (tieneRayo ? ' ⚡ Superpower! +50 points' + (villain ? ' and double damage' : '') : '') + (bonus ? ' +' + bonus + ' streak bonus' : '');
+    if (s.larga) decirNuez(ELOGIOS[Math.floor(Math.random() * ELOGIOS.length)]);
+    sel.forEach(p => { grid[p[0]][p[1]] = null; });
+    sel = [];
+    applyGravity(grid, Math.random);
+    if (llaves > 0) {
+      const bloqueadas = [];
+      for (let r = 0; r < SIZE; r++) for (let c = 0; c < SIZE; c++) if (grid[r][c].locked) bloqueadas.push([r, c]);
+      const liberadas = chooseCells(bloqueadas, llaves, Math.random);
+      liberadas.forEach(p => { grid[p[0]][p[1]].locked = false; });
+      if (liberadas.length) texto += ' Key used! ' + (liberadas.length === 1 ? 'Freed 1 letter 🔓.' : 'Freed ' + liberadas.length + ' letters 🔓.');
+      if (liberadas.length) sfxUnlock();
+    }
+    if (!findFormableWord(unlockedLetters(), wordArray)) { nuevoTablero(); texto += ' No words left: shuffling the board!'; }
+    if (villain) {
+      const dano = attackDamage(tiles, villain);
+      villain.hp -= dano;
+      if (villain.hp <= 0) {
+        puntosMundo += 150; puntosTotal += 150; pistas++; mezclas++;
+        texto += ' ' + villain.nombre + ' defeated! +150 points, +1 hint and +1 shuffle.';
+        villain = null;
+        decirNuez('Take that, thief!');
+        sfxDefeat();
+      } else {
+        if (dano === 0 && villain.inmune3 && tiles.length === 3) texto += ' 🛡️ ' + villain.nombre + ' is immune to 3-letter words: no damage taken. Try 4 or more!';
+        else texto += ' ⚔️ ' + dano + ' damage to ' + villain.nombre + ' (' + villain.hp + ' HP left).';
+        villain.cuenta--;
+        if (villain.cuenta <= 0) {
+          villain.cuenta = 4;
+          let nBloq = 0;
+          for (let r = 0; r < SIZE; r++) for (let c = 0; c < SIZE; c++) if (grid[r][c].locked) nBloq++;
+          if (nBloq < 12) {
+            const libres = [];
+            for (let r = 0; r < SIZE; r++) for (let c = 0; c < SIZE; c++) if (!grid[r][c].locked) libres.push([r, c]);
+            const victima = chooseCells(libres, 1, Math.random)[0];
+            if (victima) { grid[victima[0]][victima[1]].locked = true; texto += ' Counterattack! It infected a letter 🔒.'; sfxCounter(); }
+          }
+        }
+      }
+      pintarVillano();
+    }
+    msg(texto, 'ok');
+    pintarTablero(); pintarPalabra();
+    const w = WORLDS[worldIdx];
+    if (puntosMundo >= w.meta) {
+      if (worldIdx === WORLDS.length - 1) {
+        terminado = true;
+        if (puntosTotal > best) { best = puntosTotal; try { localStorage.setItem('pf-pantry-best', String(best)); } catch (e) {} }
+        $('finalTexto').textContent = 'Nutty stored ' + puntosTotal + ' points of provisions in the ' + WORLDS.length + ' worlds. ' + (puntosTotal >= best ? 'New record!' : 'Record: ' + best + ' points.');
+        $('final').classList.add('show');
+        guardarLista('pf-pantry-top', addRecord(leerLista('pf-pantry-top'), { alias: aliasActual(), puntos: puntosTotal }, 10));
+        pintarRecords();
+        decirNuez('We did it!');
+        sfxWin();
+      } else {
+        worldIdx++; puntosMundo = 0; pistas = 5; mezclas = 3;
+        setVillainForWorld();
+        nuevoTablero(); limpiarSeleccion();
+        if (musica) ponerPista();
+        msg('World completed! Now: ' + WORLDS[worldIdx].nombre, 'ok');
+        decirNuez('To the pantry!');
+        sfxWorld();
+      }
+    }
+    actualizarHud();
+  });
+  $('btnPista').addEventListener('click', () => {
+    if (terminado || pistas <= 0) return;
+    const palabraPista = findFormableWord(unlockedLetters(), wordArray);
+    const sol = palabraPista ? cellsForWord(palabraPista, grid) : null;
+    if (!sol) { nuevoTablero(); pintarTablero(); msg('No words left: new board!', ''); return; }
+    pistas--;
+    sol.forEach(p => {
+      const b = document.querySelector('.tile[data-r="' + p[0] + '"][data-c="' + p[1] + '"]');
+      if (b) b.classList.add('hint');
+    });
+    setTimeout(() => document.querySelectorAll('.tile.hint').forEach(b => b.classList.remove('hint')), 1900);
+    msg('Hint: follow the glowing letters.', '');
+    sfxHint();
+    actualizarHud();
+  });
+  $('btnMezclar').addEventListener('click', () => {
+    if (terminado || mezclas <= 0) return;
+    mezclas--;
+    nuevoTablero(); limpiarSeleccion();
+    msg('Board shuffled.', '');
+    sfxShuffle();
+    actualizarHud();
+  });
+  $('btnMusica').addEventListener('click', () => {
+    musica = !musica;
+    try { localStorage.setItem('pf-pantry-music', musica ? '1' : '0'); } catch (e) {}
+    if (musica) startMusic(); else stopMusic();
+    actualizarHud();
+  });
+  $('btnSonido').addEventListener('click', () => {
+    efectos = !efectos;
+    try { localStorage.setItem('pf-pantry-effects', efectos ? '1' : '0'); } catch (e) {}
+    actualizarHud();
+  });
+  $('btnOtra').addEventListener('click', () => {
+    worldIdx = 0; puntosMundo = 0; puntosTotal = 0; racha = 0; pistas = 5; mezclas = 3; terminado = false;
+    $('final').classList.remove('show');
+    setVillainForWorld();
+    nuevoTablero(); limpiarSeleccion(); actualizarHud();
+    if (musica) ponerPista();
+    msg('New game! Let\'s fill the pantry.', '');
+  });
+  msg('Loading words…', '');
+  fetch('words-en.txt').then(r => { if (!r.ok) throw new Error('lista'); return r.text(); }).then(texto => {
+    const words = texto.split('\n').map(w => w.trim()).filter(Boolean);
+    wordArray = words;
+    wordSet = new Set(words);
+    setVillainForWorld();
+    nuevoTablero(); limpiarSeleccion(); actualizarHud();
+    try { const a = localStorage.getItem('pf-pantry-alias'); if (a) $('aliasInput').value = a; } catch (e) {}
+    $('aliasInput').addEventListener('input', () => { try { localStorage.setItem('pf-pantry-alias', $('aliasInput').value); } catch (e) {} });
+    pintarRecords();
+    msg('Let\'s play! Tap the letters to form your first word.', '');
+  }).catch(() => {
+    msg('Could not load the word list. Reload the page to try again.', 'mal');
+  });
+}
+</script>
+<script src="pantry-improvements.js" defer></script>
+</body>
+</html>
