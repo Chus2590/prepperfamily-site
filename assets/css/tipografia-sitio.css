@@ -6,8 +6,12 @@
    para que web y libro compartan la lectura. */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-/* Todo excepto títulos y elementos de código: */
-body *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(code):not(pre):not(kbd):not(samp) {
+/* Todo excepto títulos y elementos de código. El :not(:has(...)) final es
+   clave: un contenedor que alberga un título (el artículo entero, una
+   sección) NO se toca, para que el título herede la fuente original del
+   artículo en vez de la del cuerpo. Sin eso, los títulos sin regla propia
+   de fuente (que heredan del contenedor) habrían cambiado también. */
+body *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(code):not(pre):not(kbd):not(samp):not(:has(h1, h2, h3, h4, h5, h6)) {
   font-family: 'Libre Caslon Text', Georgia, 'Times New Roman', serif !important;
 }
 
