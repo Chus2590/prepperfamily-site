@@ -1,0 +1,24 @@
+/* Tipografía del sitio — decisión de Jesús (2026-10-24):
+   Libre Caslon Text para TODO el texto EXCEPTO los títulos, que conservan
+   la fuente única de cada artículo. Solo cambia la familia tipográfica:
+   tamaños, interlineados, colores y diseños quedan intactos.
+   La misma fuente elegida para el libro (cuerpo 11 pt, interlineado 1.5),
+   para que web y libro compartan la lectura. */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Todo excepto títulos y elementos de código: */
+body *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(code):not(pre):not(kbd):not(samp) {
+  font-family: 'Libre Caslon Text', Georgia, 'Times New Roman', serif !important;
+}
+
+/* Dentro de un título se hereda la fuente del título (los <span> de los
+   encabezados no deben volverse letra del cuerpo): */
+h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
+  font-family: inherit !important;
+}
+
+/* Excepción documentada: la columna de datos del artículo de protocolos
+   usa monoespaciado a propósito (aspecto de ficha técnica) y se conserva. */
+.article-clo2-protocolos td:first-child {
+  font-family: 'Courier New', monospace !important;
+}
