@@ -11,9 +11,16 @@
    sección) NO se toca, para que el título herede la fuente original del
    artículo en vez de la del cuerpo. Sin eso, los títulos sin regla propia
    de fuente (que heredan del contenedor) habrían cambiado también. */
-body *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(code):not(pre):not(kbd):not(samp):not(:has(h1, h2, h3, h4, h5, h6)) {
+body *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(code):not(pre):not(kbd):not(samp):not(:has(h1, h2, h3, h4, h5, h6)):not(.fa):not(.fab):not(.fas):not(.far):not(.fal):not(.fat):not(.fad):not(.fa-brands):not(.fa-solid):not(.fa-regular):not(.fa-light):not(.fa-duotone):not(.fa-thin) {
   font-family: 'Libre Caslon Text', Georgia, 'Times New Roman', serif !important;
 }
+
+/* Excepción obligatoria (2026-10-31): los iconos Font Awesome NO deben
+   recibir Libre Caslon Text. Su fuente de iconos es la que dibuja el
+   glifo; con Libre Caslon (que no tiene esos caracteres) el !important
+   anterior dejaba todos los iconos de redes en blanco en las homes,
+   aunque el CSS de Font Awesome cargara bien. Esto no cambia ningún
+   texto: solo deja que Font Awesome aplique su propia fuente. */
 
 /* Dentro de un título se hereda la fuente del título (los <span> de los
    encabezados no deben volverse letra del cuerpo): */
