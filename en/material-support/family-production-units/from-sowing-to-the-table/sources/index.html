@@ -1,0 +1,66 @@
+<section class="pf-recs-partial pf-recs-from-sowing-to-the-table">
+<style>
+.pf-recs-from-sowing-to-the-table{box-sizing:border-box;font-family:Georgia,'Times New Roman',serif;color:#24342e;background:#fbf8ef;border:1px solid #d8d0bf;border-radius:14px;padding:1.6rem 1.4rem;margin:2rem 0;}
+.pf-recs-from-sowing-to-the-table *{box-sizing:border-box;}
+.pf-recs-from-sowing-to-the-table .pf-recs-inner{max-width:860px;margin:0 auto;}
+.pf-recs-from-sowing-to-the-table h2{font-family:Georgia,'Times New Roman',serif;font-size:1.5rem;margin:0 0 1.2rem;text-align:center;color:#24342e;padding-bottom:.6rem;border-bottom:3px solid #1f6570;}
+.pf-recs-from-sowing-to-the-table .pf-recs-sources{margin-top:0;}
+.pf-recs-from-sowing-to-the-table .pf-recs-source-list{font-family:Georgia,'Times New Roman',serif;font-size:.92rem;line-height:1.6;padding-left:1.4rem;overflow-wrap:anywhere;}
+.pf-recs-from-sowing-to-the-table .pf-recs-source-list li{margin-bottom:.5rem;}
+.pf-recs-from-sowing-to-the-table .pf-recs-copy-btn{background:#24342e;color:#fff;border:none;border-radius:8px;padding:.6rem 1.2rem;font-weight:700;cursor:pointer;display:block;margin:1rem auto 0;font-size:.95rem;}
+.pf-recs-from-sowing-to-the-table .pf-recs-copy-btn:disabled{opacity:.6;}
+.pf-recs-from-sowing-to-the-table .pf-recs-copy-fallback{margin-top:1rem;}
+.pf-recs-from-sowing-to-the-table .pf-recs-copy-fallback p{font-size:.9rem;font-weight:700;margin:0 0 .4rem;}
+.pf-recs-from-sowing-to-the-table .pf-recs-copy-fallback textarea{width:100%;min-height:200px;font-size:.85rem;padding:.6rem;border:1px solid #d8d0bf;border-radius:8px;}
+@media (max-width:768px){
+.pf-recs-from-sowing-to-the-table{padding:1.2rem .9rem;}
+}
+</style>
+<div class="pf-recs-inner">
+<section class="pf-recs-sources">
+<h2>Sources</h2>
+<ol class="pf-recs-source-list">
+<li>Bossier, P. and Ekasari, J. (2017). Biofloc technology application in aquaculture to support sustainable development goals. Microbial Biotechnology, 10(5), 1012-1016. DOI: 10.1111/1751-7915.12836. https://doi.org/10.1111/1751-7915.12836</li>
+<li>Avnimelech, Y. (2009). Biofloc Technology: A Practical Guide Book. World Aquaculture Society.</li>
+<li>Luo, G., Gao, Q., Wang, C., Liu, W., Sun, D., Li, L. and Tan, H. (2014). Growth, digestive activity, welfare, and partial cost-effectiveness of genetically improved farmed tilapia (Oreochromis niloticus) cultured in a recirculating aquaculture system and an indoor biofloc system. Aquaculture, 422-423, 1-7. DOI: 10.1016/j.aquaculture.2013.11.023. https://doi.org/10.1016/j.aquaculture.2013.11.023</li>
+<li>Crab, R., Defoirdt, T., Bossier, P. and Verstraete, W. (2012). Biofloc technology in aquaculture: Beneficial effects and future challenges. Aquaculture, 356-357, 351-356. DOI: 10.1016/j.aquaculture.2012.04.046. https://doi.org/10.1016/j.aquaculture.2012.04.046</li>
+<li>Emerenciano, M., Gaxiola, G. and Cuzon, G. (2013). Biofloc Technology (BFT): A Review for Aquaculture Application and Animal Food Industry. In M. D. Matovic (Ed.), Biomass Now — Cultivation and Utilization (pp. 301-328). InTech. DOI: 10.5772/53902. https://doi.org/10.5772/53902</li>
+</ol>
+<textarea id="pf-recs-sources-sowing" style="display:none;">
+1. Bossier, P. and Ekasari, J. (2017). Biofloc technology application in aquaculture to support sustainable development goals. Microbial Biotechnology, 10(5), 1012-1016. DOI: 10.1111/1751-7915.12836. https://doi.org/10.1111/1751-7915.12836
+2. Avnimelech, Y. (2009). Biofloc Technology: A Practical Guide Book. World Aquaculture Society.
+3. Luo, G., Gao, Q., Wang, C., Liu, W., Sun, D., Li, L. and Tan, H. (2014). Growth, digestive activity, welfare, and partial cost-effectiveness of genetically improved farmed tilapia (Oreochromis niloticus) cultured in a recirculating aquaculture system and an indoor biofloc system. Aquaculture, 422-423, 1-7. DOI: 10.1016/j.aquaculture.2013.11.023. https://doi.org/10.1016/j.aquaculture.2013.11.023
+4. Crab, R., Defoirdt, T., Bossier, P. and Verstraete, W. (2012). Biofloc technology in aquaculture: Beneficial effects and future challenges. Aquaculture, 356-357, 351-356. DOI: 10.1016/j.aquaculture.2012.04.046. https://doi.org/10.1016/j.aquaculture.2012.04.046
+5. Emerenciano, M., Gaxiola, G. and Cuzon, G. (2013). Biofloc Technology (BFT): A Review for Aquaculture Application and Animal Food Industry. In M. D. Matovic (Ed.), Biomass Now — Cultivation and Utilization (pp. 301-328). InTech. DOI: 10.5772/53902. https://doi.org/10.5772/53902
+</textarea>
+<button type="button" class="pf-recs-copy-btn" onclick="(async function(btn){
+try{
+var sourceEl=document.getElementById('pf-recs-sources-sowing');
+if(!sourceEl)return false;
+var text=sourceEl.value.trim();
+var original=btn.innerHTML;
+if(!navigator.clipboard||!window.isSecureContext){throw new Error('Clipboard not available');}
+await navigator.clipboard.writeText(text);
+btn.innerHTML='✅ Sources copied';
+btn.disabled=true;
+setTimeout(function(){btn.innerHTML=original;btn.disabled=false;},1600);
+}catch(err){
+var fallback=document.getElementById('pf-recs-sources-sowing-fallback');
+if(fallback)fallback.style.display='block';
+console.error(err);
+}
+return false;
+})(this);">📋 Copy Sources</button>
+<div id="pf-recs-sources-sowing-fallback" class="pf-recs-copy-fallback" style="display:none;">
+<p>Copy manually:</p>
+<textarea readonly>
+1. Bossier, P. and Ekasari, J. (2017). Biofloc technology application in aquaculture to support sustainable development goals. Microbial Biotechnology, 10(5), 1012-1016. DOI: 10.1111/1751-7915.12836. https://doi.org/10.1111/1751-7915.12836
+2. Avnimelech, Y. (2009). Biofloc Technology: A Practical Guide Book. World Aquaculture Society.
+3. Luo, G., Gao, Q., Wang, C., Liu, W., Sun, D., Li, L. and Tan, H. (2014). Growth, digestive activity, welfare, and partial cost-effectiveness of genetically improved farmed tilapia (Oreochromis niloticus) cultured in a recirculating aquaculture system and an indoor biofloc system. Aquaculture, 422-423, 1-7. DOI: 10.1016/j.aquaculture.2013.11.023. https://doi.org/10.1016/j.aquaculture.2013.11.023
+4. Crab, R., Defoirdt, T., Bossier, P. and Verstraete, W. (2012). Biofloc technology in aquaculture: Beneficial effects and future challenges. Aquaculture, 356-357, 351-356. DOI: 10.1016/j.aquaculture.2012.04.046. https://doi.org/10.1016/j.aquaculture.2012.04.046
+5. Emerenciano, M., Gaxiola, G. and Cuzon, G. (2013). Biofloc Technology (BFT): A Review for Aquaculture Application and Animal Food Industry. In M. D. Matovic (Ed.), Biomass Now — Cultivation and Utilization (pp. 301-328). InTech. DOI: 10.5772/53902. https://doi.org/10.5772/53902
+</textarea>
+</div>
+</section>
+</div>
+</section>
