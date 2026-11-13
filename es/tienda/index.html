@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tienda | PrepperFamily.org</title>
+<meta name="description" content="Polo, gorra y taza con el logo de PrepperFamily.org. Productos hechos bajo pedido.">
+<link rel="canonical" href="https://prepperfamily.org/es/tienda/">
+<link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/shop/">
+<link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/tienda/">
+<link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/shop/">
+<style>
+  :root{
+    --verde:#274828; --verde-oscuro:#1E3A24; --dorado:#C9A84C;
+    --crema:#FBF6EC; --pergamino:#FDFBF7; --texto:#1A1A2E; --marron:#3A2F22;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--pergamino); color:var(--texto);
+    font-family:'Libre Caslon Text', Georgia, 'Times New Roman', serif;
+    line-height:1.6;
+  }
+  a{color:var(--verde)}
+  .tienda{max-width:960px; margin:0 auto; padding:2.5rem 1.25rem 3rem}
+  h1{color:var(--verde); font-size:2rem; margin:0 0 .5rem; line-height:1.2}
+  .intro{color:var(--marron); max-width:38rem; margin:0 0 2rem}
+  .cards{display:grid; grid-template-columns:1fr; gap:1.25rem}
+  @media (min-width:700px){ .cards{grid-template-columns:repeat(3,1fr)} }
+  .card{
+    background:var(--crema); border:1px solid #E8E4DD; border-radius:6px;
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .card-img{
+    background:#EFE9DC; min-height:11rem; display:flex; align-items:center;
+    justify-content:center; padding:1rem; text-align:center;
+    color:var(--verde); font-size:1.25rem; border-bottom:1px solid #E8E4DD;
+  }
+  .card-body{padding:1.1rem 1.1rem 1.25rem; display:flex; flex-direction:column; flex:1}
+  .card-body h2{color:var(--verde); font-size:1.25rem; margin:0 0 .4rem; line-height:1.3}
+  .card-body p{margin:0 0 1rem; color:var(--marron); flex:1}
+  .precio{font-size:1.35rem; font-weight:700; color:var(--verde); margin:0 0 .4rem}
+  .nota-estampado{font-size:.9rem; color:var(--marron); margin:0 0 1rem}
+  .proximamente{
+    display:inline-block; align-self:flex-start; background:var(--dorado);
+    color:#3a2c0e; font-size:.85rem; font-weight:700; padding:.2rem .6rem;
+    border-radius:999px; margin:0 0 1rem;
+  }
+  .btn{
+    display:inline-block; background:var(--verde); color:var(--crema);
+    text-decoration:none; padding:.6rem 1rem; border-radius:4px; text-align:center;
+  }
+  .btn:hover{background:var(--verde-oscuro)}
+  .nota{
+    margin-top:2rem; padding-top:1rem; border-top:1px solid #E8E4DD;
+    color:var(--marron); font-size:.95rem;
+  }
+  .nota a{color:var(--verde)}
+</style>
+<!-- Tipografía del sitio: Libre Caslon Text (todo menos títulos) -->
+<link rel="stylesheet" href="../../assets/css/tipografia-sitio.css">
+</head>
+<body>
+<div id="pf-header"></div>
+<main class="tienda">
+  <h1>Tienda</h1>
+  <p class="intro">Tres productos sencillos con nuestro logo, hechos bajo pedido
+  para quien quiera llevar la marca puesta. Sin prisa y sin ruido.</p>
+
+  <div class="cards">
+
+    <article class="card">
+      <!-- IMAGEN: sustituir este bloque por la foto/mockup de la polo (imagen del producto en Fourthwall). -->
+      <div class="card-img">Polo beige</div>
+      <div class="card-body">
+        <h2>Polo beige PrepperFamily.org</h2>
+        <p>Polo beige con el logo de PrepperFamily.org en el pecho. Cómoda y
+        sobria, para el día a día.</p>
+        <p class="precio">$21.99</p>
+        <p class="nota-estampado">El logo va estampado en el pecho, no bordado.</p>
+        <a class="btn" href="https://prepperfamily-org-shop.fourthwall.com/products/polo-beige-prepperfamily-org">Ver la polo en la tienda →</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <!-- IMAGEN: sustituir este bloque por la foto/mockup de la gorra (imagen del producto en Fourthwall). -->
+      <div class="card-img">Gorra</div>
+      <div class="card-body">
+        <h2>Gorra PrepperFamily.org</h2>
+        <p>Gorra con el escudo de PrepperFamily.org bordado.</p>
+        <p class="proximamente">Próximamente</p>
+        <a class="btn" href="https://prepperfamily-org-shop.fourthwall.com/">Ver la tienda →</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <!-- IMAGEN: sustituir este bloque por la foto/mockup de la taza (imagen del producto en Fourthwall). -->
+      <div class="card-img">Taza</div>
+      <div class="card-body">
+        <h2>Taza PrepperFamily.org</h2>
+        <p>Taza con el logo de PrepperFamily.org.</p>
+        <p class="proximamente">Próximamente</p>
+        <a class="btn" href="https://prepperfamily-org-shop.fourthwall.com/">Ver la tienda →</a>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="nota">Todos los productos se hacen bajo pedido. El envío se calcula
+  en la compra y llega en 5–12 días laborables en EE. UU. Devoluciones solo por
+  defecto de fabricación: ver las políticas en la tienda.</p>
+</main>
+<div id="pf-footer"></div>
+<script>
+  const isGitHub = location.hostname.endsWith("github.io");
+  const base = isGitHub ? "/prepperfamily-site" : "";
+  function setHTML(id, html) { const el = document.getElementById(id); if (el) el.innerHTML = html; }
+  function loadHTML(url, targetId) {
+    return fetch(url).then(res => { if (!res.ok) throw new Error("Failed to load " + url); return res.text(); })
+      .then(html => setHTML(targetId, html)).catch(() => {});
+  }
+  loadHTML(`${base}/partials/header-es/`, "pf-header");
+  loadHTML(`${base}/partials/footer-es/`, "pf-footer");
+</script>
+</body>
+</html>

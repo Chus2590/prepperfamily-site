@@ -486,4 +486,20 @@
     <loc>https://prepperfamily.org/en/games/</loc>
     <lastmod>2026-10-24</lastmod>
   </url>
+  <url>
+    <loc>https://prepperfamily.org/es/tienda/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/shop/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/tienda/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/en/shop/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/shop/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/tienda/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
