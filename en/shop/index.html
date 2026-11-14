@@ -31,10 +31,9 @@
     overflow:hidden; display:flex; flex-direction:column;
   }
   .card-img{
-    background:#EFE9DC; min-height:11rem; display:flex; align-items:center;
-    justify-content:center; padding:1rem; text-align:center;
-    color:var(--verde); font-size:1.25rem; border-bottom:1px solid #E8E4DD;
+    background:#EFE9DC; border-bottom:1px solid #E8E4DD;
   }
+  .card-img img{display:block; width:100%; height:15rem; object-fit:contain}
   .card-body{padding:1.1rem 1.1rem 1.25rem; display:flex; flex-direction:column; flex:1}
   .card-body h2{color:var(--verde); font-size:1.25rem; margin:0 0 .4rem; line-height:1.3}
   .card-body p{margin:0 0 1rem; color:var(--marron); flex:1}
@@ -69,8 +68,7 @@
   <div class="cards">
 
     <article class="card">
-      <!-- IMAGE: replace this block with the polo photo/mockup (product image on Fourthwall). -->
-      <div class="card-img">Beige polo</div>
+      <div class="card-img"><img src="../../assets/images/tienda/polo.webp" alt="Beige polo with the PrepperFamily.org logo on the chest" width="720" height="960"></div>
       <div class="card-body">
         <h2>PrepperFamily.org Beige Polo</h2>
         <p>Beige polo with the PrepperFamily.org logo on the chest. Comfortable
@@ -82,8 +80,7 @@
     </article>
 
     <article class="card">
-      <!-- IMAGE: replace this block with the cap photo/mockup (product image on Fourthwall). -->
-      <div class="card-img">Cap</div>
+      <div class="card-img"><img src="../../assets/images/tienda/gorra.webp" alt="Cap with the embroidered PrepperFamily.org shield" width="720" height="720"></div>
       <div class="card-body">
         <h2>PrepperFamily.org Cap</h2>
         <p>Cap with the embroidered PrepperFamily.org shield.</p>
@@ -93,8 +90,7 @@
     </article>
 
     <article class="card">
-      <!-- IMAGE: replace this block with the mug photo/mockup (product image on Fourthwall). -->
-      <div class="card-img">Mug</div>
+      <div class="card-img"><img src="../../assets/images/tienda/taza.webp" alt="White enamel mug with the PrepperFamily.org logo" width="720" height="720"></div>
       <div class="card-body">
         <h2>PrepperFamily.org Mug</h2>
         <p>Mug with the PrepperFamily.org logo.</p>
