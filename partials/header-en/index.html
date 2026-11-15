@@ -29,7 +29,7 @@
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:clamp(12px,3vw,24px);
+  gap:clamp(12px,2vw,18px);
   padding:16px clamp(16px,4vw,32px);
   position:relative;
 }
@@ -45,13 +45,13 @@
 .header-right{
   display:flex;
   align-items:center;
-  gap:clamp(14px,2.4vw,24px);
+  gap:clamp(10px,1.8vw,18px);
   margin-left:auto;
 }
 
 .nav{
   display:flex;
-  gap:clamp(18px,2.2vw,30px);
+  gap:clamp(12px,1.5vw,20px);
   align-items:center;
 }
 
@@ -98,6 +98,25 @@
 }
 
 .home-link{ font-weight:700; }
+
+/* --- PILARES: destacan del resto del menú --- */
+.nav a{ gap:.4rem; }
+.nav a.nav-pillar{
+  font-weight:700;
+  color:var(--sh-accent);
+  background:rgba(207,164,53,.14);
+  border-radius:999px;
+  padding:8px 10px;
+}
+.nav a.nav-pillar::after{ display:none; }
+.nav a.nav-pillar:hover{ background:rgba(207,164,53,.22); }
+
+/* --- TIENDA: icono de camisa --- */
+.nav a.nav-shop svg{
+  width:17px;
+  height:17px;
+  flex:0 0 auto;
+}
 
 /* --- BOTÓN DE PROPINAS --- */
 .tip-button{
@@ -208,7 +227,7 @@
   display:none;
 }
 
-@media (max-width:768px){
+@media (max-width:1280px){
   .header-container{ padding:12px clamp(16px,5vw,24px); }
   .logo img{ height:56px; }
 
@@ -251,6 +270,14 @@
 
   .nav a::after{ display:none; }
   .nav a:first-child{ border-top:none; }
+
+  .nav a.nav-pillar{
+    padding:12px 20px;
+    border-radius:12px;
+    border-top:none;
+    margin:5px 12px;
+  }
+  .nav a.nav-shop svg{ width:18px; height:18px; }
 
   /* El overlay solo aparece en móvil cuando el checkbox está marcado */
   .menu-toggle:checked ~ .nav-overlay{
@@ -318,12 +345,12 @@
 
     <nav class="nav" aria-label="Primary">
       <a href="/" class="home-link">Home</a>
-      <a href="/en/material-support/">Material Support</a>
-      <a href="/en/family-resilience/">Family Resilience</a>
-      <a href="/en/inner-strength/">Inner Strength</a>
+      <a href="/en/material-support/" class="nav-pillar">Material Support</a>
+      <a href="/en/family-resilience/" class="nav-pillar">Family Resilience</a>
+      <a href="/en/inner-strength/" class="nav-pillar">Inner Strength</a>
       <a href="/#community">Community</a>
       <a href="/en/games/">Games 🎮</a>
-      <a href="/en/shop/">Shop</a>
+      <a href="/en/shop/" class="nav-shop"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Shop</a>
     </nav>
 
     <!-- Overlay invisible: al tocarlo, cierra el menú -->
