@@ -111,8 +111,8 @@
 .nav a.nav-pillar::after{ display:none; }
 .nav a.nav-pillar:hover{ background:rgba(207,164,53,.22); }
 
-/* --- TIENDA: icono de camisa --- */
-.nav a.nav-shop svg{
+/* --- ICONOS del menú (camisa de Tienda, personas de Comunidad) --- */
+.nav a svg{
   width:17px;
   height:17px;
   flex:0 0 auto;
@@ -277,7 +277,7 @@
     border-top:none;
     margin:5px 12px;
   }
-  .nav a.nav-shop svg{ width:18px; height:18px; }
+  .nav a svg{ width:18px; height:18px; }
 
   /* El overlay solo aparece en móvil cuando el checkbox está marcado */
   .menu-toggle:checked ~ .nav-overlay{
@@ -348,9 +348,9 @@
       <a href="/en/material-support/" class="nav-pillar">Material Support</a>
       <a href="/en/family-resilience/" class="nav-pillar">Family Resilience</a>
       <a href="/en/inner-strength/" class="nav-pillar">Inner Strength</a>
-      <a href="/#community">Community</a>
+      <a href="/#community" class="nav-community">Community<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.6"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="/en/games/">Games 🎮</a>
-      <a href="/en/shop/" class="nav-shop"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Shop</a>
+      <a href="/en/shop/" class="nav-shop">Shop<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </nav>
 
     <!-- Overlay invisible: al tocarlo, cierra el menú -->
