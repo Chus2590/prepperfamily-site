@@ -1,13 +1,13 @@
 // PrepperFamily.org — Botón de instalación de la PWA.
-// Muestra los botones .pf-install-btn solo cuando la app se puede
-// instalar (evento beforeinstallprompt, Android/Chrome/Edge) o en iOS,
-// donde la instalación es manual (Compartir → Añadir a pantalla de
-// inicio). El pie de página se carga por JS después de la página, así
-// que un MutationObserver revela los botones que llegan tarde. Si la
-// app ya está instalada (standalone), no muestra nada.
+// El botón se muestra siempre (salvo que la app ya esté instalada),
+// porque el evento beforeinstallprompt no siempre llega: no existe
+// en iOS ni en navegadores dentro de otras apps. Al tocarlo, si el
+// navegador ofrece la instalación se usa el aviso nativo; si no,
+// se muestran los pasos manuales. El pie de página se carga por JS
+// después de la página, así que un MutationObserver revela los
+// botones que llegan tarde.
 (function () {
   var deferredPrompt = null;
-  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) && !window.MSStream;
   var isStandalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
   if (isStandalone) return;
 
@@ -31,7 +31,7 @@
       deferredPrompt.prompt();
       deferredPrompt.userChoice.then(function () { deferredPrompt = null; });
     } else {
-      // iOS o navegador sin evento: mostrar los pasos manuales.
+      // Sin aviso nativo: mostrar los pasos manuales.
       document.querySelectorAll('.pf-install-hint').forEach(function (h) {
         h.style.display = '';
       });
@@ -41,7 +41,6 @@
   window.addEventListener('beforeinstallprompt', function (e) {
     e.preventDefault();
     deferredPrompt = e;
-    show();
   });
 
   window.addEventListener('appinstalled', function () {
@@ -50,11 +49,10 @@
     });
   });
 
-  if (isIOS) show();
+  show();
 
   if ('MutationObserver' in window) {
-    new MutationObserver(function () {
-      if (deferredPrompt || isIOS) show();
-    }).observe(document.documentElement, { childList: true, subtree: true });
+    new MutationObserver(function () { show(); })
+      .observe(document.documentElement, { childList: true, subtree: true });
   }
 })();
