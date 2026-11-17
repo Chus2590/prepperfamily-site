@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sin conexión — PrepperFamily.org</title>
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #FBF6EC; color: #3a2f22; font-family: Georgia, serif; text-align: center; padding: 24px; box-sizing: border-box; }
+  main { max-width: 420px; }
+  img { width: 180px; height: auto; margin-bottom: 8px; }
+  h1 { color: #274828; font-size: 28px; margin: 12px 0 8px; }
+  p { font-size: 17px; line-height: 1.6; margin: 8px 0; }
+  button { margin-top: 16px; background: #274828; color: #FBF6EC; border: 0; border-radius: 8px; padding: 12px 28px; font-size: 17px; font-family: Georgia, serif; cursor: pointer; }
+  a { color: #b5781f; }
+  .en { font-size: 14px; color: #6b6252; margin-top: 20px; }
+</style>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="theme-color" content="#274828">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
+</head>
+<body>
+<main>
+  <img src="/assets/images/header/logo.webp" alt="PrepperFamily.org">
+  <h1>Sin conexión</h1>
+  <p>Esta página no está guardada en tu teléfono todavía. Conéctate a internet y vuelve a intentarlo, o abre una página que ya hayas visitado.</p>
+  <button type="button" onclick="location.reload()">Reintentar</button>
+  <p><a href="/es/">Volver a la biblioteca</a></p>
+  <p class="en">You are offline. This page is not saved on your phone yet.</p>
+</main>
+</body>
+</html>

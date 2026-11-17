@@ -319,6 +319,16 @@
     </style>
     <!-- Tipografía del sitio: Libre Caslon Text (todo menos títulos) -->
 <link rel="stylesheet" href="../../../../assets/css/tipografia-sitio.css">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="theme-color" content="#274828">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
 </head>
 <body>
   
