@@ -3,7 +3,7 @@
 // visitarlas (biblioteca offline); los archivos del sitio se sirven
 // desde la caché cuando ya están guardados. Sin conexión y sin copia
 // guardada, se muestra /offline.html.
-const CACHE = 'prepperfamily-v3';
+const CACHE = 'prepperfamily-v4';
 const CORE = [
   '/',
  '/es/', '/en/',
@@ -17,7 +17,7 @@ const CORE = [
   '/assets/icons/icon-512.png',
   '/assets/search-index-es.json',
   '/assets/search-index-en.json',
-  '/assets/js/pwa-install.js'
+  '/assets/js/pwa-install.js?v=2'
 ];
 
 self.addEventListener('install', event => {
