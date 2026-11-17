@@ -25,6 +25,7 @@
     ? "Enlace copiado. Guárdalo donde quieras."
     : "Link copied. Save it anywhere.";
   const installLabel = isSpanish ? "Instalar App" : "Install App";
+  const productsLabel = isSpanish ? "Ver productos" : "See products";
   const installHint = isSpanish
     ? "Abre el menú del navegador y elige «Instalar app» o «Añadir a pantalla de inicio». En iPhone: Compartir → «Añadir a pantalla de inicio»."
     : "Open your browser menu and choose “Install app” or “Add to Home Screen”. On iPhone: Share → “Add to Home Screen”.";
@@ -37,6 +38,7 @@
   const svgDivider = `<svg width="120" height="12" viewBox="0 0 120 12" fill="none" aria-hidden="true" focusable="false" class="pf-nav-ornament"><path d="M0 6 Q30 1 60 6 Q90 11 120 6" stroke="currentColor" stroke-width="1" fill="none" opacity="0.45"/><circle cx="60" cy="6" r="2" fill="currentColor" opacity="0.5"/></svg>`;
   const svgBookmark = `<svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true" focusable="false"><path d="M3.5 1.5h8v12l-4-2.8-4 2.8v-12z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`;
   const svgBookmarkFilled = `<svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true" focusable="false"><path d="M3.5 1.5h8v12l-4-2.8-4 2.8v-12z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`;
+  const svgChevronDown = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
   // ── Estilos ───────────────────────────────────────────────────────────────
   const styleId = "pf-article-nav-styles";
@@ -68,6 +70,37 @@
         align-items: center;
         gap: 12px;
         flex-wrap: wrap;
+      }
+      .pf-article-nav-top-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .pf-article-nav-products {
+        display: none;
+        align-items: center;
+        gap: 6px;
+        appearance: none;
+        -webkit-appearance: none;
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        padding: 6px 12px;
+        font: inherit;
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        color: inherit;
+        opacity: 0.75;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: opacity 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+      .pf-article-nav-products:hover {
+        opacity: 1;
+        border-color: rgba(160, 120, 60, 0.25);
+        background: rgba(160, 120, 60, 0.07);
       }
       .pf-article-nav-install {
         appearance: none;
@@ -384,13 +417,48 @@
             ${svgArrowLeft}
             <span>${categoryLabel}</span>
           </a>
-          <span class="pf-install-zone" style="display:none">
-            <button type="button" class="pf-install-btn pf-article-nav-install">${installLabel}</button>
+          <span class="pf-article-nav-top-right">
+            <button type="button" class="pf-article-nav-products" id="pf-article-nav-products-btn">
+              <span>${productsLabel}</span>
+              ${svgChevronDown}
+            </button>
+            <span class="pf-install-zone" style="display:none">
+              <button type="button" class="pf-install-btn pf-article-nav-install">${installLabel}</button>
+            </span>
           </span>
         </div>
         <p class="pf-install-hint pf-article-nav-hint" style="display:none">${installHint}</p>
       </div>
     `;
+    const productsBtn = document.getElementById("pf-article-nav-products-btn");
+    if (productsBtn) productsBtn.addEventListener("click", scrollToProducts);
+    watchProducts();
+  }
+
+  // ── Ver productos (solo si el artículo los tiene) ──────────────────────
+  function scrollToProducts() {
+    const el = document.querySelector(".pf-recs-products");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function watchProducts() {
+    const btn = document.getElementById("pf-article-nav-products-btn");
+    if (!btn) return;
+    const reveal = function () {
+      if (document.querySelector(".pf-recs-products")) {
+        btn.style.display = "inline-flex";
+        return true;
+      }
+      return false;
+    };
+    if (reveal()) return;
+    const target = document.getElementById("pf-sources") || document.body;
+    if ("MutationObserver" in window) {
+      const obs = new MutationObserver(function () {
+        if (reveal()) obs.disconnect();
+      });
+      obs.observe(target, { childList: true, subtree: true });
+    }
   }
 
   // ── Inject BOTTOM ─────────────────────────────────────────────────────────

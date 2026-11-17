@@ -25,6 +25,8 @@
     var isSavedPage = path.indexOf('/guardados/') !== -1 || path.indexOf('/saved/') !== -1;
     var homeLabel = isSpanish ? 'Inicio' : 'Home';
     var savedLabel = isSpanish ? 'Guardados' : 'Saved';
+    var donateLabel = isSpanish ? 'Donar' : 'Donate';
+    var donateUrl = 'https://donate.stripe.com/fZudR93cKcU1cGwgC5d7q01';
 
     var savedCount = 0;
     try {
@@ -34,6 +36,7 @@
 
     var svgHome = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11.5L12 4l8 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10.5V20h12v-9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     var svgBookmark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h10v16l-5-3.6L7 20V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
+    var svgHeart = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.8 4 2.1C12.9 5.8 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
 
     var styleId = 'pf-app-menu-styles';
     if (!document.getElementById(styleId)) {
@@ -46,6 +49,7 @@
         '.pf-app-menu-item.is-active{opacity:1;background:rgba(251,246,236,.14);}',
         '.pf-app-menu-item:active{background:rgba(251,246,236,.10);}',
         '.pf-app-menu-count{position:absolute;top:0;right:8px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#C9A84C;color:#3a2c0e;font-size:.7rem;font-weight:700;line-height:18px;text-align:center;}',
+        '.pf-app-menu-donate svg{color:#C9A84C;}',
         'body.pf-app-menu-on{padding-bottom:78px;}'
       ].join('\n');
       document.head.appendChild(style);
@@ -57,7 +61,8 @@
     var badge = savedCount > 0 ? '<span class="pf-app-menu-count">' + savedCount + '</span>' : '';
     bar.innerHTML =
       '<a class="pf-app-menu-item' + (isHome ? ' is-active' : '') + '" href="' + homeUrl + '">' + svgHome + '<span>' + homeLabel + '</span></a>' +
-      '<a class="pf-app-menu-item' + (isSavedPage ? ' is-active' : '') + '" href="' + savedUrl + '">' + svgBookmark + '<span>' + savedLabel + '</span>' + badge + '</a>';
+      '<a class="pf-app-menu-item' + (isSavedPage ? ' is-active' : '') + '" href="' + savedUrl + '">' + svgBookmark + '<span>' + savedLabel + '</span>' + badge + '</a>' +
+      '<a class="pf-app-menu-item pf-app-menu-donate" href="' + donateUrl + '" target="_blank" rel="noopener">' + svgHeart + '<span>' + donateLabel + '</span></a>';
     document.body.appendChild(bar);
     document.body.classList.add('pf-app-menu-on');
   }
