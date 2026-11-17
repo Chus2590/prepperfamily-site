@@ -3,7 +3,7 @@
 // visitarlas (biblioteca offline); los archivos del sitio se sirven
 // desde la caché cuando ya están guardados. Sin conexión y sin copia
 // guardada, se muestra /offline.html.
-const CACHE = 'prepperfamily-v4';
+const CACHE = 'prepperfamily-v5';
 const CORE = [
   '/',
  '/es/', '/en/',

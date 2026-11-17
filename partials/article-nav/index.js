@@ -18,6 +18,10 @@
   const copiedText = isSpanish
     ? "Enlace copiado. Guárdalo donde quieras."
     : "Link copied. Save it anywhere.";
+  const installLabel = isSpanish ? "Instalar App" : "Install App";
+  const installHint = isSpanish
+    ? "Abre el menú del navegador y elige «Instalar app» o «Añadir a pantalla de inicio». En iPhone: Compartir → «Añadir a pantalla de inicio»."
+    : "Open your browser menu and choose “Install app” or “Add to Home Screen”. On iPhone: Share → “Add to Home Screen”.";
 
   // ── SVGs ──────────────────────────────────────────────────────────────────
   const svgArrowLeft = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false"><path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
@@ -49,6 +53,43 @@
       /* ── TOP block ── */
       .pf-article-nav-top {
         margin: 18px 0 12px;
+      }
+      .pf-article-nav-top-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .pf-article-nav-install {
+        appearance: none;
+        -webkit-appearance: none;
+        background: #274828;
+        color: #FBF6EC;
+        border: 1.5px solid rgba(154, 120, 64, 0.55);
+        border-radius: 999px;
+        padding: 8px 16px;
+        font: inherit;
+        font-size: 0.875rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        line-height: 1.2;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+      }
+      .pf-article-nav-install:hover {
+        transform: translateY(-2px);
+        background: #2f5730;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+      }
+      .pf-article-nav-hint {
+        margin: 10px 0 0;
+        font: inherit;
+        font-size: 0.85rem;
+        line-height: 1.5;
+        opacity: 0.8;
       }
       .pf-article-nav-link {
         display: inline-flex;
@@ -272,10 +313,16 @@
     if (!target) return;
     target.innerHTML = `
       <div class="pf-article-nav-wrap pf-article-nav-top">
-        <a class="pf-article-nav-link" href="${categoryUrl}">
-          ${svgArrowLeft}
-          <span>${categoryLabel}</span>
-        </a>
+        <div class="pf-article-nav-top-row">
+          <a class="pf-article-nav-link" href="${categoryUrl}">
+            ${svgArrowLeft}
+            <span>${categoryLabel}</span>
+          </a>
+          <span class="pf-install-zone" style="display:none">
+            <button type="button" class="pf-install-btn pf-article-nav-install">${installLabel}</button>
+          </span>
+        </div>
+        <p class="pf-install-hint pf-article-nav-hint" style="display:none">${installHint}</p>
       </div>
     `;
   }
