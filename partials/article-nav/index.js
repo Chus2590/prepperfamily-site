@@ -14,7 +14,13 @@
   const saveText = isSpanish
     ? "Guarda esta guía. Puede ser necesaria cuando los sistemas fallen."
     : "Save this guide. You may need it when systems fail.";
-  const shareLabel = isSpanish ? "Compartir / Guardar" : "Share / Save";
+  const shareLabel = isSpanish ? "Compartir" : "Share";
+  const saveLabel = isSpanish ? "Guardar" : "Save";
+  const savedLabel = isSpanish ? "Guardado" : "Saved";
+  const savedToast = isSpanish
+    ? "Guardado en la app. Lo verás en Guardados."
+    : "Saved in the app. Find it under Saved.";
+  const removedToast = isSpanish ? "Quitado de Guardados." : "Removed from Saved.";
   const copiedText = isSpanish
     ? "Enlace copiado. Guárdalo donde quieras."
     : "Link copied. Save it anywhere.";
@@ -29,6 +35,8 @@
   const svgShare = `<svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true" focusable="false"><circle cx="11.5" cy="2.5" r="1.8" stroke="currentColor" stroke-width="1.5"/><circle cx="11.5" cy="12.5" r="1.8" stroke="currentColor" stroke-width="1.5"/><circle cx="3.5" cy="7.5" r="1.8" stroke="currentColor" stroke-width="1.5"/><path d="M5.2 6.5L9.8 3.5M5.2 8.5L9.8 11.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`;
   const svgCheck = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false"><path d="M2.5 7L5.5 10L11.5 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const svgDivider = `<svg width="120" height="12" viewBox="0 0 120 12" fill="none" aria-hidden="true" focusable="false" class="pf-nav-ornament"><path d="M0 6 Q30 1 60 6 Q90 11 120 6" stroke="currentColor" stroke-width="1" fill="none" opacity="0.45"/><circle cx="60" cy="6" r="2" fill="currentColor" opacity="0.5"/></svg>`;
+  const svgBookmark = `<svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true" focusable="false"><path d="M3.5 1.5h8v12l-4-2.8-4 2.8v-12z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`;
+  const svgBookmarkFilled = `<svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true" focusable="false"><path d="M3.5 1.5h8v12l-4-2.8-4 2.8v-12z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`;
 
   // ── Estilos ───────────────────────────────────────────────────────────────
   const styleId = "pf-article-nav-styles";
@@ -182,6 +190,12 @@
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       }
 
+      /* ── Guardar (activo) ── */
+      .pf-article-nav-save-btn.is-saved {
+        border-color: rgba(201, 168, 76, 0.9);
+        color: #f4e3b2;
+      }
+
       /* ── Explore link ── */
       .pf-article-nav-explore {
         display: inline-flex;
@@ -307,6 +321,58 @@
     }
   }
 
+  // ── Guardados (en el teléfono) ────────────────────────────────────────
+  const SAVED_KEY = "pf-guardados-v1";
+
+  function readSaved() {
+    try {
+      const list = JSON.parse(localStorage.getItem(SAVED_KEY) || "[]");
+      return Array.isArray(list) ? list : [];
+    } catch (_) { return []; }
+  }
+
+  function pageUrl() {
+    return window.location.href.split("#")[0].split("?")[0];
+  }
+
+  function isSaved() {
+    const url = pageUrl();
+    return readSaved().some((item) => item.u === url);
+  }
+
+  function cleanTitle() {
+    return (document.title || "PrepperFamily.org")
+      .replace(/\s*\|\s*PrepperFamily\.org\s*$/, "")
+      .trim();
+  }
+
+  function paintSaveButton(saved) {
+    const btn = document.getElementById("pf-article-nav-save-btn");
+    if (!btn) return;
+    btn.classList.toggle("is-saved", saved);
+    const icon = btn.querySelector(".pf-save-icon");
+    if (icon) icon.innerHTML = saved ? svgBookmarkFilled : svgBookmark;
+    const label = btn.querySelector(".pf-save-label");
+    if (label) label.textContent = saved ? savedLabel : saveLabel;
+  }
+
+  function toggleSaved() {
+    const url = pageUrl();
+    let list = readSaved();
+    const at = list.findIndex((item) => item.u === url);
+    let nowSaved;
+    if (at >= 0) {
+      list.splice(at, 1);
+      nowSaved = false;
+    } else {
+      list.unshift({ u: url, t: cleanTitle(), l: isSpanish ? "es" : "en", d: Date.now() });
+      nowSaved = true;
+    }
+    try { localStorage.setItem(SAVED_KEY, JSON.stringify(list)); } catch (_) {}
+    paintSaveButton(nowSaved);
+    showToast(nowSaved ? savedToast : removedToast);
+  }
+
   // ── Inject TOP ────────────────────────────────────────────────────────────
   function injectTop() {
     const target = document.getElementById("pf-article-nav-top");
@@ -336,6 +402,10 @@
         ${svgDivider}
         <p class="pf-article-nav-save">${saveText}</p>
         <div class="pf-article-nav-actions">
+          <button type="button" class="pf-article-nav-btn pf-article-nav-save-btn" id="pf-article-nav-save-btn">
+            <span class="pf-save-icon">${svgBookmark}</span>
+            <span class="pf-save-label">${saveLabel}</span>
+          </button>
           <button type="button" class="pf-article-nav-btn" id="pf-article-nav-share-btn">
             ${svgShare}
             <span>${shareLabel}</span>
@@ -349,6 +419,11 @@
     `;
     const shareBtn = document.getElementById("pf-article-nav-share-btn");
     if (shareBtn) shareBtn.addEventListener("click", shareOrCopy);
+    const saveBtn = document.getElementById("pf-article-nav-save-btn");
+    if (saveBtn) {
+      saveBtn.addEventListener("click", toggleSaved);
+      paintSaveButton(isSaved());
+    }
   }
 
   injectTop();

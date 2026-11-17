@@ -1,15 +1,71 @@
-// PrepperFamily.org — Botón de instalación de la PWA.
-// El botón se muestra siempre (salvo que la app ya esté instalada),
-// porque el evento beforeinstallprompt no siempre llega: no existe
-// en iOS ni en navegadores dentro de otras apps. Al tocarlo, si el
-// navegador ofrece la instalación se usa el aviso nativo; si no,
-// se muestran los pasos manuales. El pie de página se carga por JS
-// después de la página, así que un MutationObserver revela los
-// botones que llegan tarde.
+// PrepperFamily.org — Botón de instalación de la PWA y menú de la app.
+// En el navegador: el botón de instalación se muestra siempre (salvo
+// que la app ya esté instalada), porque el evento beforeinstallprompt
+// no siempre llega: no existe en iOS ni en navegadores dentro de otras
+// apps. Al tocarlo, si el navegador ofrece la instalación se usa el
+// aviso nativo; si no, se muestran los pasos manuales.
+// En la app instalada (modo standalone): no hay botón de instalación
+// — ya está instalada — y en su lugar aparece el menú exclusivo de la
+// app (Inicio / Guardados) en una barra inferior.
+// El pie de página se carga por JS después de la página, así que un
+// MutationObserver revela los botones que llegan tarde.
 (function () {
   var deferredPrompt = null;
   var isStandalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
-  if (isStandalone) return;
+
+  // ── Menú exclusivo de la app (solo cuando ya está instalada) ─────────
+  function initAppMenu() {
+    var isGitHub = location.hostname.endsWith('github.io');
+    var base = isGitHub ? '/prepperfamily-site' : '';
+    var isSpanish = window.location.pathname.indexOf('/es/') !== -1;
+    var homeUrl = base + (isSpanish ? '/es/' : '/');
+    var savedUrl = base + (isSpanish ? '/es/guardados/' : '/en/saved/');
+    var path = window.location.pathname;
+    var isHome = path === base + '/' || path === base + '/es/' || path === base + '/en/' || path === base;
+    var isSavedPage = path.indexOf('/guardados/') !== -1 || path.indexOf('/saved/') !== -1;
+    var homeLabel = isSpanish ? 'Inicio' : 'Home';
+    var savedLabel = isSpanish ? 'Guardados' : 'Saved';
+
+    var savedCount = 0;
+    try {
+      var saved = JSON.parse(localStorage.getItem('pf-guardados-v1') || '[]');
+      if (saved && saved.length) savedCount = saved.length;
+    } catch (_) {}
+
+    var svgHome = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11.5L12 4l8 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10.5V20h12v-9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var svgBookmark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h10v16l-5-3.6L7 20V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
+
+    var styleId = 'pf-app-menu-styles';
+    if (!document.getElementById(styleId)) {
+      var style = document.createElement('style');
+      style.id = styleId;
+      style.textContent = [
+        '#pf-app-menu{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:flex;justify-content:center;gap:8px;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));background:#274828;border-top:1px solid rgba(201,168,76,.45);box-shadow:0 -4px 18px rgba(0,0,0,.25);}',
+        '.pf-app-menu-item{position:relative;display:inline-flex;flex-direction:column;align-items:center;gap:2px;min-width:76px;padding:6px 14px 5px;color:#FBF6EC;text-decoration:none;font-family:inherit;font-size:.8rem;font-weight:700;letter-spacing:.02em;line-height:1.2;border-radius:10px;opacity:.72;}',
+        '.pf-app-menu-item svg{width:22px;height:22px;}',
+        '.pf-app-menu-item.is-active{opacity:1;background:rgba(251,246,236,.14);}',
+        '.pf-app-menu-item:active{background:rgba(251,246,236,.10);}',
+        '.pf-app-menu-count{position:absolute;top:0;right:8px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#C9A84C;color:#3a2c0e;font-size:.7rem;font-weight:700;line-height:18px;text-align:center;}',
+        'body.pf-app-menu-on{padding-bottom:78px;}'
+      ].join('\n');
+      document.head.appendChild(style);
+    }
+
+    var bar = document.createElement('nav');
+    bar.id = 'pf-app-menu';
+    bar.setAttribute('aria-label', isSpanish ? 'Menú de la aplicación' : 'App menu');
+    var badge = savedCount > 0 ? '<span class="pf-app-menu-count">' + savedCount + '</span>' : '';
+    bar.innerHTML =
+      '<a class="pf-app-menu-item' + (isHome ? ' is-active' : '') + '" href="' + homeUrl + '">' + svgHome + '<span>' + homeLabel + '</span></a>' +
+      '<a class="pf-app-menu-item' + (isSavedPage ? ' is-active' : '') + '" href="' + savedUrl + '">' + svgBookmark + '<span>' + savedLabel + '</span>' + badge + '</a>';
+    document.body.appendChild(bar);
+    document.body.classList.add('pf-app-menu-on');
+  }
+
+  if (isStandalone) {
+    initAppMenu();
+    return;
+  }
 
   function wire() {
     document.querySelectorAll('.pf-install-btn').forEach(function (btn) {
