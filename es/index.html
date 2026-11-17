@@ -197,14 +197,10 @@
                 <h2>Guarda esta biblioteca en tu estante</h2>
                 <p>Guarda esta página y todas las guías te estarán esperando cuando las necesites.</p>
             </div>
-            <button class="btn btn-primary" id="saveBtn" type="button">Guardar esta página</button>
             <span class="pf-install-zone" style="display:none">
                 <button class="btn btn-primary pf-install-btn" type="button">Instalar la app</button>
                 <span class="pf-install-hint" style="display:none">En Chrome abre el menú ⋮ y elige «Instalar app». En iPhone: Compartir → «Añadir a pantalla de inicio».</span>
             </span>
-        </div>
-        <div class="wrap">
-            <div class="save-help" id="saveHelp">En una computadora, presiona <strong>Ctrl+D</strong> (Windows) o <strong>Cmd+D</strong> (Mac) para guardar esta página en favoritos. En tu teléfono, abre el menú del navegador y elige <strong>Añadir a pantalla de inicio</strong>.</div>
         </div>
     </section>
 
@@ -555,12 +551,6 @@
                 fetchAndInsert(base + "/partials/header-" + lang + "/", "pf-header");
                 fetchAndInsert(base + "/partials/footer-" + lang + "/", "pf-footer");
             })();
-
-            var saveBtn = document.getElementById('saveBtn');
-            var saveHelp = document.getElementById('saveHelp');
-            if (saveBtn && saveHelp) {
-                saveBtn.addEventListener('click', function () { saveHelp.classList.toggle('open'); });
-            }
 
             var chips = document.querySelectorAll('.chip');
             var searchInput = document.getElementById('libSearch');

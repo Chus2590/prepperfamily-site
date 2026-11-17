@@ -196,14 +196,10 @@
                 <h2>Keep this library on your shelf</h2>
                 <p>Save this page, and every guide will be waiting for you whenever you need it.</p>
             </div>
-            <button class="btn btn-primary" id="saveBtn" type="button">Save this page</button>
             <span class="pf-install-zone" style="display:none">
                 <button class="btn btn-primary pf-install-btn" type="button">Install the app</button>
                 <span class="pf-install-hint" style="display:none">In Chrome open the ⋮ menu and choose “Install app”. On iPhone: Share → “Add to Home Screen”.</span>
             </span>
-        </div>
-        <div class="wrap">
-            <div class="save-help" id="saveHelp">On a computer, press <strong>Ctrl+D</strong> (Windows) or <strong>Cmd+D</strong> (Mac) to bookmark this page. On your phone, open your browser menu and choose <strong>Add to Home Screen</strong>.</div>
         </div>
     </section>
 
@@ -554,12 +550,6 @@
                 fetchAndInsert(base + "/partials/header-" + lang + "/", "pf-header");
                 fetchAndInsert(base + "/partials/footer-" + lang + "/", "pf-footer");
             })();
-
-            var saveBtn = document.getElementById('saveBtn');
-            var saveHelp = document.getElementById('saveHelp');
-            if (saveBtn && saveHelp) {
-                saveBtn.addEventListener('click', function () { saveHelp.classList.toggle('open'); });
-            }
 
             var chips = document.querySelectorAll('.chip');
             var searchInput = document.getElementById('libSearch');
