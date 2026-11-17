@@ -165,6 +165,7 @@
         });
       }
     </script>
+    <script src="/assets/js/pwa-install.js" defer></script>
 </head>
 <body>
     <div id="pf-header"></div>
@@ -196,6 +197,10 @@
                 <p>Save this page, and every guide will be waiting for you whenever you need it.</p>
             </div>
             <button class="btn btn-primary" id="saveBtn" type="button">Save this page</button>
+            <span class="pf-install-zone" style="display:none">
+                <button class="btn btn-primary pf-install-btn" type="button">Install the app</button>
+                <span class="pf-install-hint" style="display:none">On iPhone: tap Share, then “Add to Home Screen”.</span>
+            </span>
         </div>
         <div class="wrap">
             <div class="save-help" id="saveHelp">On a computer, press <strong>Ctrl+D</strong> (Windows) or <strong>Cmd+D</strong> (Mac) to bookmark this page. On your phone, open your browser menu and choose <strong>Add to Home Screen</strong>.</div>
