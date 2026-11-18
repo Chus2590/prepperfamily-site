@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "org.prepperfamily.app",
+      "sha256_cert_fingerprints": [
+        "90:21:E8:BE:75:9D:5C:24:36:3A:B4:EB:4A:CB:B8:DE:70:40:46:F4:E9:30:4F:AE:B4:00:7F:6D:9B:18:21:6A"
+      ]
+    }
+  }
+]
