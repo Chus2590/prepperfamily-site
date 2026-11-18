@@ -105,7 +105,7 @@
 
     addStyle('pf-app-menu-styles', [
       '#pf-app-menu{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:flex;justify-content:center;gap:4px;min-height:64px;padding:6px 10px calc(6px + env(safe-area-inset-bottom,0px));background:#274828;border-top:1px solid rgba(201,168,76,.45);box-shadow:0 -4px 18px rgba(0,0,0,.25);}',
-      '.pf-app-menu-item{position:relative;flex:1 1 0;min-width:0;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 4px 4px;color:#FBF6EC;text-decoration:none;font-family:inherit;font-size:.72rem;font-weight:700;letter-spacing:.02em;line-height:1.2;border-radius:10px;white-space:nowrap;opacity:.75;}',
+      '.pf-app-menu-item{position:relative;flex:1 1 0;min-width:0;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 4px 4px;color:#FBF6EC;text-decoration:none;font-family:inherit;font-size:.72rem;font-weight:700;letter-spacing:.02em;line-height:1.2;border:0;border-radius:10px;white-space:nowrap;opacity:.75;background:transparent;cursor:pointer;}',
       '.pf-app-menu-item svg{width:20px;height:20px;}',
       '.pf-app-menu-item.is-active{opacity:1;background:rgba(251,246,236,.14);box-shadow:inset 0 2px 0 #C9A84C;}',
       '.pf-app-menu-item:active{background:rgba(251,246,236,.10);}',
@@ -123,7 +123,7 @@
       '<a id="pf-menu-home" class="pf-app-menu-item' + (isHome && !onGuides ? ' is-active' : '') + '" href="' + homeUrl + '">' + svgHome + '<span>' + homeLabel + '</span></a>' +
       '<a id="pf-menu-guides" class="pf-app-menu-item' + (onGuides ? ' is-active' : '') + '" href="' + guidesUrl + '">' + svgList + '<span>' + guidesLabel + '</span></a>' +
       '<a class="pf-app-menu-item' + (isSavedPage ? ' is-active' : '') + '" href="' + savedUrl + '">' + svgBookmark + '<span>' + savedLabel + '</span>' + badge + '</a>' +
-      '<a class="pf-app-menu-item pf-app-menu-donate" href="' + donateUrl + '" target="_blank" rel="noopener">' + svgHeart + '<span>' + donateLabel + '</span></a>';
+      '<button type="button" id="pf-menu-donate" class="pf-app-menu-item pf-app-menu-donate">' + svgHeart + '<span>' + donateLabel + '</span></button>';
     document.body.appendChild(bar);
     document.body.classList.add('pf-app-menu-on');
 
@@ -134,6 +134,65 @@
       var g = window.location.hash === '#library';
       home.classList.toggle('is-active', isHome && !g);
       guides.classList.toggle('is-active', isHome && g);
+    });
+  }
+
+  // ── Donar: el anuncio solo aparece al tocar Donar ────────────────────
+  // En la app, la sección de apoyo del pie (#pf-support-combined, con
+  // la tarjeta de donar) queda oculta. Al tocar Donar en la barra, esa
+  // misma sección se muestra en una hoja inferior descartable (con X y
+  // tocando fuera), y vuelve a su sitio al cerrarse. Así el anuncio no
+  // estorba la lectura y siempre se puede quitar. Si el pie aún no ha
+  // cargado, Donar abre el enlace de Stripe directamente.
+  var donateSheet = null;
+  var supportOriginal = null;
+
+  function closeDonateSheet() {
+    if (!donateSheet) return;
+    var support = document.getElementById('pf-support-combined');
+    if (support && supportOriginal && supportOriginal.parent) {
+      if (supportOriginal.next) supportOriginal.parent.insertBefore(support, supportOriginal.next);
+      else supportOriginal.parent.appendChild(support);
+    }
+    donateSheet.remove();
+    donateSheet = null;
+    supportOriginal = null;
+    document.body.style.overflow = '';
+  }
+
+  function initDonateSheet() {
+    addStyle('pf-app-donate-styles', [
+      'body.pf-app #pf-footer #pf-support-combined { display: none !important; }',
+      '.pf-donate-sheet-backdrop { position: fixed; inset: 0; z-index: 10000; background: rgba(20,30,20,.55); display: flex; align-items: flex-end; justify-content: center; }',
+      '.pf-donate-sheet { position: relative; width: 100%; max-width: 640px; max-height: 85svh; overflow-y: auto; background: #FBF6EC; border-radius: 24px 24px 0 0; padding: 12px 16px calc(20px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -8px 32px rgba(0,0,0,.3); }',
+      '.pf-donate-sheet-close { position: sticky; top: 0; float: right; z-index: 2; width: 44px; height: 44px; margin-left: 8px; border: 0; border-radius: 50%; background: rgba(39,72,40,.10); color: #274828; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }',
+      '.pf-donate-sheet #pf-support-combined { display: block; }'
+    ]);
+
+    var btn = document.getElementById('pf-menu-donate');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      if (donateSheet) return;
+      var support = document.getElementById('pf-support-combined');
+      if (!support) { window.open(donateUrl, '_blank'); return; }
+      supportOriginal = { parent: support.parentNode, next: support.nextSibling };
+      var backdrop = document.createElement('div');
+      backdrop.className = 'pf-donate-sheet-backdrop';
+      backdrop.innerHTML =
+        '<div class="pf-donate-sheet" role="dialog" aria-label="' + (isSpanish ? 'Apoyar a PrepperFamily.org' : 'Support PrepperFamily.org') + '">' +
+          '<button type="button" class="pf-donate-sheet-close" aria-label="' + (isSpanish ? 'Cerrar' : 'Close') + '">' +
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' +
+          '</button>' +
+          '<div class="pf-donate-sheet-body"></div>' +
+        '</div>';
+      backdrop.querySelector('.pf-donate-sheet-body').appendChild(support);
+      document.body.appendChild(backdrop);
+      donateSheet = backdrop;
+      document.body.style.overflow = 'hidden';
+      backdrop.addEventListener('click', function (e) { if (e.target === backdrop) closeDonateSheet(); });
+      backdrop.querySelector('.pf-donate-sheet-close').addEventListener('click', closeDonateSheet);
+      var donateBtn = support.querySelector('.pf-donate-button');
+      if (donateBtn) donateBtn.addEventListener('click', function () { setTimeout(closeDonateSheet, 300); });
     });
   }
 
@@ -299,19 +358,7 @@
       '.pf-readbar-btn { min-width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 0; background: transparent; color: #274828; border-radius: 50%; cursor: pointer; padding: 0; text-decoration: none; }',
       '.pf-readbar-btn:active { background: rgba(39,72,40,.10); }',
       '.pf-readbar-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; font-size: .9rem; font-weight: 700; color: #274828; padding: 0 4px; }',
-      '.pf-read-progress { position: absolute; left: 0; bottom: -1px; height: 3px; width: 0%; background: #C9A84C; }',
-      '.pf-donate-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .7rem 1.8rem; border-radius: 999px; background: #C9A84C; color: #3a2c0e; font-weight: 700; text-decoration: none; }',
-      '.pf-app-donate { background: #FBF6EC; border: 1.5px solid rgba(201,168,76,.55); border-radius: 16px; padding: 22px 20px; margin: 32px 0 0; text-align: center; }',
-      '.pf-app-donate h3 { font-size: 1.25rem; margin: 0 0 .5rem; color: #274828; }',
-      '.pf-app-donate p { font-size: .95rem; line-height: 1.55; margin: 0 0 1rem; }',
-      '.pf-app-donate .pf-donate-note { display: block; margin-top: .8rem; font-size: .8rem; opacity: .7; }',
-      '.pf-app-donate .pf-donate-shop { display: inline-block; margin-top: .6rem; font-size: .85rem; font-weight: 700; color: #274828; }',
-      '.pf-donate-card { position: fixed; left: 16px; right: 16px; bottom: calc(64px + env(safe-area-inset-bottom, 0px) + 12px); z-index: 9600; background: #FBF6EC; border: 1.5px solid rgba(201,168,76,.6); border-radius: 16px; box-shadow: 0 12px 32px rgba(0,0,0,.25); padding: 16px; }',
-      '.pf-donate-card h3 { font-size: 1.05rem; margin: 0 0 .35rem; color: #274828; }',
-      '.pf-donate-card p { font-size: .9rem; line-height: 1.5; margin: 0 0 .8rem; }',
-      '.pf-donate-card-row { display: flex; gap: 10px; align-items: center; }',
-      '.pf-donate-card .pf-donate-btn { min-height: 44px; padding: .55rem 1.4rem; }',
-      '.pf-donate-card-dismiss { border: 0; background: transparent; font: inherit; font-size: .85rem; font-weight: 700; color: #274828; opacity: .75; padding: 10px 6px; cursor: pointer; }'
+      '.pf-read-progress { position: absolute; left: 0; bottom: -1px; height: 3px; width: 0%; background: #C9A84C; }'
     ]);
 
     // Barra mínima: retorno, título, guardar, compartir + progreso.
@@ -346,49 +393,10 @@
       if (navigator.clipboard) navigator.clipboard.writeText(window.location.href).catch(function () {});
     });
 
-    // Bloque de donación contextual al final del artículo.
-    var bottom = document.getElementById('pf-article-nav-bottom');
-    if (bottom) {
-      var box = document.createElement('div');
-      box.className = 'pf-app-donate';
-      box.innerHTML =
-        '<h3>' + (isSpanish ? 'Sostén estas guías' : 'Keep these guides free') + '</h3>' +
-        '<p>' + (isSpanish ? 'Tu aporte sostiene guías gratuitas para familias.' : 'Your gift keeps free guides coming for families.') + '</p>' +
-        '<a class="pf-donate-btn" href="' + donateUrl + '" target="_blank" rel="noopener">' + (isSpanish ? 'Donar' : 'Donate') + '</a>' +
-        '<span class="pf-donate-note">' + (isSpanish ? 'Aporte voluntario · Sin deducción de impuestos' : 'Voluntary gift · Not tax-deductible') + '</span>' +
-        '<a class="pf-donate-shop" href="' + shopUrl + '">' + (isSpanish ? 'También puedes apoyar desde la tienda →' : 'You can also support us from the shop →') + '</a>';
-      bottom.parentNode.insertBefore(box, bottom);
-    }
-
     // «Continuar leyendo»: recordar la última guía abierta.
     try {
       localStorage.setItem('pf-ultima-guia', JSON.stringify({ u: pageUrl(), t: cleanTitle() }));
     } catch (_) {}
-
-    // Tras la tercera guía leída en la sesión: tarjeta amable, una
-    // sola vez por sesión y descartable.
-    var readCount = 0;
-    try { readCount = parseInt(sessionStorage.getItem('pf-guias-sesion') || '0', 10) || 0; } catch (_) {}
-    readCount += 1;
-    try { sessionStorage.setItem('pf-guias-sesion', String(readCount)); } catch (_) {}
-    var dismissed = false;
-    try { dismissed = sessionStorage.getItem('pf-donar-tarjeta') === '1'; } catch (_) {}
-    if (readCount === 3 && !dismissed) {
-      var card = document.createElement('div');
-      card.className = 'pf-donate-card';
-      card.innerHTML =
-        '<h3>' + (isSpanish ? '¿Te están sirviendo estas guías?' : 'Are these guides helping you?') + '</h3>' +
-        '<p>' + (isSpanish ? 'Tu aporte sostiene guías gratuitas para familias.' : 'Your gift keeps free guides coming for families.') + '</p>' +
-        '<div class="pf-donate-card-row">' +
-          '<a class="pf-donate-btn" href="' + donateUrl + '" target="_blank" rel="noopener">' + (isSpanish ? 'Donar' : 'Donate') + '</a>' +
-          '<button type="button" class="pf-donate-card-dismiss">' + (isSpanish ? 'Ahora no' : 'Not now') + '</button>' +
-        '</div>';
-      document.body.appendChild(card);
-      card.querySelector('.pf-donate-card-dismiss').addEventListener('click', function () {
-        try { sessionStorage.setItem('pf-donar-tarjeta', '1'); } catch (_) {}
-        card.remove();
-      });
-    }
   }
 
   // ── Guardados: marcar como vistos + estado vacío ─────────────────────
@@ -434,6 +442,7 @@
     if (isHome) document.body.classList.add('pf-app-home');
     markSavedSeen();
     initAppMenu();
+    initDonateSheet();
     if (isArticle) initAppArticle();
     else initAppHeader();
     if (isHome) initAppHome();
