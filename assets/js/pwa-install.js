@@ -1,139 +1,445 @@
-// PrepperFamily.org — Botón de instalación de la PWA y menú de la app.
+// PrepperFamily.org — Botón de instalación de la PWA y experiencia de la app.
 // En el navegador: el botón de instalación se muestra siempre (salvo
 // que la app ya esté instalada), porque el evento beforeinstallprompt
 // no siempre llega: no existe en iOS ni en navegadores dentro de otras
 // apps. Al tocarlo, si el navegador ofrece la instalación se usa el
 // aviso nativo; si no, se muestran los pasos manuales.
-// En la app instalada (modo standalone): no hay botón de instalación
-// — ya está instalada — y en su lugar aparece el menú exclusivo de la
-// app (Inicio / Guardados) en una barra inferior. Tampoco hay header:
-// solo una barra con el logo; en la home, el selector de pilares
-// existente sube bajo el logo, con sus conteos.
+// En la app instalada (modo standalone) la experiencia es propia y no
+// toca la web: header compacto de 60 px (logo sin fondo, buscar,
+// idioma) que se oculta al bajar y reaparece al subir, transparente
+// sobre la portada y sólido al desplazarse; portada al 75 % de la
+// pantalla con degradado para el contraste; filtros de la biblioteca
+// fijos bajo el header, con conteos; barra inferior con Inicio, Guías,
+// Guardados y Donar; en los artículos, barra mínima de lectura con
+// progreso dorado y bloque de donación al final.
 // El pie de página se carga por JS después de la página, así que un
 // MutationObserver revela los botones que llegan tarde.
 (function () {
   var deferredPrompt = null;
   var isStandalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
 
-  // ── Menú exclusivo de la app (solo cuando ya está instalada) ─────────
+  // ── Contexto compartido (solo app) ───────────────────────────────────
+  var isGitHub = location.hostname.endsWith('github.io');
+  var base = isGitHub ? '/prepperfamily-site' : '';
+  var isSpanish = window.location.pathname.indexOf('/es/') !== -1;
+  var homeUrl = base + (isSpanish ? '/es/' : '/');
+  var savedUrl = base + (isSpanish ? '/es/guardados/' : '/en/saved/');
+  var guidesUrl = homeUrl + '#library';
+  var shopUrl = base + (isSpanish ? '/es/tienda/' : '/en/shop/');
+  var gameUrl = base + (isSpanish ? '/es/juegos/' : '/en/games/');
+  var communityUrl = 'https://www.facebook.com/profile.php?id=100094190691995';
+  var donateUrl = 'https://donate.stripe.com/fZudR93cKcU1cGwgC5d7q01';
+  var path = window.location.pathname;
+  var isHome = path === base + '/' || path === base + '/es/' || path === base + '/en/' || path === base;
+  var isSavedPage = path.indexOf('/guardados/') !== -1 || path.indexOf('/saved/') !== -1;
+  var isArticle = !!document.getElementById('pf-article-nav-top');
+
+  function pageUrl() {
+    return window.location.href.split('#')[0].split('?')[0];
+  }
+
+  function readSaved() {
+    try {
+      var list = JSON.parse(localStorage.getItem('pf-guardados-v1') || '[]');
+      return Array.isArray(list) ? list : [];
+    } catch (_) { return []; }
+  }
+
+  function cleanTitle() {
+    return (document.title || 'PrepperFamily.org')
+      .replace(/\s*\|\s*PrepperFamily\.org\s*$/, '').trim();
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function addStyle(id, rules) {
+    if (document.getElementById(id)) return;
+    var style = document.createElement('style');
+    style.id = id;
+    style.textContent = rules.join('\n');
+    document.head.appendChild(style);
+  }
+
+  // ── Scroll compartido: header hide-on-scroll + progreso de lectura ──
+  var lastScrollY = window.scrollY || 0;
+  function onScroll() {
+    var y = window.scrollY || 0;
+    var header = document.getElementById('pf-app-header');
+    if (header) {
+      if (y > lastScrollY && y > 90) header.classList.add('is-hidden');
+      else header.classList.remove('is-hidden');
+      if (isHome) {
+        if (y > 24) header.classList.add('is-solid');
+        else header.classList.remove('is-solid');
+      }
+    }
+    var prog = document.getElementById('pf-read-progress');
+    if (prog) {
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - window.innerHeight;
+      prog.style.width = (max > 0 ? Math.min(100, (y / max) * 100) : 0) + '%';
+    }
+    lastScrollY = y;
+  }
+
+  // ── Barra inferior: Inicio · Guías · Guardados · Donar ───────────────
   function initAppMenu() {
-    var isGitHub = location.hostname.endsWith('github.io');
-    var base = isGitHub ? '/prepperfamily-site' : '';
-    var isSpanish = window.location.pathname.indexOf('/es/') !== -1;
-    var homeUrl = base + (isSpanish ? '/es/' : '/');
-    var savedUrl = base + (isSpanish ? '/es/guardados/' : '/en/saved/');
-    var path = window.location.pathname;
-    var isHome = path === base + '/' || path === base + '/es/' || path === base + '/en/' || path === base;
-    var isSavedPage = path.indexOf('/guardados/') !== -1 || path.indexOf('/saved/') !== -1;
     var homeLabel = isSpanish ? 'Inicio' : 'Home';
+    var guidesLabel = isSpanish ? 'Guías' : 'Guides';
     var savedLabel = isSpanish ? 'Guardados' : 'Saved';
     var donateLabel = isSpanish ? 'Donar' : 'Donate';
-    var donateUrl = 'https://donate.stripe.com/fZudR93cKcU1cGwgC5d7q01';
+    var onGuides = isHome && window.location.hash === '#library';
 
-    var savedCount = 0;
-    try {
-      var saved = JSON.parse(localStorage.getItem('pf-guardados-v1') || '[]');
-      if (saved && saved.length) savedCount = saved.length;
-    } catch (_) {}
+    var savedCount = readSaved().length;
+    var seenCount = 0;
+    try { seenCount = parseInt(localStorage.getItem('pf-guardados-vistos') || '0', 10) || 0; } catch (_) {}
+    var newCount = savedCount - seenCount;
 
-    var svgHome = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11.5L12 4l8 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10.5V20h12v-9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-    var svgBookmark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h10v16l-5-3.6L7 20V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
-    var svgHeart = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.8 4 2.1C12.9 5.8 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
+    var svgHome = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11.5L12 4l8 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10.5V20h12v-9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    var svgList = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="4" cy="6" r="1.3" fill="currentColor"/><circle cx="4" cy="12" r="1.3" fill="currentColor"/><circle cx="4" cy="18" r="1.3" fill="currentColor"/></svg>';
+    var svgBookmark = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h10v16l-5-3.6L7 20V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
+    var svgHeart = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.8 4 2.1C12.9 5.8 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
 
-    var styleId = 'pf-app-menu-styles';
-    if (!document.getElementById(styleId)) {
-      var style = document.createElement('style');
-      style.id = styleId;
-      style.textContent = [
-        '#pf-app-menu{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:flex;justify-content:center;gap:8px;padding:8px 16px calc(8px + env(safe-area-inset-bottom,0px));background:#274828;border-top:1px solid rgba(201,168,76,.45);box-shadow:0 -4px 18px rgba(0,0,0,.25);}',
-        '.pf-app-menu-item{position:relative;display:inline-flex;flex-direction:column;align-items:center;gap:2px;min-width:76px;padding:6px 14px 5px;color:#FBF6EC;text-decoration:none;font-family:inherit;font-size:.8rem;font-weight:700;letter-spacing:.02em;line-height:1.2;border-radius:10px;opacity:.72;}',
-        '.pf-app-menu-item svg{width:22px;height:22px;}',
-        '.pf-app-menu-item.is-active{opacity:1;background:rgba(251,246,236,.14);}',
-        '.pf-app-menu-item:active{background:rgba(251,246,236,.10);}',
-        '.pf-app-menu-count{position:absolute;top:0;right:8px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#C9A84C;color:#3a2c0e;font-size:.7rem;font-weight:700;line-height:18px;text-align:center;}',
-        '.pf-app-menu-donate svg{color:#C9A84C;}',
-        'body.pf-app-menu-on{padding-bottom:78px;}'
-      ].join('\n');
-      document.head.appendChild(style);
-    }
+    addStyle('pf-app-menu-styles', [
+      '#pf-app-menu{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:flex;justify-content:center;gap:4px;min-height:64px;padding:6px 10px calc(6px + env(safe-area-inset-bottom,0px));background:#274828;border-top:1px solid rgba(201,168,76,.45);box-shadow:0 -4px 18px rgba(0,0,0,.25);}',
+      '.pf-app-menu-item{position:relative;flex:1 1 0;min-width:0;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 4px 4px;color:#FBF6EC;text-decoration:none;font-family:inherit;font-size:.72rem;font-weight:700;letter-spacing:.02em;line-height:1.2;border-radius:10px;white-space:nowrap;opacity:.75;}',
+      '.pf-app-menu-item svg{width:20px;height:20px;}',
+      '.pf-app-menu-item.is-active{opacity:1;background:rgba(251,246,236,.14);box-shadow:inset 0 2px 0 #C9A84C;}',
+      '.pf-app-menu-item:active{background:rgba(251,246,236,.10);}',
+      '.pf-app-menu-count{position:absolute;top:0;right:calc(50% - 24px);min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#C9A84C;color:#3a2c0e;font-size:.7rem;font-weight:700;line-height:18px;text-align:center;}',
+      '.pf-app-menu-donate{background:#C9A84C;color:#3a2c0e;opacity:1;}',
+      '.pf-app-menu-donate svg{color:#3a2c0e;}',
+      'body.pf-app-menu-on{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px));}'
+    ]);
 
     var bar = document.createElement('nav');
     bar.id = 'pf-app-menu';
     bar.setAttribute('aria-label', isSpanish ? 'Menú de la aplicación' : 'App menu');
-    var badge = savedCount > 0 ? '<span class="pf-app-menu-count">' + savedCount + '</span>' : '';
+    var badge = newCount > 0 ? '<span class="pf-app-menu-count">' + newCount + '</span>' : '';
     bar.innerHTML =
-      '<a class="pf-app-menu-item' + (isHome ? ' is-active' : '') + '" href="' + homeUrl + '">' + svgHome + '<span>' + homeLabel + '</span></a>' +
+      '<a id="pf-menu-home" class="pf-app-menu-item' + (isHome && !onGuides ? ' is-active' : '') + '" href="' + homeUrl + '">' + svgHome + '<span>' + homeLabel + '</span></a>' +
+      '<a id="pf-menu-guides" class="pf-app-menu-item' + (onGuides ? ' is-active' : '') + '" href="' + guidesUrl + '">' + svgList + '<span>' + guidesLabel + '</span></a>' +
       '<a class="pf-app-menu-item' + (isSavedPage ? ' is-active' : '') + '" href="' + savedUrl + '">' + svgBookmark + '<span>' + savedLabel + '</span>' + badge + '</a>' +
       '<a class="pf-app-menu-item pf-app-menu-donate" href="' + donateUrl + '" target="_blank" rel="noopener">' + svgHeart + '<span>' + donateLabel + '</span></a>';
     document.body.appendChild(bar);
     document.body.classList.add('pf-app-menu-on');
+
+    window.addEventListener('hashchange', function () {
+      var home = document.getElementById('pf-menu-home');
+      var guides = document.getElementById('pf-menu-guides');
+      if (!home || !guides) return;
+      var g = window.location.hash === '#library';
+      home.classList.toggle('is-active', isHome && !g);
+      guides.classList.toggle('is-active', isHome && g);
+    });
   }
 
-  // ── App instalada: sin header, solo el logo; selector de pilares ───
-  // El header se carga por JS en #pf-header o #pf-header-partial, así
-  // que se oculta con CSS (vale llegue cuando llegue). La barra del
-  // logo se inyecta al principio del body. En la home, el selector de
-  // pilares que ya existe (.lib-chips) sube bajo el logo, fijo al
-  // hacer scroll, con los conteos reales de tarjetas por pilar.
-  // Los botones conservan sus propios listeners (van en el botón, no
-  // en el padre), así que mover el contenedor no rompe el filtro.
+  // ── Header compacto (60 px): logo sin fondo, buscar, idioma ─────────
+  // En la portada es transparente sobre la imagen y pasa a sólido
+  // (pergamino) al desplazarse; en el resto de páginas nace sólido.
+  // Se oculta al bajar y reaparece al subir (transición de 200 ms).
   function initAppHeader() {
-    var isGitHub = location.hostname.endsWith('github.io');
-    var base = isGitHub ? '/prepperfamily-site' : '';
-    var isSpanish = window.location.pathname.indexOf('/es/') !== -1;
-    var homeUrl = base + (isSpanish ? '/es/' : '/');
+    var svgSearch = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
+    var langLabel = isSpanish ? 'EN' : 'ES';
+    var langUrl = base + (isSpanish ? '/en/' : '/es/');
 
-    var styleId = 'pf-app-header-styles';
-    if (!document.getElementById(styleId)) {
-      var style = document.createElement('style');
-      style.id = styleId;
-      style.textContent = [
-        '#pf-header, #pf-header-partial { display: none !important; }',
-        '.pf-logo-bar { background: #fdfaf4; border-bottom: 1px solid rgba(42,36,30,.08); text-align: center; padding: 14px 16px 10px; }',
-        '.pf-logo-bar img { height: 56px; width: auto; }',
-        '.pf-app-pillars { position: sticky; top: 0; z-index: 9000; background: #FBF6EC; border-bottom: 1px solid rgba(42,36,30,.08); padding: 12px 16px 8px; }',
-        '.pf-app-pillars .lib-chips { flex-wrap: nowrap; overflow-x: auto; }',
-        '.pf-app-pillars .chip { flex: 0 0 auto; }',
-        '.pf-app-pillars .chip .count { font-weight: 400; opacity: .7; }'
-      ].join('\n');
-      document.head.appendChild(style);
-    }
+    addStyle('pf-app-header-styles', [
+      '#pf-header, #pf-header-partial { display: none !important; }',
+      'body.pf-app { padding-top: 60px; }',
+      'body.pf-app.pf-app-home { padding-top: 0; }',
+      'body.pf-app [id] { scroll-margin-top: 70px; }',
+      '.pf-app-header { position: fixed; top: 0; left: 0; right: 0; z-index: 9500; height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 8px 0 14px; background: transparent; border-bottom: 1px solid transparent; transition: transform .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease; }',
+      '.pf-app-header.is-solid { background: #FBF6EC; border-bottom-color: rgba(42,36,30,.10); box-shadow: 0 2px 12px rgba(0,0,0,.08); }',
+      '.pf-app-header.is-hidden { transform: translateY(-100%); }',
+      '.pf-app-header .pf-app-logo { display: block; line-height: 0; }',
+      '.pf-app-header .pf-app-logo img { height: 48px; width: auto; display: block; }',
+      '.pf-app-header-actions { display: flex; align-items: center; gap: 2px; }',
+      '.pf-app-header-btn { min-width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 0 10px; border: 0; border-radius: 999px; background: transparent; color: #274828; font-family: inherit; font-size: .9rem; font-weight: 700; text-decoration: none; cursor: pointer; }',
+      '.pf-app-header-btn:active { background: rgba(39,72,40,.10); }',
+      '.pf-app-header-lang { border: 1.5px solid rgba(39,72,40,.35); }'
+    ]);
 
-    var bar = document.createElement('div');
-    bar.className = 'pf-logo-bar';
-    bar.innerHTML = '<a href="' + homeUrl + '" aria-label="PrepperFamily.org"><img src="' + base + '/assets/images/header/logo.webp" alt="PrepperFamily.org"></a>';
-    document.body.insertBefore(bar, document.body.firstChild);
+    var header = document.createElement('header');
+    header.id = 'pf-app-header';
+    header.className = 'pf-app-header' + (isHome ? '' : ' is-solid');
+    header.innerHTML =
+      '<a class="pf-app-logo" href="' + homeUrl + '" aria-label="PrepperFamily.org"><img src="' + base + '/assets/images/header/logo-app.webp" alt="PrepperFamily.org"></a>' +
+      '<span class="pf-app-header-actions">' +
+        '<button type="button" class="pf-app-header-btn pf-app-search-btn" aria-label="' + (isSpanish ? 'Buscar' : 'Search') + '">' + svgSearch + '</button>' +
+        '<a class="pf-app-header-btn pf-app-header-lang" href="' + langUrl + '" aria-label="' + (isSpanish ? 'English version' : 'Versión en español') + '">' + langLabel + '</a>' +
+      '</span>';
+    document.body.insertBefore(header, document.body.firstChild);
 
-    var chipsBox = document.querySelector('.lib-chips');
-    if (!chipsBox) return;
-    var wrap = document.createElement('div');
-    wrap.className = 'pf-app-pillars';
-    wrap.setAttribute('role', 'group');
-    wrap.setAttribute('aria-label', chipsBox.getAttribute('aria-label') || 'Filter by pillar');
-    bar.parentNode.insertBefore(wrap, bar.nextSibling);
-    wrap.appendChild(chipsBox);
-
-    var cards = document.querySelectorAll('.lib-card');
-    var counts = {};
-    cards.forEach(function (card) {
-      var p = card.getAttribute('data-pillar');
-      if (p) counts[p] = (counts[p] || 0) + 1;
-    });
-    chipsBox.querySelectorAll('.chip').forEach(function (chip) {
-      var f = chip.getAttribute('data-filter');
-      var n = f === 'all' ? cards.length : (counts[f] || 0);
-      if (!chip.querySelector('.count')) {
-        var s = document.createElement('span');
-        s.className = 'count';
-        s.textContent = ' ' + n;
-        chip.appendChild(s);
+    header.querySelector('.pf-app-search-btn').addEventListener('click', function () {
+      if (isHome) {
+        var q = document.getElementById('libSearch');
+        var lib = document.getElementById('library');
+        if (lib) lib.scrollIntoView({ behavior: 'smooth' });
+        if (q) setTimeout(function () { q.focus({ preventScroll: true }); }, 350);
+      } else {
+        try { sessionStorage.setItem('pf-focus-search', '1'); } catch (_) {}
+        window.location.href = guidesUrl;
       }
     });
   }
 
+  // ── Portada (home): 75svh, degradado, filtros en su sitio ───────────
+  function initAppHome() {
+    addStyle('pf-app-home-styles', [
+      'body.pf-app .hero { min-height: 75svh; align-items: flex-start; }',
+      'body.pf-app .hero-bg { background-position: center 22%; }',
+      'body.pf-app .hero-overlay { background: linear-gradient(180deg, rgba(39,72,40,0.55) 0%, rgba(39,72,40,0.22) 42%, rgba(13,26,69,0.55) 74%, rgba(13,26,69,0.85) 100%); }',
+      'body.pf-app .hero-content { padding: 5.5rem 1.5rem 2.25rem; }',
+      'body.pf-app .hero-title { font-size: clamp(2.1rem, 8vw, 3.2rem); text-shadow: 0 2px 10px rgba(0,0,0,.45); }',
+      'body.pf-app .hero-sub { text-shadow: 0 1px 6px rgba(0,0,0,.55); }',
+      'body.pf-app .hero-buttons .btn { min-height: 48px; }',
+      'body.pf-app .hero-buttons .btn-outline { border-width: 2px; border-color: rgba(255,255,255,.85); background: rgba(255,255,255,.16); }',
+      'body.pf-app .hero-figures { margin-top: 1.25rem; }',
+      '.pf-trust { margin: 1.1rem 0 0; font-size: .85rem; color: rgba(255,255,255,.92); text-shadow: 0 1px 4px rgba(0,0,0,.5); }',
+      '.pf-trust .dot { color: #C9A84C; }',
+      'body.pf-app .save-band { display: none !important; }',
+      'body.pf-app .lib-controls { position: sticky; top: 60px; z-index: 9000; flex-direction: column; align-items: stretch; gap: .75rem; background: #fff; margin: 0 -1.5rem; padding: .85rem 1.5rem; }',
+      'body.pf-app .lib-chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; -webkit-mask-image: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 20px), transparent); mask-image: linear-gradient(90deg, transparent, #000 20px, #000 calc(100% - 20px), transparent); }',
+      'body.pf-app .lib-chips::-webkit-scrollbar { display: none; }',
+      'body.pf-app .lib-chips .chip { flex: 0 0 auto; }',
+      'body.pf-app .lib-chips .chip .count { font-weight: 400; opacity: .7; }',
+      'body.pf-app .lib-search { width: 100%; }',
+      'body.pf-app #libSearch { width: 100%; }'
+    ]);
+
+    // Línea de confianza bajo los botones.
+    var btns = document.querySelector('.hero-buttons');
+    if (btns && !document.querySelector('.pf-trust')) {
+      var trust = document.createElement('p');
+      trust.className = 'pf-trust';
+      trust.innerHTML = '<span class="dot">●</span> ' + (isSpanish ? '35 guías gratuitas · sin publicidad' : '35 free guides · no ads');
+      btns.parentNode.insertBefore(trust, btns.nextSibling);
+    }
+
+    // «Empieza aquí»: los tres pilares.
+    var kicker = document.querySelector('#resources .section-kicker');
+    if (kicker) kicker.textContent = isSpanish ? 'Empieza aquí' : 'Start here';
+
+    // Conteos reales en los filtros, en su sitio (la biblioteca).
+    // Los botones conservan sus propios listeners, así que añadir el
+    // contador no rompe el filtro.
+    var chipsBox = document.querySelector('.lib-chips');
+    if (chipsBox) {
+      var cards = document.querySelectorAll('.lib-card');
+      var counts = {};
+      cards.forEach(function (card) {
+        var p = card.getAttribute('data-pillar');
+        if (p) counts[p] = (counts[p] || 0) + 1;
+      });
+      chipsBox.querySelectorAll('.chip').forEach(function (chip) {
+        var f = chip.getAttribute('data-filter');
+        var n = f === 'all' ? cards.length : (counts[f] || 0);
+        if (!chip.querySelector('.count')) {
+          var s = document.createElement('span');
+          s.className = 'count';
+          s.textContent = ' ' + n;
+          chip.appendChild(s);
+        }
+      });
+    }
+
+    // Venir desde otra página a buscar: enfocar el buscador.
+    try {
+      if (sessionStorage.getItem('pf-focus-search') === '1') {
+        sessionStorage.removeItem('pf-focus-search');
+        var q = document.getElementById('libSearch');
+        if (q) setTimeout(function () { q.focus({ preventScroll: true }); }, 400);
+      }
+    } catch (_) {}
+  }
+
+  // ── Artículos: barra mínima, progreso, donación ──────────────────────
+  function backUrl() {
+    var s = document.querySelector('script[data-category-url]');
+    if (s && s.dataset && s.dataset.categoryUrl) return s.dataset.categoryUrl;
+    var p = window.location.pathname.replace(/\/$/, '');
+    var i = p.lastIndexOf('/');
+    if (i > 0) return p.slice(0, i) + '/';
+    return homeUrl;
+  }
+
+  function isCurrentSaved() {
+    var url = pageUrl();
+    return readSaved().some(function (item) { return item.u === url; });
+  }
+
+  var svgBookmarkOutline = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h10v16l-5-3.6L7 20V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
+  var svgBookmarkFilled = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4h10v16l-5-3.6L7 20V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
+  var svgShare = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 15V4m0 0L8 8m4-4l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 12v7a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19v-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
+  var svgBack = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  function paintReadSave() {
+    var btn = document.getElementById('pf-read-save');
+    if (!btn) return;
+    btn.innerHTML = isCurrentSaved() ? svgBookmarkFilled : svgBookmarkOutline;
+  }
+
+  function toggleSavedFallback() {
+    var url = pageUrl();
+    var list = readSaved();
+    var at = -1;
+    for (var i = 0; i < list.length; i++) { if (list[i].u === url) { at = i; break; } }
+    if (at >= 0) list.splice(at, 1);
+    else list.unshift({ u: url, t: cleanTitle(), l: isSpanish ? 'es' : 'en', d: Date.now() });
+    try { localStorage.setItem('pf-guardados-v1', JSON.stringify(list)); } catch (_) {}
+    paintReadSave();
+  }
+
+  function initAppArticle() {
+    addStyle('pf-app-article-styles', [
+      '.pf-readbar { position: fixed; top: 0; left: 0; right: 0; z-index: 9600; height: 60px; display: flex; align-items: center; gap: 2px; padding: 0 8px; background: #FBF6EC; border-bottom: 1px solid rgba(42,36,30,.10); box-shadow: 0 2px 12px rgba(0,0,0,.08); }',
+      '.pf-readbar-btn { min-width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 0; background: transparent; color: #274828; border-radius: 50%; cursor: pointer; padding: 0; text-decoration: none; }',
+      '.pf-readbar-btn:active { background: rgba(39,72,40,.10); }',
+      '.pf-readbar-title { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; font-size: .9rem; font-weight: 700; color: #274828; padding: 0 4px; }',
+      '.pf-read-progress { position: absolute; left: 0; bottom: -1px; height: 3px; width: 0%; background: #C9A84C; }',
+      '.pf-donate-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .7rem 1.8rem; border-radius: 999px; background: #C9A84C; color: #3a2c0e; font-weight: 700; text-decoration: none; }',
+      '.pf-app-donate { background: #FBF6EC; border: 1.5px solid rgba(201,168,76,.55); border-radius: 16px; padding: 22px 20px; margin: 32px 0 0; text-align: center; }',
+      '.pf-app-donate h3 { font-size: 1.25rem; margin: 0 0 .5rem; color: #274828; }',
+      '.pf-app-donate p { font-size: .95rem; line-height: 1.55; margin: 0 0 1rem; }',
+      '.pf-app-donate .pf-donate-note { display: block; margin-top: .8rem; font-size: .8rem; opacity: .7; }',
+      '.pf-app-donate .pf-donate-shop { display: inline-block; margin-top: .6rem; font-size: .85rem; font-weight: 700; color: #274828; }',
+      '.pf-donate-card { position: fixed; left: 16px; right: 16px; bottom: calc(64px + env(safe-area-inset-bottom, 0px) + 12px); z-index: 9600; background: #FBF6EC; border: 1.5px solid rgba(201,168,76,.6); border-radius: 16px; box-shadow: 0 12px 32px rgba(0,0,0,.25); padding: 16px; }',
+      '.pf-donate-card h3 { font-size: 1.05rem; margin: 0 0 .35rem; color: #274828; }',
+      '.pf-donate-card p { font-size: .9rem; line-height: 1.5; margin: 0 0 .8rem; }',
+      '.pf-donate-card-row { display: flex; gap: 10px; align-items: center; }',
+      '.pf-donate-card .pf-donate-btn { min-height: 44px; padding: .55rem 1.4rem; }',
+      '.pf-donate-card-dismiss { border: 0; background: transparent; font: inherit; font-size: .85rem; font-weight: 700; color: #274828; opacity: .75; padding: 10px 6px; cursor: pointer; }'
+    ]);
+
+    // Barra mínima: retorno, título, guardar, compartir + progreso.
+    var bar = document.createElement('div');
+    bar.className = 'pf-readbar';
+    bar.innerHTML =
+      '<a class="pf-readbar-btn" id="pf-read-back" href="' + backUrl() + '" aria-label="' + (isSpanish ? 'Volver a la categoría' : 'Back to category') + '">' + svgBack + '</a>' +
+      '<span class="pf-readbar-title">' + escapeHtml(cleanTitle()) + '</span>' +
+      '<button type="button" class="pf-readbar-btn" id="pf-read-save" aria-label="' + (isSpanish ? 'Guardar' : 'Save') + '">' + svgBookmarkOutline + '</button>' +
+      '<button type="button" class="pf-readbar-btn" id="pf-read-share" aria-label="' + (isSpanish ? 'Compartir' : 'Share') + '">' + svgShare + '</button>' +
+      '<span class="pf-read-progress" id="pf-read-progress"></span>';
+    document.body.insertBefore(bar, document.body.firstChild);
+
+    // El enlace real de «Volver a la categoría» lo inyecta article-nav
+    // un poco después: cuando aparezca, usar su href exacto.
+    setTimeout(function () {
+      var link = document.querySelector('#pf-article-nav-top .pf-article-nav-link');
+      var back = document.getElementById('pf-read-back');
+      if (link && back && link.getAttribute('href')) back.setAttribute('href', link.getAttribute('href'));
+    }, 1200);
+
+    paintReadSave();
+    document.getElementById('pf-read-save').addEventListener('click', function () {
+      var real = document.getElementById('pf-article-nav-save-btn');
+      if (real) { real.click(); setTimeout(paintReadSave, 120); }
+      else toggleSavedFallback();
+    });
+    document.getElementById('pf-read-share').addEventListener('click', function () {
+      var real = document.getElementById('pf-article-nav-share-btn');
+      if (real) { real.click(); return; }
+      if (navigator.share) { navigator.share({ title: document.title, url: window.location.href }).catch(function () {}); return; }
+      if (navigator.clipboard) navigator.clipboard.writeText(window.location.href).catch(function () {});
+    });
+
+    // Bloque de donación contextual al final del artículo.
+    var bottom = document.getElementById('pf-article-nav-bottom');
+    if (bottom) {
+      var box = document.createElement('div');
+      box.className = 'pf-app-donate';
+      box.innerHTML =
+        '<h3>' + (isSpanish ? 'Sostén estas guías' : 'Keep these guides free') + '</h3>' +
+        '<p>' + (isSpanish ? 'Tu aporte sostiene guías gratuitas para familias.' : 'Your gift keeps free guides coming for families.') + '</p>' +
+        '<a class="pf-donate-btn" href="' + donateUrl + '" target="_blank" rel="noopener">' + (isSpanish ? 'Donar' : 'Donate') + '</a>' +
+        '<span class="pf-donate-note">' + (isSpanish ? 'Aporte voluntario · Sin deducción de impuestos' : 'Voluntary gift · Not tax-deductible') + '</span>' +
+        '<a class="pf-donate-shop" href="' + shopUrl + '">' + (isSpanish ? 'También puedes apoyar desde la tienda →' : 'You can also support us from the shop →') + '</a>';
+      bottom.parentNode.insertBefore(box, bottom);
+    }
+
+    // «Continuar leyendo»: recordar la última guía abierta.
+    try {
+      localStorage.setItem('pf-ultima-guia', JSON.stringify({ u: pageUrl(), t: cleanTitle() }));
+    } catch (_) {}
+
+    // Tras la tercera guía leída en la sesión: tarjeta amable, una
+    // sola vez por sesión y descartable.
+    var readCount = 0;
+    try { readCount = parseInt(sessionStorage.getItem('pf-guias-sesion') || '0', 10) || 0; } catch (_) {}
+    readCount += 1;
+    try { sessionStorage.setItem('pf-guias-sesion', String(readCount)); } catch (_) {}
+    var dismissed = false;
+    try { dismissed = sessionStorage.getItem('pf-donar-tarjeta') === '1'; } catch (_) {}
+    if (readCount === 3 && !dismissed) {
+      var card = document.createElement('div');
+      card.className = 'pf-donate-card';
+      card.innerHTML =
+        '<h3>' + (isSpanish ? '¿Te están sirviendo estas guías?' : 'Are these guides helping you?') + '</h3>' +
+        '<p>' + (isSpanish ? 'Tu aporte sostiene guías gratuitas para familias.' : 'Your gift keeps free guides coming for families.') + '</p>' +
+        '<div class="pf-donate-card-row">' +
+          '<a class="pf-donate-btn" href="' + donateUrl + '" target="_blank" rel="noopener">' + (isSpanish ? 'Donar' : 'Donate') + '</a>' +
+          '<button type="button" class="pf-donate-card-dismiss">' + (isSpanish ? 'Ahora no' : 'Not now') + '</button>' +
+        '</div>';
+      document.body.appendChild(card);
+      card.querySelector('.pf-donate-card-dismiss').addEventListener('click', function () {
+        try { sessionStorage.setItem('pf-donar-tarjeta', '1'); } catch (_) {}
+        card.remove();
+      });
+    }
+  }
+
+  // ── Guardados: marcar como vistos + estado vacío ─────────────────────
+  function markSavedSeen() {
+    if (!isSavedPage) return;
+    try { localStorage.setItem('pf-guardados-vistos', String(readSaved().length)); } catch (_) {}
+  }
+
+  function initAppSavedExtras() {
+    addStyle('pf-app-saved-styles', [
+      '.pf-saved-extras { margin-top: 1.25rem; display: grid; gap: .75rem; }',
+      '.pf-saved-extras a { display: block; padding: .8rem 1rem; border: 1.5px solid rgba(39,72,40,.25); border-radius: 12px; text-decoration: none; font-weight: 700; color: #274828; background: #fff; }'
+    ]);
+    var empty = document.getElementById('pf-saved-empty');
+    if (!empty) return;
+    var done = false;
+    function inject() {
+      if (done) return;
+      if (empty.style.display === 'none') return;
+      done = true;
+      var wrap = document.createElement('div');
+      wrap.className = 'pf-saved-extras';
+      var html = '';
+      var last = null;
+      try { last = JSON.parse(localStorage.getItem('pf-ultima-guia') || 'null'); } catch (_) {}
+      if (last && last.u && last.t) {
+        html += '<a href="' + last.u + '">' + (isSpanish ? 'Continuar leyendo: ' : 'Continue reading: ') + escapeHtml(last.t) + '</a>';
+      }
+      html += '<a href="' + gameUrl + '">' + (isSpanish ? 'Jugar a Pantry Words' : 'Play Pantry Words') + '</a>';
+      html += '<a href="' + communityUrl + '" target="_blank" rel="noopener">' + (isSpanish ? 'Comunidad en Facebook' : 'Facebook community') + '</a>';
+      wrap.innerHTML = html;
+      empty.appendChild(wrap);
+    }
+    if ('MutationObserver' in window) {
+      new MutationObserver(function () { inject(); })
+        .observe(empty, { attributes: true, attributeFilter: ['style'] });
+    }
+    setTimeout(inject, 800);
+  }
+
   if (isStandalone) {
+    document.body.classList.add('pf-app');
+    if (isHome) document.body.classList.add('pf-app-home');
+    markSavedSeen();
     initAppMenu();
-    initAppHeader();
+    if (isArticle) initAppArticle();
+    else initAppHeader();
+    if (isHome) initAppHome();
+    if (isSavedPage) initAppSavedExtras();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
     return;
   }
 

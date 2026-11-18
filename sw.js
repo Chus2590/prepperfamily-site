@@ -3,7 +3,7 @@
 // visitarlas (biblioteca offline); los archivos del sitio se sirven
 // desde la caché cuando ya están guardados. Sin conexión y sin copia
 // guardada, se muestra /offline.html.
-const CACHE = 'prepperfamily-v8';
+const CACHE = 'prepperfamily-v9';
 const CORE = [
   '/',
  '/es/', '/en/',
@@ -11,6 +11,7 @@ const CORE = [
   '/offline.html',
   '/assets/css/tipografia-sitio.css?v=2',
   '/assets/images/header/logo.webp',
+  '/assets/images/header/logo-app.webp',
   '/favicon.ico',
   '/apple-touch-icon.png',
   '/assets/icons/icon-192.png',
