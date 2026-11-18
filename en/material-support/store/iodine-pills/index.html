@@ -633,7 +633,7 @@ let path=location.pathname;if(!path.endsWith("/"))path+="/";
 const src=isES?`${path}recursos/`:`${path}sources/`;
 loadHTML(src,"pf-sources");
 const nav=document.createElement("script");
-nav.src=`${base}/partials/article-nav/index.js`;
+nav.src=`${base}/partials/article-nav/index.js?v=20`;
 nav.dataset.categoryUrl="/en/material-support/store/";
 document.body.appendChild(nav);
 })();
