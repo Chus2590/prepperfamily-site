@@ -5,6 +5,9 @@
   // Idioma por ruta
   const isSpanish = window.location.pathname.startsWith("/es/");
 
+  // Solo en la app instalada: en la web el botón «Ver productos» no se muestra.
+  const isStandalone = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+
   // Único dato que pasas por artículo
   const categoryUrl = script.dataset.categoryUrl || "/";
 
@@ -450,6 +453,8 @@
   function watchProducts() {
     const btn = document.getElementById("pf-article-nav-products-btn");
     if (!btn) return;
+    // Solo en la app: en la web el botón no existe.
+    if (!isStandalone) { btn.remove(); return; }
     const reveal = function () {
       if (productsEl()) {
         btn.style.display = "inline-flex";
