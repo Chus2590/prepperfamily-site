@@ -135,7 +135,8 @@
   // misma sección se muestra en una hoja inferior descartable (con X y
   // tocando fuera), y vuelve a su sitio al cerrarse. Así el anuncio no
   // estorba la lectura y siempre se puede quitar. Si el pie aún no ha
-  // cargado, Donar abre el enlace de Stripe directamente.
+  // cargado, Donar trae la sección del partial del pie para mostrarla
+  // antes de ir a Stripe; solo si eso falla abre Stripe directamente.
   var donateSheet = null;
   var supportOriginal = null;
 
@@ -152,6 +153,27 @@
     document.body.style.overflow = '';
   }
 
+  function openDonateSheet(support, original) {
+    supportOriginal = original || null;
+    var backdrop = document.createElement('div');
+    backdrop.className = 'pf-donate-sheet-backdrop';
+    backdrop.innerHTML =
+      '<div class="pf-donate-sheet" role="dialog" aria-label="' + (isSpanish ? 'Apoyar a PrepperFamily.org' : 'Support PrepperFamily.org') + '">' +
+        '<button type="button" class="pf-donate-sheet-close" aria-label="' + (isSpanish ? 'Cerrar' : 'Close') + '">' +
+          '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' +
+        '</button>' +
+        '<div class="pf-donate-sheet-body"></div>' +
+      '</div>';
+    backdrop.querySelector('.pf-donate-sheet-body').appendChild(support);
+    document.body.appendChild(backdrop);
+    donateSheet = backdrop;
+    document.body.style.overflow = 'hidden';
+    backdrop.addEventListener('click', function (e) { if (e.target === backdrop) closeDonateSheet(); });
+    backdrop.querySelector('.pf-donate-sheet-close').addEventListener('click', closeDonateSheet);
+    var donateBtn = support.querySelector('.pf-donate-button');
+    if (donateBtn) donateBtn.addEventListener('click', function () { setTimeout(closeDonateSheet, 300); });
+  }
+
   function initDonateSheet() {
     addStyle('pf-app-donate-styles', [
       'body.pf-app #pf-footer #pf-support-combined { display: none !important; }',
@@ -166,25 +188,28 @@
     btn.addEventListener('click', function () {
       if (donateSheet) return;
       var support = document.getElementById('pf-support-combined');
-      if (!support) { window.open(donateUrl, '_blank'); return; }
-      supportOriginal = { parent: support.parentNode, next: support.nextSibling };
-      var backdrop = document.createElement('div');
-      backdrop.className = 'pf-donate-sheet-backdrop';
-      backdrop.innerHTML =
-        '<div class="pf-donate-sheet" role="dialog" aria-label="' + (isSpanish ? 'Apoyar a PrepperFamily.org' : 'Support PrepperFamily.org') + '">' +
-          '<button type="button" class="pf-donate-sheet-close" aria-label="' + (isSpanish ? 'Cerrar' : 'Close') + '">' +
-            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' +
-          '</button>' +
-          '<div class="pf-donate-sheet-body"></div>' +
-        '</div>';
-      backdrop.querySelector('.pf-donate-sheet-body').appendChild(support);
-      document.body.appendChild(backdrop);
-      donateSheet = backdrop;
-      document.body.style.overflow = 'hidden';
-      backdrop.addEventListener('click', function (e) { if (e.target === backdrop) closeDonateSheet(); });
-      backdrop.querySelector('.pf-donate-sheet-close').addEventListener('click', closeDonateSheet);
-      var donateBtn = support.querySelector('.pf-donate-button');
-      if (donateBtn) donateBtn.addEventListener('click', function () { setTimeout(closeDonateSheet, 300); });
+      if (support) {
+        openDonateSheet(support, { parent: support.parentNode, next: support.nextSibling });
+        return;
+      }
+      // El pie aún no cargó: trae la sección de apoyo del partial del pie
+      // para explicarla antes de ir a Stripe.
+      var footerUrl = base + '/partials/footer-' + (isSpanish ? 'es' : 'en') + '/';
+      fetch(footerUrl).then(function (res) {
+        if (!res.ok) throw new Error('footer');
+        return res.text();
+      }).then(function (html) {
+        if (donateSheet) return;
+        var again = document.getElementById('pf-support-combined');
+        if (again) { openDonateSheet(again, { parent: again.parentNode, next: again.nextSibling }); return; }
+        var tmp = document.createElement('div');
+        tmp.innerHTML = html;
+        var fetched = tmp.querySelector('#pf-support-combined');
+        if (!fetched) throw new Error('sin apoyo');
+        openDonateSheet(fetched, null);
+      }).catch(function () {
+        if (!donateSheet) window.open(donateUrl, '_blank');
+      });
     });
   }
 
