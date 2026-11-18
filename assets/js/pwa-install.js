@@ -283,10 +283,12 @@
     });
   }
 
-  // ── Pilares: en las páginas de pilar, los otros dos a la vista ───────
-  // La app abre en Sustento; desde ahí se ven Resistencia y Fortaleza
-  // como tres pastillas bajo el encabezado del pilar.
+  // ── Pilares: en las páginas de pilar y categoría, los otros a la vista
+  // Solo en páginas de pilar/categoría (nunca en artículos). En las de
+  // categoría van SOLO arriba de las opciones de categoría (el submenú),
+  // nunca entre las tarjetas. En la raíz del pilar, bajo su encabezado.
   function initPillarSwitcher() {
+    if (isArticle) return;
     var pillars = isSpanish ? [
       { label: 'Sustento Material', url: '/es/sustento-material/' },
       { label: 'Resistencia Familiar', url: '/es/resistencia-familiar/' },
@@ -299,7 +301,11 @@
     var current = null;
     pillars.forEach(function (p) { if (window.location.pathname.indexOf(p.url) === 0) current = p.url; });
     if (!current) return;
-    var anchor = document.querySelector('header.sm-hero') || document.querySelector('h1');
+    var submenu = document.getElementById('pf-submenu-partial');
+    var anchor = null;
+    var before = false;
+    if (submenu) { anchor = submenu; before = true; }
+    else { anchor = document.querySelector('header.sm-hero') || document.querySelector('h1'); }
     if (!anchor) return;
     addStyle('pf-app-pillars-styles', [
       '.pf-pillars { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 14px 0 4px; }',
@@ -317,7 +323,8 @@
       if (p.url === current) a.classList.add('is-active');
       row.appendChild(a);
     });
-    anchor.parentNode.insertBefore(row, anchor.nextSibling);
+    if (before) anchor.parentNode.insertBefore(row, anchor);
+    else anchor.parentNode.insertBefore(row, anchor.nextSibling);
   }
 
   // ── Header compacto (60 px): logo sin fondo, buscar, idioma ─────────
