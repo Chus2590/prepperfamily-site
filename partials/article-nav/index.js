@@ -436,8 +436,14 @@
   }
 
   // ── Ver productos (solo si el artículo los tiene) ──────────────────────
+  // Los partials antiguos muestran los productos en .pf-recs-grid sin
+  // la envoltura .pf-recs-products; el botón debe salir en ambos.
+  function productsEl() {
+    return document.querySelector(".pf-recs-products") || document.querySelector(".pf-recs-grid");
+  }
+
   function scrollToProducts() {
-    const el = document.querySelector(".pf-recs-products");
+    const el = productsEl();
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -445,7 +451,7 @@
     const btn = document.getElementById("pf-article-nav-products-btn");
     if (!btn) return;
     const reveal = function () {
-      if (document.querySelector(".pf-recs-products")) {
+      if (productsEl()) {
         btn.style.display = "inline-flex";
         return true;
       }

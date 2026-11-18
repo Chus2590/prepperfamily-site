@@ -516,6 +516,9 @@
 
   function initAppArticle() {
     addStyle('pf-app-article-styles', [
+      '#pf-header, #pf-header-partial { display: none !important; }',
+      'body.pf-app { padding-top: 60px; }',
+      'body.pf-app [id] { scroll-margin-top: 70px; }',
       '.pf-readbar { position: fixed; top: 0; left: 0; right: 0; z-index: 9600; height: 60px; display: flex; align-items: center; gap: 2px; padding: 0 8px; background: #FBF6EC; border-bottom: 1px solid rgba(42,36,30,.10); box-shadow: 0 2px 12px rgba(0,0,0,.08); }',
       '.pf-readbar-btn { min-width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 0; background: transparent; color: #274828; border-radius: 50%; cursor: pointer; padding: 0; text-decoration: none; }',
       '.pf-readbar-btn:active { background: rgba(39,72,40,.10); }',
