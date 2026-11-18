@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Política de privacidad | PrepperFamily.org</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://prepperfamily.org/es/politica-de-privacidad/">
+  <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/politica-de-privacidad/">
+  <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/privacy-policy/">
+  <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/es/politica-de-privacidad/">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #2c6d4c;
+      --color-secondary: #1a2a6c;
+      --color-accent: #f8b84e;
+      --color-background: #fdfbf7;
+      --color-text: #333;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--color-background); color: var(--color-text); line-height: 1.7; }
+    .policy-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .policy-wrap h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.75rem; color: var(--color-primary); margin: 0 0 0.5rem; line-height: 1.2; }
+    .policy-rule { width: 64px; height: 4px; background: var(--color-accent); border: 0; margin: 0 0 2rem; }
+    .policy-wrap p { font-size: 1.05rem; }
+    .policy-note { background: #fff; border-left: 4px solid var(--color-accent); padding: 1.25rem 1.5rem; border-radius: 0 12px 12px 0; box-shadow: 0 4px 16px rgba(0,0,0,0.06); font-size: 1.05rem; margin: 2rem 0; }
+    .policy-wrap h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; color: var(--color-primary); margin-top: 2.5rem; }
+    .policy-wrap ul { padding-left: 1.25rem; }
+    .policy-wrap li { margin-bottom: 0.9rem; font-size: 1.05rem; }
+    .policy-back { display: inline-block; margin-top: 3rem; color: var(--color-primary); font-weight: 600; text-decoration: none; }
+    .policy-back:hover { text-decoration: underline; }
+    @media (max-width: 640px) {
+      .policy-wrap h1 { font-size: 2.25rem; }
+    }
+  </style>
+<!-- Tipografía del sitio: Libre Caslon Text (todo menos títulos) -->
+<link rel="stylesheet" href="../../assets/css/tipografia-sitio.css">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="theme-color" content="#274828">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
+    <script src="/assets/js/pwa-install.js?v=2" defer></script>
+</head>
+<body>
+
+<div id="pf-header"></div>
+
+<main class="policy-wrap">
+  <h1>Política de privacidad</h1>
+  <hr class="policy-rule">
+  <p>En PrepperFamily.org respetamos tu privacidad. Este sitio es un recurso informativo para familias: no pedimos tus datos personales ni los recogemos.</p>
+  <p class="policy-note">PrepperFamily.org no tiene cuentas de usuario, formularios ni comentarios. No pedimos tu nombre, tu correo electrónico ni ningún dato personal, y no usamos herramientas de analítica ni de seguimiento.</p>
+  <h2>Lo que se guarda en tu teléfono</h2>
+  <p>Si instalas la aplicación o guardas guías, la aplicación guarda tus guías guardadas y tu progreso de lectura solo en tu propio teléfono, en el almacenamiento local del navegador. Esa información nunca sale de tu teléfono ni se envía a ningún servidor. Puedes borrarla quitando las guías guardadas, borrando los datos de la aplicación o desinstalándola.</p>
+  <h2>Servicios de terceros</h2>
+  <p>Al usar ciertos enlaces y servicios sales de PrepperFamily.org y se aplican las políticas de esos servicios:</p>
+  <ul>
+    <li><strong>Donaciones.</strong> Se procesan con Stripe. Stripe recoge los datos del pago; PrepperFamily.org no recibe los datos de tu tarjeta.</li>
+    <li><strong>Enlaces de afiliado a Amazon.</strong> Al hacer clic vas a Amazon, que puede usar cookies y recoger datos según su propia política de privacidad.</li>
+    <li><strong>Tienda.</strong> La tienda funciona con Fourthwall, que procesa los pedidos.</li>
+    <li><strong>Redes sociales.</strong> Los enlaces a Instagram, Facebook, TikTok, YouTube y Pinterest te llevan a esas plataformas.</li>
+    <li><strong>Fuentes tipográficas.</strong> El sitio carga sus fuentes desde Google Fonts; al hacerlo, Google puede recibir tu dirección IP.</li>
+  </ul>
+  <h2>Menores de edad</h2>
+  <p>El sitio está escrito para familias, pero no recoge datos personales de nadie, incluidos los menores de edad. No recogemos deliberadamente datos de menores de 13 años.</p>
+  <h2>Cambios a esta política</h2>
+  <p>Podemos actualizar esta política. La versión vigente es la que ves en esta página.</p>
+  <h2>Contacto</h2>
+  <p>Si tienes preguntas sobre esta política, puedes contactarnos a través de PrepperFamily.org.</p>
+  <a class="policy-back" href="https://prepperfamily.org/es/">&larr; Volver a PrepperFamily.org</a>
+</main>
+
+<div id="pf-footer"></div>
+
+<script>
+(async () => {
+  const isGitHub = location.hostname.endsWith("github.io");
+  const base = isGitHub ? `${location.origin}/prepperfamily-site` : "";
+  const lang = location.pathname.includes("/es/") ? "es" : "en";
+
+  const headerUrl = `${base}/partials/header-${lang}/`;
+  const footerUrl = `${base}/partials/footer-${lang}/`;
+
+  async function inject(url, id){
+    const r = await fetch(url, { cache: "no-store" });
+    if(!r.ok) throw new Error(`Failed ${url}`);
+    document.getElementById(id).innerHTML = await r.text();
+  }
+
+  await inject(headerUrl, "pf-header");
+  await inject(footerUrl, "pf-footer");
+})();
+</script>
+
+</body>
+</html>
