@@ -615,8 +615,9 @@
       if (last && last.u && last.t) {
         html += '<a href="' + last.u + '">' + (isSpanish ? 'Continuar leyendo: ' : 'Continue reading: ') + escapeHtml(last.t) + '</a>';
       }
-      html += '<a href="' + gameUrl + '">' + (isSpanish ? 'Jugar a Pantry Words' : 'Play Pantry Words') + '</a>';
-      html += '<a href="' + communityUrl + '" target="_blank" rel="noopener">' + (isSpanish ? 'Comunidad en Facebook' : 'Facebook community') + '</a>';
+      html += '<a href="' + shopUrl + '">' + (isSpanish ? 'Tienda' : 'Shop') + '</a>';
+      html += '<a href="' + gameUrl + '">' + (isSpanish ? 'Juegos' : 'Games') + '</a>';
+      html += '<a href="' + (isSpanish ? '/es/' : '/') + '#community">' + (isSpanish ? 'Comunidad' : 'Community') + '</a>';
       wrap.innerHTML = html;
       empty.appendChild(wrap);
     }
