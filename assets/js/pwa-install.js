@@ -412,14 +412,15 @@
     var header = document.createElement('header');
     header.id = 'pf-app-header';
     header.className = 'pf-app-header' + (isHome ? '' : ' is-solid');
+    var searchBtn = isSavedPage ? '' :
+      '<button type="button" class="pf-app-header-btn pf-app-search-btn" aria-label="' + (isSpanish ? 'Buscar' : 'Search') + '">' + svgSearch + '</button>';
     header.innerHTML =
       '<a class="pf-app-logo" href="' + homeUrl + '" aria-label="PrepperFamily.org"><img src="' + base + '/assets/images/header/logo-app.webp" alt="PrepperFamily.org"></a>' +
-      '<span class="pf-app-header-actions">' +
-        '<button type="button" class="pf-app-header-btn pf-app-search-btn" aria-label="' + (isSpanish ? 'Buscar' : 'Search') + '">' + svgSearch + '</button>' +
-      '</span>';
+      '<span class="pf-app-header-actions">' + searchBtn + '</span>';
     document.body.insertBefore(header, document.body.firstChild);
 
-    header.querySelector('.pf-app-search-btn').addEventListener('click', function () {
+    var searchEl = header.querySelector('.pf-app-search-btn');
+    if (searchEl) searchEl.addEventListener('click', function () {
       if (isHome) {
         var q = document.getElementById('libSearch');
         var lib = document.getElementById('library');
@@ -597,35 +598,24 @@
 
   function initAppSavedExtras() {
     addStyle('pf-app-saved-styles', [
-      '.pf-saved-extras { margin-top: 1.25rem; display: grid; gap: .75rem; }',
+      '.pf-saved-extras { margin-top: 1.25rem; display: grid; gap: .75rem; text-align: left; }',
       '.pf-saved-extras a { display: block; padding: .8rem 1rem; border: 1.5px solid rgba(39,72,40,.25); border-radius: 12px; text-decoration: none; font-weight: 700; color: #274828; background: #fff; }'
     ]);
-    var empty = document.getElementById('pf-saved-empty');
-    if (!empty) return;
-    var done = false;
-    function inject() {
-      if (done) return;
-      if (empty.style.display === 'none') return;
-      done = true;
-      var wrap = document.createElement('div');
-      wrap.className = 'pf-saved-extras';
-      var html = '';
-      var last = null;
-      try { last = JSON.parse(localStorage.getItem('pf-ultima-guia') || 'null'); } catch (_) {}
-      if (last && last.u && last.t) {
-        html += '<a href="' + last.u + '">' + (isSpanish ? 'Continuar leyendo: ' : 'Continue reading: ') + escapeHtml(last.t) + '</a>';
-      }
-      html += '<a href="' + shopUrl + '">' + (isSpanish ? 'Tienda' : 'Shop') + '</a>';
-      html += '<a href="' + gameUrl + '">' + (isSpanish ? 'Juegos' : 'Games') + '</a>';
-      html += '<a href="' + (isSpanish ? '/es/' : '/') + '#community">' + (isSpanish ? 'Comunidad' : 'Community') + '</a>';
-      wrap.innerHTML = html;
-      empty.appendChild(wrap);
+    var actions = document.getElementById('pf-saved-actions');
+    if (!actions) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'pf-saved-extras';
+    var html = '';
+    var last = null;
+    try { last = JSON.parse(localStorage.getItem('pf-ultima-guia') || 'null'); } catch (_) {}
+    if (last && last.u && last.t) {
+      html += '<a href="' + last.u + '">' + (isSpanish ? 'Continuar leyendo: ' : 'Continue reading: ') + escapeHtml(last.t) + '</a>';
     }
-    if ('MutationObserver' in window) {
-      new MutationObserver(function () { inject(); })
-        .observe(empty, { attributes: true, attributeFilter: ['style'] });
-    }
-    setTimeout(inject, 800);
+    html += '<a href="' + shopUrl + '">' + (isSpanish ? 'Tienda' : 'Shop') + '</a>';
+    html += '<a href="' + gameUrl + '">' + (isSpanish ? 'Juegos' : 'Games') + '</a>';
+    html += '<a href="' + (isSpanish ? '/es/' : '/') + '#community">' + (isSpanish ? 'Comunidad' : 'Community') + '</a>';
+    wrap.innerHTML = html;
+    actions.appendChild(wrap);
   }
 
   if (isStandalone) {
