@@ -128,6 +128,26 @@
     document.body.appendChild(bar);
     document.body.classList.add('pf-app-menu-on');
 
+    // Guías: volver a la biblioteca de forma fiable. La biblioteca
+    // queda 70 px bajo el header fijo, y al cargar la home con
+    // #library se baja a ella cuando el diseño se asienta (el salto
+    // nativo del ancla a veces queda arriba por las imágenes). Si ya
+    // se está en la home con #library, el toque baja suave.
+    addStyle('pf-app-library-anchor', ['#library{scroll-margin-top:70px;}']);
+    if (isHome && window.location.hash === '#library') {
+      setTimeout(function () {
+        var lib = document.getElementById('library');
+        if (lib) lib.scrollIntoView();
+      }, 400);
+    }
+    var guidesBtn = document.getElementById('pf-menu-guides');
+    if (guidesBtn) guidesBtn.addEventListener('click', function (e) {
+      if (!isHome || window.location.hash !== '#library') return;
+      e.preventDefault();
+      var lib = document.getElementById('library');
+      if (lib) lib.scrollIntoView({ behavior: 'smooth' });
+    });
+
     window.addEventListener('hashchange', function () {
       var guides = document.getElementById('pf-menu-guides');
       if (!guides) return;
@@ -289,17 +309,22 @@
   // nunca entre las tarjetas. En la raíz del pilar, bajo su encabezado.
   function initPillarSwitcher() {
     if (isArticle) return;
+    // Cada pastilla lleva a la primera categoría de su pilar: la app
+    // abre en Almacena, y Jesús pidió Roles y Conceptos como destino
+    // de Resistencia y Fortaleza. `root` solo marca el pilar activo
+    // cuando se está en la raíz del pilar.
     var pillars = isSpanish ? [
-      { label: 'Sustento Material', url: '/es/sustento-material/' },
-      { label: 'Resistencia Familiar', url: '/es/resistencia-familiar/' },
-      { label: 'Fortaleza Interior', url: '/es/fortaleza-interior/' }
+      { label: 'Sustento Material', url: '/es/sustento-material/almacena/', root: '/es/sustento-material/' },
+      { label: 'Resistencia Familiar', url: '/es/resistencia-familiar/roles-estructura/', root: '/es/resistencia-familiar/' },
+      { label: 'Fortaleza Interior', url: '/es/fortaleza-interior/conceptos-cristianos-basicos/', root: '/es/fortaleza-interior/' }
     ] : [
-      { label: 'Material Support', url: '/en/material-support/' },
-      { label: 'Family Resilience', url: '/en/family-resilience/' },
-      { label: 'Inner Strength', url: '/en/inner-strength/' }
+      { label: 'Material Support', url: '/en/material-support/store/', root: '/en/material-support/' },
+      { label: 'Family Resilience', url: '/en/family-resilience/roles-structure/', root: '/en/family-resilience/' },
+      { label: 'Inner Strength', url: '/en/inner-strength/basic-christian-concepts/', root: '/en/inner-strength/' }
     ];
     var current = null;
     pillars.forEach(function (p) { if (window.location.pathname.indexOf(p.url) === 0) current = p.url; });
+    if (!current) pillars.forEach(function (p) { if (window.location.pathname.indexOf(p.root) === 0) current = p.url; });
     if (!current) return;
     var submenu = document.getElementById('pf-submenu-partial');
     var anchor = null;
