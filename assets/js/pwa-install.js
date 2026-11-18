@@ -85,20 +85,17 @@
     lastScrollY = y;
   }
 
-  // ── Barra inferior: Inicio · Guías · Guardados · Donar ───────────────
+  // ── Barra inferior: Guardados · Donar · Ajustes ──────────────────────
   function initAppMenu() {
-    var guidesLabel = isSpanish ? 'Guías' : 'Guides';
     var savedLabel = isSpanish ? 'Guardados' : 'Saved';
     var donateLabel = isSpanish ? 'Donar' : 'Donate';
     var settingsLabel = isSpanish ? 'Ajustes' : 'Settings';
-    var onGuides = isHome && window.location.hash === '#library';
 
     var savedCount = readSaved().length;
     var seenCount = 0;
     try { seenCount = parseInt(localStorage.getItem('pf-guardados-vistos') || '0', 10) || 0; } catch (_) {}
     var newCount = savedCount - seenCount;
 
-    var svgList = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="4" cy="6" r="1.3" fill="currentColor"/><circle cx="4" cy="12" r="1.3" fill="currentColor"/><circle cx="4" cy="18" r="1.3" fill="currentColor"/></svg>';
     var svgBookmark = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h10v16l-5-3.6L7 20V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
     var svgHeart = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5C7 16.5 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.8 4 2.1C12.9 5.8 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.5 6.9-8.5 10.9z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
     var svgGear = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.5 5.5l1.8 1.8M16.7 16.7l1.8 1.8M18.5 5.5l-1.8 1.8M7.3 16.7l-1.8 1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
@@ -121,38 +118,11 @@
     bar.setAttribute('aria-label', isSpanish ? 'Menú de la aplicación' : 'App menu');
     var badge = newCount > 0 ? '<span class="pf-app-menu-count">' + newCount + '</span>' : '';
     bar.innerHTML =
-      '<a id="pf-menu-guides" class="pf-app-menu-item' + (onGuides ? ' is-active' : '') + '" href="' + guidesUrl + '">' + svgList + '<span>' + guidesLabel + '</span></a>' +
       '<a class="pf-app-menu-item' + (isSavedPage ? ' is-active' : '') + '" href="' + savedUrl + '">' + svgBookmark + '<span>' + savedLabel + '</span>' + badge + '</a>' +
       '<button type="button" id="pf-menu-donate" class="pf-app-menu-item pf-app-menu-donate">' + svgHeart + '<span>' + donateLabel + '</span></button>' +
       '<button type="button" id="pf-menu-settings" class="pf-app-menu-item">' + svgGear + '<span>' + settingsLabel + '</span></button>';
     document.body.appendChild(bar);
     document.body.classList.add('pf-app-menu-on');
-
-    // Guías: volver a la biblioteca de forma fiable. La biblioteca
-    // queda 70 px bajo el header fijo, y al cargar la home con
-    // #library se baja a ella cuando el diseño se asienta (el salto
-    // nativo del ancla a veces queda arriba por las imágenes). Si ya
-    // se está en la home con #library, el toque baja suave.
-    addStyle('pf-app-library-anchor', ['#library{scroll-margin-top:70px;}']);
-    if (isHome && window.location.hash === '#library') {
-      setTimeout(function () {
-        var lib = document.getElementById('library');
-        if (lib) lib.scrollIntoView();
-      }, 400);
-    }
-    var guidesBtn = document.getElementById('pf-menu-guides');
-    if (guidesBtn) guidesBtn.addEventListener('click', function (e) {
-      if (!isHome || window.location.hash !== '#library') return;
-      e.preventDefault();
-      var lib = document.getElementById('library');
-      if (lib) lib.scrollIntoView({ behavior: 'smooth' });
-    });
-
-    window.addEventListener('hashchange', function () {
-      var guides = document.getElementById('pf-menu-guides');
-      if (!guides) return;
-      guides.classList.toggle('is-active', isHome && window.location.hash === '#library');
-    });
   }
 
   // ── Donar: el anuncio solo aparece al tocar Donar ────────────────────
