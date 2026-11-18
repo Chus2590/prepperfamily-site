@@ -439,10 +439,17 @@
   }
 
   // ── Ver productos (solo si el artículo los tiene) ──────────────────────
-  // Los partials antiguos muestran los productos en .pf-recs-grid sin
-  // la envoltura .pf-recs-products; el botón debe salir en ambos.
+  // Los partials tienen tres estilos: con envoltura .pf-recs-products,
+  // con grid .pf-recs-grid sin envoltura, y antiguos sin ninguna clase
+  // pf-recs (grid .products-grid/.productos-grid/.pf-products-grid).
+  // El botón debe salir en los tres: los productos se reconocen por su
+  // enlace de Amazon (las fuentes nunca enlazan a Amazon).
   function productsEl() {
-    return document.querySelector(".pf-recs-products") || document.querySelector(".pf-recs-grid");
+    const recs = document.querySelector(".pf-recs-products") || document.querySelector(".pf-recs-grid");
+    if (recs) return recs;
+    const link = document.querySelector('#pf-sources a[href*="amzn.to"], #pf-sources a[href*="amazon.com/dp"], #pf-sources a[href*="link.amazon"]');
+    if (!link) return null;
+    return link.closest('[class*="grid"]') || link;
   }
 
   function scrollToProducts() {
