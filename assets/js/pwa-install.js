@@ -6,7 +6,9 @@
 // aviso nativo; si no, se muestran los pasos manuales.
 // En la app instalada (modo standalone): no hay botón de instalación
 // — ya está instalada — y en su lugar aparece el menú exclusivo de la
-// app (Inicio / Guardados) en una barra inferior.
+// app (Inicio / Guardados) en una barra inferior. Tampoco hay header:
+// solo una barra con el logo; en la home, el selector de pilares
+// existente sube bajo el logo, con sus conteos.
 // El pie de página se carga por JS después de la página, así que un
 // MutationObserver revela los botones que llegan tarde.
 (function () {
@@ -67,8 +69,71 @@
     document.body.classList.add('pf-app-menu-on');
   }
 
+  // ── App instalada: sin header, solo el logo; selector de pilares ───
+  // El header se carga por JS en #pf-header o #pf-header-partial, así
+  // que se oculta con CSS (vale llegue cuando llegue). La barra del
+  // logo se inyecta al principio del body. En la home, el selector de
+  // pilares que ya existe (.lib-chips) sube bajo el logo, fijo al
+  // hacer scroll, con los conteos reales de tarjetas por pilar.
+  // Los botones conservan sus propios listeners (van en el botón, no
+  // en el padre), así que mover el contenedor no rompe el filtro.
+  function initAppHeader() {
+    var isGitHub = location.hostname.endsWith('github.io');
+    var base = isGitHub ? '/prepperfamily-site' : '';
+    var isSpanish = window.location.pathname.indexOf('/es/') !== -1;
+    var homeUrl = base + (isSpanish ? '/es/' : '/');
+
+    var styleId = 'pf-app-header-styles';
+    if (!document.getElementById(styleId)) {
+      var style = document.createElement('style');
+      style.id = styleId;
+      style.textContent = [
+        '#pf-header, #pf-header-partial { display: none !important; }',
+        '.pf-logo-bar { background: #fdfaf4; border-bottom: 1px solid rgba(42,36,30,.08); text-align: center; padding: 14px 16px 10px; }',
+        '.pf-logo-bar img { height: 56px; width: auto; }',
+        '.pf-app-pillars { position: sticky; top: 0; z-index: 9000; background: #FBF6EC; border-bottom: 1px solid rgba(42,36,30,.08); padding: 12px 16px 8px; }',
+        '.pf-app-pillars .lib-chips { flex-wrap: nowrap; overflow-x: auto; }',
+        '.pf-app-pillars .chip { flex: 0 0 auto; }',
+        '.pf-app-pillars .chip .count { font-weight: 400; opacity: .7; }'
+      ].join('\n');
+      document.head.appendChild(style);
+    }
+
+    var bar = document.createElement('div');
+    bar.className = 'pf-logo-bar';
+    bar.innerHTML = '<a href="' + homeUrl + '" aria-label="PrepperFamily.org"><img src="' + base + '/assets/images/header/logo.webp" alt="PrepperFamily.org"></a>';
+    document.body.insertBefore(bar, document.body.firstChild);
+
+    var chipsBox = document.querySelector('.lib-chips');
+    if (!chipsBox) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'pf-app-pillars';
+    wrap.setAttribute('role', 'group');
+    wrap.setAttribute('aria-label', chipsBox.getAttribute('aria-label') || 'Filter by pillar');
+    bar.parentNode.insertBefore(wrap, bar.nextSibling);
+    wrap.appendChild(chipsBox);
+
+    var cards = document.querySelectorAll('.lib-card');
+    var counts = {};
+    cards.forEach(function (card) {
+      var p = card.getAttribute('data-pillar');
+      if (p) counts[p] = (counts[p] || 0) + 1;
+    });
+    chipsBox.querySelectorAll('.chip').forEach(function (chip) {
+      var f = chip.getAttribute('data-filter');
+      var n = f === 'all' ? cards.length : (counts[f] || 0);
+      if (!chip.querySelector('.count')) {
+        var s = document.createElement('span');
+        s.className = 'count';
+        s.textContent = ' ' + n;
+        chip.appendChild(s);
+      }
+    });
+  }
+
   if (isStandalone) {
     initAppMenu();
+    initAppHeader();
     return;
   }
 
