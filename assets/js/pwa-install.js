@@ -312,6 +312,7 @@
     if (!btn) return;
     btn.addEventListener('click', function () {
       if (exploreSheet) return;
+      var guides = isSpanish ? '/es/sustento-material/almacena/' : '/en/material-support/store/';
       var shop = isSpanish ? '/es/tienda/' : '/en/shop/';
       var game = isSpanish ? '/es/juegos/' : '/en/games/';
       var community = (isSpanish ? '/es/' : '/') + '#community';
@@ -323,6 +324,7 @@
             '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' +
           '</button>' +
           '<h2>' + (isSpanish ? 'Explorar' : 'Explore') + '</h2>' +
+          '<a class="pf-settings-link" href="' + guides + '"><span>' + (isSpanish ? 'Guías' : 'Guides') + '</span><span>›</span></a>' +
           '<a class="pf-settings-link" href="' + shop + '"><span>' + (isSpanish ? 'Tienda' : 'Shop') + '</span><span>›</span></a>' +
           '<a class="pf-settings-link" href="' + game + '"><span>' + (isSpanish ? 'Juegos' : 'Games') + '</span><span>›</span></a>' +
           '<a class="pf-settings-link" href="' + community + '"><span>' + (isSpanish ? 'Comunidad' : 'Community') + '</span><span>›</span></a>' +
