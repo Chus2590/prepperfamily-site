@@ -105,7 +105,7 @@
 
     addStyle('pf-app-menu-styles', [
       'body.pf-app { overflow-x: clip; }',
-      '#pf-app-menu{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:flex;justify-content:center;gap:4px;min-height:64px;padding:6px 10px calc(6px + env(safe-area-inset-bottom,0px));background:#274828;border-top:1px solid rgba(201,168,76,.45);box-shadow:0 -4px 18px rgba(0,0,0,.25);}',
+      '#pf-app-menu{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:flex;justify-content:center;gap:4px;width:100vw;max-width:100vw;box-sizing:border-box;min-height:64px;padding:6px 10px calc(6px + env(safe-area-inset-bottom,0px));background:#274828;border-top:1px solid rgba(201,168,76,.45);box-shadow:0 -4px 18px rgba(0,0,0,.25);}',
       '.pf-app-menu-item{position:relative;flex:1 1 0;min-width:0;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:6px 4px 4px;color:#FBF6EC;text-decoration:none;font-family:inherit;font-size:.72rem;font-weight:700;letter-spacing:.02em;line-height:1.2;border:0;border-radius:10px;white-space:nowrap;opacity:.75;background:transparent;cursor:pointer;}',
       '.pf-app-menu-item svg{width:20px;height:20px;}',
       '.pf-app-menu-item.is-active{opacity:1;background:rgba(251,246,236,.14);box-shadow:inset 0 2px 0 #C9A84C;}',
