@@ -496,11 +496,27 @@
   </url>
   <url>
     <loc>https://prepperfamily.org/es/juegos/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/games/"/>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/games/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/games/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/"/>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/es/juegos/despensa-de-palabras/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/despensa-de-palabras/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/games/pantry-words/"/>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/en/games/pantry-words/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/games/pantry-words/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/despensa-de-palabras/"/>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/juegos/guardianes-del-huerto/</loc>
