@@ -503,6 +503,18 @@
     <lastmod>2026-10-24</lastmod>
   </url>
   <url>
+    <loc>https://prepperfamily.org/es/juegos/guardianes-del-huerto/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/guardianes-del-huerto/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/games/garden-guardians/"/>
+  </url>
+  <url>
+    <loc>https://prepperfamily.org/en/games/garden-guardians/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/games/garden-guardians/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/guardianes-del-huerto/"/>
+  </url>
+  <url>
     <loc>https://prepperfamily.org/es/tienda/</loc>
     <lastmod>2026-11-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/shop/"/>
