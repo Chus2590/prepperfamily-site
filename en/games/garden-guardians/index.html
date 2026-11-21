@@ -48,7 +48,7 @@ html,body{margin:0;height:100%;background:radial-gradient(120% 90% at 50% 0,#4a2
 .hero{width:100%;max-width:420px;border-radius:18px;display:block;margin:0 auto 8px;box-shadow:0 12px 30px #0008}
 .un{width:150px;height:130px;object-fit:cover;border-radius:16px;border:2px solid var(--bark);animation:un 1.4s ease-in-out infinite}
 @keyframes un{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-#tip{position:absolute;left:50%;top:14px;transform:translateX(-50%);background:#fbf0d9ee;color:var(--bark);padding:10px 18px;border-radius:99px;pointer-events:none;opacity:0;transition:opacity .4s;text-align:center;max-width:92%;font-weight:900;line-height:1.35}
+#tip{position:absolute;left:50%;top:14px;transform:translateX(-50%);background:#fbf0d9ee;color:var(--bark);padding:12px 20px;border-radius:16px;pointer-events:none;opacity:0;transition:opacity .4s;text-align:center;max-width:92%;font-weight:900;line-height:1.35}
 #ov{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:#150a2acc;backdrop-filter:blur(6px);padding:16px;z-index:5}
 #md{background:linear-gradient(var(--cream),#f0dcae);color:var(--bark);border-radius:26px;padding:22px;max-width:470px;width:100%;max-height:96vh;overflow:auto;text-align:center;box-shadow:0 30px 80px #000c;animation:pop .45s cubic-bezier(.2,1.6,.4,1)}
 @keyframes pop{from{transform:scale(.6);opacity:0}}
@@ -151,7 +151,7 @@ g.fillStyle=lg(g,0,0,GX,0,0,'#4a2c16',1,'#6b4226');g.fillRect(0,0,GX-6,H);g.stro
 g.save();g.translate(GX-22,H/2);g.rotate(-Math.PI/2);g.font='900 26px Nunito';g.textAlign='center';g.lineWidth=5;g.strokeStyle='#2a160a';g.strokeText(tr(['DESPENSA','PANTRY']),0,0);g.fillStyle='#fbf0d9';g.fillText(tr(['DESPENSA','PANTRY']),0,0);g.restore();
 g.fillStyle='#2a160a';g.fillRect(GX-8,0,8,H);for(let r=0;r<R;r++){ell(g,GX-6,GY+r*CS+45,5,28,'#1c0f08')}
 /* madrigueras: por aquí entran las plagas (derecha) */
-for(let r=0;r<R;r++){const y=GY+r*CS+45;ell(g,W-16,y,13,26,'#12081f');ell(g,W-19,y-6,2.5,3.5,'#ffb347');ell(g,W-19,y+6,2.5,3.5,'#ffb347')}
+for(let r=0;r<R;r++){const y=GY+r*CS+45;ell(g,W-40,y,13,26,'#1e0f33');g.strokeStyle='#6b4226';g.lineWidth=2;g.beginPath();g.ellipse(W-40,y,13,26,0,0,7);g.stroke();ell(g,W-43,y-6,2.5,3.5,'#ffb347');ell(g,W-43,y+6,2.5,3.5,'#ffb347')}
 return o}
 /* partículas */
 const burst=(a,b,n,c,sp=120,add=1,gr=200)=>{for(let i=0;i<n;i++){const an=Math.random()*6.3,v=sp*(.3+Math.random());G.fx.push({x:a,y:b,vx:Math.cos(an)*v,vy:Math.sin(an)*v-40,l:.5+Math.random()*.5,m:1,c,s:2+Math.random()*4,g:gr,a:add})}};
@@ -219,7 +219,7 @@ function ren(dt){T+=dt;const g=x;g.setTransform(dpr,0,0,dpr,0,0);
 if(!G||!bg){g.fillStyle='#1c1033';g.fillRect(0,0,W,H);return}
 g.save();if(G.shake>0)g.translate((Math.random()-.5)*G.shake,(Math.random()-.5)*G.shake);g.drawImage(bg,0,0,W,H);
 /* flechas: las plagas avanzan de derecha a izquierda */
-g.save();g.globalAlpha=(.55+.18*Math.sin(T*2.5))*(G.t<10?1:.6);g.lineCap='round';for(let r=0;r<R;r++){const y=GY+r*CS+45;for(let i=0;i<2;i++){const x=W-58-i*22;g.strokeStyle='#2a160a';g.lineWidth=10;g.beginPath();g.moveTo(x+8,y-10);g.lineTo(x-6,y);g.lineTo(x+8,y+10);g.stroke();g.strokeStyle='#f6b756';g.lineWidth=6;g.beginPath();g.moveTo(x+8,y-10);g.lineTo(x-6,y);g.lineTo(x+8,y+10);g.stroke()}}g.restore();
+g.save();g.globalAlpha=(.55+.18*Math.sin(T*2.5))*(G.t<10?1:.6);g.lineCap='round';for(let r=0;r<R;r++){const y=GY+r*CS+45;for(let i=0;i<2;i++){const x=W-74-i*22;g.strokeStyle='#2a160a';g.lineWidth=10;g.beginPath();g.moveTo(x+8,y-10);g.lineTo(x-6,y);g.lineTo(x+8,y+10);g.stroke();g.strokeStyle='#f6b756';g.lineWidth=6;g.beginPath();g.moveTo(x+8,y-10);g.lineTo(x-6,y);g.lineTo(x+8,y+10);g.stroke()}}g.restore();
 if(hov&&G.sel&&!G.over){const[c,r]=hov;if(c>=0&&c<C&&r>=0&&r<R&&!G.g[r][c]){const ok=G.fire>=P[G.sel].c&&!G.cd[G.sel];g.fillStyle=ok?'#ffe27a44':'#ff6a6a33';g.fillRect(GX+c*CS,GY+r*CS,CS,CS);g.save();g.globalAlpha=.5;g.translate(GX+c*CS+45,GY+r*CS+75);dpl(g,G.sel,T);g.restore()}}
 for(let r=0;r<R;r++)if(G.pe.some(e=>e.r==r)&&!G.pl.some(p=>p.r==r&&P[p.k].sh)){g.fillStyle='rgba(255,70,70,'+(.1+.07*Math.sin(T*8))+')';g.fillRect(GX,GY+r*CS,CS*C,CS);ell(g,W-24,GY+r*CS+45,14,14,'#e23a3a');g.fillStyle='#fff';g.font='900 18px Nunito';g.textAlign='center';g.fillText('!',W-24,GY+r*CS+52)}
 for(let r=0;r<R;r++){if(G.cart[r]){g.save();g.translate(34,GY+r*CS+68);ell(g,0,4,22,6,'#0004');g.fillStyle='#8a5a32';g.beginPath();g.roundRect(-18,-24,36,22,5);g.fill();ell(g,-8,-26,8,6,'#c98f4e');ell(g,6,-26,8,6,'#a0693a');ell(g,-10,0,7,7,'#2a160a');ell(g,10,0,7,7,'#2a160a');g.restore()}
