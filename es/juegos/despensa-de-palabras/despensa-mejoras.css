@@ -101,17 +101,17 @@ body[data-mundo=granero]{--f1:#efe0b8;--f2:#ddbd7f}
   .alias-row{margin:10px 0 4px}
 }
 @media (orientation:landscape) and (min-width:600px){
-  .juego{max-width:1020px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:4px 20px;align-items:start}
-  .juego .palabra{grid-column:1;grid-row:1}
-  .juego .tablero{grid-column:1;grid-row:2;width:min(100%,calc(100vh - 120px));width:min(100%,calc(100dvh - 120px));margin:8px auto}
-  .juego .botones{grid-column:1;grid-row:3}
-  .juego .msg{grid-column:1;grid-row:4}
-  .juego .nuez-hero{grid-column:2;grid-row:1}
-  .juego h1{grid-column:2;grid-row:2}
-  .juego .mundo{grid-column:2;grid-row:3}
-  .juego .hud{grid-column:2;grid-row:4}
-  .juego .alias-row{grid-column:2;grid-row:5}
-  .juego .villano{grid-column:2;grid-row:6}
+  .juego{max-width:1020px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:4px 20px;align-items:start}
+  .juego .palabra{grid-column:2;grid-row:1}
+  .juego .tablero{grid-column:2;grid-row:2;width:min(100%,calc(100vh - 120px));width:min(100%,calc(100dvh - 120px));margin:8px auto}
+  .juego .botones{grid-column:2;grid-row:3}
+  .juego .msg{grid-column:2;grid-row:4}
+  .juego .nuez-hero{grid-column:1;grid-row:1}
+  .juego h1{grid-column:1;grid-row:2}
+  .juego .mundo{grid-column:1;grid-row:3}
+  .juego .hud{grid-column:1;grid-row:4}
+  .juego .alias-row{grid-column:1;grid-row:5}
+  .juego .villano{grid-column:1;grid-row:6}
   .juego .final,.juego .records,.juego .como,.juego .nota{grid-column:1/-1}
   .juego .sub{display:none}
   .juego .mundo .meta{display:none}
