@@ -33,6 +33,7 @@
   var isHome = path === base + '/' || path === base + '/es/' || path === base + '/en/' || path === base;
   var isSavedPage = path.indexOf('/guardados/') !== -1 || path.indexOf('/saved/') !== -1;
   var isArticle = !!document.getElementById('pf-article-nav-top');
+  var isGamePage = /\/(es\/juegos|en\/games)\/[^\/]+\//.test(path);
 
   function pageUrl() {
     return window.location.href.split('#')[0].split('?')[0];
@@ -624,13 +625,13 @@
     document.body.classList.add('pf-app');
     if (isHome) document.body.classList.add('pf-app-home');
     markSavedSeen();
-    initAppMenu();
+    if (!isGamePage) initAppMenu();
     initDonateSheet();
     initSettingsSheet();
     initExploreSheet();
     initPillarSwitcher();
     if (isArticle) initAppArticle();
-    else initAppHeader();
+    else if (!isGamePage) initAppHeader();
     if (isHome) initAppHome();
     if (isSavedPage) initAppSavedExtras();
     window.addEventListener('scroll', onScroll, { passive: true });
