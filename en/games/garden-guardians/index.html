@@ -1,12 +1,12 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Garden Guardians · Games | PrepperFamily</title>
-<meta name="description" content="Plant defenses, combine them, and protect Nutty's pantry from the pests. A free family strategy game from PrepperFamily.org.">
+<meta name="description" content="Plant defenses, combine them, and protect your pantry from the pests. A free family strategy game from PrepperFamily.org.">
 <link rel="canonical" href="https://prepperfamily.org/en/games/garden-guardians/">
 <link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/games/garden-guardians/">
 <link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/guardianes-del-huerto/">
 <link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/games/garden-guardians/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Garden Guardians · Games | PrepperFamily">
-<meta property="og:description" content="Plant defenses, combine them, and protect Nutty's pantry from the pests. A free family strategy game from PrepperFamily.org.">
+<meta property="og:description" content="Plant defenses, combine them, and protect your pantry from the pests. A free family strategy game from PrepperFamily.org.">
 <meta property="og:url" content="https://prepperfamily.org/en/games/garden-guardians/">
 <meta property="og:image" content="https://prepperfamily.org/assets/images/games/guardianes/bellotero-canon.webp">
 <meta property="og:site_name" content="PrepperFamily.org">
@@ -147,7 +147,11 @@ for(let r=0;r<R;r++)for(let c=0;c<C;c++){g.fillStyle=(r+c)%2?'#68ad4f':'#5c9f46'
 g.fillStyle=lg(g,0,GY,0,H,0,'#fff2',1,'#0000');g.fillRect(GX,GY,CS*C,CS*R);
 g.fillStyle='#1c0f3c'+Math.min(99,10+pi*16);g.fillRect(0,GY,W,H);
 g.fillStyle=lg(g,0,0,GX,0,0,'#4a2c16',1,'#6b4226');g.fillRect(0,0,GX-6,H);g.strokeStyle='#2a160a';g.lineWidth=2;for(let i=0;i<H;i+=26){g.beginPath();g.moveTo(0,i);g.lineTo(GX-6,i);g.stroke()}
+/* rótulo DESPENSA: lo que hay que defender (izquierda) */
+g.save();g.translate(GX-22,H/2);g.rotate(-Math.PI/2);g.font='900 26px Nunito';g.textAlign='center';g.lineWidth=5;g.strokeStyle='#2a160a';g.strokeText(tr(['DESPENSA','PANTRY']),0,0);g.fillStyle='#fbf0d9';g.fillText(tr(['DESPENSA','PANTRY']),0,0);g.restore();
 g.fillStyle='#2a160a';g.fillRect(GX-8,0,8,H);for(let r=0;r<R;r++){ell(g,GX-6,GY+r*CS+45,5,28,'#1c0f08')}
+/* madrigueras: por aquí entran las plagas (derecha) */
+for(let r=0;r<R;r++){const y=GY+r*CS+45;ell(g,W-4,y,13,26,'#12081f');ell(g,W-10,y-6,2.5,3.5,'#ffb347');ell(g,W-10,y+6,2.5,3.5,'#ffb347')}
 return o}
 /* partículas */
 const burst=(a,b,n,c,sp=120,add=1,gr=200)=>{for(let i=0;i<n;i++){const an=Math.random()*6.3,v=sp*(.3+Math.random());G.fx.push({x:a,y:b,vx:Math.cos(an)*v,vy:Math.sin(an)*v-40,l:.5+Math.random()*.5,m:1,c,s:2+Math.random()*4,g:gr,a:add})}};
@@ -162,7 +166,7 @@ sc.push({t,r:rng()*R|0,k});if(i==sw)for(let j=1;j<4;j++)sc.push({t,r:(sc[sc.leng
 if(D.q)sc.push({t:t+6,r:2,k:'q'});
 G={lv,daily,t:0,fire:daily?125:[0,200,150,125,100,100][lv],pl:[],pe:[],sh:[],fx:[],su:[],tx:[],ct:[],av,cd:{c:10},sel:av[0],sc,sp:0,sh2:0,over:0,cu:0,nx:5,kills:0,g:Array.from({length:R},()=>Array(C).fill(null)),cart:Array(R).fill(1)};
 bg=mkbg(daily?(rng()*5|0):lv-1);pause=0;cards();how();
-tip(lv==1&&!daily?tr(['Recoge luciérnagas ✨, elige una carta y planta. ¡Cada carril necesita un defensor!','Collect fireflies ✨, pick a card, and plant. Every lane needs a defender!']):daily?tr(['Modo infinito: resiste cuanto puedas.','Endless mode: hold out as long as you can.']):tr(LT[lv])+' · '+tr(['¡Prueba algo nuevo!','Try something new!']))}
+tip(lv==1&&!daily?tr(['Recoge luciérnagas ✨, elige una carta y planta. Las plagas entran por la derecha y van a tu despensa de la izquierda.','Collect fireflies ✨, pick a card, and plant. Pests come in from the right and head for your pantry on the left.']):daily?tr(['Modo infinito: resiste cuanto puedas.','Endless mode: hold out as long as you can.']):tr(LT[lv])+' · '+tr(['¡Prueba algo nuevo!','Try something new!']))}
 function cards(){const c=$('#cards');c.innerHTML='';G.av.forEach(k=>{const d=document.createElement('div');d.className='card';d.dataset.k=k;const cn=document.createElement('canvas');cn.width=cn.height=88;const g=cn.getContext('2d');g.translate(44,80);g.scale(1.05,1.05);dpl(g,k,0);d.append(cn,Object.assign(document.createElement('b')),Object.assign(document.createElement('span'),{textContent:P[k].c}));d.onclick=()=>{G.sel=k;sfx(520,.05);tip(tr(P[k].n)+' · '+P[k].c+' — '+tr(HW[k]),5000)};c.append(d)})}
 function place(k,r,c){const d=P[k];if(G.fire<d.c||G.cd[k]>0)return sfx(160,.15,'square',.05);
 G.fire-=d.c;G.cd[k]=d.cd;const p={k,r,c,x:GX+c*CS+45,y:GY+r*CS+45,hp:d.hp,mx:d.hp,t:0,cd:d.sh?d.sh*.5:d.sh2||4,sq:.55,sv:0,fl:0,fz:k=='c'?.9:0};G.g[r][c]=p;G.pl.push(p);burst(p.x,p.y+30,10,'#7cc058',90,0);sfx(300,.12,'triangle',.08,200)}
@@ -207,13 +211,15 @@ const m=ov(1);m.innerHTML=`<h2>${tr(['¡Despensa a salvo!','Pantry saved!'])}</h
 $('#nx').onclick=()=>lv<5&&!G.daily?start(lv+1):menu()}
 function lose(){if(G.daily){sv.bk=Math.max(sv.bk||0,G.kills);save()}const un=Object.keys(CB).find(k=>!sv.cb.includes(k)),m=ov(1);m.innerHTML=`<h2>${tr(['Las plagas llegaron a la despensa','The pests reached the pantry'])}</h2>${G.daily?`<p>🏆 ${tr(['Plagas eliminadas','Pests defeated'])}: <b>${G.kills}</b> · ${tr(['Récord','Best'])}: <b>${sv.bk||0}</b></p>`:''}<p>${un?'💡 '+tr(['Pista: ','Hint: '])+tr(CB[un][1]):tr(['Combina defensas distintas por carril.','Mix different defenses in each lane.'])}</p><button class="b" id="rt">${tr(['Reintentar','Retry'])}</button><button class="b g" id="mm">${tr(['Menú','Menu'])}</button>`;$('#rt').onclick=()=>start(G.lv,G.daily);$('#mm').onclick=menu}
 function ov(s){const o=$('#ov');o.style.display=s?'flex':'none';pause=s;ovDraw=null;const m=$('#md');m.style.animation='none';void m.offsetWidth;m.style.animation='';return m}
-function menu(){const m=ov(1),t=today(),dn=sv.dd==t;m.innerHTML=`<h1>${tr(['Guardianes del Huerto','Garden Guardians'])}</h1><img class="hero" src="${IMGDIR}bellotero-canon.webp" alt="Bellotero"><p>${tr(['Planta defensas, combínalas y protege la despensa de Nutty.','Plant defenses, combine them, and protect Nutty’s pantry.'])}</p><div class="lv">${[1,2,3,4,5].map(i=>`<button data-l="${i}" ${i>sv.lv?'disabled':''}>${i}<small>${'★'.repeat(sv.st[i]||0)||'&nbsp;'}</small></button>`).join('')}</div>
+function menu(){const m=ov(1),t=today(),dn=sv.dd==t;m.innerHTML=`<h1>${tr(['Guardianes del Huerto','Garden Guardians'])}</h1><img class="hero" src="${IMGDIR}bellotero-canon.webp" alt="Bellotero"><p>${tr(['Planta defensas, combínalas y protege tu despensa.','Plant defenses, combine them, and protect your pantry.'])}</p><div class="lv">${[1,2,3,4,5].map(i=>`<button data-l="${i}" ${i>sv.lv?'disabled':''}>${i}<small>${'★'.repeat(sv.st[i]||0)||'&nbsp;'}</small></button>`).join('')}</div>
 <button class="b g" id="dy" ${sv.lv<2?'disabled style="opacity:.4"':''}>♾️ ${tr(['Modo infinito','Endless mode'])}${sv.bk?' · '+sv.bk:''}</button><button class="b" id="hp">${tr(['Cómo jugar','How to play'])}</button>${G&&!G.over?`<button class="b" id="cn">${tr(['Continuar','Resume'])}</button>`:''}<p style="font-size:13px;opacity:.7">💡 ${sv.cb.length}/3 ${tr(['descubrimientos','discoveries'])}</p><p style="font-size:13px;margin-top:10px"><a href="${es?'/es/':'/'}" style="color:#b86b00">← ${tr(['Volver a PrepperFamily.org','Back to PrepperFamily.org'])}</a></p>`;
 m.querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>start(+b.dataset.l));$('#dy').onclick=()=>start(5,1);$('#hp').onclick=help;const c=$('#cn');if(c)c.onclick=()=>ov(0)}
 /* render */
 function ren(dt){T+=dt;const g=x;g.setTransform(dpr,0,0,dpr,0,0);
 if(!G||!bg){g.fillStyle='#1c1033';g.fillRect(0,0,W,H);return}
 g.save();if(G.shake>0)g.translate((Math.random()-.5)*G.shake,(Math.random()-.5)*G.shake);g.drawImage(bg,0,0,W,H);
+/* flechas: las plagas avanzan de derecha a izquierda */
+g.save();g.globalAlpha=(.28+.16*Math.sin(T*2.5))*(G.t<10?1:.4);g.strokeStyle='#f6b756';g.lineWidth=6;g.lineCap='round';for(let r=0;r<R;r++){const y=GY+r*CS+45;for(let i=0;i<2;i++){const x=W-58-i*22;g.beginPath();g.moveTo(x+8,y-10);g.lineTo(x-6,y);g.lineTo(x+8,y+10);g.stroke()}}g.restore();
 if(hov&&G.sel&&!G.over){const[c,r]=hov;if(c>=0&&c<C&&r>=0&&r<R&&!G.g[r][c]){const ok=G.fire>=P[G.sel].c&&!G.cd[G.sel];g.fillStyle=ok?'#ffe27a44':'#ff6a6a33';g.fillRect(GX+c*CS,GY+r*CS,CS,CS);g.save();g.globalAlpha=.5;g.translate(GX+c*CS+45,GY+r*CS+75);dpl(g,G.sel,T);g.restore()}}
 for(let r=0;r<R;r++)if(G.pe.some(e=>e.r==r)&&!G.pl.some(p=>p.r==r&&P[p.k].sh)){g.fillStyle='rgba(255,70,70,'+(.1+.07*Math.sin(T*8))+')';g.fillRect(GX,GY+r*CS,CS*C,CS);ell(g,W-24,GY+r*CS+45,14,14,'#e23a3a');g.fillStyle='#fff';g.font='900 18px Nunito';g.textAlign='center';g.fillText('!',W-24,GY+r*CS+52)}
 for(let r=0;r<R;r++){if(G.cart[r]){g.save();g.translate(34,GY+r*CS+68);ell(g,0,4,22,6,'#0004');g.fillStyle='#8a5a32';g.beginPath();g.roundRect(-18,-24,36,22,5);g.fill();ell(g,-8,-26,8,6,'#c98f4e');ell(g,6,-26,8,6,'#a0693a');ell(g,-10,0,7,7,'#2a160a');ell(g,10,0,7,7,'#2a160a');g.restore()}
