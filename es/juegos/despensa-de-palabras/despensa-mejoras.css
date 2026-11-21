@@ -81,3 +81,32 @@ body[data-mundo=granero]{--f1:#efe0b8;--f2:#ddbd7f}
 @keyframes flash{from{opacity:1}to{opacity:0}}
 @media (max-width:380px){.tablero{padding:6px;gap:4px}.hud .chip{padding:5px 9px;font-size:.78rem}.juego{padding:14px 10px 24px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+
+/* ---- Pantalla de juego compacta: el tablero se ve al llegar (2026-11-21) ---- */
+@media (max-width:640px){
+  .juego{padding:10px 12px 24px;margin:10px auto 24px}
+  .nuez-hero{width:52px;height:52px;margin-bottom:2px}
+  .juego h1{font-size:1.35rem;margin:4px 0 2px}
+  .juego .sub{display:none}
+  .hud{gap:6px;margin-bottom:8px}
+  .hud .chip{padding:5px 9px;font-size:.78rem}
+  .mundo{padding:8px 10px;margin-bottom:8px}
+  .mundo .nombre{font-size:1.1rem}
+  .mundo .meta{display:none}
+  .mundo .barra{margin-top:6px}
+  .palabra{min-height:56px;margin:8px 0 2px}
+  .botones{gap:6px;margin:8px 0}
+  .botones button{padding:10px 14px;font-size:.88rem}
+  .msg{min-height:28px;margin:4px 0}
+  .alias-row{margin:10px 0 4px}
+}
+@media (orientation:landscape) and (min-width:600px){
+  .juego{max-width:1020px;display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:4px 20px;align-items:start}
+  .juego .palabra,.juego .tablero,.juego .botones,.juego .msg{grid-column:1}
+  .juego .tablero{width:min(100%,calc(100vh - 120px));width:min(100%,calc(100dvh - 120px));margin:8px auto}
+  .juego .nuez-hero,.juego h1,.juego .nuez-dice,.juego .hud,.juego .alias-row,.juego .mundo,.juego .villano{grid-column:2}
+  .juego .final,.juego .records,.juego .como,.juego .nota{grid-column:1/-1}
+  .juego .sub{display:none}
+  .juego .mundo .meta{display:none}
+  .nuez-hero{width:64px;height:64px}
+}
