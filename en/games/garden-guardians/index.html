@@ -48,7 +48,7 @@ html,body{margin:0;height:100%;background:radial-gradient(120% 90% at 50% 0,#4a2
 .hero{width:100%;max-width:420px;border-radius:18px;display:block;margin:0 auto 8px;box-shadow:0 12px 30px #0008}
 .un{width:150px;height:130px;object-fit:cover;border-radius:16px;border:2px solid var(--bark);animation:un 1.4s ease-in-out infinite}
 @keyframes un{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-#tip{position:absolute;left:50%;top:14px;transform:translateX(-50%);background:#fbf0d9ee;color:var(--bark);padding:8px 16px;border-radius:99px;pointer-events:none;opacity:0;transition:opacity .4s;text-align:center;max-width:92%;font-weight:900}
+#tip{position:absolute;left:50%;top:14px;transform:translateX(-50%);background:#fbf0d9ee;color:var(--bark);padding:10px 18px;border-radius:99px;pointer-events:none;opacity:0;transition:opacity .4s;text-align:center;max-width:92%;font-weight:900;line-height:1.35}
 #ov{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:#150a2acc;backdrop-filter:blur(6px);padding:16px;z-index:5}
 #md{background:linear-gradient(var(--cream),#f0dcae);color:var(--bark);border-radius:26px;padding:22px;max-width:470px;width:100%;max-height:96vh;overflow:auto;text-align:center;box-shadow:0 30px 80px #000c;animation:pop .45s cubic-bezier(.2,1.6,.4,1)}
 @keyframes pop{from{transform:scale(.6);opacity:0}}
@@ -151,13 +151,13 @@ g.fillStyle=lg(g,0,0,GX,0,0,'#4a2c16',1,'#6b4226');g.fillRect(0,0,GX-6,H);g.stro
 g.save();g.translate(GX-22,H/2);g.rotate(-Math.PI/2);g.font='900 26px Nunito';g.textAlign='center';g.lineWidth=5;g.strokeStyle='#2a160a';g.strokeText(tr(['DESPENSA','PANTRY']),0,0);g.fillStyle='#fbf0d9';g.fillText(tr(['DESPENSA','PANTRY']),0,0);g.restore();
 g.fillStyle='#2a160a';g.fillRect(GX-8,0,8,H);for(let r=0;r<R;r++){ell(g,GX-6,GY+r*CS+45,5,28,'#1c0f08')}
 /* madrigueras: por aquí entran las plagas (derecha) */
-for(let r=0;r<R;r++){const y=GY+r*CS+45;ell(g,W-4,y,13,26,'#12081f');ell(g,W-10,y-6,2.5,3.5,'#ffb347');ell(g,W-10,y+6,2.5,3.5,'#ffb347')}
+for(let r=0;r<R;r++){const y=GY+r*CS+45;ell(g,W-16,y,13,26,'#12081f');ell(g,W-19,y-6,2.5,3.5,'#ffb347');ell(g,W-19,y+6,2.5,3.5,'#ffb347')}
 return o}
 /* partículas */
 const burst=(a,b,n,c,sp=120,add=1,gr=200)=>{for(let i=0;i<n;i++){const an=Math.random()*6.3,v=sp*(.3+Math.random());G.fx.push({x:a,y:b,vx:Math.cos(an)*v,vy:Math.sin(an)*v-40,l:.5+Math.random()*.5,m:1,c,s:2+Math.random()*4,g:gr,a:add})}};
 const ring=(a,b,c)=>G.fx.push({x:a,y:b,r:1,l:.5,m:.5,c,ring:1});
 const txt=(a,b,s,c='#fff')=>G.tx.push({x:a,y:b,s,l:.9,c});
-const tip=(s,ms=4200)=>{const t=$('#tip');t.textContent=s;t.style.opacity=1;clearTimeout(tip.h);tip.h=setTimeout(()=>t.style.opacity=0,ms)};
+const tip=(s,ms=6500)=>{const t=$('#tip');t.textContent=s;t.style.opacity=1;clearTimeout(tip.h);tip.h=setTimeout(()=>t.style.opacity=0,ms)};
 /* partida */
 function start(lv,daily){ov(0);const av=ORD.slice(0,Math.min(5,(daily?sv.lv:lv)+1));rng=mb(daily?Date.now()&0xffff:lv*7919);
 const D=daily?{n:28,w:[4,3,3]}:LV[lv],sc=[];let t=lv==1&&!daily?20:14;const sw=D.n*.6|0;
@@ -166,7 +166,7 @@ sc.push({t,r:rng()*R|0,k});if(i==sw)for(let j=1;j<4;j++)sc.push({t,r:(sc[sc.leng
 if(D.q)sc.push({t:t+6,r:2,k:'q'});
 G={lv,daily,t:0,fire:daily?125:[0,200,150,125,100,100][lv],pl:[],pe:[],sh:[],fx:[],su:[],tx:[],ct:[],av,cd:{c:10},sel:av[0],sc,sp:0,sh2:0,over:0,cu:0,nx:5,kills:0,g:Array.from({length:R},()=>Array(C).fill(null)),cart:Array(R).fill(1)};
 bg=mkbg(daily?(rng()*5|0):lv-1);pause=0;cards();how();
-tip(lv==1&&!daily?tr(['Recoge luciérnagas ✨, elige una carta y planta. Las plagas entran por la derecha y van a tu despensa de la izquierda.','Collect fireflies ✨, pick a card, and plant. Pests come in from the right and head for your pantry on the left.']):daily?tr(['Modo infinito: resiste cuanto puedas.','Endless mode: hold out as long as you can.']):tr(LT[lv])+' · '+tr(['¡Prueba algo nuevo!','Try something new!']))}
+tip(lv==1&&!daily?tr(['Recoge luciérnagas ✨, elige una carta y planta. Las plagas entran por la derecha y van a tu despensa.','Collect fireflies ✨, pick a card, and plant. Pests come in from the right and head for your pantry.']):daily?tr(['Modo infinito: resiste cuanto puedas.','Endless mode: hold out as long as you can.']):tr(LT[lv])+' · '+tr(['¡Prueba algo nuevo!','Try something new!']))}
 function cards(){const c=$('#cards');c.innerHTML='';G.av.forEach(k=>{const d=document.createElement('div');d.className='card';d.dataset.k=k;const cn=document.createElement('canvas');cn.width=cn.height=88;const g=cn.getContext('2d');g.translate(44,80);g.scale(1.05,1.05);dpl(g,k,0);d.append(cn,Object.assign(document.createElement('b')),Object.assign(document.createElement('span'),{textContent:P[k].c}));d.onclick=()=>{G.sel=k;sfx(520,.05);tip(tr(P[k].n)+' · '+P[k].c+' — '+tr(HW[k]),5000)};c.append(d)})}
 function place(k,r,c){const d=P[k];if(G.fire<d.c||G.cd[k]>0)return sfx(160,.15,'square',.05);
 G.fire-=d.c;G.cd[k]=d.cd;const p={k,r,c,x:GX+c*CS+45,y:GY+r*CS+45,hp:d.hp,mx:d.hp,t:0,cd:d.sh?d.sh*.5:d.sh2||4,sq:.55,sv:0,fl:0,fz:k=='c'?.9:0};G.g[r][c]=p;G.pl.push(p);burst(p.x,p.y+30,10,'#7cc058',90,0);sfx(300,.12,'triangle',.08,200)}
@@ -219,7 +219,7 @@ function ren(dt){T+=dt;const g=x;g.setTransform(dpr,0,0,dpr,0,0);
 if(!G||!bg){g.fillStyle='#1c1033';g.fillRect(0,0,W,H);return}
 g.save();if(G.shake>0)g.translate((Math.random()-.5)*G.shake,(Math.random()-.5)*G.shake);g.drawImage(bg,0,0,W,H);
 /* flechas: las plagas avanzan de derecha a izquierda */
-g.save();g.globalAlpha=(.28+.16*Math.sin(T*2.5))*(G.t<10?1:.4);g.strokeStyle='#f6b756';g.lineWidth=6;g.lineCap='round';for(let r=0;r<R;r++){const y=GY+r*CS+45;for(let i=0;i<2;i++){const x=W-58-i*22;g.beginPath();g.moveTo(x+8,y-10);g.lineTo(x-6,y);g.lineTo(x+8,y+10);g.stroke()}}g.restore();
+g.save();g.globalAlpha=(.55+.18*Math.sin(T*2.5))*(G.t<10?1:.6);g.lineCap='round';for(let r=0;r<R;r++){const y=GY+r*CS+45;for(let i=0;i<2;i++){const x=W-58-i*22;g.strokeStyle='#2a160a';g.lineWidth=10;g.beginPath();g.moveTo(x+8,y-10);g.lineTo(x-6,y);g.lineTo(x+8,y+10);g.stroke();g.strokeStyle='#f6b756';g.lineWidth=6;g.beginPath();g.moveTo(x+8,y-10);g.lineTo(x-6,y);g.lineTo(x+8,y+10);g.stroke()}}g.restore();
 if(hov&&G.sel&&!G.over){const[c,r]=hov;if(c>=0&&c<C&&r>=0&&r<R&&!G.g[r][c]){const ok=G.fire>=P[G.sel].c&&!G.cd[G.sel];g.fillStyle=ok?'#ffe27a44':'#ff6a6a33';g.fillRect(GX+c*CS,GY+r*CS,CS,CS);g.save();g.globalAlpha=.5;g.translate(GX+c*CS+45,GY+r*CS+75);dpl(g,G.sel,T);g.restore()}}
 for(let r=0;r<R;r++)if(G.pe.some(e=>e.r==r)&&!G.pl.some(p=>p.r==r&&P[p.k].sh)){g.fillStyle='rgba(255,70,70,'+(.1+.07*Math.sin(T*8))+')';g.fillRect(GX,GY+r*CS,CS*C,CS);ell(g,W-24,GY+r*CS+45,14,14,'#e23a3a');g.fillStyle='#fff';g.font='900 18px Nunito';g.textAlign='center';g.fillText('!',W-24,GY+r*CS+52)}
 for(let r=0;r<R;r++){if(G.cart[r]){g.save();g.translate(34,GY+r*CS+68);ell(g,0,4,22,6,'#0004');g.fillStyle='#8a5a32';g.beginPath();g.roundRect(-18,-24,36,22,5);g.fill();ell(g,-8,-26,8,6,'#c98f4e');ell(g,6,-26,8,6,'#a0693a');ell(g,-10,0,7,7,'#2a160a');ell(g,10,0,7,7,'#2a160a');g.restore()}
