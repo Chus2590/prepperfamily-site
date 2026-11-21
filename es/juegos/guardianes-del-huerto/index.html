@@ -8,7 +8,7 @@
 <meta property="og:title" content="Guardianes del Huerto · Juegos | PrepperFamily">
 <meta property="og:description" content="Planta defensas, combínalas y protege la despensa de Nutty de las plagas. Un juego de estrategia para toda la familia, gratis en PrepperFamily.org.">
 <meta property="og:url" content="https://prepperfamily.org/es/juegos/guardianes-del-huerto/">
-<meta property="og:image" content="https://prepperfamily.org/assets/images/games/guardianes/nutty.webp">
+<meta property="og:image" content="https://prepperfamily.org/assets/images/games/guardianes/bellotero-canon.webp">
 <meta property="og:site_name" content="PrepperFamily.org">
 <meta property="og:locale" content="es_ES">
 <link rel="manifest" href="/manifest.webmanifest">
@@ -207,7 +207,7 @@ const m=ov(1);m.innerHTML=`<h2>${tr(['¡Despensa a salvo!','Pantry saved!'])}</h
 $('#nx').onclick=()=>lv<5&&!G.daily?start(lv+1):menu()}
 function lose(){if(G.daily){sv.bk=Math.max(sv.bk||0,G.kills);save()}const un=Object.keys(CB).find(k=>!sv.cb.includes(k)),m=ov(1);m.innerHTML=`<h2>${tr(['Las plagas llegaron a la despensa','The pests reached the pantry'])}</h2>${G.daily?`<p>🏆 ${tr(['Plagas eliminadas','Pests defeated'])}: <b>${G.kills}</b> · ${tr(['Récord','Best'])}: <b>${sv.bk||0}</b></p>`:''}<p>${un?'💡 '+tr(['Pista: ','Hint: '])+tr(CB[un][1]):tr(['Combina defensas distintas por carril.','Mix different defenses in each lane.'])}</p><button class="b" id="rt">${tr(['Reintentar','Retry'])}</button><button class="b g" id="mm">${tr(['Menú','Menu'])}</button>`;$('#rt').onclick=()=>start(G.lv,G.daily);$('#mm').onclick=menu}
 function ov(s){const o=$('#ov');o.style.display=s?'flex':'none';pause=s;ovDraw=null;const m=$('#md');m.style.animation='none';void m.offsetWidth;m.style.animation='';return m}
-function menu(){const m=ov(1),t=today(),dn=sv.dd==t;m.innerHTML=`<h1>${tr(['Guardianes del Huerto','Garden Guardians'])}</h1><img class="hero" src="${IMGDIR}nutty.webp" alt="Nutty"><p>${tr(['Planta defensas, combínalas y protege la despensa de Nutty.','Plant defenses, combine them, and protect Nutty’s pantry.'])}</p><div class="lv">${[1,2,3,4,5].map(i=>`<button data-l="${i}" ${i>sv.lv?'disabled':''}>${i}<small>${'★'.repeat(sv.st[i]||0)||'&nbsp;'}</small></button>`).join('')}</div>
+function menu(){const m=ov(1),t=today(),dn=sv.dd==t;m.innerHTML=`<h1>${tr(['Guardianes del Huerto','Garden Guardians'])}</h1><img class="hero" src="${IMGDIR}bellotero-canon.webp" alt="Bellotero"><p>${tr(['Planta defensas, combínalas y protege la despensa de Nutty.','Plant defenses, combine them, and protect Nutty’s pantry.'])}</p><div class="lv">${[1,2,3,4,5].map(i=>`<button data-l="${i}" ${i>sv.lv?'disabled':''}>${i}<small>${'★'.repeat(sv.st[i]||0)||'&nbsp;'}</small></button>`).join('')}</div>
 <button class="b g" id="dy" ${sv.lv<2?'disabled style="opacity:.4"':''}>♾️ ${tr(['Modo infinito','Endless mode'])}${sv.bk?' · '+sv.bk:''}</button><button class="b" id="hp">${tr(['Cómo jugar','How to play'])}</button>${G&&!G.over?`<button class="b" id="cn">${tr(['Continuar','Resume'])}</button>`:''}<p style="font-size:13px;opacity:.7">💡 ${sv.cb.length}/3 ${tr(['descubrimientos','discoveries'])}</p><p style="font-size:13px;margin-top:10px"><a href="${es?'/es/':'/'}" style="color:#b86b00">← ${tr(['Volver a PrepperFamily.org','Back to PrepperFamily.org'])}</a></p>`;
 m.querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>start(+b.dataset.l));$('#dy').onclick=()=>start(5,1);$('#hp').onclick=help;const c=$('#cn');if(c)c.onclick=()=>ov(0)}
 /* render */
