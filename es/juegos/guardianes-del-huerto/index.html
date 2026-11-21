@@ -62,6 +62,17 @@ p{margin:.4em 0;line-height:1.35}
 .lv button:disabled{opacity:.35}
 .st{font-size:44px;color:#d98a00;letter-spacing:6px;text-shadow:0 3px 0 #a86a00}
 @media(prefers-reduced-motion:reduce){#md{animation:none}}
+
+@media (orientation:landscape){
+#app{flex-direction:row;max-width:none;position:relative}
+#hud{flex-direction:column;align-items:stretch;width:78px;flex:none;padding:0 8px 0 0}
+#fire{min-width:0;justify-content:center;font-size:18px;padding:4px 6px}
+#cards{flex-direction:column;overflow-y:auto;overflow-x:hidden;flex:1;min-height:0}
+.card{flex:0 0 62px;height:62px}
+.card canvas{width:38px;height:38px}
+#bar{position:absolute;top:0;left:0;right:0;height:6px;margin:0;z-index:4;border-radius:0}
+#stage{flex:1;min-width:0}
+}
 </style></head><body>
 <div id="app"><div id="hud"><div id="fire"><i></i><span id="fv">0</span></div><div id="cards"></div><button class="ib" id="hl">?</button><button class="ib" id="mu">🔊</button><button class="ib" id="mn">☰</button></div><div id="bar"><i></i></div><div id="stage"><canvas id="c"></canvas><div id="tip"></div></div></div>
 <div id="how"></div><div id="ov"><div id="md"></div></div><div id="rot"><div class="rc" id="rotc"></div></div>
