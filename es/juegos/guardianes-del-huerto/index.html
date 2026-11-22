@@ -191,7 +191,7 @@ function weak(){const c=Array(R).fill(0);for(const p of G.pl)if(P[p.k].sh)c[p.r]
 function up(dt){G.t+=dt;
 while(G.sp<G.sc.length&&G.sc[G.sp].t<=G.t){const s=G.sc[G.sp++];G.pe.push({k:s.k,r:(G.daily||G.lv>=4)&&Math.random()<.4?weak():s.r,x:W+30,hp:PE[s.k].hp*hs(),mx:PE[s.k].hp*hs(),sl:0,fl:0,ph:Math.random()*6,jd:0,jm:0,eat:null});if(s.k=='q'){G.shake=10;tip(tr(['¡Llega el Gran Escarabajo!','The Great Beetle approaches!']),3500);sfx(70,.7,'sawtooth',.12)}if(G.sp==G.sc.length-(G.sc.some(z=>z.k=='q')?1:0)-0&&G.sp>3&&!G.fl){G.fl=1}}
 if(G.daily&&G.sp>=G.sc.length-2){G.wv=(G.wv||1)+1;let t=G.sc[G.sc.length-1].t;const n=12+G.wv*3;for(let i=0;i<n;i++){t+=Math.max(.6,2.6-G.wv*.18)*(.6+Math.random()*.8);const q=Math.random();G.sc.push({t,r:Math.random()*R|0,k:q<.35?'a':q<.7?'b':'m'})}if(G.wv%3==0)G.sc.push({t:t+5,r:2,k:'q'});tip(tr(['Oleada ','Wave '])+G.wv,2500)}
-if((G.nx-=dt)<=0){G.nx=(12-lv)+Math.random()*6;G.su.push({x:GX+30+Math.random()*(CS*C-60),y:-20,ty:GY+70+Math.random()*330,v:60,g:0,l:10,val:15})}
+if((G.nx-=dt)<=0){G.nx=(12-G.lv)+Math.random()*6;G.su.push({x:GX+30+Math.random()*(CS*C-60),y:-20,ty:GY+70+Math.random()*330,v:60,g:0,l:10,val:15})}
 for(const s of G.su){s.y+=s.v*dt;s.v+=s.g*dt;if(s.y>=s.ty&&s.v>=0){s.y=s.ty;s.v=0;s.g=0;s.l-=dt}}G.su=G.su.filter(s=>s.l>0);
 for(const k in G.cd)G.cd[k]=Math.max(0,G.cd[k]-dt);
 for(const p of[...G.pl]){p.t+=dt;p.sv+=(1-p.sq)*160*dt;p.sv*=.9;p.sq+=p.sv*dt;p.fl=Math.max(0,p.fl-dt);const d=P[p.k];
