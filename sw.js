@@ -1,9 +1,9 @@
-// PrepperFamily.org — Service Worker v26 (PWA)
+// PrepperFamily.org — Service Worker v27 (PWA)
 // Estrategia: las páginas se intentan en red primero y se guardan al
 // visitarlas (biblioteca offline); los archivos del sitio se sirven
 // desde la caché cuando ya están guardados. Sin conexión y sin copia
 // guardada, se muestra /offline.html.
-const CACHE = 'prepperfamily-v26';
+const CACHE = 'prepperfamily-v27';
 const CORE = [
   '/',
  '/es/', '/en/',
