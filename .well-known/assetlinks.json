@@ -1,11 +1,16 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "org.prepperfamily.app",
       "sha256_cert_fingerprints": [
-        "90:21:E8:BE:75:9D:5C:24:36:3A:B4:EB:4A:CB:B8:DE:70:40:46:F4:E9:30:4F:AE:B4:00:7F:6D:9B:18:21:6A"
+        "90:21:E8:BE:75:9D:5C:24:36:3A:B4:EB:4A:CB:B8:DE:70:40:46:F4:E9:30:4F:AE:B4:00:7F:6D:9B:18:21:6A",
+        "B8:AC:CD:D6:CC:77:8B:3B:18:79:F8:5E:4B:DD:E0:F2:03:67:72:F1:50:E9:C9:4C:53:51:47:89:34:53:39:2A",
+        "30:51:87:60:51:5E:2D:85:73:12:83:0C:DD:98:25:C7:B6:24:73:BF:E8:2C:84:87:06:E1:B8:37:2B:70:50:A8",
+        "09:71:17:AB:65:DE:A8:04:8D:C7:00:39:9F:7C:42:C4:00:4E:5C:64:8E:71:6A:CC:E6:71:14:31:BF:8D:02:32"
       ]
     }
   }
