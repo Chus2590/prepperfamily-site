@@ -1,0 +1,18 @@
+# PrepperFamily.org — archivos que Git nunca debe subir
+# (punto 3 de la auditoría de seguridad, 2026-11-26)
+
+# Secretos y llaves: si alguno cae aquí por error, no se publica
+*.keystore
+*.jks
+keystore-password.txt
+.env
+*.env
+*.pem
+*.key
+
+# Comprobantes internos del generador de imágenes del juego:
+# el juego usa las imágenes .webp, estos JSON no son parte de la página
+**/media-generation-*.json
+
+# Basura del sistema
+.DS_Store
