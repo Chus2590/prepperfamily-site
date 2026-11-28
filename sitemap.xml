@@ -4,6 +4,7 @@
     <loc>https://prepperfamily.org/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,234 +12,380 @@
     <loc>https://prepperfamily.org/en/family-resilience/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/family-resilience/home-protection/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/home-protection/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/proteccion-del-hogar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/home-protection/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/family-resilience/home-protection/home-defense-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/home-protection/home-defense-guide/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/proteccion-del-hogar/defensa-del-hogar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/home-protection/home-defense-guide/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/family-resilience/homeschooling/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/homeschooling/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/educacion-en-casa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/homeschooling/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/family-resilience/homeschooling/school-with-you/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/homeschooling/school-with-you/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/educacion-en-casa/escuela-contigo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/homeschooling/school-with-you/"/>
     <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/family-resilience/household-economy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/household-economy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/economia-domestica/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/household-economy/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/family-resilience/roles-structure/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/roles-structure/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/roles-estructura/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/roles-structure/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/family-resilience/roles-structure/man-and-woman/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/roles-structure/man-and-woman/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/roles-estructura/hombre-y-mujer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/roles-structure/man-and-woman/"/>
     <lastmod>2026-09-09</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/apologetics/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/apologetics/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/apologetica/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/apologetics/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/basic-christian-concepts/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/conceptos-cristianos-basicos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/basic-christian-concepts/christ-center-universe/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/christ-center-universe/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/conceptos-cristianos-basicos/cristo-centro-universo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/christ-center-universe/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/basic-christian-concepts/gods-revelation-church/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/gods-revelation-church/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/conceptos-cristianos-basicos/revelacion-de-dios-iglesia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/gods-revelation-church/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/bible/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/bible/adam-to-joseph/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/adam-to-joseph/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/adan-a-jose/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/adam-to-joseph/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/bible/christ-early-church/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/christ-early-church/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/cristo-primeras-iglesias/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/christ-early-church/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/bible/church-first-centuries/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/church-first-centuries/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/iglesia-primeros-siglos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/church-first-centuries/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/bible/from-moses-to-solomon/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/from-moses-to-solomon/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/moises-a-salomon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/from-moses-to-solomon/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/bible/from-prophets-to-christ/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/from-prophets-to-christ/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/profetas-a-cristo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/from-prophets-to-christ/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/bible/public-life-of-jesus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/public-life-of-jesus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/vida-publica-jesus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/public-life-of-jesus/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/bible/true-revealed/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/true-revealed/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/verdad-revelada/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/true-revealed/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/faith-in-difficult-times/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/faith-in-difficult-times/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/fe-en-tiempos-dificiles/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/faith-in-difficult-times/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/prays/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/prays/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/oraciones/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/prays/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/prays/christian-petitions/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/prays/christian-petitions/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/oraciones/peticiones-cristianas/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/prays/christian-petitions/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/inner-strength/prays/the-holy-mass/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/prays/the-holy-mass/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/oraciones/la-santa-misa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/prays/the-holy-mass/"/>
     <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/family-production-units/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/family-production-units/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/family-production-units/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/family-production-units/family-water-system/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/family-production-units/family-water-system/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/sistema-de-agua/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/family-production-units/family-water-system/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/family-production-units/family-water-system-part-2/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/family-production-units/family-water-system-part-2/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/sistema-agua-dos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/family-production-units/family-water-system-part-2/"/>
     <lastmod>2026-08-14</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/family-production-units/your-tilapia-farm-at-home/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/family-production-units/your-tilapia-farm-at-home/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/tu-granja-de-tilapias-en-casa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/family-production-units/your-tilapia-farm-at-home/"/>
     <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/family-production-units/from-sowing-to-the-table/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/family-production-units/from-sowing-to-the-table/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/de-la-siembra-a-la-mesa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/family-production-units/from-sowing-to-the-table/"/>
     <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/grow/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/grow/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/cultiva/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/grow/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/grow/sprouting-guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/grow/sprouting-guide/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/cultiva/germinados/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/grow/sprouting-guide/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/grow/watering-spikes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/grow/watering-spikes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/cultiva/estacas-riego/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/grow/watering-spikes/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/prepare/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/prepare/cold-root-cellar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/cold-root-cellar/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/almacen-frio/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/cold-root-cellar/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/prepare/dutch-oven/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/dutch-oven/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/horno-holandes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/dutch-oven/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/prepare/grain-milling/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/grain-milling/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/molienda-granos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/grain-milling/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/prepare/herbal-tinctures/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/herbal-tinctures/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/tinturas-herbales/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/herbal-tinctures/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/prepare/hydration-drinks/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/hydration-drinks/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/bebidas-hidratacion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/hydration-drinks/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/prepare/family-rocket-stove/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/family-rocket-stove/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/estufa-cohete-familiar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/family-rocket-stove/"/>
     <lastmod>2026-05-18</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/store/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/store/baking-soda-household/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/baking-soda-household/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/bicarbonato-hogar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/baking-soda-household/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/store/bug-out-bag/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/bug-out-bag/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/mochila-72-horas/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/bug-out-bag/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/store/salt-storage/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/salt-storage/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/almacenar-sal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/salt-storage/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/store/water-filters/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/water-filters/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/filtros-agua/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/water-filters/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/store/canning-meat/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/canning-meat/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/enlatar-carne/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/canning-meat/"/>
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/store/iodine-pills/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/iodine-pills/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/pastillas-de-yodo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/iodine-pills/"/>
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/store/powder-pantry-foods/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/powder-pantry-foods/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/despensa-en-polvo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/powder-pantry-foods/"/>
     <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/store/sealing-grains/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/sealing-grains/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/almacenar-granos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/sealing-grains/"/>
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/material-support/store/three-antiseptics/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/three-antiseptics/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/tres-antisepticos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/three-antiseptics/"/>
     <lastmod>2026-04-14</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -246,121 +393,193 @@
     <loc>https://prepperfamily.org/es/fortaleza-interior/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/apologetica/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/apologetics/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/apologetica/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/apologetics/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/biblia/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/biblia/adan-a-jose/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/adam-to-joseph/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/adan-a-jose/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/adam-to-joseph/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/biblia/cristo-primeras-iglesias/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/christ-early-church/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/cristo-primeras-iglesias/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/christ-early-church/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/biblia/iglesia-primeros-siglos/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/church-first-centuries/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/iglesia-primeros-siglos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/church-first-centuries/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/biblia/moises-a-salomon/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/from-moses-to-solomon/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/moises-a-salomon/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/from-moses-to-solomon/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/biblia/profetas-a-cristo/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/from-prophets-to-christ/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/profetas-a-cristo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/from-prophets-to-christ/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/biblia/verdad-revelada/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/true-revealed/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/verdad-revelada/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/true-revealed/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/biblia/vida-publica-jesus/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/bible/public-life-of-jesus/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/biblia/vida-publica-jesus/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/bible/public-life-of-jesus/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/conceptos-cristianos-basicos/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/conceptos-cristianos-basicos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/conceptos-cristianos-basicos/cristo-centro-universo/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/christ-center-universe/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/conceptos-cristianos-basicos/cristo-centro-universo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/christ-center-universe/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/conceptos-cristianos-basicos/revelacion-de-dios-iglesia/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/gods-revelation-church/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/conceptos-cristianos-basicos/revelacion-de-dios-iglesia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/basic-christian-concepts/gods-revelation-church/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/fe-en-tiempos-dificiles/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/faith-in-difficult-times/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/fe-en-tiempos-dificiles/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/faith-in-difficult-times/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/oraciones/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/prays/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/oraciones/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/prays/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/oraciones/peticiones-cristianas/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/prays/christian-petitions/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/oraciones/peticiones-cristianas/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/prays/christian-petitions/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/fortaleza-interior/oraciones/la-santa-misa/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/inner-strength/prays/the-holy-mass/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/fortaleza-interior/oraciones/la-santa-misa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/inner-strength/prays/the-holy-mass/"/>
     <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/resistencia-familiar/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/resistencia-familiar/economia-domestica/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/household-economy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/economia-domestica/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/household-economy/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/resistencia-familiar/educacion-en-casa/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/homeschooling/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/educacion-en-casa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/homeschooling/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/resistencia-familiar/educacion-en-casa/escuela-contigo/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/homeschooling/school-with-you/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/educacion-en-casa/escuela-contigo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/homeschooling/school-with-you/"/>
     <lastmod>2026-10-16</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/resistencia-familiar/proteccion-del-hogar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/home-protection/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/proteccion-del-hogar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/home-protection/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/resistencia-familiar/proteccion-del-hogar/defensa-del-hogar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/home-protection/home-defense-guide/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/proteccion-del-hogar/defensa-del-hogar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/home-protection/home-defense-guide/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/resistencia-familiar/roles-estructura/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/roles-structure/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/roles-estructura/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/roles-structure/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/resistencia-familiar/roles-estructura/hombre-y-mujer/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/family-resilience/roles-structure/man-and-woman/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/resistencia-familiar/roles-estructura/hombre-y-mujer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/family-resilience/roles-structure/man-and-woman/"/>
     <lastmod>2026-08-19</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -368,181 +587,280 @@
     <loc>https://prepperfamily.org/es/sustento-material/almacena/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/almacena/almacenar-sal/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/salt-storage/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/almacenar-sal/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/salt-storage/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/almacena/bicarbonato-hogar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/baking-soda-household/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/bicarbonato-hogar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/baking-soda-household/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/almacena/filtros-agua/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/water-filters/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/filtros-agua/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/water-filters/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/almacena/mochila-72-horas/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/bug-out-bag/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/mochila-72-horas/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/bug-out-bag/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/almacena/almacenar-granos/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/sealing-grains/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/almacenar-granos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/sealing-grains/"/>
     <lastmod>2026-04-14</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/almacena/despensa-en-polvo/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/powder-pantry-foods/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/despensa-en-polvo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/powder-pantry-foods/"/>
     <lastmod>2026-10-02</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/almacena/enlatar-carne/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/canning-meat/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/enlatar-carne/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/canning-meat/"/>
     <lastmod>2026-04-14</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/almacena/pastillas-de-yodo/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/iodine-pills/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/pastillas-de-yodo/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/iodine-pills/"/>
     <lastmod>2026-04-14</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/almacena/tres-antisepticos/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/store/three-antiseptics/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/almacena/tres-antisepticos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/store/three-antiseptics/"/>
     <lastmod>2026-04-13</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/cultiva/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/grow/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/cultiva/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/grow/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/cultiva/estacas-riego/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/grow/watering-spikes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/cultiva/estacas-riego/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/grow/watering-spikes/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/cultiva/germinados/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/grow/sprouting-guide/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/cultiva/germinados/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/grow/sprouting-guide/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/prepara/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/prepara/almacen-frio/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/cold-root-cellar/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/almacen-frio/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/cold-root-cellar/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/prepara/bebidas-hidratacion/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/hydration-drinks/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/bebidas-hidratacion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/hydration-drinks/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/prepara/estufa-cohete-familiar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/family-rocket-stove/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/estufa-cohete-familiar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/family-rocket-stove/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/prepara/horno-holandes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/dutch-oven/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/horno-holandes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/dutch-oven/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/prepara/molienda-granos/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/grain-milling/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/molienda-granos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/grain-milling/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/prepara/tinturas-herbales/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/prepare/herbal-tinctures/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/prepara/tinturas-herbales/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/prepare/herbal-tinctures/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/family-production-units/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/family-production-units/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/sistema-de-agua/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/family-production-units/family-water-system/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/sistema-de-agua/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/family-production-units/family-water-system/"/>
     <lastmod>2026-08-05</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/sistema-agua-dos/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/family-production-units/family-water-system-part-2/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/sistema-agua-dos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/family-production-units/family-water-system-part-2/"/>
     <lastmod>2026-08-14</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/tu-granja-de-tilapias-en-casa/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/family-production-units/your-tilapia-farm-at-home/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/tu-granja-de-tilapias-en-casa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/family-production-units/your-tilapia-farm-at-home/"/>
     <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/de-la-siembra-a-la-mesa/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/material-support/family-production-units/from-sowing-to-the-table/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/sustento-material/unidades-familiares-de-produccion/de-la-siembra-a-la-mesa/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/material-support/family-production-units/from-sowing-to-the-table/"/>
     <lastmod>2026-11-06</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/affiliate-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/affiliate-policy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/politica-de-afiliados/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/affiliate-policy/"/>
     <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/politica-de-afiliados/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/affiliate-policy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/politica-de-afiliados/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/affiliate-policy/"/>
     <lastmod>2026-10-23</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/privacy-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/politica-de-privacidad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/privacy-policy/"/>
     <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/politica-de-privacidad/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/politica-de-privacidad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/privacy-policy/"/>
     <lastmod>2026-11-18</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/terms-of-service/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/terms-of-service/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/terminos-del-servicio/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/terms-of-service/"/>
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/terminos-del-servicio/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/terms-of-service/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/terminos-del-servicio/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/terms-of-service/"/>
     <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/juegos/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/games/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/games/"/>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/games/</loc>
-    <lastmod>2026-11-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/games/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/games/"/>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/juegos/despensa-de-palabras/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/despensa-de-palabras/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/games/pantry-words/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/despensa-de-palabras/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/games/pantry-words/"/>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/games/pantry-words/</loc>
-    <lastmod>2026-11-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/games/pantry-words/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/despensa-de-palabras/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/games/pantry-words/"/>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/juegos/guardianes-del-huerto/</loc>
-    <lastmod>2026-11-19</lastmod>
-    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/guardianes-del-huerto/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/games/garden-guardians/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/guardianes-del-huerto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/games/garden-guardians/"/>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/games/garden-guardians/</loc>
-    <lastmod>2026-11-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/games/garden-guardians/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/juegos/guardianes-del-huerto/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/games/garden-guardians/"/>
+    <lastmod>2026-11-19</lastmod>
   </url>
   <url>
     <loc>https://prepperfamily.org/es/tienda/</loc>
-    <lastmod>2026-11-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/shop/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/tienda/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/shop/"/>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://prepperfamily.org/en/shop/</loc>
-    <lastmod>2026-11-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://prepperfamily.org/en/shop/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://prepperfamily.org/es/tienda/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://prepperfamily.org/en/shop/"/>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
